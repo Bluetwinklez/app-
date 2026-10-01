@@ -1,0 +1,130 @@
+name: Build signed iPhone IPA
+
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  build-ios:
+    runs-on: macos-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Check signing configuration
+        env:
+          IOS_P12_BASE64: ${{ secrets.IOS_P12_BASE64 }}
+          IOS_P12_PASSWORD: ${{ secrets.IOS_P12_PASSWORD }}
+          IOS_MOBILEPROVISION_BASE64: ${{ secrets.IOS_MOBILEPROVISION_BASE64 }}
+          IOS_BUNDLE_ID: ${{ secrets.IOS_BUNDLE_ID }}
+          IOS_TEAM_ID: ${{ secrets.IOS_TEAM_ID }}
+        run: |
+          for name in IOS_P12_BASE64 IOS_P12_PASSWORD IOS_MOBILEPROVISION_BASE64 IOS_BUNDLE_ID IOS_TEAM_ID; do
+            if [[ -z "${!name}" ]]; then
+              echo "::error::Missing GitHub Actions secret: $name"
+              exit 1
+            fi
+          done
+
+      - name: Install Flutter 3.47.5
+        run: |
+          git clone --depth 1 --branch 3.47.5 https://github.com/flutter/flutter.git "$RUNNER_TEMP/flutter"
+          echo "$RUNNER_TEMP/flutter/bin" >> "$GITHUB_PATH"
+          "$RUNNER_TEMP/flutter/bin/flutter" --version
+
+      - name: Resolve Flutter and CocoaPods dependencies
+        run: |
+          flutter pub get
+          cd ios
+          pod install
+
+      - name: Install and validate signing assets
+        env:
+          IOS_P12_BASE64: ${{ secrets.IOS_P12_BASE64 }}
+          IOS_P12_PASSWORD: ${{ secrets.IOS_P12_PASSWORD }}
+          IOS_MOBILEPROVISION_BASE64: ${{ secrets.IOS_MOBILEPROVISION_BASE64 }}
+          IOS_BUNDLE_ID: ${{ secrets.IOS_BUNDLE_ID }}
+          IOS_TEAM_ID: ${{ secrets.IOS_TEAM_ID }}
+        run: |
+          set -euo pipefail
+          printf '%s' "$IOS_P12_BASE64" | base64 -D > "$RUNNER_TEMP/signing.p12"
+          printf '%s' "$IOS_MOBILEPROVISION_BASE64" | base64 -D > "$RUNNER_TEMP/signing.mobileprovision"
+          security cms -D -i "$RUNNER_TEMP/signing.mobileprovision" > "$RUNNER_TEMP/profile.plist"
+          profile_value() { /usr/libexec/PlistBuddy -c "Print :$1" "$RUNNER_TEMP/profile.plist"; }
+          profile_uuid="$(profile_value UUID)"
+          profile_name="$(profile_value Name)"
+          profile_team="$(profile_value TeamIdentifier:0)"
+          profile_app="$(profile_value Entitlements:application-identifier)"
+          [[ "$profile_team" == "$IOS_TEAM_ID" ]] || { echo '::error::Provisioning profile team does not match IOS_TEAM_ID'; exit 1; }
+          [[ "$profile_app" == "$IOS_TEAM_ID.$IOS_BUNDLE_ID" ]] || { echo '::error::Provisioning profile app ID does not match IOS_BUNDLE_ID'; exit 1; }
+          profile_value ProvisionedDevices:0 >/dev/null || { echo '::error::An ad-hoc profile with registered iPhone UDID is required'; exit 1; }
+          profile_value Entitlements:com.apple.developer.nfc.readersession.formats >/dev/null || { echo '::error::Profile does not include NFC Tag Reading capability'; exit 1; }
+
+          keychain="$RUNNER_TEMP/signing.keychain-db"
+          keychain_password="$(openssl rand -hex 24)"
+          security create-keychain -p "$keychain_password" "$keychain"
+          security set-keychain-settings -lut 21600 "$keychain"
+          security unlock-keychain -p "$keychain_password" "$keychain"
+          security import "$RUNNER_TEMP/signing.p12" -P "$IOS_P12_PASSWORD" -A -t cert -f pkcs12 -k "$keychain"
+          security set-key-partition-list -S apple-tool:,apple: -s -k "$keychain_password" "$keychain"
+          security list-keychains -d user -s "$keychain"
+          security default-keychain -d user -s "$keychain"
+          security find-identity -v -p codesigning "$keychain" | grep -q 'Apple Distribution:' || { echo '::error::P12 must contain an Apple Distribution signing identity'; exit 1; }
+
+          mkdir -p "$HOME/Library/MobileDevice/Provisioning Profiles"
+          cp "$RUNNER_TEMP/signing.mobileprovision" "$HOME/Library/MobileDevice/Provisioning Profiles/$profile_uuid.mobileprovision"
+          echo "PROFILE_UUID=$profile_uuid" >> "$GITHUB_ENV"
+          echo "PROFILE_NAME=$profile_name" >> "$GITHUB_ENV"
+
+      - name: Build and export signed IPA
+        env:
+          IOS_BUNDLE_ID: ${{ secrets.IOS_BUNDLE_ID }}
+          IOS_TEAM_ID: ${{ secrets.IOS_TEAM_ID }}
+        run: |
+          set -euo pipefail
+          flutter build ios --release --no-codesign
+          xcodebuild archive \
+            -workspace ios/Runner.xcworkspace \
+            -scheme Runner \
+            -configuration Release \
+            -destination 'generic/platform=iOS' \
+            -archivePath "$RUNNER_TEMP/Runner.xcarchive" \
+            PRODUCT_BUNDLE_IDENTIFIER="$IOS_BUNDLE_ID" \
+            DEVELOPMENT_TEAM="$IOS_TEAM_ID" \
+            CODE_SIGN_STYLE=Manual \
+            CODE_SIGN_IDENTITY='Apple Distribution' \
+            PROVISIONING_PROFILE_SPECIFIER="$PROFILE_NAME"
+
+          cat > "$RUNNER_TEMP/ExportOptions.plist" <<EOF
+          <?xml version="1.0" encoding="UTF-8"?>
+          <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+          <plist version="1.0"><dict>
+            <key>method</key><string>ad-hoc</string>
+            <key>signingStyle</key><string>manual</string>
+            <key>teamID</key><string>$IOS_TEAM_ID</string>
+            <key>provisioningProfiles</key><dict><key>$IOS_BUNDLE_ID</key><string>$PROFILE_NAME</string></dict>
+          </dict></plist>
+          EOF
+          xcodebuild -exportArchive \
+            -archivePath "$RUNNER_TEMP/Runner.xcarchive" \
+            -exportOptionsPlist "$RUNNER_TEMP/ExportOptions.plist" \
+            -exportPath build/ios/ipa
+          find build/ios/ipa -maxdepth 1 -name '*.ipa' -type f | grep -q .
+
+      - name: Upload signed IPA
+        uses: actions/upload-artifact@v4
+        with:
+          name: iphone-adhoc-ipa
+          path: build/ios/ipa/*.ipa
+          if-no-files-found: error
+          retention-days: 14
+
+      - name: Remove signing files
+        if: always()
+        run: |
+          if [[ -n "${PROFILE_UUID:-}" ]]; then
+            rm -f "$HOME/Library/MobileDevice/Provisioning Profiles/$PROFILE_UUID.mobileprovision"
+          fi
+          security delete-keychain "$RUNNER_TEMP/signing.keychain-db" 2>/dev/null || true
+          rm -f "$RUNNER_TEMP/signing.p12" "$RUNNER_TEMP/signing.mobileprovision" "$RUNNER_TEMP/profile.plist" "$RUNNER_TEMP/ExportOptions.plist"

@@ -1,0 +1,159 @@
+name: Build and upload iPhone TestFlight beta
+
+on:
+  workflow_dispatch:
+  push:
+    tags:
+      - 'ios-v*'
+
+permissions:
+  contents: read
+
+concurrency:
+  group: testflight-${{ github.ref }}
+  cancel-in-progress: false
+
+jobs:
+  upload:
+    runs-on: macos-26
+    timeout-minutes: 90
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Check required secrets
+        env:
+          IOS_APPSTORE_P12_BASE64: ${{ secrets.IOS_APPSTORE_P12_BASE64 }}
+          IOS_APPSTORE_P12_PASSWORD: ${{ secrets.IOS_APPSTORE_P12_PASSWORD }}
+          IOS_APPSTORE_PROFILE_BASE64: ${{ secrets.IOS_APPSTORE_PROFILE_BASE64 }}
+          IOS_BUNDLE_ID: ${{ secrets.IOS_BUNDLE_ID }}
+          IOS_TEAM_ID: ${{ secrets.IOS_TEAM_ID }}
+          ASC_API_KEY_ID: ${{ secrets.ASC_API_KEY_ID }}
+          ASC_API_ISSUER_ID: ${{ secrets.ASC_API_ISSUER_ID }}
+          ASC_API_PRIVATE_KEY_BASE64: ${{ secrets.ASC_API_PRIVATE_KEY_BASE64 }}
+        run: |
+          for name in IOS_APPSTORE_P12_BASE64 IOS_APPSTORE_P12_PASSWORD IOS_APPSTORE_PROFILE_BASE64 IOS_BUNDLE_ID IOS_TEAM_ID ASC_API_KEY_ID ASC_API_ISSUER_ID ASC_API_PRIVATE_KEY_BASE64; do
+            if [[ -z "${!name}" ]]; then
+              echo "::error::Missing repository secret: $name"
+              exit 1
+            fi
+          done
+
+      - name: Install Flutter
+        run: |
+          git clone --depth 1 --branch 3.47.5 https://github.com/flutter/flutter.git "$RUNNER_TEMP/flutter"
+          echo "$RUNNER_TEMP/flutter/bin" >> "$GITHUB_PATH"
+          "$RUNNER_TEMP/flutter/bin/flutter" --version
+
+      - name: Resolve dependencies and run checks
+        run: |
+          flutter pub get
+          flutter analyze
+          flutter test
+          cd ios
+          pod install
+
+      - name: Install App Store signing assets
+        env:
+          IOS_APPSTORE_P12_BASE64: ${{ secrets.IOS_APPSTORE_P12_BASE64 }}
+          IOS_APPSTORE_P12_PASSWORD: ${{ secrets.IOS_APPSTORE_P12_PASSWORD }}
+          IOS_APPSTORE_PROFILE_BASE64: ${{ secrets.IOS_APPSTORE_PROFILE_BASE64 }}
+          IOS_BUNDLE_ID: ${{ secrets.IOS_BUNDLE_ID }}
+          IOS_TEAM_ID: ${{ secrets.IOS_TEAM_ID }}
+        run: |
+          set -euo pipefail
+          printf '%s' "$IOS_APPSTORE_P12_BASE64" | base64 -D > "$RUNNER_TEMP/signing.p12"
+          printf '%s' "$IOS_APPSTORE_PROFILE_BASE64" | base64 -D > "$RUNNER_TEMP/signing.mobileprovision"
+          security cms -D -i "$RUNNER_TEMP/signing.mobileprovision" > "$RUNNER_TEMP/profile.plist"
+
+          profile_value() { /usr/libexec/PlistBuddy -c "Print :$1" "$RUNNER_TEMP/profile.plist"; }
+          profile_uuid="$(profile_value UUID)"
+          profile_name="$(profile_value Name)"
+          profile_team="$(profile_value TeamIdentifier:0)"
+          profile_app="$(profile_value Entitlements:application-identifier)"
+          [[ "$profile_team" == "$IOS_TEAM_ID" ]] || { echo '::error::Profile team does not match IOS_TEAM_ID'; exit 1; }
+          [[ "$profile_app" == "$IOS_TEAM_ID.$IOS_BUNDLE_ID" ]] || { echo '::error::Profile app ID does not match IOS_BUNDLE_ID'; exit 1; }
+          profile_value Entitlements:com.apple.developer.nfc.readersession.formats >/dev/null || { echo '::error::Profile lacks NFC Tag Reading capability'; exit 1; }
+          if profile_value ProvisionedDevices:0 >/dev/null 2>&1; then
+            echo '::error::Use an App Store distribution profile, not an Ad Hoc profile'
+            exit 1
+          fi
+
+          keychain="$RUNNER_TEMP/signing.keychain-db"
+          keychain_password="$(openssl rand -hex 24)"
+          security create-keychain -p "$keychain_password" "$keychain"
+          security set-keychain-settings -lut 21600 "$keychain"
+          security unlock-keychain -p "$keychain_password" "$keychain"
+          security import "$RUNNER_TEMP/signing.p12" -P "$IOS_APPSTORE_P12_PASSWORD" -A -t cert -f pkcs12 -k "$keychain"
+          security set-key-partition-list -S apple-tool:,apple: -s -k "$keychain_password" "$keychain"
+          security list-keychains -d user -s "$keychain"
+          security default-keychain -d user -s "$keychain"
+          security find-identity -v -p codesigning "$keychain" | grep -q 'Apple Distribution:' || { echo '::error::P12 must contain an Apple Distribution signing identity'; exit 1; }
+
+          mkdir -p "$HOME/Library/MobileDevice/Provisioning Profiles"
+          cp "$RUNNER_TEMP/signing.mobileprovision" "$HOME/Library/MobileDevice/Provisioning Profiles/$profile_uuid.mobileprovision"
+          echo "PROFILE_UUID=$profile_uuid" >> "$GITHUB_ENV"
+          echo "PROFILE_NAME=$profile_name" >> "$GITHUB_ENV"
+
+      - name: Archive and export signed IPA
+        env:
+          IOS_BUNDLE_ID: ${{ secrets.IOS_BUNDLE_ID }}
+          IOS_TEAM_ID: ${{ secrets.IOS_TEAM_ID }}
+        run: |
+          set -euo pipefail
+          flutter build ios --release --no-codesign --build-number "$GITHUB_RUN_NUMBER"
+          xcodebuild archive \
+            -workspace ios/Runner.xcworkspace \
+            -scheme Runner \
+            -configuration Release \
+            -destination 'generic/platform=iOS' \
+            -archivePath "$RUNNER_TEMP/Runner.xcarchive" \
+            PRODUCT_BUNDLE_IDENTIFIER="$IOS_BUNDLE_ID" \
+            DEVELOPMENT_TEAM="$IOS_TEAM_ID" \
+            CODE_SIGN_STYLE=Manual \
+            CODE_SIGN_IDENTITY='Apple Distribution' \
+            PROVISIONING_PROFILE_SPECIFIER="$PROFILE_NAME"
+
+          cat > "$RUNNER_TEMP/ExportOptions.plist" <<EOF
+          <?xml version="1.0" encoding="UTF-8"?>
+          <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+          <plist version="1.0"><dict>
+            <key>method</key><string>app-store-connect</string>
+            <key>signingStyle</key><string>manual</string>
+            <key>teamID</key><string>$IOS_TEAM_ID</string>
+            <key>provisioningProfiles</key><dict><key>$IOS_BUNDLE_ID</key><string>$PROFILE_NAME</string></dict>
+          </dict></plist>
+          EOF
+          xcodebuild -exportArchive \
+            -archivePath "$RUNNER_TEMP/Runner.xcarchive" \
+            -exportOptionsPlist "$RUNNER_TEMP/ExportOptions.plist" \
+            -exportPath build/ios/ipa
+          find build/ios/ipa -maxdepth 1 -name '*.ipa' -type f | grep -q .
+
+      - name: Upload to App Store Connect for TestFlight
+        env:
+          ASC_API_KEY_ID: ${{ secrets.ASC_API_KEY_ID }}
+          ASC_API_ISSUER_ID: ${{ secrets.ASC_API_ISSUER_ID }}
+          ASC_API_PRIVATE_KEY_BASE64: ${{ secrets.ASC_API_PRIVATE_KEY_BASE64 }}
+        run: |
+          set -euo pipefail
+          mkdir -p "$HOME/.private_keys"
+          chmod 700 "$HOME/.private_keys"
+          printf '%s' "$ASC_API_PRIVATE_KEY_BASE64" | base64 -D > "$HOME/.private_keys/AuthKey_${ASC_API_KEY_ID}.p8"
+          chmod 600 "$HOME/.private_keys/AuthKey_${ASC_API_KEY_ID}.p8"
+          ipa="$(find build/ios/ipa -maxdepth 1 -name '*.ipa' -type f -print -quit)"
+          [[ -n "$ipa" ]] || { echo '::error::IPA not found'; exit 1; }
+          xcrun altool --upload-app --type ios -f "$ipa" --apiKey "$ASC_API_KEY_ID" --apiIssuer "$ASC_API_ISSUER_ID"
+
+      - name: Remove temporary signing files
+        if: always()
+        env:
+          ASC_API_KEY_ID: ${{ secrets.ASC_API_KEY_ID }}
+        run: |
+          if [[ -n "${PROFILE_UUID:-}" ]]; then
+            rm -f "$HOME/Library/MobileDevice/Provisioning Profiles/$PROFILE_UUID.mobileprovision"
+          fi
+          security delete-keychain "$RUNNER_TEMP/signing.keychain-db" 2>/dev/null || true
+          rm -f "$RUNNER_TEMP/signing.p12" "$RUNNER_TEMP/signing.mobileprovision" "$RUNNER_TEMP/profile.plist" "$RUNNER_TEMP/ExportOptions.plist"
+          if [[ -n "${ASC_API_KEY_ID:-}" ]]; then
+            rm -f "$HOME/.private_keys/AuthKey_${ASC_API_KEY_ID}.p8"
+          fi

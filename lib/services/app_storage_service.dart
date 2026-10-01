@@ -1,0 +1,586 @@
+import 'dart:convert';
+import 'dart:io';
+import 'package:flutter/foundation.dart';
+import '../domain/storage_models.dart';
+import '../domain/tag_rule.dart';
+import 'backup_codec.dart';
+
+/// Abstract storage service for app settings, scan history, write templates, and tag rules.
+abstract class AppStorageService {
+  Future<void> init();
+
+  // Settings: History toggle (disabled by default)
+  bool get isHistoryEnabled;
+  Future<void> setHistoryEnabled(bool enabled);
+
+  // Scan History
+  List<ScanHistoryEntry> getHistory();
+  Future<void> addHistoryEntry(ScanHistoryEntry entry);
+  Future<void> deleteHistoryEntry(String id);
+  Future<void> clearHistory();
+
+  // Write Templates
+  List<WriteTemplate> getTemplates();
+  Future<void> saveTemplate(WriteTemplate template);
+  Future<void> deleteTemplate(String id);
+  Future<void> clearTemplates();
+
+  // In-app Tag Rules (Keyed by SHA-256 of exact NDEF bytes)
+  List<TagRule> getTagRules();
+  TagRule? getTagRuleBySha256(String ndefSha256);
+  Future<void> saveTagRule(TagRule rule);
+  Future<void> deleteTagRule(String ndefSha256);
+  Future<void> clearTagRules();
+
+  // Backup & Merge Import
+  /// Merges imported templates, rules, and optional history.
+  /// Does NOT wipe existing data.
+  /// If history is disabled locally, history is either skipped or explicitly enabled per [enableHistoryIfDisabled].
+  Future<ImportMergeResult> mergeBackup(
+    BackupPayload backup, {
+    bool enableHistoryIfDisabled = false,
+  });
+}
+
+/// In-memory storage implementation (excellent for unit tests and fallback)
+class InMemoryAppStorageService implements AppStorageService {
+  bool _historyEnabled = false;
+  final List<ScanHistoryEntry> _history = [];
+  final List<WriteTemplate> _templates = [];
+  final Map<String, TagRule> _rules = {};
+
+  @override
+  Future<void> init() async {}
+
+  @override
+  bool get isHistoryEnabled => _historyEnabled;
+
+  @override
+  Future<void> setHistoryEnabled(bool enabled) async {
+    _historyEnabled = enabled;
+  }
+
+  @override
+  List<ScanHistoryEntry> getHistory() => List.unmodifiable(_history);
+
+  @override
+  Future<void> addHistoryEntry(ScanHistoryEntry entry) async {
+    if (!_historyEnabled) return;
+    _history.insert(0, entry);
+  }
+
+  @override
+  Future<void> deleteHistoryEntry(String id) async {
+    _history.removeWhere((item) => item.id == id);
+  }
+
+  @override
+  Future<void> clearHistory() async {
+    _history.clear();
+  }
+
+  @override
+  List<WriteTemplate> getTemplates() => List.unmodifiable(_templates);
+
+  @override
+  Future<void> saveTemplate(WriteTemplate template) async {
+    final index = _templates.indexWhere((t) => t.id == template.id);
+    if (index >= 0) {
+      _templates[index] = template;
+    } else {
+      _templates.insert(0, template);
+    }
+  }
+
+  @override
+  Future<void> deleteTemplate(String id) async {
+    _templates.removeWhere((t) => t.id == id);
+  }
+
+  @override
+  Future<void> clearTemplates() async {
+    _templates.clear();
+  }
+
+  @override
+  List<TagRule> getTagRules() => List.unmodifiable(_rules.values.toList());
+
+  @override
+  TagRule? getTagRuleBySha256(String ndefSha256) =>
+      _rules[ndefSha256.toLowerCase()];
+
+  @override
+  Future<void> saveTagRule(TagRule rule) async {
+    _rules[rule.ndefSha256.toLowerCase()] = rule;
+  }
+
+  @override
+  Future<void> deleteTagRule(String ndefSha256) async {
+    _rules.remove(ndefSha256.toLowerCase());
+  }
+
+  @override
+  Future<void> clearTagRules() async {
+    _rules.clear();
+  }
+
+  @override
+  Future<ImportMergeResult> mergeBackup(
+    BackupPayload backup, {
+    bool enableHistoryIfDisabled = false,
+  }) async {
+    int addedTemplates = 0;
+    int updatedTemplates = 0;
+    int addedHistory = 0;
+    int skippedHistory = 0;
+    bool historySkippedDueToDisabled = false;
+    int addedRules = 0;
+    int updatedRules = 0;
+
+    // 1. Merge templates by ID
+    for (final tpl in backup.templates) {
+      final index = _templates.indexWhere((t) => t.id == tpl.id);
+      if (index >= 0) {
+        // Preserve the user's existing template on ID collision.
+      } else {
+        _templates.add(tpl);
+        addedTemplates++;
+      }
+    }
+
+    // 2. Merge tag rules by SHA-256
+    if (backup.tagRules != null) {
+      for (final rule in backup.tagRules!) {
+        final key = rule.ndefSha256.toLowerCase();
+        if (_rules.containsKey(key)) {
+          // Preserve the user's existing note on hash collision.
+        } else {
+          _rules[key] = rule;
+          addedRules++;
+        }
+      }
+    }
+
+    // 3. Merge history (if present)
+    if (backup.history != null && backup.history!.isNotEmpty) {
+      if (!_historyEnabled && !enableHistoryIfDisabled) {
+        historySkippedDueToDisabled = true;
+        skippedHistory = backup.history!.length;
+      } else {
+        if (!_historyEnabled && enableHistoryIfDisabled) {
+          _historyEnabled = true;
+        }
+        for (final entry in backup.history!) {
+          final exists = _history.any((h) => h.id == entry.id);
+          if (exists) {
+            skippedHistory++;
+          } else {
+            _history.add(entry);
+            addedHistory++;
+          }
+        }
+        // Keep sorted by timestamp descending
+        _history.sort((a, b) => b.timestamp.compareTo(a.timestamp));
+      }
+    }
+
+    return ImportMergeResult(
+      addedTemplates: addedTemplates,
+      updatedTemplates: updatedTemplates,
+      addedHistory: addedHistory,
+      skippedHistory: skippedHistory,
+      historySkippedDueToDisabled: historySkippedDueToDisabled,
+      addedRules: addedRules,
+      updatedRules: updatedRules,
+    );
+  }
+}
+
+/// Robust file-based JSON storage implementation for Flutter.
+/// Stores configuration, history, templates, and tag rules in isolated JSON files
+/// with in-memory caching and atomic file writes.
+class LocalFileAppStorageService implements AppStorageService {
+  final String baseDirectoryPath;
+
+  bool _isHistoryEnabled = false;
+  final List<ScanHistoryEntry> _history = [];
+  final List<WriteTemplate> _templates = [];
+  final Map<String, TagRule> _rules = {};
+
+  LocalFileAppStorageService({required this.baseDirectoryPath});
+
+  File get _settingsFile => File('$baseDirectoryPath/nfc_app_settings.json');
+  File get _historyFile => File('$baseDirectoryPath/nfc_scan_history.json');
+  File get _templatesFile =>
+      File('$baseDirectoryPath/nfc_write_templates.json');
+  File get _tagRulesFile => File('$baseDirectoryPath/nfc_tag_rules.json');
+
+  @override
+  Future<void> init() async {
+    final dir = Directory(baseDirectoryPath);
+    if (!await dir.exists()) {
+      await dir.create(recursive: true);
+    }
+
+    // Load Settings
+    try {
+      if (await _settingsFile.exists()) {
+        final content = await _settingsFile.readAsString();
+        if (content.trim().isNotEmpty) {
+          final data = jsonDecode(content) as Map<String, dynamic>;
+          _isHistoryEnabled = data['historyEnabled'] as bool? ?? false;
+        }
+      }
+    } catch (e) {
+      debugPrint('LocalFileAppStorageService error loading settings: $e');
+    }
+
+    // Load History
+    try {
+      if (await _historyFile.exists()) {
+        final content = await _historyFile.readAsString();
+        if (content.trim().isNotEmpty) {
+          final list = jsonDecode(content) as List<dynamic>;
+          _history.clear();
+          for (final item in list) {
+            _history.add(ScanHistoryEntry.fromJsonMap(
+                Map<String, dynamic>.from(item as Map)));
+          }
+        }
+      }
+    } catch (e) {
+      debugPrint('LocalFileAppStorageService error loading history: $e');
+    }
+
+    // Load Templates
+    try {
+      if (await _templatesFile.exists()) {
+        final content = await _templatesFile.readAsString();
+        if (content.trim().isNotEmpty) {
+          final list = jsonDecode(content) as List<dynamic>;
+          _templates.clear();
+          for (final item in list) {
+            _templates.add(WriteTemplate.fromJsonMap(
+                Map<String, dynamic>.from(item as Map)));
+          }
+        }
+      }
+    } catch (e) {
+      debugPrint('LocalFileAppStorageService error loading templates: $e');
+    }
+
+    // Load Tag Rules
+    try {
+      if (await _tagRulesFile.exists()) {
+        final content = await _tagRulesFile.readAsString();
+        if (content.trim().isNotEmpty) {
+          final list = jsonDecode(content) as List<dynamic>;
+          _rules.clear();
+          for (final item in list) {
+            final rule =
+                TagRule.fromJsonMap(Map<String, dynamic>.from(item as Map));
+            _rules[rule.ndefSha256.toLowerCase()] = rule;
+          }
+        }
+      }
+    } catch (e) {
+      debugPrint('LocalFileAppStorageService error loading tag rules: $e');
+    }
+  }
+
+  /// Atomically writes [content] to [targetFile] by first writing to a temporary file
+  /// and then renaming it.
+  Future<void> _atomicWrite(File targetFile, String content) async {
+    final dir = targetFile.parent;
+    if (!await dir.exists()) {
+      await dir.create(recursive: true);
+    }
+
+    final tempFile =
+        File('${targetFile.path}.tmp_${DateTime.now().microsecondsSinceEpoch}');
+    try {
+      await tempFile.writeAsString(content, flush: true);
+      if (Platform.isWindows && await targetFile.exists()) {
+        final backupFile = File(
+            '${targetFile.path}.bak_${DateTime.now().microsecondsSinceEpoch}');
+        await targetFile.rename(backupFile.path);
+        try {
+          await tempFile.rename(targetFile.path);
+          if (await backupFile.exists()) {
+            await backupFile.delete();
+          }
+        } catch (e) {
+          if (await backupFile.exists()) {
+            await backupFile.rename(targetFile.path);
+          }
+          rethrow;
+        }
+      } else {
+        await tempFile.rename(targetFile.path);
+      }
+    } catch (e) {
+      if (await tempFile.exists()) {
+        try {
+          await tempFile.delete();
+        } catch (_) {}
+      }
+      rethrow;
+    }
+  }
+
+  @override
+  bool get isHistoryEnabled => _isHistoryEnabled;
+
+  @override
+  Future<void> setHistoryEnabled(bool enabled) async {
+    final previous = _isHistoryEnabled;
+    _isHistoryEnabled = enabled;
+    try {
+      await _saveSettings();
+    } catch (e) {
+      _isHistoryEnabled = previous;
+      rethrow;
+    }
+  }
+
+  Future<void> _saveSettings() async {
+    final data = jsonEncode({'historyEnabled': _isHistoryEnabled});
+    await _atomicWrite(_settingsFile, data);
+  }
+
+  @override
+  List<ScanHistoryEntry> getHistory() => List.unmodifiable(_history);
+
+  @override
+  Future<void> addHistoryEntry(ScanHistoryEntry entry) async {
+    if (!_isHistoryEnabled) return;
+    _history.insert(0, entry);
+    try {
+      await _saveHistory();
+    } catch (e) {
+      _history.remove(entry);
+      rethrow;
+    }
+  }
+
+  @override
+  Future<void> deleteHistoryEntry(String id) async {
+    final index = _history.indexWhere((item) => item.id == id);
+    if (index == -1) return;
+    final removed = _history.removeAt(index);
+    try {
+      await _saveHistory();
+    } catch (e) {
+      _history.insert(index, removed);
+      rethrow;
+    }
+  }
+
+  @override
+  Future<void> clearHistory() async {
+    final backup = List<ScanHistoryEntry>.from(_history);
+    _history.clear();
+    try {
+      await _saveHistory();
+    } catch (e) {
+      _history.addAll(backup);
+      rethrow;
+    }
+  }
+
+  Future<void> _saveHistory() async {
+    final data = jsonEncode(_history.map((e) => e.toJsonMap()).toList());
+    await _atomicWrite(_historyFile, data);
+  }
+
+  @override
+  List<WriteTemplate> getTemplates() => List.unmodifiable(_templates);
+
+  @override
+  Future<void> saveTemplate(WriteTemplate template) async {
+    final index = _templates.indexWhere((t) => t.id == template.id);
+    final previous = index >= 0 ? _templates[index] : null;
+    if (index >= 0) {
+      _templates[index] = template;
+    } else {
+      _templates.insert(0, template);
+    }
+    try {
+      await _saveTemplates();
+    } catch (e) {
+      if (previous != null) {
+        _templates[index] = previous;
+      } else {
+        _templates.remove(template);
+      }
+      rethrow;
+    }
+  }
+
+  @override
+  Future<void> deleteTemplate(String id) async {
+    final index = _templates.indexWhere((t) => t.id == id);
+    if (index == -1) return;
+    final removed = _templates.removeAt(index);
+    try {
+      await _saveTemplates();
+    } catch (e) {
+      _templates.insert(index, removed);
+      rethrow;
+    }
+  }
+
+  @override
+  Future<void> clearTemplates() async {
+    final backup = List<WriteTemplate>.from(_templates);
+    _templates.clear();
+    try {
+      await _saveTemplates();
+    } catch (e) {
+      _templates.addAll(backup);
+      rethrow;
+    }
+  }
+
+  Future<void> _saveTemplates() async {
+    final data = jsonEncode(_templates.map((t) => t.toJsonMap()).toList());
+    await _atomicWrite(_templatesFile, data);
+  }
+
+  // Tag Rules implementation
+  @override
+  List<TagRule> getTagRules() => List.unmodifiable(_rules.values.toList());
+
+  @override
+  TagRule? getTagRuleBySha256(String ndefSha256) =>
+      _rules[ndefSha256.toLowerCase()];
+
+  @override
+  Future<void> saveTagRule(TagRule rule) async {
+    final key = rule.ndefSha256.toLowerCase();
+    final previous = _rules[key];
+    _rules[key] = rule;
+    try {
+      await _saveTagRules();
+    } catch (e) {
+      if (previous != null) {
+        _rules[key] = previous;
+      } else {
+        _rules.remove(key);
+      }
+      rethrow;
+    }
+  }
+
+  @override
+  Future<void> deleteTagRule(String ndefSha256) async {
+    final key = ndefSha256.toLowerCase();
+    final previous = _rules[key];
+    if (previous == null) return;
+    _rules.remove(key);
+    try {
+      await _saveTagRules();
+    } catch (e) {
+      _rules[key] = previous;
+      rethrow;
+    }
+  }
+
+  @override
+  Future<void> clearTagRules() async {
+    final backup = Map<String, TagRule>.from(_rules);
+    _rules.clear();
+    try {
+      await _saveTagRules();
+    } catch (e) {
+      _rules.addAll(backup);
+      rethrow;
+    }
+  }
+
+  Future<void> _saveTagRules() async {
+    final data = jsonEncode(_rules.values.map((r) => r.toJsonMap()).toList());
+    await _atomicWrite(_tagRulesFile, data);
+  }
+
+  // Merge import
+  @override
+  Future<ImportMergeResult> mergeBackup(
+    BackupPayload backup, {
+    bool enableHistoryIfDisabled = false,
+  }) async {
+    int addedTemplates = 0;
+    int updatedTemplates = 0;
+    int addedHistory = 0;
+    int skippedHistory = 0;
+    bool historySkippedDueToDisabled = false;
+    int addedRules = 0;
+    int updatedRules = 0;
+
+    // 1. Templates
+    for (final tpl in backup.templates) {
+      final index = _templates.indexWhere((t) => t.id == tpl.id);
+      if (index >= 0) {
+        // Preserve the user's existing template on ID collision.
+      } else {
+        _templates.add(tpl);
+        addedTemplates++;
+      }
+    }
+    if (addedTemplates > 0 || updatedTemplates > 0) {
+      await _saveTemplates();
+    }
+
+    // 2. Rules
+    if (backup.tagRules != null && backup.tagRules!.isNotEmpty) {
+      for (final rule in backup.tagRules!) {
+        final key = rule.ndefSha256.toLowerCase();
+        if (_rules.containsKey(key)) {
+          // Preserve the user's existing note on hash collision.
+        } else {
+          _rules[key] = rule;
+          addedRules++;
+        }
+      }
+      if (addedRules > 0 || updatedRules > 0) {
+        await _saveTagRules();
+      }
+    }
+
+    // 3. History
+    if (backup.history != null && backup.history!.isNotEmpty) {
+      if (!_isHistoryEnabled && !enableHistoryIfDisabled) {
+        historySkippedDueToDisabled = true;
+        skippedHistory = backup.history!.length;
+      } else {
+        if (!_isHistoryEnabled && enableHistoryIfDisabled) {
+          _isHistoryEnabled = true;
+          await _saveSettings();
+        }
+        for (final entry in backup.history!) {
+          final exists = _history.any((h) => h.id == entry.id);
+          if (exists) {
+            skippedHistory++;
+          } else {
+            _history.add(entry);
+            addedHistory++;
+          }
+        }
+        _history.sort((a, b) => b.timestamp.compareTo(a.timestamp));
+        if (addedHistory > 0) {
+          await _saveHistory();
+        }
+      }
+    }
+
+    return ImportMergeResult(
+      addedTemplates: addedTemplates,
+      updatedTemplates: updatedTemplates,
+      addedHistory: addedHistory,
+      skippedHistory: skippedHistory,
+      historySkippedDueToDisabled: historySkippedDueToDisabled,
+      addedRules: addedRules,
+      updatedRules: updatedRules,
+    );
+  }
+}
