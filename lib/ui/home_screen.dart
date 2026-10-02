@@ -27,7 +27,7 @@ class HomeScreen extends StatefulWidget {
 }
 
 class _HomeScreenState extends State<HomeScreen>
-    with SingleTickerProviderStateMixin {
+    with SingleTickerProviderStateMixin, WidgetsBindingObserver {
   late final NfcStateController _controller;
   late final TabController _tabController;
 
@@ -62,7 +62,15 @@ class _HomeScreenState extends State<HomeScreen>
     _controller = widget.controller ?? NfcStateController();
     _tabController = TabController(length: 4, vsync: this);
     _controller.addListener(_onControllerUpdate);
+    WidgetsBinding.instance.addObserver(this);
     _controller.init();
+  }
+
+  @override
+  void didChangeAppLifecycleState(AppLifecycleState state) {
+    if (state == AppLifecycleState.resumed) {
+      _controller.refreshAvailability();
+    }
   }
 
   void _onControllerUpdate() {
@@ -71,6 +79,7 @@ class _HomeScreenState extends State<HomeScreen>
 
   @override
   void dispose() {
+    WidgetsBinding.instance.removeObserver(this);
     _tabController.dispose();
     _historySearchController.dispose();
     _controller.removeListener(_onControllerUpdate);
@@ -1855,6 +1864,9 @@ class _HomeScreenState extends State<HomeScreen>
           controller: _tabController,
           isScrollable: true,
           tabAlignment: TabAlignment.start,
+          labelColor: Colors.white,
+          unselectedLabelColor: Colors.white70,
+          indicatorColor: Colors.white,
           tabs: const [
             Tab(icon: Icon(Icons.nfc), text: 'Etiket Oku'),
             Tab(icon: Icon(Icons.edit_note), text: 'Etiket Yaz'),
@@ -2604,8 +2616,9 @@ class _HomeScreenState extends State<HomeScreen>
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                Wrap(
+                  alignment: WrapAlignment.spaceBetween,
+                  crossAxisAlignment: WrapCrossAlignment.center,
                   children: [
                     const Text(
                       'Yazılacak NDEF Kayıtları',
@@ -2666,13 +2679,23 @@ class _HomeScreenState extends State<HomeScreen>
                 ),
                 const Divider(),
                 if (_recordsToWrite.isEmpty)
-                  const Padding(
-                    padding: EdgeInsets.symmetric(vertical: 24),
+                  Padding(
+                    padding: const EdgeInsets.symmetric(vertical: 24),
                     child: Center(
-                      child: Text(
-                        'Yazılacak kayıt eklemek için "Kayıt Ekle" butonuna dokunun veya taranan etiketten içerik kopyalayın.',
-                        textAlign: TextAlign.center,
-                        style: TextStyle(color: Colors.grey),
+                      child: Column(
+                        children: [
+                          const Text(
+                            'Etikete metin, web adresi, Wi-Fi, telefon, e-posta, kişi kartı ve daha fazlasını yazabilirsiniz.',
+                            textAlign: TextAlign.center,
+                            style: TextStyle(color: Colors.grey),
+                          ),
+                          const SizedBox(height: 16),
+                          FilledButton.icon(
+                            onPressed: _openComposeSheet,
+                            icon: const Icon(Icons.add),
+                            label: const Text('Kayıt Ekle'),
+                          ),
+                        ],
                       ),
                     ),
                   )
