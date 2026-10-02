@@ -12,7 +12,8 @@ class TagLibraryEntry {
   final TagCategory category;
   final String locationNote;
 
-  /// Absolute path of a photo copied into the app's documents folder.
+  /// Photo path relative to the app documents folder (the absolute container
+  /// path changes between iOS app updates).
   final String? photoPath;
 
   /// Hardware UID if known (empty on some iOS reads).
