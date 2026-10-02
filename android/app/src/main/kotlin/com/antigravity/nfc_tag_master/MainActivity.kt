@@ -1,5 +1,6 @@
 package com.antigravity.nfc_tag_master
 
+import android.content.Intent
 import android.nfc.NfcAdapter
 import android.nfc.Tag
 import android.nfc.tech.Ndef
@@ -27,12 +28,29 @@ class MainActivity : FlutterActivity(), NfcAdapter.ReaderCallback {
     private var stagedRecordsData: List<Map<String, Any>>? = null
     private var verifyAfterWrite: Boolean = true
 
+    // Action requested by a nfctagmaster:// link, waiting for Flutter
+    private var launchChannel: MethodChannel? = null
+    private var pendingLaunchAction: String? = null
+
     // Raw command session (NTAG / MIFARE Ultralight tools)
     @Volatile private var rawNfcA: NfcA? = null
 
     override fun configureFlutterEngine(flutterEngine: FlutterEngine) {
         super.configureFlutterEngine(flutterEngine)
         nfcAdapter = NfcAdapter.getDefaultAdapter(this)
+
+        launchChannel = MethodChannel(flutterEngine.dartExecutor.binaryMessenger, "com.antigravity.nfc_tag_master/launch").also { channel ->
+            channel.setMethodCallHandler { call, result ->
+                if (call.method == "takeLaunchAction") {
+                    val action = pendingLaunchAction
+                    pendingLaunchAction = null
+                    result.success(action)
+                } else {
+                    result.notImplemented()
+                }
+            }
+        }
+        handleLaunchIntent(intent)
 
         MethodChannel(flutterEngine.dartExecutor.binaryMessenger, CHANNEL).setMethodCallHandler { call, result ->
             when (call.method) {
@@ -536,6 +554,21 @@ class MainActivity : FlutterActivity(), NfcAdapter.ReaderCallback {
             sb.append(String.format("%02X:", b))
         }
         return if (sb.isNotEmpty()) sb.substring(0, sb.length - 1) else ""
+    }
+
+    override fun onNewIntent(intent: Intent) {
+        super.onNewIntent(intent)
+        setIntent(intent)
+        handleLaunchIntent(intent)
+    }
+
+    private fun handleLaunchIntent(intent: Intent?) {
+        val data = intent?.data ?: return
+        if (data.scheme?.lowercase() != "nfctagmaster") return
+        val action = data.host?.lowercase() ?: return
+        if (action !in listOf("scan", "write", "tools", "history", "settings")) return
+        pendingLaunchAction = action
+        launchChannel?.invokeMethod("launchActionAvailable", null)
     }
 
     override fun onPause() {

@@ -50,6 +50,17 @@
 	<key>UIApplicationSupportsIndirectInputEvents</key>
 	<true/>
 	<!-- NFC Configuration -->
+	<key>CFBundleURLTypes</key>
+	<array>
+		<dict>
+			<key>CFBundleURLName</key>
+			<string>com.antigravity.nfc_tag_master</string>
+			<key>CFBundleURLSchemes</key>
+			<array>
+				<string>nfctagmaster</string>
+			</array>
+		</dict>
+	</array>
 	<key>NSCameraUsageDescription</key>
 	<string>QR kodlarını tarayıp etikete yazılacak kayda dönüştürmek için kamera kullanılır.</string>
 	<key>NFCReaderUsageDescription</key>
