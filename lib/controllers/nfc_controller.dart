@@ -253,6 +253,37 @@ class NfcStateController extends ChangeNotifier {
     }
   }
 
+  /// Permanently locks a tag (read-only). Callers must confirm with the user first.
+  Future<bool> lockTag() async {
+    if (_availability != NfcAvailability.available) {
+      _statusMessage = 'NFC şu anda kullanılamaz durumda.';
+      notifyListeners();
+      return false;
+    }
+
+    _isBusy = true;
+    _statusMessage = 'Kilitleme modu aktif. Etiketi yaklaştırın...';
+    notifyListeners();
+
+    try {
+      final result = await _service.lockTag(
+        promptMessage: 'Kalıcı olarak kilitlenecek etiketi yaklaştırın',
+      );
+      _lastWriteResult = result;
+      _statusMessage = result.isSuccess
+          ? 'Etiket kalıcı olarak kilitlendi (salt okunur).'
+          : 'Kilitleme başarısız: ${result.message}';
+      return result.isSuccess;
+    } catch (e) {
+      _lastWriteResult = NfcWriteResult(isSuccess: false, message: e.toString());
+      _statusMessage = 'Kilitleme hatası: $e';
+      return false;
+    } finally {
+      _isBusy = false;
+      notifyListeners();
+    }
+  }
+
   /// Reset current tag view
   void resetTagView() {
     _lastScannedTag = null;

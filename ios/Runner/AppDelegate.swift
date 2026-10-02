@@ -80,6 +80,26 @@ import CoreNFC
 
                 self.startSession(alertMessage: prompt)
 
+            case "lockTag":
+                guard NFCTagReaderSession.readingAvailable else {
+                    result(FlutterError(code: "NFC_UNAVAILABLE", message: "Bu iOS cihazında NFC okuyucu desteklenmiyor", details: nil))
+                    return
+                }
+                let prompt = (call.arguments as? [String: Any])?["promptMessage"] as? String ?? "Kilitlemek istediğiniz etiketi yaklaştırın"
+
+                self.lock.lock()
+                if self.pendingResult != nil {
+                    self.lock.unlock()
+                    result(FlutterError(code: "OPERATION_IN_PROGRESS", message: "Zaten devam eden bir NFC işlemi var", details: nil))
+                    return
+                }
+                self.isCompleted = false
+                self.pendingResult = result
+                self.pendingOperation = "lock"
+                self.lock.unlock()
+
+                self.startSession(alertMessage: prompt)
+
             case "cancelSession":
                 self.lock.lock()
                 let activeSession = self.nfcSession
@@ -164,6 +184,8 @@ import CoreNFC
                     self.handleTagScan(session: session, tag: ndefTag, identifier: tagIdentifier, status: status, capacity: capacity)
                 } else if op == "write" {
                     self.handleTagWrite(session: session, tag: ndefTag, status: status, capacity: capacity)
+                } else if op == "lock" {
+                    self.handleTagLock(session: session, tag: ndefTag, status: status)
                 }
             }
         }
@@ -306,6 +328,36 @@ import CoreNFC
                 self.finishWithResult(res)
                 session.invalidate()
             }
+        }
+    }
+
+    private func handleTagLock(session: NFCTagReaderSession, tag: NFCNDEFTag, status: NFCNDEFStatus) {
+        if status == .readOnly {
+            let message = "Etiket zaten kilitli (salt okunur)"
+            finishWithResult(FlutterError(code: "ALREADY_LOCKED", message: message, details: nil))
+            session.invalidate(errorMessage: message)
+            return
+        }
+        guard status == .readWrite else {
+            let message = "Etiket NDEF biçiminde değil; önce bir kayıt yazın"
+            finishWithResult(FlutterError(code: "TAG_NOT_WRITABLE", message: message, details: nil))
+            session.invalidate(errorMessage: message)
+            return
+        }
+
+        tag.writeLock { [weak self] (error: Error?) in
+            guard let self = self else { return }
+            if let error = error {
+                self.finishWithResult(FlutterError(code: "LOCK_FAILED", message: error.localizedDescription, details: nil))
+                session.invalidate(errorMessage: "Kilitleme başarısız: \(error.localizedDescription)")
+                return
+            }
+            session.alertMessage = "Etiket kalıcı olarak kilitlendi!"
+            self.finishWithResult([
+                "isSuccess": true,
+                "message": "Etiket kalıcı olarak kilitlendi"
+            ] as [String: Any])
+            session.invalidate()
         }
     }
 

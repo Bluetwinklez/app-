@@ -2,6 +2,7 @@ import 'dart:convert';
 import 'dart:typed_data';
 import 'package:flutter/material.dart';
 import '../domain/ndef_record.dart';
+import '../domain/quick_links.dart';
 
 /// Form dialog / bottom sheet for composing or editing NDEF records
 class ComposeRecordSheet extends StatefulWidget {
@@ -20,6 +21,15 @@ class ComposeRecordSheet extends StatefulWidget {
 
 class _ComposeRecordSheetState extends State<ComposeRecordSheet> {
   ParsedRecordType _selectedType = ParsedRecordType.text;
+
+  // Ready-made shortcut (social, video, FaceTime...) selected instead of a core type
+  QuickLinkKind? _quickKind;
+  final _quickController = TextEditingController();
+  final _quickSecondaryController = TextEditingController();
+  SocialNetwork _socialNetwork = SocialNetwork.instagram;
+  SearchEngine _searchEngine = SearchEngine.google;
+  MapProvider _mapProvider = MapProvider.apple;
+  String? _quickError;
 
   // Generic & Previous Controllers
   final _textController = TextEditingController();
@@ -197,6 +207,8 @@ class _ComposeRecordSheetState extends State<ComposeRecordSheet> {
 
   @override
   void dispose() {
+    _quickController.dispose();
+    _quickSecondaryController.dispose();
     _textController.dispose();
     _urlController.dispose();
     _emailController.dispose();
@@ -236,6 +248,7 @@ class _ComposeRecordSheetState extends State<ComposeRecordSheet> {
 
   void _clearErrors() {
     setState(() {
+      _quickError = null;
       _textError = null;
       _urlError = null;
       _emailError = null;
@@ -279,6 +292,10 @@ class _ComposeRecordSheetState extends State<ComposeRecordSheet> {
 
   void _saveRecord() {
     _clearErrors();
+    if (_quickKind != null) {
+      _saveQuickLink(_quickKind!);
+      return;
+    }
     NdefRecordModel? record;
 
     switch (_selectedType) {
@@ -297,8 +314,8 @@ class _ComposeRecordSheetState extends State<ComposeRecordSheet> {
 
       case ParsedRecordType.url:
         final url = _urlController.text.trim();
-        if (url.isEmpty || !_isValidUrl(url)) {
-          setState(() => _urlError = 'Geçerli bir web adresi giriniz (Örn: https://example.com).');
+        if (url.isEmpty || !QuickLinkBuilder.isValidUri(url)) {
+          setState(() => _urlError = 'Geçerli bir adres giriniz (Örn: https://example.com veya uygulama:// bağlantısı).');
           return;
         }
         if (url.length > 2000) {
@@ -579,6 +596,31 @@ class _ComposeRecordSheetState extends State<ComposeRecordSheet> {
                 _buildChoiceChip(ParsedRecordType.customMime, 'Özel MIME', Icons.data_object),
               ],
             ),
+            if (!_isEditing) ...[
+              const SizedBox(height: 16),
+              const Text(
+                'Hazır Bağlantılar',
+                style: TextStyle(fontWeight: FontWeight.bold, color: Colors.black54),
+              ),
+              const SizedBox(height: 8),
+              Wrap(
+                spacing: 8,
+                runSpacing: 8,
+                children: [
+                  _buildQuickChip(QuickLinkKind.customUri, 'Özel URI', Icons.link_off),
+                  _buildQuickChip(QuickLinkKind.social, 'Sosyal Ağlar', Icons.people),
+                  _buildQuickChip(QuickLinkKind.video, 'Video', Icons.play_circle),
+                  _buildQuickChip(QuickLinkKind.search, 'Arama', Icons.search),
+                  _buildQuickChip(QuickLinkKind.file, 'Dosya', Icons.insert_drive_file),
+                  _buildQuickChip(QuickLinkKind.facetime, 'FaceTime', Icons.videocam),
+                  _buildQuickChip(QuickLinkKind.facetimeAudio, 'FaceTime Ses', Icons.mic),
+                  _buildQuickChip(QuickLinkKind.address, 'Adres', Icons.flag),
+                  _buildQuickChip(QuickLinkKind.payment, 'Ödeme Bağlantısı', Icons.payments),
+                  _buildQuickChip(QuickLinkKind.app, 'Uygulama (Android)', Icons.apps),
+                  _buildQuickChip(QuickLinkKind.bluetooth, 'Bluetooth', Icons.bluetooth),
+                ],
+              ),
+            ],
             const Divider(height: 28),
             _buildTypeFields(),
             const SizedBox(height: 24),
@@ -599,8 +641,276 @@ class _ComposeRecordSheetState extends State<ComposeRecordSheet> {
     );
   }
 
+  Widget _buildQuickChip(QuickLinkKind kind, String label, IconData icon) {
+    final isSelected = _quickKind == kind;
+    return ChoiceChip(
+      avatar: Icon(icon, size: 18, color: isSelected ? Colors.white : Colors.blueGrey),
+      label: Text(label),
+      selected: isSelected,
+      onSelected: (selected) {
+        if (selected) {
+          setState(() {
+            _quickKind = kind;
+            _quickController.clear();
+            _quickSecondaryController.clear();
+            _clearErrors();
+          });
+        }
+      },
+    );
+  }
+
+  void _saveQuickLink(QuickLinkKind kind) {
+    final input = _quickController.text;
+    final NdefRecordModel record;
+    try {
+      switch (kind) {
+        case QuickLinkKind.customUri:
+          final uri = input.trim();
+          if (!QuickLinkBuilder.isValidUri(uri)) {
+            throw const QuickLinkException('Şema içeren bir adres giriniz (Örn: spotify:track:... veya myapp://sayfa).');
+          }
+          record = NdefCodec.encodeUri(uri);
+          break;
+        case QuickLinkKind.social:
+          record = NdefCodec.encodeUri(QuickLinkBuilder.socialUrl(_socialNetwork, input));
+          break;
+        case QuickLinkKind.video:
+          record = NdefCodec.encodeUri(QuickLinkBuilder.videoUrl(input));
+          break;
+        case QuickLinkKind.search:
+          record = NdefCodec.encodeUri(QuickLinkBuilder.searchUrl(_searchEngine, input));
+          break;
+        case QuickLinkKind.file:
+          record = NdefCodec.encodeUri(
+            QuickLinkBuilder.httpsUrl(input, emptyMessage: 'Dosyanın bağlantısını giriniz.'),
+          );
+          break;
+        case QuickLinkKind.payment:
+          record = NdefCodec.encodeUri(
+            QuickLinkBuilder.httpsUrl(input, emptyMessage: 'Ödeme bağlantısını giriniz.'),
+          );
+          break;
+        case QuickLinkKind.facetime:
+          record = NdefCodec.encodeUri(QuickLinkBuilder.facetimeUri(input, audioOnly: false));
+          break;
+        case QuickLinkKind.facetimeAudio:
+          record = NdefCodec.encodeUri(QuickLinkBuilder.facetimeUri(input, audioOnly: true));
+          break;
+        case QuickLinkKind.address:
+          record = NdefCodec.encodeUri(QuickLinkBuilder.addressUrl(_mapProvider, input));
+          break;
+        case QuickLinkKind.app:
+          record = QuickLinkBuilder.androidAppRecord(input);
+          break;
+        case QuickLinkKind.bluetooth:
+          record = QuickLinkBuilder.bluetoothRecord(
+            input,
+            deviceName: _quickSecondaryController.text,
+          );
+          break;
+      }
+    } on QuickLinkException catch (e) {
+      setState(() => _quickError = e.message);
+      return;
+    }
+    widget.onRecordCreated(record);
+    Navigator.of(context).pop();
+  }
+
+  Widget _quickField({
+    required String label,
+    required String hint,
+    TextInputType keyboardType = TextInputType.text,
+    TextEditingController? controller,
+    bool showError = true,
+  }) {
+    return TextField(
+      controller: controller ?? _quickController,
+      keyboardType: keyboardType,
+      autocorrect: false,
+      decoration: InputDecoration(
+        labelText: label,
+        hintText: hint,
+        errorText: showError ? _quickError : null,
+        errorMaxLines: 3,
+        border: const OutlineInputBorder(),
+      ),
+    );
+  }
+
+  Widget _quickNote(String text) {
+    return Padding(
+      padding: const EdgeInsets.only(top: 8),
+      child: Text(text, style: const TextStyle(fontSize: 12, color: Colors.black54)),
+    );
+  }
+
+  Widget _buildQuickFields(QuickLinkKind kind) {
+    switch (kind) {
+      case QuickLinkKind.customUri:
+        return Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            _quickField(
+              label: 'Özel URI',
+              hint: 'spotify:track:... veya myapp://sayfa',
+              keyboardType: TextInputType.url,
+            ),
+            _quickNote('Herhangi bir şemayla başlayan adres yazılabilir; telefon bu adresi destekleyen uygulamayı açar.'),
+          ],
+        );
+      case QuickLinkKind.social:
+        return Column(
+          children: [
+            DropdownButtonFormField<SocialNetwork>(
+              initialValue: _socialNetwork,
+              decoration: const InputDecoration(
+                labelText: 'Sosyal Ağ',
+                border: OutlineInputBorder(),
+              ),
+              items: [
+                for (final n in SocialNetwork.values)
+                  DropdownMenuItem(value: n, child: Text(n.label)),
+              ],
+              onChanged: (v) => setState(() => _socialNetwork = v ?? _socialNetwork),
+            ),
+            const SizedBox(height: 10),
+            _quickField(
+              label: _socialNetwork == SocialNetwork.whatsapp ? 'Telefon Numarası' : 'Kullanıcı Adı',
+              hint: _socialNetwork == SocialNetwork.whatsapp ? '905551112233' : 'kullaniciadi',
+              keyboardType: _socialNetwork == SocialNetwork.whatsapp
+                  ? TextInputType.phone
+                  : TextInputType.text,
+            ),
+          ],
+        );
+      case QuickLinkKind.video:
+        return Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            _quickField(
+              label: 'Video Bağlantısı',
+              hint: 'https://youtu.be/... veya video kimliği',
+              keyboardType: TextInputType.url,
+            ),
+            _quickNote('YouTube, Vimeo vb. bağlantı ya da yalnızca YouTube video kimliği yazılabilir.'),
+          ],
+        );
+      case QuickLinkKind.search:
+        return Column(
+          children: [
+            DropdownButtonFormField<SearchEngine>(
+              initialValue: _searchEngine,
+              decoration: const InputDecoration(
+                labelText: 'Arama Motoru',
+                border: OutlineInputBorder(),
+              ),
+              items: [
+                for (final e in SearchEngine.values)
+                  DropdownMenuItem(value: e, child: Text(e.label)),
+              ],
+              onChanged: (v) => setState(() => _searchEngine = v ?? _searchEngine),
+            ),
+            const SizedBox(height: 10),
+            _quickField(label: 'Aranacak Metin', hint: 'Örn: İstanbul hava durumu'),
+          ],
+        );
+      case QuickLinkKind.file:
+        return Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            _quickField(
+              label: 'Dosya Bağlantısı',
+              hint: 'https://site.com/menu.pdf',
+              keyboardType: TextInputType.url,
+            ),
+            _quickNote('Etiketlerin kapasitesi küçük olduğu için dosyanın kendisi değil, internetteki bağlantısı yazılır (Google Drive, Dropbox vb.).'),
+          ],
+        );
+      case QuickLinkKind.facetime:
+      case QuickLinkKind.facetimeAudio:
+        return Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            _quickField(
+              label: 'Telefon veya Apple Kimliği',
+              hint: '+905551112233 veya ad@icloud.com',
+              keyboardType: TextInputType.emailAddress,
+            ),
+            _quickNote(kind == QuickLinkKind.facetime
+                ? 'Etikete dokunan iPhone görüntülü FaceTime araması başlatır.'
+                : 'Etikete dokunan iPhone yalnızca sesli FaceTime araması başlatır.'),
+          ],
+        );
+      case QuickLinkKind.address:
+        return Column(
+          children: [
+            DropdownButtonFormField<MapProvider>(
+              initialValue: _mapProvider,
+              decoration: const InputDecoration(
+                labelText: 'Harita Uygulaması',
+                border: OutlineInputBorder(),
+              ),
+              items: [
+                for (final m in MapProvider.values)
+                  DropdownMenuItem(value: m, child: Text(m.label)),
+              ],
+              onChanged: (v) => setState(() => _mapProvider = v ?? _mapProvider),
+            ),
+            const SizedBox(height: 10),
+            TextField(
+              controller: _quickController,
+              maxLines: 2,
+              decoration: InputDecoration(
+                labelText: 'Adres',
+                hintText: 'Örn: Bağdat Cad. No:1 Kadıköy İstanbul',
+                errorText: _quickError,
+                border: const OutlineInputBorder(),
+              ),
+            ),
+          ],
+        );
+      case QuickLinkKind.payment:
+        return Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            _quickField(
+              label: 'Ödeme Bağlantısı',
+              hint: 'https://paypal.me/kullanici',
+              keyboardType: TextInputType.url,
+            ),
+            _quickNote('PayPal.me, Papara, iyzico, Stripe gibi ödeme sayfası bağlantıları kullanılabilir. Kart bilgisi asla etikete yazılmaz.'),
+          ],
+        );
+      case QuickLinkKind.app:
+        return Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            _quickField(label: 'Android Paket Adı', hint: 'com.whatsapp'),
+            _quickNote('Android telefonlar etikete dokununca bu uygulamayı açar (yüklü değilse Play Store\'u açar). iPhone bu kayıt türünü yok sayar; iPhone için App Store bağlantısını URL olarak ekleyin.'),
+          ],
+        );
+      case QuickLinkKind.bluetooth:
+        return Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            _quickField(label: 'Bluetooth MAC Adresi', hint: '00:11:22:AA:BB:CC'),
+            const SizedBox(height: 10),
+            _quickField(
+              label: 'Cihaz Adı (isteğe bağlı)',
+              hint: 'Örn: Hoparlör',
+              controller: _quickSecondaryController,
+              showError: false,
+            ),
+            _quickNote('Android telefonlar etikete dokununca bu cihazla eşleşmeyi önerir. iPhone Bluetooth eşleştirme etiketlerini desteklemez.'),
+          ],
+        );
+    }
+  }
+
   Widget _buildChoiceChip(ParsedRecordType type, String label, IconData icon) {
-    final isSelected = _selectedType == type;
+    final isSelected = _quickKind == null && _selectedType == type;
     return ChoiceChip(
       avatar: Icon(icon, size: 18, color: isSelected ? Colors.white : Colors.blueGrey),
       label: Text(label),
@@ -609,6 +919,7 @@ class _ComposeRecordSheetState extends State<ComposeRecordSheet> {
         if (selected) {
           setState(() {
             _selectedType = type;
+            _quickKind = null;
             _clearErrors();
           });
         }
@@ -617,6 +928,8 @@ class _ComposeRecordSheetState extends State<ComposeRecordSheet> {
   }
 
   Widget _buildTypeFields() {
+    final quickKind = _quickKind;
+    if (quickKind != null) return _buildQuickFields(quickKind);
     switch (_selectedType) {
       case ParsedRecordType.text:
         return TextField(

@@ -43,6 +43,9 @@ class MainActivity : FlutterActivity(), NfcAdapter.ReaderCallback {
                     val verify = call.argument<Boolean>("verifyReadAfterWrite") ?: true
                     startWriteTag(records, verify, result)
                 }
+                "lockTag" -> {
+                    startLockTag(result)
+                }
                 "cancelSession" -> {
                     val activeResult: MethodChannel.Result?
                     synchronized(stateLock) {
@@ -134,6 +137,31 @@ class MainActivity : FlutterActivity(), NfcAdapter.ReaderCallback {
         adapter.enableReaderMode(this, this, flags, null)
     }
 
+    private fun startLockTag(result: MethodChannel.Result) {
+        val adapter = nfcAdapter
+        if (adapter == null || !adapter.isEnabled) {
+            result.error("NFC_NOT_AVAILABLE", "NFC donanımı mevcut değil veya kapalı", null)
+            return
+        }
+
+        synchronized(stateLock) {
+            if (pendingResult != null) {
+                result.error("OPERATION_IN_PROGRESS", "Zaten devam eden bir NFC işlemi var", null)
+                return
+            }
+            pendingOperation = "lock"
+            pendingResult = result
+        }
+
+        val flags = NfcAdapter.FLAG_READER_NFC_A or
+                    NfcAdapter.FLAG_READER_NFC_B or
+                    NfcAdapter.FLAG_READER_NFC_F or
+                    NfcAdapter.FLAG_READER_NFC_V or
+                    NfcAdapter.FLAG_READER_NO_PLATFORM_SOUNDS
+
+        adapter.enableReaderMode(this, this, flags, null)
+    }
+
     private fun stopReaderModeLocked() {
         try {
             nfcAdapter?.disableReaderMode(this)
@@ -183,6 +211,7 @@ class MainActivity : FlutterActivity(), NfcAdapter.ReaderCallback {
             when (op) {
                 "scan" -> handleTagRead(tag, result)
                 "write" -> handleTagWrite(tag, stagedRecords, shouldVerify, result)
+                "lock" -> handleTagLock(tag, result)
             }
         }
     }
@@ -376,6 +405,40 @@ class MainActivity : FlutterActivity(), NfcAdapter.ReaderCallback {
             try { ndef?.close() } catch (_: Exception) {}
             try { formatable?.close() } catch (_: Exception) {}
             postError(result, "WRITE_EXCEPTION", "Yazma sırasında hata oluştu: ${e.message}", null)
+        }
+    }
+
+    private fun handleTagLock(tag: Tag, result: MethodChannel.Result) {
+        val ndef = Ndef.get(tag)
+        if (ndef == null) {
+            postError(result, "TAG_NOT_SUPPORTED", "Etiket NDEF biçiminde değil; önce bir kayıt yazın", null)
+            return
+        }
+        try {
+            ndef.connect()
+            if (!ndef.isWritable) {
+                postError(result, "ALREADY_LOCKED", "Etiket zaten kilitli (salt okunur)", null)
+                return
+            }
+            if (!ndef.canMakeReadOnly()) {
+                postError(result, "LOCK_NOT_SUPPORTED", "Bu etiket türü kilitlemeyi desteklemiyor", null)
+                return
+            }
+            if (!ndef.makeReadOnly()) {
+                postError(result, "LOCK_FAILED", "Etiket kilitlenemedi", null)
+                return
+            }
+            postSuccess(
+                result,
+                mapOf(
+                    "isSuccess" to true,
+                    "message" to "Etiket kalıcı olarak kilitlendi"
+                )
+            )
+        } catch (e: Exception) {
+            postError(result, "LOCK_FAILED", "Kilitleme sırasında hata oluştu: ${e.message}", null)
+        } finally {
+            try { ndef.close() } catch (_: Exception) {}
         }
     }
 
