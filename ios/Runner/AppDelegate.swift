@@ -176,8 +176,15 @@ import CoreNFC
             guard let self = self else { return }
 
             if let error = error {
+                if let nfcError = error as? NFCReaderError,
+                   nfcError.code == .ndefReaderSessionErrorZeroLengthMessage {
+                    session.alertMessage = "Boş etiket başarıyla okundu!"
+                    self.finishWithResult(self.tagInfo(status: status, capacity: capacity, message: nil))
+                    session.invalidate()
+                    return
+                }
                 self.finishWithResult(FlutterError(code: "READ_FAILED", message: error.localizedDescription, details: nil))
-                session.invalidate(errorMessage: "Etiket okunamadı")
+                session.invalidate(errorMessage: "Etiket okunamadı: \(error.localizedDescription)")
                 return
             }
 

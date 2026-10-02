@@ -2009,7 +2009,15 @@ class _HomeScreenState extends State<HomeScreen>
             ),
           ),
           const SizedBox(height: 16),
-          if (tag == null)
+          if (tag?.error != null)
+            Card(
+              color: Colors.red.shade50,
+              child: Padding(
+                padding: const EdgeInsets.all(16),
+                child: Text('Tarama hatası: ${tag!.error}'),
+              ),
+            )
+          else if (tag == null)
             Card(
               elevation: 0,
               color: Colors.grey.shade100,
