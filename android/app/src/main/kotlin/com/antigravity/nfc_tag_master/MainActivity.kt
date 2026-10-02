@@ -188,10 +188,11 @@ class MainActivity : FlutterActivity(), NfcAdapter.ReaderCallback {
     }
 
     private fun handleTagRead(tag: Tag, result: MethodChannel.Result) {
+        var ndef: Ndef? = null
         try {
             val idHex = bytesToHex(tag.id)
             val techList = tag.techList.map { it.substringAfterLast('.') }
-            val ndef = Ndef.get(tag)
+            ndef = Ndef.get(tag)
 
             if (ndef == null) {
                 // Not standard NDEF formatted
@@ -243,6 +244,7 @@ class MainActivity : FlutterActivity(), NfcAdapter.ReaderCallback {
             )
             postSuccess(result, map)
         } catch (e: Exception) {
+            try { ndef?.close() } catch (_: Exception) {}
             postError(result, "READ_FAILED", "Etiket okuma başarısız: ${e.message}", null)
         }
     }
@@ -258,6 +260,8 @@ class MainActivity : FlutterActivity(), NfcAdapter.ReaderCallback {
             return
         }
 
+        var ndef: Ndef? = null
+        var formatable: NdefFormatable? = null
         try {
             val ndefRecords = recordsData.map { map ->
                 val tnf = (map["tnf"] as? Number)?.toShort() ?: NdefRecord.TNF_WELL_KNOWN
@@ -271,7 +275,7 @@ class MainActivity : FlutterActivity(), NfcAdapter.ReaderCallback {
             val expectedBytes = ndefMessage.toByteArray()
             val messageLength = ndefMessage.byteArrayLength
 
-            val ndef = Ndef.get(tag)
+            ndef = Ndef.get(tag)
             if (ndef != null) {
                 ndef.connect()
                 if (!ndef.isWritable) {
@@ -322,7 +326,7 @@ class MainActivity : FlutterActivity(), NfcAdapter.ReaderCallback {
                 )
             } else {
                 // Check if formattable
-                val formatable = NdefFormatable.get(tag)
+                formatable = NdefFormatable.get(tag)
                 if (formatable != null) {
                     formatable.connect()
                     formatable.format(ndefMessage)
@@ -369,6 +373,8 @@ class MainActivity : FlutterActivity(), NfcAdapter.ReaderCallback {
                 }
             }
         } catch (e: Exception) {
+            try { ndef?.close() } catch (_: Exception) {}
+            try { formatable?.close() } catch (_: Exception) {}
             postError(result, "WRITE_EXCEPTION", "Yazma sırasında hata oluştu: ${e.message}", null)
         }
     }

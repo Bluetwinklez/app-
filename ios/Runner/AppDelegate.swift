@@ -120,15 +120,20 @@ import CoreNFC
         }
 
         let ndefTag: NFCNDEFTag
+        let tagIdentifier: Data
         switch tag {
         case .miFare(let value):
             ndefTag = value
+            tagIdentifier = value.identifier
         case .iso15693(let value):
             ndefTag = value
+            tagIdentifier = value.identifier
         case .iso7816(let value):
             ndefTag = value
+            tagIdentifier = value.identifier
         case .feliCa(let value):
             ndefTag = value
+            tagIdentifier = value.currentIDm
         @unknown default:
             finishWithResult(FlutterError(code: "UNSUPPORTED_TAG", message: "Bu NFC etiket türü desteklenmiyor", details: nil))
             session.invalidate(errorMessage: "Etiket türü desteklenmiyor")
@@ -156,7 +161,7 @@ import CoreNFC
                 self.lock.unlock()
 
                 if op == "scan" {
-                    self.handleTagScan(session: session, tag: ndefTag, status: status, capacity: capacity)
+                    self.handleTagScan(session: session, tag: ndefTag, identifier: tagIdentifier, status: status, capacity: capacity)
                 } else if op == "write" {
                     self.handleTagWrite(session: session, tag: ndefTag, status: status, capacity: capacity)
                 }
@@ -164,9 +169,9 @@ import CoreNFC
         }
     }
 
-    private func handleTagScan(session: NFCTagReaderSession, tag: NFCNDEFTag, status: NFCNDEFStatus, capacity: Int) {
+    private func handleTagScan(session: NFCTagReaderSession, tag: NFCNDEFTag, identifier: Data, status: NFCNDEFStatus, capacity: Int) {
         if status == .notSupported {
-            finishWithResult(tagInfo(status: status, capacity: capacity, message: nil))
+            finishWithResult(tagInfo(identifier: identifier, status: status, capacity: capacity, message: nil))
             session.alertMessage = "Etiket algılandı; NDEF biçiminde değil."
             session.invalidate()
             return
@@ -179,7 +184,7 @@ import CoreNFC
                 if let nfcError = error as? NFCReaderError,
                    nfcError.code == .ndefReaderSessionErrorZeroLengthMessage {
                     session.alertMessage = "Boş etiket başarıyla okundu!"
-                    self.finishWithResult(self.tagInfo(status: status, capacity: capacity, message: nil))
+                    self.finishWithResult(self.tagInfo(identifier: identifier, status: status, capacity: capacity, message: nil))
                     session.invalidate()
                     return
                 }
@@ -189,12 +194,12 @@ import CoreNFC
             }
 
             session.alertMessage = "Etiket başarıyla okundu!"
-            self.finishWithResult(self.tagInfo(status: status, capacity: capacity, message: message))
+            self.finishWithResult(self.tagInfo(identifier: identifier, status: status, capacity: capacity, message: message))
             session.invalidate()
         }
     }
 
-    private func tagInfo(status: NFCNDEFStatus, capacity: Int, message: NFCNDEFMessage?) -> [String: Any] {
+    private func tagInfo(identifier: Data, status: NFCNDEFStatus, capacity: Int, message: NFCNDEFMessage?) -> [String: Any] {
         let rawRecords: [[String: Any]] = message?.records.map { record in
             [
                 "tnf": Int(record.typeNameFormat.rawValue),
@@ -204,7 +209,7 @@ import CoreNFC
             ]
         } ?? []
         return [
-                "identifier": "iOS-NFC-Tag",
+                "identifier": identifier.isEmpty ? "iOS-NFC-Tag" : identifier.map { String(format: "%02X", $0) }.joined(separator: ":"),
                 "standardTechnologies": status == .notSupported ? ["CoreNFC"] : ["CoreNFC", "NDEF"],
                 "isNdefSupported": (status != .notSupported),
                 "isWritable": (status == .readWrite),

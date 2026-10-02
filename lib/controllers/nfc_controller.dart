@@ -67,6 +67,17 @@ class NfcStateController extends ChangeNotifier {
     notifyListeners();
   }
 
+  /// Re-checks NFC availability without re-initializing storage (e.g. after
+  /// the user toggles NFC in system settings and returns to the app)
+  Future<void> refreshAvailability() async {
+    if (_isBusy) return;
+    final availability = await _service.checkAvailability();
+    if (availability != _availability) {
+      _availability = availability;
+      notifyListeners();
+    }
+  }
+
   /// Start scan
   Future<void> scanTag() async {
     if (_availability == NfcAvailability.notSupported) {
