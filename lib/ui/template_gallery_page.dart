@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import '../domain/ndef_record.dart';
 import '../domain/quick_links.dart';
 import '../domain/template_gallery.dart';
+import '../l10n/app_localizations.dart';
 import 'app_theme.dart';
 
 /// Grid of ready-made use cases; picking one asks for a few fields and hands
@@ -57,7 +58,7 @@ class TemplateGalleryPage extends StatelessWidget {
       decoration: const BoxDecoration(gradient: AppColors.canvasGradient),
       child: Scaffold(
         backgroundColor: Colors.transparent,
-        appBar: AppBar(title: const Text('Hazır Şablonlar')),
+        appBar: AppBar(title: Text(AppLocalizations.of(context)!.readyTemplates)),
         body: LayoutBuilder(
           builder: (context, constraints) {
             final columns = constraints.maxWidth > 600 ? 3 : 2;
@@ -215,7 +216,9 @@ class _PresetFormState extends State<_PresetForm> {
                 maxLines: field.kind == GalleryFieldKind.multiline ? 3 : 1,
                 minLines: 1,
                 decoration: InputDecoration(
-                  labelText: field.required ? field.label : '${field.label} (isteğe bağlı)',
+                  labelText: field.required
+                      ? field.label
+                      : AppLocalizations.of(context)!.optionalField(field.label),
                   hintText: field.hint,
                 ),
               ),
@@ -229,7 +232,7 @@ class _PresetFormState extends State<_PresetForm> {
             ElevatedButton.icon(
               onPressed: _submit,
               icon: const Icon(Icons.add_task_rounded),
-              label: const Text('Yazma Listesine Ekle'),
+              label: Text(AppLocalizations.of(context)!.addToComposerList),
             ),
           ],
         ),

@@ -2,9 +2,11 @@ import 'dart:convert';
 import 'package:file_selector/file_selector.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import '../l10n/app_localizations.dart';
 import 'package:share_plus/share_plus.dart';
 import '../controllers/nfc_controller.dart';
 import '../domain/ntag_tools.dart';
+import '../l10n/l10n.dart';
 import 'app_theme.dart';
 
 /// "Araçlar" screen: chip-level tools for NTAG / MIFARE Ultralight tags.
@@ -24,70 +26,70 @@ class ToolsTab extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final loc = AppLocalizations.of(context) ?? L10n.current;
     return ListView(
       padding: const EdgeInsets.fromLTRB(16, 4, 16, 24),
       children: [
-        const SectionHeader(title: 'Etiket'),
+        SectionHeader(title: loc.toolsTagSection),
         ToolTile(
           icon: Icons.delete_sweep_outlined,
-          title: 'Etiketi Sil',
-          subtitle: 'Tüm kayıtları silip boş NDEF yazar',
+          title: loc.clearTagTitle,
+          subtitle: loc.clearTagSubtitle,
           color: AppColors.danger,
           onTap: _idle ? onClearTag : null,
         ),
         ToolTile(
           icon: Icons.lock_outline,
-          title: 'Etiketi Kilitle',
-          subtitle: 'Kalıcı olarak salt okunur yapar (geri alınamaz)',
+          title: loc.lockTagTitle,
+          subtitle: loc.lockTagSubtitle,
           color: AppColors.warning,
           onTap: _idle ? onLockTag : null,
         ),
-        const SectionHeader(title: 'Bellek'),
+        SectionHeader(title: loc.toolsMemorySection),
         ToolTile(
           icon: Icons.layers_outlined,
-          title: 'Belleği Oku',
-          subtitle: 'Sayfa sayfa ham bellek; kopyala veya .bin olarak kaydet',
+          title: loc.readMemoryTitle,
+          subtitle: loc.readMemorySubtitle,
           onTap: _idle ? () => _readMemory(context) : null,
         ),
         ToolTile(
           icon: Icons.storage_outlined,
-          title: 'Belleği Biçimlendir',
-          subtitle: 'NDEF için hazırlar (boş veya bozuk etiketler)',
+          title: loc.formatMemoryTitle,
+          subtitle: loc.formatMemorySubtitle,
           onTap: _idle ? () => _formatMemory(context) : null,
         ),
         ToolTile(
           icon: Icons.file_download_outlined,
-          title: 'Dump Yaz (.bin)',
-          subtitle: 'Kayıtlı bellek dosyasını etikete yazar',
+          title: loc.writeDumpTitle,
+          subtitle: loc.writeDumpSubtitle,
           onTap: _idle ? () => _writeDump(context) : null,
         ),
-        const SectionHeader(title: 'Güvenlik'),
+        SectionHeader(title: loc.toolsSecuritySection),
         ToolTile(
           icon: Icons.key_outlined,
-          title: 'Şifre Belirle',
-          subtitle: 'Etiket içeriğini yazmaya karşı şifreyle korur',
+          title: loc.setPasswordTitle,
+          subtitle: loc.setPasswordSubtitle,
           onTap: _idle ? () => _setPassword(context) : null,
         ),
         ToolTile(
           icon: Icons.key_off_outlined,
-          title: 'Şifreyi Kaldır',
-          subtitle: 'Bilinen şifreyle korumayı kaldırır',
+          title: loc.removePasswordTitle,
+          subtitle: loc.removePasswordSubtitle,
           onTap: _idle ? () => _removePassword(context) : null,
         ),
-        const SectionHeader(title: 'Uzman'),
+        SectionHeader(title: loc.toolsExpertSection),
         ToolTile(
           icon: Icons.memory_outlined,
-          title: 'Gelişmiş NFC Komutları',
-          subtitle: 'Etikete ham onaltılık (hex) komut gönderir',
+          title: loc.advancedCommandsTitle,
+          subtitle: loc.advancedCommandsSubtitle,
           color: AppColors.ink,
           onTap: _idle ? () => _advancedCommands(context) : null,
         ),
-        const Padding(
-          padding: EdgeInsets.fromLTRB(4, 8, 4, 0),
+        Padding(
+          padding: const EdgeInsets.fromLTRB(4, 8, 4, 0),
           child: Text(
-            'Bellek, şifre ve komut araçları NTAG213/215/216 ve MIFARE Ultralight EV1 etiketlerde çalışır. '
-            'Etiketi işlem bitene kadar telefona yakın tutun.',
-            style: TextStyle(fontSize: 12, color: AppColors.secondary, height: 1.4),
+            loc.toolsFooterNote,
+            style: const TextStyle(fontSize: 12, color: AppColors.secondary, height: 1.4),
           ),
         ),
       ],
@@ -107,13 +109,14 @@ class ToolsTab extends StatelessWidget {
     required String action,
     bool destructive = false,
   }) async {
+    final loc = AppLocalizations.of(context) ?? L10n.current;
     final result = await showDialog<bool>(
       context: context,
       builder: (ctx) => AlertDialog(
         title: Text(title),
         content: Text(message),
         actions: [
-          TextButton(onPressed: () => Navigator.of(ctx).pop(false), child: const Text('Vazgeç')),
+          TextButton(onPressed: () => Navigator.of(ctx).pop(false), child: Text(loc.dismiss)),
           ElevatedButton(
             style: destructive ? ElevatedButton.styleFrom(backgroundColor: AppColors.danger) : null,
             onPressed: () => Navigator.of(ctx).pop(true),
@@ -126,11 +129,12 @@ class ToolsTab extends StatelessWidget {
   }
 
   Future<void> _readMemory(BuildContext context) async {
+    final loc = AppLocalizations.of(context) ?? L10n.current;
     final dump = await controller.runRawTask<NtagMemoryDump>(
-      promptMessage: 'Belleği okunacak etiketi yaklaştırın',
-      busyMessage: 'Bellek okunuyor... Etiketi yakın tutun.',
+      promptMessage: loc.readTagMemoryPrompt,
+      busyMessage: loc.readingTagMemoryStatus,
       task: NtagTools.readMemory,
-      successMessage: (d) => '${d.chipName}: ${d.pageCount} sayfa okundu',
+      successMessage: (d) => loc.ntagPagesRead(d.chipName, d.pageCount),
     );
     if (!context.mounted) return;
     if (dump == null) {
@@ -145,90 +149,93 @@ class ToolsTab extends StatelessWidget {
   }
 
   Future<void> _formatMemory(BuildContext context) async {
+    final loc = AppLocalizations.of(context) ?? L10n.current;
     final ok = await _confirm(
       context,
-      title: 'Belleği Biçimlendir',
-      message: 'Etiketteki veriler silinir ve etiket boş bir NDEF etiketi olarak hazırlanır. Devam edilsin mi?',
-      action: 'Biçimlendir',
+      title: loc.formatTagConfirmTitle,
+      message: loc.formatTagConfirmMessage,
+      action: loc.formatButton,
       destructive: true,
     );
     if (!ok || !context.mounted) return;
     final chip = await controller.runRawTask<NtagChip>(
-      promptMessage: 'Biçimlendirilecek etiketi yaklaştırın',
-      busyMessage: 'Biçimlendiriliyor...',
+      promptMessage: loc.formatTagPrompt,
+      busyMessage: loc.formattingStatus,
       task: NtagTools.formatNdef,
-      successMessage: (c) => '${c.name} biçimlendirildi',
+      successMessage: (c) => loc.ntagFormatted(c.name),
     );
     if (context.mounted) _snack(context, controller.statusMessage, error: chip == null);
   }
 
   Future<void> _writeDump(BuildContext context) async {
+    final loc = AppLocalizations.of(context) ?? L10n.current;
     XFile? file;
     try {
       file = await openFile();
     } catch (e) {
-      if (context.mounted) _snack(context, 'Dosya seçici açılamadı: $e', error: true);
+      if (context.mounted) _snack(context, loc.filePickerFailed(e.toString()), error: true);
       return;
     }
     if (file == null || !context.mounted) return;
     final bytes = await file.readAsBytes();
     if (!context.mounted) return;
     if (bytes.length < 32 || bytes.length > 1024 || bytes.length % 4 != 0) {
-      _snack(context, 'Geçersiz dump dosyası (4 baytın katı, 32–1024 bayt olmalı).', error: true);
+      _snack(context, loc.ntagInvalidDumpFile, error: true);
       return;
     }
     final ok = await _confirm(
       context,
-      title: 'Dump Yaz',
-      message: '"${file.name}" (${bytes.length} bayt) etiketin kullanıcı belleğine yazılacak. '
-          'UID, kilit ve ayar sayfalarına dokunulmaz. Etiketteki mevcut veri silinir.',
-      action: 'Yaz',
+      title: loc.writeDumpTitle,
+      message: loc.writeDumpConfirmMessage(bytes.length, file.name),
+      action: loc.writeButton,
       destructive: true,
     );
     if (!ok || !context.mounted) return;
     final pages = await controller.runRawTask<int>(
-      promptMessage: 'Dump yazılacak etiketi yaklaştırın',
-      busyMessage: 'Dump yazılıyor... Etiketi yakın tutun.',
+      promptMessage: loc.writeDumpPrompt,
+      busyMessage: loc.writingDumpStatus,
       task: (t) => NtagTools.writeDump(t, bytes),
-      successMessage: (n) => '$n sayfa yazıldı',
+      successMessage: (n) => loc.ntagPagesWritten(n),
     );
     if (context.mounted) _snack(context, controller.statusMessage, error: pages == null);
   }
 
   Future<void> _setPassword(BuildContext context) async {
+    final loc = AppLocalizations.of(context) ?? L10n.current;
     final password = await showDialog<Uint8List>(
       context: context,
-      builder: (ctx) => const _PasswordDialog(
-        title: 'Şifre Belirle',
-        warning: 'Şifreyi unutursanız etiketin içeriğini bir daha değiştiremezsiniz. Okuma herkese açık kalır.',
-        action: 'Şifreyi Ayarla',
+      builder: (ctx) => _PasswordDialog(
+        title: loc.setPasswordTitle,
+        warning: loc.setPasswordWarning,
+        action: loc.setPasswordAction,
       ),
     );
     if (password == null || !context.mounted) return;
     final chip = await controller.runRawTask<NtagChip>(
-      promptMessage: 'Şifre koyulacak etiketi yaklaştırın',
-      busyMessage: 'Şifre ayarlanıyor...',
+      promptMessage: loc.setPasswordPrompt,
+      busyMessage: loc.settingPasswordStatus,
       task: (t) => NtagTools.setPassword(t, password: password, pack: Uint8List.fromList([0x00, 0x00])),
-      successMessage: (c) => '${c.name}: şifre koruması etkin',
+      successMessage: (c) => loc.ntagPasswordSet(c.name),
     );
     if (context.mounted) _snack(context, controller.statusMessage, error: chip == null);
   }
 
   Future<void> _removePassword(BuildContext context) async {
+    final loc = AppLocalizations.of(context) ?? L10n.current;
     final password = await showDialog<Uint8List>(
       context: context,
-      builder: (ctx) => const _PasswordDialog(
-        title: 'Şifreyi Kaldır',
-        warning: 'Etikete daha önce koyduğunuz şifreyi girin.',
-        action: 'Kaldır',
+      builder: (ctx) => _PasswordDialog(
+        title: loc.removePasswordTitle,
+        warning: loc.removePasswordPromptMessage,
+        action: loc.remove,
       ),
     );
     if (password == null || !context.mounted) return;
     final chip = await controller.runRawTask<NtagChip>(
-      promptMessage: 'Şifresi kaldırılacak etiketi yaklaştırın',
-      busyMessage: 'Şifre kaldırılıyor...',
+      promptMessage: loc.removePasswordPrompt,
+      busyMessage: loc.removingPasswordStatus,
       task: (t) => NtagTools.removePassword(t, password: password),
-      successMessage: (c) => '${c.name}: şifre kaldırıldı',
+      successMessage: (c) => loc.ntagPasswordRemoved(c.name),
     );
     if (context.mounted) _snack(context, controller.statusMessage, error: chip == null);
   }
@@ -275,6 +282,7 @@ class _PasswordDialogState extends State<_PasswordDialog> {
 
   @override
   Widget build(BuildContext context) {
+    final loc = AppLocalizations.of(context) ?? L10n.current;
     return AlertDialog(
       title: Text(widget.title),
       content: Column(
@@ -288,20 +296,20 @@ class _PasswordDialogState extends State<_PasswordDialog> {
             autofocus: true,
             autocorrect: false,
             decoration: InputDecoration(
-              labelText: 'Şifre',
-              hintText: '4 karakter (Örn: 1234) veya 8 hex',
+              labelText: loc.passwordLabel,
+              hintText: loc.passwordHint,
               errorText: _error,
             ),
           ),
         ],
       ),
       actions: [
-        TextButton(onPressed: () => Navigator.of(context).pop(), child: const Text('Vazgeç')),
+        TextButton(onPressed: () => Navigator.of(context).pop(), child: Text(loc.dismiss)),
         ElevatedButton(
           onPressed: () {
             final bytes = parse(_controller.text);
             if (bytes == null) {
-              setState(() => _error = 'Tam 4 karakter veya 8 hex rakam giriniz.');
+              setState(() => _error = loc.passwordError);
               return;
             }
             Navigator.of(context).pop(bytes);
@@ -320,6 +328,7 @@ class _MemoryViewer extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final loc = AppLocalizations.of(context) ?? L10n.current;
     final lines = dump.formatPages();
     return SafeArea(
       child: SizedBox(
@@ -335,7 +344,7 @@ class _MemoryViewer extends StatelessWidget {
                   Text(dump.chipName, style: Theme.of(context).textTheme.titleLarge),
                   const SizedBox(height: 4),
                   Text(
-                    '${dump.pageCount} sayfa · ${dump.bytes.length} bayt',
+                    loc.pagesAndBytes(dump.pageCount, dump.bytes.length),
                     style: const TextStyle(color: AppColors.secondary),
                   ),
                   if (dump.warning != null)
@@ -370,12 +379,12 @@ class _MemoryViewer extends StatelessWidget {
                   Expanded(
                     child: OutlinedButton.icon(
                       icon: const Icon(Icons.copy, size: 18),
-                      label: const Text('Kopyala'),
+                      label: Text(loc.copy),
                       onPressed: () async {
                         await Clipboard.setData(ClipboardData(text: lines.join('\n')));
                         if (context.mounted) {
                           ScaffoldMessenger.of(context)
-                              .showSnackBar(const SnackBar(content: Text('Bellek dökümü kopyalandı')));
+                              .showSnackBar(SnackBar(content: Text(loc.memoryDumpCopied)));
                         }
                       },
                     ),
@@ -384,7 +393,7 @@ class _MemoryViewer extends StatelessWidget {
                   Expanded(
                     child: ElevatedButton.icon(
                       icon: const Icon(Icons.ios_share, size: 18),
-                      label: const Text('.bin Kaydet'),
+                      label: Text(loc.saveBin),
                       onPressed: () {
                         final name = 'nfc_dump_${DateTime.now().millisecondsSinceEpoch}.bin';
                         SharePlus.instance.share(ShareParams(
@@ -425,6 +434,7 @@ class _AdvancedCommandsSheetState extends State<_AdvancedCommandsSheet> {
   }
 
   Future<void> _run() async {
+    final loc = AppLocalizations.of(context) ?? L10n.current;
     final commands = <Uint8List>[];
     try {
       for (final line in _input.text.split('\n')) {
@@ -436,28 +446,28 @@ class _AdvancedCommandsSheetState extends State<_AdvancedCommandsSheet> {
       return;
     }
     if (commands.isEmpty) {
-      setState(() => _error = 'En az bir komut giriniz.');
+      setState(() => _error = loc.commandsEmptyError);
       return;
     }
     setState(() => _error = null);
 
     final buffer = StringBuffer();
     await widget.controller.runRawTask<void>(
-      promptMessage: 'Komut gönderilecek etiketi yaklaştırın',
-      busyMessage: 'Komutlar gönderiliyor...',
+      promptMessage: loc.sendCommandsPrompt,
+      busyMessage: loc.sendingCommandsStatus,
       task: (transceive) async {
         for (final cmd in commands) {
           buffer.writeln('> ${NtagTools.toHex(cmd)}');
           try {
             final response = await transceive(cmd);
-            buffer.writeln('< ${response.isEmpty ? '(boş yanıt)' : NtagTools.toHex(response)}');
+            buffer.writeln('< ${response.isEmpty ? loc.emptyResponse : NtagTools.toHex(response)}');
           } catch (e) {
             buffer.writeln('! $e');
             break;
           }
         }
       },
-      successMessage: (_) => '${commands.length} komut gönderildi',
+      successMessage: (_) => loc.ntagCommandsSent(commands.length),
     );
     if (!mounted) return;
     setState(() => _log = buffer.isEmpty ? widget.controller.statusMessage : buffer.toString());
@@ -465,18 +475,18 @@ class _AdvancedCommandsSheetState extends State<_AdvancedCommandsSheet> {
 
   @override
   Widget build(BuildContext context) {
+    final loc = AppLocalizations.of(context) ?? L10n.current;
     return Padding(
       padding: EdgeInsets.fromLTRB(20, 0, 20, MediaQuery.of(context).viewInsets.bottom + 20),
       child: SingleChildScrollView(
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.stretch,
           children: [
-            Text('Gelişmiş NFC Komutları', style: Theme.of(context).textTheme.titleLarge),
+            Text(loc.advancedCommandsTitle, style: Theme.of(context).textTheme.titleLarge),
             const SizedBox(height: 6),
-            const Text(
-              'Her satıra bir komut yazın (hex). Örn: 60 = GET_VERSION, 30 04 = sayfa 4\'ten oku. '
-              'Yanlış yazma komutları etiketi kalıcı olarak bozabilir.',
-              style: TextStyle(color: AppColors.secondary, height: 1.4),
+            Text(
+              loc.advancedCommandsDesc,
+              style: const TextStyle(color: AppColors.secondary, height: 1.4),
             ),
             const SizedBox(height: 14),
             TextField(
@@ -484,13 +494,13 @@ class _AdvancedCommandsSheetState extends State<_AdvancedCommandsSheet> {
               maxLines: 5,
               autocorrect: false,
               style: const TextStyle(fontFamily: 'Courier'),
-              decoration: InputDecoration(labelText: 'Komutlar', errorText: _error),
+              decoration: InputDecoration(labelText: loc.commandsLabel, errorText: _error),
             ),
             const SizedBox(height: 12),
             ElevatedButton.icon(
               onPressed: widget.controller.isBusy ? null : _run,
               icon: const Icon(Icons.send, size: 18),
-              label: const Text('Gönder'),
+              label: Text(loc.sendButton),
             ),
             if (_log.isNotEmpty) ...[
               const SizedBox(height: 14),

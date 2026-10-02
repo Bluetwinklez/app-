@@ -4,6 +4,7 @@ import 'package:crypto/crypto.dart';
 import '../domain/ndef_record.dart';
 import '../domain/storage_models.dart';
 import '../domain/tag_rule.dart';
+import '../l10n/l10n.dart';
 
 /// Pure Dart codec and validator for versioned JSON backups.
 ///
@@ -51,7 +52,7 @@ class BackupCodec {
     final utf8Bytes = utf8.encode(jsonStr);
     if (utf8Bytes.length > maxByteSize) {
       throw BackupValidationException(
-        'Yedekleme verisi izin verilen 2 MiB sınırını aşıyor (${utf8Bytes.length} bayt).',
+        L10n.current.backupSizeExceeded(utf8Bytes.length),
       );
     }
     return jsonStr;
@@ -68,8 +69,8 @@ class BackupCodec {
   static BackupPayload decodeAndValidate(String jsonContent) {
     final encodedBytes = utf8.encode(jsonContent);
     if (encodedBytes.length > maxByteSize) {
-      throw const BackupValidationException(
-        'Yedek dosyası boyutu 2 MiB sınırını aşıyor.',
+      throw BackupValidationException(
+        L10n.current.backupFileSizeExceeded,
       );
     }
 
@@ -77,12 +78,12 @@ class BackupCodec {
     try {
       decoded = jsonDecode(jsonContent);
     } catch (e) {
-      throw BackupValidationException('Geçersiz JSON biçimi: $e');
+      throw BackupValidationException(L10n.current.backupInvalidJson(e.toString()));
     }
 
     if (decoded is! Map) {
-      throw const BackupValidationException(
-          'Yedek dosyasının kök yapısı bir JSON nesnesi olmalıdır.');
+      throw BackupValidationException(
+          L10n.current.backupRootMustBeObject);
     }
 
     final root = Map<String, dynamic>.from(decoded);
@@ -90,16 +91,16 @@ class BackupCodec {
     // Schema version validation
     final version = root['schemaVersion'];
     if (version == null) {
-      throw const BackupValidationException(
-          'Yedek dosyasında "schemaVersion" alanı eksik.');
+      throw BackupValidationException(
+          L10n.current.backupMissingSchemaVersion);
     }
     if (version is! int) {
-      throw const BackupValidationException(
-          '"schemaVersion" alanı bir tamsayı olmalıdır.');
+      throw BackupValidationException(
+          L10n.current.backupSchemaVersionMustBeInt);
     }
     if (version != currentSchemaVersion) {
       throw BackupValidationException(
-        'Desteklenmeyen yedek şema sürümü: $version (Beklenen sürüm: $currentSchemaVersion).',
+        L10n.current.backupUnsupportedSchemaVersion(version.toString()),
       );
     }
 
@@ -108,34 +109,34 @@ class BackupCodec {
     final List<WriteTemplate> templates = [];
     if (rawTemplates != null) {
       if (rawTemplates is! List) {
-        throw const BackupValidationException(
-            '"templates" alanı bir liste olmalıdır.');
+        throw BackupValidationException(
+            L10n.current.backupTemplatesMustBeList);
       }
       if (rawTemplates.length > maxTemplatesCount) {
-        throw const BackupValidationException(
-          'Şablon sayısı sınırı aşıldı: en fazla $maxTemplatesCount şablon desteklenir.',
+        throw BackupValidationException(
+          L10n.current.backupMaxTemplatesExceeded(maxTemplatesCount, rawTemplates.length),
         );
       }
       for (int i = 0; i < rawTemplates.length; i++) {
         final item = rawTemplates[i];
         if (item is! Map) {
           throw BackupValidationException(
-              'Şablon #$i geçerli bir nesne değil.');
+              L10n.current.backupTemplateMustBeObject);
         }
         final map = Map<String, dynamic>.from(item);
         final id = map['id'];
         final name = map['name'];
         if (id == null || id is! String || id.trim().isEmpty) {
           throw BackupValidationException(
-              'Şablon #$i için geçerli bir "id" dizesi zorunludur.');
+              L10n.current.backupInvalidTemplateId);
         }
         if (name == null || name is! String || name.trim().isEmpty) {
           throw BackupValidationException(
-              'Şablon #$i için geçerli bir "name" dizesi zorunludur.');
+              L10n.current.backupInvalidTemplateName);
         }
         final records =
-            _validateAndExtractRecords(map['records'], 'Şablon "$name"');
-        final createdAt = _readDate(map['createdAt'], 'Şablon #$i createdAt');
+            _validateAndExtractRecords(map['records'], map['name']?.toString() ?? '');
+        final createdAt = _readDate(map['createdAt'], 'createdAt');
 
         templates.add(WriteTemplate(
           id: id,
@@ -151,12 +152,12 @@ class BackupCodec {
     List<ScanHistoryEntry>? history;
     if (rawHistory != null) {
       if (rawHistory is! List) {
-        throw const BackupValidationException(
-            '"history" alanı bir liste olmalıdır.');
+        throw BackupValidationException(
+            L10n.current.backupHistoryMustBeList);
       }
       if (rawHistory.length > maxHistoryCount) {
-        throw const BackupValidationException(
-          'Tarama geçmişi sınırı aşıldı: en fazla $maxHistoryCount geçmiş kaydı desteklenir.',
+        throw BackupValidationException(
+          L10n.current.backupMaxHistoryExceeded(maxHistoryCount, rawHistory.length),
         );
       }
       history = [];
@@ -164,18 +165,18 @@ class BackupCodec {
         final item = rawHistory[i];
         if (item is! Map) {
           throw BackupValidationException(
-              'Geçmiş kaydı #$i geçerli bir nesne değil.');
+              L10n.current.backupRecordMustBeObject);
         }
         final map = Map<String, dynamic>.from(item);
         final id = map['id'];
         if (id == null || id is! String || id.trim().isEmpty) {
           throw BackupValidationException(
-              'Geçmiş kaydı #$i için "id" alanı zorunludur.');
+              L10n.current.backupInvalidTemplateId);
         }
         final identifier =
-            _readOptionalString(map['identifier'], 'Geçmiş #$i identifier') ??
-                'Bilinmiyor';
-        final timestamp = _readDate(map['timestamp'], 'Geçmiş #$i timestamp');
+            _readOptionalString(map['identifier'], 'identifier') ??
+                L10n.current.unknown;
+        final timestamp = _readDate(map['timestamp'], 'timestamp');
         final isNdefSupported = map['isNdefSupported'] is bool
             ? map['isNdefSupported'] as bool
             : false;
@@ -194,7 +195,7 @@ class BackupCodec {
           }
         }
         final records = _validateAndExtractRecords(
-            map['records'], 'Geçmiş #$i ($identifier)');
+            map['records'], identifier);
 
         history.add(ScanHistoryEntry(
           id: id,
@@ -215,12 +216,12 @@ class BackupCodec {
     List<TagRule>? tagRules;
     if (rawRules != null) {
       if (rawRules is! List) {
-        throw const BackupValidationException(
-            '"tagRules" alanı bir liste olmalıdır.');
+        throw BackupValidationException(
+            L10n.current.backupTagRulesMustBeList);
       }
       if (rawRules.length > maxRulesCount) {
-        throw const BackupValidationException(
-          'Etiket kuralı sayısı sınırı aşıldı: en fazla $maxRulesCount kural desteklenir.',
+        throw BackupValidationException(
+          L10n.current.backupMaxTagRulesExceeded(maxRulesCount, rawRules.length),
         );
       }
       tagRules = [];
@@ -228,22 +229,22 @@ class BackupCodec {
       for (int i = 0; i < rawRules.length; i++) {
         final item = rawRules[i];
         if (item is! Map) {
-          throw BackupValidationException('Kural #$i geçerli bir nesne değil.');
+          throw BackupValidationException(L10n.current.backupRuleMustBeObject);
         }
         final map = Map<String, dynamic>.from(item);
         final sha = map['ndefSha256'];
         if (sha == null || sha is! String || !hexRegex.hasMatch(sha)) {
           throw BackupValidationException(
-            'Kural #$i için geçerli 64 karakterli SHA-256 onaltılık özeti (ndefSha256) zorunludur.',
+            L10n.current.backupInvalidRuleSha,
           );
         }
         final note = map['note'];
         if (note == null || note is! String) {
           throw BackupValidationException(
-              'Kural #$i için "note" dize alanı zorunludur.');
+              L10n.current.backupInvalidRuleNote);
         }
-        final createdAt = _readDate(map['createdAt'], 'Kural #$i createdAt');
-        final updatedAt = _readDate(map['updatedAt'], 'Kural #$i updatedAt');
+        final createdAt = _readDate(map['createdAt'], 'createdAt');
+        final updatedAt = _readDate(map['updatedAt'], 'updatedAt');
 
         tagRules.add(TagRule(
           ndefSha256: sha.toLowerCase(),
@@ -266,7 +267,7 @@ class BackupCodec {
   static String? _readOptionalString(Object? value, String field) {
     if (value == null) return null;
     if (value is String) return value;
-    throw BackupValidationException('$field bir metin olmalıdır.');
+    throw BackupValidationException(L10n.current.backupFieldMustBeString(field));
   }
 
   static DateTime _readDate(Object? value, String field) {
@@ -274,7 +275,7 @@ class BackupCodec {
     if (raw == null) return DateTime.now();
     final parsed = DateTime.tryParse(raw);
     if (parsed == null) {
-      throw BackupValidationException('$field geçerli bir tarih olmalıdır.');
+      throw BackupValidationException(L10n.current.backupFieldMustBeDate(field));
     }
     return parsed;
   }
@@ -284,11 +285,11 @@ class BackupCodec {
     if (rawRecords == null) return [];
     if (rawRecords is! List) {
       throw BackupValidationException(
-          '$contextName: "records" alanı bir liste olmalıdır.');
+          L10n.current.backupContextRecordsMustBeList(contextName));
     }
     if (rawRecords.length > maxRecordsPerItem) {
       throw BackupValidationException(
-        '$contextName: Bir öğede en fazla $maxRecordsPerItem NDEF kaydı bulunabilir.',
+        L10n.current.backupContextMaxRecords(contextName, maxRecordsPerItem),
       );
     }
 
@@ -297,7 +298,7 @@ class BackupCodec {
       final rec = rawRecords[r];
       if (rec is! Map) {
         throw BackupValidationException(
-            '$contextName - Kayıt #$r geçerli bir nesne değil.');
+            L10n.current.backupContextRecordMustBeObject(contextName, r));
       }
       final map = Map<String, dynamic>.from(rec);
 
@@ -308,7 +309,7 @@ class BackupCodec {
           tnfVal < 0 ||
           tnfVal >= NdefTnf.values.length) {
         throw BackupValidationException(
-            '$contextName - Kayıt #$r: Geçersiz TNF değeri ($tnfVal).');
+            L10n.current.backupContextInvalidTnf(contextName, r, tnfVal.toString()));
       }
       final tnf = NdefTnf.values[tnfVal];
 
@@ -316,7 +317,7 @@ class BackupCodec {
       final rawType = map['type'];
       if (rawType != null && rawType is! String) {
         throw BackupValidationException(
-            '$contextName - Kayıt #$r: "type" Base64 dizesi olmalıdır.');
+            L10n.current.backupContextTypeMustBeString(contextName, r));
       }
       Uint8List typeBytes;
       try {
@@ -324,28 +325,28 @@ class BackupCodec {
             rawType != null ? base64Decode(rawType as String) : Uint8List(0);
       } catch (e) {
         throw BackupValidationException(
-            '$contextName - Kayıt #$r: "type" geçerli Base64 verisi değil ($e).');
+            L10n.current.backupContextInvalidTypeBase64(contextName, r, e.toString()));
       }
 
       // id (Base64)
       final rawId = map['id'];
       if (rawId != null && rawId is! String) {
         throw BackupValidationException(
-            '$contextName - Kayıt #$r: "id" Base64 dizesi olmalıdır.');
+            L10n.current.backupContextIdMustBeString(contextName, r));
       }
       Uint8List idBytes;
       try {
         idBytes = rawId != null ? base64Decode(rawId as String) : Uint8List(0);
       } catch (e) {
         throw BackupValidationException(
-            '$contextName - Kayıt #$r: "id" geçerli Base64 verisi değil ($e).');
+            L10n.current.backupContextInvalidIdBase64(contextName, r, e.toString()));
       }
 
       // payload (Base64)
       final rawPayload = map['payload'];
       if (rawPayload != null && rawPayload is! String) {
         throw BackupValidationException(
-            '$contextName - Kayıt #$r: "payload" Base64 dizesi olmalıdır.');
+            L10n.current.backupContextPayloadMustBeString(contextName, r));
       }
       Uint8List payloadBytes;
       try {
@@ -354,7 +355,7 @@ class BackupCodec {
             : Uint8List(0);
       } catch (e) {
         throw BackupValidationException(
-            '$contextName - Kayıt #$r: "payload" geçerli Base64 verisi değil ($e).');
+            L10n.current.backupContextInvalidPayloadBase64(contextName, r, e.toString()));
       }
 
       result.add(NdefRecordModel(
@@ -412,21 +413,21 @@ class ImportMergeResult {
     final parts = <String>[];
     if (addedTemplates > 0 || updatedTemplates > 0) {
       parts.add(
-          'Şablonlar: $addedTemplates eklendi, $updatedTemplates güncellendi');
+          L10n.current.backupSummaryTemplates(addedTemplates.toString(), updatedTemplates.toString()));
     }
     if (addedRules > 0 || updatedRules > 0) {
       parts.add(
-          'Etiket Notları/Kuralları: $addedRules eklendi, $updatedRules güncellendi');
+          L10n.current.backupSummaryRules(addedRules.toString(), updatedRules.toString()));
     }
     if (historySkippedDueToDisabled) {
-      parts.add(
-          'Tarama geçmişi cihazda kapalı olduğu için ${skippedHistory > 0 ? "$skippedHistory kayıt " : ""}atlandı');
+      final skippedStr = skippedHistory > 0 ? '$skippedHistory ' : '';
+      parts.add(L10n.current.backupSummaryHistoryDisabled(skippedStr));
     } else if (addedHistory > 0 || skippedHistory > 0) {
-      parts
-          .add('Geçmiş: $addedHistory eklendi, $skippedHistory mevcut/atlandı');
+      parts.add(
+          L10n.current.backupSummaryHistory(addedHistory.toString(), skippedHistory.toString()));
     }
     if (parts.isEmpty) {
-      return 'İçe aktarılacak yeni veri bulunamadı (mevcut kayıtlarla eşleşti).';
+      return L10n.current.backupSummaryNoNewData;
     }
     return parts.join(' | ');
   }

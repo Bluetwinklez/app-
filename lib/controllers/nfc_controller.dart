@@ -96,7 +96,7 @@ class NfcStateController extends ChangeNotifier {
   void copyToClipboard(List<NdefRecordModel> records, {String? sourceDescription}) {
     _clipboardSnapshot = NdefClipboardSnapshot.fromRecords(
       records,
-      sourceDescription: sourceDescription ?? 'Taranan Etiket',
+      sourceDescription: sourceDescription ?? L10n.current.scannedTag,
     );
     notifyListeners();
   }

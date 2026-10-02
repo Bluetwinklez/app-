@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:mobile_scanner/mobile_scanner.dart';
+import '../l10n/app_localizations.dart';
 import 'app_theme.dart';
 
 /// Full-screen camera that returns the first QR code's text.
@@ -42,15 +43,16 @@ class _QrScanPageState extends State<QrScanPage> {
 
   @override
   Widget build(BuildContext context) {
+    final loc = AppLocalizations.of(context)!;
     return Scaffold(
       backgroundColor: Colors.black,
       appBar: AppBar(
         backgroundColor: Colors.black,
         foregroundColor: Colors.white,
-        title: const Text('QR Kodu Tara'),
+        title: Text(loc.qrScanTitle),
         actions: [
           IconButton(
-            tooltip: 'Fener',
+            tooltip: loc.flashlight,
             icon: const Icon(Icons.flashlight_on_outlined),
             onPressed: () => _scanner.toggleTorch(),
           ),
@@ -66,7 +68,7 @@ class _QrScanPageState extends State<QrScanPage> {
               child: Padding(
                 padding: const EdgeInsets.all(32),
                 child: Text(
-                  'Kamera açılamadı. Ayarlar > Gizlilik > Kamera bölümünden izin verin.\n(${error.errorCode.name})',
+                  loc.cameraError(error.errorCode.name),
                   textAlign: TextAlign.center,
                   style: const TextStyle(color: Colors.white),
                 ),
@@ -93,10 +95,10 @@ class _QrScanPageState extends State<QrScanPage> {
                 color: Colors.white.withValues(alpha: 0.92),
                 borderRadius: BorderRadius.circular(20),
               ),
-              child: const Text(
-                'QR kodu çerçevenin içine getirin. Web adresi, Wi-Fi ve metin QR kodları kayda dönüştürülür.',
+              child: Text(
+                loc.qrFrameInstructions,
                 textAlign: TextAlign.center,
-                style: TextStyle(color: AppColors.ink),
+                style: const TextStyle(color: AppColors.ink),
               ),
             ),
           ),

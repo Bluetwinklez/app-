@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:qr_flutter/qr_flutter.dart';
 import '../domain/ndef_record.dart';
+import '../l10n/app_localizations.dart';
 import 'app_theme.dart';
 
 /// Modal dialog displaying a QR code preview strictly for readable Text and Web URL records.
@@ -43,6 +44,7 @@ class QrPreviewDialog extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final loc = AppLocalizations.of(context)!;
     final bool supported = isQrSupported(type);
     final isContentEmpty = contentToEncode.trim().isEmpty;
     // Standard QR code capacity guard (~2953 bytes in binary, but keeping under 2048 chars for UI safety)
@@ -55,7 +57,7 @@ class QrPreviewDialog extends StatelessWidget {
           const SizedBox(width: 8),
           Expanded(
             child: Text(
-              'QR Kod Önizleme: $title',
+              loc.qrPreviewTitle(title),
               style: const TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
               overflow: TextOverflow.ellipsis,
             ),
@@ -74,30 +76,29 @@ class QrPreviewDialog extends StatelessWidget {
                   borderRadius: BorderRadius.circular(8),
                   border: Border.all(color: Colors.amber.shade400),
                 ),
-                child: const Column(
+                child: Column(
                   children: [
-                    Icon(Icons.security, color: Colors.orange, size: 36),
-                    SizedBox(height: 8),
+                    const Icon(Icons.security, color: Colors.orange, size: 36),
+                    const SizedBox(height: 8),
                     Text(
-                      'Güvenlik Kısıtlaması',
-                      style: TextStyle(fontWeight: FontWeight.bold, color: Colors.brown),
+                      loc.securityRestriction,
+                      style: const TextStyle(fontWeight: FontWeight.bold, color: Colors.brown),
                     ),
-                    SizedBox(height: 4),
+                    const SizedBox(height: 4),
                     Text(
-                      'QR kod önizlemesi yalnızca okunabilir Düz Metin (Text) ve Web URL kayıtları için desteklenir.\n\n'
-                      'Wi-Fi parolaları, vCard veya ikili yükler gizlilik ve güvenlik nedeniyle otomatik olarak QR koduna dönüştürülmez.',
+                      loc.qrSecurityNote,
                       textAlign: TextAlign.center,
-                      style: TextStyle(fontSize: 12, color: Colors.black87),
+                      style: const TextStyle(fontSize: 12, color: Colors.black87),
                     ),
                   ],
                 ),
               )
             else if (isContentEmpty)
-              const Padding(
-                padding: EdgeInsets.all(16.0),
+              Padding(
+                padding: const EdgeInsets.all(16.0),
                 child: Text(
-                  'QR koda dönüştürülecek içerik boş.',
-                  style: TextStyle(color: Colors.grey),
+                  loc.qrContentEmpty,
+                  style: const TextStyle(color: Colors.grey),
                 ),
               )
             else if (isContentTooLarge)
@@ -109,7 +110,7 @@ class QrPreviewDialog extends StatelessWidget {
                   border: Border.all(color: Colors.red.shade300),
                 ),
                 child: Text(
-                  'İçerik boyutu QR kod için çok büyük (${contentToEncode.length} karakter, maksimum 2048 karakter desteklenir).',
+                  loc.qrContentTooLarge(contentToEncode.length),
                   style: const TextStyle(color: Colors.red, fontSize: 13),
                 ),
               )
@@ -141,7 +142,7 @@ class QrPreviewDialog extends StatelessWidget {
                       padding: const EdgeInsets.all(8),
                       alignment: Alignment.center,
                       child: Text(
-                        'QR kod oluşturulamadı: $err',
+                        loc.qrGenerationFailed(err.toString()),
                         textAlign: TextAlign.center,
                         style: const TextStyle(color: Colors.red, fontSize: 11),
                       ),
@@ -160,7 +161,7 @@ class QrPreviewDialog extends StatelessWidget {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Text(
-                      'İçerik (${contentToEncode.length} Karakter):',
+                      loc.qrContentChars(contentToEncode.length),
                       style: const TextStyle(fontSize: 11, fontWeight: FontWeight.bold, color: Colors.black54),
                     ),
                     const SizedBox(height: 4),
@@ -173,9 +174,9 @@ class QrPreviewDialog extends StatelessWidget {
                 ),
               ),
               const SizedBox(height: 6),
-              const Text(
-                'Sadece kullanıcı isteğiyle açılır. Otomatik işlem yürütülmez.',
-                style: TextStyle(fontSize: 10, color: Colors.grey),
+              Text(
+                loc.qrUserOnlyNote,
+                style: const TextStyle(fontSize: 10, color: Colors.grey),
               ),
             ],
           ],
@@ -184,7 +185,7 @@ class QrPreviewDialog extends StatelessWidget {
       actions: [
         TextButton(
           onPressed: () => Navigator.of(context).pop(),
-          child: const Text('Kapat'),
+          child: Text(loc.close),
         ),
       ],
     );

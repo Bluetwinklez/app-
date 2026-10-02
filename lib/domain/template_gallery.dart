@@ -68,12 +68,12 @@ class TemplateGallery {
       description: L10n.current.presetBusinessCardDesc,
       icon: 'badge',
       fields: [
-        GalleryField('name', L10n.current.contactFullName, hint: 'Ayşe Yılmaz'),
-        GalleryField('title', L10n.current.contactTitle, hint: 'Satış Müdürü', required: false),
-        GalleryField('company', L10n.current.contactCompany, hint: 'Örnek A.Ş.', required: false),
-        GalleryField('phone', L10n.current.contactPhone, hint: '+90 555 111 22 33', kind: GalleryFieldKind.phone, required: false),
-        GalleryField('email', L10n.current.contactEmail, hint: 'ayse@ornek.com', kind: GalleryFieldKind.email, required: false),
-        GalleryField('website', L10n.current.contactWebsite, hint: 'https://ornek.com', kind: GalleryFieldKind.url, required: false),
+        GalleryField('name', L10n.current.contactFullName, hint: 'Jane Doe'),
+        GalleryField('title', L10n.current.contactTitle, hint: 'Product Manager', required: false),
+        GalleryField('company', L10n.current.contactCompany, hint: 'Acme Corp', required: false),
+        GalleryField('phone', L10n.current.contactPhone, hint: '+1 555 111 22 33', kind: GalleryFieldKind.phone, required: false),
+        GalleryField('email', L10n.current.contactEmail, hint: 'jane@example.com', kind: GalleryFieldKind.email, required: false),
+        GalleryField('website', L10n.current.contactWebsite, hint: 'https://example.com', kind: GalleryFieldKind.url, required: false),
       ],
       build: (v) {
         final parts = v['name']!.split(RegExp(r'\s+'));
@@ -88,7 +88,7 @@ class TemplateGallery {
             email: _opt(v, 'email'),
             url: _opt(v, 'website') == null
                 ? null
-                : QuickLinkBuilder.httpsUrl(v['website']!, emptyMessage: 'Web sitesi'),
+                : QuickLinkBuilder.httpsUrl(v['website']!, emptyMessage: L10n.current.webAddress),
           ),
         ];
       },
@@ -99,8 +99,8 @@ class TemplateGallery {
       description: L10n.current.presetGuestWifiDesc,
       icon: 'wifi',
       fields: [
-        GalleryField('ssid', L10n.current.wifiSsid, hint: 'Ev_Misafir'),
-        GalleryField('password', L10n.current.wifiPassword, hint: 'En az 8 karakter (boşsa açık ağ)', kind: GalleryFieldKind.password, required: false),
+        GalleryField('ssid', L10n.current.wifiSsid, hint: 'Guest_WiFi'),
+        GalleryField('password', L10n.current.wifiPassword, hint: '••••••••', kind: GalleryFieldKind.password, required: false),
       ],
       build: (v) {
         final password = v['password'] ?? '';
@@ -123,14 +123,14 @@ class TemplateGallery {
       title: L10n.current.presetGoogleReviewTitle,
       description: L10n.current.presetGoogleReviewDesc,
       icon: 'star',
-      fields: const [
-        GalleryField('link', 'Yorum Bağlantısı veya Place ID',
-            hint: 'https://g.page/r/... veya ChIJ...', kind: GalleryFieldKind.url),
+      fields: [
+        GalleryField('link', L10n.current.googleReviewFieldLabel,
+            hint: 'https://g.page/r/...', kind: GalleryFieldKind.url),
       ],
       build: (v) {
         final input = v['link']!;
         final url = input.contains('/') || input.contains('.')
-            ? QuickLinkBuilder.httpsUrl(input, emptyMessage: 'Bağlantı')
+            ? QuickLinkBuilder.httpsUrl(input, emptyMessage: L10n.current.link)
             : 'https://search.google.com/local/writereview?placeid=${Uri.encodeQueryComponent(input)}';
         return [NdefCodec.encodeUri(url)];
       },
@@ -140,12 +140,12 @@ class TemplateGallery {
       title: L10n.current.presetMenuLinkTitle,
       description: L10n.current.presetMenuLinkDesc,
       icon: 'menu',
-      fields: const [
-        GalleryField('url', 'Menü Bağlantısı', hint: 'https://restoran.com/menu', kind: GalleryFieldKind.url),
-        GalleryField('title', 'Başlık', hint: 'Menümüz', required: false),
+      fields: [
+        GalleryField('url', L10n.current.menuLinkFieldLabel, hint: 'https://example.com/menu', kind: GalleryFieldKind.url),
+        GalleryField('title', L10n.current.title, hint: L10n.current.menuTitleHint, required: false),
       ],
       build: (v) {
-        final url = QuickLinkBuilder.httpsUrl(v['url']!, emptyMessage: 'Menü bağlantısı');
+        final url = QuickLinkBuilder.httpsUrl(v['url']!, emptyMessage: L10n.current.menuLinkFieldLabel);
         final title = _opt(v, 'title');
         return [title == null ? NdefCodec.encodeUri(url) : NdefCodec.encodeSmartPoster(uri: url, title: title)];
       },
@@ -155,14 +155,14 @@ class TemplateGallery {
       title: L10n.current.presetPetTagTitle,
       description: L10n.current.presetPetTagDesc,
       icon: 'pets',
-      fields: const [
-        GalleryField('pet', 'Hayvanın Adı', hint: 'Pamuk'),
-        GalleryField('phone', 'Sahibinin Telefonu', hint: '+90 555 111 22 33', kind: GalleryFieldKind.phone),
-        GalleryField('note', 'Not', hint: 'Alerjisi var, ödül verilecektir', kind: GalleryFieldKind.multiline, required: false),
+      fields: [
+        GalleryField('pet', L10n.current.petName, hint: 'Buddy'),
+        GalleryField('phone', L10n.current.ownerPhone, hint: '+1 555 111 22 33', kind: GalleryFieldKind.phone),
+        GalleryField('note', L10n.current.noteLabel, hint: 'Friendly, reward if found', kind: GalleryFieldKind.multiline, required: false),
       ],
       build: (v) {
         final note = _opt(v, 'note');
-        final text = 'Merhaba, ben ${v['pet']}! Sahibimi arar mısınız: ${v['phone']}${note == null ? '' : '\n$note'}';
+        final text = L10n.current.petTagMessage(v['pet']!, v['phone']!, note == null ? '' : '\n$note');
         return [NdefCodec.encodeText(text), NdefCodec.encodePhone(_phoneDigits(v['phone']!))];
       },
     ),
@@ -197,18 +197,18 @@ class TemplateGallery {
       description: L10n.current.presetEmergencyDesc,
       icon: 'medical',
       fields: [
-        GalleryField('name', L10n.current.contactFullName, hint: 'Ayşe Yılmaz'),
-        const GalleryField('blood', 'Kan Grubu', hint: 'A Rh+', required: false),
-        const GalleryField('allergies', 'Alerjiler / İlaçlar', hint: 'Penisilin', kind: GalleryFieldKind.multiline, required: false),
-        const GalleryField('contact', 'Acil Durumda Aranacak', hint: '+90 555 111 22 33', kind: GalleryFieldKind.phone),
+        GalleryField('name', L10n.current.contactFullName, hint: 'Jane Doe'),
+        GalleryField('blood', L10n.current.bloodType, hint: 'A Rh+', required: false),
+        GalleryField('allergies', L10n.current.allergies, hint: 'Penicillin', kind: GalleryFieldKind.multiline, required: false),
+        GalleryField('contact', L10n.current.emergencyContact, hint: '+1 555 111 22 33', kind: GalleryFieldKind.phone),
       ],
       build: (v) {
         final lines = [
-          'ACİL DURUM BİLGİSİ',
+          L10n.current.emergencyInfo,
           v['name']!,
-          if (_opt(v, 'blood') != null) 'Kan grubu: ${v['blood']}',
-          if (_opt(v, 'allergies') != null) 'Alerjiler: ${v['allergies']}',
-          'Acil durumda arayın: ${v['contact']}',
+          if (_opt(v, 'blood') != null) L10n.current.emergencyBlood(v['blood']!),
+          if (_opt(v, 'allergies') != null) L10n.current.emergencyAllergies(v['allergies']!),
+          L10n.current.emergencyCall(v['contact']!),
         ];
         return [NdefCodec.encodeText(lines.join('\n')), NdefCodec.encodePhone(_phoneDigits(v['contact']!))];
       },
@@ -218,18 +218,18 @@ class TemplateGallery {
       title: L10n.current.presetAppDownloadTitle,
       description: L10n.current.presetAppDownloadDesc,
       icon: 'download',
-      fields: const [
-        GalleryField('url', 'Mağaza Bağlantısı', hint: 'https://apps.apple.com/...', kind: GalleryFieldKind.url),
+      fields: [
+        GalleryField('url', L10n.current.storeLink, hint: 'https://apps.apple.com/...', kind: GalleryFieldKind.url),
       ],
-      build: (v) => [NdefCodec.encodeUri(QuickLinkBuilder.httpsUrl(v['url']!, emptyMessage: 'Mağaza bağlantısı'))],
+      build: (v) => [NdefCodec.encodeUri(QuickLinkBuilder.httpsUrl(v['url']!, emptyMessage: L10n.current.storeLink))],
     ),
     GalleryPreset(
       id: 'location',
       title: L10n.current.presetDirectionsTitle,
       description: L10n.current.presetDirectionsDesc,
       icon: 'place',
-      fields: const [
-        GalleryField('address', 'Adres', hint: 'Bağdat Cad. No:1 Kadıköy İstanbul', kind: GalleryFieldKind.multiline),
+      fields: [
+        GalleryField('address', L10n.current.address, hint: '100 Main St, New York, NY', kind: GalleryFieldKind.multiline),
       ],
       build: (v) => [NdefCodec.encodeUri(QuickLinkBuilder.addressUrl(MapProvider.google, v['address']!))],
     ),
@@ -239,11 +239,11 @@ class TemplateGallery {
       description: L10n.current.presetWebsiteDesc,
       icon: 'web',
       fields: [
-        GalleryField('url', L10n.current.contactWebsite, hint: 'https://ornek.com', kind: GalleryFieldKind.url),
-        const GalleryField('title', 'Başlık', hint: 'Portfolyom', required: false),
+        GalleryField('url', L10n.current.contactWebsite, hint: 'https://example.com', kind: GalleryFieldKind.url),
+        GalleryField('title', L10n.current.title, hint: 'Portfolio', required: false),
       ],
       build: (v) {
-        final url = QuickLinkBuilder.httpsUrl(v['url']!, emptyMessage: 'Web adresi');
+        final url = QuickLinkBuilder.httpsUrl(v['url']!, emptyMessage: L10n.current.webAddress);
         final title = _opt(v, 'title');
         return [title == null ? NdefCodec.encodeUri(url) : NdefCodec.encodeSmartPoster(uri: url, title: title)];
       },

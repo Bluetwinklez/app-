@@ -1,26 +1,29 @@
 import 'dart:io';
 import 'package:flutter/material.dart';
+import '../l10n/app_localizations.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:path_provider/path_provider.dart';
 import '../domain/ndef_record.dart';
 import '../domain/tag_library.dart';
+import '../l10n/l10n.dart';
 import '../services/app_storage_service.dart';
 import 'app_theme.dart';
 
-String tagCategoryLabel(TagCategory c) {
+String tagCategoryLabel(TagCategory c, [AppLocalizations? loc]) {
+  final l = loc ?? L10n.current;
   switch (c) {
     case TagCategory.home:
-      return 'Ev';
+      return l.catHome;
     case TagCategory.work:
-      return 'İş';
+      return l.catWork;
     case TagCategory.car:
-      return 'Araba';
+      return l.catCar;
     case TagCategory.personal:
-      return 'Kişisel';
+      return l.catPersonal;
     case TagCategory.business:
-      return 'İşletme';
+      return l.catBusiness;
     case TagCategory.other:
-      return 'Diğer';
+      return l.catOther;
   }
 }
 
@@ -94,29 +97,30 @@ class _TagLibraryPageState extends State<TagLibraryPage> {
       .toList();
 
   Future<void> _addEntry() async {
-    final sources = <String, List<NdefRecordModel>>{
-      if (widget.lastScanRecords.isNotEmpty) 'Son taranan etiket': widget.lastScanRecords,
-      if (widget.composerRecords.isNotEmpty) 'Yazma listesindeki kayıtlar': widget.composerRecords,
-      'İçeriksiz (sadece not)': const [],
+    final loc = AppLocalizations.of(context) ?? L10n.current;
+    final sources = <_LibrarySource, List<NdefRecordModel>>{
+      if (widget.lastScanRecords.isNotEmpty) _LibrarySource.lastScan: widget.lastScanRecords,
+      if (widget.composerRecords.isNotEmpty) _LibrarySource.composer: widget.composerRecords,
+      _LibrarySource.empty: const [],
     };
-    String? chosen = sources.keys.first;
+    _LibrarySource? chosen = sources.keys.first;
     if (sources.length > 1) {
-      chosen = await showModalBottomSheet<String>(
+      chosen = await showModalBottomSheet<_LibrarySource>(
         context: context,
         builder: (ctx) => SafeArea(
           child: Column(
             mainAxisSize: MainAxisSize.min,
             children: [
-              const Padding(
-                padding: EdgeInsets.fromLTRB(20, 0, 20, 8),
-                child: Text('Etiketin içeriği nereden alınsın?',
-                    style: TextStyle(fontSize: 17, fontWeight: FontWeight.w700)),
+              Padding(
+                padding: const EdgeInsets.fromLTRB(20, 0, 20, 8),
+                child: Text(loc.sourceSelectPrompt,
+                    style: const TextStyle(fontSize: 17, fontWeight: FontWeight.w700)),
               ),
               for (final entry in sources.entries)
                 ListTile(
                   leading: const Icon(Icons.nfc_rounded),
-                  title: Text(entry.key),
-                  subtitle: entry.value.isEmpty ? null : Text('${entry.value.length} kayıt'),
+                  title: Text(_sourceLabel(entry.key, loc)),
+                  subtitle: entry.value.isEmpty ? null : Text(loc.ndefRecordsCount(entry.value.length)),
                   onTap: () => Navigator.of(ctx).pop(entry.key),
                 ),
               const SizedBox(height: 8),
@@ -127,7 +131,7 @@ class _TagLibraryPageState extends State<TagLibraryPage> {
     }
     if (chosen == null || !mounted) return;
     final now = DateTime.now();
-    final fromScan = chosen == 'Son taranan etiket';
+    final fromScan = chosen == _LibrarySource.lastScan;
     final draft = TagLibraryEntry(
       id: '${now.microsecondsSinceEpoch}',
       name: '',
@@ -159,17 +163,18 @@ class _TagLibraryPageState extends State<TagLibraryPage> {
   }
 
   Future<void> _delete(TagLibraryEntry entry) async {
+    final loc = AppLocalizations.of(context) ?? L10n.current;
     final ok = await showDialog<bool>(
       context: context,
       builder: (ctx) => AlertDialog(
-        title: const Text('Etiketi Sil'),
-        content: Text('"${entry.name}" kütüphaneden silinsin mi? Fiziksel etiket değişmez.'),
+        title: Text(loc.tagLibraryDeleteTitle),
+        content: Text(loc.tagLibraryDeleteConfirm(entry.name)),
         actions: [
-          TextButton(onPressed: () => Navigator.of(ctx).pop(false), child: const Text('Vazgeç')),
+          TextButton(onPressed: () => Navigator.of(ctx).pop(false), child: Text(loc.dismiss)),
           ElevatedButton(
             style: ElevatedButton.styleFrom(backgroundColor: AppColors.danger),
             onPressed: () => Navigator.of(ctx).pop(true),
-            child: const Text('Sil'),
+            child: Text(loc.delete),
           ),
         ],
       ),
@@ -185,27 +190,28 @@ class _TagLibraryPageState extends State<TagLibraryPage> {
 
   @override
   Widget build(BuildContext context) {
+    final loc = AppLocalizations.of(context) ?? L10n.current;
     final entries = _visible;
     return DecoratedBox(
       decoration: const BoxDecoration(gradient: AppColors.canvasGradient),
       child: Scaffold(
         backgroundColor: Colors.transparent,
-        appBar: AppBar(title: const Text('Etiket Kütüphanem')),
+        appBar: AppBar(title: Text(loc.tagLibraryTitle)),
         floatingActionButton: FloatingActionButton.extended(
           onPressed: _addEntry,
           backgroundColor: AppColors.accent,
           foregroundColor: Colors.white,
           icon: const Icon(Icons.add_rounded),
-          label: const Text('Etiket Ekle'),
+          label: Text(loc.tagLibraryAddTag),
         ),
         body: ListView(
           padding: const EdgeInsets.fromLTRB(16, 4, 16, 100),
           children: [
             TextField(
               onChanged: (v) => setState(() => _query = v),
-              decoration: const InputDecoration(
-                prefixIcon: Icon(Icons.search_rounded),
-                hintText: 'İsim, not, konum veya içerikte ara',
+              decoration: InputDecoration(
+                prefixIcon: const Icon(Icons.search_rounded),
+                hintText: loc.tagLibrarySearchHint,
               ),
             ),
             const SizedBox(height: 10),
@@ -216,7 +222,7 @@ class _TagLibraryPageState extends State<TagLibraryPage> {
                   Padding(
                     padding: const EdgeInsetsDirectional.only(end: 8),
                     child: ChoiceChip(
-                      label: const Text('Tümü'),
+                      label: Text(loc.all),
                       selected: _filter == null,
                       onSelected: (_) => setState(() => _filter = null),
                     ),
@@ -227,7 +233,7 @@ class _TagLibraryPageState extends State<TagLibraryPage> {
                       child: ChoiceChip(
                         avatar: Icon(tagCategoryIcon(c), size: 16,
                             color: _filter == c ? Colors.white : AppColors.secondary),
-                        label: Text(tagCategoryLabel(c)),
+                        label: Text(tagCategoryLabel(c, loc)),
                         selected: _filter == c,
                         onSelected: (_) => setState(() => _filter = _filter == c ? null : c),
                       ),
@@ -245,8 +251,8 @@ class _TagLibraryPageState extends State<TagLibraryPage> {
                     const SizedBox(height: 12),
                     Text(
                       widget.storage.getLibrary().isEmpty
-                          ? 'Henüz kayıtlı etiket yok.\nBir etiketi okuttuktan sonra buraya isim ve fotoğrafla kaydedin.'
-                          : 'Aramayla eşleşen etiket yok.',
+                          ? loc.tagLibraryEmpty
+                          : loc.tagLibraryNoMatch,
                       textAlign: TextAlign.center,
                       style: const TextStyle(color: AppColors.secondary, height: 1.4),
                     ),
@@ -294,8 +300,9 @@ class _EntryCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final loc = AppLocalizations.of(context) ?? L10n.current;
     final summary = entry.records.isEmpty
-        ? (entry.note.isEmpty ? 'İçerik yok' : entry.note)
+        ? (entry.note.isEmpty ? loc.noContent : entry.note)
         : NdefCodec.parseRecord(entry.records.first).content;
     return SoftCard(
       onTap: onTap,
@@ -324,7 +331,7 @@ class _EntryCard extends StatelessWidget {
                 const SizedBox(height: 2),
                 Text(
                   [
-                    tagCategoryLabel(entry.category),
+                    tagCategoryLabel(entry.category, loc),
                     if (entry.locationNote.isNotEmpty) entry.locationNote,
                   ].join(' · '),
                   style: const TextStyle(fontSize: 12.5, color: AppColors.secondary),
@@ -349,9 +356,9 @@ class _EntryCard extends StatelessWidget {
               PopupMenuItem(
                 value: 'use',
                 enabled: onUse != null,
-                child: const Text('Yazma listesine kopyala'),
+                child: Text(loc.copyToComposer),
               ),
-              const PopupMenuItem(value: 'delete', child: Text('Sil')),
+              PopupMenuItem(value: 'delete', child: Text(loc.delete)),
             ],
           ),
         ],
@@ -399,14 +406,17 @@ class _EntryEditorState extends State<_EntryEditor> {
       await File(picked.path).copy('${docs.path}/$relative');
       setState(() => _photoPath = relative);
     } catch (e) {
-      setState(() => _error = 'Fotoğraf eklenemedi: $e');
+      if (!mounted) return;
+      final loc = AppLocalizations.of(context) ?? L10n.current;
+      setState(() => _error = loc.tagLibraryPhotoError(e.toString()));
     }
   }
 
   void _save() {
     final name = _name.text.trim();
     if (name.isEmpty) {
-      setState(() => _error = 'Etikete bir isim verin.');
+      final loc = AppLocalizations.of(context) ?? L10n.current;
+      setState(() => _error = loc.tagLibraryNamePrompt);
       return;
     }
     Navigator.of(context).pop(widget.entry.copyWith(
@@ -422,6 +432,7 @@ class _EntryEditorState extends State<_EntryEditor> {
 
   @override
   Widget build(BuildContext context) {
+    final loc = AppLocalizations.of(context) ?? L10n.current;
     final docs = widget.docsDir;
     final photo = _photoPath != null && docs != null ? File('${docs.path}/$_photoPath') : null;
     return Padding(
@@ -430,7 +441,7 @@ class _EntryEditorState extends State<_EntryEditor> {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.stretch,
           children: [
-            Text(widget.isNew ? 'Kütüphaneye Ekle' : 'Etiketi Düzenle',
+            Text(widget.isNew ? loc.tagLibraryAddToLibrary : loc.tagLibraryEditTag,
                 style: Theme.of(context).textTheme.titleLarge),
             const SizedBox(height: 14),
             Center(
@@ -456,52 +467,52 @@ class _EntryEditorState extends State<_EntryEditor> {
                 TextButton.icon(
                   onPressed: () => _pickPhoto(ImageSource.camera),
                   icon: const Icon(Icons.photo_camera_outlined, size: 18),
-                  label: const Text('Fotoğraf çek'),
+                  label: Text(loc.takePhoto),
                 ),
                 TextButton.icon(
                   onPressed: () => _pickPhoto(ImageSource.gallery),
                   icon: const Icon(Icons.photo_library_outlined, size: 18),
-                  label: const Text('Galeriden seç'),
+                  label: Text(loc.chooseFromGallery),
                 ),
                 if (_photoPath != null)
                   TextButton(
                     onPressed: () => setState(() => _photoPath = null),
-                    child: const Text('Kaldır'),
+                    child: Text(loc.remove),
                   ),
               ],
             ),
             const SizedBox(height: 8),
             TextField(
               controller: _name,
-              decoration: const InputDecoration(labelText: 'İsim', hintText: 'Örn: Mutfak etiketi'),
+              decoration: InputDecoration(labelText: loc.name, hintText: loc.tagLibraryNameHint),
             ),
             const SizedBox(height: 12),
             DropdownButtonFormField<TagCategory>(
               initialValue: _category,
-              decoration: const InputDecoration(labelText: 'Kategori'),
+              decoration: InputDecoration(labelText: loc.categoryLabel),
               items: [
                 for (final c in TagCategory.values)
-                  DropdownMenuItem(value: c, child: Text(tagCategoryLabel(c))),
+                  DropdownMenuItem(value: c, child: Text(tagCategoryLabel(c, loc))),
               ],
               onChanged: (v) => setState(() => _category = v ?? _category),
             ),
             const SizedBox(height: 12),
             TextField(
               controller: _location,
-              decoration: const InputDecoration(labelText: 'Nerede?', hintText: 'Örn: Buzdolabının kapağı'),
+              decoration: InputDecoration(labelText: loc.locationLabel, hintText: loc.tagLibraryLocationHint),
             ),
             const SizedBox(height: 12),
             TextField(
               controller: _note,
               maxLines: 3,
               minLines: 1,
-              decoration: const InputDecoration(labelText: 'Not'),
+              decoration: InputDecoration(labelText: loc.noteLabel),
             ),
             const SizedBox(height: 12),
             Text(
               widget.entry.records.isEmpty
-                  ? 'Bu kayıtta etiket içeriği yok.'
-                  : 'İçerik: ${widget.entry.records.length} kayıt · '
+                  ? loc.tagLibraryNoTagContent
+                  : '${loc.tagLibraryRecordSummary(widget.entry.records.length)}'
                       '${NdefCodec.parseRecord(widget.entry.records.first).content}',
               maxLines: 2,
               overflow: TextOverflow.ellipsis,
@@ -516,10 +527,23 @@ class _EntryEditorState extends State<_EntryEditor> {
                 child: Text(_error!, style: const TextStyle(color: AppColors.danger)),
               ),
             const SizedBox(height: 16),
-            ElevatedButton(onPressed: _save, child: const Text('Kaydet')),
+            ElevatedButton(onPressed: _save, child: Text(loc.save)),
           ],
         ),
       ),
     );
+  }
+}
+
+enum _LibrarySource { lastScan, composer, empty }
+
+String _sourceLabel(_LibrarySource s, AppLocalizations loc) {
+  switch (s) {
+    case _LibrarySource.lastScan:
+      return loc.tagLibrarySourceLastScanned;
+    case _LibrarySource.composer:
+      return loc.tagLibrarySourceWriteList;
+    case _LibrarySource.empty:
+      return loc.tagLibrarySourceEmpty;
   }
 }

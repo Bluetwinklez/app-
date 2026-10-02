@@ -70,7 +70,7 @@ class NdefRecordModel {
   /// [isFirst] sets MB (Message Begin), [isLast] sets ME (Message End).
   Uint8List toBytes({bool isFirst = true, bool isLast = true}) {
     if (type.length > 255 || id.length > 255) {
-      throw const FormatException('NDEF türü veya kimliği 255 baytı aşıyor');
+      throw FormatException(L10n.current.ndefTypeOrIdTooLong);
     }
     final bool sr = payload.length <= 255; // Short Record
     final bool il = id.isNotEmpty; // ID Length field present
@@ -124,17 +124,17 @@ class NdefRecordModel {
           : NdefTnf.unknown;
 
       if (cf || (records.isEmpty && !mb) || (records.isNotEmpty && mb)) {
-        throw const FormatException('Desteklenmeyen veya geçersiz NDEF kaydı');
+        throw FormatException(L10n.current.ndefUnsupportedOrInvalidRecord);
       }
-      if (offset >= data.length) throw const FormatException('Eksik NDEF tür uzunluğu');
+      if (offset >= data.length) throw FormatException(L10n.current.ndefMissingTypeLength);
       final typeLength = data[offset++];
 
       int payloadLength = 0;
       if (sr) {
-        if (offset >= data.length) throw const FormatException('Eksik NDEF yük uzunluğu');
+        if (offset >= data.length) throw FormatException(L10n.current.ndefMissingPayloadLength);
         payloadLength = data[offset++];
       } else {
-        if (offset + 4 > data.length) throw const FormatException('Eksik NDEF yük uzunluğu');
+        if (offset + 4 > data.length) throw FormatException(L10n.current.ndefMissingPayloadLength);
         final bd = ByteData.sublistView(data, offset, offset + 4);
         payloadLength = bd.getUint32(0, Endian.big);
         offset += 4;
@@ -142,22 +142,22 @@ class NdefRecordModel {
 
       int idLength = 0;
       if (il) {
-        if (offset >= data.length) throw const FormatException('Eksik NDEF kimlik uzunluğu');
+        if (offset >= data.length) throw FormatException(L10n.current.ndefMissingIdLength);
         idLength = data[offset++];
       }
 
-      if (offset + typeLength > data.length) throw const FormatException('Eksik NDEF türü');
+      if (offset + typeLength > data.length) throw FormatException(L10n.current.ndefMissingType);
       final type = data.sublist(offset, offset + typeLength);
       offset += typeLength;
 
       Uint8List id = Uint8List(0);
       if (il) {
-        if (offset + idLength > data.length) throw const FormatException('Eksik NDEF kimliği');
+        if (offset + idLength > data.length) throw FormatException(L10n.current.ndefMissingId);
         id = data.sublist(offset, offset + idLength);
         offset += idLength;
       }
 
-      if (offset + payloadLength > data.length) throw const FormatException('Eksik NDEF yükü');
+      if (offset + payloadLength > data.length) throw FormatException(L10n.current.ndefMissingPayload);
       final payload = data.sublist(offset, offset + payloadLength);
       offset += payloadLength;
 
@@ -1112,7 +1112,7 @@ class NdefCodec {
       if (mimeStr == 'application/vnd.wfa.wsc') {
         final wifi = decodeWifiWsc(record);
         if (wifi != null) {
-          final passMask = wifi.password.isEmpty ? '(Şifresiz)' : '${L10n.current.wifiPassword}: ${'*' * wifi.password.length}';
+          final passMask = wifi.password.isEmpty ? L10n.current.unprotected : '${L10n.current.wifiPassword}: ${'*' * wifi.password.length}';
           return ParsedRecordData(
             type: ParsedRecordType.wifi,
             title: L10n.current.recordTypeWifi,

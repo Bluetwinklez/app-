@@ -622,7 +622,7 @@ class AppLocalizationsKo extends AppLocalizations {
   String get nfcPromptLock => '영구 잠금할 태그를 기기에 대어주세요';
 
   @override
-  String get nfcPromptScan => '태그를 읽으려면 기기 뒷면에 대어주세요';
+  String get nfcPromptScan => '태그를 휴대폰 상단에 대세요';
 
   @override
   String get nfcPromptWrite => '데이터를 기록할 NFC 태그를 대어주세요';
@@ -1105,7 +1105,7 @@ class AppLocalizationsKo extends AppLocalizations {
   String get sourceSelectPrompt => '태그 데이터를 어디서 가져올까요?';
 
   @override
-  String get statusCancelled => '작업이 취소되었습니다.';
+  String get statusCancelled => '취소됨';
 
   @override
   String statusClearError(String error) {
@@ -1387,10 +1387,10 @@ class AppLocalizationsKo extends AppLocalizations {
       '유효한 웹 주소를 입력하세요 (예: https://example.com/doc.pdf).';
 
   @override
-  String get verificationNotChecked => '미확인';
+  String get verificationNotChecked => '확인되지 않음';
 
   @override
-  String get verificationPassed => '통과됨';
+  String get verificationPassed => '통과';
 
   @override
   String get videoUrlCannotBeEmpty => '비디오 링크를 입력해주세요.';
@@ -1472,4 +1472,1639 @@ class AppLocalizationsKo extends AppLocalizations {
 
   @override
   String get yes => '예';
+
+  @override
+  String get unknown => '알 수 없음';
+
+  @override
+  String get error => '오류';
+
+  @override
+  String get nfcPromptReady => '태그를 대세요';
+
+  @override
+  String get invalidResponseFormat => '잘못된 응답 형식을 받았습니다';
+
+  @override
+  String get nfcReadError => 'NFC 읽기 오류';
+
+  @override
+  String get invalidPlatformResponse => '플랫폼에서 잘못된 응답을 받았습니다';
+
+  @override
+  String get writeFailed => '쓰기 실패';
+
+  @override
+  String get lockFailed => '잠금 실패';
+
+  @override
+  String get failedToConnectTag => '태그에 연결할 수 없습니다';
+
+  @override
+  String get invalidTagResponse => '태그의 응답이 올바르지 않습니다';
+
+  @override
+  String get commandFailed => '명령 실패';
+
+  @override
+  String get ndefTypeOrIdTooLong => 'NDEF 유형 또는 ID가 255바이트를 초과합니다';
+
+  @override
+  String get ndefUnsupportedOrInvalidRecord => '지원되지 않거나 잘못된 NDEF 레코드';
+
+  @override
+  String get ndefMissingTypeLength => 'NDEF 유형 길이가 없습니다';
+
+  @override
+  String get ndefMissingPayloadLength => 'NDEF 페이로드 길이가 없습니다';
+
+  @override
+  String get ndefMissingIdLength => 'NDEF ID 길이가 없습니다';
+
+  @override
+  String get ndefMissingType => 'NDEF 유형이 없습니다';
+
+  @override
+  String get ndefMissingId => 'NDEF ID가 없습니다';
+
+  @override
+  String get ndefMissingPayload => 'NDEF 페이로드가 없습니다';
+
+  @override
+  String get unprotected => '(비밀번호 없음)';
+
+  @override
+  String get binaryDataPreview => '(바이너리 데이터)';
+
+  @override
+  String get emptyValue => '(비어 있음)';
+
+  @override
+  String get tnfEmpty => '0: Empty (비어 있음)';
+
+  @override
+  String get tnfWellKnown => '1: NFC Forum Well-Known (RTD)';
+
+  @override
+  String get tnfMedia => '2: Media-Type (RFC 2046 MIME)';
+
+  @override
+  String get tnfAbsoluteUri => '3: Absolute URI (RFC 3986)';
+
+  @override
+  String get tnfExternal => '4: NFC Forum External';
+
+  @override
+  String get tnfUnknown => '5: Unknown (알 수 없음)';
+
+  @override
+  String get tnfUnchanged => '6: Unchanged (청크 NDEF)';
+
+  @override
+  String get tnfReserved => '7: Reserved (예약됨)';
+
+  @override
+  String get ntagUnsupportedChip =>
+      '이 작업은 NTAG213/215/216 및 MIFARE Ultralight EV1 태그에서만 지원됩니다.';
+
+  @override
+  String ntagPageReadFailed(String page) {
+    return '페이지 $page을(를) 읽을 수 없습니다(태그가 응답하지 않거나 보호된 영역).';
+  }
+
+  @override
+  String ntagPageWriteFailedError(String page, String error) {
+    return '페이지 $page에 쓸 수 없습니다: $error';
+  }
+
+  @override
+  String ntagPageWriteFailed(String page) {
+    return '페이지 $page에 쓸 수 없습니다(태그 거부; 잠겨 있거나 비밀번호로 보호됨).';
+  }
+
+  @override
+  String ntagProtectedArea(String page) {
+    return '페이지 $page 이후를 읽을 수 없습니다. 이 영역은 비밀번호로 보호되어 있을 수 있습니다.';
+  }
+
+  @override
+  String get ntagPasswordPackSize => '비밀번호는 4바이트, PACK은 2바이트여야 합니다.';
+
+  @override
+  String get ntagPasswordSize => '비밀번호는 4바이트여야 합니다.';
+
+  @override
+  String get ntagPasswordWrongOrAuthFailed => '비밀번호가 올바르지 않거나 태그가 인증을 거부했습니다.';
+
+  @override
+  String get ntagPasswordWrong => '비밀번호가 올바르지 않습니다.';
+
+  @override
+  String get ntagCcInvalid =>
+      '태그의 CC 영역에 NDEF 이외의 값이 기록되었습니다. 이 OTP 영역은 포맷할 수 없습니다.';
+
+  @override
+  String get ntagDumpTooShort => '덤프 파일이 너무 짧아 사용자 데이터가 없습니다.';
+
+  @override
+  String get ntagInvalidHex => '올바른 16진수 값을 입력하세요(예: 30 04).';
+
+  @override
+  String get googleReviewFieldLabel => '리뷰 링크 또는 Place ID';
+
+  @override
+  String get menuLinkFieldLabel => '메뉴 링크';
+
+  @override
+  String get menuTitleHint => '메뉴';
+
+  @override
+  String get petName => '반려동물 이름';
+
+  @override
+  String get ownerPhone => '주인 전화번호';
+
+  @override
+  String petTagMessage(String pet, String phone, String note) {
+    return '안녕하세요, 저는 $pet입니다! 주인에게 전화해 주세요: $phone$note';
+  }
+
+  @override
+  String get bloodType => '혈액형';
+
+  @override
+  String get allergies => '알레르기 / 약물';
+
+  @override
+  String get emergencyContact => '비상 연락처';
+
+  @override
+  String get emergencyInfo => '응급 정보';
+
+  @override
+  String emergencyBlood(String blood) {
+    return '혈액형: $blood';
+  }
+
+  @override
+  String emergencyAllergies(String allergies) {
+    return '알레르기: $allergies';
+  }
+
+  @override
+  String emergencyCall(String contact) {
+    return '비상시 전화: $contact';
+  }
+
+  @override
+  String get storeLink => '스토어 링크';
+
+  @override
+  String get link => '링크';
+
+  @override
+  String get title => '제목';
+
+  @override
+  String get webAddress => '웹 주소';
+
+  @override
+  String get address => '주소';
+
+  @override
+  String backupSummaryTemplates(String added, String updated) {
+    return '템플릿: $added개 추가됨, $updated개 업데이트됨';
+  }
+
+  @override
+  String backupSummaryRules(String added, String updated) {
+    return '태그 메모/규칙: $added개 추가됨, $updated개 업데이트됨';
+  }
+
+  @override
+  String backupSummaryHistoryDisabled(String skipped) {
+    return '기기에서 검사 기록이 비활성화되어 건너뛰었습니다: $skipped';
+  }
+
+  @override
+  String backupSummaryHistory(String added, String skipped) {
+    return '기록: $added개 추가됨, $skipped개 건너뜀';
+  }
+
+  @override
+  String get backupSummaryNoNewData => '가져올 새 데이터를 찾을 수 없습니다(기존 레코드와 일치함).';
+
+  @override
+  String backupFieldMustBeString(String field) {
+    return '$field은(는) 문자열이어야 합니다.';
+  }
+
+  @override
+  String backupFieldMustBeDate(String field) {
+    return '$field은(는) 올바른 날짜여야 합니다.';
+  }
+
+  @override
+  String get rawTypeHexLabel => '유형(16진수 바이트)';
+
+  @override
+  String get rawIdHexLabel => 'ID(16진수 바이트, 선택사항)';
+
+  @override
+  String get rawPayloadHexLabel => '페이로드(16진수 바이트)';
+
+  @override
+  String get rawOptionalHexHint => '선택적 16진수 바이트';
+
+  @override
+  String get saveChanges => '변경사항 저장';
+
+  @override
+  String get edit => '편집';
+
+  @override
+  String get clearAllButton => '모두 지우기';
+
+  @override
+  String ntagPagesRead(String chip, int count) {
+    return '$chip: $count페이지 읽음';
+  }
+
+  @override
+  String ntagFormatted(String chip) {
+    return '$chip 포맷 완료';
+  }
+
+  @override
+  String get ntagInvalidDumpFile => '유효하지 않은 덤프 파일 (4바이트의 배수, 32~1024바이트여야 함).';
+
+  @override
+  String ntagPagesWritten(int count) {
+    return '$count페이지 기록됨';
+  }
+
+  @override
+  String ntagPasswordSet(String chip) {
+    return '$chip: 비밀번호 보호 활성화됨';
+  }
+
+  @override
+  String ntagPasswordRemoved(String chip) {
+    return '$chip: 비밀번호가 제거됨';
+  }
+
+  @override
+  String get memoryDumpCopied => '메모리 덤프가 복사됨';
+
+  @override
+  String ntagCommandsSent(int count) {
+    return '$count개 명령 전송됨';
+  }
+
+  @override
+  String get emptyResponse => '(빈 응답)';
+
+  @override
+  String pagesAndBytes(int pages, int bytes) {
+    return '$pages페이지 · $bytes바이트';
+  }
+
+  @override
+  String get composeTextEmpty => '텍스트 내용은 비어 있을 수 없습니다.';
+
+  @override
+  String get composeTextTooLong => '텍스트가 너무 깁니다(최대 5000자).';
+
+  @override
+  String get composeUrlInvalid =>
+      '유효한 주소를 입력하세요(예: https://example.com 또는 app:// 링크).';
+
+  @override
+  String get composeUrlTooLong => 'URL이 너무 깁니다(최대 2000자).';
+
+  @override
+  String get composeEmailInvalid => '유효한 이메일 주소를 입력하세요(예: name@domain.com).';
+
+  @override
+  String get composePhoneInvalid => '유효한 전화번호를 입력하세요(예: +905551234567).';
+
+  @override
+  String get composeSmsPhoneInvalid => '유효한 수신자 전화번호를 입력하세요.';
+
+  @override
+  String get composeLatInvalid => '위도는 -90에서 +90 사이여야 합니다.';
+
+  @override
+  String get composeLngInvalid => '경도는 -180에서 +180 사이여야 합니다.';
+
+  @override
+  String get composeVcardNameEmpty => '연락처 이름은 비어 있을 수 없습니다.';
+
+  @override
+  String get composeVcardNameTooLong => '연락처 이름이 너무 깁니다(최대 200자).';
+
+  @override
+  String get composeVcardEmailInvalid => '유효한 이메일 주소를 입력하세요.';
+
+  @override
+  String get composeVcardPhoneInvalid => '유효한 전화번호를 입력하세요.';
+
+  @override
+  String get composeVcardUrlInvalid => '유효한 웹 주소를 입력하세요(예: https://...).';
+
+  @override
+  String get composeCalSummaryEmpty => '일정 제목은 비어 있을 수 없습니다.';
+
+  @override
+  String get composeCalSummaryTooLong => '일정 제목이 너무 깁니다(최대 250자).';
+
+  @override
+  String get composeCalDateInvalid => '종료 시간은 시작 시간 이후여야 합니다.';
+
+  @override
+  String get composeSpUriInvalid => '유효한 대상 URL을 입력하세요(예: https://...).';
+
+  @override
+  String get composeSpLangInvalid => '유효한 ISO 언어 코드를 입력하세요(예: ko, en).';
+
+  @override
+  String get composeMimeTypeInvalid =>
+      '유효한 MIME 유형을 입력하세요(예: application/json, text/plain).';
+
+  @override
+  String get composeMimeHexInvalid => '유효한 16진수 문자열을 입력하세요(짝수 개의 16진수 문자).';
+
+  @override
+  String get composeMimePayloadTooLarge => '페이로드 크기가 너무 큽니다(최대 10 KB).';
+
+  @override
+  String get composeWifiSsidEmpty => '네트워크 이름(SSID)은 비어 있을 수 없습니다.';
+
+  @override
+  String get composeWifiPasswordRequired => '암호화된 네트워크에는 Wi-Fi 비밀번호가 필요합니다.';
+
+  @override
+  String get composeWifiPasswordLength => 'WPA/WPA2 비밀번호는 8자에서 63자 사이여야 합니다.';
+
+  @override
+  String get composeEditNdefRecord => 'NDEF 레코드 편집';
+
+  @override
+  String get composeNewNdefRecord => '새 NDEF 레코드 생성';
+
+  @override
+  String get quickLinksHeader => '빠른 링크';
+
+  @override
+  String get quickLinkCustomUri => '사용자 정의 URI';
+
+  @override
+  String get quickLinkSocial => '소셜 네트워크';
+
+  @override
+  String get quickLinkVideo => '비디오';
+
+  @override
+  String get quickLinkSearch => '검색';
+
+  @override
+  String get quickLinkFile => '파일';
+
+  @override
+  String get quickLinkFacetimeAudio => 'FaceTime 오디오';
+
+  @override
+  String get quickLinkAddress => '주소';
+
+  @override
+  String get quickLinkPayment => '결제 링크';
+
+  @override
+  String get quickLinkApp => '앱 (Android)';
+
+  @override
+  String get updateRecord => '레코드 업데이트';
+
+  @override
+  String get addToList => '목록에 추가';
+
+  @override
+  String get quickCustomUriError =>
+      '스킴을 포함한 주소를 입력하세요(예: spotify:track:... 또는 myapp://page).';
+
+  @override
+  String get quickFileEmptyMessage => '파일 링크를 입력하세요.';
+
+  @override
+  String get quickPaymentEmptyMessage => '결제 링크를 입력하세요.';
+
+  @override
+  String get quickCustomUriDesc => '스킴으로 시작하는 주소를 입력할 수 있으며 휴대폰에서 지원 앱을 엽니다.';
+
+  @override
+  String get quickSocialLabel => '소셜 네트워크';
+
+  @override
+  String get quickVideoLabel => '동영상 링크';
+
+  @override
+  String get quickVideoHint => 'https://youtu.be/... 또는 동영상 ID';
+
+  @override
+  String get quickVideoDesc =>
+      'YouTube, Vimeo 등의 링크 또는 YouTube 동영상 ID만 입력할 수 있습니다.';
+
+  @override
+  String get quickSearchHint => '예: 서울 날씨';
+
+  @override
+  String get quickFileLabel => '파일 링크';
+
+  @override
+  String get quickFileDesc =>
+      '태그 용량이 작기 때문에 파일 자체가 아닌 웹 링크가 기록됩니다(Google Drive, Dropbox 등).';
+
+  @override
+  String get quickPhoneOrAppleId => '전화번호 또는 Apple ID';
+
+  @override
+  String get quickFacetimeVideoDesc =>
+      '태그를 터치한 iPhone에서 FaceTime 영상 통화를 시작합니다.';
+
+  @override
+  String get quickFacetimeAudioDesc =>
+      '태그를 터치한 iPhone에서 FaceTime 음성 통화만 시작합니다.';
+
+  @override
+  String get quickMapProvider => '지도 앱';
+
+  @override
+  String get quickAddressHint => '예: 서울시 중구 세종대로 110';
+
+  @override
+  String get quickPaymentDesc =>
+      'PayPal.me, Stripe 등의 결제 링크를 사용할 수 있습니다. 카드 정보는 절대 태그에 기록되지 않습니다.';
+
+  @override
+  String get quickAppDesc =>
+      'Android 휴대폰은 터치 시 이 앱을 엽니다(미설치 시 Play 스토어 열림). iPhone은 이 유형을 무시하므로 App Store 링크를 URL로 추가하세요.';
+
+  @override
+  String get quickDeviceNameOptional => '기기 이름(선택 사항)';
+
+  @override
+  String get quickSpeakerHint => '예: 스피커';
+
+  @override
+  String get quickBluetoothDesc =>
+      'Android 휴대폰은 터치 시 이 기기와의 페어링을 제안합니다. iPhone은 Bluetooth 페어링 태그를 지원하지 않습니다.';
+
+  @override
+  String get composeTextContent => '텍스트 내용';
+
+  @override
+  String get composeTextHint => '작성할 텍스트를 입력하세요';
+
+  @override
+  String get composeEmailSubjectOptional => '제목(선택 사항)';
+
+  @override
+  String get composeEmailBodyOptional => '메시지 본문(선택 사항)';
+
+  @override
+  String get composeSmsRecipient => '수신자 전화번호';
+
+  @override
+  String get composeSmsHint => '보낼 SMS 메시지...';
+
+  @override
+  String get composeVcardFullName => '전체 이름(표시 이름) *';
+
+  @override
+  String get composeVcardNameHint => '홍길동';
+
+  @override
+  String get composeVcardNote => '메모 / 설명';
+
+  @override
+  String get composeCalTitle => '일정 제목 *';
+
+  @override
+  String get composeCalTitleHint => '프로젝트 회의';
+
+  @override
+  String get composeCalLocationHint => '회의실 2 또는 온라인';
+
+  @override
+  String get composeCalDesc => '일정 설명';
+
+  @override
+  String get composeCalStartEndTime => '시작 및 종료 시간:';
+
+  @override
+  String get composeSpTitleLabel => '제목(표시 텍스트)';
+
+  @override
+  String get composeSpTitleHint => '회사 브로셔';
+
+  @override
+  String get composeMimeTypeLabel => 'MIME 유형 *';
+
+  @override
+  String get composeDataFormat => '데이터 형식: ';
+
+  @override
+  String get composeFormatHex => '16진수 (Hex)';
+
+  @override
+  String get composeMimeHexBytes => '16진수 바이트 *';
+
+  @override
+  String get composeMimeTextPayload => '페이로드 텍스트 (UTF-8) *';
+
+  @override
+  String get composeWifiWarningTitle => '보안 및 플랫폼 주의 사항:';
+
+  @override
+  String get composeWifiWarningBody =>
+      '• 태그에 기록된 Wi-Fi 비밀번호는 일반 텍스트로 저장되어 누구나 읽을 수 있습니다.\n• 터치 시 자동 연결이 보장되지 않으며 사용자 확인이 필요할 수 있습니다.';
+
+  @override
+  String get composeWifiSsidLabel => '네트워크 이름 (SSID) *';
+
+  @override
+  String get composeWifiAuthTypeLabel => '보안 유형 (인증)';
+
+  @override
+  String get composeWifiOpenNetwork => '개방형 네트워크 (비밀번호 없음)';
+
+  @override
+  String get composeWifiPasswordLabel => 'Wi-Fi 비밀번호 *';
+
+  @override
+  String get composeWifiEncryptionLabel => '암호화 유형';
+
+  @override
+  String get composeWifiAesRecommended => 'AES (권장)';
+
+  @override
+  String get quickSearchTextLabel => '검색할 텍스트';
+
+  @override
+  String get readTagMemoryPrompt => '메모리를 읽으려면 태그를 휴대폰에 대세요';
+
+  @override
+  String get readingTagMemoryStatus => '메모리 읽는 중...';
+
+  @override
+  String get formatTagConfirmTitle => '메모리 포맷';
+
+  @override
+  String get formatTagConfirmMessage =>
+      '태그의 데이터가 삭제되고 빈 NDEF로 준비됩니다. 계속하시겠습니까?';
+
+  @override
+  String get formatButton => '포맷';
+
+  @override
+  String get formatTagPrompt => '포맷할 태그를 대세요';
+
+  @override
+  String get formattingStatus => '포맷 중...';
+
+  @override
+  String filePickerFailed(String error) {
+    return '파일 선택기 열기 실패: $error';
+  }
+
+  @override
+  String get writeButton => '쓰기';
+
+  @override
+  String get writeDumpPrompt => '덤프를 기록할 태그를 대세요';
+
+  @override
+  String get writingDumpStatus => '덤프 쓰는 중...';
+
+  @override
+  String get setPasswordWarning =>
+      '비밀번호를 잊어버리면 내용을 다시 변경할 수 없습니다. 읽기는 공개된 상태로 유지됩니다.';
+
+  @override
+  String get setPasswordAction => '비밀번호 설정';
+
+  @override
+  String get setPasswordPrompt => '비밀번호를 설정할 태그를 대세요';
+
+  @override
+  String get settingPasswordStatus => '비밀번호 설정 중...';
+
+  @override
+  String get removePasswordPromptMessage => '이전에 태그에 설정한 비밀번호를 입력하세요.';
+
+  @override
+  String get remove => '제거';
+
+  @override
+  String get removePasswordPrompt => '비밀번호를 제거할 태그를 대세요';
+
+  @override
+  String get removingPasswordStatus => '비밀번호 제거 중...';
+
+  @override
+  String get sendCommandsPrompt => '명령을 보낼 태그를 대세요';
+
+  @override
+  String get sendingCommandsStatus => '명령 전송 중...';
+
+  @override
+  String get sendButton => '전송';
+
+  @override
+  String get tagNoteEditTitle => '태그 메모 편집';
+
+  @override
+  String get tagNoteInputLabel => '앱 내 메모 / 설명';
+
+  @override
+  String get tagNoteInputHint => '예: 회의실 정보 또는 창고 선반 #12';
+
+  @override
+  String get tagNoteDeleteTitle => '태그 메모 삭제';
+
+  @override
+  String get clearAllTagRulesTitle => '모든 메모 삭제';
+
+  @override
+  String get clearAllTagRulesConfirm => '저장된 모든 앱 내 태그 메모가 삭제됩니다. 확인하시겠습니까?';
+
+  @override
+  String get deleteAll => '모두 삭제';
+
+  @override
+  String get tagRulesExplanation =>
+      'NDEF SHA-256 다이제스트와 일치하는 태그에는 저장된 메모만 표시됩니다. 외부 동작은 실행되지 않습니다.';
+
+  @override
+  String get noTagRulesDefined => '정의된 태그 메모가 없습니다.';
+
+  @override
+  String lastUpdated(String time) {
+    return '마지막 업데이트: $time';
+  }
+
+  @override
+  String get tagLibraryNoMatch => '검색과 일치하는 태그가 없습니다.';
+
+  @override
+  String get tagLibraryAddToLibrary => '라이브러리에 추가';
+
+  @override
+  String get name => '이름';
+
+  @override
+  String get tagLibraryAddTag => '태그 추가';
+
+  @override
+  String get all => '전체';
+
+  @override
+  String tagLibraryPhotoError(String error) {
+    return '사진을 선택하지 못했습니다: $error';
+  }
+
+  @override
+  String get tagLibraryDeleteTitle => '태그 삭제';
+
+  @override
+  String get tagLibraryNameHint => '예: 사무실 열쇠고리';
+
+  @override
+  String get tagLibraryNoTagContent => '이 레코드에 태그 내용이 없습니다.';
+
+  @override
+  String get tagLibrarySourceLastScanned => '최근 스캔';
+
+  @override
+  String get tagLibraryEmpty => '저장된 태그가 없습니다.';
+
+  @override
+  String get tagLibrarySourceEmpty => '빈 레코드';
+
+  @override
+  String get tagLibraryNamePrompt => '태그 이름을 입력하세요';
+
+  @override
+  String get tagLibrarySearchHint => '이름, 카테고리 또는 위치로 검색...';
+
+  @override
+  String get tagLibrarySourceWriteList => '쓰기 목록';
+
+  @override
+  String get tagLibraryLocationHint => '예: 책상, 현관문';
+
+  @override
+  String tagLibraryDeleteConfirm(String name) {
+    return '라이브러리에서 \"$name\" 태그를 삭제하시겠습니까?';
+  }
+
+  @override
+  String get noContent => '내용 없음';
+
+  @override
+  String tagLibraryRecordSummary(num count) {
+    return '$count개의 NDEF 레코드';
+  }
+
+  @override
+  String get tagLibraryEditTag => '태그 편집';
+
+  @override
+  String get rawTypeHexHint => '41 (A) 또는 55 (U) 등';
+
+  @override
+  String backupContextRecordsMustBeList(String context) {
+    return '$context: \"records\" 필드는 목록이어야 합니다.';
+  }
+
+  @override
+  String backupContextMaxRecords(String context, num max) {
+    return '$context: 항목에는 최대 $max개의 NDEF 레코드가 포함될 수 있습니다.';
+  }
+
+  @override
+  String backupContextRecordMustBeObject(String context, num index) {
+    return '$context - 레코드 #$index이(가) 유효한 객체가 아닙니다.';
+  }
+
+  @override
+  String backupContextInvalidTnf(String context, num index, String tnf) {
+    return '$context - 레코드 #$index: 유효하지 않은 TNF 값 ($tnf).';
+  }
+
+  @override
+  String backupContextTypeMustBeString(String context, num index) {
+    return '$context - 레코드 #$index: \"type\"은 Base64 문자열이어야 합니다.';
+  }
+
+  @override
+  String backupContextInvalidTypeBase64(
+      String context, num index, String error) {
+    return '$context - 레코드 #$index: \"type\"이(가) 유효한 Base64 데이터가 아닙니다($error).';
+  }
+
+  @override
+  String backupContextIdMustBeString(String context, num index) {
+    return '$context - 레코드 #$index: \"id\"는 Base64 문자열이어야 합니다.';
+  }
+
+  @override
+  String backupContextInvalidIdBase64(String context, num index, String error) {
+    return '$context - 레코드 #$index: \"id\"가 유효한 Base64 데이터가 아닙니다($error).';
+  }
+
+  @override
+  String backupContextPayloadMustBeString(String context, num index) {
+    return '$context - 레코드 #$index: \"payload\"는 Base64 문자열이어야 합니다.';
+  }
+
+  @override
+  String backupContextInvalidPayloadBase64(
+      String context, num index, String error) {
+    return '$context - 레코드 #$index: \"payload\"가 유효한 Base64 데이터가 아닙니다($error).';
+  }
+
+  @override
+  String get composerUndoSnack => '마지막 변경 사항이 취소되었습니다.';
+
+  @override
+  String get composerRedoSnack => '변경 사항이 다시 실행되었습니다.';
+
+  @override
+  String get noRecordsToCopy => '복사할 NDEF 레코드가 없습니다.';
+
+  @override
+  String recordsCopiedToClipboardDetails(num count, num bytes) {
+    return '$count개의 NDEF 레코드($bytes B)가 클립보드에 복사되었습니다.\n(NDEF 내용만 복사되며 UID나 암호화된 섹터는 복제되지 않습니다)';
+  }
+
+  @override
+  String recordsAddedFromSource(String source, num count) {
+    return '$source: $count개 레코드 추가됨.';
+  }
+
+  @override
+  String get tagEmptyNoRecordsToImport => '태그가 비어 있습니다. 가져올 레코드가 없습니다.';
+
+  @override
+  String get sourceTag => '태그에서';
+
+  @override
+  String get sourceQr => 'QR 코드에서';
+
+  @override
+  String filePickerError(String error) {
+    return '파일 선택기를 열 수 없습니다: $error';
+  }
+
+  @override
+  String get csvFileTooLarge => 'CSV 파일이 너무 큽니다(최대 512 KB).';
+
+  @override
+  String get noRecordsFound => '레코드를 찾을 수 없음';
+
+  @override
+  String get someRowsSkipped => '일부 행 건너뜀';
+
+  @override
+  String get expectedFormat => '예상 형식:';
+
+  @override
+  String get noClipboardContent => '클립보드에 복사된 NDEF 내용이 없습니다.';
+
+  @override
+  String get pasteFromClipboardTitle => 'NDEF 클립보드에서 붙여넣기';
+
+  @override
+  String clipboardDataSummary(num count, num bytes, String source) {
+    return '클립보드 데이터: $count개 레코드, $bytes바이트($source)';
+  }
+
+  @override
+  String get clipboardPastePrompt => '현재 레코드를 대체하시겠습니까, 아니면 끝에 추가하시겠습니까?';
+
+  @override
+  String get pasteOverwriteOption => '덮어쓰기 (교체)';
+
+  @override
+  String pasteOverwriteSubtitle(num count) {
+    return '현재 $count개의 레코드가 삭제되고 클립보드 내용으로 대체됩니다(확인 필요).';
+  }
+
+  @override
+  String get pasteEmptySubtitle => '클립보드 내용이 작성기에 추가됩니다.';
+
+  @override
+  String get pasteAppendOption => '끝에 추가';
+
+  @override
+  String get pasteAppendSubtitle => '현재 레코드는 유지되며 클립보드의 레코드가 목록 끝에 추가됩니다.';
+
+  @override
+  String recordsAddedToComposer(num count) {
+    return '$count개 레코드 추가됨.';
+  }
+
+  @override
+  String get confirmOverwriteTitle => '레코드를 덮어쓰시겠습니까?';
+
+  @override
+  String confirmOverwriteMessage(num currentCount, num newCount) {
+    return '현재 $currentCount개의 레코드가 있습니다. 클립보드의 $newCount개 레코드로 대체됩니다. 계속하시겠습니까?';
+  }
+
+  @override
+  String recordsReplacedInComposer(num count) {
+    return '$count개의 레코드로 대체되었습니다.';
+  }
+
+  @override
+  String get yesReplace => '예, 교체';
+
+  @override
+  String recordsImportedToComposer(num count) {
+    return '$count개 레코드 가져옴.';
+  }
+
+  @override
+  String get noContentToCopy => '복사할 NDEF 콘텐츠를 찾을 수 없습니다.';
+
+  @override
+  String recordsCopiedAndStaged(num count) {
+    return '$count개의 NDEF 레코드가 복사되어 추가되었습니다(내용은 복사되지만 UID는 복제되지 않음).';
+  }
+
+  @override
+  String get noContentToRewrite => '다시 쓸 NDEF 콘텐츠를 찾을 수 없습니다.';
+
+  @override
+  String get rewriteTagTitle => '태그 다시 쓰기';
+
+  @override
+  String get importantNotice => '중요 알림:';
+
+  @override
+  String get rewriteNotice1 =>
+      '• 이 작업은 대상 태그의 기존 NDEF 내용을 완전히 덮어씁니다(추가되지 않음).\n';
+
+  @override
+  String get rewriteNotice2 => '• 대상 태그는 쓰기 가능한(잠금 해제된) NDEF 태그여야 합니다.\n';
+
+  @override
+  String get rewriteNotice3 => '• 이전 태그에 자동으로 쓰지 않으며 새 NFC 터치가 필요합니다.';
+
+  @override
+  String rewriteSourceUidLabel(String uid) {
+    return '소스 UID: $uid';
+  }
+
+  @override
+  String rewriteRecordCountLabel(num count) {
+    return '기록할 레코드 수: $count';
+  }
+
+  @override
+  String get rewriteInstruction =>
+      '대상 태그를 준비하고 \"터치하여 쓰기\"를 누른 뒤 태그를 휴대폰에 대세요.';
+
+  @override
+  String get tapAndWrite => '터치하여 쓰기';
+
+  @override
+  String get rewritePromptMessage => '대상 태그를 기기에 대세요(내용이 완전히 갱신됩니다)';
+
+  @override
+  String rewriteFailedMessage(String error) {
+    return '다시 쓰기 실패: $error';
+  }
+
+  @override
+  String get writeVerifiedTitle => '쓰기 확인 완료';
+
+  @override
+  String get writeVerifiedDesc => 'NDEF 콘텐츠가 대상 태그에 성공적으로 기록되고 확인되었습니다.';
+
+  @override
+  String writtenRecordCount(num count) {
+    return '기록된 레코드 수: $count';
+  }
+
+  @override
+  String get writeVerifiedHint => '다음 스캔을 시작하여 기록된 데이터를 확인하거나 비교할 수 있습니다.';
+
+  @override
+  String get scanAndCompareNow => '지금 스캔하여 비교';
+
+  @override
+  String get contentMatchesExactly => '콘텐츠가 정확히 일치합니다';
+
+  @override
+  String get differenceDetected => '차이점 발견됨';
+
+  @override
+  String compareScannedUid(String uid) {
+    return '스캔된 태그 UID: $uid';
+  }
+
+  @override
+  String compareWrittenData(num count, num bytes) {
+    return '기록된 데이터: $count개 레코드($bytes바이트)';
+  }
+
+  @override
+  String compareScannedData(num count, num bytes) {
+    return '스캔된 데이터: $count개 레코드($bytes바이트)';
+  }
+
+  @override
+  String get compareMatchDesc =>
+      '대상 태그의 NDEF 메시지가 기록된 소스 NDEF 메시지와 바이트 단위로 정확히 일치합니다.';
+
+  @override
+  String get compareDiffDesc =>
+      '읽은 데이터와 기록할 데이터 사이에 차이가 있습니다. 태그가 잠겨 있는지 확인하세요.';
+
+  @override
+  String get batchEmptyComposerError =>
+      '일괄 쓰기를 시작하기 전에 작성기에 최소 하나의 레코드를 추가하세요.';
+
+  @override
+  String get batchWriteTitle => '일괄 태그 쓰기';
+
+  @override
+  String get batchWriteSubtitle => '동일한 NDEF 콘텐츠를 여러 태그에 순차적으로 기록할 수 있습니다.';
+
+  @override
+  String get attention => '주의:';
+
+  @override
+  String get batchNotice1 =>
+      '• 동일한 태그에 중복 기록되는 것을 방지하기 위해 각 쓰기는 \"다음 쓰기\" 버튼으로 명시적으로 시작됩니다.\n';
+
+  @override
+  String get batchNotice2 => '• 자동 연속 스캔은 수행되지 않으며 각 태그를 물리적으로 교체해야 합니다.';
+
+  @override
+  String batchTargetCountLabel(num count) {
+    return '대상 태그 수: $count';
+  }
+
+  @override
+  String batchComposerSummary(num count, num bytes) {
+    return '작성기 레코드: $count개($bytes바이트)';
+  }
+
+  @override
+  String get batchStartButton => '일괄 쓰기 시작';
+
+  @override
+  String get batchControlPanelTitle => '일괄 쓰기 제어판';
+
+  @override
+  String get batchCancelOrClose => '취소 / 닫기';
+
+  @override
+  String get batchAllCompleted => '모든 태그 시도가 완료되었습니다!';
+
+  @override
+  String batchNextTag(num current, num total) {
+    return '다음: 태그 #$current / $total';
+  }
+
+  @override
+  String batchStats(num success, num fail, num remaining) {
+    return '성공: $success | 실패: $fail | 남음: $remaining';
+  }
+
+  @override
+  String batchSuccessMsg(String message) {
+    return '성공 ($message)';
+  }
+
+  @override
+  String batchFailMsg(String message) {
+    return '실패: $message';
+  }
+
+  @override
+  String tagNumberLabel(num index) {
+    return '태그 #$index: ';
+  }
+
+  @override
+  String get waitingForTag => '태그 대기 중...';
+
+  @override
+  String tapToWriteForTag(num index) {
+    return '태그 #$index을(를) 터치하여 쓰기';
+  }
+
+  @override
+  String get batchFinishButton => '일괄 쓰기 완료';
+
+  @override
+  String batchPromptMessage(num current, num total) {
+    return '일괄 쓰기: #$current / $total 태그를 기기에 대세요';
+  }
+
+  @override
+  String batchTagSuccessSummary(num count) {
+    return '$count개 레코드 기록 및 확인됨';
+  }
+
+  @override
+  String get writeError => '쓰기 오류';
+
+  @override
+  String get batchConfirmCancelTitle => '일괄 쓰기 취소';
+
+  @override
+  String get batchConfirmCancelMessage =>
+      '일괄 쓰기 세션을 종료하시겠습니까? 지금까지 기록된 태그는 유지되며 나머지 태그는 기록되지 않습니다.';
+
+  @override
+  String get cancelled => '취소됨';
+
+  @override
+  String get batchCancelledSnack => '일괄 쓰기가 취소되었습니다. 작성기 내용이 보존되었습니다.';
+
+  @override
+  String get cancelAndClose => '취소 및 닫기';
+
+  @override
+  String get urlSafetyOfflineAnalysisTitle => '오프라인 URL 분석';
+
+  @override
+  String get urlSafetyScheme => '스킴 (프로토콜):';
+
+  @override
+  String get urlSafetyPort => '포트:';
+
+  @override
+  String get urlSafetyUserInfoLabel => '사용자 정보:';
+
+  @override
+  String get urlSafetyIpLiteral => '직접 IP 주소:';
+
+  @override
+  String get urlSafetyDomain => '아니요 (도메인 이름)';
+
+  @override
+  String get urlSafetyPunycodeLabel => '국제 / Punycode (xn--):';
+
+  @override
+  String get urlSafetyHomoglyphRisk => '예 (동형이의어 의심)';
+
+  @override
+  String get urlSafetyWarningsHeader => '보안 / 주의 알림:';
+
+  @override
+  String get urlSafetyDisclaimer =>
+      '참고: 이 분석은 로컬 오프라인 규칙을 기반으로 합니다. 온라인 바이러스 검사가 아니며 URL이 자동으로 열리지 않습니다.';
+
+  @override
+  String templateLoadedToComposer(String name) {
+    return '\"$name\" 템플릿의 레코드가 작성기로 로드되었습니다.';
+  }
+
+  @override
+  String get templateSaveEmptyError => '템플릿으로 저장하기 전에 레코드를 추가하세요.';
+
+  @override
+  String templateDefaultName(num index) {
+    return '템플릿 $index';
+  }
+
+  @override
+  String get templateNameSample => '예: 회사 웹사이트 및 연락처';
+
+  @override
+  String get templateSavedSnack => '템플릿이 저장되었습니다.';
+
+  @override
+  String get ruleNoteRequiresNdef => '메모를 추가하려면 태그에 최소 하나의 NDEF 레코드가 있어야 합니다.';
+
+  @override
+  String get ruleNoteAddTitle => '사용자 지정 태그 메모 추가';
+
+  @override
+  String get ruleNoteDigestExplanation =>
+      '이 메모는 태그 NDEF SHA-256 다이제스트에 바인딩됩니다. 태그 스캔 시 이 설명만 표시됩니다.';
+
+  @override
+  String ruleNoteShaSummary(String sha) {
+    return 'NDEF 콘텐츠 다이제스트 (SHA-256):\n$sha';
+  }
+
+  @override
+  String get ruleNoteSavedSnack => '태그 메모가 저장되었습니다.';
+
+  @override
+  String get ruleNoteDeleteTitle => '태그 메모 삭제';
+
+  @override
+  String get ruleNoteDeleteConfirm => '이 태그의 앱 내 메모가 삭제됩니다. 계속하시겠습니까?';
+
+  @override
+  String get ruleNoteDeletedSnack => '태그 메모가 삭제되었습니다.';
+
+  @override
+  String get backupExportTitle => '백업 내보내기';
+
+  @override
+  String get backupExportWarningTitle => '개인정보 보호 및 보안 경고';
+
+  @override
+  String get backupExportWarningBody =>
+      '내보낸 백업 파일(JSON)은 일반 텍스트입니다. Wi-Fi 비밀번호나 연락처 등 민감한 데이터가 포함될 수 있습니다. 안전하게 보관하세요.';
+
+  @override
+  String get backupIncludedItems => '포함할 항목:';
+
+  @override
+  String backupTemplatesCount(num count) {
+    return '• 템플릿: $count개';
+  }
+
+  @override
+  String backupRulesCount(num count) {
+    return '• 앱 내 태그 메모/규칙: $count개';
+  }
+
+  @override
+  String get backupIncludeHistoryOptional => '스캔 기록 포함 (선택 사항)';
+
+  @override
+  String backupHistoryCount(num count) {
+    return '$count개 기록 항목';
+  }
+
+  @override
+  String get backupHistoryDisabled => '이 기기에서는 스캔 기록이 비활성화되어 있습니다';
+
+  @override
+  String get backupExportAndShare => '내보내기 및 공유';
+
+  @override
+  String get backupFileNameLabel => 'NFC Tag Master 백업 파일';
+
+  @override
+  String get backupFileShareSubject => 'NFC Tag Master 템플릿 및 데이터 백업 (JSON)';
+
+  @override
+  String get backupExportSuccessSnack => '백업 파일이 성공적으로 내보내지고 공유되었습니다.';
+
+  @override
+  String get backupExportCancelled => '내보내기 공유가 취소되었습니다.';
+
+  @override
+  String backupExportError(String error) {
+    return '내보내기 오류: $error';
+  }
+
+  @override
+  String get backupImportTitle => '백업 가져오기';
+
+  @override
+  String get backupMergeRuleTitle => '보안 및 병합 규칙';
+
+  @override
+  String get backupMergeRule1 => '• 가져오기는 병합 방식으로 작동하며 기존 레코드는 절대 삭제되지 않습니다.\n';
+
+  @override
+  String get backupMergeRule2 =>
+      '• 백업 파일에 Wi-Fi 비밀번호나 개인정보가 포함될 수 있으므로 신뢰할 수 있는 소스에서만 로드하세요.\n';
+
+  @override
+  String get backupMergeRule3 =>
+      '• 파일 크기 제한: 2 MiB. 로드하기 전에 엄격한 스키마 및 Base64 검증을 거칩니다.';
+
+  @override
+  String get backupSelectFilePrompt => '병합할 유효한 .json 백업 파일을 선택하세요.';
+
+  @override
+  String get selectFileButton => '파일 선택';
+
+  @override
+  String get fileSelectionCancelled => '파일 선택이 취소되었습니다.';
+
+  @override
+  String get backupFileExceedsLimit => '선택한 파일이 허용된 2 MiB 제한을 초과합니다.';
+
+  @override
+  String fileReadError(String error) {
+    return '파일 읽기 오류: $error';
+  }
+
+  @override
+  String backupValidationError(String error) {
+    return '백업 검증 오류: $error';
+  }
+
+  @override
+  String get backupHistoryDetectedTitle => '스캔 기록 감지됨';
+
+  @override
+  String backupHistoryDetectedMsg(num count) {
+    return '백업 파일에 $count개의 스캔 기록이 있지만 이 기기에서는 비활성화되어 있습니다.\n\n';
+  }
+
+  @override
+  String get backupHistoryDetectedPrompt =>
+      '기록도 가져오고 활성화하시겠습니까? 아니면 기록을 건너뛰고 템플릿과 메모만 가져올까요?';
+
+  @override
+  String get backupSkipHistoryOption => '기록 건너뛰기 (템플릿 및 메모만 로드)';
+
+  @override
+  String get backupEnableHistoryOption => '기록 활성화 및 로드';
+
+  @override
+  String backupImportSuccessWithSummary(String summary) {
+    return '가져오기 성공:\n$summary';
+  }
+
+  @override
+  String backupMergeError(String error) {
+    return '병합 오류: $error';
+  }
+
+  @override
+  String get nfcReadyStatus => 'NFC 준비됨';
+
+  @override
+  String get nfcReadyDesc => 'NFC 하드웨어가 활성화되어 사용 준비가 되었습니다';
+
+  @override
+  String get nfcDisabledStatus => 'NFC 꺼짐';
+
+  @override
+  String get nfcDisabledDesc => 'NFC가 꺼져 있습니다. 기기 설정에서 켜주세요.';
+
+  @override
+  String ndefClipboardBanner(num count, num bytes, String source) {
+    return 'NDEF 클립보드: $count개 레코드($bytes B) - $source';
+  }
+
+  @override
+  String get template => '템플릿';
+
+  @override
+  String get nfcScannerTitle => 'NFC 스캐너';
+
+  @override
+  String lastScannedTagId(String id) {
+    return '마지막 태그: $id';
+  }
+
+  @override
+  String get composeRecord => '레코드 생성';
+
+  @override
+  String get protectOrRemove => '보호 / 제거';
+
+  @override
+  String get previousScans => '이전 스캔';
+
+  @override
+  String scanErrorWithMsg(String error) {
+    return '스캔 오류: $error';
+  }
+
+  @override
+  String get noScannedTagYet => '스캔된 NFC 태그가 아직 없습니다';
+
+  @override
+  String get tapScanPrompt => '\"스캔 시작\"을 누르고 태그를 휴대폰에 대세요.';
+
+  @override
+  String get ndefCopyAndRewriteTitle => 'NDEF 콘텐츠 복사 및 다시 쓰기';
+
+  @override
+  String ndefCopyNotice(num count, num bytes) {
+    return '$count개 레코드($bytes바이트) - NDEF 데이터만 처리되며 UID는 복제되지 않습니다.';
+  }
+
+  @override
+  String tagIdHeader(String id) {
+    return '태그 $id';
+  }
+
+  @override
+  String get savedTagNoteHeader => '저장된 태그 메모 (앱 내 규칙)';
+
+  @override
+  String get tagNoteOrRule => '태그 메모 / 규칙';
+
+  @override
+  String get editNote => '메모 편집';
+
+  @override
+  String get deleteNote => '메모 삭제';
+
+  @override
+  String get tagNoteDigestNotice =>
+      '이 메모는 정확한 NDEF 바이트의 SHA-256 다이제스트와 일치합니다. 외부 작업을 트리거하지 않습니다.';
+
+  @override
+  String get addCustomTagNotePrompt =>
+      '이 NDEF 콘텐츠에 대한 사용자 지정 로컬 메모나 설명을 추가할 수 있습니다.';
+
+  @override
+  String get addNoteToThisTag => '이 태그에 메모 추가';
+
+  @override
+  String get ndefSupport => 'NDEF 지원:';
+
+  @override
+  String get usedSpace => '사용된 공간:';
+
+  @override
+  String get freeSpace => '여유 공간:';
+
+  @override
+  String errorWithMsg(String error) {
+    return '오류: $error';
+  }
+
+  @override
+  String get noNdefMessageOnTag => '태그에 저장된 NDEF 메시지를 찾을 수 없습니다.';
+
+  @override
+  String readNdefRecordsHeader(num count) {
+    return '읽은 NDEF 레코드 ($count)';
+  }
+
+  @override
+  String stagedNdefRecordsHeader(num count) {
+    return '작성된 NDEF 레코드 ($count)';
+  }
+
+  @override
+  String get hideDetails => '세부정보 숨기기';
+
+  @override
+  String get advancedRecordInspector => '레코드 검사기 (고급)';
+
+  @override
+  String get ndefRecordInspectorTitle => '고급 NDEF 레코드 검사기';
+
+  @override
+  String get inspectorType => '유형:';
+
+  @override
+  String get inspectorPayloadLength => '페이로드 길이:';
+
+  @override
+  String get inspectorRawHexPreview => '원시 16진수 미리보기 (제한됨):';
+
+  @override
+  String inspectorPayloadTruncated(num length) {
+    return '참고: 페이로드가 $length바이트이므로 처음 64바이트만 표시됩니다.';
+  }
+
+  @override
+  String get ndefRecordsToWriteTitle => '기록할 NDEF 레코드';
+
+  @override
+  String get pasteFromClipboardAction => '클립보드에서 붙여넣기 (대체 / 추가)';
+
+  @override
+  String get importAction => '가져오기';
+
+  @override
+  String get importFromTagAction => 'NFC 태그에서 가져오기';
+
+  @override
+  String get importFromQrAction => 'QR 코드에서 가져오기';
+
+  @override
+  String get importFromCsvAction => 'CSV 파일에서 가져오기';
+
+  @override
+  String composerTotalSizeAndCount(num bytes, num count) {
+    return '총 크기: $bytes바이트 | 레코드 수: $count';
+  }
+
+  @override
+  String get composerEmptyDescription =>
+      '태그에 텍스트, 웹 링크, Wi-Fi, 전화번호, 이메일, 연락처 카드 등을 쓸 수 있습니다.';
+
+  @override
+  String get urlSafetyReview => 'URL 검토';
+
+  @override
+  String get inspector => '검사기';
+
+  @override
+  String get typeLabel => '유형:';
+
+  @override
+  String get payloadLabel => '페이로드:';
+
+  @override
+  String get writeAndVerify => '태그에 쓰고 확인';
+
+  @override
+  String writeAndVerifyWithBytes(num bytes) {
+    return '태그에 쓰고 확인 ($bytes바이트)';
+  }
+
+  @override
+  String get batchWriteButtonLabel => '일괄 태그 쓰기 (2..100개 태그)';
+
+  @override
+  String get clearTagButtonLabel => '태그 초기화 (내용 지우기)';
+
+  @override
+  String get confirmWriteTitle => '태그 쓰기 확인';
+
+  @override
+  String get confirmWriteMessage1 => '이 작업은 대상 태그의 기존 NDEF 콘텐츠를 완전히 덮어씁니다.';
+
+  @override
+  String confirmWriteRecordCount(num count) {
+    return '기록할 레코드 수: $count';
+  }
+
+  @override
+  String get confirmWriteMessage2 =>
+      '대상 태그가 쓰기 가능한지(잠금 해제됨) 확인하세요. 기록 후 자동으로 확인됩니다.';
+
+  @override
+  String get yesWrite => '예, 쓰기';
+
+  @override
+  String get scanHistoryDisabledTitle => '스캔 기록 꺼짐';
+
+  @override
+  String get scanHistoryDisabledDesc =>
+      '개인정보 보호를 위해 스캔 기록은 기본적으로 저장되지 않습니다. 설정 탭에서 활성화할 수 있습니다.';
+
+  @override
+  String get enableHistory => '기록 활성화';
+
+  @override
+  String get historySearchHint => 'UID, 텍스트 또는 유형으로 검색(예: URL, Wi-Fi, 04A1...)';
+
+  @override
+  String historyScansCount(num count) {
+    return '저장된 스캔: $count';
+  }
+
+  @override
+  String get noHistoryYet => '저장된 스캔 기록이 아직 없습니다.';
+
+  @override
+  String noHistoryResultsForQuery(String query) {
+    return '\"$query\"에 대한 검색 결과가 없습니다.';
+  }
+
+  @override
+  String get tryDifferentQuery => '다른 UID, 텍스트 내용 또는 레코드 유형을 사용해 보세요.';
+
+  @override
+  String get clearSearch => '검색 지우기';
+
+  @override
+  String historyItemHeader(String time, num count) {
+    return '$time | $count개 레코드';
+  }
+
+  @override
+  String get deleteThisRecord => '이 레코드 삭제';
+
+  @override
+  String historyCapacitySummary(num cap, num used) {
+    return '용량: ${cap}B | 사용됨: ${used}B';
+  }
+
+  @override
+  String historyUidHeader(String uid) {
+    return '기록 UID $uid';
+  }
+
+  @override
+  String get qrPreview => 'QR 미리보기';
+
+  @override
+  String templateRecordCountWithDate(num count, String date) {
+    return '$count개 레코드 | $date';
+  }
+
+  @override
+  String writeVerificationSummary(num bytes, String status) {
+    return '기록된 바이트: $bytes | 확인: $status';
+  }
+
+  @override
+  String get lockTagConfirmTitle => '태그 영구 잠금';
+
+  @override
+  String get lockTagWarning1 =>
+      '잠긴 태그는 읽기 전용이 됩니다. 내용을 다시 수정, 삭제하거나 잠금을 해제할 수 없습니다.';
+
+  @override
+  String get lockTagWarning2 => '먼저 올바른 내용을 기록했는지 확인하세요.';
+
+  @override
+  String get langTr => 'Türkçe';
+
+  @override
+  String get langEn => 'English';
+
+  @override
+  String get langDe => 'Deutsch';
+
+  @override
+  String get langFr => 'Français';
+
+  @override
+  String get langEs => 'Español';
+
+  @override
+  String get langIt => 'Italiano';
+
+  @override
+  String get langPt => 'Português';
+
+  @override
+  String get langRu => 'Русский';
+
+  @override
+  String get langAr => 'العربية';
+
+  @override
+  String get langJa => '日本語';
+
+  @override
+  String get langZh => '中文';
+
+  @override
+  String get langKo => '한국어';
+
+  @override
+  String get langNl => 'Nederlands';
+
+  @override
+  String get langUk => 'Українська';
+
+  @override
+  String get qrPreviewTooltip => 'QR 코드 미리보기';
+
+  @override
+  String get unknownParentheses => '(알 수 없음)';
+
+  @override
+  String get ok => '확인';
 }

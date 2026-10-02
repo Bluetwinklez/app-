@@ -644,7 +644,7 @@ class AppLocalizationsNl extends AppLocalizations {
       'Houd de tag dichtbij om permanent te vergrendelen';
 
   @override
-  String get nfcPromptScan => 'Houd het apparaat bij de NFC-tag om te lezen';
+  String get nfcPromptScan => 'Houd de tag bij de bovenkant van je telefoon';
 
   @override
   String get nfcPromptWrite => 'Houd de NFC-tag dichtbij om op te slaan';
@@ -1157,7 +1157,7 @@ class AppLocalizationsNl extends AppLocalizations {
   String get sourceSelectPrompt => 'Waar moet de inhoud vandaan komen?';
 
   @override
-  String get statusCancelled => 'Bewerking geannuleerd.';
+  String get statusCancelled => 'Geannuleerd';
 
   @override
   String statusClearError(String error) {
@@ -1532,4 +1532,1718 @@ class AppLocalizationsNl extends AppLocalizations {
 
   @override
   String get yes => 'Ja';
+
+  @override
+  String get unknown => 'Onbekend';
+
+  @override
+  String get error => 'Fout';
+
+  @override
+  String get nfcPromptReady => 'Houd tag dichtbij';
+
+  @override
+  String get invalidResponseFormat => 'Ongeldig antwoordformaat ontvangen';
+
+  @override
+  String get nfcReadError => 'NFC-leesfout';
+
+  @override
+  String get invalidPlatformResponse =>
+      'Ongeldig antwoord ontvangen van platform';
+
+  @override
+  String get writeFailed => 'Schrijven mislukt';
+
+  @override
+  String get lockFailed => 'Vergrendelen mislukt';
+
+  @override
+  String get failedToConnectTag => 'Kon geen verbinding maken met tag';
+
+  @override
+  String get invalidTagResponse => 'Ongeldig antwoord van tag';
+
+  @override
+  String get commandFailed => 'Opdracht mislukt';
+
+  @override
+  String get ndefTypeOrIdTooLong => 'NDEF-type of ID overschrijdt 255 bytes';
+
+  @override
+  String get ndefUnsupportedOrInvalidRecord =>
+      'Niet-ondersteund of ongeldig NDEF-record';
+
+  @override
+  String get ndefMissingTypeLength => 'Ontbrekende NDEF-typelengte';
+
+  @override
+  String get ndefMissingPayloadLength => 'Ontbrekende NDEF-payloadlengte';
+
+  @override
+  String get ndefMissingIdLength => 'Ontbrekende NDEF-ID-lengte';
+
+  @override
+  String get ndefMissingType => 'Ontbrekend NDEF-type';
+
+  @override
+  String get ndefMissingId => 'Ontbrekende NDEF-ID';
+
+  @override
+  String get ndefMissingPayload => 'Ontbrekende NDEF-payload';
+
+  @override
+  String get unprotected => '(Zonder wachtwoord)';
+
+  @override
+  String get binaryDataPreview => '(Binaire gegevens)';
+
+  @override
+  String get emptyValue => '(Leeg)';
+
+  @override
+  String get tnfEmpty => '0: Empty (Leeg)';
+
+  @override
+  String get tnfWellKnown => '1: NFC Forum Well-Known (RTD)';
+
+  @override
+  String get tnfMedia => '2: Media-Type (RFC 2046 MIME)';
+
+  @override
+  String get tnfAbsoluteUri => '3: Absolute URI (RFC 3986)';
+
+  @override
+  String get tnfExternal => '4: NFC Forum External';
+
+  @override
+  String get tnfUnknown => '5: Unknown (Onbekend)';
+
+  @override
+  String get tnfUnchanged => '6: Unchanged (Onafgebroken NDEF)';
+
+  @override
+  String get tnfReserved => '7: Reserved (Gereserveerd)';
+
+  @override
+  String get ntagUnsupportedChip =>
+      'Deze bewerking wordt alleen ondersteund op NTAG213/215/216 en MIFARE Ultralight EV1 tags.';
+
+  @override
+  String ntagPageReadFailed(String page) {
+    return 'Kon pagina $page niet lezen (tag reageerde niet of gebied is beveiligd).';
+  }
+
+  @override
+  String ntagPageWriteFailedError(String page, String error) {
+    return 'Kon pagina $page niet schrijven: $error';
+  }
+
+  @override
+  String ntagPageWriteFailed(String page) {
+    return 'Kon pagina $page niet schrijven (geweigerd; vergrendeld of beveiligd).';
+  }
+
+  @override
+  String ntagProtectedArea(String page) {
+    return 'Kon na pagina $page niet lezen; dit gebied is mogelijk met een wachtwoord beveiligd.';
+  }
+
+  @override
+  String get ntagPasswordPackSize =>
+      'Wachtwoord moet 4 bytes zijn en PACK 2 bytes.';
+
+  @override
+  String get ntagPasswordSize => 'Wachtwoord moet 4 bytes zijn.';
+
+  @override
+  String get ntagPasswordWrongOrAuthFailed =>
+      'Onjuist wachtwoord of tag heeft verificatie geweigerd.';
+
+  @override
+  String get ntagPasswordWrong => 'Onjuist wachtwoord.';
+
+  @override
+  String get ntagCcInvalid =>
+      'CC-gebied heeft een niet-NDEF-waarde; dit OTP-gebied kan niet worden geformatteerd.';
+
+  @override
+  String get ntagDumpTooShort =>
+      'Dumpbestand is te kort; bevat geen gebruikersgegevens.';
+
+  @override
+  String get ntagInvalidHex =>
+      'Voer een geldige hexadecimale waarde in (bijv.: 30 04).';
+
+  @override
+  String get googleReviewFieldLabel => 'Beoordelingslink of Place ID';
+
+  @override
+  String get menuLinkFieldLabel => 'Menulink';
+
+  @override
+  String get menuTitleHint => 'Ons menu';
+
+  @override
+  String get petName => 'Naam van huisdier';
+
+  @override
+  String get ownerPhone => 'Telefoon van eigenaar';
+
+  @override
+  String petTagMessage(String pet, String phone, String note) {
+    return 'Hallo, ik ben $pet! Bel alsjeblieft mijn eigenaar: $phone$note';
+  }
+
+  @override
+  String get bloodType => 'Bloedgroep';
+
+  @override
+  String get allergies => 'Allergieën / Medicijnen';
+
+  @override
+  String get emergencyContact => 'Noodcontact';
+
+  @override
+  String get emergencyInfo => 'NOODINFORMATIE';
+
+  @override
+  String emergencyBlood(String blood) {
+    return 'Bloedgroep: $blood';
+  }
+
+  @override
+  String emergencyAllergies(String allergies) {
+    return 'Allergieën: $allergies';
+  }
+
+  @override
+  String emergencyCall(String contact) {
+    return 'Bel in noodgeval: $contact';
+  }
+
+  @override
+  String get storeLink => 'Store-link';
+
+  @override
+  String get link => 'Link';
+
+  @override
+  String get title => 'Titel';
+
+  @override
+  String get webAddress => 'Webadres';
+
+  @override
+  String get address => 'Adres';
+
+  @override
+  String backupSummaryTemplates(String added, String updated) {
+    return 'Sjablonen: $added toegevoegd, $updated bijgewerkt';
+  }
+
+  @override
+  String backupSummaryRules(String added, String updated) {
+    return 'Tagnotities/Regels: $added toegevoegd, $updated bijgewerkt';
+  }
+
+  @override
+  String backupSummaryHistoryDisabled(String skipped) {
+    return 'Scangeschiedenis overgeslagen omdat deze is uitgeschakeld: $skipped';
+  }
+
+  @override
+  String backupSummaryHistory(String added, String skipped) {
+    return 'Geschiedenis: $added toegevoegd, $skipped overgeslagen';
+  }
+
+  @override
+  String get backupSummaryNoNewData =>
+      'Geen nieuwe gegevens gevonden om te importeren (overeenkomend met bestaande).';
+
+  @override
+  String backupFieldMustBeString(String field) {
+    return '$field moet een tekenreeks zijn.';
+  }
+
+  @override
+  String backupFieldMustBeDate(String field) {
+    return '$field moet een geldige datum zijn.';
+  }
+
+  @override
+  String get rawTypeHexLabel => 'Type (Hex-bytes)';
+
+  @override
+  String get rawIdHexLabel => 'ID (Hex-bytes, optioneel)';
+
+  @override
+  String get rawPayloadHexLabel => 'Payload (Hex-bytes)';
+
+  @override
+  String get rawOptionalHexHint => 'Optionele hex-bytes';
+
+  @override
+  String get saveChanges => 'Wijzigingen opslaan';
+
+  @override
+  String get edit => 'Bewerken';
+
+  @override
+  String get clearAllButton => 'Alles wissen';
+
+  @override
+  String ntagPagesRead(String chip, int count) {
+    return '$chip: $count pagina\'s gelezen';
+  }
+
+  @override
+  String ntagFormatted(String chip) {
+    return '$chip geformatteerd';
+  }
+
+  @override
+  String get ntagInvalidDumpFile =>
+      'Ongeldig dumpbestand (moet een veelvoud van 4 bytes zijn, 32-1024 bytes).';
+
+  @override
+  String ntagPagesWritten(int count) {
+    return '$count pagina\'s geschreven';
+  }
+
+  @override
+  String ntagPasswordSet(String chip) {
+    return '$chip: wachtwoordbeveiliging ingeschakeld';
+  }
+
+  @override
+  String ntagPasswordRemoved(String chip) {
+    return '$chip: wachtwoord verwijderd';
+  }
+
+  @override
+  String get memoryDumpCopied => 'Geheugendump gekopieerd';
+
+  @override
+  String ntagCommandsSent(int count) {
+    return '$count opdrachten verzonden';
+  }
+
+  @override
+  String get emptyResponse => '(leeg antwoord)';
+
+  @override
+  String pagesAndBytes(int pages, int bytes) {
+    return '$pages pagina\'s · $bytes bytes';
+  }
+
+  @override
+  String get composeTextEmpty => 'Tekstinhoud mag niet leeg zijn.';
+
+  @override
+  String get composeTextTooLong => 'Tekst is te lang (maximaal 5000 tekens).';
+
+  @override
+  String get composeUrlInvalid =>
+      'Voer een geldig adres in (bijv. https://example.com of app:// link).';
+
+  @override
+  String get composeUrlTooLong => 'URL is te lang (maximaal 2000 tekens).';
+
+  @override
+  String get composeEmailInvalid =>
+      'Voer een geldig e-mailadres in (bijv. naam@domein.com).';
+
+  @override
+  String get composePhoneInvalid =>
+      'Voer een geldig telefoonnummer in (bijv. +905551234567).';
+
+  @override
+  String get composeSmsPhoneInvalid =>
+      'Voer een geldig telefoonnummer van de ontvanger in.';
+
+  @override
+  String get composeLatInvalid => 'Breedtegraad moet tussen -90 en +90 liggen.';
+
+  @override
+  String get composeLngInvalid =>
+      'Lengtegraad moet tussen -180 en +180 liggen.';
+
+  @override
+  String get composeVcardNameEmpty => 'Contactnaam mag niet leeg zijn.';
+
+  @override
+  String get composeVcardNameTooLong =>
+      'Contactnaam is te lang (maximaal 200 tekens).';
+
+  @override
+  String get composeVcardEmailInvalid => 'Voer een geldig e-mailadres in.';
+
+  @override
+  String get composeVcardPhoneInvalid => 'Voer een geldig telefoonnummer in.';
+
+  @override
+  String get composeVcardUrlInvalid =>
+      'Voer een geldig webadres in (bijv. https://...).';
+
+  @override
+  String get composeCalSummaryEmpty => 'Evenementtitel mag niet leeg zijn.';
+
+  @override
+  String get composeCalSummaryTooLong =>
+      'Evenementtitel is te lang (maximaal 250 tekens).';
+
+  @override
+  String get composeCalDateInvalid => 'Eindtijd moet na starttijd liggen.';
+
+  @override
+  String get composeSpUriInvalid =>
+      'Voer een geldige doel-URL in (bijv. https://...).';
+
+  @override
+  String get composeSpLangInvalid =>
+      'Voer een geldige ISO-taalcode in (bijv. nl, en).';
+
+  @override
+  String get composeMimeTypeInvalid =>
+      'Voer een geldig MIME-type in (bijv. application/json, text/plain).';
+
+  @override
+  String get composeMimeHexInvalid =>
+      'Voer een geldige hex-tekenreeks in (even aantal hex-tekens).';
+
+  @override
+  String get composeMimePayloadTooLarge =>
+      'Payload-grootte is te groot (maximaal 10 KB).';
+
+  @override
+  String get composeWifiSsidEmpty => 'Netwerknaam (SSID) mag niet leeg zijn.';
+
+  @override
+  String get composeWifiPasswordRequired =>
+      'Wi-Fi-wachtwoord is vereist voor versleutelde netwerken.';
+
+  @override
+  String get composeWifiPasswordLength =>
+      'WPA/WPA2-wachtwoord moet tussen 8 en 63 tekens lang zijn.';
+
+  @override
+  String get composeEditNdefRecord => 'NDEF-record bewerken';
+
+  @override
+  String get composeNewNdefRecord => 'Nieuw NDEF-record maken';
+
+  @override
+  String get quickLinksHeader => 'Snelle links';
+
+  @override
+  String get quickLinkCustomUri => 'Aangepaste URI';
+
+  @override
+  String get quickLinkSocial => 'Sociale netwerken';
+
+  @override
+  String get quickLinkVideo => 'Video';
+
+  @override
+  String get quickLinkSearch => 'Zoeken';
+
+  @override
+  String get quickLinkFile => 'Bestand';
+
+  @override
+  String get quickLinkFacetimeAudio => 'FaceTime Audio';
+
+  @override
+  String get quickLinkAddress => 'Adres';
+
+  @override
+  String get quickLinkPayment => 'Betaallink';
+
+  @override
+  String get quickLinkApp => 'App (Android)';
+
+  @override
+  String get updateRecord => 'Record bijwerken';
+
+  @override
+  String get addToList => 'Toevoegen aan lijst';
+
+  @override
+  String get quickCustomUriError =>
+      'Voer een adres met schema in (bijv. spotify:track:... of myapp://pagina).';
+
+  @override
+  String get quickFileEmptyMessage => 'Voer de bestandslink in.';
+
+  @override
+  String get quickPaymentEmptyMessage => 'Voer de betaallink in.';
+
+  @override
+  String get quickCustomUriDesc =>
+      'Elk adres met een schema is mogelijk; de telefoon opent de ondersteunende app.';
+
+  @override
+  String get quickSocialLabel => 'Sociaal netwerk';
+
+  @override
+  String get quickVideoLabel => 'Videolink';
+
+  @override
+  String get quickVideoHint => 'https://youtu.be/... of video-ID';
+
+  @override
+  String get quickVideoDesc =>
+      'YouTube-, Vimeo- enz. link of alleen YouTube-video-ID kan worden ingevoerd.';
+
+  @override
+  String get quickSearchHint => 'bijv. Weer Amsterdam';
+
+  @override
+  String get quickFileLabel => 'Bestandslink';
+
+  @override
+  String get quickFileDesc =>
+      'Wegens beperkte tagcapaciteit wordt de weblink opgeslagen in plaats van het bestand zelf.';
+
+  @override
+  String get quickPhoneOrAppleId => 'Telefoon of Apple ID';
+
+  @override
+  String get quickFacetimeVideoDesc =>
+      'Een iPhone die de tag aanraakt, start een FaceTime-videogesprek.';
+
+  @override
+  String get quickFacetimeAudioDesc =>
+      'Een iPhone die de tag aanraakt, start alleen een FaceTime-audiogesprek.';
+
+  @override
+  String get quickMapProvider => 'Kaarten-app';
+
+  @override
+  String get quickAddressHint => 'bijv. Dam 1, Amsterdam';
+
+  @override
+  String get quickPaymentDesc =>
+      'Betaallinks zoals PayPal.me, Stripe kunnen worden gebruikt. Kaartgegevens worden nooit op de tag geschreven.';
+
+  @override
+  String get quickAppDesc =>
+      'Android-telefoons openen deze app bij aantikken (of Play Store). iPhone negeert dit type; voeg App Store-link als URL toe.';
+
+  @override
+  String get quickDeviceNameOptional => 'Apparaatnaam (optioneel)';
+
+  @override
+  String get quickSpeakerHint => 'bijv. Luidspreker';
+
+  @override
+  String get quickBluetoothDesc =>
+      'Android-telefoons stellen koppeling voor bij aantikken. iPhone ondersteunt geen Bluetooth-koppelingstags.';
+
+  @override
+  String get composeTextContent => 'Tekstinhoud';
+
+  @override
+  String get composeTextHint => 'Voer de tekst in die u wilt schrijven';
+
+  @override
+  String get composeEmailSubjectOptional => 'Onderwerp (optioneel)';
+
+  @override
+  String get composeEmailBodyOptional => 'Berichttekst (optioneel)';
+
+  @override
+  String get composeSmsRecipient => 'Telefoonnummer ontvanger';
+
+  @override
+  String get composeSmsHint => 'Te verzenden sms-bericht...';
+
+  @override
+  String get composeVcardFullName => 'Volledige naam (weergavenaam) *';
+
+  @override
+  String get composeVcardNameHint => 'Jan Jansen';
+
+  @override
+  String get composeVcardNote => 'Notitie / beschrijving';
+
+  @override
+  String get composeCalTitle => 'Evenementtitel *';
+
+  @override
+  String get composeCalTitleHint => 'Projectvergadering';
+
+  @override
+  String get composeCalLocationHint => 'Vergaderruimte 2 of online';
+
+  @override
+  String get composeCalDesc => 'Evenementbeschrijving';
+
+  @override
+  String get composeCalStartEndTime => 'Begin- en eindtijd:';
+
+  @override
+  String get composeSpTitleLabel => 'Titel (weergavetekst)';
+
+  @override
+  String get composeSpTitleHint => 'Bedrijfsbrochure';
+
+  @override
+  String get composeMimeTypeLabel => 'MIME-type *';
+
+  @override
+  String get composeDataFormat => 'Gegevensindeling: ';
+
+  @override
+  String get composeFormatHex => 'Hexadecimaal';
+
+  @override
+  String get composeMimeHexBytes => 'Hex-bytes *';
+
+  @override
+  String get composeMimeTextPayload => 'Payload-tekst (UTF-8) *';
+
+  @override
+  String get composeWifiWarningTitle => 'Beveiligings- en platformmelding:';
+
+  @override
+  String get composeWifiWarningBody =>
+      '• Het Wi-Fi-wachtwoord wordt als leesbare tekst opgeslagen en kan door iedereen worden gelezen.\n• Automatische verbinding is niet gegarandeerd; gebruikersbevestiging kan vereist zijn.';
+
+  @override
+  String get composeWifiSsidLabel => 'Netwerknaam (SSID) *';
+
+  @override
+  String get composeWifiAuthTypeLabel => 'Beveiligingstype (authenticatie)';
+
+  @override
+  String get composeWifiOpenNetwork => 'Open netwerk (geen)';
+
+  @override
+  String get composeWifiPasswordLabel => 'Wi-Fi-wachtwoord *';
+
+  @override
+  String get composeWifiEncryptionLabel => 'Versleutelingstype';
+
+  @override
+  String get composeWifiAesRecommended => 'AES (aanbevolen)';
+
+  @override
+  String get quickSearchTextLabel => 'Te zoeken tekst';
+
+  @override
+  String get readTagMemoryPrompt =>
+      'Houd de tag bij de telefoon om het geheugen te lezen';
+
+  @override
+  String get readingTagMemoryStatus => 'Geheugen lezen...';
+
+  @override
+  String get formatTagConfirmTitle => 'Geheugen formatteren';
+
+  @override
+  String get formatTagConfirmMessage =>
+      'Gegevens op de tag worden gewist en voorbereid als blanco NDEF. Doorgaan?';
+
+  @override
+  String get formatButton => 'Formatteren';
+
+  @override
+  String get formatTagPrompt => 'Houd tag bij telefoon om te formatteren';
+
+  @override
+  String get formattingStatus => 'Formatteren...';
+
+  @override
+  String filePickerFailed(String error) {
+    return 'Bestandskiezer mislukt: $error';
+  }
+
+  @override
+  String get writeButton => 'Schrijven';
+
+  @override
+  String get writeDumpPrompt => 'Houd tag bij telefoon om dump te schrijven';
+
+  @override
+  String get writingDumpStatus => 'Dump schrijven...';
+
+  @override
+  String get setPasswordWarning =>
+      'Als u het wachtwoord vergeet, kunt u de inhoud niet meer wijzigen. Lezen blijft voor iedereen open.';
+
+  @override
+  String get setPasswordAction => 'Wachtwoord instellen';
+
+  @override
+  String get setPasswordPrompt =>
+      'Houd tag bij telefoon om wachtwoord in te stellen';
+
+  @override
+  String get settingPasswordStatus => 'Wachtwoord instellen...';
+
+  @override
+  String get removePasswordPromptMessage =>
+      'Voer het eerder ingestelde wachtwoord in.';
+
+  @override
+  String get remove => 'Verwijderen';
+
+  @override
+  String get removePasswordPrompt =>
+      'Houd tag bij telefoon om wachtwoord te verwijderen';
+
+  @override
+  String get removingPasswordStatus => 'Wachtwoord verwijderen...';
+
+  @override
+  String get sendCommandsPrompt =>
+      'Houd tag bij telefoon om commando\'s te sturen';
+
+  @override
+  String get sendingCommandsStatus => 'Commando\'s verzenden...';
+
+  @override
+  String get sendButton => 'Verzenden';
+
+  @override
+  String get tagNoteEditTitle => 'Tag-notitie bewerken';
+
+  @override
+  String get tagNoteInputLabel => 'In-app notitie / beschrijving';
+
+  @override
+  String get tagNoteInputHint =>
+      'bijv. Vergaderruimte-info of Magazijnstelling #12';
+
+  @override
+  String get tagNoteDeleteTitle => 'Tag-notitie verwijderen';
+
+  @override
+  String get clearAllTagRulesTitle => 'Alle notities verwijderen';
+
+  @override
+  String get clearAllTagRulesConfirm =>
+      'Alle opgeslagen in-app tagnotities worden gewist. Bevestigen?';
+
+  @override
+  String get deleteAll => 'Alles verwijderen';
+
+  @override
+  String get tagRulesExplanation =>
+      'Alleen de opgeslagen notitie wordt weergegeven voor tags die overeenkomen met de NDEF SHA-256-digest.';
+
+  @override
+  String get noTagRulesDefined => 'Nog geen tagnotities gedefinieerd.';
+
+  @override
+  String lastUpdated(String time) {
+    return 'Laatst bijgewerkt: $time';
+  }
+
+  @override
+  String get tagLibraryNoMatch => 'Geen tags gevonden voor uw zoekopdracht.';
+
+  @override
+  String get tagLibraryAddToLibrary => 'Toevoegen aan bibliotheek';
+
+  @override
+  String get name => 'Naam';
+
+  @override
+  String get tagLibraryAddTag => 'Tag toevoegen';
+
+  @override
+  String get all => 'Alle';
+
+  @override
+  String tagLibraryPhotoError(String error) {
+    return 'Foto kiezen mislukt: $error';
+  }
+
+  @override
+  String get tagLibraryDeleteTitle => 'Tag verwijderen';
+
+  @override
+  String get tagLibraryNameHint => 'bijv. Kantoorsleutelhanger';
+
+  @override
+  String get tagLibraryNoTagContent => 'Geen taginhoud in dit record.';
+
+  @override
+  String get tagLibrarySourceLastScanned => 'Laatst gescand';
+
+  @override
+  String get tagLibraryEmpty => 'Nog geen opgeslagen tags.';
+
+  @override
+  String get tagLibrarySourceEmpty => 'Leeg record';
+
+  @override
+  String get tagLibraryNamePrompt => 'Voer een tagnaam in';
+
+  @override
+  String get tagLibrarySearchHint => 'Zoeken op naam, categorie of locatie...';
+
+  @override
+  String get tagLibrarySourceWriteList => 'Schrijflijst';
+
+  @override
+  String get tagLibraryLocationHint => 'bijv. Bureau, Voordeur';
+
+  @override
+  String tagLibraryDeleteConfirm(String name) {
+    return 'Weet u zeker dat u tag \"$name\" uit de bibliotheek wilt verwijderen?';
+  }
+
+  @override
+  String get noContent => 'Geen inhoud';
+
+  @override
+  String tagLibraryRecordSummary(num count) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: '$count NDEF-records',
+      one: '1 NDEF-record',
+    );
+    return '$_temp0';
+  }
+
+  @override
+  String get tagLibraryEditTag => 'Tag bewerken';
+
+  @override
+  String get rawTypeHexHint => '41 (A) of 55 (U) enz.';
+
+  @override
+  String backupContextRecordsMustBeList(String context) {
+    return '$context: Veld \"records\" moet een lijst zijn.';
+  }
+
+  @override
+  String backupContextMaxRecords(String context, num max) {
+    return '$context: Een item mag maximaal $max NDEF-records bevatten.';
+  }
+
+  @override
+  String backupContextRecordMustBeObject(String context, num index) {
+    return '$context - Record #$index is geen geldig object.';
+  }
+
+  @override
+  String backupContextInvalidTnf(String context, num index, String tnf) {
+    return '$context - Record #$index: Ongeldige TNF-waarde ($tnf).';
+  }
+
+  @override
+  String backupContextTypeMustBeString(String context, num index) {
+    return '$context - Record #$index: \"type\" moet een Base64-tekenreeks zijn.';
+  }
+
+  @override
+  String backupContextInvalidTypeBase64(
+      String context, num index, String error) {
+    return '$context - Record #$index: \"type\" is geen geldige Base64-data ($error).';
+  }
+
+  @override
+  String backupContextIdMustBeString(String context, num index) {
+    return '$context - Record #$index: \"id\" moet een Base64-tekenreeks zijn.';
+  }
+
+  @override
+  String backupContextInvalidIdBase64(String context, num index, String error) {
+    return '$context - Record #$index: \"id\" is geen geldige Base64-data ($error).';
+  }
+
+  @override
+  String backupContextPayloadMustBeString(String context, num index) {
+    return '$context - Record #$index: \"payload\" moet een Base64-tekenreeks zijn.';
+  }
+
+  @override
+  String backupContextInvalidPayloadBase64(
+      String context, num index, String error) {
+    return '$context - Record #$index: \"payload\" is geen geldige Base64-data ($error).';
+  }
+
+  @override
+  String get composerUndoSnack => 'Laatste wijziging ongedaan gemaakt.';
+
+  @override
+  String get composerRedoSnack => 'Wijziging opnieuw toegepast.';
+
+  @override
+  String get noRecordsToCopy => 'Geen NDEF-records om te kopiëren.';
+
+  @override
+  String recordsCopiedToClipboardDetails(num count, num bytes) {
+    return '$count NDEF-records ($bytes B) naar klembord gekopieerd.\n(Alleen NDEF-inhoud wordt gekopieerd; UID of gecodeerde sectoren worden nooit gekloond)';
+  }
+
+  @override
+  String recordsAddedFromSource(String source, num count) {
+    return '$source: $count records toegevoegd.';
+  }
+
+  @override
+  String get tagEmptyNoRecordsToImport =>
+      'Tag is leeg; geen records om te importeren.';
+
+  @override
+  String get sourceTag => 'Van tag';
+
+  @override
+  String get sourceQr => 'Van QR-code';
+
+  @override
+  String filePickerError(String error) {
+    return 'Kon bestandskiezer niet openen: $error';
+  }
+
+  @override
+  String get csvFileTooLarge => 'CSV-bestand is te groot (maximaal 512 KB).';
+
+  @override
+  String get noRecordsFound => 'Geen records gevonden';
+
+  @override
+  String get someRowsSkipped => 'Sommige rijen overgeslagen';
+
+  @override
+  String get expectedFormat => 'Verwachte indeling:';
+
+  @override
+  String get noClipboardContent => 'Geen NDEF-inhoud op het klembord.';
+
+  @override
+  String get pasteFromClipboardTitle => 'Plakken van NDEF-klembord';
+
+  @override
+  String clipboardDataSummary(num count, num bytes, String source) {
+    return 'Klembordgegevens: $count records, $bytes bytes ($source)';
+  }
+
+  @override
+  String get clipboardPastePrompt =>
+      'Wilt u de huidige records vervangen of toevoegen aan het einde?';
+
+  @override
+  String get pasteOverwriteOption => 'Overschrijven (Vervangen)';
+
+  @override
+  String pasteOverwriteSubtitle(num count) {
+    return 'Huidige $count records worden gewist en vervangen door klembord (bevestiging vereist).';
+  }
+
+  @override
+  String get pasteEmptySubtitle =>
+      'Klembord-inhoud wordt in de opsteller geplaatst.';
+
+  @override
+  String get pasteAppendOption => 'Toevoegen aan einde';
+
+  @override
+  String get pasteAppendSubtitle =>
+      'Bestaande records blijven behouden; klembord-records worden aan het einde toegevoegd.';
+
+  @override
+  String recordsAddedToComposer(num count) {
+    return '$count records toegevoegd.';
+  }
+
+  @override
+  String get confirmOverwriteTitle => 'Records overschrijven?';
+
+  @override
+  String confirmOverwriteMessage(num currentCount, num newCount) {
+    return 'Er zijn $currentCount records. Ze worden vervangen door $newCount records van het klembord. Doorgaan?';
+  }
+
+  @override
+  String recordsReplacedInComposer(num count) {
+    return 'Records vervangen door $count nieuwe records.';
+  }
+
+  @override
+  String get yesReplace => 'Ja, vervangen';
+
+  @override
+  String recordsImportedToComposer(num count) {
+    return '$count records geïmporteerd.';
+  }
+
+  @override
+  String get noContentToCopy => 'Geen NDEF-inhoud gevonden om te kopiëren.';
+
+  @override
+  String recordsCopiedAndStaged(num count) {
+    return '$count NDEF-records gekopieerd en toegevoegd (Inhoud gekopieerd, UID niet gekloond).';
+  }
+
+  @override
+  String get noContentToRewrite =>
+      'Geen NDEF-inhoud gevonden om te herschrijven.';
+
+  @override
+  String get rewriteTagTitle => 'Tag herschrijven';
+
+  @override
+  String get importantNotice => 'BELANGRIJKE KENNISGEVING:';
+
+  @override
+  String get rewriteNotice1 =>
+      '• Deze bewerking OVERSCHRIJFT de bestaande NDEF-inhoud volledig; voegt niet toe.\n';
+
+  @override
+  String get rewriteNotice2 =>
+      '• De doeltag moet een beschrijfbare (ontgrendelde) NDEF-tag zijn.\n';
+
+  @override
+  String get rewriteNotice3 =>
+      '• Schrijft niet stilletjes naar de vorige tag; een nieuwe NFC-aanraking is vereist.';
+
+  @override
+  String rewriteSourceUidLabel(String uid) {
+    return 'Bron-UID: $uid';
+  }
+
+  @override
+  String rewriteRecordCountLabel(num count) {
+    return 'Aantal te schrijven records: $count';
+  }
+
+  @override
+  String get rewriteInstruction =>
+      'Bereid de tag voor, tik op \"Aantikken en schrijven\" en houd de tag bij de telefoon.';
+
+  @override
+  String get tapAndWrite => 'Aantikken en schrijven';
+
+  @override
+  String get rewritePromptMessage =>
+      'Houd de doeltag bij het apparaat (inhoud wordt volledig vernieuwd)';
+
+  @override
+  String rewriteFailedMessage(String error) {
+    return 'Herschrijven mislukt: $error';
+  }
+
+  @override
+  String get writeVerifiedTitle => 'Schrijven geverifieerd';
+
+  @override
+  String get writeVerifiedDesc =>
+      'NDEF-inhoud is succesvol geschreven en geverifieerd op de tag.';
+
+  @override
+  String writtenRecordCount(num count) {
+    return 'Aantal geschreven records: $count';
+  }
+
+  @override
+  String get writeVerifiedHint =>
+      'U kunt de volgende scan starten om geschreven gegevens te verifiëren.';
+
+  @override
+  String get scanAndCompareNow => 'Nu scannen en vergelijken';
+
+  @override
+  String get contentMatchesExactly => 'Inhoud komt exact overeen';
+
+  @override
+  String get differenceDetected => 'Verschil gedetecteerd';
+
+  @override
+  String compareScannedUid(String uid) {
+    return 'Gescande tag-UID: $uid';
+  }
+
+  @override
+  String compareWrittenData(num count, num bytes) {
+    return 'Geschreven gegevens: $count records ($bytes bytes)';
+  }
+
+  @override
+  String compareScannedData(num count, num bytes) {
+    return 'Gescande gegevens: $count records ($bytes bytes)';
+  }
+
+  @override
+  String get compareMatchDesc =>
+      'Het NDEF-bericht op de tag komt byte voor byte overeen met de bron.';
+
+  @override
+  String get compareDiffDesc =>
+      'Verschil tussen gelezen en beoogde gegevens. Controleer of de tag vergrendeld is.';
+
+  @override
+  String get batchEmptyComposerError =>
+      'Voeg ten minste één record toe voordat u batchgewijs schrijft.';
+
+  @override
+  String get batchWriteTitle => 'Batchgewijs tags schrijven';
+
+  @override
+  String get batchWriteSubtitle =>
+      'Schrijf dezelfde NDEF-inhoud achtereenvolgens naar meerdere tags.';
+
+  @override
+  String get attention => 'LET OP:';
+
+  @override
+  String get batchNotice1 =>
+      '• Om dubbel schrijven te voorkomen, wordt elke schrijfactie gestart met \"Volgende schrijven\".\n';
+
+  @override
+  String get batchNotice2 =>
+      '• Geen automatische continue scans; tags moeten fysiek worden gewisseld.';
+
+  @override
+  String batchTargetCountLabel(num count) {
+    return 'Aantal doeltags: $count';
+  }
+
+  @override
+  String batchComposerSummary(num count, num bytes) {
+    return 'Records: $count ($bytes bytes)';
+  }
+
+  @override
+  String get batchStartButton => 'Batch-schrijven starten';
+
+  @override
+  String get batchControlPanelTitle => 'Bedieningspaneel batch-schrijven';
+
+  @override
+  String get batchCancelOrClose => 'Annuleren / Sluiten';
+
+  @override
+  String get batchAllCompleted => 'Alle tag-pogingen voltooid!';
+
+  @override
+  String batchNextTag(num current, num total) {
+    return 'Volgende: Tag #$current / $total';
+  }
+
+  @override
+  String batchStats(num success, num fail, num remaining) {
+    return 'Geslaagd: $success | Mislukt: $fail | Resterend: $remaining';
+  }
+
+  @override
+  String batchSuccessMsg(String message) {
+    return 'Geslaagd ($message)';
+  }
+
+  @override
+  String batchFailMsg(String message) {
+    return 'Mislukt: $message';
+  }
+
+  @override
+  String tagNumberLabel(num index) {
+    return 'Tag #$index: ';
+  }
+
+  @override
+  String get waitingForTag => 'Wachten op tag...';
+
+  @override
+  String tapToWriteForTag(num index) {
+    return 'Aantikken en schrijven voor tag #$index';
+  }
+
+  @override
+  String get batchFinishButton => 'Batch-schrijven afronden';
+
+  @override
+  String batchPromptMessage(num current, num total) {
+    return 'Batch-schrijven: Houd tag #$current / $total bij apparaat';
+  }
+
+  @override
+  String batchTagSuccessSummary(num count) {
+    return '$count records geschreven en geverifieerd';
+  }
+
+  @override
+  String get writeError => 'Schrijffout';
+
+  @override
+  String get batchConfirmCancelTitle => 'Batch-schrijven annuleren';
+
+  @override
+  String get batchConfirmCancelMessage =>
+      'Batch-sessie beëindigen? Reeds geschreven tags blijven behouden; resterende tags worden niet geschreven.';
+
+  @override
+  String get cancelled => 'Geannuleerd';
+
+  @override
+  String get batchCancelledSnack =>
+      'Batch-schrijven geannuleerd. Uw inhoud is bewaard.';
+
+  @override
+  String get cancelAndClose => 'Annuleren en sluiten';
+
+  @override
+  String get urlSafetyOfflineAnalysisTitle => 'Offline URL-analyse';
+
+  @override
+  String get urlSafetyScheme => 'Schema (Protocol):';
+
+  @override
+  String get urlSafetyPort => 'Poort:';
+
+  @override
+  String get urlSafetyUserInfoLabel => 'Gebruikersinfo:';
+
+  @override
+  String get urlSafetyIpLiteral => 'Direct IP-adres:';
+
+  @override
+  String get urlSafetyDomain => 'Nee (Domeinnaam)';
+
+  @override
+  String get urlSafetyPunycodeLabel => 'Internationaal / Punycode (xn--):';
+
+  @override
+  String get urlSafetyHomoglyphRisk => 'Ja (Verdachte homoglyfe)';
+
+  @override
+  String get urlSafetyWarningsHeader =>
+      'Beveiligings- / waarschuwingsmeldingen:';
+
+  @override
+  String get urlSafetyDisclaimer =>
+      'OPMERKING: Offline analyse. Geen online malwarecontrole. URL wordt niet automatisch geopend.';
+
+  @override
+  String templateLoadedToComposer(String name) {
+    return 'Records uit sjabloon \"$name\" geladen.';
+  }
+
+  @override
+  String get templateSaveEmptyError =>
+      'Voeg records toe voordat u opslaat als sjabloon.';
+
+  @override
+  String templateDefaultName(num index) {
+    return 'Sjabloon $index';
+  }
+
+  @override
+  String get templateNameSample => 'bijv. Bedrijfswebsite & Contact';
+
+  @override
+  String get templateSavedSnack => 'Sjabloon opgeslagen.';
+
+  @override
+  String get ruleNoteRequiresNdef =>
+      'Tag moet ten minste één NDEF-record bevatten om een notitie toe te voegen.';
+
+  @override
+  String get ruleNoteAddTitle => 'Aangepaste tagnotitie toevoegen';
+
+  @override
+  String get ruleNoteDigestExplanation =>
+      'Gekoppeld aan NDEF SHA-256-digest. Toont alleen deze beschrijving bij scannen.';
+
+  @override
+  String ruleNoteShaSummary(String sha) {
+    return 'NDEF-inhoudsdigest (SHA-256):\n$sha';
+  }
+
+  @override
+  String get ruleNoteSavedSnack => 'Tag-notitie opgeslagen.';
+
+  @override
+  String get ruleNoteDeleteTitle => 'Tag-notitie verwijderen';
+
+  @override
+  String get ruleNoteDeleteConfirm =>
+      'De in-app notitie voor deze tag wordt verwijderd. Doorgaan?';
+
+  @override
+  String get ruleNoteDeletedSnack => 'Tag-notitie verwijderd.';
+
+  @override
+  String get backupExportTitle => 'Backup exporteren';
+
+  @override
+  String get backupExportWarningTitle => 'PRIVACY- EN VEILIGHEIDSWAARSCHUWING';
+
+  @override
+  String get backupExportWarningBody =>
+      'Het exportbestand (JSON) is platte tekst. Het kan gevoelige gegevens bevatten zoals Wi-Fi-wachtwoorden. Veilig bewaren.';
+
+  @override
+  String get backupIncludedItems => 'Op te nemen items:';
+
+  @override
+  String backupTemplatesCount(num count) {
+    return '• Sjablonen: $count';
+  }
+
+  @override
+  String backupRulesCount(num count) {
+    return '• In-app tagnotities/regels: $count';
+  }
+
+  @override
+  String get backupIncludeHistoryOptional =>
+      'Scan-geschiedenis opnemen (optioneel)';
+
+  @override
+  String backupHistoryCount(num count) {
+    return '$count geschiedenisrecords';
+  }
+
+  @override
+  String get backupHistoryDisabled =>
+      'Scangeschiedenis is uitgeschakeld op dit apparaat';
+
+  @override
+  String get backupExportAndShare => 'Exporteren en delen';
+
+  @override
+  String get backupFileNameLabel => 'NFC Tag Master back-upbestand';
+
+  @override
+  String get backupFileShareSubject =>
+      'NFC Tag Master sjabloon- en gegevensback-up (JSON)';
+
+  @override
+  String get backupExportSuccessSnack =>
+      'Back-upbestand succesvol geëxporteerd en gedeeld.';
+
+  @override
+  String get backupExportCancelled => 'Export delen geannuleerd.';
+
+  @override
+  String backupExportError(String error) {
+    return 'Exportfout: $error';
+  }
+
+  @override
+  String get backupImportTitle => 'Backup importeren';
+
+  @override
+  String get backupMergeRuleTitle => 'BEVEILIGINGS- EN SAMENVOEGINGSBELEID';
+
+  @override
+  String get backupMergeRule1 =>
+      '• Importeren werkt via SAMENVOEGEN; bestaande gegevens worden NOOIT gewist.\n';
+
+  @override
+  String get backupMergeRule2 =>
+      '• Bestanden kunnen Wi-Fi-wachtwoorden bevatten; laad alleen van vertrouwde bronnen.\n';
+
+  @override
+  String get backupMergeRule3 =>
+      '• Maximale bestandsgrootte: 2 MiB. Strikte schema- en Base64-validatie vóór het laden.';
+
+  @override
+  String get backupSelectFilePrompt =>
+      'Selecteer een geldig .json-back-upbestand om samen te voegen.';
+
+  @override
+  String get selectFileButton => 'Bestand kiezen';
+
+  @override
+  String get fileSelectionCancelled => 'Bestandsselectie geannuleerd.';
+
+  @override
+  String get backupFileExceedsLimit =>
+      'Geselecteerd bestand overschrijdt de toegestane limiet van 2 MiB.';
+
+  @override
+  String fileReadError(String error) {
+    return 'Bestand leesfout: $error';
+  }
+
+  @override
+  String backupValidationError(String error) {
+    return 'Validatiefout in back-up: $error';
+  }
+
+  @override
+  String get backupHistoryDetectedTitle => 'Scangeschiedenis gedetecteerd';
+
+  @override
+  String backupHistoryDetectedMsg(num count) {
+    return 'Back-up bevat $count geschiedenisrecords, maar dit is uitgeschakeld op dit apparaat.\n\n';
+  }
+
+  @override
+  String get backupHistoryDetectedPrompt =>
+      'Wilt u de geschiedenis importeren en inschakelen? Of alleen sjablonen en notities laden?';
+
+  @override
+  String get backupSkipHistoryOption =>
+      'Geschiedenis overslaan (alleen sjablonen en notities laden)';
+
+  @override
+  String get backupEnableHistoryOption => 'Geschiedenis inschakelen en laden';
+
+  @override
+  String backupImportSuccessWithSummary(String summary) {
+    return 'Import geslaagd:\n$summary';
+  }
+
+  @override
+  String backupMergeError(String error) {
+    return 'Samenvoegfout: $error';
+  }
+
+  @override
+  String get nfcReadyStatus => 'NFC gereed';
+
+  @override
+  String get nfcReadyDesc => 'NFC-hardware is actief en klaar voor gebruik';
+
+  @override
+  String get nfcDisabledStatus => 'NFC uitgeschakeld';
+
+  @override
+  String get nfcDisabledDesc =>
+      'NFC is uitgeschakeld. Schakel het in via apparaatinstellingen.';
+
+  @override
+  String ndefClipboardBanner(num count, num bytes, String source) {
+    return 'NDEF-klembord: $count records ($bytes B) - $source';
+  }
+
+  @override
+  String get template => 'Sjabloon';
+
+  @override
+  String get nfcScannerTitle => 'NFC-scanner';
+
+  @override
+  String lastScannedTagId(String id) {
+    return 'Laatste tag: $id';
+  }
+
+  @override
+  String get composeRecord => 'Record maken';
+
+  @override
+  String get protectOrRemove => 'Beveiligen / verwijderen';
+
+  @override
+  String get previousScans => 'Eerdere scans';
+
+  @override
+  String scanErrorWithMsg(String error) {
+    return 'Scanfout: $error';
+  }
+
+  @override
+  String get noScannedTagYet => 'Nog geen NFC-tag gescand';
+
+  @override
+  String get tapScanPrompt =>
+      'Tik op \"Scan starten\" en houd de tag bij uw telefoon.';
+
+  @override
+  String get ndefCopyAndRewriteTitle => 'NDEF-inhoud kopiëren en herschrijven';
+
+  @override
+  String ndefCopyNotice(num count, num bytes) {
+    return '$count records ($bytes bytes) - Alleen NDEF-gegevens verwerkt, UID niet gekloond.';
+  }
+
+  @override
+  String tagIdHeader(String id) {
+    return 'Tag $id';
+  }
+
+  @override
+  String get savedTagNoteHeader => 'Opgeslagen tagnotitie (in-app regel)';
+
+  @override
+  String get tagNoteOrRule => 'Tagnotitie / regel';
+
+  @override
+  String get editNote => 'Notitie bewerken';
+
+  @override
+  String get deleteNote => 'Notitie verwijderen';
+
+  @override
+  String get tagNoteDigestNotice =>
+      'Komt overeen met de SHA-256-digest van de exacte NDEF-bytes. Start geen externe acties.';
+
+  @override
+  String get addCustomTagNotePrompt =>
+      'U kunt een aangepaste lokale notitie toevoegen voor deze NDEF-inhoud.';
+
+  @override
+  String get addNoteToThisTag => 'Notitie aan deze tag toevoegen';
+
+  @override
+  String get ndefSupport => 'NDEF-ondersteuning:';
+
+  @override
+  String get usedSpace => 'Gebruikte ruimte:';
+
+  @override
+  String get freeSpace => 'Vrije ruimte:';
+
+  @override
+  String errorWithMsg(String error) {
+    return 'Fout: $error';
+  }
+
+  @override
+  String get noNdefMessageOnTag => 'Geen NDEF-bericht gevonden op tag.';
+
+  @override
+  String readNdefRecordsHeader(num count) {
+    return 'Gelezen NDEF-records ($count)';
+  }
+
+  @override
+  String stagedNdefRecordsHeader(num count) {
+    return 'Opgestelde NDEF-records ($count)';
+  }
+
+  @override
+  String get hideDetails => 'Details verbergen';
+
+  @override
+  String get advancedRecordInspector => 'Record-inspecteur (Geavanceerd)';
+
+  @override
+  String get ndefRecordInspectorTitle => 'NDEF-recordinspecteur (Geavanceerd)';
+
+  @override
+  String get inspectorType => 'Type:';
+
+  @override
+  String get inspectorPayloadLength => 'Payload-lengte:';
+
+  @override
+  String get inspectorRawHexPreview => 'Ruwe Hex-preview (beperkt):';
+
+  @override
+  String inspectorPayloadTruncated(num length) {
+    return 'Opmerking: Payload is $length bytes; eerste 64 bytes worden getoond.';
+  }
+
+  @override
+  String get ndefRecordsToWriteTitle => 'Te schrijven NDEF-records';
+
+  @override
+  String get pasteFromClipboardAction =>
+      'Plakken van klembord (Vervangen / Toevoegen)';
+
+  @override
+  String get importAction => 'Importeren';
+
+  @override
+  String get importFromTagAction => 'Importeren van NFC-tag';
+
+  @override
+  String get importFromQrAction => 'Importeren van QR-code';
+
+  @override
+  String get importFromCsvAction => 'Importeren uit CSV-bestand';
+
+  @override
+  String composerTotalSizeAndCount(num bytes, num count) {
+    return 'Totale grootte: $bytes bytes | Aantal records: $count';
+  }
+
+  @override
+  String get composerEmptyDescription =>
+      'U kunt tekst, weblinks, Wi-Fi, telefoon, e-mail, contactkaarten en meer schrijven.';
+
+  @override
+  String get urlSafetyReview => 'URL-beoordeling';
+
+  @override
+  String get inspector => 'Inspecteur';
+
+  @override
+  String get typeLabel => 'Type:';
+
+  @override
+  String get payloadLabel => 'Payload:';
+
+  @override
+  String get writeAndVerify => 'Naar tag schrijven en verifiëren';
+
+  @override
+  String writeAndVerifyWithBytes(num bytes) {
+    return 'Naar tag schrijven en verifiëren ($bytes bytes)';
+  }
+
+  @override
+  String get batchWriteButtonLabel => 'Batch-tag schrijven (2..100 tags)';
+
+  @override
+  String get clearTagButtonLabel => 'Tag resetten (inhoud wissen)';
+
+  @override
+  String get confirmWriteTitle => 'Schrijven naar tag bevestigen';
+
+  @override
+  String get confirmWriteMessage1 =>
+      'Deze bewerking OVERSCHRIJFT de bestaande NDEF-inhoud van de doeltag volledig.';
+
+  @override
+  String confirmWriteRecordCount(num count) {
+    return 'Aantal te schrijven records: $count';
+  }
+
+  @override
+  String get confirmWriteMessage2 =>
+      'Zorg dat de tag beschrijfbaar is. De inhoud wordt na het schrijven geverifieerd.';
+
+  @override
+  String get yesWrite => 'Ja, schrijven';
+
+  @override
+  String get scanHistoryDisabledTitle => 'Scangeschiedenis uitgeschakeld';
+
+  @override
+  String get scanHistoryDisabledDesc =>
+      'Wegens privacy wordt geschiedenis standaard niet opgeslagen. Schakel in via instellingen.';
+
+  @override
+  String get enableHistory => 'Geschiedenis inschakelen';
+
+  @override
+  String get historySearchHint =>
+      'Zoeken op UID, tekst of type (bijv. URL, Wi-Fi, 04A1...)';
+
+  @override
+  String historyScansCount(num count) {
+    return 'Opgeslagen scans: $count';
+  }
+
+  @override
+  String get noHistoryYet => 'Nog geen scangeschiedenis opgeslagen.';
+
+  @override
+  String noHistoryResultsForQuery(String query) {
+    return 'Geen resultaten gevonden voor \"$query\".';
+  }
+
+  @override
+  String get tryDifferentQuery =>
+      'Probeer een andere UID, tekstinhoud of recordtype.';
+
+  @override
+  String get clearSearch => 'Zoekopdracht wissen';
+
+  @override
+  String historyItemHeader(String time, num count) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: '$count records',
+      one: '1 record',
+    );
+    return '$time | $_temp0';
+  }
+
+  @override
+  String get deleteThisRecord => 'Dit record verwijderen';
+
+  @override
+  String historyCapacitySummary(num cap, num used) {
+    return 'Capaciteit: ${cap}B | Gebruikt: ${used}B';
+  }
+
+  @override
+  String historyUidHeader(String uid) {
+    return 'Geschiedenis UID $uid';
+  }
+
+  @override
+  String get qrPreview => 'QR-preview';
+
+  @override
+  String templateRecordCountWithDate(num count, String date) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: '$count records',
+      one: '1 record',
+    );
+    return '$_temp0 | $date';
+  }
+
+  @override
+  String writeVerificationSummary(num bytes, String status) {
+    return 'Geschreven bytes: $bytes | Verificatie: $status';
+  }
+
+  @override
+  String get lockTagConfirmTitle => 'Tag permanent vergrendelen';
+
+  @override
+  String get lockTagWarning1 =>
+      'Een vergrendelde tag wordt alleen-lezen: inhoud kan NOOIT meer worden gewijzigd of ontgrendeld.';
+
+  @override
+  String get lockTagWarning2 =>
+      'Zorg dat u eerst de juiste inhoud heeft geschreven.';
+
+  @override
+  String get langTr => 'Türkçe';
+
+  @override
+  String get langEn => 'English';
+
+  @override
+  String get langDe => 'Deutsch';
+
+  @override
+  String get langFr => 'Français';
+
+  @override
+  String get langEs => 'Español';
+
+  @override
+  String get langIt => 'Italiano';
+
+  @override
+  String get langPt => 'Português';
+
+  @override
+  String get langRu => 'Русский';
+
+  @override
+  String get langAr => 'العربية';
+
+  @override
+  String get langJa => '日本語';
+
+  @override
+  String get langZh => '中文';
+
+  @override
+  String get langKo => '한국어';
+
+  @override
+  String get langNl => 'Nederlands';
+
+  @override
+  String get langUk => 'Українська';
+
+  @override
+  String get qrPreviewTooltip => 'QR-code voorbeeld';
+
+  @override
+  String get unknownParentheses => '(Onbekend)';
+
+  @override
+  String get ok => 'OK';
 }
