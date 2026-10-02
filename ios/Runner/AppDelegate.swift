@@ -1,6 +1,61 @@
 import UIKit
 import Flutter
 import CoreNFC
+import AppIntents
+
+extension Notification.Name {
+    static let nfcLaunchAction = Notification.Name("NfcTagMasterLaunchAction")
+}
+
+/// Siri / Shortcuts: "Scan a tag" opens the app and starts a scan.
+@available(iOS 16.0, *)
+struct ScanTagIntent: AppIntent {
+    static let title: LocalizedStringResource = "Etiketi Tara"
+    static let openAppWhenRun: Bool = true
+
+    @MainActor
+    func perform() async throws -> some IntentResult {
+        NotificationCenter.default.post(name: .nfcLaunchAction, object: "scan")
+        return .result()
+    }
+}
+
+/// Siri / Shortcuts: opens the write screen.
+@available(iOS 16.0, *)
+struct WriteTagIntent: AppIntent {
+    static let title: LocalizedStringResource = "Etikete Yaz"
+    static let openAppWhenRun: Bool = true
+
+    @MainActor
+    func perform() async throws -> some IntentResult {
+        NotificationCenter.default.post(name: .nfcLaunchAction, object: "write")
+        return .result()
+    }
+}
+
+@available(iOS 16.0, *)
+struct NfcTagMasterShortcuts: AppShortcutsProvider {
+    static var appShortcuts: [AppShortcut] {
+        AppShortcut(
+            intent: ScanTagIntent(),
+            phrases: [
+                "\(.applicationName) ile etiket tara",
+                "Scan a tag with \(.applicationName)"
+            ],
+            shortTitle: "Etiketi Tara",
+            systemImageName: "wave.3.right"
+        )
+        AppShortcut(
+            intent: WriteTagIntent(),
+            phrases: [
+                "\(.applicationName) ile etikete yaz",
+                "Write a tag with \(.applicationName)"
+            ],
+            shortTitle: "Etikete Yaz",
+            systemImageName: "square.and.pencil"
+        )
+    }
+}
 
 @UIApplicationMain
 @objc class AppDelegate: FlutterAppDelegate, NFCTagReaderSessionDelegate {
@@ -16,6 +71,11 @@ import CoreNFC
 
     // Raw command session (NTAG / MIFARE Ultralight tools)
     private var rawTag: NFCMiFareTag?
+
+    // Action requested by a URL (nfctagmaster://scan) or a Siri shortcut,
+    // waiting for Flutter to pick it up
+    private var launchChannel: FlutterMethodChannel?
+    private var pendingLaunchAction: String?
 
     override func application(
         _ application: UIApplication,
@@ -181,8 +241,56 @@ import CoreNFC
             }
         })
 
+        let launchChannel = FlutterMethodChannel(name: "com.antigravity.nfc_tag_master/launch", binaryMessenger: controller.binaryMessenger)
+        launchChannel.setMethodCallHandler({ [weak self] (call: FlutterMethodCall, result: @escaping FlutterResult) -> Void in
+            guard let self = self else { return }
+            if call.method == "takeLaunchAction" {
+                let action = self.pendingLaunchAction
+                self.pendingLaunchAction = nil
+                result(action)
+            } else {
+                result(FlutterMethodNotImplemented)
+            }
+        })
+        self.launchChannel = launchChannel
+
+        NotificationCenter.default.addObserver(forName: .nfcLaunchAction, object: nil, queue: .main) { [weak self] note in
+            if let action = note.object as? String {
+                self?.queueLaunchAction(action)
+            }
+        }
+
+        if let url = launchOptions?[.url] as? URL {
+            handleLaunchUrl(url)
+        }
+
         GeneratedPluginRegistrant.register(with: self)
         return super.application(application, didFinishLaunchingWithOptions: launchOptions)
+    }
+
+    override func application(
+        _ app: UIApplication,
+        open url: URL,
+        options: [UIApplication.OpenURLOptionsKey: Any] = [:]
+    ) -> Bool {
+        if handleLaunchUrl(url) {
+            return true
+        }
+        return super.application(app, open: url, options: options)
+    }
+
+    @discardableResult
+    private func handleLaunchUrl(_ url: URL) -> Bool {
+        guard url.scheme?.lowercased() == "nfctagmaster" else { return false }
+        let action = (url.host ?? "").lowercased()
+        guard ["scan", "write", "tools", "history", "settings"].contains(action) else { return false }
+        queueLaunchAction(action)
+        return true
+    }
+
+    private func queueLaunchAction(_ action: String) {
+        pendingLaunchAction = action
+        launchChannel?.invokeMethod("launchActionAvailable", arguments: nil)
     }
 
     private func startSession(alertMessage: String) {
