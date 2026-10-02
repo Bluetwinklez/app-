@@ -50,6 +50,8 @@
 	<key>UIApplicationSupportsIndirectInputEvents</key>
 	<true/>
 	<!-- NFC Configuration -->
+	<key>NSCameraUsageDescription</key>
+	<string>QR kodlarını tarayıp etikete yazılacak kayda dönüştürmek için kamera kullanılır.</string>
 	<key>NFCReaderUsageDescription</key>
 	<string>NFC etiketlerini okumak ve NDEF mesajları yazmak için NFC erişimi gereklidir.</string>
 	<key>com.apple.developer.nfc.readersession.iso7816.select-identifiers</key>
