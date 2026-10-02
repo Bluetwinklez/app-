@@ -23,7 +23,7 @@ class NdefClipboardSnapshot {
   /// Creates a pure, immutable snapshot of the given records
   factory NdefClipboardSnapshot.fromRecords(
     List<NdefRecordModel> source, {
-    String sourceDescription = 'Taranan Etiket',
+    String? sourceDescription,
   }) {
     // Deep clone records to ensure no shared mutable byte references
     final cloned = source.map((r) {
@@ -38,7 +38,7 @@ class NdefClipboardSnapshot {
     return NdefClipboardSnapshot(
       records: cloned,
       copiedAt: DateTime.now(),
-      sourceDescription: sourceDescription,
+      sourceDescription: sourceDescription ?? L10n.current.scannedTag,
     );
   }
 }
@@ -196,16 +196,16 @@ class RecordInspectionData {
         textPreview = '${textPreview.substring(0, maxChars)}...';
       }
     } catch (_) {
-      textPreview = '(İkili/Binary Veri)';
+      textPreview = L10n.current.binaryDataPreview;
     }
 
     return RecordInspectionData(
       index: index,
       tnfName: tnfName,
-      typeText: typeText.isEmpty ? '(Boş)' : typeText,
-      typeHex: typeHex.isEmpty ? '(Boş)' : typeHex,
-      idText: idText.isEmpty ? '(Boş)' : idText,
-      idHex: idHex.isEmpty ? '(Boş)' : idHex,
+      typeText: typeText.isEmpty ? L10n.current.emptyValue : typeText,
+      typeHex: typeHex.isEmpty ? L10n.current.emptyValue : typeHex,
+      idText: idText.isEmpty ? L10n.current.emptyValue : idText,
+      idHex: idHex.isEmpty ? L10n.current.emptyValue : idHex,
       payloadLength: payloadLength,
       payloadHexPreview: payloadHexPreview.isEmpty ? '(0 bayt)' : payloadHexPreview,
       payloadTextPreview: textPreview,
@@ -216,21 +216,21 @@ class RecordInspectionData {
   static String _tnfDescription(NdefTnf tnf) {
     switch (tnf) {
       case NdefTnf.empty:
-        return '0: Empty (Boş)';
+        return L10n.current.tnfEmpty;
       case NdefTnf.wellKnown:
-        return '1: NFC Forum Well-Known (NFC Forum Standart RTD)';
+        return L10n.current.tnfWellKnown;
       case NdefTnf.media:
-        return '2: Media-Type (RFC 2046 MIME Türü)';
+        return L10n.current.tnfMedia;
       case NdefTnf.absoluteUri:
-        return '3: Absolute URI (RFC 3986 Mutlak URI)';
+        return L10n.current.tnfAbsoluteUri;
       case NdefTnf.external:
-        return '4: NFC Forum External (Harici Tür)';
+        return L10n.current.tnfExternal;
       case NdefTnf.unknown:
-        return '5: Unknown (Bilinmeyen İçerik)';
+        return L10n.current.tnfUnknown;
       case NdefTnf.unchanged:
-        return '6: Unchanged (Değişmemiş - Parçalı NDEF)';
+        return L10n.current.tnfUnchanged;
       case NdefTnf.reserved:
-        return '7: Reserved (Ayrılmış)';
+        return L10n.current.tnfReserved;
     }
   }
 

@@ -108,11 +108,12 @@ class _HomeScreenState extends State<HomeScreen>
         _expandedComposerIndices.clear();
       }
     });
+    final loc = AppLocalizations.of(context) ?? L10n.current;
     ScaffoldMessenger.of(context).showSnackBar(
-      const SnackBar(
-        content: Text('Son beste değişikliği geri alındı.'),
+      SnackBar(
+        content: Text(loc.composerUndoSnack),
         backgroundColor: AppColors.accent,
-        duration: Duration(seconds: 2),
+        duration: const Duration(seconds: 2),
       ),
     );
   }
@@ -128,11 +129,12 @@ class _HomeScreenState extends State<HomeScreen>
         _expandedComposerIndices.clear();
       }
     });
+    final loc = AppLocalizations.of(context) ?? L10n.current;
     ScaffoldMessenger.of(context).showSnackBar(
-      const SnackBar(
-        content: Text('Beste değişikliği yinelendi.'),
+      SnackBar(
+        content: Text(loc.composerRedoSnack),
         backgroundColor: AppColors.accent,
-        duration: Duration(seconds: 2),
+        duration: const Duration(seconds: 2),
       ),
     );
   }
@@ -245,25 +247,27 @@ class _HomeScreenState extends State<HomeScreen>
 
   /// Copies full NDEF records from source into the in-memory clipboard snapshot
   void _copyToClipboard(List<NdefRecordModel> records,
-      {String source = 'Taranan Etiket'}) {
+      {String? source}) {
+    final loc = AppLocalizations.of(context) ?? L10n.current;
+    final resolvedSource = source ?? loc.scannedTag;
     if (records.isEmpty) {
       ScaffoldMessenger.of(context).showSnackBar(
-        const SnackBar(
-          content: Text('Kopyalanacak NDEF kaydı bulunmuyor.'),
+        SnackBar(
+          content: Text(loc.noRecordsToCopy),
           backgroundColor: Colors.orange,
         ),
       );
       return;
     }
 
-    _controller.copyToClipboard(records, sourceDescription: source);
+    _controller.copyToClipboard(records, sourceDescription: resolvedSource);
     final count = records.length;
     final bytes = encodeNdefMessage(records).length;
 
     ScaffoldMessenger.of(context).showSnackBar(
       SnackBar(
         content: Text(
-          '$count adet NDEF kaydı ($bytes Bayt) panoya kopyalandı.\n(Yalnızca NDEF içerik baytları kopyalanır; UID veya şifreli sektörler asla klonlanamaz)',
+          loc.recordsCopiedToClipboardDetails(count, bytes),
         ),
         backgroundColor: AppColors.accent,
         duration: const Duration(seconds: 4),
@@ -274,44 +278,48 @@ class _HomeScreenState extends State<HomeScreen>
   /// Pastes clipboard records into the composer with Replace or Append choice
   void _appendImportedRecords(List<NdefRecordModel> records, String source) {
     if (records.isEmpty) return;
+    final loc = AppLocalizations.of(context) ?? L10n.current;
     setState(() {
       _composerHistory.push(_recordsToWrite);
       _recordsToWrite.addAll(records);
     });
     _tabController.animateTo(1);
     ScaffoldMessenger.of(context).showSnackBar(
-      SnackBar(content: Text('$source: ${records.length} kayıt eklendi.')),
+      SnackBar(content: Text(loc.recordsAddedFromSource(source, records.length))),
     );
   }
 
   Future<void> _importFromTag() async {
+    final loc = AppLocalizations.of(context) ?? L10n.current;
     await _controller.scanTag();
     if (!mounted) return;
     final tag = _controller.lastScannedTag;
     if (tag == null || tag.error != null) return;
     if (tag.records.isEmpty) {
       ScaffoldMessenger.of(context).showSnackBar(
-        const SnackBar(content: Text('Etiket boş; içe aktarılacak kayıt yok.')),
+        SnackBar(content: Text(loc.tagEmptyNoRecordsToImport)),
       );
       return;
     }
-    _appendImportedRecords(List<NdefRecordModel>.from(tag.records), 'Etiketten');
+    _appendImportedRecords(List<NdefRecordModel>.from(tag.records), loc.sourceTag);
   }
 
   Future<void> _importFromQr() async {
+    final loc = AppLocalizations.of(context) ?? L10n.current;
     final value = await QrScanPage.scan(context);
     if (!mounted || value == null) return;
-    _appendImportedRecords([QrRecordImporter.fromQr(value)], 'QR koddan');
+    _appendImportedRecords([QrRecordImporter.fromQr(value)], loc.sourceQr);
   }
 
   Future<void> _importFromCsv() async {
+    final loc = AppLocalizations.of(context) ?? L10n.current;
     XFile? file;
     try {
       file = await openFile();
     } catch (e) {
       if (!mounted) return;
       ScaffoldMessenger.of(context).showSnackBar(
-        SnackBar(content: Text('Dosya seçici açılamadı: $e'), backgroundColor: AppColors.danger),
+        SnackBar(content: Text(loc.filePickerError(e.toString())), backgroundColor: AppColors.danger),
       );
       return;
     }
@@ -320,7 +328,7 @@ class _HomeScreenState extends State<HomeScreen>
     if (!mounted) return;
     if (bytes.length > 512 * 1024) {
       ScaffoldMessenger.of(context).showSnackBar(
-        const SnackBar(content: Text('CSV dosyası çok büyük (en fazla 512 KB).'), backgroundColor: AppColors.danger),
+        SnackBar(content: Text(loc.csvFileTooLarge), backgroundColor: AppColors.danger),
       );
       return;
     }
@@ -329,7 +337,7 @@ class _HomeScreenState extends State<HomeScreen>
       await showDialog<void>(
         context: context,
         builder: (ctx) => AlertDialog(
-          title: Text(result.records.isEmpty ? 'Kayıt bulunamadı' : 'Bazı satırlar atlandı'),
+          title: Text(result.records.isEmpty ? loc.noRecordsFound : loc.someRowsSkipped),
           content: SingleChildScrollView(
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
@@ -337,7 +345,7 @@ class _HomeScreenState extends State<HomeScreen>
               children: [
                 for (final e in result.errors.take(20)) Text('• $e'),
                 const SizedBox(height: 12),
-                const Text('Beklenen biçim:', style: TextStyle(fontWeight: FontWeight.w600)),
+                Text(loc.expectedFormat, style: const TextStyle(fontWeight: FontWeight.w600)),
                 const SizedBox(height: 4),
                 const Text(
                   CsvRecordImporter.sample,
@@ -347,7 +355,7 @@ class _HomeScreenState extends State<HomeScreen>
             ),
           ),
           actions: [
-            TextButton(onPressed: () => Navigator.of(ctx).pop(), child: const Text('Tamam')),
+            TextButton(onPressed: () => Navigator.of(ctx).pop(), child: Text(loc.ok)),
           ],
         ),
       );
@@ -357,11 +365,12 @@ class _HomeScreenState extends State<HomeScreen>
   }
 
   void _pasteFromClipboard() {
+    final loc = AppLocalizations.of(context) ?? L10n.current;
     final clip = _controller.clipboardSnapshot;
     if (clip == null || clip.records.isEmpty) {
       ScaffoldMessenger.of(context).showSnackBar(
-        const SnackBar(
-          content: Text('Panoda kopyalanmış NDEF içeriği bulunmuyor.'),
+        SnackBar(
+          content: Text(loc.noClipboardContent),
           backgroundColor: Colors.orange,
         ),
       );
@@ -385,7 +394,7 @@ class _HomeScreenState extends State<HomeScreen>
                   const Icon(Icons.paste, color: AppColors.accent),
                   const SizedBox(width: 8),
                   Text(
-                    'NDEF Panosundan Yapıştır',
+                    loc.pasteFromClipboardTitle,
                     style: Theme.of(context)
                         .textTheme
                         .titleMedium
@@ -395,21 +404,21 @@ class _HomeScreenState extends State<HomeScreen>
               ),
               const SizedBox(height: 8),
               Text(
-                'Panodaki Veri: ${clip.recordCount} kayıt, ${clip.byteSize} bayt (${clip.sourceDescription})',
+                loc.clipboardDataSummary(clip.recordCount, clip.byteSize, clip.sourceDescription),
                 style: const TextStyle(color: Colors.black87),
               ),
               const SizedBox(height: 4),
-              const Text(
-                'Mevcut beste kayıtlarını tamamen değiştirmek mi yoksa sonuna eklemek mi istiyorsunuz?',
-                style: TextStyle(color: Colors.black54, fontSize: 13),
+              Text(
+                loc.clipboardPastePrompt,
+                style: const TextStyle(color: Colors.black54, fontSize: 13),
               ),
               const SizedBox(height: 16),
               ListTile(
                 leading: const Icon(Icons.find_replace, color: Colors.orange),
-                title: const Text('Üzerine Yaz (Değiştir)'),
+                title: Text(loc.pasteOverwriteOption),
                 subtitle: Text(_recordsToWrite.isNotEmpty
-                    ? 'Mevcut ${_recordsToWrite.length} kayıt silinip pano içeriğiyle değiştirilir (onay istenir).'
-                    : 'Pano içeriği besteye yerleştirilir.'),
+                    ? loc.pasteOverwriteSubtitle(_recordsToWrite.length)
+                    : loc.pasteEmptySubtitle),
                 onTap: () {
                   Navigator.of(ctx).pop();
                   _handlePasteReplace(clip.records);
@@ -417,9 +426,9 @@ class _HomeScreenState extends State<HomeScreen>
               ),
               ListTile(
                 leading: const Icon(Icons.add_to_photos, color: AppColors.accent),
-                title: const Text('Sonuna Ekle (Append)'),
-                subtitle: const Text(
-                    'Mevcut kayıtlar korunur, panodaki kayıtlar listenin sonuna ilave edilir.'),
+                title: Text(loc.pasteAppendOption),
+                subtitle: Text(
+                    loc.pasteAppendSubtitle),
                 onTap: () {
                   Navigator.of(ctx).pop();
                   _handlePasteAppend(clip.records);
@@ -433,31 +442,33 @@ class _HomeScreenState extends State<HomeScreen>
   }
 
   void _handlePasteAppend(List<NdefRecordModel> records) {
+    final loc = AppLocalizations.of(context) ?? L10n.current;
     setState(() {
       _composerHistory.push(_recordsToWrite);
       _recordsToWrite.addAll(records);
     });
     ScaffoldMessenger.of(context).showSnackBar(
       SnackBar(
-        content: Text('${records.length} adet kayıt besteye eklendi.'),
+        content: Text(loc.recordsAddedToComposer(records.length)),
         backgroundColor: AppColors.accent,
       ),
     );
   }
 
   void _handlePasteReplace(List<NdefRecordModel> records) {
+    final loc = AppLocalizations.of(context) ?? L10n.current;
     if (_recordsToWrite.isNotEmpty) {
       showDialog(
         context: context,
         builder: (ctx) => AlertDialog(
-          title: const Text('Kayıtların Üzerine Yazılsın mı?'),
+          title: Text(loc.confirmOverwriteTitle),
           content: Text(
-            'Mevcut bestede ${_recordsToWrite.length} adet kayıt bulunuyor. Bu kayıtlar silinecek ve yerlerine panodaki ${records.length} adet kayıt getirilecektir. Devam edilsin mi?',
+            loc.confirmOverwriteMessage(_recordsToWrite.length, records.length),
           ),
           actions: [
             TextButton(
               onPressed: () => Navigator.of(ctx).pop(),
-              child: const Text('Vazgeç'),
+              child: Text(loc.dismiss),
             ),
             ElevatedButton(
               style: ElevatedButton.styleFrom(
@@ -472,13 +483,13 @@ class _HomeScreenState extends State<HomeScreen>
                 ScaffoldMessenger.of(context).showSnackBar(
                   SnackBar(
                     content: Text(
-                        '${records.length} adet kayıt ile bestedeki kayıtlar değiştirildi.'),
+                        loc.recordsReplacedInComposer(records.length)),
                     backgroundColor: AppColors.accent,
                   ),
                 );
               },
-              child: const Text('Evet, Değiştir',
-                  style: TextStyle(color: Colors.white)),
+              child: Text(loc.yesReplace,
+                  style: const TextStyle(color: Colors.white)),
             ),
           ],
         ),
@@ -491,7 +502,7 @@ class _HomeScreenState extends State<HomeScreen>
       });
       ScaffoldMessenger.of(context).showSnackBar(
         SnackBar(
-          content: Text('${records.length} adet kayıt besteye aktarıldı.'),
+          content: Text(loc.recordsImportedToComposer(records.length)),
           backgroundColor: AppColors.accent,
         ),
       );
@@ -500,17 +511,18 @@ class _HomeScreenState extends State<HomeScreen>
 
   /// Copies full NDEF records from scanned tag into write composer (Backward-compatible method)
   void _copyScannedContentToComposer(List<NdefRecordModel> records) {
+    final loc = AppLocalizations.of(context) ?? L10n.current;
     if (records.isEmpty) {
       ScaffoldMessenger.of(context).showSnackBar(
-        const SnackBar(
-          content: Text('Kopyalanacak NDEF içeriği bulunamadı.'),
+        SnackBar(
+          content: Text(loc.noContentToCopy),
           backgroundColor: Colors.orange,
         ),
       );
       return;
     }
 
-    _controller.copyToClipboard(records, sourceDescription: 'Taranan Etiket');
+    _controller.copyToClipboard(records, sourceDescription: loc.scannedTag);
 
     if (_recordsToWrite.isNotEmpty) {
       // Prompt Replace vs Append for consistency with new clipboard semantics
@@ -525,7 +537,7 @@ class _HomeScreenState extends State<HomeScreen>
       ScaffoldMessenger.of(context).showSnackBar(
         SnackBar(
           content: Text(
-            '${records.length} adet NDEF kaydı panoya alındı ve besteye eklendi (İçerik kopyalandı, UID kopyalanmaz).',
+            loc.recordsCopiedAndStaged(records.length),
           ),
           backgroundColor: AppColors.accent,
           duration: const Duration(seconds: 3),
@@ -540,10 +552,11 @@ class _HomeScreenState extends State<HomeScreen>
 
   void _startRewriteFlow(
       List<NdefRecordModel> sourceRecords, String sourceUid) {
+    final loc = AppLocalizations.of(context) ?? L10n.current;
     if (sourceRecords.isEmpty) {
       ScaffoldMessenger.of(context).showSnackBar(
-        const SnackBar(
-          content: Text('Yeniden yazılacak NDEF içeriği bulunamadı.'),
+        SnackBar(
+          content: Text(loc.noContentToRewrite),
           backgroundColor: Colors.orange,
         ),
       );

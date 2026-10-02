@@ -18,7 +18,7 @@ class MockNfcPlatformService implements NfcPlatformService {
   Future<NfcAvailability> checkAvailability() async => availability;
 
   @override
-  Future<NfcTagInfo> scanTag({String promptMessage = 'Etiketi yaklaştırın'}) async {
+  Future<NfcTagInfo> scanTag({String? promptMessage}) async {
     return nextScanResult ??
         const NfcTagInfo(
           identifier: '04A1B2C3D4',
@@ -31,7 +31,7 @@ class MockNfcPlatformService implements NfcPlatformService {
   @override
   Future<NfcWriteResult> writeTag({
     required List<NdefRecordModel> records,
-    String promptMessage = 'Yazmak istediğiniz etiketi yaklaştırın',
+    String? promptMessage,
     bool verifyReadAfterWrite = true,
   }) async {
     lastWrittenRecords = records;
@@ -46,7 +46,7 @@ class MockNfcPlatformService implements NfcPlatformService {
 
   @override
   Future<NfcWriteResult> clearTag({
-    String promptMessage = 'Sıfırlamak istediğiniz etiketi yaklaştırın',
+    String? promptMessage,
   }) async {
     return const NfcWriteResult(
       isSuccess: true,
@@ -63,7 +63,7 @@ class MockNfcPlatformService implements NfcPlatformService {
   String? lastRawError;
 
   @override
-  Future<String> startRawSession({String promptMessage = 'Etiketi yaklaştırın'}) async {
+  Future<String> startRawSession({String? promptMessage}) async {
     rawSessionOpen = true;
     return '04:A1:B2';
   }
@@ -82,7 +82,7 @@ class MockNfcPlatformService implements NfcPlatformService {
 
   @override
   Future<NfcWriteResult> lockTag({
-    String promptMessage = 'Kilitlemek istediğiniz etiketi yaklaştırın',
+    String? promptMessage,
   }) async {
     lockCalls++;
     return nextWriteResult ??

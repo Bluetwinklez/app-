@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import '../l10n/app_localizations.dart';
 import 'app_theme.dart';
 
 class _OnboardingStep {
@@ -22,35 +23,9 @@ class OnboardingPage extends StatefulWidget {
 class _OnboardingPageState extends State<OnboardingPage> {
   final _pageController = PageController();
   int _page = 0;
+  static const _stepCount = 4;
 
-  static const _steps = [
-    _OnboardingStep(
-      Icons.sensors_rounded,
-      'Etiketi okut',
-      'Alttaki mavi butona dokunun ve etiketi telefonun üst kısmına yaklaştırın. '
-          'İçerik, kapasite ve seri numarası anında görünür.',
-    ),
-    _OnboardingStep(
-      Icons.edit_note_rounded,
-      'İstediğini yaz',
-      '"Yaz" bölümünde "Kayıt Ekle"ye dokunun: web adresi, Wi-Fi, kartvizit, '
-          'sosyal medya ve daha fazlası. Hazır şablonlarla saniyeler içinde hazırlayın.',
-    ),
-    _OnboardingStep(
-      Icons.handyman_outlined,
-      'Uzman araçlar',
-      'Belleği okuyun, şifre koyun, etiketi kilitleyin veya biçimlendirin. '
-          'Hepsi "Araçlar" bölümünde.',
-    ),
-    _OnboardingStep(
-      Icons.collections_bookmark_outlined,
-      'Etiketlerini düzenle',
-      'Yazdığınız etiketlere isim, not ve fotoğraf ekleyip kütüphanenizde saklayın. '
-          'Dili ve görünümü Ayarlar\'dan değiştirebilirsiniz.',
-    ),
-  ];
-
-  bool get _isLast => _page == _steps.length - 1;
+  bool get _isLast => _page == _stepCount - 1;
 
   @override
   void dispose() {
@@ -68,6 +43,29 @@ class _OnboardingPageState extends State<OnboardingPage> {
 
   @override
   Widget build(BuildContext context) {
+    final loc = AppLocalizations.of(context)!;
+    final steps = [
+      _OnboardingStep(
+        Icons.sensors_rounded,
+        loc.onboardingStep1Title,
+        loc.onboardingStep1Body,
+      ),
+      _OnboardingStep(
+        Icons.edit_note_rounded,
+        loc.onboardingStep2Title,
+        loc.onboardingStep2Body,
+      ),
+      _OnboardingStep(
+        Icons.handyman_outlined,
+        loc.onboardingStep3Title,
+        loc.onboardingStep3Body,
+      ),
+      _OnboardingStep(
+        Icons.collections_bookmark_outlined,
+        loc.onboardingStep4Title,
+        loc.onboardingStep4Body,
+      ),
+    ];
     return DecoratedBox(
       decoration: const BoxDecoration(gradient: AppColors.canvasGradient),
       child: Scaffold(
@@ -82,22 +80,22 @@ class _OnboardingPageState extends State<OnboardingPage> {
                   child: TextButton(
                     onPressed: widget.onFinished,
                     style: TextButton.styleFrom(foregroundColor: AppColors.secondary),
-                    child: const Text('Geç'),
+                    child: Text(loc.onboardingSkip),
                   ),
                 ),
               ),
               Expanded(
                 child: PageView.builder(
                   controller: _pageController,
-                  itemCount: _steps.length,
+                  itemCount: steps.length,
                   onPageChanged: (i) => setState(() => _page = i),
-                  itemBuilder: (_, i) => _buildStep(_steps[i]),
+                  itemBuilder: (_, i) => _buildStep(steps[i]),
                 ),
               ),
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  for (int i = 0; i < _steps.length; i++)
+                  for (int i = 0; i < steps.length; i++)
                     AnimatedContainer(
                       duration: const Duration(milliseconds: 220),
                       margin: const EdgeInsets.symmetric(horizontal: 4),
@@ -116,7 +114,7 @@ class _OnboardingPageState extends State<OnboardingPage> {
                   width: double.infinity,
                   child: ElevatedButton(
                     onPressed: _next,
-                    child: Text(_isLast ? 'Başla' : 'Devam'),
+                    child: Text(_isLast ? loc.onboardingStart : loc.onboardingContinue),
                   ),
                 ),
               ),

@@ -1,6 +1,8 @@
 import 'dart:typed_data';
 import 'package:flutter/material.dart';
+import '../l10n/app_localizations.dart';
 import '../domain/ndef_record.dart';
+import '../l10n/l10n.dart';
 import 'app_theme.dart';
 
 /// Modal dialog for editing raw NDEF records (TNF, Type, ID, Payload in Hex)
@@ -90,29 +92,30 @@ class _RawRecordEditorDialogState extends State<RawRecordEditorDialog> {
       _payloadError = null;
     });
 
+    final loc = AppLocalizations.of(context) ?? L10n.current;
     final typeBytes = _hexToBytes(_typeHexController.text.trim());
     if (typeBytes == null) {
-      setState(() => _typeError = 'Geçersiz Hex tür dizesi');
+      setState(() => _typeError = loc.invalidHexType);
       return;
     }
     if (typeBytes.length > 255) {
-      setState(() => _typeError = 'Tür boyutu 255 baytı aşamaz');
+      setState(() => _typeError = loc.typeTooLarge);
       return;
     }
 
     final idBytes = _hexToBytes(_idHexController.text.trim());
     if (idBytes == null) {
-      setState(() => _idError = 'Geçersiz Hex ID dizesi');
+      setState(() => _idError = loc.invalidHexId);
       return;
     }
     if (idBytes.length > 255) {
-      setState(() => _idError = 'Kimlik (ID) boyutu 255 baytı aşamaz');
+      setState(() => _idError = loc.idTooLarge);
       return;
     }
 
     final payloadBytes = _hexToBytes(_payloadHexController.text.trim());
     if (payloadBytes == null) {
-      setState(() => _payloadError = 'Geçersiz Hex yük (payload) dizesi');
+      setState(() => _payloadError = loc.invalidHexPayload);
       return;
     }
 
@@ -129,6 +132,7 @@ class _RawRecordEditorDialogState extends State<RawRecordEditorDialog> {
 
   @override
   Widget build(BuildContext context) {
+    final loc = AppLocalizations.of(context) ?? L10n.current;
     return AlertDialog(
       title: Row(
         children: [
@@ -139,7 +143,7 @@ class _RawRecordEditorDialogState extends State<RawRecordEditorDialog> {
           const SizedBox(width: 8),
           Expanded(
             child: Text(
-              _isReadOnly ? 'Kayıt Ayrıntıları (Salt Okunur)' : 'Ham NDEF Kaydı Düzenle',
+              _isReadOnly ? loc.rawRecordDetailsTitle : loc.rawRecordEditorTitle,
               style: const TextStyle(fontSize: 17, fontWeight: FontWeight.bold),
             ),
           ),
@@ -200,8 +204,8 @@ class _RawRecordEditorDialogState extends State<RawRecordEditorDialog> {
               enabled: !_isReadOnly,
               style: const TextStyle(fontFamily: 'monospace', fontSize: 13),
               decoration: InputDecoration(
-                labelText: 'Tür / Type (Hex Baytları)',
-                hintText: '54 (Örn. Text için 0x54 "T")',
+                labelText: loc.rawTypeHexLabel,
+                hintText: loc.rawTypeHexHint,
                 errorText: _typeError,
                 border: const OutlineInputBorder(),
               ),
@@ -212,8 +216,8 @@ class _RawRecordEditorDialogState extends State<RawRecordEditorDialog> {
               enabled: !_isReadOnly,
               style: const TextStyle(fontFamily: 'monospace', fontSize: 13),
               decoration: InputDecoration(
-                labelText: 'Kimlik / ID (Hex Baytları, isteğe bağlı)',
-                hintText: 'İsteğe bağlı hex baytları',
+                labelText: loc.rawIdHexLabel,
+                hintText: loc.rawOptionalHexHint,
                 errorText: _idError,
                 border: const OutlineInputBorder(),
               ),
@@ -225,7 +229,7 @@ class _RawRecordEditorDialogState extends State<RawRecordEditorDialog> {
               maxLines: 5,
               style: const TextStyle(fontFamily: 'monospace', fontSize: 12),
               decoration: InputDecoration(
-                labelText: 'Yük / Payload (Hex Baytları)',
+                labelText: loc.rawPayloadHexLabel,
                 hintText: '02 74 72 48 65 6C 6C 6F',
                 errorText: _payloadError,
                 border: const OutlineInputBorder(),
@@ -237,12 +241,12 @@ class _RawRecordEditorDialogState extends State<RawRecordEditorDialog> {
       actions: [
         TextButton(
           onPressed: () => Navigator.of(context).pop(),
-          child: Text(_isReadOnly ? 'Kapat' : 'Vazgeç'),
+          child: Text(_isReadOnly ? loc.close : loc.dismiss),
         ),
         if (!_isReadOnly)
           ElevatedButton.icon(
             icon: const Icon(Icons.check),
-            label: const Text('Değişikliği Kaydet'),
+            label: Text(loc.saveChanges),
             style: ElevatedButton.styleFrom(
               backgroundColor: AppColors.accent,
               foregroundColor: Colors.white,

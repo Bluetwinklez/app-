@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import '../domain/ndef_record.dart';
+import '../l10n/app_localizations.dart';
 import '../services/launch_action_service.dart';
 import 'app_theme.dart';
 
@@ -23,54 +24,54 @@ class ShortcutsGuideSheet extends StatelessWidget {
     );
   }
 
-  static const _links = [
-    (LaunchAction.scan, 'Uygulamayı açıp taramayı başlatır'),
-    (LaunchAction.write, 'Yazma ekranını açar'),
-    (LaunchAction.tools, 'Araçlar ekranını açar'),
-    (LaunchAction.history, 'Geçmişi açar'),
-  ];
-
   @override
   Widget build(BuildContext context) {
+    final loc = AppLocalizations.of(context)!;
+    final links = [
+      (LaunchAction.scan, loc.linkScanDesc),
+      (LaunchAction.write, loc.linkWriteDesc),
+      (LaunchAction.tools, loc.linkToolsDesc),
+      (LaunchAction.history, loc.linkHistoryDesc),
+    ];
     return SafeArea(
       child: SizedBox(
         height: MediaQuery.of(context).size.height * 0.85,
         child: ListView(
           padding: const EdgeInsets.fromLTRB(20, 0, 20, 24),
           children: [
-            Text('Siri ve Kısayollar', style: Theme.of(context).textTheme.headlineSmall),
+            Text(loc.shortcutsGuideTitle, style: Theme.of(context).textTheme.headlineSmall),
             const SizedBox(height: 6),
-            const Text(
-              'Etikete dokununca bir işlemi otomatik çalıştırabilir veya Siri\'ye sesle tarama yaptırabilirsiniz.',
-              style: TextStyle(color: AppColors.secondary, height: 1.4),
+            Text(
+              loc.shortcutsGuideSubtitle,
+              style: const TextStyle(color: AppColors.secondary, height: 1.4),
             ),
-            const SectionHeader(title: 'Siri ile'),
-            const _Bullet(icon: Icons.mic_none_rounded, text: '"Hey Siri, NFC Etiket Yöneticisi ile etiket tara"'),
-            const _Bullet(icon: Icons.mic_none_rounded, text: '"Hey Siri, NFC Etiket Yöneticisi ile etikete yaz"'),
-            const _Bullet(
+            SectionHeader(title: loc.withSiri),
+            _Bullet(icon: Icons.mic_none_rounded, text: loc.siriPhraseScan),
+            _Bullet(icon: Icons.mic_none_rounded, text: loc.siriPhraseWrite),
+            _Bullet(
               icon: Icons.apps_rounded,
-              text: 'Aynı komutlar Kısayollar uygulamasında ve Spotlight aramasında da görünür.',
+              text: loc.siriShortcutsNote,
             ),
-            const SectionHeader(title: 'Etikete dokununca otomatik çalıştır'),
-            const _Step(n: 1, text: 'Kısayollar uygulamasını açın ve alttan "Otomasyon"a dokunun.'),
-            const _Step(n: 2, text: '"Yeni Otomasyon" (+) → "NFC" seçin.'),
-            const _Step(n: 3, text: '"Tara"ya dokunun, etiketi iPhone\'un üst kısmına yaklaştırın ve bir isim verin.'),
-            const _Step(n: 4, text: '"Hemen Çalıştır"ı seçin, sonra istediğiniz eylemi ekleyin (ışıkları aç, müzik çal, mesaj gönder…).'),
-            const _Step(n: 5, text: 'Bu uygulamayı açtırmak için eylem olarak "Etiketi Tara" veya "Etikete Yaz"ı seçin.'),
-            const Padding(
-              padding: EdgeInsets.only(top: 4),
+            SectionHeader(title: loc.autoRunOnTap),
+            _Step(n: 1, text: loc.shortcutStep1),
+            _Step(n: 2, text: loc.shortcutStep2),
+            _Step(n: 3, text: loc.shortcutStep3),
+            _Step(n: 4, text: loc.shortcutStep4),
+            _Step(n: 5, text: loc.shortcutStep5),
+            Padding(
+              padding: const EdgeInsets.only(top: 4),
               child: Text(
-                'Not: Otomasyon etiketin seri numarasına bağlanır; etiketin içeriği değişse de çalışır.',
-                style: TextStyle(fontSize: 12.5, color: AppColors.secondary),
+                loc.shortcutAutomationNote,
+                style: const TextStyle(fontSize: 12.5, color: AppColors.secondary),
               ),
             ),
-            const SectionHeader(title: 'Uygulama bağlantıları'),
-            const Text(
-              'Bu bağlantıları bir etikete yazarsanız, iPhone etikete dokununca bildirim gösterir ve uygulamayı ilgili ekranda açar.',
-              style: TextStyle(color: AppColors.secondary, height: 1.4),
+            SectionHeader(title: loc.appLinksSection),
+            Text(
+              loc.appLinksDesc,
+              style: const TextStyle(color: AppColors.secondary, height: 1.4),
             ),
             const SizedBox(height: 10),
-            for (final (action, description) in _links)
+            for (final (action, description) in links)
               Padding(
                 padding: const EdgeInsets.only(bottom: 8),
                 child: SoftCard(
@@ -90,17 +91,17 @@ class ShortcutsGuideSheet extends StatelessWidget {
                         ),
                       ),
                       IconButton(
-                        tooltip: 'Kopyala',
+                        tooltip: loc.copyTagUid,
                         icon: const Icon(Icons.copy_rounded, size: 20),
                         onPressed: () {
                           Clipboard.setData(ClipboardData(text: LaunchActionService.linkFor(action)));
                           ScaffoldMessenger.of(context).showSnackBar(
-                            const SnackBar(content: Text('Bağlantı kopyalandı')),
+                            SnackBar(content: Text(loc.linkCopied)),
                           );
                         },
                       ),
                       IconButton(
-                        tooltip: 'Yazma listesine ekle',
+                        tooltip: loc.addToWriteList,
                         icon: const Icon(Icons.add_circle_outline_rounded, size: 22, color: AppColors.accent),
                         onPressed: () {
                           onAddRecord(

@@ -645,7 +645,7 @@ class AppLocalizationsRu extends AppLocalizations {
   String get nfcPromptLock => 'Поднесите метку для постоянной блокировки';
 
   @override
-  String get nfcPromptScan => 'Поднесите NFC-метку к устройству для чтения';
+  String get nfcPromptScan => 'Поднесите метку к верхней части телефона';
 
   @override
   String get nfcPromptWrite => 'Поднесите NFC-метку для сохранения данных';
@@ -1156,7 +1156,7 @@ class AppLocalizationsRu extends AppLocalizations {
   String get sourceSelectPrompt => 'Откуда взять данные метки?';
 
   @override
-  String get statusCancelled => 'Операция отменена.';
+  String get statusCancelled => 'Отменено';
 
   @override
   String statusClearError(String error) {
@@ -1532,4 +1532,1718 @@ class AppLocalizationsRu extends AppLocalizations {
 
   @override
   String get yes => 'Да';
+
+  @override
+  String get unknown => 'Неизвестно';
+
+  @override
+  String get error => 'Ошибка';
+
+  @override
+  String get nfcPromptReady => 'Поднесите метку';
+
+  @override
+  String get invalidResponseFormat => 'Получен недопустимый формат ответа';
+
+  @override
+  String get nfcReadError => 'Ошибка чтения NFC';
+
+  @override
+  String get invalidPlatformResponse =>
+      'Получен недопустимый ответ от платформы';
+
+  @override
+  String get writeFailed => 'Ошибка записи';
+
+  @override
+  String get lockFailed => 'Ошибка блокировки';
+
+  @override
+  String get failedToConnectTag => 'Не удалось подключиться к метке';
+
+  @override
+  String get invalidTagResponse => 'Недопустимый ответ от метки';
+
+  @override
+  String get commandFailed => 'Команда не выполнена';
+
+  @override
+  String get ndefTypeOrIdTooLong => 'Тип или ID NDEF превышает 255 байт';
+
+  @override
+  String get ndefUnsupportedOrInvalidRecord =>
+      'Неподдерживаемая или недействительная запись NDEF';
+
+  @override
+  String get ndefMissingTypeLength => 'Отсутствует длина типа NDEF';
+
+  @override
+  String get ndefMissingPayloadLength =>
+      'Отсутствует длина полезной нагрузки NDEF';
+
+  @override
+  String get ndefMissingIdLength => 'Отсутствует длина ID NDEF';
+
+  @override
+  String get ndefMissingType => 'Отсутствует тип NDEF';
+
+  @override
+  String get ndefMissingId => 'Отсутствует ID NDEF';
+
+  @override
+  String get ndefMissingPayload => 'Отсутствует полезная нагрузка NDEF';
+
+  @override
+  String get unprotected => '(Без пароля)';
+
+  @override
+  String get binaryDataPreview => '(Двоичные данные)';
+
+  @override
+  String get emptyValue => '(Пусто)';
+
+  @override
+  String get tnfEmpty => '0: Empty (Пусто)';
+
+  @override
+  String get tnfWellKnown => '1: NFC Forum Well-Known (RTD)';
+
+  @override
+  String get tnfMedia => '2: Media-Type (RFC 2046 MIME)';
+
+  @override
+  String get tnfAbsoluteUri => '3: Absolute URI (RFC 3986)';
+
+  @override
+  String get tnfExternal => '4: NFC Forum External';
+
+  @override
+  String get tnfUnknown => '5: Unknown (Неизвестно)';
+
+  @override
+  String get tnfUnchanged => '6: Unchanged (Фрагментированный NDEF)';
+
+  @override
+  String get tnfReserved => '7: Reserved (Зарезервировано)';
+
+  @override
+  String get ntagUnsupportedChip =>
+      'Эта операция поддерживается только на метках NTAG213/215/216 и MIFARE Ultralight EV1.';
+
+  @override
+  String ntagPageReadFailed(String page) {
+    return 'Не удалось прочитать страницу $page (метка не ответила или область защищена).';
+  }
+
+  @override
+  String ntagPageWriteFailedError(String page, String error) {
+    return 'Не удалось записать страницу $page: $error';
+  }
+
+  @override
+  String ntagPageWriteFailed(String page) {
+    return 'Не удалось записать страницу $page (отклонено; заблокировано или защищено).';
+  }
+
+  @override
+  String ntagProtectedArea(String page) {
+    return 'Не удалось прочитать дальше страницы $page; область может быть защищена паролем.';
+  }
+
+  @override
+  String get ntagPasswordPackSize =>
+      'Пароль должен быть 4 байта, а PACK — 2 байта.';
+
+  @override
+  String get ntagPasswordSize => 'Пароль должен быть 4 байта.';
+
+  @override
+  String get ntagPasswordWrongOrAuthFailed =>
+      'Неверный пароль или метка отклонила проверку.';
+
+  @override
+  String get ntagPasswordWrong => 'Неверный пароль.';
+
+  @override
+  String get ntagCcInvalid =>
+      'Область CC содержит значение не NDEF; эту область OTP нельзя форматировать.';
+
+  @override
+  String get ntagDumpTooShort =>
+      'Дамп слишком короткий; нет данных пользователя.';
+
+  @override
+  String get ntagInvalidHex =>
+      'Введите допустимое шестнадцатеричное значение (напр.: 30 04).';
+
+  @override
+  String get googleReviewFieldLabel => 'Ссылка на отзыв или Place ID';
+
+  @override
+  String get menuLinkFieldLabel => 'Ссылка на меню';
+
+  @override
+  String get menuTitleHint => 'Наше меню';
+
+  @override
+  String get petName => 'Кличка питомца';
+
+  @override
+  String get ownerPhone => 'Телефон владельца';
+
+  @override
+  String petTagMessage(String pet, String phone, String note) {
+    return 'Привет, я $pet! Пожалуйста, позвоните хозяину: $phone$note';
+  }
+
+  @override
+  String get bloodType => 'Группа крови';
+
+  @override
+  String get allergies => 'Аллергии / Лекарства';
+
+  @override
+  String get emergencyContact => 'Экстренный контакт';
+
+  @override
+  String get emergencyInfo => 'ЭКСТРЕННАЯ ИНФОРМАЦИЯ';
+
+  @override
+  String emergencyBlood(String blood) {
+    return 'Группа крови: $blood';
+  }
+
+  @override
+  String emergencyAllergies(String allergies) {
+    return 'Аллергии: $allergies';
+  }
+
+  @override
+  String emergencyCall(String contact) {
+    return 'В экстренном случае звонить: $contact';
+  }
+
+  @override
+  String get storeLink => 'Ссылка на магазин';
+
+  @override
+  String get link => 'Ссылка';
+
+  @override
+  String get title => 'Заголовок';
+
+  @override
+  String get webAddress => 'Веб-адрес';
+
+  @override
+  String get address => 'Адрес';
+
+  @override
+  String backupSummaryTemplates(String added, String updated) {
+    return 'Шаблоны: добавлено $added, обновлено $updated';
+  }
+
+  @override
+  String backupSummaryRules(String added, String updated) {
+    return 'Заметки/правила меток: добавлено $added, обновлено $updated';
+  }
+
+  @override
+  String backupSummaryHistoryDisabled(String skipped) {
+    return 'История пропущена, так как отключена на устройстве: $skipped';
+  }
+
+  @override
+  String backupSummaryHistory(String added, String skipped) {
+    return 'История: добавлено $added, $skipped пропущено/уже есть';
+  }
+
+  @override
+  String get backupSummaryNoNewData =>
+      'Новых данных для импорта не найдено (совпадает с существующими записями).';
+
+  @override
+  String backupFieldMustBeString(String field) {
+    return '$field должно быть строкой.';
+  }
+
+  @override
+  String backupFieldMustBeDate(String field) {
+    return '$field должно быть действительной датой.';
+  }
+
+  @override
+  String get rawTypeHexLabel => 'Тип (Hex-байты)';
+
+  @override
+  String get rawIdHexLabel => 'ID (Hex-байты, необязательно)';
+
+  @override
+  String get rawPayloadHexLabel => 'Полезная нагрузка (Hex-байты)';
+
+  @override
+  String get rawOptionalHexHint => 'Необязательные hex-байты';
+
+  @override
+  String get saveChanges => 'Сохранить изменения';
+
+  @override
+  String get edit => 'Редактировать';
+
+  @override
+  String get clearAllButton => 'Очистить все';
+
+  @override
+  String ntagPagesRead(String chip, int count) {
+    return '$chip: прочитано $count страниц';
+  }
+
+  @override
+  String ntagFormatted(String chip) {
+    return '$chip отформатирован';
+  }
+
+  @override
+  String get ntagInvalidDumpFile =>
+      'Недопустимый файл дампа (должен быть кратен 4 байтам, 32–1024 байт).';
+
+  @override
+  String ntagPagesWritten(int count) {
+    return 'Записано страниц: $count';
+  }
+
+  @override
+  String ntagPasswordSet(String chip) {
+    return '$chip: защита паролем включена';
+  }
+
+  @override
+  String ntagPasswordRemoved(String chip) {
+    return '$chip: пароль удален';
+  }
+
+  @override
+  String get memoryDumpCopied => 'Дамп памяти скопирован';
+
+  @override
+  String ntagCommandsSent(int count) {
+    return 'Отправлено команд: $count';
+  }
+
+  @override
+  String get emptyResponse => '(пустой ответ)';
+
+  @override
+  String pagesAndBytes(int pages, int bytes) {
+    return '$pages стр. · $bytes байт';
+  }
+
+  @override
+  String get composeTextEmpty => 'Текстовое содержимое не может быть пустым.';
+
+  @override
+  String get composeTextTooLong =>
+      'Текст слишком длинный (максимум 5000 символов).';
+
+  @override
+  String get composeUrlInvalid =>
+      'Введите корректный адрес (например: https://example.com или ссылка app://).';
+
+  @override
+  String get composeUrlTooLong =>
+      'URL слишком длинный (максимум 2000 символов).';
+
+  @override
+  String get composeEmailInvalid =>
+      'Введите корректный адрес эл. почты (например: name@domain.com).';
+
+  @override
+  String get composePhoneInvalid =>
+      'Введите корректный номер телефона (например: +905551234567).';
+
+  @override
+  String get composeSmsPhoneInvalid => 'Введите корректный номер получателя.';
+
+  @override
+  String get composeLatInvalid =>
+      'Широта должна быть в диапазоне от -90 до +90.';
+
+  @override
+  String get composeLngInvalid =>
+      'Долгота должна быть в диапазоне от -180 до +180.';
+
+  @override
+  String get composeVcardNameEmpty => 'Имя контакта не может быть пустым.';
+
+  @override
+  String get composeVcardNameTooLong =>
+      'Имя контакта слишком длинное (максимум 200 символов).';
+
+  @override
+  String get composeVcardEmailInvalid => 'Введите корректный адрес эл. почты.';
+
+  @override
+  String get composeVcardPhoneInvalid => 'Введите корректный номер телефона.';
+
+  @override
+  String get composeVcardUrlInvalid =>
+      'Введите корректный веб-адрес (например: https://...).';
+
+  @override
+  String get composeCalSummaryEmpty => 'Название события не может быть пустым.';
+
+  @override
+  String get composeCalSummaryTooLong =>
+      'Название события слишком длинное (максимум 250 символов).';
+
+  @override
+  String get composeCalDateInvalid =>
+      'Время окончания должно быть позже времени начала.';
+
+  @override
+  String get composeSpUriInvalid =>
+      'Введите корректный целевой URL (например: https://...).';
+
+  @override
+  String get composeSpLangInvalid =>
+      'Введите корректный код языка ISO (например: ru, en).';
+
+  @override
+  String get composeMimeTypeInvalid =>
+      'Введите корректный тип MIME (например: application/json, text/plain).';
+
+  @override
+  String get composeMimeHexInvalid =>
+      'Введите корректную hex-строку (четное количество hex-символов).';
+
+  @override
+  String get composeMimePayloadTooLarge =>
+      'Размер полезной нагрузки слишком велик (максимум 10 КБ).';
+
+  @override
+  String get composeWifiSsidEmpty => 'Имя сети (SSID) не может быть пустым.';
+
+  @override
+  String get composeWifiPasswordRequired =>
+      'Пароль Wi-Fi обязателен для зашифрованных сетей.';
+
+  @override
+  String get composeWifiPasswordLength =>
+      'Пароль WPA/WPA2 должен содержать от 8 до 63 символов.';
+
+  @override
+  String get composeEditNdefRecord => 'Редактировать запись NDEF';
+
+  @override
+  String get composeNewNdefRecord => 'Создать новую запись NDEF';
+
+  @override
+  String get quickLinksHeader => 'Быстрые ссылки';
+
+  @override
+  String get quickLinkCustomUri => 'Пользовательский URI';
+
+  @override
+  String get quickLinkSocial => 'Социальные сети';
+
+  @override
+  String get quickLinkVideo => 'Видео';
+
+  @override
+  String get quickLinkSearch => 'Поиск';
+
+  @override
+  String get quickLinkFile => 'Файл';
+
+  @override
+  String get quickLinkFacetimeAudio => 'FaceTime Аудио';
+
+  @override
+  String get quickLinkAddress => 'Адрес';
+
+  @override
+  String get quickLinkPayment => 'Ссылка на оплату';
+
+  @override
+  String get quickLinkApp => 'Приложение (Android)';
+
+  @override
+  String get updateRecord => 'Обновить запись';
+
+  @override
+  String get addToList => 'Добавить в список';
+
+  @override
+  String get quickCustomUriError =>
+      'Введите адрес со схемой (например: spotify:track:... или myapp://page).';
+
+  @override
+  String get quickFileEmptyMessage => 'Введите ссылку на файл.';
+
+  @override
+  String get quickPaymentEmptyMessage => 'Введите ссылку на оплату.';
+
+  @override
+  String get quickCustomUriDesc =>
+      'Можно ввести любой адрес со схемой; телефон откроет поддерживающее приложение.';
+
+  @override
+  String get quickSocialLabel => 'Социальная сеть';
+
+  @override
+  String get quickVideoLabel => 'Ссылка на видео';
+
+  @override
+  String get quickVideoHint => 'https://youtu.be/... или ID видео';
+
+  @override
+  String get quickVideoDesc =>
+      'Ссылка на YouTube, Vimeo и др. или только идентификатор видео YouTube.';
+
+  @override
+  String get quickSearchHint => 'например: Погода в Москве';
+
+  @override
+  String get quickFileLabel => 'Ссылка на файл';
+
+  @override
+  String get quickFileDesc =>
+      'Из-за малого объема метки записывается веб-ссылка, а не сам файл (Google Диск, Dropbox и т.д.).';
+
+  @override
+  String get quickPhoneOrAppleId => 'Телефон или Apple ID';
+
+  @override
+  String get quickFacetimeVideoDesc =>
+      'iPhone при касании метки начнет видеозвонок FaceTime.';
+
+  @override
+  String get quickFacetimeAudioDesc =>
+      'iPhone при касании метки начнет только аудиозвонок FaceTime.';
+
+  @override
+  String get quickMapProvider => 'Картографическое приложение';
+
+  @override
+  String get quickAddressHint => 'например: Тверская ул., д. 1, Москва';
+
+  @override
+  String get quickPaymentDesc =>
+      'Можно использовать ссылки на оплату (PayPal.me, Stripe и др.). Данные карты никогда не записываются на метку.';
+
+  @override
+  String get quickAppDesc =>
+      'Телефоны Android откроют это приложение (или Play Маркет). iPhone игнорирует этот тип; добавьте ссылку на App Store как URL.';
+
+  @override
+  String get quickDeviceNameOptional => 'Имя устройства (необязательно)';
+
+  @override
+  String get quickSpeakerHint => 'например: Динамик';
+
+  @override
+  String get quickBluetoothDesc =>
+      'Телефоны Android предложат сопряжение с этим устройством. iPhone не поддерживает метки сопряжения Bluetooth.';
+
+  @override
+  String get composeTextContent => 'Текстовое содержимое';
+
+  @override
+  String get composeTextHint => 'Введите текст для записи';
+
+  @override
+  String get composeEmailSubjectOptional => 'Тема (необязательно)';
+
+  @override
+  String get composeEmailBodyOptional => 'Текст сообщения (необязательно)';
+
+  @override
+  String get composeSmsRecipient => 'Номер телефона получателя';
+
+  @override
+  String get composeSmsHint => 'SMS-сообщение для отправки...';
+
+  @override
+  String get composeVcardFullName => 'Полное имя (отображаемое имя) *';
+
+  @override
+  String get composeVcardNameHint => 'Иван Иванов';
+
+  @override
+  String get composeVcardNote => 'Заметка / Описание';
+
+  @override
+  String get composeCalTitle => 'Название события *';
+
+  @override
+  String get composeCalTitleHint => 'Встреча по проекту';
+
+  @override
+  String get composeCalLocationHint => 'Переговорная 2 или онлайн';
+
+  @override
+  String get composeCalDesc => 'Описание события';
+
+  @override
+  String get composeCalStartEndTime => 'Время начала и окончания:';
+
+  @override
+  String get composeSpTitleLabel => 'Заголовок (отображаемый текст)';
+
+  @override
+  String get composeSpTitleHint => 'Брошюра компании';
+
+  @override
+  String get composeMimeTypeLabel => 'Тип MIME *';
+
+  @override
+  String get composeDataFormat => 'Формат данных: ';
+
+  @override
+  String get composeFormatHex => 'Шестнадцатеричный (Hex)';
+
+  @override
+  String get composeMimeHexBytes => 'Hex-байты *';
+
+  @override
+  String get composeMimeTextPayload => 'Текст полезной нагрузки (UTF-8) *';
+
+  @override
+  String get composeWifiWarningTitle =>
+      'Предупреждение о безопасности и платформе:';
+
+  @override
+  String get composeWifiWarningBody =>
+      '• Пароль Wi-Fi сохраняется на метке в открытом виде и доступен для чтения любому.\n• Автоматическое подключение не гарантируется; может потребоваться подтверждение пользователя.';
+
+  @override
+  String get composeWifiSsidLabel => 'Имя сети (SSID) *';
+
+  @override
+  String get composeWifiAuthTypeLabel => 'Тип безопасности (аутентификация)';
+
+  @override
+  String get composeWifiOpenNetwork => 'Открытая сеть (без пароля)';
+
+  @override
+  String get composeWifiPasswordLabel => 'Пароль Wi-Fi *';
+
+  @override
+  String get composeWifiEncryptionLabel => 'Тип шифрования';
+
+  @override
+  String get composeWifiAesRecommended => 'AES (рекомендуется)';
+
+  @override
+  String get quickSearchTextLabel => 'Поисковый запрос';
+
+  @override
+  String get readTagMemoryPrompt =>
+      'Поднесите метку к телефону для чтения памяти';
+
+  @override
+  String get readingTagMemoryStatus => 'Чтение памяти...';
+
+  @override
+  String get formatTagConfirmTitle => 'Форматировать память';
+
+  @override
+  String get formatTagConfirmMessage =>
+      'Данные на метке будут удалены, и она будет подготовлена как пустой NDEF. Продолжить?';
+
+  @override
+  String get formatButton => 'Форматировать';
+
+  @override
+  String get formatTagPrompt => 'Поднесите метку для форматирования';
+
+  @override
+  String get formattingStatus => 'Форматирование...';
+
+  @override
+  String filePickerFailed(String error) {
+    return 'Не удалось открыть выбор файла: $error';
+  }
+
+  @override
+  String get writeButton => 'Записать';
+
+  @override
+  String get writeDumpPrompt => 'Поднесите метку для записи дампа';
+
+  @override
+  String get writingDumpStatus => 'Запись дампа...';
+
+  @override
+  String get setPasswordWarning =>
+      'Если вы забудете пароль, изменить содержимое метки будет невозможно. Чтение останется открытым для всех.';
+
+  @override
+  String get setPasswordAction => 'Установить пароль';
+
+  @override
+  String get setPasswordPrompt => 'Поднесите метку для установки пароля';
+
+  @override
+  String get settingPasswordStatus => 'Установка пароля...';
+
+  @override
+  String get removePasswordPromptMessage =>
+      'Введите пароль, ранее установленный на метке.';
+
+  @override
+  String get remove => 'Удалить';
+
+  @override
+  String get removePasswordPrompt => 'Поднесите метку для снятия пароля';
+
+  @override
+  String get removingPasswordStatus => 'Снятие пароля...';
+
+  @override
+  String get sendCommandsPrompt => 'Поднесите метку для отправки команд';
+
+  @override
+  String get sendingCommandsStatus => 'Отправка команд...';
+
+  @override
+  String get sendButton => 'Отправить';
+
+  @override
+  String get tagNoteEditTitle => 'Редактировать заметку метки';
+
+  @override
+  String get tagNoteInputLabel => 'Заметка / Описание в приложении';
+
+  @override
+  String get tagNoteInputHint =>
+      'например: Инфо о переговорной или Стеллаж #12';
+
+  @override
+  String get tagNoteDeleteTitle => 'Удалить заметку метки';
+
+  @override
+  String get clearAllTagRulesTitle => 'Удалить все заметки';
+
+  @override
+  String get clearAllTagRulesConfirm =>
+      'Все сохраненные заметки меток будут удалены. Подтверждаете?';
+
+  @override
+  String get deleteAll => 'Удалить все';
+
+  @override
+  String get tagRulesExplanation =>
+      'Для меток с совпадающим хэшем SHA-256 отображается только сохраненная заметка. Внешних действий не запускается.';
+
+  @override
+  String get noTagRulesDefined => 'Заметок для меток пока нет.';
+
+  @override
+  String lastUpdated(String time) {
+    return 'Последнее обновление: $time';
+  }
+
+  @override
+  String get tagLibraryNoMatch => 'Теги по вашему запросу не найдены.';
+
+  @override
+  String get tagLibraryAddToLibrary => 'Добавить в библиотеку';
+
+  @override
+  String get name => 'Имя';
+
+  @override
+  String get tagLibraryAddTag => 'Добавить метку';
+
+  @override
+  String get all => 'Все';
+
+  @override
+  String tagLibraryPhotoError(String error) {
+    return 'Не удалось выбрать фото: $error';
+  }
+
+  @override
+  String get tagLibraryDeleteTitle => 'Удалить метку';
+
+  @override
+  String get tagLibraryNameHint => 'например: Офисный брелок';
+
+  @override
+  String get tagLibraryNoTagContent => 'В этой записи нет содержимого метки.';
+
+  @override
+  String get tagLibrarySourceLastScanned => 'Последнее сканирование';
+
+  @override
+  String get tagLibraryEmpty => 'Сохраненных меток пока нет.';
+
+  @override
+  String get tagLibrarySourceEmpty => 'Пустая запись';
+
+  @override
+  String get tagLibraryNamePrompt => 'Пожалуйста, введите название метки';
+
+  @override
+  String get tagLibrarySearchHint => 'Поиск по имени, категории или локации...';
+
+  @override
+  String get tagLibrarySourceWriteList => 'Список записи';
+
+  @override
+  String get tagLibraryLocationHint => 'например: Рабочий стол, Входная дверь';
+
+  @override
+  String tagLibraryDeleteConfirm(String name) {
+    return 'Вы уверены, что хотите удалить метку \"$name\" из библиотеки?';
+  }
+
+  @override
+  String get noContent => 'Нет содержимого';
+
+  @override
+  String tagLibraryRecordSummary(num count) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: '$count записей NDEF',
+      one: '1 запись NDEF',
+    );
+    return '$_temp0';
+  }
+
+  @override
+  String get tagLibraryEditTag => 'Редактировать метку';
+
+  @override
+  String get rawTypeHexHint => '41 (A) или 55 (U) и т.д.';
+
+  @override
+  String backupContextRecordsMustBeList(String context) {
+    return '$context: Поле \"records\" должно быть списком.';
+  }
+
+  @override
+  String backupContextMaxRecords(String context, num max) {
+    return '$context: Элемент может содержать максимум $max записей NDEF.';
+  }
+
+  @override
+  String backupContextRecordMustBeObject(String context, num index) {
+    return '$context - Запись #$index не является допустимым объектом.';
+  }
+
+  @override
+  String backupContextInvalidTnf(String context, num index, String tnf) {
+    return '$context - Запись #$index: Недопустимое значение TNF ($tnf).';
+  }
+
+  @override
+  String backupContextTypeMustBeString(String context, num index) {
+    return '$context - Запись #$index: \"type\" должен быть строкой Base64.';
+  }
+
+  @override
+  String backupContextInvalidTypeBase64(
+      String context, num index, String error) {
+    return '$context - Запись #$index: \"type\" не является допустимыми данными Base64 ($error).';
+  }
+
+  @override
+  String backupContextIdMustBeString(String context, num index) {
+    return '$context - Запись #$index: \"id\" должен быть строкой Base64.';
+  }
+
+  @override
+  String backupContextInvalidIdBase64(String context, num index, String error) {
+    return '$context - Запись #$index: \"id\" не является допустимыми данными Base64 ($error).';
+  }
+
+  @override
+  String backupContextPayloadMustBeString(String context, num index) {
+    return '$context - Запись #$index: \"payload\" должен быть строкой Base64.';
+  }
+
+  @override
+  String backupContextInvalidPayloadBase64(
+      String context, num index, String error) {
+    return '$context - Запись #$index: \"payload\" не является допустимыми данными Base64 ($error).';
+  }
+
+  @override
+  String get composerUndoSnack => 'Последнее изменение отменено.';
+
+  @override
+  String get composerRedoSnack => 'Изменение повторено.';
+
+  @override
+  String get noRecordsToCopy => 'Нет записей NDEF для копирования.';
+
+  @override
+  String recordsCopiedToClipboardDetails(num count, num bytes) {
+    return '$count записей NDEF ($bytes Б) скопировано в буфер обмена.\n(Копируются только данные NDEF; UID или зашифрованные секторы не клонируются)';
+  }
+
+  @override
+  String recordsAddedFromSource(String source, num count) {
+    return '$source: добавлено $count записей.';
+  }
+
+  @override
+  String get tagEmptyNoRecordsToImport =>
+      'Метка пуста; нет записей для импорта.';
+
+  @override
+  String get sourceTag => 'С метки';
+
+  @override
+  String get sourceQr => 'Из QR-кода';
+
+  @override
+  String filePickerError(String error) {
+    return 'Не удалось открыть выбор файла: $error';
+  }
+
+  @override
+  String get csvFileTooLarge => 'Файл CSV слишком большой (максимум 512 КБ).';
+
+  @override
+  String get noRecordsFound => 'Записи не найдены';
+
+  @override
+  String get someRowsSkipped => 'Некоторые строки пропущены';
+
+  @override
+  String get expectedFormat => 'Ожидаемый формат:';
+
+  @override
+  String get noClipboardContent => 'В буфере обмена нет содержимого NDEF.';
+
+  @override
+  String get pasteFromClipboardTitle => 'Вставить из буфера NDEF';
+
+  @override
+  String clipboardDataSummary(num count, num bytes, String source) {
+    return 'Данные в буфере: $count записей, $bytes байт ($source)';
+  }
+
+  @override
+  String get clipboardPastePrompt =>
+      'Вы хотите заменить текущие записи или добавить в конец?';
+
+  @override
+  String get pasteOverwriteOption => 'Перезаписать (Заменить)';
+
+  @override
+  String pasteOverwriteSubtitle(num count) {
+    return 'Текущие $count записей будут заменены содержимым буфера (потребуется подтверждение).';
+  }
+
+  @override
+  String get pasteEmptySubtitle => 'Содержимое буфера помещается в список.';
+
+  @override
+  String get pasteAppendOption => 'Добавить в конец';
+
+  @override
+  String get pasteAppendSubtitle =>
+      'Текущие записи сохраняются, записи из буфера добавляются в конец списка.';
+
+  @override
+  String recordsAddedToComposer(num count) {
+    return '$count записей добавлено.';
+  }
+
+  @override
+  String get confirmOverwriteTitle => 'Перезаписать записи?';
+
+  @override
+  String confirmOverwriteMessage(num currentCount, num newCount) {
+    return 'В списке $currentCount записей. Они будут заменены $newCount записями из буфера. Продолжить?';
+  }
+
+  @override
+  String recordsReplacedInComposer(num count) {
+    return 'Записи заменены на $count новых.';
+  }
+
+  @override
+  String get yesReplace => 'Да, заменить';
+
+  @override
+  String recordsImportedToComposer(num count) {
+    return '$count записей импортировано.';
+  }
+
+  @override
+  String get noContentToCopy => 'Не найден контент NDEF для копирования.';
+
+  @override
+  String recordsCopiedAndStaged(num count) {
+    return '$count записей NDEF скопировано и добавлено (Данные скопированы, UID не клонируется).';
+  }
+
+  @override
+  String get noContentToRewrite => 'Не найден контент NDEF для перезаписи.';
+
+  @override
+  String get rewriteTagTitle => 'Перезаписать метку';
+
+  @override
+  String get importantNotice => 'ВАЖНОЕ ПРИМЕЧАНИЕ:';
+
+  @override
+  String get rewriteNotice1 =>
+      '• Эта операция ПОЛНОСТЬЮ ПЕРЕЗАПИСЫВАЕТ существующие данные NDEF; не добавляет в конец.\n';
+
+  @override
+  String get rewriteNotice2 =>
+      '• Целевая метка должна быть доступна для записи (не заблокирована).\n';
+
+  @override
+  String get rewriteNotice3 =>
+      '• Запись не происходит автоматически на предыдущую метку; требуется новое касание NFC.';
+
+  @override
+  String rewriteSourceUidLabel(String uid) {
+    return 'Исходный UID: $uid';
+  }
+
+  @override
+  String rewriteRecordCountLabel(num count) {
+    return 'Количество записей для записи: $count';
+  }
+
+  @override
+  String get rewriteInstruction =>
+      'Подготовьте целевую метку, нажмите \"Коснуться и записать\" и поднесите метку.';
+
+  @override
+  String get tapAndWrite => 'Коснуться и записать';
+
+  @override
+  String get rewritePromptMessage =>
+      'Поднесите целевую метку к устройству (содержимое будет полностью обновлено)';
+
+  @override
+  String rewriteFailedMessage(String error) {
+    return 'Не удалось перезаписать: $error';
+  }
+
+  @override
+  String get writeVerifiedTitle => 'Запись проверена';
+
+  @override
+  String get writeVerifiedDesc =>
+      'Данные NDEF успешно записаны и проверены на целевой метке.';
+
+  @override
+  String writtenRecordCount(num count) {
+    return 'Количество записанных записей: $count';
+  }
+
+  @override
+  String get writeVerifiedHint =>
+      'Вы можете начать следующее сканирование для проверки или сравнения данных.';
+
+  @override
+  String get scanAndCompareNow => 'Сканировать и сравнить сейчас';
+
+  @override
+  String get contentMatchesExactly => 'Содержимое полностью совпадает';
+
+  @override
+  String get differenceDetected => 'Обнаружены различия';
+
+  @override
+  String compareScannedUid(String uid) {
+    return 'UID сканированной метки: $uid';
+  }
+
+  @override
+  String compareWrittenData(num count, num bytes) {
+    return 'Записанные данные: $count записей ($bytes байт)';
+  }
+
+  @override
+  String compareScannedData(num count, num bytes) {
+    return 'Сканированные данные: $count записей ($bytes байт)';
+  }
+
+  @override
+  String get compareMatchDesc =>
+      'Сообщение NDEF на целевой метке побайтово совпадает с исходным.';
+
+  @override
+  String get compareDiffDesc =>
+      'Данные с метки отличаются от исходных. Проверьте, не заблокирована ли метка.';
+
+  @override
+  String get batchEmptyComposerError =>
+      'Добавьте хотя бы одну запись перед запуском пакетной записи.';
+
+  @override
+  String get batchWriteTitle => 'Пакетная запись меток';
+
+  @override
+  String get batchWriteSubtitle =>
+      'Записывайте одно и то же содержимое NDEF на несколько меток подряд.';
+
+  @override
+  String get attention => 'ВНИМАНИЕ:';
+
+  @override
+  String get batchNotice1 =>
+      '• Во избежание случайной двойной записи каждый шаг запускается кнопкой \"Записать следующий\".\n';
+
+  @override
+  String get batchNotice2 =>
+      '• Автоматическое непрерывное сканирование не производится; метки меняются вручную.';
+
+  @override
+  String batchTargetCountLabel(num count) {
+    return 'Количество целевых меток: $count';
+  }
+
+  @override
+  String batchComposerSummary(num count, num bytes) {
+    return 'Записи: $count ($bytes байт)';
+  }
+
+  @override
+  String get batchStartButton => 'Начать пакетную запись';
+
+  @override
+  String get batchControlPanelTitle => 'Панель управления пакетной записью';
+
+  @override
+  String get batchCancelOrClose => 'Отмена / Закрыть';
+
+  @override
+  String get batchAllCompleted => 'Все попытки записи завершены!';
+
+  @override
+  String batchNextTag(num current, num total) {
+    return 'Следующая: Метка #$current / $total';
+  }
+
+  @override
+  String batchStats(num success, num fail, num remaining) {
+    return 'Успешно: $success | С ошибкой: $fail | Осталось: $remaining';
+  }
+
+  @override
+  String batchSuccessMsg(String message) {
+    return 'Успешно ($message)';
+  }
+
+  @override
+  String batchFailMsg(String message) {
+    return 'Ошибка: $message';
+  }
+
+  @override
+  String tagNumberLabel(num index) {
+    return 'Метка #$index: ';
+  }
+
+  @override
+  String get waitingForTag => 'Ожидание метки...';
+
+  @override
+  String tapToWriteForTag(num index) {
+    return 'Коснуться и записать для метки #$index';
+  }
+
+  @override
+  String get batchFinishButton => 'Завершить пакетную запись';
+
+  @override
+  String batchPromptMessage(num current, num total) {
+    return 'Пакетная запись: Поднесите метку #$current / $total';
+  }
+
+  @override
+  String batchTagSuccessSummary(num count) {
+    return '$count записей записано и проверено';
+  }
+
+  @override
+  String get writeError => 'Ошибка записи';
+
+  @override
+  String get batchConfirmCancelTitle => 'Отменить пакетную запись';
+
+  @override
+  String get batchConfirmCancelMessage =>
+      'Прервать пакетную запись? Уже записанные метки сохранятся, оставшиеся записаны не будут.';
+
+  @override
+  String get cancelled => 'Отменено';
+
+  @override
+  String get batchCancelledSnack =>
+      'Пакетная запись отменена. Ваш список сохранен.';
+
+  @override
+  String get cancelAndClose => 'Отменить и закрыть';
+
+  @override
+  String get urlSafetyOfflineAnalysisTitle => 'Автономный анализ URL';
+
+  @override
+  String get urlSafetyScheme => 'Схема (Протокол):';
+
+  @override
+  String get urlSafetyPort => 'Порт:';
+
+  @override
+  String get urlSafetyUserInfoLabel => 'Информация пользователя:';
+
+  @override
+  String get urlSafetyIpLiteral => 'Прямой IP-адрес:';
+
+  @override
+  String get urlSafetyDomain => 'Нет (Доменное имя)';
+
+  @override
+  String get urlSafetyPunycodeLabel => 'Международный / Punycode (xn--):';
+
+  @override
+  String get urlSafetyHomoglyphRisk => 'Да (Подозрение на омоглифы)';
+
+  @override
+  String get urlSafetyWarningsHeader => 'Предупреждения о безопасности:';
+
+  @override
+  String get urlSafetyDisclaimer =>
+      'ПРИМЕЧАНИЕ: Автономный анализ. Не проверяет на вирусы в сети. URL не открывается автоматически.';
+
+  @override
+  String templateLoadedToComposer(String name) {
+    return 'Записи из шаблона \"$name\" загружены в список.';
+  }
+
+  @override
+  String get templateSaveEmptyError =>
+      'Добавьте записи перед сохранением шаблона.';
+
+  @override
+  String templateDefaultName(num index) {
+    return 'Шаблон $index';
+  }
+
+  @override
+  String get templateNameSample => 'например: Сайт компании и контакты';
+
+  @override
+  String get templateSavedSnack => 'Шаблон сохранен.';
+
+  @override
+  String get ruleNoteRequiresNdef =>
+      'Метка должна содержать хотя бы одну запись NDEF для добавления заметки.';
+
+  @override
+  String get ruleNoteAddTitle => 'Добавить заметку к метке';
+
+  @override
+  String get ruleNoteDigestExplanation =>
+      'Привязывается к хэшу SHA-256 NDEF. При сканировании отображается только это описание.';
+
+  @override
+  String ruleNoteShaSummary(String sha) {
+    return 'Хэш содержимого NDEF (SHA-256):\n$sha';
+  }
+
+  @override
+  String get ruleNoteSavedSnack => 'Заметка метки сохранена.';
+
+  @override
+  String get ruleNoteDeleteTitle => 'Удалить заметку метки';
+
+  @override
+  String get ruleNoteDeleteConfirm =>
+      'Заметка для этой метки будет удалена. Продолжить?';
+
+  @override
+  String get ruleNoteDeletedSnack => 'Заметка метки удалена.';
+
+  @override
+  String get backupExportTitle => 'Экспорт резервной копии';
+
+  @override
+  String get backupExportWarningTitle =>
+      'ПРЕДУПРЕЖДЕНИЕ О КОНФИДЕНЦИАЛЬНОСТИ И БЕЗОПАСНОСТИ';
+
+  @override
+  String get backupExportWarningBody =>
+      'Экспортируемый файл (JSON) — открытый текст. Может содержать пароли Wi-Fi и личные данные. Храните в безопасном месте.';
+
+  @override
+  String get backupIncludedItems => 'Включаемые элементы:';
+
+  @override
+  String backupTemplatesCount(num count) {
+    return '• Шаблоны: $count';
+  }
+
+  @override
+  String backupRulesCount(num count) {
+    return '• Заметки/правила меток: $count';
+  }
+
+  @override
+  String get backupIncludeHistoryOptional =>
+      'Включить историю сканирований (необязательно)';
+
+  @override
+  String backupHistoryCount(num count) {
+    return '$count записей истории';
+  }
+
+  @override
+  String get backupHistoryDisabled =>
+      'История сканирований отключена на этом устройстве';
+
+  @override
+  String get backupExportAndShare => 'Экспортировать и поделиться';
+
+  @override
+  String get backupFileNameLabel => 'Файл резервной копии NFC Tag Master';
+
+  @override
+  String get backupFileShareSubject =>
+      'Резервная копия шаблонов и данных NFC Tag Master (JSON)';
+
+  @override
+  String get backupExportSuccessSnack =>
+      'Файл резервной копии успешно экспортирован.';
+
+  @override
+  String get backupExportCancelled => 'Экспорт отменен.';
+
+  @override
+  String backupExportError(String error) {
+    return 'Ошибка экспорта: $error';
+  }
+
+  @override
+  String get backupImportTitle => 'Импорт резервной копии';
+
+  @override
+  String get backupMergeRuleTitle => 'ПРАВИЛО БЕЗОПАСНОСТИ И СЛИЯНИЯ';
+
+  @override
+  String get backupMergeRule1 =>
+      '• Импорт работает путем ОБЪЕДИНЕНИЯ; ваши текущие записи НИКОГДА не удаляются.\n';
+
+  @override
+  String get backupMergeRule2 =>
+      '• Файлы могут содержать пароли Wi-Fi и личные данные; загружайте только из надежных источников.\n';
+
+  @override
+  String get backupMergeRule3 =>
+      '• Лимит размера: 2 МиБ. Данные проходят строгую проверку схемы и Base64 перед загрузкой.';
+
+  @override
+  String get backupSelectFilePrompt =>
+      'Выберите корректный файл .json для слияния.';
+
+  @override
+  String get selectFileButton => 'Выбрать файл';
+
+  @override
+  String get fileSelectionCancelled => 'Выбор файла отменен.';
+
+  @override
+  String get backupFileExceedsLimit =>
+      'Выбранный файл превышает допустимый размер 2 МиБ.';
+
+  @override
+  String fileReadError(String error) {
+    return 'Ошибка чтения файла: $error';
+  }
+
+  @override
+  String backupValidationError(String error) {
+    return 'Ошибка проверки резервной копии: $error';
+  }
+
+  @override
+  String get backupHistoryDetectedTitle => 'Обнаружена история сканирований';
+
+  @override
+  String backupHistoryDetectedMsg(num count) {
+    return 'Резервная копия содержит $count записей истории, но функция отключена на устройстве.\n\n';
+  }
+
+  @override
+  String get backupHistoryDetectedPrompt =>
+      'Импортировать и включить историю? Или пропустить её и импортировать только шаблоны и заметки?';
+
+  @override
+  String get backupSkipHistoryOption =>
+      'Пропустить историю (загрузить только шаблоны и заметки)';
+
+  @override
+  String get backupEnableHistoryOption => 'Включить историю и загрузить';
+
+  @override
+  String backupImportSuccessWithSummary(String summary) {
+    return 'Импорт успешно завершен:\n$summary';
+  }
+
+  @override
+  String backupMergeError(String error) {
+    return 'Ошибка слияния: $error';
+  }
+
+  @override
+  String get nfcReadyStatus => 'NFC готов';
+
+  @override
+  String get nfcReadyDesc => 'Оборудование NFC активно и готово к работе';
+
+  @override
+  String get nfcDisabledStatus => 'NFC выключен';
+
+  @override
+  String get nfcDisabledDesc =>
+      'NFC выключен. Пожалуйста, включите его в настройках устройства.';
+
+  @override
+  String ndefClipboardBanner(num count, num bytes, String source) {
+    return 'Буфер NDEF: $count записей ($bytes Б) - $source';
+  }
+
+  @override
+  String get template => 'Шаблон';
+
+  @override
+  String get nfcScannerTitle => 'NFC Сканер';
+
+  @override
+  String lastScannedTagId(String id) {
+    return 'Последняя метка: $id';
+  }
+
+  @override
+  String get composeRecord => 'Создать запись';
+
+  @override
+  String get protectOrRemove => 'Защитить / снять';
+
+  @override
+  String get previousScans => 'Предыдущие сканирования';
+
+  @override
+  String scanErrorWithMsg(String error) {
+    return 'Ошибка сканирования: $error';
+  }
+
+  @override
+  String get noScannedTagYet => 'Пока нет сканированных меток NFC';
+
+  @override
+  String get tapScanPrompt =>
+      'Нажмите \"Начать сканирование\" и поднесите метку к телефону.';
+
+  @override
+  String get ndefCopyAndRewriteTitle => 'Копирование и перезапись NDEF';
+
+  @override
+  String ndefCopyNotice(num count, num bytes) {
+    return '$count записей ($bytes байт) - Обрабатываются только данные NDEF, UID не клонируется.';
+  }
+
+  @override
+  String tagIdHeader(String id) {
+    return 'Метка $id';
+  }
+
+  @override
+  String get savedTagNoteHeader => 'Сохраненная заметка метки (правило)';
+
+  @override
+  String get tagNoteOrRule => 'Заметка / правило метки';
+
+  @override
+  String get editNote => 'Редактировать заметку';
+
+  @override
+  String get deleteNote => 'Удалить заметку';
+
+  @override
+  String get tagNoteDigestNotice =>
+      'Привязано к SHA-256 байтов NDEF. Внешних действий не запускает.';
+
+  @override
+  String get addCustomTagNotePrompt =>
+      'Вы можете добавить локальную заметку для этого содержимого NDEF.';
+
+  @override
+  String get addNoteToThisTag => 'Добавить заметку к этой метке';
+
+  @override
+  String get ndefSupport => 'Поддержка NDEF:';
+
+  @override
+  String get usedSpace => 'Использовано памяти:';
+
+  @override
+  String get freeSpace => 'Свободно памяти:';
+
+  @override
+  String errorWithMsg(String error) {
+    return 'Ошибка: $error';
+  }
+
+  @override
+  String get noNdefMessageOnTag => 'На метке не найдено сообщений NDEF.';
+
+  @override
+  String readNdefRecordsHeader(num count) {
+    return 'Считанные записи NDEF ($count)';
+  }
+
+  @override
+  String stagedNdefRecordsHeader(num count) {
+    return 'Подготовленные записи NDEF ($count)';
+  }
+
+  @override
+  String get hideDetails => 'Скрыть подробности';
+
+  @override
+  String get advancedRecordInspector => 'Инспектор записей (Расширенный)';
+
+  @override
+  String get ndefRecordInspectorTitle => 'Инспектор записей NDEF (Расширенный)';
+
+  @override
+  String get inspectorType => 'Тип:';
+
+  @override
+  String get inspectorPayloadLength => 'Длина полезной нагрузки:';
+
+  @override
+  String get inspectorRawHexPreview => 'Предпросмотр Hex (ограничено):';
+
+  @override
+  String inspectorPayloadTruncated(num length) {
+    return 'Примечание: Размер данных $length байт; показаны первые 64 байта.';
+  }
+
+  @override
+  String get ndefRecordsToWriteTitle => 'Записи NDEF для записи';
+
+  @override
+  String get pasteFromClipboardAction =>
+      'Вставить из буфера (Заменить / Добавить)';
+
+  @override
+  String get importAction => 'Импортировать';
+
+  @override
+  String get importFromTagAction => 'Импорт с метки NFC';
+
+  @override
+  String get importFromQrAction => 'Импорт из QR-кода';
+
+  @override
+  String get importFromCsvAction => 'Импорт из файла CSV';
+
+  @override
+  String composerTotalSizeAndCount(num bytes, num count) {
+    return 'Общий объем: $bytes байт | Записей: $count';
+  }
+
+  @override
+  String get composerEmptyDescription =>
+      'Вы можете записывать текст, ссылки, Wi-Fi, телефоны, контакты и многое другое.';
+
+  @override
+  String get urlSafetyReview => 'Проверка URL';
+
+  @override
+  String get inspector => 'Инспектор';
+
+  @override
+  String get typeLabel => 'Тип:';
+
+  @override
+  String get payloadLabel => 'Полезная нагрузка:';
+
+  @override
+  String get writeAndVerify => 'Записать на метку и проверить';
+
+  @override
+  String writeAndVerifyWithBytes(num bytes) {
+    return 'Записать на метку и проверить ($bytes байт)';
+  }
+
+  @override
+  String get batchWriteButtonLabel => 'Пакетная запись меток (2..100 меток)';
+
+  @override
+  String get clearTagButtonLabel => 'Сбросить метку (очистить содержимое)';
+
+  @override
+  String get confirmWriteTitle => 'Подтвердите запись на метку';
+
+  @override
+  String get confirmWriteMessage1 =>
+      'Эта операция ПОЛНОСТЬЮ ПЕРЕЗАПИШЕТ существующее содержимое NDEF на метке.';
+
+  @override
+  String confirmWriteRecordCount(num count) {
+    return 'Количество записей для записи: $count';
+  }
+
+  @override
+  String get confirmWriteMessage2 =>
+      'Убедитесь, что метка доступна для записи. Данные будут автоматически проверены.';
+
+  @override
+  String get yesWrite => 'Да, записать';
+
+  @override
+  String get scanHistoryDisabledTitle => 'История сканирований выключена';
+
+  @override
+  String get scanHistoryDisabledDesc =>
+      'В целях конфиденциальности история по умолчанию не сохраняется. Включите её в настройках.';
+
+  @override
+  String get enableHistory => 'Включить историю';
+
+  @override
+  String get historySearchHint =>
+      'Поиск по UID, тексту или типу (например: URL, Wi-Fi, 04A1...)';
+
+  @override
+  String historyScansCount(num count) {
+    return 'Сохраненные сканирования: $count';
+  }
+
+  @override
+  String get noHistoryYet => 'История сканирований пуста.';
+
+  @override
+  String noHistoryResultsForQuery(String query) {
+    return 'Для \"$query\" ничего не найдено.';
+  }
+
+  @override
+  String get tryDifferentQuery =>
+      'Попробуйте другой UID, текст или тип записи.';
+
+  @override
+  String get clearSearch => 'Очистить поиск';
+
+  @override
+  String historyItemHeader(String time, num count) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: '$count записей',
+      one: '1 запись',
+    );
+    return '$time | $_temp0';
+  }
+
+  @override
+  String get deleteThisRecord => 'Удалить эту запись';
+
+  @override
+  String historyCapacitySummary(num cap, num used) {
+    return 'Емкость: $capБ | Использовано: $usedБ';
+  }
+
+  @override
+  String historyUidHeader(String uid) {
+    return 'UID истории $uid';
+  }
+
+  @override
+  String get qrPreview => 'QR предпросмотр';
+
+  @override
+  String templateRecordCountWithDate(num count, String date) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: '$count записей',
+      one: '1 запись',
+    );
+    return '$_temp0 | $date';
+  }
+
+  @override
+  String writeVerificationSummary(num bytes, String status) {
+    return 'Записано байт: $bytes | Проверка: $status';
+  }
+
+  @override
+  String get lockTagConfirmTitle => 'Навсегда заблокировать метку';
+
+  @override
+  String get lockTagWarning1 =>
+      'Заблокированная метка становится доступной только для чтения: изменить или снять блокировку НЕЛЬЗЯ.';
+
+  @override
+  String get lockTagWarning2 =>
+      'Убедитесь, что сначала записали правильное содержимое.';
+
+  @override
+  String get langTr => 'Türkçe';
+
+  @override
+  String get langEn => 'English';
+
+  @override
+  String get langDe => 'Deutsch';
+
+  @override
+  String get langFr => 'Français';
+
+  @override
+  String get langEs => 'Español';
+
+  @override
+  String get langIt => 'Italiano';
+
+  @override
+  String get langPt => 'Português';
+
+  @override
+  String get langRu => 'Русский';
+
+  @override
+  String get langAr => 'العربية';
+
+  @override
+  String get langJa => '日本語';
+
+  @override
+  String get langZh => '中文';
+
+  @override
+  String get langKo => '한국어';
+
+  @override
+  String get langNl => 'Nederlands';
+
+  @override
+  String get langUk => 'Українська';
+
+  @override
+  String get qrPreviewTooltip => 'Предпросмотр QR-кода';
+
+  @override
+  String get unknownParentheses => '(Неизвестно)';
+
+  @override
+  String get ok => 'ОК';
 }

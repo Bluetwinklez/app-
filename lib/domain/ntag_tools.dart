@@ -1,4 +1,5 @@
 import 'dart:typed_data';
+import '../l10n/l10n.dart';
 
 /// Sends one raw NFC-A command to the connected tag and returns its response.
 typedef RawTransceive = Future<Uint8List> Function(Uint8List command);
@@ -106,7 +107,7 @@ class NtagMemoryDump {
 
   int get pageCount => bytes.length ~/ 4;
 
-  String get chipName => chip?.name ?? 'Bilinmeyen çip (ilk 16 sayfa)';
+  String get chipName => chip?.name ?? L10n.current.unknownChip16Pages;
 
   /// One line per page: `Sayfa 004  E1 10 12 00  ....  Veri`
   List<String> formatPages() {
@@ -141,8 +142,7 @@ class NtagTools {
   static Future<NtagChip> requireChip(RawTransceive transceive) async {
     final chip = NtagChip.fromVersion(await getVersion(transceive));
     if (chip == null) {
-      throw const NtagException(
-          'Bu işlem yalnızca NTAG213/215/216 ve MIFARE Ultralight EV1 etiketlerde destekleniyor.');
+      throw NtagException(L10n.current.ntagUnsupportedChip);
     }
     return chip;
   }
@@ -151,7 +151,7 @@ class NtagTools {
   static Future<Uint8List> readPages(RawTransceive transceive, int page) async {
     final response = await transceive(Uint8List.fromList([cmdRead, page & 0xFF]));
     if (response.length < 16) {
-      throw NtagException('Sayfa $page okunamadı (etiket yanıt vermedi veya alan korumalı).');
+      throw NtagException(L10n.current.ntagPageReadFailed(page.toString()));
     }
     return Uint8List.fromList(response.sublist(0, 16));
   }
@@ -164,11 +164,11 @@ class NtagTools {
     try {
       response = await transceive(Uint8List.fromList([cmdWrite, page & 0xFF, ...data]));
     } catch (e) {
-      throw NtagException('Sayfa $page yazılamadı: $e');
+      throw NtagException(L10n.current.ntagPageWriteFailedError(page.toString(), e.toString()));
     }
     // Some platforms surface an empty response for ACK; a NAK is 0x0-0x5 or an error.
     if (response.isNotEmpty && (response[0] & 0x0F) != ack) {
-      throw NtagException('Sayfa $page yazılamadı (etiket reddetti; kilitli veya şifreli olabilir).');
+      throw NtagException(L10n.current.ntagPageWriteFailed(page.toString()));
     }
   }
 
@@ -184,7 +184,7 @@ class NtagTools {
         builder.add(chunk.sublist(0, remaining < 16 ? remaining : 16));
       } on NtagException {
         if (page == 0) rethrow;
-        warning = 'Sayfa $page sonrası okunamadı; bu alan şifre ile korunuyor olabilir.';
+        warning = L10n.current.ntagProtectedArea(page.toString());
         break;
       }
     }
@@ -198,7 +198,7 @@ class NtagTools {
     required Uint8List pack,
   }) async {
     if (password.length != 4 || pack.length != 2) {
-      throw const NtagException('Şifre 4 bayt, PACK 2 bayt olmalıdır.');
+      throw NtagException(L10n.current.ntagPasswordPackSize);
     }
     final chip = await requireChip(transceive);
     final cfg = await readPages(transceive, chip.cfg0Page);
@@ -216,17 +216,17 @@ class NtagTools {
     required Uint8List password,
   }) async {
     if (password.length != 4) {
-      throw const NtagException('Şifre 4 bayt olmalıdır.');
+      throw NtagException(L10n.current.ntagPasswordSize);
     }
     final chip = await requireChip(transceive);
     final Uint8List response;
     try {
       response = await transceive(Uint8List.fromList([cmdPwdAuth, ...password]));
     } catch (_) {
-      throw const NtagException('Şifre yanlış veya etiket şifre doğrulamasını reddetti.');
+      throw NtagException(L10n.current.ntagPasswordWrongOrAuthFailed);
     }
     if (response.length < 2) {
-      throw const NtagException('Şifre yanlış.');
+      throw NtagException(L10n.current.ntagPasswordWrong);
     }
     final cfg = await readPages(transceive, chip.cfg0Page);
     await writePage(transceive, chip.cfg0Page, [cfg[0], cfg[1], cfg[2], 0xFF]);
@@ -243,8 +243,7 @@ class NtagTools {
     if (cc.every((b) => b == 0)) {
       await writePage(transceive, 3, [0xE1, 0x10, chip.ccSizeByte, 0x00]);
     } else if (cc[0] != 0xE1) {
-      throw const NtagException(
-          'Etiketin CC alanı NDEF dışı bir değerle yazılmış; bu alan tek seferlik olduğu için biçimlendirilemez.');
+      throw NtagException(L10n.current.ntagCcInvalid);
     }
     await writePage(transceive, chip.userStartPage, [0x03, 0x00, 0xFE, 0x00]);
     return chip;
@@ -256,7 +255,7 @@ class NtagTools {
     final chip = await requireChip(transceive);
     final userStartByte = chip.userStartPage * 4;
     if (dump.length < userStartByte + 4) {
-      throw const NtagException('Dump dosyası çok kısa; kullanıcı verisi içermiyor.');
+      throw NtagException(L10n.current.ntagDumpTooShort);
     }
     final lastPage = ((dump.length ~/ 4) - 1).clamp(0, chip.userEndPage);
     int written = 0;
@@ -271,7 +270,7 @@ class NtagTools {
   static Uint8List parseHex(String input) {
     final clean = input.replaceAll(RegExp(r'[\s:,\-]'), '');
     if (clean.isEmpty || clean.length.isOdd || !RegExp(r'^[0-9A-Fa-f]+$').hasMatch(clean)) {
-      throw const NtagException('Geçerli bir onaltılık (hex) değer giriniz (Örn: 30 04).');
+      throw NtagException(L10n.current.ntagInvalidHex);
     }
     return Uint8List.fromList([
       for (int i = 0; i < clean.length; i += 2) int.parse(clean.substring(i, i + 2), radix: 16),
