@@ -320,8 +320,8 @@ class HeroActionCard extends StatelessWidget {
       clipBehavior: Clip.antiAlias,
       child: Stack(
         children: [
-          Positioned(
-            right: -40,
+          PositionedDirectional(
+            end: -40,
             top: -40,
             child: Container(
               width: 160,
@@ -332,8 +332,8 @@ class HeroActionCard extends StatelessWidget {
               ),
             ),
           ),
-          Positioned(
-            right: 20,
+          PositionedDirectional(
+            end: 20,
             bottom: 20,
             child: Container(
               width: 52,
@@ -347,7 +347,7 @@ class HeroActionCard extends StatelessWidget {
             ),
           ),
           Padding(
-            padding: const EdgeInsets.fromLTRB(22, 20, 22, 22),
+            padding: const EdgeInsetsDirectional.fromSTEB(22, 20, 22, 22),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
@@ -372,7 +372,7 @@ class HeroActionCard extends StatelessWidget {
                 ),
                 const SizedBox(height: 6),
                 Padding(
-                  padding: const EdgeInsets.only(right: 60),
+                  padding: const EdgeInsetsDirectional.only(end: 60),
                   child: Text(
                     subtitle,
                     style: TextStyle(color: Colors.white.withValues(alpha: 0.9), fontSize: 14, height: 1.35),
@@ -391,7 +391,7 @@ class HeroActionCard extends StatelessWidget {
                     children: [
                       if (busy)
                         const Padding(
-                          padding: EdgeInsets.only(right: 10),
+                          padding: EdgeInsetsDirectional.only(end: 10),
                           child: SizedBox(width: 14, height: 14, child: CircularProgressIndicator(strokeWidth: 2)),
                         ),
                       Text(buttonLabel),

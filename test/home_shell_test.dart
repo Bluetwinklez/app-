@@ -11,9 +11,11 @@ void main() {
     tester.view.devicePixelRatio = 3;
     addTearDown(tester.view.reset);
 
+    final storage = InMemoryAppStorageService();
+    await storage.setLocaleCode('tr');
     final controller = NfcStateController(
       service: MockNfcPlatformService(),
-      storage: InMemoryAppStorageService(),
+      storage: storage,
     );
     await tester.pumpWidget(NfcTagMasterApp(controller: controller));
     await tester.pumpAndSettle();
