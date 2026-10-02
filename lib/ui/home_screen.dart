@@ -2919,6 +2919,19 @@ class _HomeScreenState extends State<HomeScreen>
                 RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
           ),
         ),
+        const SizedBox(height: 12),
+        OutlinedButton.icon(
+          onPressed: _controller.isBusy ? null : () => _confirmLockTag(),
+          icon: const Icon(Icons.lock, color: Colors.deepOrange),
+          label: const Text('Etiketi Kilitle (Kalıcı, Salt Okunur)',
+              style: TextStyle(color: Colors.deepOrange)),
+          style: OutlinedButton.styleFrom(
+            padding: const EdgeInsets.symmetric(vertical: 14),
+            side: const BorderSide(color: Colors.deepOrange),
+            shape:
+                RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
+          ),
+        ),
         if (_controller.lastWriteResult != null) ...[
           const SizedBox(height: 16),
           _buildWriteResultCard(_controller.lastWriteResult!),
@@ -3621,7 +3634,7 @@ class _HomeScreenState extends State<HomeScreen>
             ),
             const SizedBox(height: 8),
             Text(result.message),
-            if (result.isSuccess) ...[
+            if (result.isSuccess && result.bytesWritten > 0) ...[
               const SizedBox(height: 4),
               Text(
                 'Yazılan Bayt: ${result.bytesWritten} | Doğrulama: ${result.verificationPassed ? "Geçti" : "Kontrol edilmedi"}',
@@ -3656,6 +3669,55 @@ class _HomeScreenState extends State<HomeScreen>
             child: const Text('Evet, Temizle'),
           ),
         ],
+      ),
+    );
+  }
+
+  void _confirmLockTag() {
+    bool understood = false;
+    showDialog(
+      context: context,
+      builder: (ctx) => StatefulBuilder(
+        builder: (ctx, setDialogState) => AlertDialog(
+          title: const Text('Etiketi Kalıcı Olarak Kilitle'),
+          content: Column(
+            mainAxisSize: MainAxisSize.min,
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              const Text(
+                'Kilitlenen etiket salt okunur olur: içeriği bir daha DEĞİŞTİRİLEMEZ, silinemez ve kilit KALDIRILAMAZ. '
+                'Önce doğru içeriği yazdığınızdan emin olun.',
+              ),
+              const SizedBox(height: 12),
+              CheckboxListTile(
+                contentPadding: EdgeInsets.zero,
+                value: understood,
+                onChanged: (v) => setDialogState(() => understood = v ?? false),
+                title: const Text('Bu işlemin geri alınamayacağını anlıyorum'),
+                controlAffinity: ListTileControlAffinity.leading,
+              ),
+            ],
+          ),
+          actions: [
+            TextButton(
+              onPressed: () => Navigator.of(ctx).pop(),
+              child: const Text('Vazgeç'),
+            ),
+            ElevatedButton(
+              style: ElevatedButton.styleFrom(
+                backgroundColor: Colors.deepOrange,
+                foregroundColor: Colors.white,
+              ),
+              onPressed: understood
+                  ? () {
+                      Navigator.of(ctx).pop();
+                      _controller.lockTag();
+                    }
+                  : null,
+              child: const Text('Kilitle'),
+            ),
+          ],
+        ),
       ),
     );
   }

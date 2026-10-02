@@ -56,6 +56,17 @@ class MockNfcPlatformService implements NfcPlatformService {
     );
   }
 
+  int lockCalls = 0;
+
+  @override
+  Future<NfcWriteResult> lockTag({
+    String promptMessage = 'Kilitlemek istediğiniz etiketi yaklaştırın',
+  }) async {
+    lockCalls++;
+    return nextWriteResult ??
+        const NfcWriteResult(isSuccess: true, message: 'Kilitlendi');
+  }
+
   @override
   Future<void> cancelSession() async {}
 }

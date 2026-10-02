@@ -23,6 +23,11 @@ abstract class NfcPlatformService {
     String promptMessage = 'Sıfırlamak istediğiniz etiketi yaklaştırın',
   });
 
+  /// Permanently makes the tag read-only. This cannot be undone.
+  Future<NfcWriteResult> lockTag({
+    String promptMessage = 'Kilitlemek istediğiniz etiketi yaklaştırın',
+  });
+
   /// Cancels any active scanning or writing session
   Future<void> cancelSession();
 }
@@ -141,6 +146,34 @@ class MethodChannelNfcService implements NfcPlatformService {
       promptMessage: promptMessage,
       verifyReadAfterWrite: true,
     );
+  }
+
+  @override
+  Future<NfcWriteResult> lockTag({
+    String promptMessage = 'Kilitlemek istediğiniz etiketi yaklaştırın',
+  }) async {
+    try {
+      final dynamic result = await _channel.invokeMethod('lockTag', {
+        'promptMessage': promptMessage,
+      });
+      if (result is Map) {
+        return NfcWriteResult(
+          isSuccess: result['isSuccess'] as bool? ?? false,
+          message: result['message'] as String? ?? '',
+        );
+      }
+      return const NfcWriteResult(
+        isSuccess: false,
+        message: 'Platformdan geçersiz yanıt alındı',
+      );
+    } on PlatformException catch (e) {
+      return NfcWriteResult(
+        isSuccess: false,
+        message: e.message ?? 'Kilitleme başarısız oldu',
+      );
+    } catch (e) {
+      return NfcWriteResult(isSuccess: false, message: e.toString());
+    }
   }
 
   @override

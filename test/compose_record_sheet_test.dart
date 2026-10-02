@@ -60,7 +60,7 @@ void main() {
     await tester.enterText(find.byType(TextField), 'invalid-url');
     await tapAdd(tester);
     await tester.pumpAndSettle();
-    expect(find.text('Geçerli bir web adresi giriniz (Örn: https://example.com).'), findsOneWidget);
+    expect(find.text('Geçerli bir adres giriniz (Örn: https://example.com veya uygulama:// bağlantısı).'), findsOneWidget);
     expect(createdRecord, isNull);
 
     // Enter valid URL
@@ -136,6 +136,8 @@ void main() {
     await tester.pumpAndSettle();
 
     // Select Hex mode
+    await tester.ensureVisible(find.text('Hex (Onaltılık)'));
+    await tester.pumpAndSettle();
     await tester.tap(find.text('Hex (Onaltılık)'));
     await tester.pumpAndSettle();
 

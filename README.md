@@ -35,6 +35,8 @@ Apple Developer Program üyeliğiyle otomatik TestFlight yüklemesi için [TestF
 - **Akıllı Poster (NFC Forum Smart Poster - Sp)**: `urn:nfc:wkt:Sp` TNF well-known türü. İçerisinde iç içe (nested) NDEF mesajı olarak Web URI kaydı ve opsiyonel dil kodlu Başlık (Text) kaydı barındırır.
 - **Wi-Fi Ağ Yapılandırması (Wi-Fi Simple Configuration - WSC)**: `application/vnd.wfa.wsc` MIME türü. Standart Wi-Fi Alliance WSC TLV (Type-Length-Value) kimlik bilgisi (Credential) yapısı; SSID, Kimlik Doğrulama Türü (WPA2-PSK, WPA/WPA2, Open), Şifreleme (AES, TKIP) ve Ağ Anahtarı (şifre).
 - **Özel MIME Kayıtları (Custom MIME)**: Belirlenen herhangi bir MIME türüyle eşleşen ham UTF-8 metin veya onaltılık (hexadecimal) bayt yükü.
+- **Hazır Bağlantılar**: Özel URI (her şema), Sosyal Ağlar (Instagram, X, TikTok, WhatsApp vb.), Video, Arama, Dosya bağlantısı, FaceTime, FaceTime Ses, Adres (Apple/Google Haritalar), Ödeme bağlantısı, Android Uygulama Kaydı (`android.com:pkg`) ve Bluetooth eşleştirme (`application/vnd.bluetooth.ep.oob`).
+- **Etiket Kilitleme**: Etiketi kalıcı olarak salt okunur yapar (Android `Ndef.makeReadOnly`, iOS `writeLock`). Geri alınamaz; onay kutusu ile ayrıca onay istenir.
 
 ### 4. İsteğe Bağlı Yerel Veri, Şablon ve Kural Yönetimi
 - **Kullanıcı İsteğine Bağlı Tarama Geçmişi**: Gizlilik gözetilerek varsayılan olarak kapalıdır; ayarlar sekmesinden kullanıcı tarafından etkinleştirilebilir. Hatalı taramalar geçmişe kaydedilmez.
@@ -51,7 +53,7 @@ Apple Developer Program üyeliğiyle otomatik TestFlight yüklemesi için [TestF
 - **NFC Tools Eşitliği Değildir**: Uygulama kapsamlı NFC Tools paketinin tam dengi olmayıp, odaklanmış NDEF okuma/yazma, denetleme ve şablonlama yetenekleri sunmaktadır.
 - **Klonlama İddiası Yoktur**: İçerik kopyalama ve pano işlemleri yalnızca açık NDEF mesaj kayıtlarını (TNF, type, id, payload) kopyalar. Cihaz seri numarası (UID), şifreli sektörler veya özel donanım hafızaları klonlanamaz ve kopyalanmaz.
 - **Hassas Yedek JSON Verisi**: Yedek JSON dosyası düz metin formatında olup kaydedilmiş Wi-Fi parolalarını veya kişi verilerini içerebilir. Dışa aktarma ve içe aktarma öncesinde kullanıcıya açık güvenlik uyarısı verilir; dosyanın güvenli ortamda saklanması kullanıcının sorumluluğundadır.
-- **Uygulama İçi Kural Sınırları**: Etiket kuralları tamamen uygulama içi ve yereldir. iOS platformunda Core NFC NDEF oturumlarında donanım UID'si sıfırlandığı/yer tutucu olduğu için kurallar UID yerine tam NDEF içerik baytlarının SHA-256 özetine bağlanmıştır. Arka planda tetikleme yapmaz, URL otomatik açmaz ve cihaz ayarı değiştirmez.
+- **Uygulama İçi Kural Sınırları**: Etiket kuralları tamamen uygulama içi ve yereldir. Kurallar, etiket değişse bile aynı içeriği tanıyabilmek için UID yerine tam NDEF içerik baytlarının SHA-256 özetine bağlanmıştır. Arka planda tetikleme yapmaz, URL otomatik açmaz ve cihaz ayarı değiştirmez.
 - **Wi-Fi Otomatik Katılım Sınırı**: Etikette saklanan Wi-Fi bilgileri standart WSC formatında yazılsa dahi ne Apple iOS ne de modern Android sürümleri kullanıcı etkileşimi/onayı olmadan otomatik olarak ağa bağlanmaz; etiket üzerindeki parola şifrelenmemiş durumdadır.
 - **Çevrimdışı URL İncelemesi Sınırı**: URL inceleme aracı yalnızca yerel sözdizimsel kuralları (IP literal, userinfo, Punycode, bilinmeyen şemalar) kontrol eder; gerçek zamanlı web itibar sorgusu veya antivirüs/malware tespiti yapmaz.
 - **Toplu Yazım Hedef Ayrımı**: Toplu yazım sırasında etiketlerin fiziksel olarak farklı olduğu garanti edilmez; kullanıcının etiketleri sırayla cihaza yaklaştırması gerekir.
