@@ -6,6 +6,7 @@ import 'controllers/nfc_controller.dart';
 import 'services/app_storage_service.dart';
 import 'services/nfc_service.dart';
 import 'ui/home_screen.dart';
+import 'ui/app_theme.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -51,18 +52,7 @@ class NfcTagMasterApp extends StatelessWidget {
         GlobalWidgetsLocalizations.delegate,
         GlobalCupertinoLocalizations.delegate,
       ],
-      theme: ThemeData(
-        useMaterial3: true,
-        colorScheme: ColorScheme.fromSeed(
-          seedColor: Colors.indigo,
-          brightness: Brightness.light,
-        ),
-        appBarTheme: const AppBarTheme(
-          backgroundColor: Colors.indigo,
-          foregroundColor: Colors.white,
-          elevation: 2,
-        ),
-      ),
+      theme: AppTheme.light(),
       home: HomeScreen(controller: controller),
     );
   }

@@ -28,8 +28,27 @@ abstract class NfcPlatformService {
     String promptMessage = 'Kilitlemek istediğiniz etiketi yaklaştırın',
   });
 
+  /// Waits for an NTAG / Ultralight tag and keeps it connected for raw
+  /// commands. Returns the tag UID as hex.
+  Future<String> startRawSession({String promptMessage = 'Etiketi yaklaştırın'});
+
+  /// Sends one raw NFC-A command on the open raw session.
+  Future<Uint8List> transceive(Uint8List command);
+
+  /// Closes the raw session, showing [errorMessage] or [successMessage] on iOS.
+  Future<void> endRawSession({String? errorMessage, String? successMessage});
+
   /// Cancels any active scanning or writing session
   Future<void> cancelSession();
+}
+
+/// Error raised by raw NFC session calls
+class NfcOperationException implements Exception {
+  final String message;
+  const NfcOperationException(this.message);
+
+  @override
+  String toString() => message;
 }
 
 /// Status of device NFC capability
@@ -174,6 +193,42 @@ class MethodChannelNfcService implements NfcPlatformService {
     } catch (e) {
       return NfcWriteResult(isSuccess: false, message: e.toString());
     }
+  }
+
+  @override
+  Future<String> startRawSession({String promptMessage = 'Etiketi yaklaştırın'}) async {
+    try {
+      final dynamic result = await _channel.invokeMethod('startRawSession', {
+        'promptMessage': promptMessage,
+      });
+      if (result is Map) {
+        return result['identifier'] as String? ?? '';
+      }
+      throw const NfcOperationException('Platformdan geçersiz yanıt alındı');
+    } on PlatformException catch (e) {
+      throw NfcOperationException(e.message ?? 'Etikete bağlanılamadı');
+    }
+  }
+
+  @override
+  Future<Uint8List> transceive(Uint8List command) async {
+    try {
+      final dynamic result = await _channel.invokeMethod('transceive', {'command': command});
+      if (result is Uint8List) return result;
+      throw const NfcOperationException('Etiketten geçersiz yanıt alındı');
+    } on PlatformException catch (e) {
+      throw NfcOperationException(e.message ?? 'Komut başarısız');
+    }
+  }
+
+  @override
+  Future<void> endRawSession({String? errorMessage, String? successMessage}) async {
+    try {
+      await _channel.invokeMethod('endRawSession', {
+        'errorMessage': errorMessage,
+        'successMessage': successMessage,
+      });
+    } catch (_) {}
   }
 
   @override

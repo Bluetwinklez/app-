@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import '../domain/tag_rule.dart';
 import '../services/app_storage_service.dart';
+import 'app_theme.dart';
 
 /// Modal sheet or dialog to view and manage all in-app tag rules.
 class TagRulesManagerSheet extends StatefulWidget {
@@ -164,7 +165,7 @@ class _TagRulesManagerSheetState extends State<TagRulesManagerSheet> {
               children: [
                 const Row(
                   children: [
-                    Icon(Icons.rule_folder_outlined, color: Colors.indigo),
+                    Icon(Icons.rule_folder_outlined, color: AppColors.accent),
                     SizedBox(width: 8),
                     Text(
                       'Uygulama İçi Etiket Kuralları',
@@ -244,7 +245,7 @@ class _TagRulesManagerSheetState extends State<TagRulesManagerSheet> {
                               mainAxisSize: MainAxisSize.min,
                               children: [
                                 IconButton(
-                                  icon: const Icon(Icons.edit, size: 20, color: Colors.indigo),
+                                  icon: const Icon(Icons.edit, size: 20, color: AppColors.accent),
                                   tooltip: 'Düzenle',
                                   onPressed: () => _editRule(rule),
                                 ),

@@ -4,6 +4,7 @@ import '../domain/nfc_tag_info.dart';
 import '../domain/storage_models.dart';
 import '../domain/nfc_workflow_models.dart';
 import '../domain/tag_rule.dart';
+import '../domain/ntag_tools.dart';
 import '../services/nfc_service.dart';
 import '../services/app_storage_service.dart';
 import '../services/backup_codec.dart';
@@ -278,6 +279,47 @@ class NfcStateController extends ChangeNotifier {
       _lastWriteResult = NfcWriteResult(isSuccess: false, message: e.toString());
       _statusMessage = 'Kilitleme hatası: $e';
       return false;
+    } finally {
+      _isBusy = false;
+      notifyListeners();
+    }
+  }
+
+  /// Runs [task] against a tag held in a raw command session (NTAG tools).
+  /// Returns null and sets [statusMessage] when anything fails.
+  Future<T?> runRawTask<T>({
+    required String promptMessage,
+    required String busyMessage,
+    required Future<T> Function(RawTransceive transceive) task,
+    required String Function(T result) successMessage,
+  }) async {
+    if (_availability != NfcAvailability.available) {
+      _statusMessage = 'NFC şu anda kullanılamaz durumda.';
+      notifyListeners();
+      return null;
+    }
+
+    _isBusy = true;
+    _statusMessage = busyMessage;
+    notifyListeners();
+
+    bool sessionOpen = false;
+    try {
+      await _service.startRawSession(promptMessage: promptMessage);
+      sessionOpen = true;
+      final result = await task(_service.transceive);
+      final message = successMessage(result);
+      await _service.endRawSession(successMessage: message);
+      sessionOpen = false;
+      _statusMessage = message;
+      return result;
+    } catch (e) {
+      final message = e is NtagException || e is NfcOperationException ? e.toString() : 'Hata: $e';
+      if (sessionOpen) {
+        await _service.endRawSession(errorMessage: message);
+      }
+      _statusMessage = message;
+      return null;
     } finally {
       _isBusy = false;
       notifyListeners();

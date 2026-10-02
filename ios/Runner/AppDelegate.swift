@@ -14,6 +14,9 @@ import CoreNFC
     private let lock = NSLock()
     private var isCompleted: Bool = false
 
+    // Raw command session (NTAG / MIFARE Ultralight tools)
+    private var rawTag: NFCMiFareTag?
+
     override func application(
         _ application: UIApplication,
         didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?
@@ -100,6 +103,70 @@ import CoreNFC
 
                 self.startSession(alertMessage: prompt)
 
+            case "startRawSession":
+                guard NFCTagReaderSession.readingAvailable else {
+                    result(FlutterError(code: "NFC_UNAVAILABLE", message: "Bu iOS cihazında NFC okuyucu desteklenmiyor", details: nil))
+                    return
+                }
+                let prompt = (call.arguments as? [String: Any])?["promptMessage"] as? String ?? "Etiketi iPhone'un üst kısmına yaklaştırın"
+
+                self.lock.lock()
+                if self.pendingResult != nil || self.rawTag != nil {
+                    self.lock.unlock()
+                    result(FlutterError(code: "OPERATION_IN_PROGRESS", message: "Zaten devam eden bir NFC işlemi var", details: nil))
+                    return
+                }
+                self.isCompleted = false
+                self.pendingResult = result
+                self.pendingOperation = "raw"
+                self.lock.unlock()
+
+                self.startSession(alertMessage: prompt)
+
+            case "transceive":
+                guard let args = call.arguments as? [String: Any],
+                      let command = (args["command"] as? FlutterStandardTypedData)?.data,
+                      !command.isEmpty else {
+                    result(FlutterError(code: "INVALID_ARGS", message: "Geçersiz komut", details: nil))
+                    return
+                }
+                self.lock.lock()
+                let tag = self.rawTag
+                self.lock.unlock()
+                guard let rawTag = tag else {
+                    result(FlutterError(code: "NO_SESSION", message: "Etiket bağlantısı yok veya kesildi", details: nil))
+                    return
+                }
+                rawTag.sendMiFareCommand(commandPacket: command) { (response: Data, error: Error?) in
+                    DispatchQueue.main.async {
+                        if let error = error {
+                            result(FlutterError(code: "TRANSCEIVE_FAILED", message: error.localizedDescription, details: nil))
+                        } else {
+                            result(FlutterStandardTypedData(bytes: response))
+                        }
+                    }
+                }
+
+            case "endRawSession":
+                let args = call.arguments as? [String: Any]
+                let errorMessage = args?["errorMessage"] as? String
+                let successMessage = args?["successMessage"] as? String
+                self.lock.lock()
+                let activeSession = self.nfcSession
+                self.rawTag = nil
+                self.lock.unlock()
+                if let activeSession = activeSession {
+                    if let errorMessage = errorMessage {
+                        activeSession.invalidate(errorMessage: errorMessage)
+                    } else {
+                        if let successMessage = successMessage {
+                            activeSession.alertMessage = successMessage
+                        }
+                        activeSession.invalidate()
+                    }
+                }
+                result(nil)
+
             case "cancelSession":
                 self.lock.lock()
                 let activeSession = self.nfcSession
@@ -136,6 +203,14 @@ import CoreNFC
         guard tags.count == 1, let tag = tags.first else {
             session.alertMessage = "Birden fazla etiket algılandı. Yalnızca bir etiket yaklaştırın."
             session.restartPolling()
+            return
+        }
+
+        self.lock.lock()
+        let currentOp = self.pendingOperation
+        self.lock.unlock()
+        if currentOp == "raw" {
+            handleRawTag(session: session, tag: tag)
             return
         }
 
@@ -188,6 +263,30 @@ import CoreNFC
                     self.handleTagLock(session: session, tag: ndefTag, status: status)
                 }
             }
+        }
+    }
+
+    private func handleRawTag(session: NFCTagReaderSession, tag: NFCTag) {
+        guard case .miFare(let mifare) = tag, mifare.mifareFamily == .ultralight else {
+            let message = "Bu araç yalnızca NTAG / MIFARE Ultralight etiketlerde çalışır"
+            finishWithResult(FlutterError(code: "UNSUPPORTED_TAG", message: message, details: nil))
+            session.invalidate(errorMessage: message)
+            return
+        }
+        session.connect(to: tag) { [weak self] (error: Error?) in
+            guard let self = self else { return }
+            if let error = error {
+                self.finishWithResult(FlutterError(code: "CONNECT_FAILED", message: error.localizedDescription, details: nil))
+                session.invalidate(errorMessage: "Bağlantı hatası: \(error.localizedDescription)")
+                return
+            }
+            self.lock.lock()
+            self.rawTag = mifare
+            self.lock.unlock()
+            session.alertMessage = "Etiket bağlandı, işlem yapılıyor..."
+            self.finishWithResult([
+                "identifier": mifare.identifier.map { String(format: "%02X", $0) }.joined(separator: ":")
+            ] as [String: Any])
         }
     }
 
@@ -414,5 +513,8 @@ import CoreNFC
             }
         }
         self.nfcSession = nil
+        lock.lock()
+        rawTag = nil
+        lock.unlock()
     }
 }

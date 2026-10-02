@@ -3,6 +3,7 @@ package com.antigravity.nfc_tag_master
 import android.nfc.NfcAdapter
 import android.nfc.Tag
 import android.nfc.tech.Ndef
+import android.nfc.tech.NfcA
 import android.nfc.tech.NdefFormatable
 import android.nfc.NdefMessage
 import android.nfc.NdefRecord
@@ -26,6 +27,9 @@ class MainActivity : FlutterActivity(), NfcAdapter.ReaderCallback {
     private var stagedRecordsData: List<Map<String, Any>>? = null
     private var verifyAfterWrite: Boolean = true
 
+    // Raw command session (NTAG / MIFARE Ultralight tools)
+    @Volatile private var rawNfcA: NfcA? = null
+
     override fun configureFlutterEngine(flutterEngine: FlutterEngine) {
         super.configureFlutterEngine(flutterEngine)
         nfcAdapter = NfcAdapter.getDefaultAdapter(this)
@@ -42,6 +46,42 @@ class MainActivity : FlutterActivity(), NfcAdapter.ReaderCallback {
                     val records = call.argument<List<Map<String, Any>>>("records")
                     val verify = call.argument<Boolean>("verifyReadAfterWrite") ?: true
                     startWriteTag(records, verify, result)
+                }
+                "startRawSession" -> {
+                    if (rawNfcA != null) {
+                        result.error("OPERATION_IN_PROGRESS", "Zaten devam eden bir NFC işlemi var", null)
+                    } else {
+                        startReaderOperation("raw", result)
+                    }
+                }
+                "transceive" -> {
+                    val command = call.argument<ByteArray>("command")
+                    val nfcA = rawNfcA
+                    if (command == null || command.isEmpty()) {
+                        result.error("INVALID_ARGS", "Geçersiz komut", null)
+                    } else if (nfcA == null) {
+                        result.error("NO_SESSION", "Etiket bağlantısı yok veya kesildi", null)
+                    } else {
+                        nfcExecutor.execute {
+                            try {
+                                val response = nfcA.transceive(command)
+                                postSuccess(result, response)
+                            } catch (e: Exception) {
+                                postError(result, "TRANSCEIVE_FAILED", "Komut başarısız: ${e.message}", null)
+                            }
+                        }
+                    }
+                }
+                "endRawSession" -> {
+                    val nfcA = rawNfcA
+                    rawNfcA = null
+                    nfcExecutor.execute {
+                        try { nfcA?.close() } catch (_: Exception) {}
+                    }
+                    synchronized(stateLock) {
+                        if (pendingResult == null) stopReaderModeLocked()
+                    }
+                    result.success(null)
                 }
                 "lockTag" -> {
                     startLockTag(result)
@@ -137,6 +177,31 @@ class MainActivity : FlutterActivity(), NfcAdapter.ReaderCallback {
         adapter.enableReaderMode(this, this, flags, null)
     }
 
+    private fun startReaderOperation(operation: String, result: MethodChannel.Result) {
+        val adapter = nfcAdapter
+        if (adapter == null || !adapter.isEnabled) {
+            result.error("NFC_NOT_AVAILABLE", "NFC donanımı mevcut değil veya kapalı", null)
+            return
+        }
+
+        synchronized(stateLock) {
+            if (pendingResult != null) {
+                result.error("OPERATION_IN_PROGRESS", "Zaten devam eden bir NFC işlemi var", null)
+                return
+            }
+            pendingOperation = operation
+            pendingResult = result
+        }
+
+        val flags = NfcAdapter.FLAG_READER_NFC_A or
+                    NfcAdapter.FLAG_READER_NFC_B or
+                    NfcAdapter.FLAG_READER_NFC_F or
+                    NfcAdapter.FLAG_READER_NFC_V or
+                    NfcAdapter.FLAG_READER_NO_PLATFORM_SOUNDS
+
+        adapter.enableReaderMode(this, this, flags, null)
+    }
+
     private fun startLockTag(result: MethodChannel.Result) {
         val adapter = nfcAdapter
         if (adapter == null || !adapter.isEnabled) {
@@ -201,8 +266,14 @@ class MainActivity : FlutterActivity(), NfcAdapter.ReaderCallback {
                 return
             }
 
-            // Mark completed so duplicate discovery doesn't re-trigger
-            stopReaderModeLocked()
+            // Mark completed so duplicate discovery doesn't re-trigger.
+            // Raw sessions keep reader mode on until endRawSession so the
+            // connection stays alive across several commands.
+            if (op == "raw") {
+                pendingOperation = null
+            } else {
+                stopReaderModeLocked()
+            }
             pendingResult = null
         }
 
@@ -212,6 +283,7 @@ class MainActivity : FlutterActivity(), NfcAdapter.ReaderCallback {
                 "scan" -> handleTagRead(tag, result)
                 "write" -> handleTagWrite(tag, stagedRecords, shouldVerify, result)
                 "lock" -> handleTagLock(tag, result)
+                "raw" -> handleRawTag(tag, result)
             }
         }
     }
@@ -405,6 +477,22 @@ class MainActivity : FlutterActivity(), NfcAdapter.ReaderCallback {
             try { ndef?.close() } catch (_: Exception) {}
             try { formatable?.close() } catch (_: Exception) {}
             postError(result, "WRITE_EXCEPTION", "Yazma sırasında hata oluştu: ${e.message}", null)
+        }
+    }
+
+    private fun handleRawTag(tag: Tag, result: MethodChannel.Result) {
+        val nfcA = NfcA.get(tag)
+        if (nfcA == null) {
+            postError(result, "UNSUPPORTED_TAG", "Bu araç yalnızca NTAG / MIFARE Ultralight etiketlerde çalışır", null)
+            return
+        }
+        try {
+            nfcA.connect()
+            rawNfcA = nfcA
+            postSuccess(result, mapOf("identifier" to bytesToHex(tag.id)))
+        } catch (e: Exception) {
+            try { nfcA.close() } catch (_: Exception) {}
+            postError(result, "CONNECT_FAILED", "Etikete bağlanılamadı: ${e.message}", null)
         }
     }
 
