@@ -1,6 +1,7 @@
 import 'dart:typed_data';
 import 'package:flutter/material.dart';
 import '../domain/ndef_record.dart';
+import 'app_theme.dart';
 
 /// Modal dialog for editing raw NDEF records (TNF, Type, ID, Payload in Hex)
 /// or viewing read-only record explanation without silently discarding fields.
@@ -133,7 +134,7 @@ class _RawRecordEditorDialogState extends State<RawRecordEditorDialog> {
         children: [
           Icon(
             _isReadOnly ? Icons.info_outline : Icons.tune,
-            color: Colors.indigo,
+            color: AppColors.accent,
           ),
           const SizedBox(width: 8),
           Expanded(
@@ -243,7 +244,7 @@ class _RawRecordEditorDialogState extends State<RawRecordEditorDialog> {
             icon: const Icon(Icons.check),
             label: const Text('Değişikliği Kaydet'),
             style: ElevatedButton.styleFrom(
-              backgroundColor: Colors.teal,
+              backgroundColor: AppColors.accent,
               foregroundColor: Colors.white,
             ),
             onPressed: _handleSave,

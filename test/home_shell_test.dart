@@ -1,0 +1,37 @@
+import 'package:flutter/material.dart';
+import 'package:flutter_test/flutter_test.dart';
+import 'package:nfc_tag_master/controllers/nfc_controller.dart';
+import 'package:nfc_tag_master/main.dart';
+import 'package:nfc_tag_master/services/app_storage_service.dart';
+import 'phase2_storage_and_history_test.dart' show MockNfcPlatformService;
+
+void main() {
+  testWidgets('every section renders at iPhone size without layout errors', (tester) async {
+    tester.view.physicalSize = const Size(1179, 2556);
+    tester.view.devicePixelRatio = 3;
+    addTearDown(tester.view.reset);
+
+    final controller = NfcStateController(
+      service: MockNfcPlatformService(),
+      storage: InMemoryAppStorageService(),
+    );
+    await tester.pumpWidget(NfcTagMasterApp(controller: controller));
+    await tester.pumpAndSettle();
+
+    expect(find.text('Etiketi Tara'), findsOneWidget);
+    expect(find.text('NFC Hazır'), findsOneWidget);
+
+    for (final label in ['Yaz', 'Araçlar', 'Geçmiş', 'Ayarlar', 'Oku']) {
+      await tester.tap(find.text(label).last);
+      await tester.pumpAndSettle();
+      expect(tester.takeException(), isNull, reason: 'section $label');
+    }
+
+    await tester.tap(find.text('Araçlar').last);
+    await tester.pumpAndSettle();
+    expect(find.text('Belleği Oku'), findsOneWidget);
+    await tester.drag(find.text('Belleği Oku'), const Offset(0, -400));
+    await tester.pumpAndSettle();
+    expect(find.text('Şifre Belirle'), findsOneWidget);
+  });
+}

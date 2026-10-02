@@ -16,6 +16,10 @@ import 'compose_record_sheet.dart';
 import 'raw_record_editor_dialog.dart';
 import 'qr_preview_dialog.dart';
 import 'tag_rules_manager_sheet.dart';
+import 'app_theme.dart';
+import 'tools_tab.dart';
+import 'qr_scan_page.dart';
+import '../domain/csv_records.dart';
 
 class HomeScreen extends StatefulWidget {
   final NfcStateController? controller;
@@ -60,7 +64,8 @@ class _HomeScreenState extends State<HomeScreen>
   void initState() {
     super.initState();
     _controller = widget.controller ?? NfcStateController();
-    _tabController = TabController(length: 4, vsync: this);
+    _tabController = TabController(length: 5, vsync: this);
+    _tabController.addListener(_onControllerUpdate);
     _controller.addListener(_onControllerUpdate);
     WidgetsBinding.instance.addObserver(this);
     _controller.init();
@@ -103,7 +108,7 @@ class _HomeScreenState extends State<HomeScreen>
     ScaffoldMessenger.of(context).showSnackBar(
       const SnackBar(
         content: Text('Son beste değişikliği geri alındı.'),
-        backgroundColor: Colors.indigo,
+        backgroundColor: AppColors.accent,
         duration: Duration(seconds: 2),
       ),
     );
@@ -123,7 +128,7 @@ class _HomeScreenState extends State<HomeScreen>
     ScaffoldMessenger.of(context).showSnackBar(
       const SnackBar(
         content: Text('Beste değişikliği yinelendi.'),
-        backgroundColor: Colors.teal,
+        backgroundColor: AppColors.accent,
         duration: Duration(seconds: 2),
       ),
     );
@@ -257,13 +262,97 @@ class _HomeScreenState extends State<HomeScreen>
         content: Text(
           '$count adet NDEF kaydı ($bytes Bayt) panoya kopyalandı.\n(Yalnızca NDEF içerik baytları kopyalanır; UID veya şifreli sektörler asla klonlanamaz)',
         ),
-        backgroundColor: Colors.teal,
+        backgroundColor: AppColors.accent,
         duration: const Duration(seconds: 4),
       ),
     );
   }
 
   /// Pastes clipboard records into the composer with Replace or Append choice
+  void _appendImportedRecords(List<NdefRecordModel> records, String source) {
+    if (records.isEmpty) return;
+    setState(() {
+      _composerHistory.push(_recordsToWrite);
+      _recordsToWrite.addAll(records);
+    });
+    _tabController.animateTo(1);
+    ScaffoldMessenger.of(context).showSnackBar(
+      SnackBar(content: Text('$source: ${records.length} kayıt eklendi.')),
+    );
+  }
+
+  Future<void> _importFromTag() async {
+    await _controller.scanTag();
+    if (!mounted) return;
+    final tag = _controller.lastScannedTag;
+    if (tag == null || tag.error != null) return;
+    if (tag.records.isEmpty) {
+      ScaffoldMessenger.of(context).showSnackBar(
+        const SnackBar(content: Text('Etiket boş; içe aktarılacak kayıt yok.')),
+      );
+      return;
+    }
+    _appendImportedRecords(List<NdefRecordModel>.from(tag.records), 'Etiketten');
+  }
+
+  Future<void> _importFromQr() async {
+    final value = await QrScanPage.scan(context);
+    if (!mounted || value == null) return;
+    _appendImportedRecords([QrRecordImporter.fromQr(value)], 'QR koddan');
+  }
+
+  Future<void> _importFromCsv() async {
+    XFile? file;
+    try {
+      file = await openFile();
+    } catch (e) {
+      if (!mounted) return;
+      ScaffoldMessenger.of(context).showSnackBar(
+        SnackBar(content: Text('Dosya seçici açılamadı: $e'), backgroundColor: AppColors.danger),
+      );
+      return;
+    }
+    if (file == null || !mounted) return;
+    final bytes = await file.readAsBytes();
+    if (!mounted) return;
+    if (bytes.length > 512 * 1024) {
+      ScaffoldMessenger.of(context).showSnackBar(
+        const SnackBar(content: Text('CSV dosyası çok büyük (en fazla 512 KB).'), backgroundColor: AppColors.danger),
+      );
+      return;
+    }
+    final result = CsvRecordImporter.parse(utf8.decode(bytes, allowMalformed: true));
+    if (result.errors.isNotEmpty || result.records.isEmpty) {
+      await showDialog<void>(
+        context: context,
+        builder: (ctx) => AlertDialog(
+          title: Text(result.records.isEmpty ? 'Kayıt bulunamadı' : 'Bazı satırlar atlandı'),
+          content: SingleChildScrollView(
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              mainAxisSize: MainAxisSize.min,
+              children: [
+                for (final e in result.errors.take(20)) Text('• $e'),
+                const SizedBox(height: 12),
+                const Text('Beklenen biçim:', style: TextStyle(fontWeight: FontWeight.w600)),
+                const SizedBox(height: 4),
+                const Text(
+                  CsvRecordImporter.sample,
+                  style: TextStyle(fontFamily: 'Courier', fontSize: 12),
+                ),
+              ],
+            ),
+          ),
+          actions: [
+            TextButton(onPressed: () => Navigator.of(ctx).pop(), child: const Text('Tamam')),
+          ],
+        ),
+      );
+      if (!mounted) return;
+    }
+    _appendImportedRecords(result.records, 'CSV');
+  }
+
   void _pasteFromClipboard() {
     final clip = _controller.clipboardSnapshot;
     if (clip == null || clip.records.isEmpty) {
@@ -290,7 +379,7 @@ class _HomeScreenState extends State<HomeScreen>
             children: [
               Row(
                 children: [
-                  const Icon(Icons.paste, color: Colors.teal),
+                  const Icon(Icons.paste, color: AppColors.accent),
                   const SizedBox(width: 8),
                   Text(
                     'NDEF Panosundan Yapıştır',
@@ -324,7 +413,7 @@ class _HomeScreenState extends State<HomeScreen>
                 },
               ),
               ListTile(
-                leading: const Icon(Icons.add_to_photos, color: Colors.teal),
+                leading: const Icon(Icons.add_to_photos, color: AppColors.accent),
                 title: const Text('Sonuna Ekle (Append)'),
                 subtitle: const Text(
                     'Mevcut kayıtlar korunur, panodaki kayıtlar listenin sonuna ilave edilir.'),
@@ -348,7 +437,7 @@ class _HomeScreenState extends State<HomeScreen>
     ScaffoldMessenger.of(context).showSnackBar(
       SnackBar(
         content: Text('${records.length} adet kayıt besteye eklendi.'),
-        backgroundColor: Colors.teal,
+        backgroundColor: AppColors.accent,
       ),
     );
   }
@@ -381,7 +470,7 @@ class _HomeScreenState extends State<HomeScreen>
                   SnackBar(
                     content: Text(
                         '${records.length} adet kayıt ile bestedeki kayıtlar değiştirildi.'),
-                    backgroundColor: Colors.teal,
+                    backgroundColor: AppColors.accent,
                   ),
                 );
               },
@@ -400,7 +489,7 @@ class _HomeScreenState extends State<HomeScreen>
       ScaffoldMessenger.of(context).showSnackBar(
         SnackBar(
           content: Text('${records.length} adet kayıt besteye aktarıldı.'),
-          backgroundColor: Colors.teal,
+          backgroundColor: AppColors.accent,
         ),
       );
     }
@@ -435,7 +524,7 @@ class _HomeScreenState extends State<HomeScreen>
           content: Text(
             '${records.length} adet NDEF kaydı panoya alındı ve besteye eklendi (İçerik kopyalandı, UID kopyalanmaz).',
           ),
-          backgroundColor: Colors.teal,
+          backgroundColor: AppColors.accent,
           duration: const Duration(seconds: 3),
         ),
       );
@@ -477,7 +566,7 @@ class _HomeScreenState extends State<HomeScreen>
       builder: (ctx) => AlertDialog(
         title: const Row(
           children: [
-            Icon(Icons.replay_circle_filled, color: Colors.indigo),
+            Icon(Icons.replay_circle_filled, color: AppColors.accent),
             SizedBox(width: 8),
             Text('Etiketi Yeniden Yaz'),
           ],
@@ -556,7 +645,7 @@ class _HomeScreenState extends State<HomeScreen>
           ElevatedButton.icon(
             icon: const Icon(Icons.nfc),
             style: ElevatedButton.styleFrom(
-              backgroundColor: Colors.indigo,
+              backgroundColor: AppColors.accent,
               foregroundColor: Colors.white,
             ),
             label: const Text('Dokun ve Yaz'),
@@ -632,7 +721,7 @@ class _HomeScreenState extends State<HomeScreen>
           ),
           ElevatedButton.icon(
             style: ElevatedButton.styleFrom(
-                backgroundColor: Colors.teal, foregroundColor: Colors.white),
+                backgroundColor: AppColors.accent, foregroundColor: Colors.white),
             icon: const Icon(Icons.document_scanner),
             label: const Text('Şimdi Tara ve Karşılaştır'),
             onPressed: () async {
@@ -735,7 +824,7 @@ class _HomeScreenState extends State<HomeScreen>
         builder: (ctx, setDlgState) => AlertDialog(
           title: const Row(
             children: [
-              Icon(Icons.dynamic_feed, color: Colors.teal),
+              Icon(Icons.dynamic_feed, color: AppColors.accent),
               SizedBox(width: 8),
               Text('Toplu Etiket Yazımı (Batch)'),
             ],
@@ -808,7 +897,7 @@ class _HomeScreenState extends State<HomeScreen>
             ),
             ElevatedButton(
               style: ElevatedButton.styleFrom(
-                  backgroundColor: Colors.teal, foregroundColor: Colors.white),
+                  backgroundColor: AppColors.accent, foregroundColor: Colors.white),
               onPressed: () {
                 Navigator.of(ctx).pop();
                 _initBatchWrite(chosenCount);
@@ -868,7 +957,7 @@ class _HomeScreenState extends State<HomeScreen>
                     children: [
                       Row(
                         children: [
-                          const Icon(Icons.dynamic_feed, color: Colors.teal),
+                          const Icon(Icons.dynamic_feed, color: AppColors.accent),
                           const SizedBox(width: 8),
                           Text(
                             'Toplu Yazım Kontrol Paneli',
@@ -891,8 +980,8 @@ class _HomeScreenState extends State<HomeScreen>
                     value: _batchTargetCount > 0
                         ? (_batchCurrentIndex / _batchTargetCount)
                         : 0,
-                    color: Colors.teal,
-                    backgroundColor: Colors.teal.shade50,
+                    color: AppColors.accent,
+                    backgroundColor: AppColors.accentSoft,
                   ),
                   const SizedBox(height: 8),
                   Text(
@@ -979,7 +1068,7 @@ class _HomeScreenState extends State<HomeScreen>
                         Expanded(
                           child: ElevatedButton.icon(
                             style: ElevatedButton.styleFrom(
-                              backgroundColor: Colors.teal,
+                              backgroundColor: AppColors.accent,
                               foregroundColor: Colors.white,
                               padding: const EdgeInsets.symmetric(vertical: 14),
                             ),
@@ -1004,7 +1093,7 @@ class _HomeScreenState extends State<HomeScreen>
                         Expanded(
                           child: ElevatedButton(
                             style: ElevatedButton.styleFrom(
-                              backgroundColor: Colors.indigo,
+                              backgroundColor: AppColors.accent,
                               foregroundColor: Colors.white,
                               padding: const EdgeInsets.symmetric(vertical: 14),
                             ),
@@ -1292,7 +1381,7 @@ class _HomeScreenState extends State<HomeScreen>
       SnackBar(
         content: Text(
             '"${template.name}" şablonundaki kayıtlar yazma bestesine aktarıldı.'),
-        backgroundColor: Colors.indigo,
+        backgroundColor: AppColors.accent,
       ),
     );
   }
@@ -1436,7 +1525,7 @@ class _HomeScreenState extends State<HomeScreen>
                   ScaffoldMessenger.of(context).showSnackBar(
                     const SnackBar(
                       content: Text('Etiket notu kaydedildi.'),
-                      backgroundColor: Colors.teal,
+                      backgroundColor: AppColors.accent,
                     ),
                   );
                 }
@@ -1471,7 +1560,7 @@ class _HomeScreenState extends State<HomeScreen>
                 ScaffoldMessenger.of(context).showSnackBar(
                   const SnackBar(
                     content: Text('Etiket notu silindi.'),
-                    backgroundColor: Colors.teal,
+                    backgroundColor: AppColors.accent,
                   ),
                 );
               }
@@ -1511,7 +1600,7 @@ class _HomeScreenState extends State<HomeScreen>
         builder: (ctx, setDlgState) => AlertDialog(
           title: const Row(
             children: [
-              Icon(Icons.file_download_outlined, color: Colors.indigo),
+              Icon(Icons.file_download_outlined, color: AppColors.accent),
               SizedBox(width: 8),
               Text('Yedek Dışa Aktar'),
             ],
@@ -1638,7 +1727,7 @@ class _HomeScreenState extends State<HomeScreen>
           const SnackBar(
             content:
                 Text('Yedek dosyası başarıyla dışa aktarıldı ve paylaşıldı.'),
-            backgroundColor: Colors.teal,
+            backgroundColor: AppColors.accent,
           ),
         );
       } else if (result.status == ShareResultStatus.dismissed) {
@@ -1666,7 +1755,7 @@ class _HomeScreenState extends State<HomeScreen>
       builder: (ctx) => AlertDialog(
         title: const Row(
           children: [
-            Icon(Icons.file_upload_outlined, color: Colors.indigo),
+            Icon(Icons.file_upload_outlined, color: AppColors.accent),
             SizedBox(width: 8),
             Text('Yedek İçe Aktar'),
           ],
@@ -1839,7 +1928,7 @@ class _HomeScreenState extends State<HomeScreen>
       ScaffoldMessenger.of(context).showSnackBar(
         SnackBar(
           content: Text('İçe Aktarma Başarılı:\n${result.toSummaryMessage()}'),
-          backgroundColor: Colors.teal,
+          backgroundColor: AppColors.accent,
           duration: const Duration(seconds: 5),
         ),
       );
@@ -1854,97 +1943,295 @@ class _HomeScreenState extends State<HomeScreen>
     }
   }
 
+  static const List<_NavDestination> _destinations = [
+    _NavDestination('Oku', 'Etiket Oku', Icons.nfc_rounded),
+    _NavDestination('Yaz', 'Etiket Yaz', Icons.edit_note_rounded),
+    _NavDestination('Araçlar', 'Araçlar', Icons.handyman_outlined),
+    _NavDestination('Geçmiş', 'Geçmiş', Icons.history_rounded),
+    _NavDestination('Ayarlar', 'Şablonlar & Ayarlar', Icons.tune_rounded),
+  ];
+
+  static const List<String> _monthNames = [
+    'Ocak', 'Şubat', 'Mart', 'Nisan', 'Mayıs', 'Haziran',
+    'Temmuz', 'Ağustos', 'Eylül', 'Ekim', 'Kasım', 'Aralık',
+  ];
+
+  String get _todayLabel {
+    final now = DateTime.now();
+    return '${now.day} ${_monthNames[now.month - 1]} ${now.year}';
+  }
+
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: const Text('NFC Etiket Yöneticisi'),
-        centerTitle: true,
-        bottom: TabBar(
-          controller: _tabController,
-          isScrollable: true,
-          tabAlignment: TabAlignment.start,
-          labelColor: Colors.white,
-          unselectedLabelColor: Colors.white70,
-          indicatorColor: Colors.white,
-          tabs: const [
-            Tab(icon: Icon(Icons.nfc), text: 'Etiket Oku'),
-            Tab(icon: Icon(Icons.edit_note), text: 'Etiket Yaz'),
-            Tab(icon: Icon(Icons.history), text: 'Geçmiş'),
-            Tab(
-                icon: Icon(Icons.bookmark_outline),
-                text: 'Şablonlar & Ayarlar'),
-          ],
-        ),
-      ),
-      body: Column(
-        children: [
-          _buildHardwareStatusBanner(),
-          _buildClipboardBanner(),
-          Expanded(
-            child: TabBarView(
-              controller: _tabController,
-              children: [
-                _buildReadTab(),
-                _buildWriteTab(),
-                _buildHistoryTab(),
-                _buildTemplatesAndSettingsTab(),
-              ],
-            ),
+    final current = _destinations[_tabController.index];
+    return DecoratedBox(
+      decoration: const BoxDecoration(gradient: AppColors.canvasGradient),
+      child: Scaffold(
+        backgroundColor: Colors.transparent,
+        body: SafeArea(
+          bottom: false,
+          child: Column(
+            children: [
+              _buildHeader(current.title),
+              _buildClipboardBanner(),
+              Expanded(
+                child: TabBarView(
+                  controller: _tabController,
+                  children: [
+                    _buildReadTab(),
+                    _buildWriteTab(),
+                    ToolsTab(
+                      controller: _controller,
+                      onClearTag: _confirmClearTag,
+                      onLockTag: _confirmLockTag,
+                    ),
+                    _buildHistoryTab(),
+                    _buildTemplatesAndSettingsTab(),
+                  ],
+                ),
+              ),
+            ],
           ),
-          _buildBottomStatusArea(),
+        ),
+        bottomNavigationBar: _buildFloatingNav(),
+      ),
+    );
+  }
+
+  Widget _buildHeader(String title) {
+    return Padding(
+      padding: const EdgeInsets.fromLTRB(20, 12, 16, 8),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Row(
+            children: [
+              Container(
+                width: 46,
+                height: 46,
+                decoration: BoxDecoration(
+                  gradient: AppColors.heroGradient,
+                  shape: BoxShape.circle,
+                  border: Border.all(color: Colors.white, width: 3),
+                  boxShadow: AppColors.softShadow,
+                ),
+                child: const Icon(Icons.nfc_rounded, color: Colors.white, size: 22),
+              ),
+              const SizedBox(width: 12),
+              Expanded(
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Text(
+                      _todayLabel,
+                      style: const TextStyle(fontSize: 13, color: AppColors.secondary),
+                    ),
+                    Text(
+                      title,
+                      maxLines: 1,
+                      overflow: TextOverflow.ellipsis,
+                      style: const TextStyle(
+                        fontSize: 24,
+                        fontWeight: FontWeight.w700,
+                        letterSpacing: -0.6,
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+              _buildHardwareStatusBanner(),
+            ],
+          ),
+          const SizedBox(height: 10),
+          _buildStatusLine(),
         ],
       ),
     );
   }
 
-  Widget _buildHardwareStatusBanner() {
-    Color bg;
-    IconData icon;
-    String text;
-
-    switch (_controller.availability) {
-      case NfcAvailability.available:
-        bg = Colors.green.shade700;
-        icon = Icons.check_circle;
-        text = 'NFC Donanımı Aktif ve Kullanıma Hazır';
-        break;
-      case NfcAvailability.disabled:
-        bg = Colors.amber.shade800;
-        icon = Icons.warning_amber_rounded;
-        text =
-            'NFC Donanımı Mevcut Ancak Kapalı. Lütfen Cihaz Ayarlarından Açın.';
-        break;
-      case NfcAvailability.notSupported:
-        bg = Colors.red.shade700;
-        icon = Icons.cancel;
-        text = 'Bu Cihazda NFC Donanımı Desteklenmiyor veya Bulunmuyor.';
-        break;
-    }
-
-    return Container(
-      width: double.infinity,
-      color: bg,
-      padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
+  Widget _buildStatusLine() {
+    return AnimatedSwitcher(
+      duration: const Duration(milliseconds: 200),
       child: Row(
+        key: ValueKey('${_controller.isBusy}-${_controller.statusMessage}'),
         children: [
-          Icon(icon, color: Colors.white, size: 20),
+          if (_controller.isBusy)
+            const SizedBox(
+              width: 14,
+              height: 14,
+              child: CircularProgressIndicator(strokeWidth: 2),
+            )
+          else
+            const Icon(Icons.info_outline_rounded, size: 16, color: AppColors.secondary),
           const SizedBox(width: 8),
           Expanded(
             child: Text(
-              text,
-              style: const TextStyle(
-                  color: Colors.white,
-                  fontSize: 13,
-                  fontWeight: FontWeight.w500),
+              _controller.statusMessage,
+              maxLines: 2,
+              overflow: TextOverflow.ellipsis,
+              style: const TextStyle(fontSize: 13, color: AppColors.secondary),
             ),
           ),
-          IconButton(
-            icon: const Icon(Icons.refresh, color: Colors.white, size: 18),
-            onPressed: () => _controller.init(),
-            tooltip: 'Yenile',
-          ),
+          if (_controller.isBusy)
+            TextButton(
+              onPressed: () => _controller.cancelSession(),
+              child: const Text('İptal'),
+            ),
         ],
+      ),
+    );
+  }
+
+  Widget _buildFloatingNav() {
+    return SafeArea(
+      top: false,
+      child: Padding(
+        padding: const EdgeInsets.fromLTRB(14, 6, 14, 10),
+        child: Row(
+          children: [
+            Expanded(
+              child: Container(
+                height: 66,
+                padding: const EdgeInsets.symmetric(horizontal: 6),
+                decoration: BoxDecoration(
+                  color: Colors.white.withValues(alpha: 0.92),
+                  borderRadius: BorderRadius.circular(33),
+                  border: Border.all(color: Colors.white),
+                  boxShadow: AppColors.softShadow,
+                ),
+                child: Row(
+                  children: [
+                    for (int i = 0; i < _destinations.length; i++)
+                      Expanded(child: _buildNavItem(i)),
+                  ],
+                ),
+              ),
+            ),
+            const SizedBox(width: 10),
+            _buildScanFab(),
+          ],
+        ),
+      ),
+    );
+  }
+
+  Widget _buildNavItem(int index) {
+    final destination = _destinations[index];
+    final selected = _tabController.index == index;
+    final color = selected ? AppColors.ink : AppColors.secondary.withValues(alpha: 0.8);
+    return Semantics(
+      selected: selected,
+      button: true,
+      label: destination.title,
+      child: InkResponse(
+        onTap: () => _tabController.animateTo(index),
+        radius: 32,
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            Icon(destination.icon, color: color, size: 24),
+            const SizedBox(height: 2),
+            Text(
+              destination.label,
+              maxLines: 1,
+              style: TextStyle(
+                fontSize: 11,
+                color: color,
+                fontWeight: selected ? FontWeight.w600 : FontWeight.w500,
+              ),
+            ),
+            const SizedBox(height: 3),
+            AnimatedContainer(
+              duration: const Duration(milliseconds: 200),
+              width: selected ? 5 : 0,
+              height: 5,
+              decoration: const BoxDecoration(color: AppColors.ink, shape: BoxShape.circle),
+            ),
+          ],
+        ),
+      ),
+    );
+  }
+
+  Widget _buildScanFab() {
+    return Semantics(
+      button: true,
+      label: 'Etiketi tara',
+      child: GestureDetector(
+        onTap: _controller.isBusy
+            ? null
+            : () {
+                _tabController.animateTo(0);
+                _controller.scanTag();
+              },
+        child: Container(
+          width: 66,
+          height: 66,
+          decoration: BoxDecoration(
+            gradient: AppColors.heroGradient,
+            shape: BoxShape.circle,
+            border: Border.all(color: Colors.white, width: 3),
+            boxShadow: [
+              BoxShadow(
+                color: AppColors.accent.withValues(alpha: 0.35),
+                blurRadius: 20,
+                offset: const Offset(0, 8),
+              ),
+            ],
+          ),
+          child: const Icon(Icons.sensors_rounded, color: Colors.white, size: 30),
+        ),
+      ),
+    );
+  }
+
+  Widget _buildHardwareStatusBanner() {
+    final Color color;
+    final String label;
+    final String tooltip;
+    switch (_controller.availability) {
+      case NfcAvailability.available:
+        color = AppColors.success;
+        label = 'NFC Hazır';
+        tooltip = 'NFC donanımı aktif ve kullanıma hazır';
+        break;
+      case NfcAvailability.disabled:
+        color = AppColors.warning;
+        label = 'NFC Kapalı';
+        tooltip = 'NFC kapalı. Lütfen cihaz ayarlarından açın.';
+        break;
+      case NfcAvailability.notSupported:
+        color = AppColors.danger;
+        label = 'NFC Yok';
+        tooltip = 'Bu cihazda NFC desteklenmiyor';
+        break;
+    }
+
+    return Tooltip(
+      message: tooltip,
+      child: InkWell(
+        borderRadius: BorderRadius.circular(20),
+        onTap: () => _controller.init(),
+        child: Container(
+          padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 8),
+          decoration: BoxDecoration(
+            color: Colors.white,
+            borderRadius: BorderRadius.circular(20),
+            boxShadow: AppColors.softShadow,
+          ),
+          child: Row(
+            mainAxisSize: MainAxisSize.min,
+            children: [
+              Container(
+                width: 8,
+                height: 8,
+                decoration: BoxDecoration(color: color, shape: BoxShape.circle),
+              ),
+              const SizedBox(width: 6),
+              Text(label, style: const TextStyle(fontSize: 13, fontWeight: FontWeight.w600)),
+            ],
+          ),
+        ),
       ),
     );
   }
@@ -1954,17 +2241,21 @@ class _HomeScreenState extends State<HomeScreen>
     if (clip == null) return const SizedBox.shrink();
 
     return Container(
-      color: Colors.teal.shade50,
-      padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 6),
+      margin: const EdgeInsets.fromLTRB(16, 0, 16, 8),
+      padding: const EdgeInsets.symmetric(horizontal: 14, vertical: 6),
+      decoration: BoxDecoration(
+        color: AppColors.accentSoft,
+        borderRadius: BorderRadius.circular(16),
+      ),
       child: Row(
         children: [
-          const Icon(Icons.inventory_2_outlined, color: Colors.teal, size: 18),
+          const Icon(Icons.inventory_2_outlined, color: AppColors.accent, size: 18),
           const SizedBox(width: 8),
           Expanded(
             child: Text(
               'NDEF Panosu: ${clip.recordCount} kayıt (${clip.byteSize} B) - ${clip.sourceDescription}',
-              style: TextStyle(
-                  color: Colors.teal.shade900,
+              style: const TextStyle(
+                  color: AppColors.ink,
                   fontSize: 12,
                   fontWeight: FontWeight.bold),
               overflow: TextOverflow.ellipsis,
@@ -1979,7 +2270,7 @@ class _HomeScreenState extends State<HomeScreen>
             onPressed: _pasteFromClipboard,
             child: const Text('Yapıştır',
                 style:
-                    TextStyle(color: Colors.teal, fontWeight: FontWeight.bold)),
+                    TextStyle(color: AppColors.accent, fontWeight: FontWeight.bold)),
           ),
           IconButton(
             padding: EdgeInsets.zero,
@@ -1997,27 +2288,103 @@ class _HomeScreenState extends State<HomeScreen>
   // TAB 1: READ TAB (Inspector & Safety Preview & Content Copy / Rewrite)
   // -------------------------------------------------------------
 
+  Widget _buildQuickAction(IconData icon, String title, String subtitle, int tabIndex) {
+    return Padding(
+      padding: const EdgeInsets.only(right: 10),
+      child: SizedBox(
+        width: 136,
+        child: SoftCard(
+          padding: const EdgeInsets.all(14),
+          onTap: () => _tabController.animateTo(tabIndex),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            mainAxisSize: MainAxisSize.min,
+            children: [
+              Container(
+                width: 34,
+                height: 34,
+                decoration: BoxDecoration(
+                  color: AppColors.accentSoft,
+                  borderRadius: BorderRadius.circular(11),
+                ),
+                child: Icon(icon, size: 19, color: AppColors.accent),
+              ),
+              const SizedBox(height: 14),
+              Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Text(title, style: const TextStyle(fontWeight: FontWeight.w600)),
+                  Text(subtitle, style: const TextStyle(fontSize: 12, color: AppColors.secondary)),
+                ],
+              ),
+            ],
+          ),
+        ),
+      ),
+    );
+  }
+
   Widget _buildReadTab() {
     final tag = _controller.lastScannedTag;
 
     return RefreshIndicator(
       onRefresh: () => _controller.scanTag(),
       child: ListView(
-        padding: const EdgeInsets.all(16),
+        padding: const EdgeInsets.fromLTRB(16, 4, 16, 24),
         children: [
-          ElevatedButton.icon(
+          Row(
+            children: [
+              Expanded(
+                child: StatTile(
+                  label: 'Geçmiş',
+                  value: '${_controller.storage.getHistory().length}',
+                  icon: Icons.history_rounded,
+                ),
+              ),
+              const SizedBox(width: 10),
+              Expanded(
+                child: StatTile(
+                  label: 'Şablon',
+                  value: '${_controller.storage.getTemplates().length}',
+                  icon: Icons.bookmark_border_rounded,
+                ),
+              ),
+              const SizedBox(width: 10),
+              Expanded(
+                child: StatTile(
+                  label: 'Kural',
+                  value: '${_controller.storage.getTagRules().length}',
+                  icon: Icons.rule_rounded,
+                ),
+              ),
+            ],
+          ),
+          const SizedBox(height: 16),
+          HeroActionCard(
+            eyebrow: 'NFC Tarayıcı',
+            title: 'Etiketi Tara',
+            subtitle: tag == null
+                ? 'Etiketi telefonun üst kısmına yaklaştırın; içerik, kapasite ve seri numarası anında görünür.'
+                : 'Son etiket: ${tag.identifier}',
+            buttonLabel: _controller.isBusy ? 'Okunuyor...' : 'Taramayı Başlat',
+            icon: Icons.sensors_rounded,
+            busy: _controller.isBusy,
             onPressed: _controller.isBusy ? null : () => _controller.scanTag(),
-            icon: const Icon(Icons.document_scanner),
-            label:
-                Text(_controller.isBusy ? 'Okunuyor...' : 'NFC Etiketini Tara'),
-            style: ElevatedButton.styleFrom(
-              padding: const EdgeInsets.symmetric(vertical: 16),
-              backgroundColor: Colors.indigo,
-              foregroundColor: Colors.white,
-              textStyle:
-                  const TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
-              shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(12)),
+          ),
+          const SizedBox(height: 18),
+          SingleChildScrollView(
+            scrollDirection: Axis.horizontal,
+            clipBehavior: Clip.none,
+            child: IntrinsicHeight(
+              child: Row(
+                crossAxisAlignment: CrossAxisAlignment.stretch,
+                children: [
+                _buildQuickAction(Icons.edit_note_rounded, 'Etikete Yaz', 'Kayıt oluştur', 1),
+                _buildQuickAction(Icons.layers_outlined, 'Belleği Oku', 'Ham bellek', 2),
+                _buildQuickAction(Icons.key_outlined, 'Şifre', 'Koru / kaldır', 2),
+                  _buildQuickAction(Icons.history_rounded, 'Geçmiş', 'Önceki taramalar', 3),
+                ],
+              ),
             ),
           ),
           const SizedBox(height: 16),
@@ -2032,14 +2399,12 @@ class _HomeScreenState extends State<HomeScreen>
           else if (tag == null)
             Card(
               elevation: 0,
-              color: Colors.grey.shade100,
-              shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(12)),
+              color: Colors.white.withValues(alpha: 0.6),
               child: const Padding(
-                padding: EdgeInsets.symmetric(vertical: 40, horizontal: 20),
+                padding: EdgeInsets.symmetric(vertical: 32, horizontal: 20),
                 child: Column(
                   children: [
-                    Icon(Icons.contactless, size: 64, color: Colors.blueGrey),
+                    Icon(Icons.contactless_outlined, size: 48, color: AppColors.secondary),
                     SizedBox(height: 12),
                     Text(
                       'Henüz taranmış bir NFC etiketi yok',
@@ -2048,7 +2413,7 @@ class _HomeScreenState extends State<HomeScreen>
                     ),
                     SizedBox(height: 6),
                     Text(
-                      'Yukarıdaki butona dokunun ve etiketi cihazın arkasına yaklaştırın.',
+                      '"Taramayı Başlat" butonuna dokunun ve etiketi telefona yaklaştırın.',
                       textAlign: TextAlign.center,
                       style: TextStyle(color: Colors.black54),
                     ),
@@ -2061,10 +2426,10 @@ class _HomeScreenState extends State<HomeScreen>
             const SizedBox(height: 12),
             if (tag.records.isNotEmpty)
               Card(
-                color: Colors.teal.shade50,
+                color: AppColors.accentSoft,
                 shape: RoundedRectangleBorder(
                   borderRadius: BorderRadius.circular(12),
-                  side: BorderSide(color: Colors.teal.shade200),
+                  side: const BorderSide(color: AppColors.accentBright),
                 ),
                 child: Padding(
                   padding: const EdgeInsets.all(12),
@@ -2073,7 +2438,7 @@ class _HomeScreenState extends State<HomeScreen>
                     children: [
                       Row(
                         children: [
-                          const Icon(Icons.content_copy, color: Colors.teal),
+                          const Icon(Icons.content_copy, color: AppColors.accent),
                           const SizedBox(width: 8),
                           Expanded(
                             child: Column(
@@ -2083,7 +2448,7 @@ class _HomeScreenState extends State<HomeScreen>
                                   'NDEF İçerik Kopyalama ve Yeniden Yazım',
                                   style: TextStyle(
                                       fontWeight: FontWeight.bold,
-                                      color: Colors.teal),
+                                      color: AppColors.accent),
                                 ),
                                 Text(
                                   '${tag.records.length} kayıt (${tag.currentBytesUsed} Bayt) - Yalnızca NDEF verisi işlenir, UID kopyalanmaz.',
@@ -2101,8 +2466,8 @@ class _HomeScreenState extends State<HomeScreen>
                           Expanded(
                             child: OutlinedButton.icon(
                               style: OutlinedButton.styleFrom(
-                                foregroundColor: Colors.teal,
-                                side: const BorderSide(color: Colors.teal),
+                                foregroundColor: AppColors.accent,
+                                side: const BorderSide(color: AppColors.accent),
                               ),
                               icon: const Icon(Icons.copy, size: 16),
                               label: const Text('Panoya Kopyala',
@@ -2115,7 +2480,7 @@ class _HomeScreenState extends State<HomeScreen>
                           Expanded(
                             child: ElevatedButton.icon(
                               style: ElevatedButton.styleFrom(
-                                backgroundColor: Colors.teal,
+                                backgroundColor: AppColors.accent,
                                 foregroundColor: Colors.white,
                               ),
                               icon: const Icon(Icons.replay, size: 16),
@@ -2179,7 +2544,7 @@ class _HomeScreenState extends State<HomeScreen>
                           if (_controller.matchingRuleForLastScan != null)
                             IconButton(
                               icon: const Icon(Icons.edit,
-                                  size: 18, color: Colors.indigo),
+                                  size: 18, color: AppColors.accent),
                               tooltip: 'Notu Düzenle',
                               onPressed: () =>
                                   _showAddOrEditTagRuleDialog(tag.records),
@@ -2257,7 +2622,7 @@ class _HomeScreenState extends State<HomeScreen>
           children: [
             Row(
               children: [
-                const Icon(Icons.tag, color: Colors.indigo),
+                const Icon(Icons.tag, color: AppColors.accent),
                 const SizedBox(width: 8),
                 Text(
                   'Etiket Bilgileri',
@@ -2308,7 +2673,7 @@ class _HomeScreenState extends State<HomeScreen>
                   backgroundColor: Colors.grey.shade200,
                   color: tag.currentBytesUsed > tag.maxByteCapacity
                       ? Colors.red
-                      : Colors.indigo,
+                      : AppColors.accent,
                   minHeight: 6,
                 ),
               ),
@@ -2448,8 +2813,8 @@ class _HomeScreenState extends State<HomeScreen>
               children: [
                 ListTile(
                   leading: CircleAvatar(
-                    backgroundColor: Colors.indigo.shade50,
-                    child: Icon(icon, color: Colors.indigo),
+                    backgroundColor: AppColors.accentSoft,
+                    child: Icon(icon, color: AppColors.accent),
                   ),
                   title: Text('${idx + 1}. ${parsed.title}',
                       style: const TextStyle(fontWeight: FontWeight.bold)),
@@ -2464,14 +2829,14 @@ class _HomeScreenState extends State<HomeScreen>
                       if (urlCandidate != null && urlCandidate.isNotEmpty)
                         IconButton(
                           icon: const Icon(Icons.shield_outlined,
-                              color: Colors.indigo),
+                              color: AppColors.accent),
                           tooltip: 'Çevrimdışı URL İncelemesi',
                           onPressed: () => _showUrlSafetyDialog(urlCandidate!),
                         ),
                       if (QrPreviewDialog.isQrSupported(parsed.type))
                         IconButton(
                           icon:
-                              const Icon(Icons.qr_code_2, color: Colors.indigo),
+                              const Icon(Icons.qr_code_2, color: AppColors.accent),
                           tooltip: 'QR Kod Önizleme',
                           onPressed: () {
                             final qrContent =
@@ -2535,7 +2900,7 @@ class _HomeScreenState extends State<HomeScreen>
                           style: TextStyle(
                               fontWeight: FontWeight.bold,
                               fontSize: 13,
-                              color: Colors.indigo),
+                              color: AppColors.accent),
                         ),
                         const Divider(height: 12),
                         _buildInspectorRow(
@@ -2641,14 +3006,55 @@ class _HomeScreenState extends State<HomeScreen>
                               _composerHistory.canRedo ? _redoComposer : null,
                         ),
                         IconButton(
-                          icon: const Icon(Icons.paste, color: Colors.teal),
+                          icon: const Icon(Icons.paste, color: AppColors.accent),
                           tooltip: 'Panodan Yapıştır (Değiştir / Ekle)',
                           onPressed: _pasteFromClipboard,
+                        ),
+                        PopupMenuButton<String>(
+                          tooltip: 'İçe Aktar',
+                          icon: const Icon(Icons.download_rounded, color: AppColors.accent),
+                          shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(16)),
+                          onSelected: (value) {
+                            switch (value) {
+                              case 'tag':
+                                _importFromTag();
+                                break;
+                              case 'csv':
+                                _importFromCsv();
+                                break;
+                              case 'qr':
+                                _importFromQr();
+                                break;
+                            }
+                          },
+                          itemBuilder: (_) => const [
+                            PopupMenuItem(
+                              value: 'tag',
+                              child: ListTile(
+                                leading: Icon(Icons.nfc_rounded),
+                                title: Text('NFC etiketten içe aktar'),
+                              ),
+                            ),
+                            PopupMenuItem(
+                              value: 'qr',
+                              child: ListTile(
+                                leading: Icon(Icons.qr_code_scanner_rounded),
+                                title: Text('QR koddan içe aktar'),
+                              ),
+                            ),
+                            PopupMenuItem(
+                              value: 'csv',
+                              child: ListTile(
+                                leading: Icon(Icons.table_chart_outlined),
+                                title: Text('CSV dosyasından içe aktar'),
+                              ),
+                            ),
+                          ],
                         ),
                         if (_recordsToWrite.isNotEmpty)
                           IconButton(
                             icon: const Icon(Icons.bookmark_add,
-                                color: Colors.indigo),
+                                color: AppColors.accent),
                             tooltip: 'Şablon Olarak Kaydet',
                             onPressed: _promptSaveAsTemplate,
                           ),
@@ -2741,7 +3147,7 @@ class _HomeScreenState extends State<HomeScreen>
                                         Icons.arrow_drop_up,
                                         size: 20,
                                         color: index > 0
-                                            ? Colors.indigo
+                                            ? AppColors.accent
                                             : Colors.grey.shade400,
                                       ),
                                     ),
@@ -2754,7 +3160,7 @@ class _HomeScreenState extends State<HomeScreen>
                                         size: 20,
                                         color:
                                             index < _recordsToWrite.length - 1
-                                                ? Colors.indigo
+                                                ? AppColors.accent
                                                 : Colors.grey.shade400,
                                       ),
                                     ),
@@ -2772,7 +3178,7 @@ class _HomeScreenState extends State<HomeScreen>
                               children: [
                                 IconButton(
                                   icon: const Icon(Icons.edit_outlined,
-                                      size: 18, color: Colors.indigo),
+                                      size: 18, color: AppColors.accent),
                                   tooltip: 'Kaydı Düzenle',
                                   onPressed: () => _editComposerRecord(index),
                                 ),
@@ -2780,7 +3186,7 @@ class _HomeScreenState extends State<HomeScreen>
                                     urlCandidate.isNotEmpty)
                                   IconButton(
                                     icon: const Icon(Icons.shield_outlined,
-                                        size: 18, color: Colors.indigo),
+                                        size: 18, color: AppColors.accent),
                                     tooltip: 'URL İncelemesi',
                                     onPressed: () =>
                                         _showUrlSafetyDialog(urlCandidate!),
@@ -2788,7 +3194,7 @@ class _HomeScreenState extends State<HomeScreen>
                                 if (QrPreviewDialog.isQrSupported(parsed.type))
                                   IconButton(
                                     icon: const Icon(Icons.qr_code_2,
-                                        size: 18, color: Colors.indigo),
+                                        size: 18, color: AppColors.accent),
                                     tooltip: 'QR Kod Önizleme',
                                     onPressed: () {
                                       final qrContent = parsed.type ==
@@ -2878,15 +3284,15 @@ class _HomeScreenState extends State<HomeScreen>
               ? null
               : () => _confirmAndWriteSingleTag(),
           icon: const Icon(Icons.save),
-          label: const Text('Etikete Yaz ve Doğrula'),
+          label: Text(_recordsToWrite.isEmpty
+              ? 'Etikete Yaz ve Doğrula'
+              : 'Etikete Yaz ve Doğrula ($_stagedBytesTotal Bayt)'),
           style: ElevatedButton.styleFrom(
             padding: const EdgeInsets.symmetric(vertical: 16),
-            backgroundColor: Colors.teal,
+            backgroundColor: AppColors.accent,
             foregroundColor: Colors.white,
             textStyle:
                 const TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
-            shape:
-                RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
           ),
         ),
         const SizedBox(height: 12),
@@ -2898,12 +3304,10 @@ class _HomeScreenState extends State<HomeScreen>
           label: const Text('Toplu Etiket Yazımı (2..100 Etiket)'),
           style: ElevatedButton.styleFrom(
             padding: const EdgeInsets.symmetric(vertical: 14),
-            backgroundColor: Colors.indigo,
+            backgroundColor: AppColors.accent,
             foregroundColor: Colors.white,
             textStyle:
                 const TextStyle(fontSize: 15, fontWeight: FontWeight.bold),
-            shape:
-                RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
           ),
         ),
         const SizedBox(height: 12),
@@ -2915,21 +3319,6 @@ class _HomeScreenState extends State<HomeScreen>
           style: OutlinedButton.styleFrom(
             padding: const EdgeInsets.symmetric(vertical: 14),
             side: const BorderSide(color: Colors.red),
-            shape:
-                RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
-          ),
-        ),
-        const SizedBox(height: 12),
-        OutlinedButton.icon(
-          onPressed: _controller.isBusy ? null : () => _confirmLockTag(),
-          icon: const Icon(Icons.lock, color: Colors.deepOrange),
-          label: const Text('Etiketi Kilitle (Kalıcı, Salt Okunur)',
-              style: TextStyle(color: Colors.deepOrange)),
-          style: OutlinedButton.styleFrom(
-            padding: const EdgeInsets.symmetric(vertical: 14),
-            side: const BorderSide(color: Colors.deepOrange),
-            shape:
-                RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
           ),
         ),
         if (_controller.lastWriteResult != null) ...[
@@ -2969,7 +3358,7 @@ class _HomeScreenState extends State<HomeScreen>
             child: const Text('Vazgeç'),
           ),
           ElevatedButton(
-            style: ElevatedButton.styleFrom(backgroundColor: Colors.teal),
+            style: ElevatedButton.styleFrom(backgroundColor: AppColors.accent),
             onPressed: () {
               Navigator.of(ctx).pop();
               _controller.writeRecords(_recordsToWrite);
@@ -3150,10 +3539,10 @@ class _HomeScreenState extends State<HomeScreen>
                           shape: RoundedRectangleBorder(
                               borderRadius: BorderRadius.circular(12)),
                           child: ExpansionTile(
-                            leading: CircleAvatar(
-                              backgroundColor: Colors.indigo.shade50,
+                            leading: const CircleAvatar(
+                              backgroundColor: AppColors.accentSoft,
                               child:
-                                  const Icon(Icons.nfc, color: Colors.indigo),
+                                  Icon(Icons.nfc, color: AppColors.accent),
                             ),
                             title: Text(
                               'UID: ${item.identifier}',
@@ -3191,7 +3580,7 @@ class _HomeScreenState extends State<HomeScreen>
                                           children: [
                                             OutlinedButton.icon(
                                               style: OutlinedButton.styleFrom(
-                                                foregroundColor: Colors.teal,
+                                                foregroundColor: AppColors.accent,
                                                 padding:
                                                     const EdgeInsets.symmetric(
                                                         horizontal: 8,
@@ -3212,7 +3601,7 @@ class _HomeScreenState extends State<HomeScreen>
                                             ),
                                             ElevatedButton.icon(
                                               style: ElevatedButton.styleFrom(
-                                                backgroundColor: Colors.teal,
+                                                backgroundColor: AppColors.accent,
                                                 foregroundColor: Colors.white,
                                                 padding:
                                                     const EdgeInsets.symmetric(
@@ -3254,7 +3643,7 @@ class _HomeScreenState extends State<HomeScreen>
                                                 icon: const Icon(
                                                     Icons.qr_code_2,
                                                     size: 16,
-                                                    color: Colors.indigo),
+                                                    color: AppColors.accent),
                                                 tooltip: 'QR Önizleme',
                                                 padding: EdgeInsets.zero,
                                                 constraints:
@@ -3305,8 +3694,6 @@ class _HomeScreenState extends State<HomeScreen>
         // Settings Section
         Card(
           elevation: 1,
-          shape:
-              RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
           child: Padding(
             padding: const EdgeInsets.all(16),
             child: Column(
@@ -3314,7 +3701,7 @@ class _HomeScreenState extends State<HomeScreen>
               children: [
                 const Row(
                   children: [
-                    Icon(Icons.settings, color: Colors.indigo),
+                    Icon(Icons.settings, color: AppColors.accent),
                     SizedBox(width: 8),
                     Text(
                       'Uygulama Ayarları',
@@ -3345,8 +3732,6 @@ class _HomeScreenState extends State<HomeScreen>
         // Reusable Write Templates Section
         Card(
           elevation: 1,
-          shape:
-              RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
           child: Padding(
             padding: const EdgeInsets.all(16),
             child: Column(
@@ -3357,7 +3742,7 @@ class _HomeScreenState extends State<HomeScreen>
                   children: [
                     const Row(
                       children: [
-                        Icon(Icons.bookmark, color: Colors.indigo),
+                        Icon(Icons.bookmark, color: AppColors.accent),
                         SizedBox(width: 8),
                         Text(
                           'Yazma Şablonları',
@@ -3398,10 +3783,10 @@ class _HomeScreenState extends State<HomeScreen>
                       margin: const EdgeInsets.only(bottom: 8),
                       color: Colors.grey.shade50,
                       child: ListTile(
-                        leading: CircleAvatar(
-                          backgroundColor: Colors.teal.shade50,
-                          child: const Icon(Icons.note_alt_outlined,
-                              color: Colors.teal),
+                        leading: const CircleAvatar(
+                          backgroundColor: AppColors.accentSoft,
+                          child: Icon(Icons.note_alt_outlined,
+                              color: AppColors.accent),
                         ),
                         title: Text(tpl.name,
                             style:
@@ -3415,7 +3800,7 @@ class _HomeScreenState extends State<HomeScreen>
                           children: [
                             IconButton(
                               icon: const Icon(Icons.file_upload_outlined,
-                                  color: Colors.teal),
+                                  color: AppColors.accent),
                               tooltip: 'Yazma Bestesine Aktar',
                               onPressed: () => _loadTemplateToComposer(tpl),
                             ),
@@ -3443,8 +3828,6 @@ class _HomeScreenState extends State<HomeScreen>
         // In-App Tag Rules Section
         Card(
           elevation: 1,
-          shape:
-              RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
           child: Padding(
             padding: const EdgeInsets.all(16),
             child: Column(
@@ -3455,7 +3838,7 @@ class _HomeScreenState extends State<HomeScreen>
                   children: [
                     const Row(
                       children: [
-                        Icon(Icons.rule_folder_outlined, color: Colors.indigo),
+                        Icon(Icons.rule_folder_outlined, color: AppColors.accent),
                         SizedBox(width: 8),
                         Text(
                           'Uygulama İçi Etiket Kuralları',
@@ -3490,8 +3873,6 @@ class _HomeScreenState extends State<HomeScreen>
         // Backup and Restore Section
         Card(
           elevation: 1,
-          shape:
-              RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
           child: Padding(
             padding: const EdgeInsets.all(16),
             child: Column(
@@ -3499,7 +3880,7 @@ class _HomeScreenState extends State<HomeScreen>
               children: [
                 const Row(
                   children: [
-                    Icon(Icons.backup_outlined, color: Colors.indigo),
+                    Icon(Icons.backup_outlined, color: AppColors.accent),
                     SizedBox(width: 8),
                     Text(
                       'Yedekleme ve Geri Yükleme (JSON)',
@@ -3529,7 +3910,7 @@ class _HomeScreenState extends State<HomeScreen>
                         icon: const Icon(Icons.file_upload_outlined),
                         label: const Text('İçe Aktar (Birleştir)'),
                         style: ElevatedButton.styleFrom(
-                          backgroundColor: Colors.indigo,
+                          backgroundColor: AppColors.accent,
                           foregroundColor: Colors.white,
                         ),
                         onPressed: _promptImportBackup,
@@ -3722,34 +4103,12 @@ class _HomeScreenState extends State<HomeScreen>
     );
   }
 
-  Widget _buildBottomStatusArea() {
-    return Container(
-      padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 12),
-      decoration: BoxDecoration(
-        color: Colors.grey.shade200,
-        border: Border(top: BorderSide(color: Colors.grey.shade300)),
-      ),
-      child: Row(
-        children: [
-          if (_controller.isBusy)
-            const Padding(
-              padding: EdgeInsets.only(right: 12),
-              child: SizedBox(
-                  width: 16,
-                  height: 16,
-                  child: CircularProgressIndicator(strokeWidth: 2)),
-            )
-          else
-            const Icon(Icons.info_outline, size: 18, color: Colors.blueGrey),
-          const SizedBox(width: 8),
-          Expanded(
-            child: Text(
-              _controller.statusMessage,
-              style: const TextStyle(fontSize: 13, fontWeight: FontWeight.w500),
-            ),
-          ),
-        ],
-      ),
-    );
-  }
+}
+
+class _NavDestination {
+  final String label;
+  final String title;
+  final IconData icon;
+
+  const _NavDestination(this.label, this.title, this.icon);
 }

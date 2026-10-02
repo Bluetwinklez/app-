@@ -3,6 +3,7 @@ import 'dart:typed_data';
 import 'package:flutter/material.dart';
 import '../domain/ndef_record.dart';
 import '../domain/quick_links.dart';
+import 'app_theme.dart';
 
 /// Form dialog / bottom sheet for composing or editing NDEF records
 class ComposeRecordSheet extends StatefulWidget {
@@ -555,7 +556,7 @@ class _ComposeRecordSheetState extends State<ComposeRecordSheet> {
     return Padding(
       padding: EdgeInsets.only(
         bottom: MediaQuery.of(context).viewInsets.bottom + 16,
-        top: 20,
+        top: 0,
         left: 20,
         right: 20,
       ),
@@ -630,9 +631,8 @@ class _ComposeRecordSheetState extends State<ComposeRecordSheet> {
               label: Text(_isEditing ? 'Kaydı Güncelle' : 'Listeye Ekle'),
               style: ElevatedButton.styleFrom(
                 padding: const EdgeInsets.symmetric(vertical: 14),
-                backgroundColor: _isEditing ? Colors.teal : Colors.indigo,
+                backgroundColor: _isEditing ? AppColors.accent : AppColors.accent,
                 foregroundColor: Colors.white,
-                shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),
               ),
             ),
           ],

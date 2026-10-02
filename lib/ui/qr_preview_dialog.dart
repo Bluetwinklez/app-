@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:qr_flutter/qr_flutter.dart';
 import '../domain/ndef_record.dart';
+import 'app_theme.dart';
 
 /// Modal dialog displaying a QR code preview strictly for readable Text and Web URL records.
 /// Never displays Wi-Fi credentials or passwords automatically.
@@ -50,7 +51,7 @@ class QrPreviewDialog extends StatelessWidget {
     return AlertDialog(
       title: Row(
         children: [
-          const Icon(Icons.qr_code_2, color: Colors.indigo),
+          const Icon(Icons.qr_code_2, color: AppColors.accent),
           const SizedBox(width: 8),
           Expanded(
             child: Text(

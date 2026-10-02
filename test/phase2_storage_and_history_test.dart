@@ -57,6 +57,28 @@ class MockNfcPlatformService implements NfcPlatformService {
   }
 
   int lockCalls = 0;
+  final List<Uint8List> sentCommands = [];
+  Uint8List Function(Uint8List command)? rawResponder;
+  bool rawSessionOpen = false;
+  String? lastRawError;
+
+  @override
+  Future<String> startRawSession({String promptMessage = 'Etiketi yaklaştırın'}) async {
+    rawSessionOpen = true;
+    return '04:A1:B2';
+  }
+
+  @override
+  Future<Uint8List> transceive(Uint8List command) async {
+    sentCommands.add(command);
+    return rawResponder?.call(command) ?? Uint8List.fromList([0x0A]);
+  }
+
+  @override
+  Future<void> endRawSession({String? errorMessage, String? successMessage}) async {
+    rawSessionOpen = false;
+    lastRawError = errorMessage;
+  }
 
   @override
   Future<NfcWriteResult> lockTag({
