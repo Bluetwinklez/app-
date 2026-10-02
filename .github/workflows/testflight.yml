@@ -49,6 +49,7 @@ jobs:
           flutter pub get
           flutter analyze
           flutter test
+          flutter precache --ios
           cd ios
           pod install
 
