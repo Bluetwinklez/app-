@@ -38,6 +38,10 @@ class AppColors {
 }
 
 class AppTheme {
+  /// Dark variant. Until the dark palette lands this mirrors [light] so that
+  /// choosing "dark" never produces unreadable screens.
+  static ThemeData dark() => light();
+
   static ThemeData light() {
     final scheme = ColorScheme.fromSeed(
       seedColor: AppColors.accent,

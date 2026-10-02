@@ -42,6 +42,45 @@ class NfcStateController extends ChangeNotifier {
   NdefClipboardSnapshot? get clipboardSnapshot => _clipboardSnapshot;
   TagRule? get matchingRuleForLastScan => _matchingRuleForLastScan;
 
+  /// Language codes the app ships translations for. Turkish is the source language.
+  static const List<String> supportedLanguageCodes = [
+    'tr', 'en', 'de', 'fr', 'es', 'it', 'pt', 'ru', 'ar', 'ja', 'zh', 'ko', 'nl', 'uk',
+  ];
+
+  /// Locale chosen in settings, or null to follow the device language.
+  Locale? get locale {
+    final code = _storage.localeCode;
+    return code == null ? null : Locale(code);
+  }
+
+  Future<void> setLocaleCode(String? code) async {
+    await _storage.setLocaleCode(code);
+    notifyListeners();
+  }
+
+  ThemeMode get themeMode {
+    switch (_storage.themeMode) {
+      case 'light':
+        return ThemeMode.light;
+      case 'dark':
+        return ThemeMode.dark;
+      default:
+        return ThemeMode.system;
+    }
+  }
+
+  Future<void> setThemeMode(ThemeMode mode) async {
+    await _storage.setThemeMode(mode.name);
+    notifyListeners();
+  }
+
+  bool get onboardingDone => _storage.onboardingDone;
+
+  Future<void> setOnboardingDone(bool done) async {
+    await _storage.setOnboardingDone(done);
+    notifyListeners();
+  }
+
   /// Computes the SHA-256 hex digest for the given records or last scanned tag
   static String computeRecordsSha256(List<NdefRecordModel> records) {
     if (records.isEmpty) return '';
