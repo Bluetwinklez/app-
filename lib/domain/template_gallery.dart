@@ -1,3 +1,4 @@
+import '../l10n/l10n.dart';
 import 'ndef_record.dart';
 import 'quick_links.dart';
 
@@ -45,7 +46,7 @@ class GalleryPreset {
     final clean = {for (final e in values.entries) e.key: e.value.trim()};
     for (final field in fields) {
       if (field.required && (clean[field.key] ?? '').isEmpty) {
-        throw QuickLinkException('"${field.label}" boş bırakılamaz.');
+        throw QuickLinkException(L10n.current.fieldCannotBeEmpty(field.label));
       }
     }
     return build(clean);
@@ -60,19 +61,19 @@ String? _opt(Map<String, String> v, String key) {
 String _phoneDigits(String phone) => phone.replaceAll(RegExp(r'[^\d+]'), '');
 
 class TemplateGallery {
-  static final List<GalleryPreset> presets = [
+  static List<GalleryPreset> get presets => [
     GalleryPreset(
       id: 'business_card',
-      title: 'Dijital Kartvizit',
-      description: 'Telefona dokununca kişi kartınız rehbere eklenir.',
+      title: L10n.current.presetBusinessCardTitle,
+      description: L10n.current.presetBusinessCardDesc,
       icon: 'badge',
-      fields: const [
-        GalleryField('name', 'Ad Soyad', hint: 'Ayşe Yılmaz'),
-        GalleryField('title', 'Unvan', hint: 'Satış Müdürü', required: false),
-        GalleryField('company', 'Şirket', hint: 'Örnek A.Ş.', required: false),
-        GalleryField('phone', 'Telefon', hint: '+90 555 111 22 33', kind: GalleryFieldKind.phone, required: false),
-        GalleryField('email', 'E-posta', hint: 'ayse@ornek.com', kind: GalleryFieldKind.email, required: false),
-        GalleryField('website', 'Web Sitesi', hint: 'https://ornek.com', kind: GalleryFieldKind.url, required: false),
+      fields: [
+        GalleryField('name', L10n.current.contactFullName, hint: 'Ayşe Yılmaz'),
+        GalleryField('title', L10n.current.contactTitle, hint: 'Satış Müdürü', required: false),
+        GalleryField('company', L10n.current.contactCompany, hint: 'Örnek A.Ş.', required: false),
+        GalleryField('phone', L10n.current.contactPhone, hint: '+90 555 111 22 33', kind: GalleryFieldKind.phone, required: false),
+        GalleryField('email', L10n.current.contactEmail, hint: 'ayse@ornek.com', kind: GalleryFieldKind.email, required: false),
+        GalleryField('website', L10n.current.contactWebsite, hint: 'https://ornek.com', kind: GalleryFieldKind.url, required: false),
       ],
       build: (v) {
         final parts = v['name']!.split(RegExp(r'\s+'));
@@ -94,17 +95,17 @@ class TemplateGallery {
     ),
     GalleryPreset(
       id: 'guest_wifi',
-      title: 'Misafir Wi-Fi Kartı',
-      description: 'Misafirler şifre yazmadan ağa bağlanır.',
+      title: L10n.current.presetGuestWifiTitle,
+      description: L10n.current.presetGuestWifiDesc,
       icon: 'wifi',
-      fields: const [
-        GalleryField('ssid', 'Ağ Adı (SSID)', hint: 'Ev_Misafir'),
-        GalleryField('password', 'Şifre', hint: 'En az 8 karakter (boşsa açık ağ)', kind: GalleryFieldKind.password, required: false),
+      fields: [
+        GalleryField('ssid', L10n.current.wifiSsid, hint: 'Ev_Misafir'),
+        GalleryField('password', L10n.current.wifiPassword, hint: 'En az 8 karakter (boşsa açık ağ)', kind: GalleryFieldKind.password, required: false),
       ],
       build: (v) {
         final password = v['password'] ?? '';
         if (password.isNotEmpty && (password.length < 8 || password.length > 63)) {
-          throw const QuickLinkException('Wi-Fi şifresi 8-63 karakter olmalıdır.');
+          throw QuickLinkException(L10n.current.csvWifiPasswordLength);
         }
         final open = password.isEmpty;
         return [
@@ -119,8 +120,8 @@ class TemplateGallery {
     ),
     GalleryPreset(
       id: 'google_review',
-      title: 'Google Yorum Bağlantısı',
-      description: 'Müşteriler dokunup işletmenize doğrudan yorum yazar.',
+      title: L10n.current.presetGoogleReviewTitle,
+      description: L10n.current.presetGoogleReviewDesc,
       icon: 'star',
       fields: const [
         GalleryField('link', 'Yorum Bağlantısı veya Place ID',
@@ -136,8 +137,8 @@ class TemplateGallery {
     ),
     GalleryPreset(
       id: 'menu',
-      title: 'Restoran Menüsü',
-      description: 'Masadaki etikete dokununca dijital menü açılır.',
+      title: L10n.current.presetMenuLinkTitle,
+      description: L10n.current.presetMenuLinkDesc,
       icon: 'menu',
       fields: const [
         GalleryField('url', 'Menü Bağlantısı', hint: 'https://restoran.com/menu', kind: GalleryFieldKind.url),
@@ -151,8 +152,8 @@ class TemplateGallery {
     ),
     GalleryPreset(
       id: 'pet_tag',
-      title: 'Evcil Hayvan Künyesi',
-      description: 'Kaybolursa bulan kişi sizi tek dokunuşla arar.',
+      title: L10n.current.presetPetTagTitle,
+      description: L10n.current.presetPetTagDesc,
       icon: 'pets',
       fields: const [
         GalleryField('pet', 'Hayvanın Adı', hint: 'Pamuk'),
@@ -167,22 +168,22 @@ class TemplateGallery {
     ),
     GalleryPreset(
       id: 'instagram',
-      title: 'Instagram Profili',
-      description: 'Dokunan kişi profilinizi açıp takip eder.',
+      title: L10n.current.presetInstagramTitle,
+      description: L10n.current.presetInstagramDesc,
       icon: 'camera',
-      fields: const [
-        GalleryField('user', 'Kullanıcı Adı', hint: '@kullaniciadi'),
+      fields: [
+        GalleryField('user', L10n.current.socialUsername, hint: '@kullaniciadi'),
       ],
       build: (v) => [NdefCodec.encodeUri(QuickLinkBuilder.socialUrl(SocialNetwork.instagram, v['user']!))],
     ),
     GalleryPreset(
       id: 'whatsapp',
-      title: 'WhatsApp Mesajı',
-      description: 'Hazır mesajla WhatsApp sohbeti açılır.',
+      title: L10n.current.presetWhatsappTitle,
+      description: L10n.current.presetWhatsappDesc,
       icon: 'chat',
-      fields: const [
-        GalleryField('phone', 'Telefon (ülke koduyla)', hint: '905551112233', kind: GalleryFieldKind.phone),
-        GalleryField('message', 'Hazır Mesaj', hint: 'Merhaba, bilgi almak istiyorum', kind: GalleryFieldKind.multiline, required: false),
+      fields: [
+        GalleryField('phone', L10n.current.contactPhone, hint: '905551112233', kind: GalleryFieldKind.phone),
+        GalleryField('message', L10n.current.smsMessage, hint: 'Merhaba, bilgi almak istiyorum', kind: GalleryFieldKind.multiline, required: false),
       ],
       build: (v) {
         final base = QuickLinkBuilder.socialUrl(SocialNetwork.whatsapp, v['phone']!);
@@ -192,14 +193,14 @@ class TemplateGallery {
     ),
     GalleryPreset(
       id: 'emergency',
-      title: 'Acil Durum Bilgisi',
-      description: 'Kan grubu, alerjiler ve acil durumda aranacak kişi.',
+      title: L10n.current.presetEmergencyTitle,
+      description: L10n.current.presetEmergencyDesc,
       icon: 'medical',
-      fields: const [
-        GalleryField('name', 'Ad Soyad', hint: 'Ayşe Yılmaz'),
-        GalleryField('blood', 'Kan Grubu', hint: 'A Rh+', required: false),
-        GalleryField('allergies', 'Alerjiler / İlaçlar', hint: 'Penisilin', kind: GalleryFieldKind.multiline, required: false),
-        GalleryField('contact', 'Acil Durumda Aranacak', hint: '+90 555 111 22 33', kind: GalleryFieldKind.phone),
+      fields: [
+        GalleryField('name', L10n.current.contactFullName, hint: 'Ayşe Yılmaz'),
+        const GalleryField('blood', 'Kan Grubu', hint: 'A Rh+', required: false),
+        const GalleryField('allergies', 'Alerjiler / İlaçlar', hint: 'Penisilin', kind: GalleryFieldKind.multiline, required: false),
+        const GalleryField('contact', 'Acil Durumda Aranacak', hint: '+90 555 111 22 33', kind: GalleryFieldKind.phone),
       ],
       build: (v) {
         final lines = [
@@ -214,8 +215,8 @@ class TemplateGallery {
     ),
     GalleryPreset(
       id: 'app_download',
-      title: 'Uygulama İndirme',
-      description: 'App Store veya Google Play sayfanızı açar.',
+      title: L10n.current.presetAppDownloadTitle,
+      description: L10n.current.presetAppDownloadDesc,
       icon: 'download',
       fields: const [
         GalleryField('url', 'Mağaza Bağlantısı', hint: 'https://apps.apple.com/...', kind: GalleryFieldKind.url),
@@ -224,8 +225,8 @@ class TemplateGallery {
     ),
     GalleryPreset(
       id: 'location',
-      title: 'Konum / Yol Tarifi',
-      description: 'Adresiniz haritada açılır, yol tarifi alınır.',
+      title: L10n.current.presetDirectionsTitle,
+      description: L10n.current.presetDirectionsDesc,
       icon: 'place',
       fields: const [
         GalleryField('address', 'Adres', hint: 'Bağdat Cad. No:1 Kadıköy İstanbul', kind: GalleryFieldKind.multiline),
@@ -234,12 +235,12 @@ class TemplateGallery {
     ),
     GalleryPreset(
       id: 'website',
-      title: 'Web Sitesi / Portfolyo',
-      description: 'Sitenizi başlığıyla birlikte açar.',
+      title: L10n.current.presetWebsiteTitle,
+      description: L10n.current.presetWebsiteDesc,
       icon: 'web',
-      fields: const [
-        GalleryField('url', 'Web Adresi', hint: 'https://ornek.com', kind: GalleryFieldKind.url),
-        GalleryField('title', 'Başlık', hint: 'Portfolyom', required: false),
+      fields: [
+        GalleryField('url', L10n.current.contactWebsite, hint: 'https://ornek.com', kind: GalleryFieldKind.url),
+        const GalleryField('title', 'Başlık', hint: 'Portfolyom', required: false),
       ],
       build: (v) {
         final url = QuickLinkBuilder.httpsUrl(v['url']!, emptyMessage: 'Web adresi');
@@ -249,8 +250,8 @@ class TemplateGallery {
     ),
     GalleryPreset(
       id: 'shortcut_trigger',
-      title: 'Kısayol Tetikleyici',
-      description: 'Etikete dokununca bu uygulama açılıp taramaya başlar.',
+      title: L10n.current.presetShortcutTitle,
+      description: L10n.current.presetShortcutDesc,
       icon: 'bolt',
       fields: const [],
       build: (_) => [NdefCodec.encodeUri('nfctagmaster://scan')],

@@ -19,6 +19,9 @@ import 'tag_rules_manager_sheet.dart';
 import 'app_theme.dart';
 import 'tools_tab.dart';
 import 'qr_scan_page.dart';
+import 'package:intl/intl.dart';
+import '../l10n/app_localizations.dart';
+import '../l10n/l10n.dart';
 import '../domain/csv_records.dart';
 
 class HomeScreen extends StatefulWidget {
@@ -1943,27 +1946,26 @@ class _HomeScreenState extends State<HomeScreen>
     }
   }
 
-  static const List<_NavDestination> _destinations = [
-    _NavDestination('Oku', 'Etiket Oku', Icons.nfc_rounded),
-    _NavDestination('Yaz', 'Etiket Yaz', Icons.edit_note_rounded),
-    _NavDestination('Araçlar', 'Araçlar', Icons.handyman_outlined),
-    _NavDestination('Geçmiş', 'Geçmiş', Icons.history_rounded),
-    _NavDestination('Ayarlar', 'Şablonlar & Ayarlar', Icons.tune_rounded),
-  ];
+  List<_NavDestination> _getDestinations(BuildContext context) {
+    final loc = AppLocalizations.of(context) ?? L10n.current;
+    return [
+      _NavDestination(loc.navRead, loc.navReadTitle, Icons.nfc_rounded),
+      _NavDestination(loc.navWrite, loc.navWriteTitle, Icons.edit_note_rounded),
+      _NavDestination(loc.navTools, loc.navToolsTitle, Icons.handyman_outlined),
+      _NavDestination(loc.navHistory, loc.navHistoryTitle, Icons.history_rounded),
+      _NavDestination(loc.navSettings, loc.navSettingsTitle, Icons.tune_rounded),
+    ];
+  }
 
-  static const List<String> _monthNames = [
-    'Ocak', 'Şubat', 'Mart', 'Nisan', 'Mayıs', 'Haziran',
-    'Temmuz', 'Ağustos', 'Eylül', 'Ekim', 'Kasım', 'Aralık',
-  ];
-
-  String get _todayLabel {
-    final now = DateTime.now();
-    return '${now.day} ${_monthNames[now.month - 1]} ${now.year}';
+  String _todayLabel(BuildContext context) {
+    final localeName = Localizations.localeOf(context).toString();
+    return DateFormat.yMMMMd(localeName).format(DateTime.now());
   }
 
   @override
   Widget build(BuildContext context) {
-    final current = _destinations[_tabController.index];
+    final destinations = _getDestinations(context);
+    final current = destinations[_tabController.index];
     return DecoratedBox(
       decoration: const BoxDecoration(gradient: AppColors.canvasGradient),
       child: Scaffold(
@@ -1972,7 +1974,7 @@ class _HomeScreenState extends State<HomeScreen>
           bottom: false,
           child: Column(
             children: [
-              _buildHeader(current.title),
+              _buildHeader(current.title, context),
               _buildClipboardBanner(),
               Expanded(
                 child: TabBarView(
@@ -1993,12 +1995,12 @@ class _HomeScreenState extends State<HomeScreen>
             ],
           ),
         ),
-        bottomNavigationBar: _buildFloatingNav(),
+        bottomNavigationBar: _buildFloatingNav(destinations),
       ),
     );
   }
 
-  Widget _buildHeader(String title) {
+  Widget _buildHeader(String title, BuildContext context) {
     return Padding(
       padding: const EdgeInsets.fromLTRB(20, 12, 16, 8),
       child: Column(
@@ -2023,7 +2025,7 @@ class _HomeScreenState extends State<HomeScreen>
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Text(
-                      _todayLabel,
+                      _todayLabel(context),
                       style: const TextStyle(fontSize: 13, color: AppColors.secondary),
                     ),
                     Text(
@@ -2075,14 +2077,14 @@ class _HomeScreenState extends State<HomeScreen>
           if (_controller.isBusy)
             TextButton(
               onPressed: () => _controller.cancelSession(),
-              child: const Text('İptal'),
+              child: Text(AppLocalizations.of(context)?.cancel ?? L10n.current.cancel),
             ),
         ],
       ),
     );
   }
 
-  Widget _buildFloatingNav() {
+  Widget _buildFloatingNav(List<_NavDestination> destinations) {
     return SafeArea(
       top: false,
       child: Padding(
@@ -2101,8 +2103,8 @@ class _HomeScreenState extends State<HomeScreen>
                 ),
                 child: Row(
                   children: [
-                    for (int i = 0; i < _destinations.length; i++)
-                      Expanded(child: _buildNavItem(i)),
+                    for (int i = 0; i < destinations.length; i++)
+                      Expanded(child: _buildNavItem(i, destinations[i])),
                   ],
                 ),
               ),
@@ -2115,8 +2117,7 @@ class _HomeScreenState extends State<HomeScreen>
     );
   }
 
-  Widget _buildNavItem(int index) {
-    final destination = _destinations[index];
+  Widget _buildNavItem(int index, _NavDestination destination) {
     final selected = _tabController.index == index;
     final color = selected ? AppColors.ink : AppColors.secondary.withValues(alpha: 0.8);
     return Semantics(
@@ -2156,7 +2157,7 @@ class _HomeScreenState extends State<HomeScreen>
   Widget _buildScanFab() {
     return Semantics(
       button: true,
-      label: 'Etiketi tara',
+      label: AppLocalizations.of(context)?.scanFabLabel ?? L10n.current.scanFabLabel,
       child: GestureDetector(
         onTap: _controller.isBusy
             ? null
@@ -3688,9 +3689,76 @@ class _HomeScreenState extends State<HomeScreen>
     final templates = _controller.storage.getTemplates();
     final isHistoryEnabled = _controller.storage.isHistoryEnabled;
 
+    final loc = AppLocalizations.of(context) ?? L10n.current;
+    const languages = [
+      ('tr', 'Türkçe'),
+      ('en', 'English'),
+      ('de', 'Deutsch'),
+      ('fr', 'Français'),
+      ('es', 'Español'),
+      ('it', 'Italiano'),
+      ('pt', 'Português'),
+      ('ru', 'Русский'),
+      ('ar', 'العربية'),
+      ('ja', '日本語'),
+      ('zh', '中文'),
+      ('ko', '한국어'),
+      ('nl', 'Nederlands'),
+      ('uk', 'Українська'),
+    ];
+    final currentLocaleCode = _controller.locale?.languageCode;
+
     return ListView(
       padding: const EdgeInsets.all(16),
       children: [
+        // Language Picker Section
+        Card(
+          elevation: 1,
+          child: Padding(
+            padding: const EdgeInsets.all(16),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Row(
+                  children: [
+                    const Icon(Icons.language, color: AppColors.accent),
+                    const SizedBox(width: 8),
+                    Text(
+                      loc.languageTitle,
+                      style: const TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
+                    ),
+                  ],
+                ),
+                const Divider(),
+                ListTile(
+                  contentPadding: EdgeInsets.zero,
+                  title: Text(loc.systemLanguage),
+                  trailing: currentLocaleCode == null
+                      ? const Icon(Icons.check, color: AppColors.accent)
+                      : null,
+                  onTap: () async {
+                    await _controller.setLocaleCode(null);
+                    setState(() {});
+                  },
+                ),
+                for (final (code, name) in languages)
+                  ListTile(
+                    contentPadding: EdgeInsets.zero,
+                    title: Text(name),
+                    trailing: currentLocaleCode == code
+                        ? const Icon(Icons.check, color: AppColors.accent)
+                        : null,
+                    onTap: () async {
+                      await _controller.setLocaleCode(code);
+                      setState(() {});
+                    },
+                  ),
+              ],
+            ),
+          ),
+        ),
+        const SizedBox(height: 16),
+
         // Settings Section
         Card(
           elevation: 1,
@@ -3699,24 +3767,21 @@ class _HomeScreenState extends State<HomeScreen>
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                const Row(
+                Row(
                   children: [
-                    Icon(Icons.settings, color: AppColors.accent),
-                    SizedBox(width: 8),
+                    const Icon(Icons.settings, color: AppColors.accent),
+                    const SizedBox(width: 8),
                     Text(
-                      'Uygulama Ayarları',
-                      style:
-                          TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
+                      loc.appSettings,
+                      style: const TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
                     ),
                   ],
                 ),
                 const Divider(),
                 SwitchListTile(
                   contentPadding: EdgeInsets.zero,
-                  title: const Text('Yerel Tarama Geçmişini Kaydet'),
-                  subtitle: const Text(
-                    'Kapalıyken taramalar cihazda tutulmaz. Açıldığında başarılı taramalar yerel belleğe kaydedilir. Hatalı taramalar asla kaydedilmez.',
-                  ),
+                  title: Text(loc.saveLocalHistory),
+                  subtitle: Text(loc.saveLocalHistorySubtitle),
                   value: isHistoryEnabled,
                   onChanged: (val) async {
                     await _controller.storage.setHistoryEnabled(val);

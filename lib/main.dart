@@ -1,12 +1,14 @@
 import 'dart:io';
 import 'package:flutter/material.dart';
-import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:path_provider/path_provider.dart';
 import 'controllers/nfc_controller.dart';
 import 'services/app_storage_service.dart';
 import 'services/nfc_service.dart';
 import 'ui/home_screen.dart';
 import 'ui/app_theme.dart';
+
+import 'l10n/app_localizations.dart';
+import 'l10n/l10n.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -49,17 +51,25 @@ class NfcTagMasterApp extends StatelessWidget {
 
   Widget _buildApp(NfcStateController? appController) {
     return MaterialApp(
-      title: 'NFC Etiket Yöneticisi',
+      onGenerateTitle: (context) => AppLocalizations.of(context)?.appTitle ?? L10n.current.appTitle,
       debugShowCheckedModeBanner: false,
-      locale: appController?.locale ?? const Locale('tr'),
-      supportedLocales: [
-        for (final code in NfcStateController.supportedLanguageCodes) Locale(code),
-      ],
-      localizationsDelegates: const [
-        GlobalMaterialLocalizations.delegate,
-        GlobalWidgetsLocalizations.delegate,
-        GlobalCupertinoLocalizations.delegate,
-      ],
+      locale: appController?.locale,
+      supportedLocales: AppLocalizations.supportedLocales,
+      localizationsDelegates: AppLocalizations.localizationsDelegates,
+      localeResolutionCallback: (deviceLocale, supportedLocales) {
+        if (deviceLocale != null) {
+          for (final supportedLocale in supportedLocales) {
+            if (supportedLocale.languageCode == deviceLocale.languageCode) {
+              return supportedLocale;
+            }
+          }
+        }
+        return const Locale('en');
+      },
+      builder: (context, child) {
+        L10n.update(Localizations.localeOf(context));
+        return child ?? const SizedBox.shrink();
+      },
       theme: AppTheme.light(),
       darkTheme: AppTheme.dark(),
       themeMode: appController?.themeMode ?? ThemeMode.light,

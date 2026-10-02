@@ -1,5 +1,6 @@
 import 'dart:convert';
 import 'dart:typed_data';
+import '../l10n/l10n.dart';
 import 'ndef_record.dart';
 
 /// In-memory snapshot of NDEF records copied to clipboard
@@ -80,7 +81,7 @@ class UrlSafetyAssessment {
         uri = Uri.tryParse(trimmed);
       }
     } catch (_) {
-      warnings.add('Geçersiz veya ayrıştırılamayan URL biçimi.');
+      warnings.add(L10n.current.urlSafetyInvalidUrl);
     }
 
     final hasOrigScheme = trimmed.contains('://') || (trimmed.contains(':') && !trimmed.startsWith(':'));
@@ -94,17 +95,17 @@ class UrlSafetyAssessment {
     // Check scheme
     bool isSuspiciousScheme = false;
     if (scheme.isEmpty) {
-      warnings.add('URL protokol şeması (http/https vb.) eksik veya tanımsız.');
+      warnings.add(L10n.current.urlSafetyMissingScheme);
     } else if (scheme != 'http' && scheme != 'https') {
       isSuspiciousScheme = true;
-      warnings.add('Standart dışı URL şeması: "$scheme". Cihazda beklenmeyen bir uygulamayı tetikleyebilir.');
+      warnings.add(L10n.current.urlSafetySuspiciousScheme(scheme));
     } else if (scheme == 'http') {
-      warnings.add('Şifrelenmemiş bağlantı (http://). Veriler ağ üzerinde açık iletilir.');
+      warnings.add(L10n.current.urlSafetyUnencrypted);
     }
 
     // Check userInfo
     if (hasUserInfo) {
-      warnings.add('URL kimlik doğrulama/kullanıcı bilgisi içeriyor (userinfo). Oltalama/yanıltma amaçlı olabilir.');
+      warnings.add(L10n.current.urlSafetyUserInfo);
     }
 
     // Check IP literal (IPv4 or IPv6)
@@ -115,22 +116,22 @@ class UrlSafetyAssessment {
       return n != null && n >= 0 && n <= 255;
     })) {
       isIpLiteral = true;
-      warnings.add('Hedef adres doğrudan IPv4 adresi içeriyor. Standart alan adı yerine IP kullanımı dikkat gerektirir.');
+      warnings.add(L10n.current.urlSafetyIpv4);
     } else if (host.contains(':')) {
       isIpLiteral = true;
-      warnings.add('Hedef adres IPv6 adresi içeriyor.');
+      warnings.add(L10n.current.urlSafetyIpv6);
     }
 
     // Check Punycode (IDN homograph attack indicator)
     bool isPunycode = false;
     if (host.contains('xn--')) {
       isPunycode = true;
-      warnings.add('Uluslararası alan adı / Punycode tespit edildi ("xn--"). Benzer harflerle yanıltma (homoglif saldırısı) olabilir.');
+      warnings.add(L10n.current.urlSafetyPunycode);
     }
 
     // Port check
     if (port != null && port != 80 && port != 443) {
-      warnings.add('Standart dışı ağ bağlantı noktası (Port: $port).');
+      warnings.add(L10n.current.urlSafetyNonStandardPort(port.toString()));
     }
 
     return UrlSafetyAssessment(
