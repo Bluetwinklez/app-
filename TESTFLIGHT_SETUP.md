@@ -5,8 +5,8 @@ Bu projedeki [TestFlight iş akışı](.github/workflows/testflight.yml), `ios-v
 ## Bir kez yapılacaklar
 
 1. Projeyi kendi **özel** GitHub deposuna gönder. Bu klasörde `git remote -v` henüz boşsa önce depoyu yerel Git'e bağlamak gerekir.
-2. Apple Developer portalında benzersiz explicit Bundle ID oluştur ve **Near Field Communication Tag Reading** yeteneğini aç. Aynı Bundle ID ile App Store Connect'te bir iOS uygulama kaydı oluştur.
-3. Apple Distribution sertifikası ve **App Store** dağıtım provisioning profile oluştur. Önceki Ad Hoc profilini burada kullanma. Sertifikanın özel anahtarıyla beraber dışa aktarılmış `.p12` dosyasına ihtiyacın var.
+2. Apple Developer portalında explicit Bundle ID `com.bluetwinklez.nfctagmaster` ve **NFC Tag Reading** yeteneği oluşturuldu. Team ID `65S88D9LF5`. App Store Connect'te `NFC Etiket Yöneticisi` iOS uygulama kaydı oluşturuldu.
+3. Apple Distribution sertifikası ve `NFC Tag Master App Store` dağıtım profili oluşturuldu. Sertifika ve `.p12` yerel imzalama klasöründedir. Profilin `.mobileprovision` dosyasını indirip güvenli sakla.
 4. App Store Connect → Users and Access → Integrations → App Store Connect API bölümünde erişimi etkinleştirip uygun yetkili bir API anahtarı oluştur. `.p8` özel anahtarı yalnızca bir kez indirilebilir; güvenli sakla.
 5. GitHub deposunda **Settings → Secrets and variables → Actions** bölümüne aşağıdaki repository secrets'ı ekle:
 
@@ -15,8 +15,8 @@ Bu projedeki [TestFlight iş akışı](.github/workflows/testflight.yml), `ios-v
 | `IOS_APPSTORE_P12_BASE64` | Apple Distribution `.p12` dosyasının Base64 içeriği |
 | `IOS_APPSTORE_P12_PASSWORD` | `.p12` parolası |
 | `IOS_APPSTORE_PROFILE_BASE64` | App Store `.mobileprovision` dosyasının Base64 içeriği |
-| `IOS_BUNDLE_ID` | Apple'da kaydettiğin explicit Bundle ID |
-| `IOS_TEAM_ID` | Apple Developer Team ID |
+| `IOS_BUNDLE_ID` | `com.bluetwinklez.nfctagmaster` |
+| `IOS_TEAM_ID` | `65S88D9LF5` |
 | `ASC_API_KEY_ID` | App Store Connect API Key ID |
 | `ASC_API_ISSUER_ID` | App Store Connect API Issuer ID |
 | `ASC_API_PRIVATE_KEY_BASE64` | İndirilen `.p8` dosyasının Base64 içeriği |
