@@ -2,6 +2,7 @@ import 'dart:convert';
 import 'dart:typed_data';
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
+import 'package:nfc_tag_master/l10n/app_localizations.dart';
 import 'package:nfc_tag_master/domain/ndef_record.dart';
 import 'package:nfc_tag_master/ui/compose_record_sheet.dart';
 
@@ -17,6 +18,9 @@ void main() {
 
     await tester.pumpWidget(
       MaterialApp(
+        locale: const Locale('tr'),
+        localizationsDelegates: AppLocalizations.localizationsDelegates,
+        supportedLocales: AppLocalizations.supportedLocales,
         home: Scaffold(
           body: ComposeRecordSheet(
             onRecordCreated: (rec) => createdRecord = rec,
@@ -44,6 +48,9 @@ void main() {
 
     await tester.pumpWidget(
       MaterialApp(
+        locale: const Locale('tr'),
+        localizationsDelegates: AppLocalizations.localizationsDelegates,
+        supportedLocales: AppLocalizations.supportedLocales,
         home: Scaffold(
           body: ComposeRecordSheet(
             onRecordCreated: (rec) => createdRecord = rec,
@@ -53,7 +60,7 @@ void main() {
     );
 
     // Switch to URL
-    await tester.tap(find.text('URL / Web'));
+    await tester.tap(find.text('Web URL'));
     await tester.pumpAndSettle();
 
     // Enter invalid URL
@@ -76,6 +83,9 @@ void main() {
 
     await tester.pumpWidget(
       MaterialApp(
+        locale: const Locale('tr'),
+        localizationsDelegates: AppLocalizations.localizationsDelegates,
+        supportedLocales: AppLocalizations.supportedLocales,
         home: Scaffold(
           body: ComposeRecordSheet(
             onRecordCreated: (rec) => createdRecord = rec,
@@ -85,7 +95,7 @@ void main() {
     );
 
     // Switch to Wi-Fi
-    await tester.tap(find.text('Wi-Fi Ayarı'));
+    await tester.tap(find.text('Wi-Fi'));
     await tester.pumpAndSettle();
 
     // Verify presence of security disclosure notice
@@ -123,6 +133,9 @@ void main() {
 
     await tester.pumpWidget(
       MaterialApp(
+        locale: const Locale('tr'),
+        localizationsDelegates: AppLocalizations.localizationsDelegates,
+        supportedLocales: AppLocalizations.supportedLocales,
         home: Scaffold(
           body: ComposeRecordSheet(
             onRecordCreated: (rec) => createdRecord = rec,
