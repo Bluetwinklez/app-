@@ -13,6 +13,18 @@ abstract class AppStorageService {
   bool get isHistoryEnabled;
   Future<void> setHistoryEnabled(bool enabled);
 
+  // Settings: UI preferences
+  /// Language code chosen by the user (e.g. `tr`, `en`), or null to follow the device.
+  String? get localeCode;
+  Future<void> setLocaleCode(String? code);
+
+  /// `system`, `light` or `dark`.
+  String get themeMode;
+  Future<void> setThemeMode(String mode);
+
+  bool get onboardingDone;
+  Future<void> setOnboardingDone(bool done);
+
   // Scan History
   List<ScanHistoryEntry> getHistory();
   Future<void> addHistoryEntry(ScanHistoryEntry entry);
@@ -45,6 +57,9 @@ abstract class AppStorageService {
 /// In-memory storage implementation (excellent for unit tests and fallback)
 class InMemoryAppStorageService implements AppStorageService {
   bool _historyEnabled = false;
+  String? _localeCode;
+  String _themeMode = 'system';
+  bool _onboardingDone = false;
   final List<ScanHistoryEntry> _history = [];
   final List<WriteTemplate> _templates = [];
   final Map<String, TagRule> _rules = {};
@@ -58,6 +73,30 @@ class InMemoryAppStorageService implements AppStorageService {
   @override
   Future<void> setHistoryEnabled(bool enabled) async {
     _historyEnabled = enabled;
+  }
+
+  @override
+  String? get localeCode => _localeCode;
+
+  @override
+  Future<void> setLocaleCode(String? code) async {
+    _localeCode = code;
+  }
+
+  @override
+  String get themeMode => _themeMode;
+
+  @override
+  Future<void> setThemeMode(String mode) async {
+    _themeMode = mode;
+  }
+
+  @override
+  bool get onboardingDone => _onboardingDone;
+
+  @override
+  Future<void> setOnboardingDone(bool done) async {
+    _onboardingDone = done;
   }
 
   @override
@@ -203,6 +242,9 @@ class LocalFileAppStorageService implements AppStorageService {
   final String baseDirectoryPath;
 
   bool _isHistoryEnabled = false;
+  String? _localeCode;
+  String _themeMode = 'system';
+  bool _onboardingDone = false;
   final List<ScanHistoryEntry> _history = [];
   final List<WriteTemplate> _templates = [];
   final Map<String, TagRule> _rules = {};
@@ -229,6 +271,9 @@ class LocalFileAppStorageService implements AppStorageService {
         if (content.trim().isNotEmpty) {
           final data = jsonDecode(content) as Map<String, dynamic>;
           _isHistoryEnabled = data['historyEnabled'] as bool? ?? false;
+          _localeCode = data['localeCode'] as String?;
+          _themeMode = data['themeMode'] as String? ?? 'system';
+          _onboardingDone = data['onboardingDone'] as bool? ?? false;
         }
       }
     } catch (e) {
@@ -344,8 +389,40 @@ class LocalFileAppStorageService implements AppStorageService {
   }
 
   Future<void> _saveSettings() async {
-    final data = jsonEncode({'historyEnabled': _isHistoryEnabled});
+    final data = jsonEncode({
+      'historyEnabled': _isHistoryEnabled,
+      'localeCode': _localeCode,
+      'themeMode': _themeMode,
+      'onboardingDone': _onboardingDone,
+    });
     await _atomicWrite(_settingsFile, data);
+  }
+
+  @override
+  String? get localeCode => _localeCode;
+
+  @override
+  Future<void> setLocaleCode(String? code) async {
+    _localeCode = code;
+    await _saveSettings();
+  }
+
+  @override
+  String get themeMode => _themeMode;
+
+  @override
+  Future<void> setThemeMode(String mode) async {
+    _themeMode = mode;
+    await _saveSettings();
+  }
+
+  @override
+  bool get onboardingDone => _onboardingDone;
+
+  @override
+  Future<void> setOnboardingDone(bool done) async {
+    _onboardingDone = done;
+    await _saveSettings();
   }
 
   @override

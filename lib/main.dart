@@ -39,13 +39,21 @@ class NfcTagMasterApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final appController = controller;
+    if (appController == null) return _buildApp(null);
+    return ListenableBuilder(
+      listenable: appController,
+      builder: (context, _) => _buildApp(appController),
+    );
+  }
+
+  Widget _buildApp(NfcStateController? appController) {
     return MaterialApp(
       title: 'NFC Etiket Yöneticisi',
       debugShowCheckedModeBanner: false,
-      locale: const Locale('tr', 'TR'),
-      supportedLocales: const [
-        Locale('tr', 'TR'),
-        Locale('en', 'US'),
+      locale: appController?.locale ?? const Locale('tr'),
+      supportedLocales: [
+        for (final code in NfcStateController.supportedLanguageCodes) Locale(code),
       ],
       localizationsDelegates: const [
         GlobalMaterialLocalizations.delegate,
@@ -53,6 +61,8 @@ class NfcTagMasterApp extends StatelessWidget {
         GlobalCupertinoLocalizations.delegate,
       ],
       theme: AppTheme.light(),
+      darkTheme: AppTheme.dark(),
+      themeMode: appController?.themeMode ?? ThemeMode.light,
       home: HomeScreen(controller: controller),
     );
   }
