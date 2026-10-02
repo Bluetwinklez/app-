@@ -3,6 +3,7 @@ import 'dart:io';
 import 'package:flutter/foundation.dart';
 import '../domain/storage_models.dart';
 import '../domain/tag_rule.dart';
+import '../domain/tag_library.dart';
 import 'backup_codec.dart';
 
 /// Abstract storage service for app settings, scan history, write templates, and tag rules.
@@ -44,6 +45,11 @@ abstract class AppStorageService {
   Future<void> deleteTagRule(String ndefSha256);
   Future<void> clearTagRules();
 
+  // Tag library (named physical tags)
+  List<TagLibraryEntry> getLibrary();
+  Future<void> saveLibraryEntry(TagLibraryEntry entry);
+  Future<void> deleteLibraryEntry(String id);
+
   // Backup & Merge Import
   /// Merges imported templates, rules, and optional history.
   /// Does NOT wipe existing data.
@@ -63,9 +69,28 @@ class InMemoryAppStorageService implements AppStorageService {
   final List<ScanHistoryEntry> _history = [];
   final List<WriteTemplate> _templates = [];
   final Map<String, TagRule> _rules = {};
+  final List<TagLibraryEntry> _library = [];
 
   @override
   Future<void> init() async {}
+
+  @override
+  List<TagLibraryEntry> getLibrary() => List.unmodifiable(_library);
+
+  @override
+  Future<void> saveLibraryEntry(TagLibraryEntry entry) async {
+    final index = _library.indexWhere((e) => e.id == entry.id);
+    if (index >= 0) {
+      _library[index] = entry;
+    } else {
+      _library.insert(0, entry);
+    }
+  }
+
+  @override
+  Future<void> deleteLibraryEntry(String id) async {
+    _library.removeWhere((e) => e.id == id);
+  }
 
   @override
   bool get isHistoryEnabled => _historyEnabled;
@@ -248,6 +273,7 @@ class LocalFileAppStorageService implements AppStorageService {
   final List<ScanHistoryEntry> _history = [];
   final List<WriteTemplate> _templates = [];
   final Map<String, TagRule> _rules = {};
+  final List<TagLibraryEntry> _library = [];
 
   LocalFileAppStorageService({required this.baseDirectoryPath});
 
@@ -256,6 +282,7 @@ class LocalFileAppStorageService implements AppStorageService {
   File get _templatesFile =>
       File('$baseDirectoryPath/nfc_write_templates.json');
   File get _tagRulesFile => File('$baseDirectoryPath/nfc_tag_rules.json');
+  File get _libraryFile => File('$baseDirectoryPath/nfc_tag_library.json');
 
   @override
   Future<void> init() async {
@@ -330,6 +357,22 @@ class LocalFileAppStorageService implements AppStorageService {
       }
     } catch (e) {
       debugPrint('LocalFileAppStorageService error loading tag rules: $e');
+    }
+
+    // Load Tag Library
+    try {
+      if (await _libraryFile.exists()) {
+        final content = await _libraryFile.readAsString();
+        if (content.trim().isNotEmpty) {
+          final list = jsonDecode(content) as List<dynamic>;
+          _library.clear();
+          for (final item in list) {
+            _library.add(TagLibraryEntry.fromJsonMap(Map<String, dynamic>.from(item as Map)));
+          }
+        }
+      }
+    } catch (e) {
+      debugPrint('LocalFileAppStorageService error loading tag library: $e');
     }
   }
 
@@ -522,6 +565,49 @@ class LocalFileAppStorageService implements AppStorageService {
   Future<void> _saveTemplates() async {
     final data = jsonEncode(_templates.map((t) => t.toJsonMap()).toList());
     await _atomicWrite(_templatesFile, data);
+  }
+
+  // Tag Library implementation
+  @override
+  List<TagLibraryEntry> getLibrary() => List.unmodifiable(_library);
+
+  @override
+  Future<void> saveLibraryEntry(TagLibraryEntry entry) async {
+    final index = _library.indexWhere((e) => e.id == entry.id);
+    final previous = index >= 0 ? _library[index] : null;
+    if (index >= 0) {
+      _library[index] = entry;
+    } else {
+      _library.insert(0, entry);
+    }
+    try {
+      await _saveLibrary();
+    } catch (e) {
+      if (previous != null) {
+        _library[index] = previous;
+      } else {
+        _library.remove(entry);
+      }
+      rethrow;
+    }
+  }
+
+  @override
+  Future<void> deleteLibraryEntry(String id) async {
+    final index = _library.indexWhere((e) => e.id == id);
+    if (index == -1) return;
+    final removed = _library.removeAt(index);
+    try {
+      await _saveLibrary();
+    } catch (e) {
+      _library.insert(index, removed);
+      rethrow;
+    }
+  }
+
+  Future<void> _saveLibrary() async {
+    final data = jsonEncode(_library.map((e) => e.toJsonMap()).toList());
+    await _atomicWrite(_libraryFile, data);
   }
 
   // Tag Rules implementation
