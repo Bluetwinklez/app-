@@ -1,3 +1,4 @@
+import '../l10n/l10n.dart';
 import 'ndef_record.dart';
 
 /// Tag technologies supported
@@ -52,7 +53,7 @@ class NfcTagInfo {
         .toList();
 
     return NfcTagInfo(
-      identifier: map['identifier'] as String? ?? 'Bilinmiyor',
+      identifier: map['identifier'] as String? ?? L10n.current.unknown,
       standardTechnologies: List<String>.from(map['standardTechnologies'] ?? []),
       isNdefSupported: map['isNdefSupported'] as bool? ?? false,
       isWritable: map['isWritable'] as bool? ?? false,

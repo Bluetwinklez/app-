@@ -1,6 +1,7 @@
 import 'dart:convert';
 import 'dart:typed_data';
 import 'package:flutter/material.dart';
+import '../l10n/app_localizations.dart';
 import '../domain/ndef_record.dart';
 import '../domain/quick_links.dart';
 import 'app_theme.dart';
@@ -293,6 +294,7 @@ class _ComposeRecordSheetState extends State<ComposeRecordSheet> {
 
   void _saveRecord() {
     _clearErrors();
+    final loc = AppLocalizations.of(context)!;
     if (_quickKind != null) {
       _saveQuickLink(_quickKind!);
       return;
@@ -303,11 +305,11 @@ class _ComposeRecordSheetState extends State<ComposeRecordSheet> {
       case ParsedRecordType.text:
         final txt = _textController.text.trim();
         if (txt.isEmpty) {
-          setState(() => _textError = 'Metin içeriği boş bırakılamaz.');
+          setState(() => _textError = loc.composeTextEmpty);
           return;
         }
         if (txt.length > 5000) {
-          setState(() => _textError = 'Metin çok uzun (en fazla 5000 karakter).');
+          setState(() => _textError = loc.composeTextTooLong);
           return;
         }
         record = NdefCodec.encodeText(txt);
@@ -316,11 +318,11 @@ class _ComposeRecordSheetState extends State<ComposeRecordSheet> {
       case ParsedRecordType.url:
         final url = _urlController.text.trim();
         if (url.isEmpty || !QuickLinkBuilder.isValidUri(url)) {
-          setState(() => _urlError = 'Geçerli bir adres giriniz (Örn: https://example.com veya uygulama:// bağlantısı).');
+          setState(() => _urlError = loc.composeUrlInvalid);
           return;
         }
         if (url.length > 2000) {
-          setState(() => _urlError = 'URL çok uzun (en fazla 2000 karakter).');
+          setState(() => _urlError = loc.composeUrlTooLong);
           return;
         }
         record = NdefCodec.encodeUri(url);
@@ -329,7 +331,7 @@ class _ComposeRecordSheetState extends State<ComposeRecordSheet> {
       case ParsedRecordType.email:
         final email = _emailController.text.trim();
         if (email.isEmpty || !_isValidEmail(email)) {
-          setState(() => _emailError = 'Geçerli bir e-posta adresi giriniz (Örn: ad@alanadi.com).');
+          setState(() => _emailError = loc.composeEmailInvalid);
           return;
         }
         record = NdefCodec.encodeEmail(
@@ -342,7 +344,7 @@ class _ComposeRecordSheetState extends State<ComposeRecordSheet> {
       case ParsedRecordType.phone:
         final phone = _phoneController.text.trim();
         if (phone.isEmpty || !_isValidPhone(phone)) {
-          setState(() => _phoneError = 'Geçerli bir telefon numarası giriniz (Örn: +905551234567).');
+          setState(() => _phoneError = loc.composePhoneInvalid);
           return;
         }
         record = NdefCodec.encodePhone(phone);
@@ -351,7 +353,7 @@ class _ComposeRecordSheetState extends State<ComposeRecordSheet> {
       case ParsedRecordType.sms:
         final phone = _smsPhoneController.text.trim();
         if (phone.isEmpty || !_isValidPhone(phone)) {
-          setState(() => _smsPhoneError = 'Geçerli bir alıcı telefon numarası giriniz.');
+          setState(() => _smsPhoneError = loc.composeSmsPhoneInvalid);
           return;
         }
         record = NdefCodec.encodeSms(
@@ -367,11 +369,11 @@ class _ComposeRecordSheetState extends State<ComposeRecordSheet> {
         final lng = double.tryParse(lngStr);
 
         if (lat == null || lat < -90.0 || lat > 90.0) {
-          setState(() => _latError = 'Enlem -90 ile +90 arasında olmalıdır.');
+          setState(() => _latError = loc.composeLatInvalid);
           return;
         }
         if (lng == null || lng < -180.0 || lng > 180.0) {
-          setState(() => _lngError = 'Boylam -180 ile +180 arasında olmalıdır.');
+          setState(() => _lngError = loc.composeLngInvalid);
           return;
         }
         record = NdefCodec.encodeLocation(latitude: lat, longitude: lng);
@@ -380,26 +382,26 @@ class _ComposeRecordSheetState extends State<ComposeRecordSheet> {
       case ParsedRecordType.vcard:
         final fn = _vcardNameController.text.trim();
         if (fn.isEmpty) {
-          setState(() => _vcardNameError = 'Kişi adı veya tam ad boş bırakılamaz.');
+          setState(() => _vcardNameError = loc.composeVcardNameEmpty);
           return;
         }
         if (fn.length > 200) {
-          setState(() => _vcardNameError = 'Kişi adı çok uzun (en fazla 200 karakter).');
+          setState(() => _vcardNameError = loc.composeVcardNameTooLong);
           return;
         }
         final email = _vcardEmailController.text.trim();
         if (email.isNotEmpty && !_isValidEmail(email)) {
-          setState(() => _vcardEmailError = 'Geçerli bir e-posta adresi giriniz.');
+          setState(() => _vcardEmailError = loc.composeVcardEmailInvalid);
           return;
         }
         final phone = _vcardPhoneController.text.trim();
         if (phone.isNotEmpty && !_isValidPhone(phone)) {
-          setState(() => _vcardPhoneError = 'Geçerli bir telefon numarası giriniz.');
+          setState(() => _vcardPhoneError = loc.composeVcardPhoneInvalid);
           return;
         }
         final url = _vcardUrlController.text.trim();
         if (url.isNotEmpty && !_isValidUrl(url)) {
-          setState(() => _vcardUrlError = 'Geçerli bir web adresi giriniz (Örn: https://...).');
+          setState(() => _vcardUrlError = loc.composeVcardUrlInvalid);
           return;
         }
 
@@ -419,11 +421,11 @@ class _ComposeRecordSheetState extends State<ComposeRecordSheet> {
       case ParsedRecordType.calendar:
         final summary = _calSummaryController.text.trim();
         if (summary.isEmpty) {
-          setState(() => _calSummaryError = 'Etkinlik başlığı boş bırakılamaz.');
+          setState(() => _calSummaryError = loc.composeCalSummaryEmpty);
           return;
         }
         if (summary.length > 250) {
-          setState(() => _calSummaryError = 'Etkinlik başlığı çok uzun (en fazla 250 karakter).');
+          setState(() => _calSummaryError = loc.composeCalSummaryTooLong);
           return;
         }
 
@@ -443,7 +445,7 @@ class _ComposeRecordSheetState extends State<ComposeRecordSheet> {
         );
 
         if (!endDt.isAfter(startDt)) {
-          setState(() => _calDateError = 'Bitiş zamanı, başlangıç zamanından sonra olmalıdır.');
+          setState(() => _calDateError = loc.composeCalDateInvalid);
           return;
         }
 
@@ -459,12 +461,12 @@ class _ComposeRecordSheetState extends State<ComposeRecordSheet> {
       case ParsedRecordType.smartPoster:
         final uri = _spUriController.text.trim();
         if (uri.isEmpty || !_isValidUrl(uri)) {
-          setState(() => _spUriError = 'Geçerli bir hedef URL giriniz (Örn: https://...).');
+          setState(() => _spUriError = loc.composeSpUriInvalid);
           return;
         }
         final lang = _spLangController.text.trim().toLowerCase();
         if (lang.isEmpty || !RegExp(r'^[a-z]{2,3}(-[a-z0-9]+)?$').hasMatch(lang)) {
-          setState(() => _spLangError = 'Geçerli bir ISO dil kodu giriniz (Örn: tr, en).');
+          setState(() => _spLangError = loc.composeSpLangInvalid);
           return;
         }
 
@@ -478,7 +480,7 @@ class _ComposeRecordSheetState extends State<ComposeRecordSheet> {
       case ParsedRecordType.customMime:
         final mime = _mimeTypeController.text.trim().toLowerCase();
         if (mime.isEmpty || !RegExp(r'^[-\w.+]+/[-\w.+]+$').hasMatch(mime)) {
-          setState(() => _mimeTypeError = 'Geçerli bir MIME türü giriniz (Örn: application/json, text/plain).');
+          setState(() => _mimeTypeError = loc.composeMimeTypeInvalid);
           return;
         }
 
@@ -487,7 +489,7 @@ class _ComposeRecordSheetState extends State<ComposeRecordSheet> {
         if (_mimeIsHex) {
           final cleanHex = rawPayload.replaceAll(RegExp(r'[\s,]'), '');
           if (cleanHex.isEmpty || cleanHex.length.isOdd || !RegExp(r'^[0-9a-fA-F]+$').hasMatch(cleanHex)) {
-            setState(() => _mimePayloadError = 'Geçerli bir onaltılık (hex) dize giriniz (çift sayıda hex karakter).');
+            setState(() => _mimePayloadError = loc.composeMimeHexInvalid);
             return;
           }
           final list = <int>[];
@@ -500,7 +502,7 @@ class _ComposeRecordSheetState extends State<ComposeRecordSheet> {
         }
 
         if (payloadBytes.length > 10000) {
-          setState(() => _mimePayloadError = 'Yük boyutu çok büyük (en fazla 10 KB).');
+          setState(() => _mimePayloadError = loc.composeMimePayloadTooLarge);
           return;
         }
 
@@ -513,7 +515,7 @@ class _ComposeRecordSheetState extends State<ComposeRecordSheet> {
       case ParsedRecordType.wifi:
         final ssid = _wifiSsidController.text.trim();
         if (ssid.isEmpty) {
-          setState(() => _wifiSsidError = 'Ağ adı (SSID) boş bırakılamaz.');
+          setState(() => _wifiSsidError = loc.composeWifiSsidEmpty);
           return;
         }
         if (utf8.encode(ssid).length > 32) {
@@ -524,11 +526,11 @@ class _ComposeRecordSheetState extends State<ComposeRecordSheet> {
         final pass = _wifiPasswordController.text;
         if (_wifiAuthType != WifiAuthType.open) {
           if (pass.isEmpty) {
-            setState(() => _wifiPasswordError = 'Şifreli ağlar için Wi-Fi şifresi zorunludur.');
+            setState(() => _wifiPasswordError = loc.composeWifiPasswordRequired);
             return;
           }
           if (pass.length < 8 || pass.length > 63) {
-            setState(() => _wifiPasswordError = 'WPA/WPA2 şifresi 8 ile 63 karakter arasında olmalıdır.');
+            setState(() => _wifiPasswordError = loc.composeWifiPasswordLength);
             return;
           }
         }
@@ -553,6 +555,7 @@ class _ComposeRecordSheetState extends State<ComposeRecordSheet> {
 
   @override
   Widget build(BuildContext context) {
+    final loc = AppLocalizations.of(context)!;
     return Padding(
       padding: EdgeInsets.only(
         bottom: MediaQuery.of(context).viewInsets.bottom + 16,
@@ -569,7 +572,7 @@ class _ComposeRecordSheetState extends State<ComposeRecordSheet> {
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
                 Text(
-                  _isEditing ? 'NDEF Kaydını Düzenle' : 'Yeni NDEF Kaydı Oluştur',
+                  _isEditing ? loc.composeEditNdefRecord : loc.composeNewNdefRecord,
                   style: const TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
                 ),
                 IconButton(
@@ -584,40 +587,40 @@ class _ComposeRecordSheetState extends State<ComposeRecordSheet> {
               spacing: 8,
               runSpacing: 8,
               children: [
-                _buildChoiceChip(ParsedRecordType.text, 'Metin', Icons.text_fields),
-                _buildChoiceChip(ParsedRecordType.url, 'URL / Web', Icons.link),
-                _buildChoiceChip(ParsedRecordType.email, 'E-posta', Icons.email),
-                _buildChoiceChip(ParsedRecordType.phone, 'Telefon', Icons.phone),
-                _buildChoiceChip(ParsedRecordType.sms, 'SMS', Icons.sms),
-                _buildChoiceChip(ParsedRecordType.location, 'Konum', Icons.location_on),
-                _buildChoiceChip(ParsedRecordType.vcard, 'Kişi (vCard)', Icons.contact_page),
-                _buildChoiceChip(ParsedRecordType.calendar, 'Takvim (iCal)', Icons.calendar_month),
-                _buildChoiceChip(ParsedRecordType.smartPoster, 'Akıllı Poster', Icons.web_stories),
-                _buildChoiceChip(ParsedRecordType.wifi, 'Wi-Fi Ayarı', Icons.wifi),
-                _buildChoiceChip(ParsedRecordType.customMime, 'Özel MIME', Icons.data_object),
+                _buildChoiceChip(ParsedRecordType.text, loc.tabText, Icons.text_fields),
+                _buildChoiceChip(ParsedRecordType.url, loc.tabUrl, Icons.link),
+                _buildChoiceChip(ParsedRecordType.email, loc.tabEmail, Icons.email),
+                _buildChoiceChip(ParsedRecordType.phone, loc.tabPhone, Icons.phone),
+                _buildChoiceChip(ParsedRecordType.sms, loc.tabSms, Icons.sms),
+                _buildChoiceChip(ParsedRecordType.location, loc.recordTypeLocation, Icons.location_on),
+                _buildChoiceChip(ParsedRecordType.vcard, loc.tabContact, Icons.contact_page),
+                _buildChoiceChip(ParsedRecordType.calendar, loc.recordTypeCalendar, Icons.calendar_month),
+                _buildChoiceChip(ParsedRecordType.smartPoster, loc.recordTypeSmartPoster, Icons.web_stories),
+                _buildChoiceChip(ParsedRecordType.wifi, loc.tabWifi, Icons.wifi),
+                _buildChoiceChip(ParsedRecordType.customMime, loc.tabCustomMime, Icons.data_object),
               ],
             ),
             if (!_isEditing) ...[
               const SizedBox(height: 16),
-              const Text(
-                'Hazır Bağlantılar',
-                style: TextStyle(fontWeight: FontWeight.bold, color: Colors.black54),
+              Text(
+                loc.quickLinksHeader,
+                style: const TextStyle(fontWeight: FontWeight.bold, color: Colors.black54),
               ),
               const SizedBox(height: 8),
               Wrap(
                 spacing: 8,
                 runSpacing: 8,
                 children: [
-                  _buildQuickChip(QuickLinkKind.customUri, 'Özel URI', Icons.link_off),
-                  _buildQuickChip(QuickLinkKind.social, 'Sosyal Ağlar', Icons.people),
-                  _buildQuickChip(QuickLinkKind.video, 'Video', Icons.play_circle),
-                  _buildQuickChip(QuickLinkKind.search, 'Arama', Icons.search),
-                  _buildQuickChip(QuickLinkKind.file, 'Dosya', Icons.insert_drive_file),
+                  _buildQuickChip(QuickLinkKind.customUri, loc.quickLinkCustomUri, Icons.link_off),
+                  _buildQuickChip(QuickLinkKind.social, loc.quickLinkSocial, Icons.people),
+                  _buildQuickChip(QuickLinkKind.video, loc.quickLinkVideo, Icons.play_circle),
+                  _buildQuickChip(QuickLinkKind.search, loc.quickLinkSearch, Icons.search),
+                  _buildQuickChip(QuickLinkKind.file, loc.quickLinkFile, Icons.insert_drive_file),
                   _buildQuickChip(QuickLinkKind.facetime, 'FaceTime', Icons.videocam),
-                  _buildQuickChip(QuickLinkKind.facetimeAudio, 'FaceTime Ses', Icons.mic),
-                  _buildQuickChip(QuickLinkKind.address, 'Adres', Icons.flag),
-                  _buildQuickChip(QuickLinkKind.payment, 'Ödeme Bağlantısı', Icons.payments),
-                  _buildQuickChip(QuickLinkKind.app, 'Uygulama (Android)', Icons.apps),
+                  _buildQuickChip(QuickLinkKind.facetimeAudio, loc.quickLinkFacetimeAudio, Icons.mic),
+                  _buildQuickChip(QuickLinkKind.address, loc.quickLinkAddress, Icons.flag),
+                  _buildQuickChip(QuickLinkKind.payment, loc.quickLinkPayment, Icons.payments),
+                  _buildQuickChip(QuickLinkKind.app, loc.quickLinkApp, Icons.apps),
                   _buildQuickChip(QuickLinkKind.bluetooth, 'Bluetooth', Icons.bluetooth),
                 ],
               ),
@@ -628,7 +631,7 @@ class _ComposeRecordSheetState extends State<ComposeRecordSheet> {
             ElevatedButton.icon(
               onPressed: _saveRecord,
               icon: Icon(_isEditing ? Icons.check : Icons.add_task),
-              label: Text(_isEditing ? 'Kaydı Güncelle' : 'Listeye Ekle'),
+              label: Text(_isEditing ? loc.updateRecord : loc.addToList),
               style: ElevatedButton.styleFrom(
                 padding: const EdgeInsets.symmetric(vertical: 14),
                 backgroundColor: _isEditing ? AppColors.accent : AppColors.accent,
@@ -661,6 +664,7 @@ class _ComposeRecordSheetState extends State<ComposeRecordSheet> {
   }
 
   void _saveQuickLink(QuickLinkKind kind) {
+    final loc = AppLocalizations.of(context)!;
     final input = _quickController.text;
     final NdefRecordModel record;
     try {
@@ -668,7 +672,7 @@ class _ComposeRecordSheetState extends State<ComposeRecordSheet> {
         case QuickLinkKind.customUri:
           final uri = input.trim();
           if (!QuickLinkBuilder.isValidUri(uri)) {
-            throw const QuickLinkException('Şema içeren bir adres giriniz (Örn: spotify:track:... veya myapp://sayfa).');
+            throw QuickLinkException(loc.quickCustomUriError);
           }
           record = NdefCodec.encodeUri(uri);
           break;
@@ -683,12 +687,12 @@ class _ComposeRecordSheetState extends State<ComposeRecordSheet> {
           break;
         case QuickLinkKind.file:
           record = NdefCodec.encodeUri(
-            QuickLinkBuilder.httpsUrl(input, emptyMessage: 'Dosyanın bağlantısını giriniz.'),
+            QuickLinkBuilder.httpsUrl(input, emptyMessage: loc.quickFileEmptyMessage),
           );
           break;
         case QuickLinkKind.payment:
           record = NdefCodec.encodeUri(
-            QuickLinkBuilder.httpsUrl(input, emptyMessage: 'Ödeme bağlantısını giriniz.'),
+            QuickLinkBuilder.httpsUrl(input, emptyMessage: loc.quickPaymentEmptyMessage),
           );
           break;
         case QuickLinkKind.facetime:
@@ -747,17 +751,18 @@ class _ComposeRecordSheetState extends State<ComposeRecordSheet> {
   }
 
   Widget _buildQuickFields(QuickLinkKind kind) {
+    final loc = AppLocalizations.of(context)!;
     switch (kind) {
       case QuickLinkKind.customUri:
         return Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             _quickField(
-              label: 'Özel URI',
-              hint: 'spotify:track:... veya myapp://sayfa',
+              label: loc.quickLinkCustomUri,
+              hint: 'spotify:track:... / myapp://page',
               keyboardType: TextInputType.url,
             ),
-            _quickNote('Herhangi bir şemayla başlayan adres yazılabilir; telefon bu adresi destekleyen uygulamayı açar.'),
+            _quickNote(loc.quickCustomUriDesc),
           ],
         );
       case QuickLinkKind.social:
@@ -765,9 +770,9 @@ class _ComposeRecordSheetState extends State<ComposeRecordSheet> {
           children: [
             DropdownButtonFormField<SocialNetwork>(
               initialValue: _socialNetwork,
-              decoration: const InputDecoration(
-                labelText: 'Sosyal Ağ',
-                border: OutlineInputBorder(),
+              decoration: InputDecoration(
+                labelText: loc.quickSocialLabel,
+                border: const OutlineInputBorder(),
               ),
               items: [
                 for (final n in SocialNetwork.values)
@@ -777,7 +782,7 @@ class _ComposeRecordSheetState extends State<ComposeRecordSheet> {
             ),
             const SizedBox(height: 10),
             _quickField(
-              label: _socialNetwork == SocialNetwork.whatsapp ? 'Telefon Numarası' : 'Kullanıcı Adı',
+              label: _socialNetwork == SocialNetwork.whatsapp ? loc.phoneNumber : loc.socialUsername,
               hint: _socialNetwork == SocialNetwork.whatsapp ? '905551112233' : 'kullaniciadi',
               keyboardType: _socialNetwork == SocialNetwork.whatsapp
                   ? TextInputType.phone
@@ -790,11 +795,11 @@ class _ComposeRecordSheetState extends State<ComposeRecordSheet> {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             _quickField(
-              label: 'Video Bağlantısı',
-              hint: 'https://youtu.be/... veya video kimliği',
+              label: loc.quickVideoLabel,
+              hint: loc.quickVideoHint,
               keyboardType: TextInputType.url,
             ),
-            _quickNote('YouTube, Vimeo vb. bağlantı ya da yalnızca YouTube video kimliği yazılabilir.'),
+            _quickNote(loc.quickVideoDesc),
           ],
         );
       case QuickLinkKind.search:
@@ -802,9 +807,9 @@ class _ComposeRecordSheetState extends State<ComposeRecordSheet> {
           children: [
             DropdownButtonFormField<SearchEngine>(
               initialValue: _searchEngine,
-              decoration: const InputDecoration(
-                labelText: 'Arama Motoru',
-                border: OutlineInputBorder(),
+              decoration: InputDecoration(
+                labelText: loc.quickLinkSearch,
+                border: const OutlineInputBorder(),
               ),
               items: [
                 for (final e in SearchEngine.values)
@@ -813,7 +818,7 @@ class _ComposeRecordSheetState extends State<ComposeRecordSheet> {
               onChanged: (v) => setState(() => _searchEngine = v ?? _searchEngine),
             ),
             const SizedBox(height: 10),
-            _quickField(label: 'Aranacak Metin', hint: 'Örn: İstanbul hava durumu'),
+            _quickField(label: loc.quickSearchTextLabel, hint: loc.quickSearchHint),
           ],
         );
       case QuickLinkKind.file:
@@ -821,11 +826,11 @@ class _ComposeRecordSheetState extends State<ComposeRecordSheet> {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             _quickField(
-              label: 'Dosya Bağlantısı',
+              label: loc.quickFileLabel,
               hint: 'https://site.com/menu.pdf',
               keyboardType: TextInputType.url,
             ),
-            _quickNote('Etiketlerin kapasitesi küçük olduğu için dosyanın kendisi değil, internetteki bağlantısı yazılır (Google Drive, Dropbox vb.).'),
+            _quickNote(loc.quickFileDesc),
           ],
         );
       case QuickLinkKind.facetime:
@@ -834,13 +839,13 @@ class _ComposeRecordSheetState extends State<ComposeRecordSheet> {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             _quickField(
-              label: 'Telefon veya Apple Kimliği',
+              label: loc.quickPhoneOrAppleId,
               hint: '+905551112233 veya ad@icloud.com',
               keyboardType: TextInputType.emailAddress,
             ),
             _quickNote(kind == QuickLinkKind.facetime
-                ? 'Etikete dokunan iPhone görüntülü FaceTime araması başlatır.'
-                : 'Etikete dokunan iPhone yalnızca sesli FaceTime araması başlatır.'),
+                ? loc.quickFacetimeVideoDesc
+                : loc.quickFacetimeAudioDesc),
           ],
         );
       case QuickLinkKind.address:
@@ -848,9 +853,9 @@ class _ComposeRecordSheetState extends State<ComposeRecordSheet> {
           children: [
             DropdownButtonFormField<MapProvider>(
               initialValue: _mapProvider,
-              decoration: const InputDecoration(
-                labelText: 'Harita Uygulaması',
-                border: OutlineInputBorder(),
+              decoration: InputDecoration(
+                labelText: loc.quickMapProvider,
+                border: const OutlineInputBorder(),
               ),
               items: [
                 for (final m in MapProvider.values)
@@ -863,8 +868,8 @@ class _ComposeRecordSheetState extends State<ComposeRecordSheet> {
               controller: _quickController,
               maxLines: 2,
               decoration: InputDecoration(
-                labelText: 'Adres',
-                hintText: 'Örn: Bağdat Cad. No:1 Kadıköy İstanbul',
+                labelText: loc.quickLinkAddress,
+                hintText: loc.quickAddressHint,
                 errorText: _quickError,
                 border: const OutlineInputBorder(),
               ),
@@ -876,19 +881,19 @@ class _ComposeRecordSheetState extends State<ComposeRecordSheet> {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             _quickField(
-              label: 'Ödeme Bağlantısı',
+              label: loc.quickLinkPayment,
               hint: 'https://paypal.me/kullanici',
               keyboardType: TextInputType.url,
             ),
-            _quickNote('PayPal.me, Papara, iyzico, Stripe gibi ödeme sayfası bağlantıları kullanılabilir. Kart bilgisi asla etikete yazılmaz.'),
+            _quickNote(loc.quickPaymentDesc),
           ],
         );
       case QuickLinkKind.app:
         return Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            _quickField(label: 'Android Paket Adı', hint: 'com.whatsapp'),
-            _quickNote('Android telefonlar etikete dokununca bu uygulamayı açar (yüklü değilse Play Store\'u açar). iPhone bu kayıt türünü yok sayar; iPhone için App Store bağlantısını URL olarak ekleyin.'),
+            _quickField(label: loc.appPackageName, hint: 'com.whatsapp'),
+            _quickNote(loc.quickAppDesc),
           ],
         );
       case QuickLinkKind.bluetooth:
@@ -898,12 +903,12 @@ class _ComposeRecordSheetState extends State<ComposeRecordSheet> {
             _quickField(label: 'Bluetooth MAC Adresi', hint: '00:11:22:AA:BB:CC'),
             const SizedBox(height: 10),
             _quickField(
-              label: 'Cihaz Adı (isteğe bağlı)',
-              hint: 'Örn: Hoparlör',
+              label: loc.quickDeviceNameOptional,
+              hint: loc.quickSpeakerHint,
               controller: _quickSecondaryController,
               showError: false,
             ),
-            _quickNote('Android telefonlar etikete dokununca bu cihazla eşleşmeyi önerir. iPhone Bluetooth eşleştirme etiketlerini desteklemez.'),
+            _quickNote(loc.quickBluetoothDesc),
           ],
         );
     }
@@ -928,6 +933,7 @@ class _ComposeRecordSheetState extends State<ComposeRecordSheet> {
   }
 
   Widget _buildTypeFields() {
+    final loc = AppLocalizations.of(context)!;
     final quickKind = _quickKind;
     if (quickKind != null) return _buildQuickFields(quickKind);
     switch (_selectedType) {
@@ -936,8 +942,8 @@ class _ComposeRecordSheetState extends State<ComposeRecordSheet> {
           controller: _textController,
           maxLines: 3,
           decoration: InputDecoration(
-            labelText: 'Metin İçeriği',
-            hintText: 'Yazmak istediğiniz metni giriniz',
+            labelText: loc.composeTextContent,
+            hintText: loc.composeTextHint,
             errorText: _textError,
             border: const OutlineInputBorder(),
           ),
@@ -962,7 +968,7 @@ class _ComposeRecordSheetState extends State<ComposeRecordSheet> {
               controller: _emailController,
               keyboardType: TextInputType.emailAddress,
               decoration: InputDecoration(
-                labelText: 'Alıcı E-posta',
+                labelText: loc.emailRecipient,
                 hintText: 'ornek@alanadi.com',
                 errorText: _emailError,
                 border: const OutlineInputBorder(),
@@ -971,18 +977,18 @@ class _ComposeRecordSheetState extends State<ComposeRecordSheet> {
             const SizedBox(height: 10),
             TextField(
               controller: _emailSubjectController,
-              decoration: const InputDecoration(
-                labelText: 'Konu (İsteğe bağlı)',
-                border: OutlineInputBorder(),
+              decoration: InputDecoration(
+                labelText: loc.composeEmailSubjectOptional,
+                border: const OutlineInputBorder(),
               ),
             ),
             const SizedBox(height: 10),
             TextField(
               controller: _emailBodyController,
               maxLines: 2,
-              decoration: const InputDecoration(
-                labelText: 'Mesaj Gövdesi (İsteğe bağlı)',
-                border: OutlineInputBorder(),
+              decoration: InputDecoration(
+                labelText: loc.composeEmailBodyOptional,
+                border: const OutlineInputBorder(),
               ),
             ),
           ],
@@ -993,7 +999,7 @@ class _ComposeRecordSheetState extends State<ComposeRecordSheet> {
           controller: _phoneController,
           keyboardType: TextInputType.phone,
           decoration: InputDecoration(
-            labelText: 'Telefon Numarası',
+            labelText: loc.phoneNumber,
             hintText: '+905551234567',
             errorText: _phoneError,
             border: const OutlineInputBorder(),
@@ -1007,7 +1013,7 @@ class _ComposeRecordSheetState extends State<ComposeRecordSheet> {
               controller: _smsPhoneController,
               keyboardType: TextInputType.phone,
               decoration: InputDecoration(
-                labelText: 'Alıcı Telefon Numarası',
+                labelText: loc.composeSmsRecipient,
                 hintText: '+905551234567',
                 errorText: _smsPhoneError,
                 border: const OutlineInputBorder(),
@@ -1017,10 +1023,10 @@ class _ComposeRecordSheetState extends State<ComposeRecordSheet> {
             TextField(
               controller: _smsBodyController,
               maxLines: 2,
-              decoration: const InputDecoration(
-                labelText: 'SMS Metni',
-                hintText: 'Gönderilecek kısa mesaj...',
-                border: OutlineInputBorder(),
+              decoration: InputDecoration(
+                labelText: loc.smsMessage,
+                hintText: loc.composeSmsHint,
+                border: const OutlineInputBorder(),
               ),
             ),
           ],
@@ -1064,8 +1070,8 @@ class _ComposeRecordSheetState extends State<ComposeRecordSheet> {
             TextField(
               controller: _vcardNameController,
               decoration: InputDecoration(
-                labelText: 'Tam Ad (Görünen İsim) *',
-                hintText: 'Ahmet Yılmaz',
+                labelText: loc.composeVcardFullName,
+                hintText: loc.composeVcardNameHint,
                 errorText: _vcardNameError,
                 border: const OutlineInputBorder(),
               ),
@@ -1097,9 +1103,9 @@ class _ComposeRecordSheetState extends State<ComposeRecordSheet> {
             const SizedBox(height: 10),
             TextField(
               controller: _vcardOrgController,
-              decoration: const InputDecoration(
-                labelText: 'Şirket / Kurum',
-                border: OutlineInputBorder(),
+              decoration: InputDecoration(
+                labelText: loc.contactCompany,
+                border: const OutlineInputBorder(),
               ),
             ),
             const SizedBox(height: 10),
@@ -1115,7 +1121,7 @@ class _ComposeRecordSheetState extends State<ComposeRecordSheet> {
               controller: _vcardPhoneController,
               keyboardType: TextInputType.phone,
               decoration: InputDecoration(
-                labelText: 'Telefon Numarası',
+                labelText: loc.phoneNumber,
                 hintText: '+905551234567',
                 errorText: _vcardPhoneError,
                 border: const OutlineInputBorder(),
@@ -1147,9 +1153,9 @@ class _ComposeRecordSheetState extends State<ComposeRecordSheet> {
             TextField(
               controller: _vcardNoteController,
               maxLines: 2,
-              decoration: const InputDecoration(
-                labelText: 'Not / Açıklama',
-                border: OutlineInputBorder(),
+              decoration: InputDecoration(
+                labelText: loc.composeVcardNote,
+                border: const OutlineInputBorder(),
               ),
             ),
           ],
@@ -1162,8 +1168,8 @@ class _ComposeRecordSheetState extends State<ComposeRecordSheet> {
             TextField(
               controller: _calSummaryController,
               decoration: InputDecoration(
-                labelText: 'Etkinlik Başlığı *',
-                hintText: 'Proje Toplantısı',
+                labelText: loc.composeCalTitle,
+                hintText: loc.composeCalTitleHint,
                 errorText: _calSummaryError,
                 border: const OutlineInputBorder(),
               ),
@@ -1171,23 +1177,23 @@ class _ComposeRecordSheetState extends State<ComposeRecordSheet> {
             const SizedBox(height: 10),
             TextField(
               controller: _calLocationController,
-              decoration: const InputDecoration(
+              decoration: InputDecoration(
                 labelText: 'Konum / Yer',
-                hintText: 'Toplantı Odası 2 veya Online',
-                border: OutlineInputBorder(),
+                hintText: loc.composeCalLocationHint,
+                border: const OutlineInputBorder(),
               ),
             ),
             const SizedBox(height: 10),
             TextField(
               controller: _calDescController,
               maxLines: 2,
-              decoration: const InputDecoration(
-                labelText: 'Etkinlik Açıklaması',
-                border: OutlineInputBorder(),
+              decoration: InputDecoration(
+                labelText: loc.composeCalDesc,
+                border: const OutlineInputBorder(),
               ),
             ),
             const SizedBox(height: 12),
-            const Text('Başlangıç ve Bitiş Zamanı:', style: TextStyle(fontWeight: FontWeight.bold)),
+            Text(loc.composeCalStartEndTime, style: const TextStyle(fontWeight: FontWeight.bold)),
             const SizedBox(height: 6),
             Row(
               children: [
@@ -1279,10 +1285,10 @@ class _ComposeRecordSheetState extends State<ComposeRecordSheet> {
             const SizedBox(height: 10),
             TextField(
               controller: _spTitleController,
-              decoration: const InputDecoration(
-                labelText: 'Başlık (Görünen Metin)',
-                hintText: 'Şirket Tanıtım Broşürü',
-                border: OutlineInputBorder(),
+              decoration: InputDecoration(
+                labelText: loc.composeSpTitleLabel,
+                hintText: loc.composeSpTitleHint,
+                border: const OutlineInputBorder(),
               ),
             ),
             const SizedBox(height: 10),
@@ -1305,7 +1311,7 @@ class _ComposeRecordSheetState extends State<ComposeRecordSheet> {
             TextField(
               controller: _mimeTypeController,
               decoration: InputDecoration(
-                labelText: 'MIME Türü *',
+                labelText: loc.composeMimeTypeLabel,
                 hintText: 'application/json veya text/plain',
                 errorText: _mimeTypeError,
                 border: const OutlineInputBorder(),
@@ -1314,7 +1320,7 @@ class _ComposeRecordSheetState extends State<ComposeRecordSheet> {
             const SizedBox(height: 10),
             Row(
               children: [
-                const Text('Veri Formatı: ', style: TextStyle(fontWeight: FontWeight.w500)),
+                Text(loc.composeDataFormat, style: const TextStyle(fontWeight: FontWeight.w500)),
                 ChoiceChip(
                   label: const Text('UTF-8 Metin'),
                   selected: !_mimeIsHex,
@@ -1324,7 +1330,7 @@ class _ComposeRecordSheetState extends State<ComposeRecordSheet> {
                 ),
                 const SizedBox(width: 8),
                 ChoiceChip(
-                  label: const Text('Hex (Onaltılık)'),
+                  label: Text(loc.composeFormatHex),
                   selected: _mimeIsHex,
                   onSelected: (val) {
                     if (val) setState(() => _mimeIsHex = true);
@@ -1337,7 +1343,7 @@ class _ComposeRecordSheetState extends State<ComposeRecordSheet> {
               controller: _mimePayloadController,
               maxLines: 4,
               decoration: InputDecoration(
-                labelText: _mimeIsHex ? 'Hex Baytları *' : 'Yük Metni (UTF-8) *',
+                labelText: _mimeIsHex ? loc.composeMimeHexBytes : loc.composeMimeTextPayload,
                 hintText: _mimeIsHex ? '01 02 0A FF' : '{"key": "value"}',
                 errorText: _mimePayloadError,
                 border: const OutlineInputBorder(),
@@ -1357,26 +1363,25 @@ class _ComposeRecordSheetState extends State<ComposeRecordSheet> {
                 borderRadius: BorderRadius.circular(8),
                 side: BorderSide(color: Colors.amber.shade400),
               ),
-              child: const Padding(
-                padding: EdgeInsets.all(12),
+              child: Padding(
+                padding: const EdgeInsets.all(12),
                 child: Row(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    Icon(Icons.warning_amber_rounded, color: Colors.orange, size: 24),
-                    SizedBox(width: 8),
+                    const Icon(Icons.warning_amber_rounded, color: Colors.orange, size: 24),
+                    const SizedBox(width: 8),
                     Expanded(
                       child: Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
                           Text(
-                            'Güvenlik ve Platform Uyarısı:',
-                            style: TextStyle(fontWeight: FontWeight.bold, color: Colors.brown, fontSize: 13),
+                            loc.composeWifiWarningTitle,
+                            style: const TextStyle(fontWeight: FontWeight.bold, color: Colors.brown, fontSize: 13),
                           ),
-                          SizedBox(height: 4),
+                          const SizedBox(height: 4),
                           Text(
-                            '• Etikete yazılan Wi-Fi parolası şifresiz/düz metin olarak saklanır ve etiketi okuyan herhangi biri tarafından kolayca okunabilir.\n'
-                            '• iPhone veya Android cihazların etikete dokunulduğunda ağa otomatik olarak katılması garanti edilmez; işletim sistemi ve cihaz desteğine göre kullanıcı onayı veya ağ seçimi gerektirebilir.',
-                            style: TextStyle(fontSize: 12, color: Colors.black87),
+                            loc.composeWifiWarningBody,
+                            style: const TextStyle(fontSize: 12, color: Colors.black87),
                           ),
                         ],
                       ),
@@ -1389,7 +1394,7 @@ class _ComposeRecordSheetState extends State<ComposeRecordSheet> {
             TextField(
               controller: _wifiSsidController,
               decoration: InputDecoration(
-                labelText: 'Ağ Adı (SSID) *',
+                labelText: loc.composeWifiSsidLabel,
                 hintText: 'Ev_Interneti_5G',
                 errorText: _wifiSsidError,
                 border: const OutlineInputBorder(),
@@ -1398,15 +1403,15 @@ class _ComposeRecordSheetState extends State<ComposeRecordSheet> {
             const SizedBox(height: 10),
             DropdownButtonFormField<WifiAuthType>(
               initialValue: _wifiAuthType,
-              decoration: const InputDecoration(
-                labelText: 'Güvenlik Türü (Kimlik Doğrulama)',
-                border: OutlineInputBorder(),
+              decoration: InputDecoration(
+                labelText: loc.composeWifiAuthTypeLabel,
+                border: const OutlineInputBorder(),
               ),
-              items: const [
-                DropdownMenuItem(value: WifiAuthType.wpa2Psk, child: Text('WPA2 Personal (Standart Ev/Ofis)')),
-                DropdownMenuItem(value: WifiAuthType.wpaWpa2Personal, child: Text('WPA/WPA2 Personal (Karma)')),
-                DropdownMenuItem(value: WifiAuthType.wpaPsk, child: Text('WPA Personal')),
-                DropdownMenuItem(value: WifiAuthType.open, child: Text('Açık Ağ (Şifresiz)')),
+              items: [
+                const DropdownMenuItem(value: WifiAuthType.wpa2Psk, child: Text('WPA2 Personal (Standart Ev/Ofis)')),
+                const DropdownMenuItem(value: WifiAuthType.wpaWpa2Personal, child: Text('WPA/WPA2 Personal (Karma)')),
+                const DropdownMenuItem(value: WifiAuthType.wpaPsk, child: Text('WPA Personal')),
+                DropdownMenuItem(value: WifiAuthType.open, child: Text(loc.composeWifiOpenNetwork)),
               ],
               onChanged: (val) {
                 if (val != null) setState(() => _wifiAuthType = val);
@@ -1418,7 +1423,7 @@ class _ComposeRecordSheetState extends State<ComposeRecordSheet> {
                 controller: _wifiPasswordController,
                 obscureText: true,
                 decoration: InputDecoration(
-                  labelText: 'Wi-Fi Şifresi *',
+                  labelText: loc.composeWifiPasswordLabel,
                   hintText: 'En az 8 karakter',
                   errorText: _wifiPasswordError,
                   border: const OutlineInputBorder(),
@@ -1428,15 +1433,15 @@ class _ComposeRecordSheetState extends State<ComposeRecordSheet> {
             const SizedBox(height: 10),
             DropdownButtonFormField<WifiEncryptionType>(
               initialValue: _wifiEncryptionType,
-              decoration: const InputDecoration(
-                labelText: 'Şifreleme Türü',
-                border: OutlineInputBorder(),
+              decoration: InputDecoration(
+                labelText: loc.composeWifiEncryptionLabel,
+                border: const OutlineInputBorder(),
               ),
-              items: const [
-                DropdownMenuItem(value: WifiEncryptionType.aes, child: Text('AES (Önerilen)')),
-                DropdownMenuItem(value: WifiEncryptionType.tkipAes, child: Text('TKIP / AES')),
-                DropdownMenuItem(value: WifiEncryptionType.tkip, child: Text('TKIP')),
-                DropdownMenuItem(value: WifiEncryptionType.none, child: Text('Yok / None')),
+              items: [
+                DropdownMenuItem(value: WifiEncryptionType.aes, child: Text(loc.composeWifiAesRecommended)),
+                const DropdownMenuItem(value: WifiEncryptionType.tkipAes, child: Text('TKIP / AES')),
+                const DropdownMenuItem(value: WifiEncryptionType.tkip, child: Text('TKIP')),
+                const DropdownMenuItem(value: WifiEncryptionType.none, child: Text('Yok / None')),
               ],
               onChanged: (val) {
                 if (val != null) setState(() => _wifiEncryptionType = val);

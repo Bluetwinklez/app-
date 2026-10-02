@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import '../l10n/app_localizations.dart';
 import '../domain/tag_rule.dart';
+import '../l10n/l10n.dart';
 import '../services/app_storage_service.dart';
 import 'app_theme.dart';
 
@@ -48,11 +50,12 @@ class _TagRulesManagerSheetState extends State<TagRulesManagerSheet> {
   }
 
   void _editRule(TagRule rule) {
+    final loc = AppLocalizations.of(context) ?? L10n.current;
     final noteController = TextEditingController(text: rule.note);
     showDialog(
       context: context,
       builder: (ctx) => AlertDialog(
-        title: const Text('Etiket Notunu Düzenle'),
+        title: Text(loc.tagNoteEditTitle),
         content: Column(
           mainAxisSize: MainAxisSize.min,
           crossAxisAlignment: CrossAxisAlignment.start,
@@ -66,10 +69,10 @@ class _TagRulesManagerSheetState extends State<TagRulesManagerSheet> {
               controller: noteController,
               autofocus: true,
               maxLines: 3,
-              decoration: const InputDecoration(
-                labelText: 'Uygulama İçi Not / Açıklama',
-                hintText: 'Örn: Depo Rafı #4 veya Toplantı Odası',
-                border: OutlineInputBorder(),
+              decoration: InputDecoration(
+                labelText: loc.tagNoteInputLabel,
+                hintText: loc.tagNoteInputHint,
+                border: const OutlineInputBorder(),
               ),
             ),
           ],
@@ -77,7 +80,7 @@ class _TagRulesManagerSheetState extends State<TagRulesManagerSheet> {
         actions: [
           TextButton(
             onPressed: () => Navigator.of(ctx).pop(),
-            child: const Text('Vazgeç'),
+            child: Text(loc.dismiss),
           ),
           ElevatedButton(
             onPressed: () async {
@@ -90,7 +93,7 @@ class _TagRulesManagerSheetState extends State<TagRulesManagerSheet> {
                 if (ctx.mounted) Navigator.of(ctx).pop();
               }
             },
-            child: const Text('Kaydet'),
+            child: Text(loc.save),
           ),
         ],
       ),
@@ -98,15 +101,16 @@ class _TagRulesManagerSheetState extends State<TagRulesManagerSheet> {
   }
 
   void _deleteRule(TagRule rule) {
+    final loc = AppLocalizations.of(context) ?? L10n.current;
     showDialog(
       context: context,
       builder: (ctx) => AlertDialog(
-        title: const Text('Etiket Notunu Sil'),
-        content: Text('"${rule.note}" açıklamalı etiket kuralı silinecektir. Devam edilsin mi?'),
+        title: Text(loc.tagNoteDeleteTitle),
+        content: Text(loc.ruleDeleteConfirm(rule.note)),
         actions: [
           TextButton(
             onPressed: () => Navigator.of(ctx).pop(),
-            child: const Text('Vazgeç'),
+            child: Text(loc.dismiss),
           ),
           ElevatedButton(
             style: ElevatedButton.styleFrom(backgroundColor: Colors.red),
@@ -116,7 +120,7 @@ class _TagRulesManagerSheetState extends State<TagRulesManagerSheet> {
               _refreshRules();
               if (ctx.mounted) Navigator.of(ctx).pop();
             },
-            child: const Text('Sil', style: TextStyle(color: Colors.white)),
+            child: Text(loc.delete, style: const TextStyle(color: Colors.white)),
           ),
         ],
       ),
@@ -124,15 +128,16 @@ class _TagRulesManagerSheetState extends State<TagRulesManagerSheet> {
   }
 
   void _confirmClearAllRules() {
+    final loc = AppLocalizations.of(context) ?? L10n.current;
     showDialog(
       context: context,
       builder: (ctx) => AlertDialog(
-        title: const Text('Tüm Etiket Kurallarını Temizle'),
-        content: const Text('Kayıtlı tüm uygulama içi etiket notları silinecektir. Onaylıyor musunuz?'),
+        title: Text(loc.clearAllTagRulesTitle),
+        content: Text(loc.clearAllTagRulesConfirm),
         actions: [
           TextButton(
             onPressed: () => Navigator.of(ctx).pop(),
-            child: const Text('Vazgeç'),
+            child: Text(loc.dismiss),
           ),
           ElevatedButton(
             style: ElevatedButton.styleFrom(backgroundColor: Colors.red),
@@ -142,7 +147,7 @@ class _TagRulesManagerSheetState extends State<TagRulesManagerSheet> {
               _refreshRules();
               if (ctx.mounted) Navigator.of(ctx).pop();
             },
-            child: const Text('Tümünü Sil', style: TextStyle(color: Colors.white)),
+            child: Text(loc.deleteAll, style: const TextStyle(color: Colors.white)),
           ),
         ],
       ),
@@ -151,6 +156,7 @@ class _TagRulesManagerSheetState extends State<TagRulesManagerSheet> {
 
   @override
   Widget build(BuildContext context) {
+    final loc = AppLocalizations.of(context) ?? L10n.current;
     return SafeArea(
       child: Container(
         constraints: BoxConstraints(
@@ -163,13 +169,13 @@ class _TagRulesManagerSheetState extends State<TagRulesManagerSheet> {
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
-                const Row(
+                Row(
                   children: [
-                    Icon(Icons.rule_folder_outlined, color: AppColors.accent),
-                    SizedBox(width: 8),
+                    const Icon(Icons.rule_folder_outlined, color: AppColors.accent),
+                    const SizedBox(width: 8),
                     Text(
-                      'Uygulama İçi Etiket Kuralları',
-                      style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
+                      loc.inAppTagRules,
+                      style: const TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
                     ),
                   ],
                 ),
@@ -186,9 +192,9 @@ class _TagRulesManagerSheetState extends State<TagRulesManagerSheet> {
                 color: Colors.blueGrey.shade50,
                 borderRadius: BorderRadius.circular(6),
               ),
-              child: const Text(
-                'Bu kurallar etiketin tam NDEF içerik SHA-256 özetine bağlıdır (iOS UID yerine). Eşleşen etiket tarandığında sadece kayıtlı not gösterilir; harici eylem başlatmaz veya sistem ayarlarını değiştirmez.',
-                style: TextStyle(fontSize: 11, color: Colors.blueGrey),
+              child: Text(
+                loc.tagRulesExplanation,
+                style: const TextStyle(fontSize: 11, color: Colors.blueGrey),
               ),
             ),
             const SizedBox(height: 12),
@@ -196,25 +202,25 @@ class _TagRulesManagerSheetState extends State<TagRulesManagerSheet> {
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
                 Text(
-                  'Tanımlı Kural Sayısı: ${_rules.length}',
+                  loc.tagRulesCount(_rules.length),
                   style: const TextStyle(fontWeight: FontWeight.bold, fontSize: 13),
                 ),
                 if (_rules.isNotEmpty)
                   TextButton.icon(
                     onPressed: _confirmClearAllRules,
                     icon: const Icon(Icons.delete_sweep, size: 16, color: Colors.red),
-                    label: const Text('Tümünü Temizle', style: TextStyle(color: Colors.red, fontSize: 12)),
+                    label: Text(loc.clearAllButton, style: const TextStyle(color: Colors.red, fontSize: 12)),
                   ),
               ],
             ),
             const Divider(),
             Expanded(
               child: _rules.isEmpty
-                  ? const Center(
+                  ? Center(
                       child: Text(
-                        'Henüz tanımlanmış bir etiket kuralı bulunmuyor.\nBir etiket taradıktan sonra "Etiket Notu Ekle" seçeneği ile kural oluşturabilirsiniz.',
+                        loc.noTagRulesDefined,
                         textAlign: TextAlign.center,
-                        style: TextStyle(color: Colors.grey),
+                        style: const TextStyle(color: Colors.grey),
                       ),
                     )
                   : ListView.builder(
@@ -238,7 +244,7 @@ class _TagRulesManagerSheetState extends State<TagRulesManagerSheet> {
                               children: [
                                 const SizedBox(height: 2),
                                 Text('SHA-256: $shortSha', style: const TextStyle(fontSize: 10, fontFamily: 'monospace')),
-                                Text('Son Güncelleme: ${rule.updatedAt.toLocal().toString().substring(0, 16)}', style: const TextStyle(fontSize: 10)),
+                                Text(loc.lastUpdated(rule.updatedAt.toLocal().toString().substring(0, 16)), style: const TextStyle(fontSize: 10)),
                               ],
                             ),
                             trailing: Row(
@@ -246,12 +252,12 @@ class _TagRulesManagerSheetState extends State<TagRulesManagerSheet> {
                               children: [
                                 IconButton(
                                   icon: const Icon(Icons.edit, size: 20, color: AppColors.accent),
-                                  tooltip: 'Düzenle',
+                                  tooltip: loc.edit,
                                   onPressed: () => _editRule(rule),
                                 ),
                                 IconButton(
                                   icon: const Icon(Icons.delete_outline, size: 20, color: Colors.red),
-                                  tooltip: 'Sil',
+                                  tooltip: loc.delete,
                                   onPressed: () => _deleteRule(rule),
                                 ),
                               ],

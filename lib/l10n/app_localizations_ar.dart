@@ -638,7 +638,7 @@ class AppLocalizationsAr extends AppLocalizations {
   String get nfcPromptLock => 'قرّب البطاقة لقفلها بشكل دائم';
 
   @override
-  String get nfcPromptScan => 'قرّب بطاقة NFC من الجهاز لقراءتها';
+  String get nfcPromptScan => 'قرب البطاقة من أعلى الهاتف';
 
   @override
   String get nfcPromptWrite => 'قرّب بطاقة NFC لحفظ البيانات';
@@ -1145,7 +1145,7 @@ class AppLocalizationsAr extends AppLocalizations {
   String get sourceSelectPrompt => 'من أين يتم أخذ محتوى البطاقة؟';
 
   @override
-  String get statusCancelled => 'تم إلغاء العملية.';
+  String get statusCancelled => 'تم الإلغاء';
 
   @override
   String statusClearError(String error) {
@@ -1431,7 +1431,7 @@ class AppLocalizationsAr extends AppLocalizations {
       'يرجى إدخال عنوان ويب صالح (مثال: https://example.com/file.pdf).';
 
   @override
-  String get verificationNotChecked => 'لم يتم الفحص';
+  String get verificationNotChecked => 'لم يتم التحقق';
 
   @override
   String get verificationPassed => 'ناجح';
@@ -1517,4 +1517,1696 @@ class AppLocalizationsAr extends AppLocalizations {
 
   @override
   String get yes => 'نعم';
+
+  @override
+  String get unknown => 'غير معروف';
+
+  @override
+  String get error => 'خطأ';
+
+  @override
+  String get nfcPromptReady => 'قرب البطاقة';
+
+  @override
+  String get invalidResponseFormat => 'تم استلام تنسيق استجابة غير صالح';
+
+  @override
+  String get nfcReadError => 'خطأ في قراءة NFC';
+
+  @override
+  String get invalidPlatformResponse => 'تم استلام استجابة غير صالحة من المنصة';
+
+  @override
+  String get writeFailed => 'فشلت الكتابة';
+
+  @override
+  String get lockFailed => 'فشل القفل';
+
+  @override
+  String get failedToConnectTag => 'تعذر الاتصال بالبطاقة';
+
+  @override
+  String get invalidTagResponse => 'استجابة غير صالحة من البطاقة';
+
+  @override
+  String get commandFailed => 'فشل الأمر';
+
+  @override
+  String get ndefTypeOrIdTooLong => 'نوع أو معرف NDEF يتجاوز 255 بايت';
+
+  @override
+  String get ndefUnsupportedOrInvalidRecord => 'سجل NDEF غير مدعوم أو غير صالح';
+
+  @override
+  String get ndefMissingTypeLength => 'طول نوع NDEF مفقود';
+
+  @override
+  String get ndefMissingPayloadLength => 'طول حمولة NDEF مفقود';
+
+  @override
+  String get ndefMissingIdLength => 'طول معرف NDEF مفقود';
+
+  @override
+  String get ndefMissingType => 'نوع NDEF مفقود';
+
+  @override
+  String get ndefMissingId => 'معرف NDEF مفقود';
+
+  @override
+  String get ndefMissingPayload => 'حمولة NDEF مفقودة';
+
+  @override
+  String get unprotected => '(بدون كلمة مرور)';
+
+  @override
+  String get binaryDataPreview => '(بيانات ثنائية)';
+
+  @override
+  String get emptyValue => '(فارغ)';
+
+  @override
+  String get tnfEmpty => '0: Empty (فارغ)';
+
+  @override
+  String get tnfWellKnown => '1: NFC Forum Well-Known (RTD)';
+
+  @override
+  String get tnfMedia => '2: Media-Type (RFC 2046 MIME)';
+
+  @override
+  String get tnfAbsoluteUri => '3: Absolute URI (RFC 3986)';
+
+  @override
+  String get tnfExternal => '4: NFC Forum External';
+
+  @override
+  String get tnfUnknown => '5: Unknown (غير معروف)';
+
+  @override
+  String get tnfUnchanged => '6: Unchanged (مجزأ NDEF)';
+
+  @override
+  String get tnfReserved => '7: Reserved (محجوز)';
+
+  @override
+  String get ntagUnsupportedChip =>
+      'هذه العملية مدعومة فقط على بطاقات NTAG213/215/216 وMIFARE Ultralight EV1.';
+
+  @override
+  String ntagPageReadFailed(String page) {
+    return 'تعذرت قراءة الصفحة $page (لم تستجب البطاقة أو المنطقة محمية).';
+  }
+
+  @override
+  String ntagPageWriteFailedError(String page, String error) {
+    return 'تعذرت كتابة الصفحة $page: $error';
+  }
+
+  @override
+  String ntagPageWriteFailed(String page) {
+    return 'تعذرت كتابة الصفحة $page (تم الرفض؛ قد تكون مقفلة أو محمية).';
+  }
+
+  @override
+  String ntagProtectedArea(String page) {
+    return 'تعذرت القراءة بعد الصفحة $page؛ قد تكون هذه المنطقة محمية بكلمة مرور.';
+  }
+
+  @override
+  String get ntagPasswordPackSize =>
+      'يجب أن تكون كلمة المرور 4 بايت و PACK 2 بايت.';
+
+  @override
+  String get ntagPasswordSize => 'يجب أن تكون كلمة المرور 4 بايت.';
+
+  @override
+  String get ntagPasswordWrongOrAuthFailed =>
+      'كلمة المرور غير صحيحة أو رفضت البطاقة المصادقة.';
+
+  @override
+  String get ntagPasswordWrong => 'كلمة المرور غير صحيحة.';
+
+  @override
+  String get ntagCcInvalid =>
+      'تحتوي منطقة CC على قيمة غير NDEF؛ لا يمكن تهيئة هذه المنطقة.';
+
+  @override
+  String get ntagDumpTooShort =>
+      'ملف التفريغ قصير جداً؛ لا يحتوي على بيانات المستخدم.';
+
+  @override
+  String get ntagInvalidHex => 'أدخل قيمة سداسية عشرية صالحة (مثال: 30 04).';
+
+  @override
+  String get googleReviewFieldLabel => 'رابط التقييم أو Place ID';
+
+  @override
+  String get menuLinkFieldLabel => 'رابط القائمة';
+
+  @override
+  String get menuTitleHint => 'قائمتنا';
+
+  @override
+  String get petName => 'اسم الحيوان الأليف';
+
+  @override
+  String get ownerPhone => 'هاتف المالك';
+
+  @override
+  String petTagMessage(String pet, String phone, String note) {
+    return 'مرحباً، أنا $pet! يرجى الاتصال بمالكي: $phone$note';
+  }
+
+  @override
+  String get bloodType => 'فصيلة الدم';
+
+  @override
+  String get allergies => 'الحساسية / الأدوية';
+
+  @override
+  String get emergencyContact => 'جهة اتصال للطوارئ';
+
+  @override
+  String get emergencyInfo => 'معلومات الطوارئ';
+
+  @override
+  String emergencyBlood(String blood) {
+    return 'فصيلة الدم: $blood';
+  }
+
+  @override
+  String emergencyAllergies(String allergies) {
+    return 'الحساسية: $allergies';
+  }
+
+  @override
+  String emergencyCall(String contact) {
+    return 'في حالة الطوارئ اتصل بـ: $contact';
+  }
+
+  @override
+  String get storeLink => 'رابط المتجر';
+
+  @override
+  String get link => 'رابط';
+
+  @override
+  String get title => 'العنوان';
+
+  @override
+  String get webAddress => 'عنوان الويب';
+
+  @override
+  String get address => 'العنوان';
+
+  @override
+  String backupSummaryTemplates(String added, String updated) {
+    return 'القوالب: تمت إضافة $added وتحديث $updated';
+  }
+
+  @override
+  String backupSummaryRules(String added, String updated) {
+    return 'ملاحظات/قواعد البطاقات: تمت إضافة $added وتحديث $updated';
+  }
+
+  @override
+  String backupSummaryHistoryDisabled(String skipped) {
+    return 'تم تخطي السجل لأنه معطل على الجهاز: $skipped';
+  }
+
+  @override
+  String backupSummaryHistory(String added, String skipped) {
+    return 'السجل: تمت إضافة $added، وتخطي $skipped';
+  }
+
+  @override
+  String get backupSummaryNoNewData =>
+      'لم يتم العثور على بيانات جديدة للاستيراد (متطابقة مع السجلات الحالية).';
+
+  @override
+  String backupFieldMustBeString(String field) {
+    return 'يجب أن يكون $field نصاً.';
+  }
+
+  @override
+  String backupFieldMustBeDate(String field) {
+    return 'يجب أن يكون $field تاريخاً صالحاً.';
+  }
+
+  @override
+  String get rawTypeHexLabel => 'النوع (بايتات سداسية عشرية)';
+
+  @override
+  String get rawIdHexLabel => 'المعرف (بايتات سداسية عشرية، اختياري)';
+
+  @override
+  String get rawPayloadHexLabel => 'الحمولة (بايتات سداسية عشرية)';
+
+  @override
+  String get rawOptionalHexHint => 'بايتات سداسية عشرية اختيارية';
+
+  @override
+  String get saveChanges => 'حفظ التغييرات';
+
+  @override
+  String get edit => 'تعديل';
+
+  @override
+  String get clearAllButton => 'مسح الكل';
+
+  @override
+  String ntagPagesRead(String chip, int count) {
+    return '$chip: تمت قراءة $count من الصفحات';
+  }
+
+  @override
+  String ntagFormatted(String chip) {
+    return 'تمت تهيئة $chip';
+  }
+
+  @override
+  String get ntagInvalidDumpFile =>
+      'ملف تفريغ غير صالح (يجب أن يكون من مضاعفات 4 بايت، 32-1024 بايت).';
+
+  @override
+  String ntagPagesWritten(int count) {
+    return 'تمت كتابة $count من الصفحات';
+  }
+
+  @override
+  String ntagPasswordSet(String chip) {
+    return '$chip: تم تفعيل الحماية بكلمة المرور';
+  }
+
+  @override
+  String ntagPasswordRemoved(String chip) {
+    return '$chip: تمت إزالة كلمة المرور';
+  }
+
+  @override
+  String get memoryDumpCopied => 'تم نسخ تفريغ الذاكرة';
+
+  @override
+  String ntagCommandsSent(int count) {
+    return 'تم إرسال $count من الأوامر';
+  }
+
+  @override
+  String get emptyResponse => '(رد فارغ)';
+
+  @override
+  String pagesAndBytes(int pages, int bytes) {
+    return '$pages صفحة · $bytes بايت';
+  }
+
+  @override
+  String get composeTextEmpty => 'لا يمكن أن يكون محتوى النص فارغاً.';
+
+  @override
+  String get composeTextTooLong => 'النص طويل جداً (بحد أقصى 5000 حرف).';
+
+  @override
+  String get composeUrlInvalid =>
+      'أدخل عنواناً صالحاً (مثال: https://example.com أو رابط app://).';
+
+  @override
+  String get composeUrlTooLong => 'الرابط طويل جداً (بحد أقصى 2000 حرف).';
+
+  @override
+  String get composeEmailInvalid =>
+      'أدخل عنوان بريد إلكتروني صالح (مثال: name@domain.com).';
+
+  @override
+  String get composePhoneInvalid => 'أدخل رقم هاتف صالح (مثال: +905551234567).';
+
+  @override
+  String get composeSmsPhoneInvalid => 'أدخل رقم هاتف مستلم صالح.';
+
+  @override
+  String get composeLatInvalid => 'يجب أن يكون خط العرض بين -90 و +90.';
+
+  @override
+  String get composeLngInvalid => 'يجب أن يكون خط الطول بين -180 و +180.';
+
+  @override
+  String get composeVcardNameEmpty => 'لا يمكن أن يكون اسم جهة الاتصال فارغاً.';
+
+  @override
+  String get composeVcardNameTooLong =>
+      'اسم جهة الاتصال طويل جداً (بحد أقصى 200 حرف).';
+
+  @override
+  String get composeVcardEmailInvalid => 'أدخل عنوان بريد إلكتروني صالح.';
+
+  @override
+  String get composeVcardPhoneInvalid => 'أدخل رقم هاتف صالح.';
+
+  @override
+  String get composeVcardUrlInvalid =>
+      'أدخل عنوان موقع صالح (مثال: https://...).';
+
+  @override
+  String get composeCalSummaryEmpty => 'لا يمكن أن يكون عنوان الفعالية فارغاً.';
+
+  @override
+  String get composeCalSummaryTooLong =>
+      'عنوان الفعالية طويل جداً (بحد أقصى 250 حرف).';
+
+  @override
+  String get composeCalDateInvalid => 'يجب أن يكون وقت الانتهاء بعد وقت البدء.';
+
+  @override
+  String get composeSpUriInvalid => 'أدخل رابط وجهة صالح (مثال: https://...).';
+
+  @override
+  String get composeSpLangInvalid => 'أدخل رمز لغة ISO صالح (مثال: ar, en).';
+
+  @override
+  String get composeMimeTypeInvalid =>
+      'أدخل نوع MIME صالح (مثال: application/json, text/plain).';
+
+  @override
+  String get composeMimeHexInvalid =>
+      'أدخل سلسلة سداسية عشرية صالحة (عدد زوجي من الأحرف السداسية عشرية).';
+
+  @override
+  String get composeMimePayloadTooLarge =>
+      'حجم الحمولة كبير جداً (بحد أقصى 10 كيلوبايت).';
+
+  @override
+  String get composeWifiSsidEmpty =>
+      'لا يمكن أن يكون اسم الشبكة (SSID) فارغاً.';
+
+  @override
+  String get composeWifiPasswordRequired =>
+      'كلمة مرور Wi-Fi مطلوبة للشبكات المشفرة.';
+
+  @override
+  String get composeWifiPasswordLength =>
+      'يجب أن تكون كلمة مرور WPA/WPA2 بين 8 و 63 حرفاً.';
+
+  @override
+  String get composeEditNdefRecord => 'تعديل سجل NDEF';
+
+  @override
+  String get composeNewNdefRecord => 'إنشاء سجل NDEF جديد';
+
+  @override
+  String get quickLinksHeader => 'روابط سريعة';
+
+  @override
+  String get quickLinkCustomUri => 'URI مخصص';
+
+  @override
+  String get quickLinkSocial => 'شبكات التواصل';
+
+  @override
+  String get quickLinkVideo => 'فيديو';
+
+  @override
+  String get quickLinkSearch => 'بحث';
+
+  @override
+  String get quickLinkFile => 'ملف';
+
+  @override
+  String get quickLinkFacetimeAudio => 'FaceTime صوتي';
+
+  @override
+  String get quickLinkAddress => 'عنوان';
+
+  @override
+  String get quickLinkPayment => 'رابط الدفع';
+
+  @override
+  String get quickLinkApp => 'تطبيق (Android)';
+
+  @override
+  String get updateRecord => 'تحديث السجل';
+
+  @override
+  String get addToList => 'إضافة إلى القائمة';
+
+  @override
+  String get quickCustomUriError =>
+      'أدخل عنواناً يحتوي على مخطط (مثال: spotify:track:... أو myapp://page).';
+
+  @override
+  String get quickFileEmptyMessage => 'أدخل رابط الملف.';
+
+  @override
+  String get quickPaymentEmptyMessage => 'أدخل رابط الدفع.';
+
+  @override
+  String get quickCustomUriDesc =>
+      'يمكن كتابة أي عنوان يبدأ بمخطط؛ سيفتح الهاتف التطبيق الداعم له.';
+
+  @override
+  String get quickSocialLabel => 'شبكة التواصل';
+
+  @override
+  String get quickVideoLabel => 'رابط الفيديو';
+
+  @override
+  String get quickVideoHint => 'https://youtu.be/... أو معرّف الفيديو';
+
+  @override
+  String get quickVideoDesc =>
+      'رابط YouTube أو Vimeo إلخ، أو معرّف فيديو YouTube فقط.';
+
+  @override
+  String get quickSearchHint => 'مثال: طقس القاهرة';
+
+  @override
+  String get quickFileLabel => 'رابط الملف';
+
+  @override
+  String get quickFileDesc =>
+      'نظراً لصغر سعة الشريحة، تتم كتابة رابط الإنترنت بدلاً من الملف نفسه (Google Drive, Dropbox إلخ).';
+
+  @override
+  String get quickPhoneOrAppleId => 'الهاتف أو حساب Apple';
+
+  @override
+  String get quickFacetimeVideoDesc =>
+      'سيبدأ هاتف iPhone يلمس الشريحة مكالمة فيديو عبر FaceTime.';
+
+  @override
+  String get quickFacetimeAudioDesc =>
+      'سيبدأ هاتف iPhone يلمس الشريحة مكالمة صوتية فقط عبر FaceTime.';
+
+  @override
+  String get quickMapProvider => 'تطبيق الخرائط';
+
+  @override
+  String get quickAddressHint => 'مثال: شارع التحرير، القاهرة';
+
+  @override
+  String get quickPaymentDesc =>
+      'يمكن استخدام روابط الدفع مثل PayPal.me و Stripe. لا يتم مطلقاً تخزين معلومات البطاقة على الشريحة.';
+
+  @override
+  String get quickAppDesc =>
+      'ستفتح هواتف Android هذا التطبيق عند لمسها (أو متجر Play إن لم يكن مثبتاً). يتجاهل iPhone هذا النوع؛ أضف رابط App Store كـ URL.';
+
+  @override
+  String get quickDeviceNameOptional => 'اسم الجهاز (اختياري)';
+
+  @override
+  String get quickSpeakerHint => 'مثال: مكبر صوت';
+
+  @override
+  String get quickBluetoothDesc =>
+      'تقترح هواتف Android الاقتران بهذا الجهاز عند لمسها. لا يدعم iPhone شرائح اقتران Bluetooth.';
+
+  @override
+  String get composeTextContent => 'محتوى النص';
+
+  @override
+  String get composeTextHint => 'أدخل النص الذي ترغب في كتابته';
+
+  @override
+  String get composeEmailSubjectOptional => 'الموضوع (اختياري)';
+
+  @override
+  String get composeEmailBodyOptional => 'نص الرسالة (اختياري)';
+
+  @override
+  String get composeSmsRecipient => 'رقم هاتف المستلم';
+
+  @override
+  String get composeSmsHint => 'رسالة SMS للإرسال...';
+
+  @override
+  String get composeVcardFullName => 'الاسم الكامل (الاسم المعروض) *';
+
+  @override
+  String get composeVcardNameHint => 'أحمد محمد';
+
+  @override
+  String get composeVcardNote => 'ملاحظة / وصف';
+
+  @override
+  String get composeCalTitle => 'عنوان الفعالية *';
+
+  @override
+  String get composeCalTitleHint => 'اجتماع المشروع';
+
+  @override
+  String get composeCalLocationHint => 'غرفة الاجتماعات 2 أو عبر الإنترنت';
+
+  @override
+  String get composeCalDesc => 'وصف الفعالية';
+
+  @override
+  String get composeCalStartEndTime => 'وقت البدء والانتهاء:';
+
+  @override
+  String get composeSpTitleLabel => 'العنوان (النص المعروض)';
+
+  @override
+  String get composeSpTitleHint => 'كتيب الشركة';
+
+  @override
+  String get composeMimeTypeLabel => 'نوع MIME *';
+
+  @override
+  String get composeDataFormat => 'تنسيق البيانات: ';
+
+  @override
+  String get composeFormatHex => 'سداسي عشري (Hex)';
+
+  @override
+  String get composeMimeHexBytes => 'بايتات سداسية عشرية *';
+
+  @override
+  String get composeMimeTextPayload => 'نص الحمولة (UTF-8) *';
+
+  @override
+  String get composeWifiWarningTitle => 'تنبيه الأمان والمنصة:';
+
+  @override
+  String get composeWifiWarningBody =>
+      '• يتم تخزين كلمة مرور Wi-Fi كنص عادي غير مشفر ويمكن قراءتها بسهولة من أي شخص.\n• لا يُضمن الاتصال التلقائي بالشبكة عند لمس الشريحة؛ قد يتطلب الأمر تأكيد المستخدم.';
+
+  @override
+  String get composeWifiSsidLabel => 'اسم الشبكة (SSID) *';
+
+  @override
+  String get composeWifiAuthTypeLabel => 'نوع الأمان (المصادقة)';
+
+  @override
+  String get composeWifiOpenNetwork => 'شبكة مفتوحة (بدون كلمة مرور)';
+
+  @override
+  String get composeWifiPasswordLabel => 'كلمة مرور Wi-Fi *';
+
+  @override
+  String get composeWifiEncryptionLabel => 'نوع التشفير';
+
+  @override
+  String get composeWifiAesRecommended => 'AES (موصى به)';
+
+  @override
+  String get quickSearchTextLabel => 'نص البحث';
+
+  @override
+  String get readTagMemoryPrompt => 'قرب الشريحة من الهاتف لقراءة الذاكرة';
+
+  @override
+  String get readingTagMemoryStatus => 'جارٍ قراءة الذاكرة...';
+
+  @override
+  String get formatTagConfirmTitle => 'تهيئة الذاكرة';
+
+  @override
+  String get formatTagConfirmMessage =>
+      'سيتم مسح بيانات الشريحة وتجهيزها كـ NDEF فارغ. هل تريد المتابعة؟';
+
+  @override
+  String get formatButton => 'تهيئة';
+
+  @override
+  String get formatTagPrompt => 'قرب الشريحة المراد تهيئتها';
+
+  @override
+  String get formattingStatus => 'جارٍ التهيئة...';
+
+  @override
+  String filePickerFailed(String error) {
+    return 'فشل منتقي الملفات: $error';
+  }
+
+  @override
+  String get writeButton => 'كتابة';
+
+  @override
+  String get writeDumpPrompt => 'قرب الشريحة لكتابة ملف التفريغ';
+
+  @override
+  String get writingDumpStatus => 'جارٍ كتابة ملف التفريغ...';
+
+  @override
+  String get setPasswordWarning =>
+      'إذا نسيت كلمة المرور، فلن تتمكن من تعديل محتوى الشريحة مرة أخرى. تظل القراءة متاحة للجميع.';
+
+  @override
+  String get setPasswordAction => 'تعيين كلمة المرور';
+
+  @override
+  String get setPasswordPrompt => 'قرب الشريحة لتعيين كلمة المرور';
+
+  @override
+  String get settingPasswordStatus => 'جارٍ ضبط كلمة المرور...';
+
+  @override
+  String get removePasswordPromptMessage =>
+      'أدخل كلمة المرور التي تم تعيينها مسبقاً على الشريحة.';
+
+  @override
+  String get remove => 'إزالة';
+
+  @override
+  String get removePasswordPrompt => 'قرب الشريحة لإزالة كلمة المرور';
+
+  @override
+  String get removingPasswordStatus => 'جارٍ إزالة كلمة المرور...';
+
+  @override
+  String get sendCommandsPrompt => 'قرب الشريحة لإرسال الأوامر';
+
+  @override
+  String get sendingCommandsStatus => 'جارٍ إرسال الأوامر...';
+
+  @override
+  String get sendButton => 'إرسال';
+
+  @override
+  String get tagNoteEditTitle => 'تعديل ملاحظة الشريحة';
+
+  @override
+  String get tagNoteInputLabel => 'ملاحظة / وصف داخل التطبيق';
+
+  @override
+  String get tagNoteInputHint =>
+      'مثال: معلومات غرفة الاجتماعات أو رف المستودع #12';
+
+  @override
+  String get tagNoteDeleteTitle => 'حذف ملاحظة الشريحة';
+
+  @override
+  String get clearAllTagRulesTitle => 'حذف جميع الملاحظات';
+
+  @override
+  String get clearAllTagRulesConfirm =>
+      'سيتم حذف جميع ملاحظات الشرائح المحفوظة. هل تؤكد ذلك؟';
+
+  @override
+  String get deleteAll => 'حذف الكل';
+
+  @override
+  String get tagRulesExplanation =>
+      'يتم عرض الملاحظة المحفوظة فقط للشرائح المتطابقة مع خلاصة SHA-256. لا يتم إطلاق إجراءات خارجية.';
+
+  @override
+  String get noTagRulesDefined => 'لا توجد ملاحظات شرائح محددة بعد.';
+
+  @override
+  String lastUpdated(String time) {
+    return 'آخر تحديث: $time';
+  }
+
+  @override
+  String get tagLibraryNoMatch => 'لم يتم العثور على شرائح مطابقة لبحثك.';
+
+  @override
+  String get tagLibraryAddToLibrary => 'إضافة إلى المكتبة';
+
+  @override
+  String get name => 'الاسم';
+
+  @override
+  String get tagLibraryAddTag => 'إضافة شريحة';
+
+  @override
+  String get all => 'الكل';
+
+  @override
+  String tagLibraryPhotoError(String error) {
+    return 'تعذر اختيار الصورة: $error';
+  }
+
+  @override
+  String get tagLibraryDeleteTitle => 'حذف الشريحة';
+
+  @override
+  String get tagLibraryNameHint => 'مثال: ميدالية مفاتيح المكتب';
+
+  @override
+  String get tagLibraryNoTagContent => 'لا يوجد محتوى شريحة في هذا السجل.';
+
+  @override
+  String get tagLibrarySourceLastScanned => 'آخر مسح';
+
+  @override
+  String get tagLibraryEmpty => 'لا توجد شرائح محفوظة بعد.';
+
+  @override
+  String get tagLibrarySourceEmpty => 'سجل فارغ';
+
+  @override
+  String get tagLibraryNamePrompt => 'يرجى إدخال اسم للشريحة';
+
+  @override
+  String get tagLibrarySearchHint => 'البحث بالاسم أو الفئة أو الموقع...';
+
+  @override
+  String get tagLibrarySourceWriteList => 'قائمة الكتابة';
+
+  @override
+  String get tagLibraryLocationHint => 'مثال: المكتب، الباب الأمامي';
+
+  @override
+  String tagLibraryDeleteConfirm(String name) {
+    return 'هل أنت متأكد من حذف الشريحة \"$name\" من المكتبة؟';
+  }
+
+  @override
+  String get noContent => 'لا يوجد محتوى';
+
+  @override
+  String tagLibraryRecordSummary(num count) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: '$count سجلات NDEF',
+      one: 'سجل NDEF واحد',
+    );
+    return '$_temp0';
+  }
+
+  @override
+  String get tagLibraryEditTag => 'تعديل الشريحة';
+
+  @override
+  String get rawTypeHexHint => '41 (A) أو 55 (U) إلخ.';
+
+  @override
+  String backupContextRecordsMustBeList(String context) {
+    return '$context: يجب أن يكون حقل \"records\" قائمة.';
+  }
+
+  @override
+  String backupContextMaxRecords(String context, num max) {
+    return '$context: يمكن للعنصر أن يحتوي على $max سجلات NDEF كحد أقصى.';
+  }
+
+  @override
+  String backupContextRecordMustBeObject(String context, num index) {
+    return '$context - السجل #$index ليس كائناً صالحاً.';
+  }
+
+  @override
+  String backupContextInvalidTnf(String context, num index, String tnf) {
+    return '$context - السجل #$index: قيمة TNF غير صالحة ($tnf).';
+  }
+
+  @override
+  String backupContextTypeMustBeString(String context, num index) {
+    return '$context - السجل #$index: يجب أن يكون \"type\" نصاً مشفراً بـ Base64.';
+  }
+
+  @override
+  String backupContextInvalidTypeBase64(
+      String context, num index, String error) {
+    return '$context - السجل #$index: \"type\" ليس بيانات Base64 صالحة ($error).';
+  }
+
+  @override
+  String backupContextIdMustBeString(String context, num index) {
+    return '$context - السجل #$index: يجب أن يكون \"id\" نصاً مشفراً بـ Base64.';
+  }
+
+  @override
+  String backupContextInvalidIdBase64(String context, num index, String error) {
+    return '$context - السجل #$index: \"id\" ليس بيانات Base64 صالحة ($error).';
+  }
+
+  @override
+  String backupContextPayloadMustBeString(String context, num index) {
+    return '$context - السجل #$index: يجب أن يكون \"payload\" نصاً مشفراً بـ Base64.';
+  }
+
+  @override
+  String backupContextInvalidPayloadBase64(
+      String context, num index, String error) {
+    return '$context - السجل #$index: \"payload\" ليس بيانات Base64 صالحة ($error).';
+  }
+
+  @override
+  String get composerUndoSnack => 'تم التراجع عن التغيير الأخير.';
+
+  @override
+  String get composerRedoSnack => 'تمت إعادة تطبيق التغيير.';
+
+  @override
+  String get noRecordsToCopy => 'لا توجد سجلات NDEF للنسخ.';
+
+  @override
+  String recordsCopiedToClipboardDetails(num count, num bytes) {
+    return 'تم نسخ $count سجلات NDEF ($bytes بايت) إلى الحافظة.\n(يتم نسخ محتوى NDEF فقط؛ لا يتم استنساخ المعرّف أو القطاعات المشفرة)';
+  }
+
+  @override
+  String recordsAddedFromSource(String source, num count) {
+    return '$source: تمت إضافة $count سجلات.';
+  }
+
+  @override
+  String get tagEmptyNoRecordsToImport =>
+      'الشريحة فارغة؛ لا توجد سجلات للاستيراد.';
+
+  @override
+  String get sourceTag => 'من الشريحة';
+
+  @override
+  String get sourceQr => 'من رمز QR';
+
+  @override
+  String filePickerError(String error) {
+    return 'تعذر فتح منتقي الملفات: $error';
+  }
+
+  @override
+  String get csvFileTooLarge => 'ملف CSV كبير جداً (بحد أقصى 512 كيلوبايت).';
+
+  @override
+  String get noRecordsFound => 'لم يتم العثور على سجلات';
+
+  @override
+  String get someRowsSkipped => 'تم تخطي بعض الصفوف';
+
+  @override
+  String get expectedFormat => 'التنسيق المتوقع:';
+
+  @override
+  String get noClipboardContent => 'لا يوجد محتوى NDEF منسوخ في الحافظة.';
+
+  @override
+  String get pasteFromClipboardTitle => 'لصق من حافظة NDEF';
+
+  @override
+  String clipboardDataSummary(num count, num bytes, String source) {
+    return 'بيانات الحافظة: $count سجلات، $bytes بايت ($source)';
+  }
+
+  @override
+  String get clipboardPastePrompt =>
+      'هل ترغب في استبدال السجلات الحالية أم إضافتها في النهاية؟';
+
+  @override
+  String get pasteOverwriteOption => 'الكتابة فوق السجلات (استبدال)';
+
+  @override
+  String pasteOverwriteSubtitle(num count) {
+    return 'سيتم حذف السجلات الحالية البالغ عددها $count واستبدالها بمحتوى الحافظة (يتطلب تأكيداً).';
+  }
+
+  @override
+  String get pasteEmptySubtitle => 'يتم وضع محتوى الحافظة في المنشئ.';
+
+  @override
+  String get pasteAppendOption => 'إضافة إلى النهاية';
+
+  @override
+  String get pasteAppendSubtitle =>
+      'يتم الاحتفاظ بالسجلات الحالية، وتتم إضافة سجلات الحافظة إلى نهاية القائمة.';
+
+  @override
+  String recordsAddedToComposer(num count) {
+    return 'تمت إضافة $count سجلات.';
+  }
+
+  @override
+  String get confirmOverwriteTitle => 'هل تريد الكتابة فوق السجلات؟';
+
+  @override
+  String confirmOverwriteMessage(num currentCount, num newCount) {
+    return 'يوجد $currentCount سجلات حالياً. سيتم استبدالها بـ $newCount سجلات من الحافظة. متابعة؟';
+  }
+
+  @override
+  String recordsReplacedInComposer(num count) {
+    return 'تم استبدال السجلات بـ $count سجلات.';
+  }
+
+  @override
+  String get yesReplace => 'نعم، استبدل';
+
+  @override
+  String recordsImportedToComposer(num count) {
+    return 'تم استيراد $count سجلات.';
+  }
+
+  @override
+  String get noContentToCopy => 'لم يتم العثور على محتوى NDEF للنسخ.';
+
+  @override
+  String recordsCopiedAndStaged(num count) {
+    return 'تم نسخ $count سجلات وإضافتها (تم نسخ المحتوى، لا يتم استنساخ المعرّف).';
+  }
+
+  @override
+  String get noContentToRewrite =>
+      'لم يتم العثور على محتوى NDEF لإعادة كتابته.';
+
+  @override
+  String get rewriteTagTitle => 'إعادة كتابة الشريحة';
+
+  @override
+  String get importantNotice => 'تنبيه هام:';
+
+  @override
+  String get rewriteNotice1 =>
+      '• هذه العملية تكتب فوق محتوى NDEF الحالي بالكامل؛ لا تضيف في النهاية.\n';
+
+  @override
+  String get rewriteNotice2 =>
+      '• يجب أن تكون الشريحة المستهدفة قابلة للكتابة (غير مقفلة).\n';
+
+  @override
+  String get rewriteNotice3 =>
+      '• لا تتم الكتابة تلقائياً على الشريحة السابقة؛ يلزم لمس NFC جديد.';
+
+  @override
+  String rewriteSourceUidLabel(String uid) {
+    return 'المعرّف المصدر: $uid';
+  }
+
+  @override
+  String rewriteRecordCountLabel(num count) {
+    return 'عدد السجلات المراد كتابتها: $count';
+  }
+
+  @override
+  String get rewriteInstruction =>
+      'جهز الشريحة واضغط على \"المس واكتب\" ثم قرب الشريحة من الهاتف.';
+
+  @override
+  String get tapAndWrite => 'المس واكتب';
+
+  @override
+  String get rewritePromptMessage =>
+      'قرب الشريحة المستهدفة من الجهاز (سيتم تجديد المحتوى بالكامل)';
+
+  @override
+  String rewriteFailedMessage(String error) {
+    return 'فشلت إعادة الكتابة: $error';
+  }
+
+  @override
+  String get writeVerifiedTitle => 'تم التحقق من الكتابة';
+
+  @override
+  String get writeVerifiedDesc =>
+      'تمت كتابة محتوى NDEF والتحقق منه بنجاح على الشريحة.';
+
+  @override
+  String writtenRecordCount(num count) {
+    return 'عدد السجلات المكتوبة: $count';
+  }
+
+  @override
+  String get writeVerifiedHint =>
+      'يمكنك بدء المسح التالي للتحقق من البيانات المكتوبة أو مقارنتها.';
+
+  @override
+  String get scanAndCompareNow => 'امسح وقارن الآن';
+
+  @override
+  String get contentMatchesExactly => 'المحتوى متطابق تماماً';
+
+  @override
+  String get differenceDetected => 'تم اكتشاف اختلاف';
+
+  @override
+  String compareScannedUid(String uid) {
+    return 'معرّف الشريحة الممسوحة: $uid';
+  }
+
+  @override
+  String compareWrittenData(num count, num bytes) {
+    return 'البيانات المكتوبة: $count سجلات ($bytes بايت)';
+  }
+
+  @override
+  String compareScannedData(num count, num bytes) {
+    return 'البيانات الممسوحة: $count سجلات ($bytes بايت)';
+  }
+
+  @override
+  String get compareMatchDesc =>
+      'رسالة NDEF على الشريحة المستهدفة تطابق رسالة المصدر بايت ببايت تماماً.';
+
+  @override
+  String get compareDiffDesc =>
+      'توجد فروق بين البيانات المقروءة والبيانات المراد كتابتها. تحقق مما إذا كانت الشريحة مقفلة.';
+
+  @override
+  String get batchEmptyComposerError =>
+      'أضف سجلاً واحداً على الأقل قبل بدء الكتابة المجمعة.';
+
+  @override
+  String get batchWriteTitle => 'كتابة الشرائح المجمعة';
+
+  @override
+  String get batchWriteSubtitle =>
+      'اكتب محتوى NDEF نفسه على عدة شرائح بالتتابع.';
+
+  @override
+  String get attention => 'انتباه:';
+
+  @override
+  String get batchNotice1 =>
+      '• لمنع الكتابة المزدوجة بالخطأ، يجب تشغيل كل كتابة يدوياً بالضغط على \"اكتب التالي\".\n';
+
+  @override
+  String get batchNotice2 =>
+      '• لا يتم المسح المتتالي تلقائياً؛ يجب استبدال كل شريحة يدوياً.';
+
+  @override
+  String batchTargetCountLabel(num count) {
+    return 'عدد الشرائح المستهدفة: $count';
+  }
+
+  @override
+  String batchComposerSummary(num count, num bytes) {
+    return 'سجلات المنشئ: $count ($bytes بايت)';
+  }
+
+  @override
+  String get batchStartButton => 'بدء الكتابة المجمعة';
+
+  @override
+  String get batchControlPanelTitle => 'لوحة تحكم الكتابة المجمعة';
+
+  @override
+  String get batchCancelOrClose => 'إلغاء / إغلاق';
+
+  @override
+  String get batchAllCompleted => 'اكتملت جميع محاولات الشرائح!';
+
+  @override
+  String batchNextTag(num current, num total) {
+    return 'التالي: شريحة #$current / $total';
+  }
+
+  @override
+  String batchStats(num success, num fail, num remaining) {
+    return 'ناجح: $success | فاشل: $fail | متبقي: $remaining';
+  }
+
+  @override
+  String batchSuccessMsg(String message) {
+    return 'ناجح ($message)';
+  }
+
+  @override
+  String batchFailMsg(String message) {
+    return 'فشل: $message';
+  }
+
+  @override
+  String tagNumberLabel(num index) {
+    return 'شريحة #$index: ';
+  }
+
+  @override
+  String get waitingForTag => 'في انتظار الشريحة...';
+
+  @override
+  String tapToWriteForTag(num index) {
+    return 'المس واكتب للشريحة #$index';
+  }
+
+  @override
+  String get batchFinishButton => 'إنهاء الكتابة المجمعة';
+
+  @override
+  String batchPromptMessage(num current, num total) {
+    return 'كتابة مجمعة: قرب الشريحة #$current / $total';
+  }
+
+  @override
+  String batchTagSuccessSummary(num count) {
+    return 'تمت كتابة $count سجلات والتحقق منها';
+  }
+
+  @override
+  String get writeError => 'خطأ في الكتابة';
+
+  @override
+  String get batchConfirmCancelTitle => 'إلغاء الكتابة المجمعة';
+
+  @override
+  String get batchConfirmCancelMessage =>
+      'هل تريد إنهاء جلسة الكتابة المجمعة؟ يتم الاحتفاظ بالشرائح المكتوبة؛ ولن تُكتب الشرائح المتبقية.';
+
+  @override
+  String get cancelled => 'ملغى';
+
+  @override
+  String get batchCancelledSnack =>
+      'تم إلغاء الكتابة المجمعة. تم الاحتفاظ بمحتواك.';
+
+  @override
+  String get cancelAndClose => 'إلغاء وإغلاق';
+
+  @override
+  String get urlSafetyOfflineAnalysisTitle => 'فحص الروابط دون اتصال';
+
+  @override
+  String get urlSafetyScheme => 'المخطط (البروتوكول):';
+
+  @override
+  String get urlSafetyPort => 'المنفذ:';
+
+  @override
+  String get urlSafetyUserInfoLabel => 'معلومات المستخدم:';
+
+  @override
+  String get urlSafetyIpLiteral => 'عنوان IP مباشر:';
+
+  @override
+  String get urlSafetyDomain => 'لا (اسم النطاق)';
+
+  @override
+  String get urlSafetyPunycodeLabel => 'دولي / Punycode (xn--):';
+
+  @override
+  String get urlSafetyHomoglyphRisk => 'نعم (اشتباه تشابه حروف)';
+
+  @override
+  String get urlSafetyWarningsHeader => 'تنبيهات الأمان والتحذير:';
+
+  @override
+  String get urlSafetyDisclaimer =>
+      'ملاحظة: هذا التحليل محلي تماماً دون اتصال. لا يدعي فحص البرامج الضارة عبر الشبكة. لا يفتح الرابط تلقائياً.';
+
+  @override
+  String templateLoadedToComposer(String name) {
+    return 'تم تحميل سجلات القالب \"$name\" إلى المنشئ.';
+  }
+
+  @override
+  String get templateSaveEmptyError => 'أضف سجلات قبل الحفظ كقالب.';
+
+  @override
+  String templateDefaultName(num index) {
+    return 'قالب $index';
+  }
+
+  @override
+  String get templateNameSample => 'مثال: موقع الشركة وجهات الاتصال';
+
+  @override
+  String get templateSavedSnack => 'تم حفظ القالب.';
+
+  @override
+  String get ruleNoteRequiresNdef =>
+      'يجب أن تحتوي الشريحة على سجل NDEF واحد على الأقل لإضافة ملاحظة.';
+
+  @override
+  String get ruleNoteAddTitle => 'إضافة ملاحظة مخصصة للشريحة';
+
+  @override
+  String get ruleNoteDigestExplanation =>
+      'ترتبط هذه الملاحظة بملخص SHA-256 لمحتوى NDEF. يظهر هذا الوصف فقط عند المسح.';
+
+  @override
+  String ruleNoteShaSummary(String sha) {
+    return 'ملخص محتوى NDEF (SHA-256):\n$sha';
+  }
+
+  @override
+  String get ruleNoteSavedSnack => 'تم حفظ ملاحظة الشريحة.';
+
+  @override
+  String get ruleNoteDeleteTitle => 'حذف ملاحظة الشريحة';
+
+  @override
+  String get ruleNoteDeleteConfirm =>
+      'سيتم حذف الملاحظة المسجلة لهذه الشريحة. متابعة؟';
+
+  @override
+  String get ruleNoteDeletedSnack => 'تم حذف ملاحظة الشريحة.';
+
+  @override
+  String get backupExportTitle => 'تصدير النسخة الاحتياطية';
+
+  @override
+  String get backupExportWarningTitle => 'تحذير الخصوصية والأمان';
+
+  @override
+  String get backupExportWarningBody =>
+      'ملف النسخ الاحتياطي (JSON) هو نص عادي. قد يحتوي على بيانات حساسة ككلمات مرور Wi-Fi أو جهات الاتصال. احفظه بأمان.';
+
+  @override
+  String get backupIncludedItems => 'العناصر المضمنة:';
+
+  @override
+  String backupTemplatesCount(num count) {
+    return '• القوالب: $count';
+  }
+
+  @override
+  String backupRulesCount(num count) {
+    return '• ملاحظات/قواعد الشرائح: $count';
+  }
+
+  @override
+  String get backupIncludeHistoryOptional => 'تضمين سجل المسح (اختياري)';
+
+  @override
+  String backupHistoryCount(num count) {
+    return '$count سجلات في السجل';
+  }
+
+  @override
+  String get backupHistoryDisabled => 'سجل المسح معطل على هذا الجهاز';
+
+  @override
+  String get backupExportAndShare => 'تصدير ومشاركة';
+
+  @override
+  String get backupFileNameLabel => 'ملف النسخ الاحتياطي لـ NFC Tag Master';
+
+  @override
+  String get backupFileShareSubject =>
+      'نسخ احتياطي لقوالب وبيانات NFC Tag Master (JSON)';
+
+  @override
+  String get backupExportSuccessSnack =>
+      'تم تصدير ملف النسخة الاحتياطية ومشاركته بنجاح.';
+
+  @override
+  String get backupExportCancelled => 'تم إلغاء مشاركة التصدير.';
+
+  @override
+  String backupExportError(String error) {
+    return 'خطأ في التصدير: $error';
+  }
+
+  @override
+  String get backupImportTitle => 'استيراد النسخة الاحتياطية';
+
+  @override
+  String get backupMergeRuleTitle => 'قاعدة الأمان والدمج';
+
+  @override
+  String get backupMergeRule1 =>
+      '• يعمل الاستيراد بأسلوب الدمج (MERGE)؛ ولا يتم حذف سجلاتك الحالية أبداً.\n';
+
+  @override
+  String get backupMergeRule2 =>
+      '• قد يحتوي الملف على كلمات مرور Wi-Fi أو بيانات شخصية؛ قم بالتحميل من مصادر موثوقة فقط.\n';
+
+  @override
+  String get backupMergeRule3 =>
+      '• الحد الأقصى للحجم: 2 ميجابايت. تخضع البيانات للتحقق الصارم من المخطط و Base64 قبل التحميل.';
+
+  @override
+  String get backupSelectFilePrompt => 'حدد ملف نسخ احتياطي .json صالح لدمجه.';
+
+  @override
+  String get selectFileButton => 'اختيار ملف';
+
+  @override
+  String get fileSelectionCancelled => 'تم إلغاء اختيار الملف.';
+
+  @override
+  String get backupFileExceedsLimit =>
+      'يتجاوز الملف المحدد الحد المسموح به وهو 2 ميجابايت.';
+
+  @override
+  String fileReadError(String error) {
+    return 'خطأ في قراءة الملف: $error';
+  }
+
+  @override
+  String backupValidationError(String error) {
+    return 'خطأ في التحقق من النسخة الاحتياطية: $error';
+  }
+
+  @override
+  String get backupHistoryDetectedTitle => 'تم اكتشاف سجل المسح';
+
+  @override
+  String backupHistoryDetectedMsg(num count) {
+    return 'يحتوي ملف النسخ الاحتياطي على $count سجلات مسح، لكن الميزة معطلة على هذا الجهاز.\n\n';
+  }
+
+  @override
+  String get backupHistoryDetectedPrompt =>
+      'هل ترغب في استيراد السجل وتفعيله؟ أم تخطيه واستيراد القوالب والملاحظات فقط؟';
+
+  @override
+  String get backupSkipHistoryOption =>
+      'تخطي السجل (تحميل القوالب والملاحظات فقط)';
+
+  @override
+  String get backupEnableHistoryOption => 'تفعيل السجل وتحميله';
+
+  @override
+  String backupImportSuccessWithSummary(String summary) {
+    return 'تم الاستيراد بنجاح:\n$summary';
+  }
+
+  @override
+  String backupMergeError(String error) {
+    return 'خطأ في الدمج: $error';
+  }
+
+  @override
+  String get nfcReadyStatus => 'NFC جاهز';
+
+  @override
+  String get nfcReadyDesc => 'شريحة NFC نشطة وجاهزة للاستخدام';
+
+  @override
+  String get nfcDisabledStatus => 'NFC معطل';
+
+  @override
+  String get nfcDisabledDesc => 'NFC مغلق. يرجى تفعيله من إعدادات الجهاز.';
+
+  @override
+  String ndefClipboardBanner(num count, num bytes, String source) {
+    return 'حافظة NDEF: $count سجلات ($bytes بايت) - $source';
+  }
+
+  @override
+  String get template => 'قالب';
+
+  @override
+  String get nfcScannerTitle => 'ماسح NFC';
+
+  @override
+  String lastScannedTagId(String id) {
+    return 'آخر شريحة: $id';
+  }
+
+  @override
+  String get composeRecord => 'إنشاء سجل';
+
+  @override
+  String get protectOrRemove => 'حماية / إزالة';
+
+  @override
+  String get previousScans => 'عمليات المسح السابقة';
+
+  @override
+  String scanErrorWithMsg(String error) {
+    return 'خطأ في المسح: $error';
+  }
+
+  @override
+  String get noScannedTagYet => 'لم يتم مسح أي شريحة NFC بعد';
+
+  @override
+  String get tapScanPrompt => 'اضغط على \"بدء المسح\" وقرب الشريحة من الهاتف.';
+
+  @override
+  String get ndefCopyAndRewriteTitle => 'نسخ محتوى NDEF وإعادة كتابته';
+
+  @override
+  String ndefCopyNotice(num count, num bytes) {
+    return '$count سجلات ($bytes بايت) - تتم معالجة بيانات NDEF فقط، ولا يتم استنساخ المعرّف.';
+  }
+
+  @override
+  String tagIdHeader(String id) {
+    return 'شريحة $id';
+  }
+
+  @override
+  String get savedTagNoteHeader => 'ملاحظة الشريحة المحفوظة (قاعدة في التطبيق)';
+
+  @override
+  String get tagNoteOrRule => 'ملاحظة / قاعدة الشريحة';
+
+  @override
+  String get editNote => 'تعديل الملاحظة';
+
+  @override
+  String get deleteNote => 'حذف الملاحظة';
+
+  @override
+  String get tagNoteDigestNotice =>
+      'تتطابق هذه الملاحظة مع ملخص SHA-256 لبايتات NDEF بالضبط. لا تطلق إجراءات خارجية.';
+
+  @override
+  String get addCustomTagNotePrompt =>
+      'يمكنك إضافة ملاحظة محلية مخصصة أو وصف لمحتوى NDEF هذا.';
+
+  @override
+  String get addNoteToThisTag => 'إضافة ملاحظة إلى هذه الشريحة';
+
+  @override
+  String get ndefSupport => 'دعم NDEF:';
+
+  @override
+  String get usedSpace => 'المساحة المستخدمة:';
+
+  @override
+  String get freeSpace => 'المساحة المتبقية:';
+
+  @override
+  String errorWithMsg(String error) {
+    return 'خطأ: $error';
+  }
+
+  @override
+  String get noNdefMessageOnTag => 'لم يتم العثور على رسالة NDEF على الشريحة.';
+
+  @override
+  String readNdefRecordsHeader(num count) {
+    return 'سجلات NDEF المقروءة ($count)';
+  }
+
+  @override
+  String stagedNdefRecordsHeader(num count) {
+    return 'سجلات NDEF المُنشأة ($count)';
+  }
+
+  @override
+  String get hideDetails => 'إخفاء التفاصيل';
+
+  @override
+  String get advancedRecordInspector => 'فاحص السجلات (متقدم)';
+
+  @override
+  String get ndefRecordInspectorTitle => 'فاحص سجلات NDEF المتقدم';
+
+  @override
+  String get inspectorType => 'النوع:';
+
+  @override
+  String get inspectorPayloadLength => 'طول الحمولة:';
+
+  @override
+  String get inspectorRawHexPreview => 'معاينة Hex الأولية (محدودة):';
+
+  @override
+  String inspectorPayloadTruncated(num length) {
+    return 'ملاحظة: حجم الحمولة $length بايت؛ يتم عرض أول 64 بايت فقط.';
+  }
+
+  @override
+  String get ndefRecordsToWriteTitle => 'سجلات NDEF المراد كتابتها';
+
+  @override
+  String get pasteFromClipboardAction => 'لصق من الحافظة (استبدال / إضافة)';
+
+  @override
+  String get importAction => 'استيراد';
+
+  @override
+  String get importFromTagAction => 'استيراد من شريحة NFC';
+
+  @override
+  String get importFromQrAction => 'استيراد من رمز QR';
+
+  @override
+  String get importFromCsvAction => 'استيراد من ملف CSV';
+
+  @override
+  String composerTotalSizeAndCount(num bytes, num count) {
+    return 'الحجم الإجمالي: $bytes بايت | عدد السجلات: $count';
+  }
+
+  @override
+  String get composerEmptyDescription =>
+      'يمكنك كتابة النصوص والروابط و Wi-Fi والهاتف والبريد وبطاقات الاتصال والمزيد على الشرائح.';
+
+  @override
+  String get urlSafetyReview => 'فحص الرابط';
+
+  @override
+  String get inspector => 'الفاحص';
+
+  @override
+  String get typeLabel => 'النوع:';
+
+  @override
+  String get payloadLabel => 'الحمولة:';
+
+  @override
+  String get writeAndVerify => 'الكتابة على الشريحة والتحقق';
+
+  @override
+  String writeAndVerifyWithBytes(num bytes) {
+    return 'الكتابة على الشريحة والتحقق ($bytes بايت)';
+  }
+
+  @override
+  String get batchWriteButtonLabel => 'كتابة مجمعة للشرائح (2..100 شريحة)';
+
+  @override
+  String get clearTagButtonLabel => 'إعادة ضبط الشريحة (مسح المحتوى)';
+
+  @override
+  String get confirmWriteTitle => 'تأكيد الكتابة على الشريحة';
+
+  @override
+  String get confirmWriteMessage1 =>
+      'ستقوم هذه العملية بالكتابة فوق محتوى NDEF الحالي بالكامل على الشريحة.';
+
+  @override
+  String confirmWriteRecordCount(num count) {
+    return 'عدد السجلات المراد كتابتها: $count';
+  }
+
+  @override
+  String get confirmWriteMessage2 =>
+      'تأكد من أن الشريحة قابلة للكتابة. سيتم التحقق من المحتوى تلقائياً بعد الكتابة.';
+
+  @override
+  String get yesWrite => 'نعم، اكتب';
+
+  @override
+  String get scanHistoryDisabledTitle => 'سجل المسح معطل';
+
+  @override
+  String get scanHistoryDisabledDesc =>
+      'للخصوصية، لا يتم حفظ سجل المسح افتراضياً. يمكنك تفعيله من تبويب الإعدادات.';
+
+  @override
+  String get enableHistory => 'تفعيل السجل';
+
+  @override
+  String get historySearchHint =>
+      'البحث بالمعرّف أو النص أو النوع (مثال: URL, Wi-Fi, 04A1...)';
+
+  @override
+  String historyScansCount(num count) {
+    return 'عمليات المسح المحفوظة: $count';
+  }
+
+  @override
+  String get noHistoryYet => 'لا يوجد سجل مسح محفوظ بعد.';
+
+  @override
+  String noHistoryResultsForQuery(String query) {
+    return 'لم يتم العثور على نتائج لـ \"$query\".';
+  }
+
+  @override
+  String get tryDifferentQuery => 'جرب معرّفاً أو نصاً أو نوع سجل مختلفاً.';
+
+  @override
+  String get clearSearch => 'مسح البحث';
+
+  @override
+  String historyItemHeader(String time, num count) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: '$count سجلات',
+      one: 'سجل واحد',
+    );
+    return '$time | $_temp0';
+  }
+
+  @override
+  String get deleteThisRecord => 'حذف هذا السجل';
+
+  @override
+  String historyCapacitySummary(num cap, num used) {
+    return 'السعة: $cap بايت | المستخدم: $used بايت';
+  }
+
+  @override
+  String historyUidHeader(String uid) {
+    return 'معرّف السجل $uid';
+  }
+
+  @override
+  String get qrPreview => 'معاينة QR';
+
+  @override
+  String templateRecordCountWithDate(num count, String date) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: '$count سجلات',
+      one: 'سجل واحد',
+    );
+    return '$_temp0 | $date';
+  }
+
+  @override
+  String writeVerificationSummary(num bytes, String status) {
+    return 'البايتات المكتوبة: $bytes | التحقق: $status';
+  }
+
+  @override
+  String get lockTagConfirmTitle => 'قفل الشريحة بشكل دائم';
+
+  @override
+  String get lockTagWarning1 =>
+      'تصبح الشريحة المقفلة للقراءة فقط: لا يمكن تعديل محتواها أو حذفه أو إزالة القفل أبداً.';
+
+  @override
+  String get lockTagWarning2 => 'تأكد من كتابة المحتوى الصحيح أولاً.';
+
+  @override
+  String get langTr => 'Türkçe';
+
+  @override
+  String get langEn => 'English';
+
+  @override
+  String get langDe => 'Deutsch';
+
+  @override
+  String get langFr => 'Français';
+
+  @override
+  String get langEs => 'Español';
+
+  @override
+  String get langIt => 'Italiano';
+
+  @override
+  String get langPt => 'Português';
+
+  @override
+  String get langRu => 'Русский';
+
+  @override
+  String get langAr => 'العربية';
+
+  @override
+  String get langJa => '日本語';
+
+  @override
+  String get langZh => '中文';
+
+  @override
+  String get langKo => '한국어';
+
+  @override
+  String get langNl => 'Nederlands';
+
+  @override
+  String get langUk => 'Українська';
+
+  @override
+  String get qrPreviewTooltip => 'معاينة رمز QR';
+
+  @override
+  String get unknownParentheses => '(غير معروف)';
+
+  @override
+  String get ok => 'موافق';
 }

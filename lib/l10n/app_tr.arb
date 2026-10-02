@@ -389,7 +389,7 @@
   "ndefRecordsTitle": "NDEF Kayıtları",
   "nfcPromptClear": "Etiketi sıfırlamak için cihazınıza yaklaştırın",
   "nfcPromptLock": "Kalıcı olarak kilitlenecek etiketi yaklaştırın",
-  "nfcPromptScan": "NFC etiketini okumak için cihazınızın arkasına dokundurun",
+  "nfcPromptScan": "Etiketi telefonunuza yaklaştırın",
   "nfcPromptWrite": "Verileri kaydetmek için NFC etiketini yaklaştırın",
   "no": "Hayır",
   "noContentInTag": "Bu kayıtta etiket içeriği yok.",
@@ -615,7 +615,7 @@
   "sourceEmpty": "İçeriksiz (sadece not)",
   "sourceLastScan": "Son taranan etiket",
   "sourceSelectPrompt": "Etiketin içeriği nereden alınsın?",
-  "statusCancelled": "İşlem iptal edildi.",
+  "statusCancelled": "İptal Edildi",
   "statusClearError": "Sıfırlama hatası: {error}",
   "@statusClearError": {
     "placeholders": {
@@ -847,5 +847,1256 @@
   "writeResultSuccess": "İşlem Başarılı",
   "writeTemplates": "Yazma Şablonları",
   "writeTemplatesSubtitle": "Sık kullandığınız NDEF içeriklerini şablon olarak kaydedip dilediğiniz zaman etiketlere tek dokunuşla yazabilirsiniz.",
-  "yes": "Evet"
+  "yes": "Evet",
+  "unknown": "Bilinmiyor",
+  "error": "Hata",
+  "nfcPromptReady": "Etiketi yaklaştırın",
+  "invalidResponseFormat": "Geçersiz yanıt formatı alındı",
+  "nfcReadError": "NFC okuma hatası",
+  "invalidPlatformResponse": "Platformdan geçersiz yanıt alındı",
+  "writeFailed": "Yazma başarısız oldu",
+  "lockFailed": "Kilitleme başarısız oldu",
+  "failedToConnectTag": "Etikete bağlanılamadı",
+  "invalidTagResponse": "Etiketten geçersiz yanıt alındı",
+  "commandFailed": "Komut başarısız",
+  "ndefTypeOrIdTooLong": "NDEF türü veya kimliği 255 baytı aşıyor",
+  "ndefUnsupportedOrInvalidRecord": "Desteklenmeyen veya geçersiz NDEF kaydı",
+  "ndefMissingTypeLength": "Eksik NDEF tür uzunluğu",
+  "ndefMissingPayloadLength": "Eksik NDEF yük uzunluğu",
+  "ndefMissingIdLength": "Eksik NDEF kimlik uzunluğu",
+  "ndefMissingType": "Eksik NDEF türü",
+  "ndefMissingId": "Eksik NDEF kimliği",
+  "ndefMissingPayload": "Eksik NDEF yükü",
+  "unprotected": "(Şifresiz)",
+  "binaryDataPreview": "(İkili/Binary Veri)",
+  "emptyValue": "(Boş)",
+  "tnfEmpty": "0: Empty (Boş)",
+  "tnfWellKnown": "1: NFC Forum Well-Known (NFC Forum Standart RTD)",
+  "tnfMedia": "2: Media-Type (RFC 2046 MIME Türü)",
+  "tnfAbsoluteUri": "3: Absolute URI (RFC 3986 Mutlak URI)",
+  "tnfExternal": "4: NFC Forum External (Harici Tür)",
+  "tnfUnknown": "5: Unknown (Bilinmeyen İçerik)",
+  "tnfUnchanged": "6: Unchanged (Değişmemiş - Parçalı NDEF)",
+  "tnfReserved": "7: Reserved (Ayrılmış)",
+  "ntagUnsupportedChip": "Bu işlem yalnızca NTAG213/215/216 ve MIFARE Ultralight EV1 etiketlerde destekleniyor.",
+  "ntagPageReadFailed": "Sayfa {page} okunamadı (etiket yanıt vermedi veya alan korumalı).",
+  "@ntagPageReadFailed": {
+    "placeholders": {
+      "page": {
+        "type": "String"
+      }
+    }
+  },
+  "ntagPageWriteFailedError": "Sayfa {page} yazılamadı: {error}",
+  "@ntagPageWriteFailedError": {
+    "placeholders": {
+      "page": {
+        "type": "String"
+      },
+      "error": {
+        "type": "String"
+      }
+    }
+  },
+  "ntagPageWriteFailed": "Sayfa {page} yazılamadı (etiket reddetti; kilitli veya şifreli olabilir).",
+  "@ntagPageWriteFailed": {
+    "placeholders": {
+      "page": {
+        "type": "String"
+      }
+    }
+  },
+  "ntagProtectedArea": "Sayfa {page} sonrası okunamadı; bu alan şifre ile korunuyor olabilir.",
+  "@ntagProtectedArea": {
+    "placeholders": {
+      "page": {
+        "type": "String"
+      }
+    }
+  },
+  "ntagPasswordPackSize": "Şifre 4 bayt, PACK 2 bayt olmalıdır.",
+  "ntagPasswordSize": "Şifre 4 bayt olmalıdır.",
+  "ntagPasswordWrongOrAuthFailed": "Şifre yanlış veya etiket şifre doğrulamasını reddetti.",
+  "ntagPasswordWrong": "Şifre yanlış.",
+  "ntagCcInvalid": "Etiketin CC alanı NDEF dışı bir değerle yazılmış; bu alan tek seferlik olduğu için biçimlendirilemez.",
+  "ntagDumpTooShort": "Dump dosyası çok kısa; kullanıcı verisi içermiyor.",
+  "ntagInvalidHex": "Geçerli bir onaltılık (hex) değer giriniz (Örn: 30 04).",
+  "googleReviewFieldLabel": "Yorum Bağlantısı veya Place ID",
+  "menuLinkFieldLabel": "Menü Bağlantısı",
+  "menuTitleHint": "Menümüz",
+  "petName": "Hayvanın Adı",
+  "ownerPhone": "Sahibinin Telefonu",
+  "petTagMessage": "Merhaba, ben {pet}! Sahibimi arar mısınız: {phone}{note}",
+  "@petTagMessage": {
+    "placeholders": {
+      "pet": {
+        "type": "String"
+      },
+      "phone": {
+        "type": "String"
+      },
+      "note": {
+        "type": "String"
+      }
+    }
+  },
+  "bloodType": "Kan Grubu",
+  "allergies": "Alerjiler / İlaçlar",
+  "emergencyContact": "Acil Durumda Aranacak",
+  "emergencyInfo": "ACİL DURUM BİLGİSİ",
+  "emergencyBlood": "Kan grubu: {blood}",
+  "@emergencyBlood": {
+    "placeholders": {
+      "blood": {
+        "type": "String"
+      }
+    }
+  },
+  "emergencyAllergies": "Alerjiler: {allergies}",
+  "@emergencyAllergies": {
+    "placeholders": {
+      "allergies": {
+        "type": "String"
+      }
+    }
+  },
+  "emergencyCall": "Acil durumda arayın: {contact}",
+  "@emergencyCall": {
+    "placeholders": {
+      "contact": {
+        "type": "String"
+      }
+    }
+  },
+  "storeLink": "Mağaza Bağlantısı",
+  "link": "Bağlantı",
+  "title": "Başlık",
+  "webAddress": "Web adresi",
+  "address": "Adres",
+  "backupSummaryTemplates": "Şablonlar: {added} eklendi, {updated} güncellendi",
+  "@backupSummaryTemplates": {
+    "placeholders": {
+      "added": {
+        "type": "String"
+      },
+      "updated": {
+        "type": "String"
+      }
+    }
+  },
+  "backupSummaryRules": "Etiket Notları/Kuralları: {added} eklendi, {updated} güncellendi",
+  "@backupSummaryRules": {
+    "placeholders": {
+      "added": {
+        "type": "String"
+      },
+      "updated": {
+        "type": "String"
+      }
+    }
+  },
+  "backupSummaryHistoryDisabled": "Tarama geçmişi cihazda kapalı olduğu için {skipped}atlandı",
+  "@backupSummaryHistoryDisabled": {
+    "placeholders": {
+      "skipped": {
+        "type": "String"
+      }
+    }
+  },
+  "backupSummaryHistory": "Geçmiş: {added} eklendi, {skipped} mevcut/atlandı",
+  "@backupSummaryHistory": {
+    "placeholders": {
+      "added": {
+        "type": "String"
+      },
+      "skipped": {
+        "type": "String"
+      }
+    }
+  },
+  "backupSummaryNoNewData": "İçe aktarılacak yeni veri bulunamadı (mevcut kayıtlarla eşleşti).",
+  "backupFieldMustBeString": "{field} bir metin olmalıdır.",
+  "@backupFieldMustBeString": {
+    "placeholders": {
+      "field": {
+        "type": "String"
+      }
+    }
+  },
+  "backupFieldMustBeDate": "{field} geçerli bir tarih olmalıdır.",
+  "@backupFieldMustBeDate": {
+    "placeholders": {
+      "field": {
+        "type": "String"
+      }
+    }
+  },
+  "rawTypeHexLabel": "Tür / Type (Hex Baytları)",
+  "rawIdHexLabel": "Kimlik / ID (Hex Baytları, isteğe bağlı)",
+  "rawPayloadHexLabel": "Yük / Payload (Hex Baytları)",
+  "rawOptionalHexHint": "İsteğe bağlı hex baytları",
+  "saveChanges": "Değişikliği Kaydet",
+  "@backupContextRecordsMustBeList": {
+    "placeholders": {
+      "context": {
+        "type": "String"
+      }
+    }
+  },
+  "@backupContextMaxRecords": {
+    "placeholders": {
+      "context": {
+        "type": "String"
+      },
+      "max": {
+        "type": "num"
+      }
+    }
+  },
+  "@backupContextRecordMustBeObject": {
+    "placeholders": {
+      "context": {
+        "type": "String"
+      },
+      "index": {
+        "type": "num"
+      }
+    }
+  },
+  "@backupContextInvalidTnf": {
+    "placeholders": {
+      "context": {
+        "type": "String"
+      },
+      "index": {
+        "type": "num"
+      },
+      "tnf": {
+        "type": "String"
+      }
+    }
+  },
+  "@backupContextTypeMustBeString": {
+    "placeholders": {
+      "context": {
+        "type": "String"
+      },
+      "index": {
+        "type": "num"
+      }
+    }
+  },
+  "@backupContextInvalidTypeBase64": {
+    "placeholders": {
+      "context": {
+        "type": "String"
+      },
+      "index": {
+        "type": "num"
+      },
+      "error": {
+        "type": "String"
+      }
+    }
+  },
+  "@backupContextIdMustBeString": {
+    "placeholders": {
+      "context": {
+        "type": "String"
+      },
+      "index": {
+        "type": "num"
+      }
+    }
+  },
+  "@backupContextInvalidIdBase64": {
+    "placeholders": {
+      "context": {
+        "type": "String"
+      },
+      "index": {
+        "type": "num"
+      },
+      "error": {
+        "type": "String"
+      }
+    }
+  },
+  "@backupContextPayloadMustBeString": {
+    "placeholders": {
+      "context": {
+        "type": "String"
+      },
+      "index": {
+        "type": "num"
+      }
+    }
+  },
+  "@backupContextInvalidPayloadBase64": {
+    "placeholders": {
+      "context": {
+        "type": "String"
+      },
+      "index": {
+        "type": "num"
+      },
+      "error": {
+        "type": "String"
+      }
+    }
+  },
+  "@lastUpdated": {
+    "placeholders": {
+      "time": {
+        "type": "String"
+      }
+    }
+  },
+  "@tagLibraryDeleteConfirm": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
+  "@tagLibraryPhotoError": {
+    "placeholders": {
+      "error": {
+        "type": "String"
+      }
+    }
+  },
+  "@tagLibraryRecordSummary": {
+    "placeholders": {
+      "count": {
+        "type": "num"
+      }
+    }
+  },
+  "@filePickerFailed": {
+    "placeholders": {
+      "error": {
+        "type": "String"
+      }
+    }
+  },
+  "edit": "Düzenle",
+  "clearAllButton": "Tümünü Temizle",
+  "ntagPagesRead": "{chip}: {count} sayfa okundu",
+  "@ntagPagesRead": {
+    "placeholders": {
+      "chip": {
+        "type": "String"
+      },
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "ntagFormatted": "{chip} biçimlendirildi",
+  "@ntagFormatted": {
+    "placeholders": {
+      "chip": {
+        "type": "String"
+      }
+    }
+  },
+  "ntagInvalidDumpFile": "Geçersiz dump dosyası (4 baytın katı, 32–1024 bayt olmalı).",
+  "ntagPagesWritten": "{count} sayfa yazıldı",
+  "@ntagPagesWritten": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "ntagPasswordSet": "{chip}: şifre koruması etkin",
+  "@ntagPasswordSet": {
+    "placeholders": {
+      "chip": {
+        "type": "String"
+      }
+    }
+  },
+  "ntagPasswordRemoved": "{chip}: şifre kaldırıldı",
+  "@ntagPasswordRemoved": {
+    "placeholders": {
+      "chip": {
+        "type": "String"
+      }
+    }
+  },
+  "memoryDumpCopied": "Bellek dökümü kopyalandı",
+  "ntagCommandsSent": "{count} komut gönderildi",
+  "@ntagCommandsSent": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "emptyResponse": "(boş yanıt)",
+  "pagesAndBytes": "{pages} sayfa · {bytes} bayt",
+  "@pagesAndBytes": {
+    "placeholders": {
+      "pages": {
+        "type": "int"
+      },
+      "bytes": {
+        "type": "int"
+      }
+    }
+  },
+  "composeTextEmpty": "Metin içeriği boş bırakılamaz.",
+  "composeTextTooLong": "Metin çok uzun (en fazla 5000 karakter).",
+  "composeUrlInvalid": "Geçerli bir adres giriniz (Örn: https://example.com veya uygulama:// bağlantısı).",
+  "composeUrlTooLong": "URL çok uzun (en fazla 2000 karakter).",
+  "composeEmailInvalid": "Geçerli bir e-posta adresi giriniz (Örn: ad@alanadi.com).",
+  "composePhoneInvalid": "Geçerli bir telefon numarası giriniz (Örn: +905551234567).",
+  "composeSmsPhoneInvalid": "Geçerli bir alıcı telefon numarası giriniz.",
+  "composeLatInvalid": "Enlem -90 ile +90 arasında olmalıdır.",
+  "composeLngInvalid": "Boylam -180 ile +180 arasında olmalıdır.",
+  "composeVcardNameEmpty": "Kişi adı veya tam ad boş bırakılamaz.",
+  "composeVcardNameTooLong": "Kişi adı çok uzun (en fazla 200 karakter).",
+  "composeVcardEmailInvalid": "Geçerli bir e-posta adresi giriniz.",
+  "composeVcardPhoneInvalid": "Geçerli bir telefon numarası giriniz.",
+  "composeVcardUrlInvalid": "Geçerli bir web adresi giriniz (Örn: https://...).",
+  "composeCalSummaryEmpty": "Etkinlik başlığı boş bırakılamaz.",
+  "composeCalSummaryTooLong": "Etkinlik başlığı çok uzun (en fazla 250 karakter).",
+  "composeCalDateInvalid": "Bitiş zamanı, başlangıç zamanından sonra olmalıdır.",
+  "composeSpUriInvalid": "Geçerli bir hedef URL giriniz (Örn: https://...).",
+  "composeSpLangInvalid": "Geçerli bir ISO dil kodu giriniz (Örn: tr, en).",
+  "composeMimeTypeInvalid": "Geçerli bir MIME türü giriniz (Örn: application/json, text/plain).",
+  "composeMimeHexInvalid": "Geçerli bir onaltılık (hex) dize giriniz (çift sayıda hex karakter).",
+  "composeMimePayloadTooLarge": "Yük boyutu çok büyük (en fazla 10 KB).",
+  "composeWifiSsidEmpty": "Ağ adı (SSID) boş bırakılamaz.",
+  "composeWifiPasswordRequired": "Şifreli ağlar için Wi-Fi şifresi zorunludur.",
+  "composeWifiPasswordLength": "WPA/WPA2 şifresi 8 ile 63 karakter arasında olmalıdır.",
+  "composeEditNdefRecord": "NDEF Kaydını Düzenle",
+  "composeNewNdefRecord": "Yeni NDEF Kaydı Oluştur",
+  "quickLinksHeader": "Hazır Bağlantılar",
+  "quickLinkCustomUri": "Özel URI",
+  "quickLinkSocial": "Sosyal Ağlar",
+  "quickLinkVideo": "Video",
+  "quickLinkSearch": "Arama",
+  "quickLinkFile": "Dosya",
+  "quickLinkFacetimeAudio": "FaceTime Ses",
+  "quickLinkAddress": "Adres",
+  "quickLinkPayment": "Ödeme Bağlantısı",
+  "quickLinkApp": "Uygulama (Android)",
+  "updateRecord": "Kaydı Güncelle",
+  "addToList": "Listeye Ekle",
+  "quickCustomUriError": "Şema içeren bir adres giriniz (Örn: spotify:track:... veya myapp://sayfa).",
+  "quickFileEmptyMessage": "Dosyanın bağlantısını giriniz.",
+  "quickPaymentEmptyMessage": "Ödeme bağlantısını giriniz.",
+  "quickCustomUriDesc": "Herhangi bir şemayla başlayan adres yazılabilir; telefon bu adresi destekleyen uygulamayı açar.",
+  "quickSocialLabel": "Sosyal Ağ",
+  "quickVideoLabel": "Video Bağlantısı",
+  "quickVideoHint": "https://youtu.be/... veya video kimliği",
+  "quickVideoDesc": "YouTube, Vimeo vb. bağlantı ya da yalnızca YouTube video kimliği yazılabilir.",
+  "quickSearchHint": "Örn: İstanbul hava durumu",
+  "quickFileLabel": "Dosya Bağlantısı",
+  "quickFileDesc": "Etiketlerin kapasitesi küçük olduğu için dosyanın kendisi değil, internetteki bağlantısı yazılır (Google Drive, Dropbox vb.).",
+  "quickPhoneOrAppleId": "Telefon veya Apple Kimliği",
+  "quickFacetimeVideoDesc": "Etikete dokunan iPhone görüntülü FaceTime araması başlatır.",
+  "quickFacetimeAudioDesc": "Etikete dokunan iPhone yalnızca sesli FaceTime araması başlatır.",
+  "quickMapProvider": "Harita Uygulaması",
+  "quickAddressHint": "Örn: Bağdat Cad. No:1 Kadıköy İstanbul",
+  "quickPaymentDesc": "PayPal.me, Papara, iyzico, Stripe gibi ödeme sayfası bağlantıları kullanılabilir. Kart bilgisi asla etikete yazılmaz.",
+  "quickAppDesc": "Android telefonlar etikete dokununca bu uygulamayı açar (yüklü değilse Play Store'u açar). iPhone bu kayıt türünü yok sayar; iPhone için App Store bağlantısını URL olarak ekleyin.",
+  "quickDeviceNameOptional": "Cihaz Adı (isteğe bağlı)",
+  "quickSpeakerHint": "Örn: Hoparlör",
+  "quickBluetoothDesc": "Android telefonlar etikete dokununca bu cihazla eşleşmeyi önerir. iPhone Bluetooth eşleştirme etiketlerini desteklemez.",
+  "composeTextContent": "Metin İçeriği",
+  "composeTextHint": "Yazmak istediğiniz metni giriniz",
+  "composeEmailSubjectOptional": "Konu (İsteğe bağlı)",
+  "composeEmailBodyOptional": "Mesaj Gövdesi (İsteğe bağlı)",
+  "composeSmsRecipient": "Alıcı Telefon Numarası",
+  "composeSmsHint": "Gönderilecek kısa mesaj...",
+  "composeVcardFullName": "Tam Ad (Görünen İsim) *",
+  "composeVcardNameHint": "Ahmet Yılmaz",
+  "composeVcardNote": "Not / Açıklama",
+  "composeCalTitle": "Etkinlik Başlığı *",
+  "composeCalTitleHint": "Proje Toplantısı",
+  "composeCalLocationHint": "Toplantı Odası 2 veya Online",
+  "composeCalDesc": "Etkinlik Açıklaması",
+  "composeCalStartEndTime": "Başlangıç ve Bitiş Zamanı:",
+  "composeSpTitleLabel": "Başlık (Görünen Metin)",
+  "composeSpTitleHint": "Şirket Tanıtım Broşürü",
+  "composeMimeTypeLabel": "MIME Türü *",
+  "composeDataFormat": "Veri Formatı: ",
+  "composeFormatHex": "Hex (Onaltılık)",
+  "composeMimeHexBytes": "Hex Baytları *",
+  "composeMimeTextPayload": "Yük Metni (UTF-8) *",
+  "composeWifiWarningTitle": "Güvenlik ve Platform Uyarısı:",
+  "composeWifiWarningBody": "• Etikete yazılan Wi-Fi parolası şifresiz/düz metin olarak saklanır ve etiketi okuyan herhangi biri tarafından kolayca okunabilir.\n• iPhone veya Android cihazların etikete dokunulduğunda ağa otomatik olarak katılması garanti edilmez; işletim sistemi ve cihaz desteğine göre kullanıcı onayı veya ağ seçimi gerektirebilir.",
+  "composeWifiSsidLabel": "Ağ Adı (SSID) *",
+  "composeWifiAuthTypeLabel": "Güvenlik Türü (Kimlik Doğrulama)",
+  "composeWifiOpenNetwork": "Açık Ağ (Şifresiz)",
+  "composeWifiPasswordLabel": "Wi-Fi Şifresi *",
+  "composeWifiEncryptionLabel": "Şifreleme Türü",
+  "composeWifiAesRecommended": "AES (Önerilen)",
+  "quickSearchTextLabel": "Aranacak Metin",
+  "readTagMemoryPrompt": "Okunacak etiketi telefona yaklaştırın",
+  "readingTagMemoryStatus": "Bellek okunuyor...",
+  "formatTagConfirmTitle": "Belleği Biçimlendir",
+  "formatTagConfirmMessage": "Etiketteki veriler silinir ve etiket boş bir NDEF etiketi olarak hazırlanır. Devam edilsin mi?",
+  "formatButton": "Biçimlendir",
+  "formatTagPrompt": "Biçimlendirilecek etiketi yaklaştırın",
+  "formattingStatus": "Biçimlendiriliyor...",
+  "filePickerFailed": "Dosya seçici açılamadı: {error}",
+  "writeButton": "Yaz",
+  "writeDumpPrompt": "Yazılacak etiketi yaklaştırın",
+  "writingDumpStatus": "Dump yazılıyor...",
+  "setPasswordWarning": "Şifreyi unutursanız etiketin içeriğini bir daha değiştiremezsiniz. Okuma herkese açık kalır.",
+  "setPasswordAction": "Şifreyi Ayarla",
+  "setPasswordPrompt": "Şifrelenecek etiketi yaklaştırın",
+  "settingPasswordStatus": "Şifre ayarlanıyor...",
+  "removePasswordPromptMessage": "Etikete daha önce koyduğunuz şifreyi girin.",
+  "remove": "Kaldır",
+  "removePasswordPrompt": "Şifresi kaldırılacak etiketi yaklaştırın",
+  "removingPasswordStatus": "Şifre kaldırılıyor...",
+  "sendCommandsPrompt": "Komut gönderilecek etiketi yaklaştırın",
+  "sendingCommandsStatus": "Komutlar gönderiliyor...",
+  "sendButton": "Gönder",
+  "tagNoteEditTitle": "Etiket Notunu Düzenle",
+  "tagNoteInputLabel": "Uygulama İçi Not / Açıklama",
+  "tagNoteInputHint": "Örn: Toplantı Odası Bilgisi veya Depo Rafı #12",
+  "tagNoteDeleteTitle": "Etiket Notunu Sil",
+  "clearAllTagRulesTitle": "Tüm Notları Sil",
+  "clearAllTagRulesConfirm": "Kayıtlı tüm uygulama içi etiket notları silinecektir. Onaylıyor musunuz?",
+  "deleteAll": "Tümünü Sil",
+  "tagRulesExplanation": "NDEF içerik baytlarının SHA-256 özetine göre eşleşen etiketlerde yalnızca kaydedilen not gösterilir. Harici işlem başlatmaz.",
+  "noTagRulesDefined": "Henüz tanımlanmış bir etiket notu yok.",
+  "lastUpdated": "Son güncelleme: {time}",
+  "tagLibraryNoMatch": "Aramanızla eşleşen etiket bulunamadı.",
+  "tagLibraryAddToLibrary": "Kütüphaneye Ekle",
+  "name": "İsim",
+  "tagLibraryAddTag": "Etiket Ekle",
+  "all": "Tümü",
+  "tagLibraryPhotoError": "Fotoğraf seçilemedi: {error}",
+  "tagLibraryDeleteTitle": "Etiketi Sil",
+  "tagLibraryNameHint": "Örn: Ofis Anahtarlığı",
+  "tagLibraryNoTagContent": "Bu kayıtta etiket içeriği yok.",
+  "tagLibrarySourceLastScanned": "Son Taranan",
+  "tagLibraryEmpty": "Henüz kayıtlı etiket yok.",
+  "tagLibrarySourceEmpty": "Boş Kayıt",
+  "tagLibraryNamePrompt": "Lütfen bir etiket ismi girin",
+  "tagLibrarySearchHint": "İsim, kategori veya konum ile ara...",
+  "tagLibrarySourceWriteList": "Yazma Listesi",
+  "tagLibraryLocationHint": "Örn: Masaüstü, Giriş Kapısı",
+  "tagLibraryDeleteConfirm": "\"{name}\" etiketini kütüphaneden silmek istediğinize emin misiniz?",
+  "noContent": "İçerik yok",
+  "tagLibraryRecordSummary": "{count, plural, =1{1 NDEF kaydı} other{{count} NDEF kaydı}}",
+  "tagLibraryEditTag": "Etiketi Düzenle",
+  "rawTypeHexHint": "41 (A) veya 55 (U) vb.",
+  "backupContextRecordsMustBeList": "{context}: \"records\" alanı bir liste olmalıdır.",
+  "backupContextMaxRecords": "{context}: Bir öğede en fazla {max} NDEF kaydı bulunabilir.",
+  "backupContextRecordMustBeObject": "{context} - Kayıt #{index} geçerli bir nesne değil.",
+  "backupContextInvalidTnf": "{context} - Kayıt #{index}: Geçersiz TNF değeri ({tnf}).",
+  "backupContextTypeMustBeString": "{context} - Kayıt #{index}: \"type\" Base64 dizesi olmalıdır.",
+  "backupContextInvalidTypeBase64": "{context} - Kayıt #{index}: \"type\" geçerli Base64 verisi değil ({error}).",
+  "backupContextIdMustBeString": "{context} - Kayıt #{index}: \"id\" Base64 dizesi olmalıdır.",
+  "backupContextInvalidIdBase64": "{context} - Kayıt #{index}: \"id\" geçerli Base64 verisi değil ({error}).",
+  "backupContextPayloadMustBeString": "{context} - Kayıt #{index}: \"payload\" Base64 dizesi olmalıdır.",
+  "backupContextInvalidPayloadBase64": "{context} - Kayıt #{index}: \"payload\" geçerli Base64 verisi değil ({error}).",
+  "composerUndoSnack": "Son beste değişikliği geri alındı.",
+  "composerRedoSnack": "Beste değişikliği yinelendi.",
+  "noRecordsToCopy": "Kopyalanacak NDEF kaydı bulunmuyor.",
+  "recordsCopiedToClipboardDetails": "{count} adet NDEF kaydı ({bytes} Bayt) panoya kopyalandı.\n(Yalnızca NDEF içerik baytları kopyalanır; UID veya şifreli sektörler asla klonlanamaz)",
+  "@recordsCopiedToClipboardDetails": {
+    "placeholders": {
+      "count": {
+        "type": "num"
+      },
+      "bytes": {
+        "type": "num"
+      }
+    }
+  },
+  "recordsAddedFromSource": "{source}: {count} kayıt eklendi.",
+  "@recordsAddedFromSource": {
+    "placeholders": {
+      "source": {
+        "type": "String"
+      },
+      "count": {
+        "type": "num"
+      }
+    }
+  },
+  "tagEmptyNoRecordsToImport": "Etiket boş; içe aktarılacak kayıt yok.",
+  "sourceTag": "Etiketten",
+  "sourceQr": "QR koddan",
+  "filePickerError": "Dosya seçici açılamadı: {error}",
+  "@filePickerError": {
+    "placeholders": {
+      "error": {
+        "type": "String"
+      }
+    }
+  },
+  "csvFileTooLarge": "CSV dosyası çok büyük (en fazla 512 KB).",
+  "noRecordsFound": "Kayıt bulunamadı",
+  "someRowsSkipped": "Bazı satırlar atlandı",
+  "expectedFormat": "Beklenen biçim:",
+  "noClipboardContent": "Panoda kopyalanmış NDEF içeriği bulunmuyor.",
+  "pasteFromClipboardTitle": "NDEF Panosundan Yapıştır",
+  "clipboardDataSummary": "Panodaki Veri: {count} kayıt, {bytes} bayt ({source})",
+  "@clipboardDataSummary": {
+    "placeholders": {
+      "count": {
+        "type": "num"
+      },
+      "bytes": {
+        "type": "num"
+      },
+      "source": {
+        "type": "String"
+      }
+    }
+  },
+  "clipboardPastePrompt": "Mevcut beste kayıtlarını tamamen değiştirmek mi yoksa sonuna eklemek mi istiyorsunuz?",
+  "pasteOverwriteOption": "Üzerine Yaz (Değiştir)",
+  "pasteOverwriteSubtitle": "Mevcut {count} kayıt silinip pano içeriğiyle değiştirilir (onay istenir).",
+  "@pasteOverwriteSubtitle": {
+    "placeholders": {
+      "count": {
+        "type": "num"
+      }
+    }
+  },
+  "pasteEmptySubtitle": "Pano içeriği besteye yerleştirilir.",
+  "pasteAppendOption": "Sonuna Ekle (Append)",
+  "pasteAppendSubtitle": "Mevcut kayıtlar korunur, panodaki kayıtlar listenin sonuna ilave edilir.",
+  "recordsAddedToComposer": "{count} adet kayıt besteye eklendi.",
+  "@recordsAddedToComposer": {
+    "placeholders": {
+      "count": {
+        "type": "num"
+      }
+    }
+  },
+  "confirmOverwriteTitle": "Kayıtların Üzerine Yazılsın mı?",
+  "confirmOverwriteMessage": "Mevcut bestede {currentCount} adet kayıt bulunuyor. Bu kayıtlar silinecek ve yerlerine panodaki {newCount} adet kayıt getirilecektir. Devam edilsin mi?",
+  "@confirmOverwriteMessage": {
+    "placeholders": {
+      "currentCount": {
+        "type": "num"
+      },
+      "newCount": {
+        "type": "num"
+      }
+    }
+  },
+  "recordsReplacedInComposer": "{count} adet kayıt ile bestedeki kayıtlar değiştirildi.",
+  "@recordsReplacedInComposer": {
+    "placeholders": {
+      "count": {
+        "type": "num"
+      }
+    }
+  },
+  "yesReplace": "Evet, Değiştir",
+  "recordsImportedToComposer": "{count} adet kayıt besteye aktarıldı.",
+  "@recordsImportedToComposer": {
+    "placeholders": {
+      "count": {
+        "type": "num"
+      }
+    }
+  },
+  "noContentToCopy": "Kopyalanacak NDEF içeriği bulunamadı.",
+  "recordsCopiedAndStaged": "{count} adet NDEF kaydı panoya alındı ve besteye eklendi (İçerik kopyalandı, UID kopyalanmaz).",
+  "@recordsCopiedAndStaged": {
+    "placeholders": {
+      "count": {
+        "type": "num"
+      }
+    }
+  },
+  "noContentToRewrite": "Yeniden yazılacak NDEF içeriği bulunamadı.",
+  "rewriteTagTitle": "Etiketi Yeniden Yaz",
+  "importantNotice": "ÖNEMLİ BİLGİLENDİRME:",
+  "rewriteNotice1": "• Bu işlem hedef etiketin mevcut NDEF içeriğini TAMAMEN DEĞİŞTİRİR (üzerine yazar), sonuna eklemez.\n",
+  "rewriteNotice2": "• Hedef etiketin yazılabilir (kilitsiz) bir NDEF etiketi olması şarttır.\n",
+  "rewriteNotice3": "• İşlem önceki etikete sessizce yazmaz; yeni bir NFC dokunuşu beklenir.",
+  "rewriteSourceUidLabel": "Kaynak UID: {uid}",
+  "@rewriteSourceUidLabel": {
+    "placeholders": {
+      "uid": {
+        "type": "String"
+      }
+    }
+  },
+  "rewriteRecordCountLabel": "Yazılacak Kayıt Sayısı: {count}",
+  "@rewriteRecordCountLabel": {
+    "placeholders": {
+      "count": {
+        "type": "num"
+      }
+    }
+  },
+  "rewriteInstruction": "Hedef etiketi hazırlayın ve \"Dokun ve Yaz\" butonuna bastıktan sonra etiketi telefonun arkasına yaklaştırın.",
+  "tapAndWrite": "Dokun ve Yaz",
+  "rewritePromptMessage": "Hedef etiketi cihazınıza yaklaştırın (İçerik tamamen yenilenecektir)",
+  "rewriteFailedMessage": "Yeniden yazma başarısız: {error}",
+  "@rewriteFailedMessage": {
+    "placeholders": {
+      "error": {
+        "type": "String"
+      }
+    }
+  },
+  "writeVerifiedTitle": "Yazma Doğrulandı",
+  "writeVerifiedDesc": "NDEF içeriği hedef etikete başarıyla yazıldı ve doğrulandı.",
+  "writtenRecordCount": "Yazılan Kayıt Sayısı: {count}",
+  "@writtenRecordCount": {
+    "placeholders": {
+      "count": {
+        "type": "num"
+      }
+    }
+  },
+  "writeVerifiedHint": "Yazılan veriyi doğrulamak veya karşılaştırmak için sonraki taramayı başlatabilirsiniz.",
+  "scanAndCompareNow": "Şimdi Tara ve Karşılaştır",
+  "contentMatchesExactly": "İçerik Birebir Eşleşiyor",
+  "differenceDetected": "Farklılık Tespit Edildi",
+  "compareScannedUid": "Taranan Etiket UID: {uid}",
+  "@compareScannedUid": {
+    "placeholders": {
+      "uid": {
+        "type": "String"
+      }
+    }
+  },
+  "compareWrittenData": "Yazılan Veri: {count} kayıt ({bytes} Bayt)",
+  "@compareWrittenData": {
+    "placeholders": {
+      "count": {
+        "type": "num"
+      },
+      "bytes": {
+        "type": "num"
+      }
+    }
+  },
+  "compareScannedData": "Taranan Veri: {count} kayıt ({bytes} Bayt)",
+  "@compareScannedData": {
+    "placeholders": {
+      "count": {
+        "type": "num"
+      },
+      "bytes": {
+        "type": "num"
+      }
+    }
+  },
+  "compareMatchDesc": "Hedef etiketteki NDEF mesajı ile yazılan kaynak NDEF mesajı bayt bayt tamamen aynıdır.",
+  "compareDiffDesc": "Hedef etiketten okunan veriler ile yazılmak istenen veri arasında farklılık var. Etiketin kilitli veya farklı bir etiket olup olmadığını kontrol ediniz.",
+  "batchEmptyComposerError": "Toplu yazım başlatmak için önce beste sekmesine en az bir kayıt ekleyiniz.",
+  "batchWriteTitle": "Toplu Etiket Yazımı (Batch)",
+  "batchWriteSubtitle": "Aynı NDEF içeriğini birden fazla etikete sırayla yazabilirsiniz.",
+  "attention": "DİKKAT:",
+  "batchNotice1": "• Yanlışlıkla aynı etikete iki kez yazılmasını engellemek için her yazım kullanıcı tarafından açıkça \"Sıradakini Yaz\" butonu ile başlatılır.\n",
+  "batchNotice2": "• Otomatik arka arkaya tarama yapılmaz; her etiket fiziksel olarak değiştirilmelidir.",
+  "batchTargetCountLabel": "Hedef Etiket Sayısı: {count}",
+  "@batchTargetCountLabel": {
+    "placeholders": {
+      "count": {
+        "type": "num"
+      }
+    }
+  },
+  "batchComposerSummary": "Bestedeki Kayıtlar: {count} adet ({bytes} Bayt)",
+  "@batchComposerSummary": {
+    "placeholders": {
+      "count": {
+        "type": "num"
+      },
+      "bytes": {
+        "type": "num"
+      }
+    }
+  },
+  "batchStartButton": "Toplu Yazımı Başlat",
+  "batchControlPanelTitle": "Toplu Yazım Kontrol Paneli",
+  "batchCancelOrClose": "İptal Et / Kapat",
+  "batchAllCompleted": "Tüm etiket denemeleri tamamlandı!",
+  "batchNextTag": "Sıradaki: Etiket #{current} / {total}",
+  "@batchNextTag": {
+    "placeholders": {
+      "current": {
+        "type": "num"
+      },
+      "total": {
+        "type": "num"
+      }
+    }
+  },
+  "batchStats": "Başarılı: {success} | Hatalı: {fail} | Kalan: {remaining}",
+  "@batchStats": {
+    "placeholders": {
+      "success": {
+        "type": "num"
+      },
+      "fail": {
+        "type": "num"
+      },
+      "remaining": {
+        "type": "num"
+      }
+    }
+  },
+  "batchSuccessMsg": "Başarılı ({message})",
+  "@batchSuccessMsg": {
+    "placeholders": {
+      "message": {
+        "type": "String"
+      }
+    }
+  },
+  "batchFailMsg": "Başarısız: {message}",
+  "@batchFailMsg": {
+    "placeholders": {
+      "message": {
+        "type": "String"
+      }
+    }
+  },
+  "tagNumberLabel": "Etiket #{index}: ",
+  "@tagNumberLabel": {
+    "placeholders": {
+      "index": {
+        "type": "num"
+      }
+    }
+  },
+  "waitingForTag": "Etiket Bekleniyor...",
+  "tapToWriteForTag": "Etiket #{index} İçin Dokun ve Yaz",
+  "@tapToWriteForTag": {
+    "placeholders": {
+      "index": {
+        "type": "num"
+      }
+    }
+  },
+  "batchFinishButton": "Toplu Yazımı Bitir",
+  "batchPromptMessage": "Toplu Yazım: #{current} / {total} etiketi cihaza yaklaştırın",
+  "@batchPromptMessage": {
+    "placeholders": {
+      "current": {
+        "type": "num"
+      },
+      "total": {
+        "type": "num"
+      }
+    }
+  },
+  "batchTagSuccessSummary": "{count} kayıt yazıldı ve doğrulandı",
+  "@batchTagSuccessSummary": {
+    "placeholders": {
+      "count": {
+        "type": "num"
+      }
+    }
+  },
+  "writeError": "Yazma hatası",
+  "batchConfirmCancelTitle": "Toplu Yazımı İptal Et",
+  "batchConfirmCancelMessage": "Toplu yazım oturumu sonlandırılsın mı? Şimdiye kadar yazılmış olan etiketlerdeki veriler korunur; kalan etiketler yazılmaz.",
+  "cancelled": "İptal edildi",
+  "batchCancelledSnack": "Toplu yazım işlemi iptal edildi. Besteniz korundu.",
+  "cancelAndClose": "İptal Et ve Kapat",
+  "urlSafetyOfflineAnalysisTitle": "Çevrimdışı URL İncelemesi",
+  "urlSafetyScheme": "Şema (Protokol):",
+  "urlSafetyPort": "Bağlantı Noktası (Port):",
+  "urlSafetyUserInfoLabel": "Kullanıcı Bilgisi (UserInfo):",
+  "urlSafetyIpLiteral": "Doğrudan IP Adresi (IP Literal):",
+  "urlSafetyDomain": "Hayır (Alan adı)",
+  "urlSafetyPunycodeLabel": "Uluslararası / Punycode (xn--):",
+  "urlSafetyHomoglyphRisk": "Evet (Homoglif şüphesi)",
+  "urlSafetyWarningsHeader": "Güvenlik / Dikkat Uyarıları:",
+  "urlSafetyDisclaimer": "NOT: Bu analiz tamamen yerel/çevrimdışı kurallarla yapılmıştır. Ağ üzerinden zararlı yazılım veya antivirüs kontrolü iddiasında bulunmaz. URL otomatik olarak açılmaz.",
+  "templateLoadedToComposer": "\"{name}\" şablonundaki kayıtlar yazma bestesine aktarıldı.",
+  "@templateLoadedToComposer": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
+  "templateSaveEmptyError": "Şablon olarak kaydetmek için önce kayıt ekleyiniz.",
+  "templateDefaultName": "Şablon {index}",
+  "@templateDefaultName": {
+    "placeholders": {
+      "index": {
+        "type": "num"
+      }
+    }
+  },
+  "templateNameSample": "Örn: Şirket Web Sitesi & İletişim",
+  "templateSavedSnack": "Şablon kaydedildi.",
+  "ruleNoteRequiresNdef": "Not eklemek için etikette en az bir NDEF kaydı bulunmalıdır.",
+  "ruleNoteAddTitle": "Etikete Özel Not Ekle",
+  "ruleNoteDigestExplanation": "Bu not, etiketin NDEF içerik SHA-256 özetine bağlanır. Etiket tekrar tarandığında sadece bu açıklama gösterilir; harici eylem başlatmaz veya sistem ayarlarını değiştirmez.",
+  "ruleNoteShaSummary": "NDEF İçerik Özeti (SHA-256):\n{sha}",
+  "@ruleNoteShaSummary": {
+    "placeholders": {
+      "sha": {
+        "type": "String"
+      }
+    }
+  },
+  "ruleNoteSavedSnack": "Etiket notu kaydedildi.",
+  "ruleNoteDeleteTitle": "Etiket Notunu Sil",
+  "ruleNoteDeleteConfirm": "Bu etikete ait kayıtlı uygulama içi not silinecektir. Devam edilsin mi?",
+  "ruleNoteDeletedSnack": "Etiket notu silindi.",
+  "backupExportTitle": "Yedek Dışa Aktar",
+  "backupExportWarningTitle": "GİZLİLİK VE GÜVENLİK UYARISI",
+  "backupExportWarningBody": "Dışa aktarılan yedek dosyası (JSON) düz metin biçimindedir. Kayıtlarınız içerisinde Wi-Fi parolaları, iletişim (vCard) veya e-posta gibi hassas veriler bulunabilir. Dosyayı güvenli bir konumda saklayınız ve üçüncü şahıslarla paylaşırken dikkatli olunuz.",
+  "backupIncludedItems": "Dahil Edilecek Öğeler:",
+  "backupTemplatesCount": "• Şablonlar: {count} adet",
+  "@backupTemplatesCount": {
+    "placeholders": {
+      "count": {
+        "type": "num"
+      }
+    }
+  },
+  "backupRulesCount": "• Uygulama İçi Etiket Notları/Kuralları: {count} adet",
+  "@backupRulesCount": {
+    "placeholders": {
+      "count": {
+        "type": "num"
+      }
+    }
+  },
+  "backupIncludeHistoryOptional": "Tarama Geçmişini Dahil Et (İsteğe Bağlı)",
+  "backupHistoryCount": "{count} adet geçmiş kaydı",
+  "@backupHistoryCount": {
+    "placeholders": {
+      "count": {
+        "type": "num"
+      }
+    }
+  },
+  "backupHistoryDisabled": "Tarama geçmişi bu cihazda kapalıdır",
+  "backupExportAndShare": "Dışa Aktar ve Paylaş",
+  "backupFileNameLabel": "NFC Etiket Yöneticisi Yedek Dosyası",
+  "backupFileShareSubject": "NFC Etiket Yöneticisi şablon ve veri yedeği (JSON)",
+  "backupExportSuccessSnack": "Yedek dosyası başarıyla dışa aktarıldı ve paylaşıldı.",
+  "backupExportCancelled": "Dışa aktarma paylaşımı iptal edildi.",
+  "backupExportError": "Dışa aktarma hatası: {error}",
+  "@backupExportError": {
+    "placeholders": {
+      "error": {
+        "type": "String"
+      }
+    }
+  },
+  "backupImportTitle": "Yedek İçe Aktar",
+  "backupMergeRuleTitle": "GÜVENLİK VE BİRLEŞTİRME KURALI",
+  "backupMergeRule1": "• İçe aktarma BİRLEŞTİRME (merge) mantığıyla çalışır; mevcut kayıtlarınız ASLA silinmez.\n",
+  "backupMergeRule2": "• Yedek dosyasında Wi-Fi parolaları veya kişisel veriler bulunabilir; yalnızca güvendiğiniz kaynaklardan gelen yedekleri yükleyiniz.\n",
+  "backupMergeRule3": "• Dosya boyutu sınırı: 2 MiB. Veriler yüklenmeden önce katı şema ve Base64 doğrulamasına tabi tutulur.",
+  "backupSelectFilePrompt": "Birleştirmek istediğiniz geçerli bir .json yedek dosyasını seçiniz.",
+  "selectFileButton": "Dosya Seç",
+  "fileSelectionCancelled": "Dosya seçimi iptal edildi.",
+  "backupFileExceedsLimit": "Seçilen dosya izin verilen 2 MiB sınırını aşıyor.",
+  "fileReadError": "Dosya okuma hatası: {error}",
+  "@fileReadError": {
+    "placeholders": {
+      "error": {
+        "type": "String"
+      }
+    }
+  },
+  "backupValidationError": "Yedek doğrulama hatası: {error}",
+  "@backupValidationError": {
+    "placeholders": {
+      "error": {
+        "type": "String"
+      }
+    }
+  },
+  "backupHistoryDetectedTitle": "Tarama Geçmişi Algılandı",
+  "backupHistoryDetectedMsg": "Yedek dosyasında {count} adet tarama geçmişi kaydı bulunuyor, ancak bu cihazda tarama geçmişi özelliği kapalıdır.\n\n",
+  "@backupHistoryDetectedMsg": {
+    "placeholders": {
+      "count": {
+        "type": "num"
+      }
+    }
+  },
+  "backupHistoryDetectedPrompt": "Geçmişi de içe aktarıp tarama geçmişini etkinleştirmek istiyor musunuz? Yoksa geçmiş kayıtları atlanıp yalnızca şablonlar ve etiket notları mı içe aktarılsın?",
+  "backupSkipHistoryOption": "Geçmişi Atla (Yalnızca Şablon ve Notları Yükle)",
+  "backupEnableHistoryOption": "Geçmişi Etkinleştir ve Yükle",
+  "backupImportSuccessWithSummary": "İçe Aktarma Başarılı:\n{summary}",
+  "@backupImportSuccessWithSummary": {
+    "placeholders": {
+      "summary": {
+        "type": "String"
+      }
+    }
+  },
+  "backupMergeError": "Birleştirme hatası: {error}",
+  "@backupMergeError": {
+    "placeholders": {
+      "error": {
+        "type": "String"
+      }
+    }
+  },
+  "nfcReadyStatus": "NFC Hazır",
+  "nfcReadyDesc": "NFC donanımı aktif ve kullanıma hazır",
+  "nfcDisabledStatus": "NFC Kapalı",
+  "nfcDisabledDesc": "NFC kapalı. Lütfen cihaz ayarlarından açın.",
+  "ndefClipboardBanner": "NDEF Panosu: {count} kayıt ({bytes} B) - {source}",
+  "@ndefClipboardBanner": {
+    "placeholders": {
+      "count": {
+        "type": "num"
+      },
+      "bytes": {
+        "type": "num"
+      },
+      "source": {
+        "type": "String"
+      }
+    }
+  },
+  "template": "Şablon",
+  "nfcScannerTitle": "NFC Tarayıcı",
+  "lastScannedTagId": "Son etiket: {id}",
+  "@lastScannedTagId": {
+    "placeholders": {
+      "id": {
+        "type": "String"
+      }
+    }
+  },
+  "composeRecord": "Kayıt oluştur",
+  "protectOrRemove": "Koru / kaldır",
+  "previousScans": "Önceki taramalar",
+  "scanErrorWithMsg": "Tarama hatası: {error}",
+  "@scanErrorWithMsg": {
+    "placeholders": {
+      "error": {
+        "type": "String"
+      }
+    }
+  },
+  "noScannedTagYet": "Henüz taranmış bir NFC etiketi yok",
+  "tapScanPrompt": "\"Taramayı Başlat\" butonuna dokunun ve etiketi telefona yaklaştırın.",
+  "ndefCopyAndRewriteTitle": "NDEF İçerik Kopyalama ve Yeniden Yazım",
+  "ndefCopyNotice": "{count} kayıt ({bytes} Bayt) - Yalnızca NDEF verisi işlenir, UID kopyalanmaz.",
+  "@ndefCopyNotice": {
+    "placeholders": {
+      "count": {
+        "type": "num"
+      },
+      "bytes": {
+        "type": "num"
+      }
+    }
+  },
+  "tagIdHeader": "Etiket {id}",
+  "@tagIdHeader": {
+    "placeholders": {
+      "id": {
+        "type": "String"
+      }
+    }
+  },
+  "savedTagNoteHeader": "Kayıtlı Etiket Notu (Uygulama İçi Kural)",
+  "tagNoteOrRule": "Etiket Notu / Kuralı",
+  "editNote": "Notu Düzenle",
+  "deleteNote": "Notu Sil",
+  "tagNoteDigestNotice": "Bu not tam NDEF baytlarının SHA-256 özetiyle eşleştirilmiştir. Harici işlem başlatmaz.",
+  "addCustomTagNotePrompt": "Bu NDEF içeriğine özel yerel bir not veya açıklama ekleyebilirsiniz.",
+  "addNoteToThisTag": "Bu Etikete Not Ekle",
+  "ndefSupport": "NDEF Desteği:",
+  "usedSpace": "Kullanılan Alan:",
+  "freeSpace": "Boş Alan:",
+  "errorWithMsg": "Hata: {error}",
+  "@errorWithMsg": {
+    "placeholders": {
+      "error": {
+        "type": "String"
+      }
+    }
+  },
+  "noNdefMessageOnTag": "Etikette kayıtlı NDEF mesajı bulunamadı.",
+  "readNdefRecordsHeader": "Okunan NDEF Kayıtları ({count})",
+  "@readNdefRecordsHeader": {
+    "placeholders": {
+      "count": {
+        "type": "num"
+      }
+    }
+  },
+  "stagedNdefRecordsHeader": "Bestelenen NDEF Kayıtları ({count})",
+  "@stagedNdefRecordsHeader": {
+    "placeholders": {
+      "count": {
+        "type": "num"
+      }
+    }
+  },
+  "hideDetails": "Ayrıntıları Gizle",
+  "advancedRecordInspector": "Kayıt Denetçisi (Gelişmiş)",
+  "ndefRecordInspectorTitle": "Gelişmiş Kayıt Denetçisi (NDEF Record Inspector)",
+  "inspectorType": "Tür (Type):",
+  "inspectorPayloadLength": "Yük Uzunluğu (Payload):",
+  "inspectorRawHexPreview": "Ham Hex Önizleme (Sınırlandırılmış):",
+  "inspectorPayloadTruncated": "Not: Yük {length} bayt olduğu için ilk 64 baytı gösterilmektedir.",
+  "@inspectorPayloadTruncated": {
+    "placeholders": {
+      "length": {
+        "type": "num"
+      }
+    }
+  },
+  "ndefRecordsToWriteTitle": "Yazılacak NDEF Kayıtları",
+  "pasteFromClipboardAction": "Panodan Yapıştır (Değiştir / Ekle)",
+  "importAction": "İçe Aktar",
+  "importFromTagAction": "NFC etiketten içe aktar",
+  "importFromQrAction": "QR koddan içe aktar",
+  "importFromCsvAction": "CSV dosyasından içe aktar",
+  "composerTotalSizeAndCount": "Toplam Boyut: {bytes} Bayt | Kayıt Sayısı: {count}",
+  "@composerTotalSizeAndCount": {
+    "placeholders": {
+      "bytes": {
+        "type": "num"
+      },
+      "count": {
+        "type": "num"
+      }
+    }
+  },
+  "composerEmptyDescription": "Etikete metin, web adresi, Wi-Fi, telefon, e-posta, kişi kartı ve daha fazlasını yazabilirsiniz.",
+  "urlSafetyReview": "URL İncelemesi",
+  "inspector": "Denetçi",
+  "typeLabel": "Tür:",
+  "payloadLabel": "Yük:",
+  "writeAndVerify": "Etikete Yaz ve Doğrula",
+  "writeAndVerifyWithBytes": "Etikete Yaz ve Doğrula ({bytes} Bayt)",
+  "@writeAndVerifyWithBytes": {
+    "placeholders": {
+      "bytes": {
+        "type": "num"
+      }
+    }
+  },
+  "batchWriteButtonLabel": "Toplu Etiket Yazımı (2..100 Etiket)",
+  "clearTagButtonLabel": "Etiketi Sıfırla (İçeriği Temizle)",
+  "confirmWriteTitle": "Etikete Yazmayı Onayla",
+  "confirmWriteMessage1": "Bu işlem hedef etiketin mevcut NDEF içeriğini tamamen DEĞİŞTİRİR (üzerine yazar).",
+  "confirmWriteRecordCount": "Yazılacak Kayıt Sayısı: {count}",
+  "@confirmWriteRecordCount": {
+    "placeholders": {
+      "count": {
+        "type": "num"
+      }
+    }
+  },
+  "confirmWriteMessage2": "Hedef etiketin yazılabilir (kilitsiz) olduğundan emin olun. Yazdıktan sonra etiket içeriği otomatik olarak doğrulanacaktır.",
+  "yesWrite": "Evet, Yaz",
+  "scanHistoryDisabledTitle": "Tarama Geçmişi Kapalı",
+  "scanHistoryDisabledDesc": "Gizlilik nedeniyle tarama geçmişi varsayılan olarak kaydedilmez. Geçmişi tutmak için ayarlar sekmesinden etkinleştirebilirsiniz.",
+  "enableHistory": "Geçmişi Etkinleştir",
+  "historySearchHint": "UID, metin veya tür ile ara (Örn: URL, Wi-Fi, 04A1...)",
+  "historyScansCount": "Kayıtlı Taramalar: {count}",
+  "@historyScansCount": {
+    "placeholders": {
+      "count": {
+        "type": "num"
+      }
+    }
+  },
+  "noHistoryYet": "Henüz kayıtlı tarama geçmişi bulunmuyor.",
+  "noHistoryResultsForQuery": "\"{query}\" için sonuç bulunamadı.",
+  "@noHistoryResultsForQuery": {
+    "placeholders": {
+      "query": {
+        "type": "String"
+      }
+    }
+  },
+  "tryDifferentQuery": "Farklı bir UID, metin içeriği veya kayıt türü deneyiniz.",
+  "clearSearch": "Aramayı Temizle",
+  "historyItemHeader": "{time} | {count, plural, =1{1 Kayıt} other{{count} Kayıt}}",
+  "@historyItemHeader": {
+    "placeholders": {
+      "time": {
+        "type": "String"
+      },
+      "count": {
+        "type": "num"
+      }
+    }
+  },
+  "deleteThisRecord": "Bu kaydı sil",
+  "historyCapacitySummary": "Kapasite: {cap}B | Kullanılan: {used}B",
+  "@historyCapacitySummary": {
+    "placeholders": {
+      "cap": {
+        "type": "num"
+      },
+      "used": {
+        "type": "num"
+      }
+    }
+  },
+  "historyUidHeader": "Geçmiş UID {uid}",
+  "@historyUidHeader": {
+    "placeholders": {
+      "uid": {
+        "type": "String"
+      }
+    }
+  },
+  "qrPreview": "QR Önizleme",
+  "templateRecordCountWithDate": "{count, plural, =1{1 Kayıt} other{{count} Kayıt}} | {date}",
+  "@templateRecordCountWithDate": {
+    "placeholders": {
+      "count": {
+        "type": "num"
+      },
+      "date": {
+        "type": "String"
+      }
+    }
+  },
+  "writeVerificationSummary": "Yazılan Bayt: {bytes} | Doğrulama: {status}",
+  "@writeVerificationSummary": {
+    "placeholders": {
+      "bytes": {
+        "type": "num"
+      },
+      "status": {
+        "type": "String"
+      }
+    }
+  },
+  "lockTagConfirmTitle": "Etiketi Kalıcı Olarak Kilitle",
+  "lockTagWarning1": "Kilitlenen etiket salt okunur olur: içeriği bir daha DEĞİŞTİRİLEMEZ, silinemez ve kilit KALDIRILAMAZ.",
+  "lockTagWarning2": "Önce doğru içeriği yazdığınızdan emin olun.",
+  "langTr": "Türkçe",
+  "langEn": "English",
+  "langDe": "Deutsch",
+  "langFr": "Français",
+  "langEs": "Español",
+  "langIt": "Italiano",
+  "langPt": "Português",
+  "langRu": "Русский",
+  "langAr": "العربية",
+  "langJa": "日本語",
+  "langZh": "中文",
+  "langKo": "한국어",
+  "langNl": "Nederlands",
+  "langUk": "Українська",
+  "qrPreviewTooltip": "QR Kod Önizleme",
+  "unknownParentheses": "(Bilinmiyor)",
+  "ok": "Tamam"
 }

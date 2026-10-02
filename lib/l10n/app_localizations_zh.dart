@@ -618,7 +618,7 @@ class AppLocalizationsZh extends AppLocalizations {
   String get nfcPromptLock => '请贴近标签以永久锁定';
 
   @override
-  String get nfcPromptScan => '请将手机背部贴近 NFC 标签以进行读取';
+  String get nfcPromptScan => '将标签靠近手机顶部';
 
   @override
   String get nfcPromptWrite => '请贴近 NFC 标签以写入数据';
@@ -1094,7 +1094,7 @@ class AppLocalizationsZh extends AppLocalizations {
   String get sourceSelectPrompt => '从何处获取标签内容？';
 
   @override
-  String get statusCancelled => '操作已取消。';
+  String get statusCancelled => '已取消';
 
   @override
   String statusClearError(String error) {
@@ -1373,10 +1373,10 @@ class AppLocalizationsZh extends AppLocalizations {
   String get validWebAddress => '请输入有效的网络地址 (例如 https://example.com/file.pdf)。';
 
   @override
-  String get verificationNotChecked => '未校验';
+  String get verificationNotChecked => '未检查';
 
   @override
-  String get verificationPassed => '已通过';
+  String get verificationPassed => '通过';
 
   @override
   String get videoUrlCannotBeEmpty => '视频链接不能为空。';
@@ -1457,4 +1457,1615 @@ class AppLocalizationsZh extends AppLocalizations {
 
   @override
   String get yes => '是';
+
+  @override
+  String get unknown => '未知';
+
+  @override
+  String get error => '错误';
+
+  @override
+  String get nfcPromptReady => '靠近标签';
+
+  @override
+  String get invalidResponseFormat => '收到无效的响应格式';
+
+  @override
+  String get nfcReadError => 'NFC读取错误';
+
+  @override
+  String get invalidPlatformResponse => '从平台收到无效响应';
+
+  @override
+  String get writeFailed => '写入失败';
+
+  @override
+  String get lockFailed => '锁定失败';
+
+  @override
+  String get failedToConnectTag => '无法连接到标签';
+
+  @override
+  String get invalidTagResponse => '来自标签的无效响应';
+
+  @override
+  String get commandFailed => '命令失败';
+
+  @override
+  String get ndefTypeOrIdTooLong => 'NDEF类型或ID超过255字节';
+
+  @override
+  String get ndefUnsupportedOrInvalidRecord => '不支持或无效的NDEF记录';
+
+  @override
+  String get ndefMissingTypeLength => '缺少NDEF类型长度';
+
+  @override
+  String get ndefMissingPayloadLength => '缺少NDEF载荷长度';
+
+  @override
+  String get ndefMissingIdLength => '缺少NDEF ID长度';
+
+  @override
+  String get ndefMissingType => '缺少NDEF类型';
+
+  @override
+  String get ndefMissingId => '缺少NDEF ID';
+
+  @override
+  String get ndefMissingPayload => '缺少NDEF载荷';
+
+  @override
+  String get unprotected => '(无密码)';
+
+  @override
+  String get binaryDataPreview => '(二进制数据)';
+
+  @override
+  String get emptyValue => '(空)';
+
+  @override
+  String get tnfEmpty => '0: Empty (空)';
+
+  @override
+  String get tnfWellKnown => '1: NFC Forum Well-Known (RTD)';
+
+  @override
+  String get tnfMedia => '2: Media-Type (RFC 2046 MIME)';
+
+  @override
+  String get tnfAbsoluteUri => '3: Absolute URI (RFC 3986)';
+
+  @override
+  String get tnfExternal => '4: NFC Forum External';
+
+  @override
+  String get tnfUnknown => '5: Unknown (未知)';
+
+  @override
+  String get tnfUnchanged => '6: Unchanged (分块NDEF)';
+
+  @override
+  String get tnfReserved => '7: Reserved (保留)';
+
+  @override
+  String get ntagUnsupportedChip =>
+      '此操作仅在NTAG213/215/216和MIFARE Ultralight EV1标签上受支持。';
+
+  @override
+  String ntagPageReadFailed(String page) {
+    return '无法读取第$page页（标签未响应或区域受保护）。';
+  }
+
+  @override
+  String ntagPageWriteFailedError(String page, String error) {
+    return '无法写入第$page页: $error';
+  }
+
+  @override
+  String ntagPageWriteFailed(String page) {
+    return '无法写入第$page页（标签拒绝；可能已锁定或受密码保护）。';
+  }
+
+  @override
+  String ntagProtectedArea(String page) {
+    return '无法读取第$page页之后的内容；此区域可能受密码保护。';
+  }
+
+  @override
+  String get ntagPasswordPackSize => '密码必须为4字节，PACK必须为2字节。';
+
+  @override
+  String get ntagPasswordSize => '密码必须为4字节。';
+
+  @override
+  String get ntagPasswordWrongOrAuthFailed => '密码错误或标签拒绝了身份验证。';
+
+  @override
+  String get ntagPasswordWrong => '密码错误。';
+
+  @override
+  String get ntagCcInvalid => '标签的CC区域写入了非NDEF值；此OTP区域无法格式化。';
+
+  @override
+  String get ntagDumpTooShort => '转储文件太短；不包含用户数据。';
+
+  @override
+  String get ntagInvalidHex => '请输入有效的十六进制值（例如：30 04）。';
+
+  @override
+  String get googleReviewFieldLabel => '评价链接或Place ID';
+
+  @override
+  String get menuLinkFieldLabel => '菜单链接';
+
+  @override
+  String get menuTitleHint => '我们的菜单';
+
+  @override
+  String get petName => '宠物名字';
+
+  @override
+  String get ownerPhone => '主人电话';
+
+  @override
+  String petTagMessage(String pet, String phone, String note) {
+    return '你好，我是$pet！请致电我的主人：$phone$note';
+  }
+
+  @override
+  String get bloodType => '血型';
+
+  @override
+  String get allergies => '过敏 / 药物';
+
+  @override
+  String get emergencyContact => '紧急联系人';
+
+  @override
+  String get emergencyInfo => '紧急信息';
+
+  @override
+  String emergencyBlood(String blood) {
+    return '血型: $blood';
+  }
+
+  @override
+  String emergencyAllergies(String allergies) {
+    return '过敏: $allergies';
+  }
+
+  @override
+  String emergencyCall(String contact) {
+    return '紧急情况下拨打：$contact';
+  }
+
+  @override
+  String get storeLink => '应用商店链接';
+
+  @override
+  String get link => '链接';
+
+  @override
+  String get title => '标题';
+
+  @override
+  String get webAddress => '网址';
+
+  @override
+  String get address => '地址';
+
+  @override
+  String backupSummaryTemplates(String added, String updated) {
+    return '模板: 已添加$added个，已更新$updated个';
+  }
+
+  @override
+  String backupSummaryRules(String added, String updated) {
+    return '标签备注/规则: 已添加$added条，已更新$updated条';
+  }
+
+  @override
+  String backupSummaryHistoryDisabled(String skipped) {
+    return '因设备上禁用了扫描历史而跳过: $skipped';
+  }
+
+  @override
+  String backupSummaryHistory(String added, String skipped) {
+    return '历史: 已添加$added条，已跳过$skipped条';
+  }
+
+  @override
+  String get backupSummaryNoNewData => '未找到要导入的新数据（与现有记录匹配）。';
+
+  @override
+  String backupFieldMustBeString(String field) {
+    return '$field必须是字符串。';
+  }
+
+  @override
+  String backupFieldMustBeDate(String field) {
+    return '$field必须是有效日期。';
+  }
+
+  @override
+  String get rawTypeHexLabel => '类型（十六进制字节）';
+
+  @override
+  String get rawIdHexLabel => 'ID（十六进制字节，可选）';
+
+  @override
+  String get rawPayloadHexLabel => '有效载荷（十六进制字节）';
+
+  @override
+  String get rawOptionalHexHint => '可选的十六进制字节';
+
+  @override
+  String get saveChanges => '保存更改';
+
+  @override
+  String get edit => '编辑';
+
+  @override
+  String get clearAllButton => '全部清除';
+
+  @override
+  String ntagPagesRead(String chip, int count) {
+    return '$chip：已读取 $count 页';
+  }
+
+  @override
+  String ntagFormatted(String chip) {
+    return '$chip 格式化成功';
+  }
+
+  @override
+  String get ntagInvalidDumpFile => '无效的转储文件（必须是 4 字节的倍数，32-1024 字节）。';
+
+  @override
+  String ntagPagesWritten(int count) {
+    return '已写入 $count 页';
+  }
+
+  @override
+  String ntagPasswordSet(String chip) {
+    return '$chip：密码保护已启用';
+  }
+
+  @override
+  String ntagPasswordRemoved(String chip) {
+    return '$chip：密码已解除';
+  }
+
+  @override
+  String get memoryDumpCopied => '内存转储已复制';
+
+  @override
+  String ntagCommandsSent(int count) {
+    return '已发送 $count 条命令';
+  }
+
+  @override
+  String get emptyResponse => '（空响应）';
+
+  @override
+  String pagesAndBytes(int pages, int bytes) {
+    return '$pages 页 · $bytes 字节';
+  }
+
+  @override
+  String get composeTextEmpty => '文本内容不能为空。';
+
+  @override
+  String get composeTextTooLong => '文本过长（最多5000个字符）。';
+
+  @override
+  String get composeUrlInvalid =>
+      '请输入有效地址（例如：https://example.com 或 app:// 链接）。';
+
+  @override
+  String get composeUrlTooLong => 'URL过长（最多2000个字符）。';
+
+  @override
+  String get composeEmailInvalid => '请输入有效的电子邮件地址（例如：name@domain.com）。';
+
+  @override
+  String get composePhoneInvalid => '请输入有效的电话号码（例如：+905551234567）。';
+
+  @override
+  String get composeSmsPhoneInvalid => '请输入有效的收件人电话号码。';
+
+  @override
+  String get composeLatInvalid => '纬度必须介于 -90 到 +90 之间。';
+
+  @override
+  String get composeLngInvalid => '经度必须介于 -180 到 +180 之间。';
+
+  @override
+  String get composeVcardNameEmpty => '联系人姓名不能为空。';
+
+  @override
+  String get composeVcardNameTooLong => '联系人姓名过长（最多200个字符）。';
+
+  @override
+  String get composeVcardEmailInvalid => '请输入有效的电子邮件地址。';
+
+  @override
+  String get composeVcardPhoneInvalid => '请输入有效的电话号码。';
+
+  @override
+  String get composeVcardUrlInvalid => '请输入有效的网址（例如：https://...）。';
+
+  @override
+  String get composeCalSummaryEmpty => '活动标题不能为空。';
+
+  @override
+  String get composeCalSummaryTooLong => '活动标题过长（最多250个字符）。';
+
+  @override
+  String get composeCalDateInvalid => '结束时间必须晚于开始时间。';
+
+  @override
+  String get composeSpUriInvalid => '请输入有效的目标URL（例如：https://...）。';
+
+  @override
+  String get composeSpLangInvalid => '请输入有效的ISO语言代码（例如：zh, en）。';
+
+  @override
+  String get composeMimeTypeInvalid =>
+      '请输入有效的MIME类型（例如：application/json, text/plain）。';
+
+  @override
+  String get composeMimeHexInvalid => '请输入有效的十六进制字符串（偶数个十六进制字符）。';
+
+  @override
+  String get composeMimePayloadTooLarge => '有效载荷过大（最多10 KB）。';
+
+  @override
+  String get composeWifiSsidEmpty => '网络名称（SSID）不能为空。';
+
+  @override
+  String get composeWifiPasswordRequired => '加密网络需要提供Wi-Fi密码。';
+
+  @override
+  String get composeWifiPasswordLength => 'WPA/WPA2密码长度必须在8到63个字符之间。';
+
+  @override
+  String get composeEditNdefRecord => '编辑 NDEF 记录';
+
+  @override
+  String get composeNewNdefRecord => '创建新 NDEF 记录';
+
+  @override
+  String get quickLinksHeader => '快捷链接';
+
+  @override
+  String get quickLinkCustomUri => '自定义 URI';
+
+  @override
+  String get quickLinkSocial => '社交网络';
+
+  @override
+  String get quickLinkVideo => '视频';
+
+  @override
+  String get quickLinkSearch => '搜索';
+
+  @override
+  String get quickLinkFile => '文件';
+
+  @override
+  String get quickLinkFacetimeAudio => 'FaceTime 音频';
+
+  @override
+  String get quickLinkAddress => '地址';
+
+  @override
+  String get quickLinkPayment => '支付链接';
+
+  @override
+  String get quickLinkApp => '应用程序 (Android)';
+
+  @override
+  String get updateRecord => '更新记录';
+
+  @override
+  String get addToList => '添加到列表';
+
+  @override
+  String get quickCustomUriError =>
+      '请输入包含协议架构的地址（例如：spotify:track:... 或 myapp://page）。';
+
+  @override
+  String get quickFileEmptyMessage => '请输入文件链接。';
+
+  @override
+  String get quickPaymentEmptyMessage => '请输入支付链接。';
+
+  @override
+  String get quickCustomUriDesc => '可输入任何带协议架构的地址；手机将打开支持该地址的应用程序。';
+
+  @override
+  String get quickSocialLabel => '社交网络';
+
+  @override
+  String get quickVideoLabel => '视频链接';
+
+  @override
+  String get quickVideoHint => 'https://youtu.be/... 或视频 ID';
+
+  @override
+  String get quickVideoDesc => '可输入 YouTube、Vimeo 等链接，或仅输入 YouTube 视频 ID。';
+
+  @override
+  String get quickSearchHint => '例如：北京天气';
+
+  @override
+  String get quickFileLabel => '文件链接';
+
+  @override
+  String get quickFileDesc =>
+      '由于标签容量较小，因此写入的是网络链接而非文件本身（Google Drive、Dropbox 等）。';
+
+  @override
+  String get quickPhoneOrAppleId => '电话或 Apple ID';
+
+  @override
+  String get quickFacetimeVideoDesc => '触碰标签的 iPhone 将发起 FaceTime 视频通话。';
+
+  @override
+  String get quickFacetimeAudioDesc => '触碰标签的 iPhone 仅发起 FaceTime 语音通话。';
+
+  @override
+  String get quickMapProvider => '地图应用';
+
+  @override
+  String get quickAddressHint => '例如：北京市长安街1号';
+
+  @override
+  String get quickPaymentDesc => '可使用 PayPal.me、Stripe 等支付链接。银行卡信息绝不会写入标签。';
+
+  @override
+  String get quickAppDesc =>
+      'Android 手机触碰时会打开该应用（未安装则打开 Play 商店）。iPhone 会忽略此记录类型；对于 iPhone 请添加 App Store 链接作为 URL。';
+
+  @override
+  String get quickDeviceNameOptional => '设备名称（可选）';
+
+  @override
+  String get quickSpeakerHint => '例如：扬声器';
+
+  @override
+  String get quickBluetoothDesc => 'Android 手机触碰时会建议与该设备配对。iPhone 不支持蓝牙配对标签。';
+
+  @override
+  String get composeTextContent => '文本内容';
+
+  @override
+  String get composeTextHint => '请输入要写入的文本';
+
+  @override
+  String get composeEmailSubjectOptional => '主题（可选）';
+
+  @override
+  String get composeEmailBodyOptional => '正文内容（可选）';
+
+  @override
+  String get composeSmsRecipient => '收件人电话号码';
+
+  @override
+  String get composeSmsHint => '要发送的短信内容...';
+
+  @override
+  String get composeVcardFullName => '全名（显示名称） *';
+
+  @override
+  String get composeVcardNameHint => '张三';
+
+  @override
+  String get composeVcardNote => '备注 / 说明';
+
+  @override
+  String get composeCalTitle => '活动标题 *';
+
+  @override
+  String get composeCalTitleHint => '项目会议';
+
+  @override
+  String get composeCalLocationHint => '2号会议室或线上';
+
+  @override
+  String get composeCalDesc => '活动说明';
+
+  @override
+  String get composeCalStartEndTime => '开始和结束时间：';
+
+  @override
+  String get composeSpTitleLabel => '标题（显示文本）';
+
+  @override
+  String get composeSpTitleHint => '公司宣传册';
+
+  @override
+  String get composeMimeTypeLabel => 'MIME 类型 *';
+
+  @override
+  String get composeDataFormat => '数据格式：';
+
+  @override
+  String get composeFormatHex => '十六进制 (Hex)';
+
+  @override
+  String get composeMimeHexBytes => '十六进制字节 *';
+
+  @override
+  String get composeMimeTextPayload => '有效载荷文本 (UTF-8) *';
+
+  @override
+  String get composeWifiWarningTitle => '安全与平台提示：';
+
+  @override
+  String get composeWifiWarningBody =>
+      '• 写入标签的 Wi-Fi 密码以明文形式存储，任何人都可以轻易读取。\n• 不保证触碰标签后自动加入网络；根据系统和设备支持情况可能需要用户确认。';
+
+  @override
+  String get composeWifiSsidLabel => '网络名称 (SSID) *';
+
+  @override
+  String get composeWifiAuthTypeLabel => '安全类型（身份验证）';
+
+  @override
+  String get composeWifiOpenNetwork => '开放网络（无密码）';
+
+  @override
+  String get composeWifiPasswordLabel => 'Wi-Fi 密码 *';
+
+  @override
+  String get composeWifiEncryptionLabel => '加密类型';
+
+  @override
+  String get composeWifiAesRecommended => 'AES（推荐）';
+
+  @override
+  String get quickSearchTextLabel => '搜索文本';
+
+  @override
+  String get readTagMemoryPrompt => '将标签贴近手机以读取内存';
+
+  @override
+  String get readingTagMemoryStatus => '正在读取内存...';
+
+  @override
+  String get formatTagConfirmTitle => '格式化内存';
+
+  @override
+  String get formatTagConfirmMessage => '标签上的数据将被删除并准备为初始空白 NDEF。是否继续？';
+
+  @override
+  String get formatButton => '格式化';
+
+  @override
+  String get formatTagPrompt => '将要格式化的标签贴近手机';
+
+  @override
+  String get formattingStatus => '正在格式化...';
+
+  @override
+  String filePickerFailed(String error) {
+    return '文件选择器打开失败：$error';
+  }
+
+  @override
+  String get writeButton => '写入';
+
+  @override
+  String get writeDumpPrompt => '将要写入转储文件的标签贴近手机';
+
+  @override
+  String get writingDumpStatus => '正在写入转储文件...';
+
+  @override
+  String get setPasswordWarning => '如果忘记密码，将无法再次更改标签内容。读取仍对所有人开放。';
+
+  @override
+  String get setPasswordAction => '设置密码';
+
+  @override
+  String get setPasswordPrompt => '将要设置密码的标签贴近手机';
+
+  @override
+  String get settingPasswordStatus => '正在设置密码...';
+
+  @override
+  String get removePasswordPromptMessage => '输入先前在标签上设置的密码。';
+
+  @override
+  String get remove => '移除';
+
+  @override
+  String get removePasswordPrompt => '将要移除密码的标签贴近手机';
+
+  @override
+  String get removingPasswordStatus => '正在移除密码...';
+
+  @override
+  String get sendCommandsPrompt => '将要发送命令的标签贴近手机';
+
+  @override
+  String get sendingCommandsStatus => '正在发送命令...';
+
+  @override
+  String get sendButton => '发送';
+
+  @override
+  String get tagNoteEditTitle => '编辑标签备注';
+
+  @override
+  String get tagNoteInputLabel => '应用内备注 / 说明';
+
+  @override
+  String get tagNoteInputHint => '例如：会议室信息或仓储货架 #12';
+
+  @override
+  String get tagNoteDeleteTitle => '删除标签备注';
+
+  @override
+  String get clearAllTagRulesTitle => '删除所有备注';
+
+  @override
+  String get clearAllTagRulesConfirm => '将删除所有已保存的应用内标签备注。是否确认？';
+
+  @override
+  String get deleteAll => '全部删除';
+
+  @override
+  String get tagRulesExplanation => '仅对与 NDEF SHA-256 摘要匹配的标签显示保存的备注。不会触发外部操作。';
+
+  @override
+  String get noTagRulesDefined => '尚未定义标签备注。';
+
+  @override
+  String lastUpdated(String time) {
+    return '最后更新：$time';
+  }
+
+  @override
+  String get tagLibraryNoMatch => '未找到匹配您搜索的标签。';
+
+  @override
+  String get tagLibraryAddToLibrary => '添加到库';
+
+  @override
+  String get name => '名称';
+
+  @override
+  String get tagLibraryAddTag => '添加标签';
+
+  @override
+  String get all => '全部';
+
+  @override
+  String tagLibraryPhotoError(String error) {
+    return '未能选取照片：$error';
+  }
+
+  @override
+  String get tagLibraryDeleteTitle => '删除标签';
+
+  @override
+  String get tagLibraryNameHint => '例如：办公室钥匙扣';
+
+  @override
+  String get tagLibraryNoTagContent => '此记录中无标签内容。';
+
+  @override
+  String get tagLibrarySourceLastScanned => '最后扫描';
+
+  @override
+  String get tagLibraryEmpty => '暂无已保存的标签。';
+
+  @override
+  String get tagLibrarySourceEmpty => '空记录';
+
+  @override
+  String get tagLibraryNamePrompt => '请输入标签名称';
+
+  @override
+  String get tagLibrarySearchHint => '按名称、分类或位置搜索...';
+
+  @override
+  String get tagLibrarySourceWriteList => '写入列表';
+
+  @override
+  String get tagLibraryLocationHint => '例如：办公桌、大门';
+
+  @override
+  String tagLibraryDeleteConfirm(String name) {
+    return '确定要从库中删除标签“$name”吗？';
+  }
+
+  @override
+  String get noContent => '无内容';
+
+  @override
+  String tagLibraryRecordSummary(num count) {
+    return '$count 条 NDEF 记录';
+  }
+
+  @override
+  String get tagLibraryEditTag => '编辑标签';
+
+  @override
+  String get rawTypeHexHint => '41 (A) 或 55 (U) 等';
+
+  @override
+  String backupContextRecordsMustBeList(String context) {
+    return '$context：“records”字段必须是一个列表。';
+  }
+
+  @override
+  String backupContextMaxRecords(String context, num max) {
+    return '$context：单个项目最多可包含 $max 条 NDEF 记录。';
+  }
+
+  @override
+  String backupContextRecordMustBeObject(String context, num index) {
+    return '$context - 记录 #$index 不是有效对象。';
+  }
+
+  @override
+  String backupContextInvalidTnf(String context, num index, String tnf) {
+    return '$context - 记录 #$index：无效的 TNF 值 ($tnf)。';
+  }
+
+  @override
+  String backupContextTypeMustBeString(String context, num index) {
+    return '$context - 记录 #$index：“type”必须是 Base64 字符串。';
+  }
+
+  @override
+  String backupContextInvalidTypeBase64(
+      String context, num index, String error) {
+    return '$context - 记录 #$index：“type”不是有效的 Base64 数据 ($error)。';
+  }
+
+  @override
+  String backupContextIdMustBeString(String context, num index) {
+    return '$context - 记录 #$index：“id”必须是 Base64 字符串。';
+  }
+
+  @override
+  String backupContextInvalidIdBase64(String context, num index, String error) {
+    return '$context - 记录 #$index：“id”不是有效的 Base64 数据 ($error)。';
+  }
+
+  @override
+  String backupContextPayloadMustBeString(String context, num index) {
+    return '$context - 记录 #$index：“payload”必须是 Base64 字符串。';
+  }
+
+  @override
+  String backupContextInvalidPayloadBase64(
+      String context, num index, String error) {
+    return '$context - 记录 #$index：“payload”不是有效的 Base64 数据 ($error)。';
+  }
+
+  @override
+  String get composerUndoSnack => '已撤销上次更改。';
+
+  @override
+  String get composerRedoSnack => '已重做更改。';
+
+  @override
+  String get noRecordsToCopy => '没有可复制的 NDEF 记录。';
+
+  @override
+  String recordsCopiedToClipboardDetails(num count, num bytes) {
+    return '已复制 $count 条 NDEF 记录 ($bytes B) 到剪贴板。\n（仅复制 NDEF 内容；UID 或加密扇区绝不会被克隆）';
+  }
+
+  @override
+  String recordsAddedFromSource(String source, num count) {
+    return '$source：已添加 $count 条记录。';
+  }
+
+  @override
+  String get tagEmptyNoRecordsToImport => '标签为空；没有可导入的记录。';
+
+  @override
+  String get sourceTag => '来自标签';
+
+  @override
+  String get sourceQr => '来自二维码';
+
+  @override
+  String filePickerError(String error) {
+    return '无法打开文件选择器：$error';
+  }
+
+  @override
+  String get csvFileTooLarge => 'CSV 文件过大（最多512 KB）。';
+
+  @override
+  String get noRecordsFound => '未找到记录';
+
+  @override
+  String get someRowsSkipped => '部分行已跳过';
+
+  @override
+  String get expectedFormat => '预期格式：';
+
+  @override
+  String get noClipboardContent => '剪贴板上没有复制的 NDEF 内容。';
+
+  @override
+  String get pasteFromClipboardTitle => '从 NDEF 剪贴板粘贴';
+
+  @override
+  String clipboardDataSummary(num count, num bytes, String source) {
+    return '剪贴板数据：$count 条记录，$bytes 字节 ($source)';
+  }
+
+  @override
+  String get clipboardPastePrompt => '您想替换当前记录还是追加到末尾？';
+
+  @override
+  String get pasteOverwriteOption => '覆盖（替换）';
+
+  @override
+  String pasteOverwriteSubtitle(num count) {
+    return '将删除当前的 $count 条记录并替换为剪贴板内容（需确认）。';
+  }
+
+  @override
+  String get pasteEmptySubtitle => '剪贴板内容被放入编写器。';
+
+  @override
+  String get pasteAppendOption => '追加到末尾';
+
+  @override
+  String get pasteAppendSubtitle => '保留现有记录，剪贴板中的记录将追加到列表末尾。';
+
+  @override
+  String recordsAddedToComposer(num count) {
+    return '已添加 $count 条记录。';
+  }
+
+  @override
+  String get confirmOverwriteTitle => '是否覆盖记录？';
+
+  @override
+  String confirmOverwriteMessage(num currentCount, num newCount) {
+    return '现有 $currentCount 条记录。将被替换为剪贴板中的 $newCount 条记录。是否继续？';
+  }
+
+  @override
+  String recordsReplacedInComposer(num count) {
+    return '记录已替换为 $count 条新记录。';
+  }
+
+  @override
+  String get yesReplace => '是的，替换';
+
+  @override
+  String recordsImportedToComposer(num count) {
+    return '已导入 $count 条记录。';
+  }
+
+  @override
+  String get noContentToCopy => '未找到要复制的 NDEF 内容。';
+
+  @override
+  String recordsCopiedAndStaged(num count) {
+    return '已复制 $count 条 NDEF 记录并添加到编写器（已复制内容，UID 未克隆）。';
+  }
+
+  @override
+  String get noContentToRewrite => '未找到要重新写入的 NDEF 内容。';
+
+  @override
+  String get rewriteTagTitle => '重新写入标签';
+
+  @override
+  String get importantNotice => '重要提示：';
+
+  @override
+  String get rewriteNotice1 => '• 此操作将完全覆盖目标标签上的现有 NDEF 内容；不会追加到末尾。\n';
+
+  @override
+  String get rewriteNotice2 => '• 目标标签必须是可写（未锁定）的 NDEF 标签。\n';
+
+  @override
+  String get rewriteNotice3 => '• 不会静默写入上一个标签；需要新的 NFC 触碰。';
+
+  @override
+  String rewriteSourceUidLabel(String uid) {
+    return '源 UID：$uid';
+  }
+
+  @override
+  String rewriteRecordCountLabel(num count) {
+    return '要写入的记录数：$count';
+  }
+
+  @override
+  String get rewriteInstruction => '准备好目标标签，点击“轻触并写入”，然后将标签贴近手机背面。';
+
+  @override
+  String get tapAndWrite => '轻触并写入';
+
+  @override
+  String get rewritePromptMessage => '将目标标签贴近设备（内容将被完全更新）';
+
+  @override
+  String rewriteFailedMessage(String error) {
+    return '重新写入失败：$error';
+  }
+
+  @override
+  String get writeVerifiedTitle => '写入验证成功';
+
+  @override
+  String get writeVerifiedDesc => 'NDEF 内容已成功写入目标标签并已验证。';
+
+  @override
+  String writtenRecordCount(num count) {
+    return '已写入记录数：$count';
+  }
+
+  @override
+  String get writeVerifiedHint => '您可以开始下一次扫描以验证或比较写入的数据。';
+
+  @override
+  String get scanAndCompareNow => '立即扫描并比较';
+
+  @override
+  String get contentMatchesExactly => '内容完全匹配';
+
+  @override
+  String get differenceDetected => '检测到差异';
+
+  @override
+  String compareScannedUid(String uid) {
+    return '扫描的标签 UID：$uid';
+  }
+
+  @override
+  String compareWrittenData(num count, num bytes) {
+    return '写入数据：$count 条记录 ($bytes 字节)';
+  }
+
+  @override
+  String compareScannedData(num count, num bytes) {
+    return '扫描数据：$count 条记录 ($bytes 字节)';
+  }
+
+  @override
+  String get compareMatchDesc => '目标标签上的 NDEF 消息与写入的源 NDEF 消息逐字节完全一致。';
+
+  @override
+  String get compareDiffDesc => '读取的数据与预期数据存在差异。请检查标签是否已锁定或为其他标签。';
+
+  @override
+  String get batchEmptyComposerError => '在开始批量写入之前，请先添加至少一条记录。';
+
+  @override
+  String get batchWriteTitle => '批量标签写入';
+
+  @override
+  String get batchWriteSubtitle => '依次将相同的 NDEF 内容写入多个标签。';
+
+  @override
+  String get attention => '注意：';
+
+  @override
+  String get batchNotice1 => '• 为防止意外重复写入，每次写入均需通过“写入下一个”显式触发。\n';
+
+  @override
+  String get batchNotice2 => '• 不会进行自动连续扫描；必须物理更换每个标签。';
+
+  @override
+  String batchTargetCountLabel(num count) {
+    return '目标标签数量：$count';
+  }
+
+  @override
+  String batchComposerSummary(num count, num bytes) {
+    return '待写入记录：$count 条 ($bytes 字节)';
+  }
+
+  @override
+  String get batchStartButton => '开始批量写入';
+
+  @override
+  String get batchControlPanelTitle => '批量写入控制面板';
+
+  @override
+  String get batchCancelOrClose => '取消 / 关闭';
+
+  @override
+  String get batchAllCompleted => '所有标签尝试均已完成！';
+
+  @override
+  String batchNextTag(num current, num total) {
+    return '下一个：标签 #$current / $total';
+  }
+
+  @override
+  String batchStats(num success, num fail, num remaining) {
+    return '成功：$success | 失败：$fail | 剩余：$remaining';
+  }
+
+  @override
+  String batchSuccessMsg(String message) {
+    return '成功 ($message)';
+  }
+
+  @override
+  String batchFailMsg(String message) {
+    return '失败：$message';
+  }
+
+  @override
+  String tagNumberLabel(num index) {
+    return '标签 #$index：';
+  }
+
+  @override
+  String get waitingForTag => '等待标签...';
+
+  @override
+  String tapToWriteForTag(num index) {
+    return '轻触并写入标签 #$index';
+  }
+
+  @override
+  String get batchFinishButton => '完成批量写入';
+
+  @override
+  String batchPromptMessage(num current, num total) {
+    return '批量写入：将标签 #$current / $total 贴近设备';
+  }
+
+  @override
+  String batchTagSuccessSummary(num count) {
+    return '$count 条记录已写入并验证';
+  }
+
+  @override
+  String get writeError => '写入错误';
+
+  @override
+  String get batchConfirmCancelTitle => '取消批量写入';
+
+  @override
+  String get batchConfirmCancelMessage => '是否终止批量写入会话？已写入的标签将保留；剩余标签不会被写入。';
+
+  @override
+  String get cancelled => '已取消';
+
+  @override
+  String get batchCancelledSnack => '批量写入已取消。编写器内容已保留。';
+
+  @override
+  String get cancelAndClose => '取消并关闭';
+
+  @override
+  String get urlSafetyOfflineAnalysisTitle => '离线 URL 分析';
+
+  @override
+  String get urlSafetyScheme => '架构 (协议)：';
+
+  @override
+  String get urlSafetyPort => '端口：';
+
+  @override
+  String get urlSafetyUserInfoLabel => '用户信息：';
+
+  @override
+  String get urlSafetyIpLiteral => '直接 IP 地址：';
+
+  @override
+  String get urlSafetyDomain => '否（域名）';
+
+  @override
+  String get urlSafetyPunycodeLabel => '国际化域名 / Punycode (xn--)：';
+
+  @override
+  String get urlSafetyHomoglyphRisk => '是（疑似同形异义攻击）';
+
+  @override
+  String get urlSafetyWarningsHeader => '安全 / 警告提示：';
+
+  @override
+  String get urlSafetyDisclaimer => '注意：此分析完全基于本地离线规则。不保证在线检测恶意软件。URL 不会自动打开。';
+
+  @override
+  String templateLoadedToComposer(String name) {
+    return '模板“$name”中的记录已载入编写器。';
+  }
+
+  @override
+  String get templateSaveEmptyError => '在另存为模板之前请先添加记录。';
+
+  @override
+  String templateDefaultName(num index) {
+    return '模板 $index';
+  }
+
+  @override
+  String get templateNameSample => '例如：公司网站与联系方式';
+
+  @override
+  String get templateSavedSnack => '模板已保存。';
+
+  @override
+  String get ruleNoteRequiresNdef => '标签必须至少包含一条 NDEF 记录才能添加备注。';
+
+  @override
+  String get ruleNoteAddTitle => '添加自定义标签备注';
+
+  @override
+  String get ruleNoteDigestExplanation =>
+      '此备注绑定到标签 NDEF SHA-256 摘要。重新扫描时仅显示此说明；不会触发外部操作。';
+
+  @override
+  String ruleNoteShaSummary(String sha) {
+    return 'NDEF 内容摘要 (SHA-256)：\n$sha';
+  }
+
+  @override
+  String get ruleNoteSavedSnack => '标签备注已保存。';
+
+  @override
+  String get ruleNoteDeleteTitle => '删除标签备注';
+
+  @override
+  String get ruleNoteDeleteConfirm => '此标签的应用内备注将被删除。是否继续？';
+
+  @override
+  String get ruleNoteDeletedSnack => '标签备注已删除。';
+
+  @override
+  String get backupExportTitle => '导出备份';
+
+  @override
+  String get backupExportWarningTitle => '隐私与安全警告';
+
+  @override
+  String get backupExportWarningBody =>
+      '导出的备份文件 (JSON) 为纯文本格式。可能包含 Wi-Fi 密码或联系人等敏感数据。请妥善保存并在分享时保持谨慎。';
+
+  @override
+  String get backupIncludedItems => '包含的项目：';
+
+  @override
+  String backupTemplatesCount(num count) {
+    return '• 模板：$count 个';
+  }
+
+  @override
+  String backupRulesCount(num count) {
+    return '• 应用内标签备注/规则：$count 条';
+  }
+
+  @override
+  String get backupIncludeHistoryOptional => '包含扫描历史记录（可选）';
+
+  @override
+  String backupHistoryCount(num count) {
+    return '$count 条历史记录';
+  }
+
+  @override
+  String get backupHistoryDisabled => '此设备上已禁用扫描历史记录';
+
+  @override
+  String get backupExportAndShare => '导出并分享';
+
+  @override
+  String get backupFileNameLabel => 'NFC Tag Master 备份文件';
+
+  @override
+  String get backupFileShareSubject => 'NFC Tag Master 模板与数据备份 (JSON)';
+
+  @override
+  String get backupExportSuccessSnack => '备份文件已成功导出并分享。';
+
+  @override
+  String get backupExportCancelled => '导出分享已取消。';
+
+  @override
+  String backupExportError(String error) {
+    return '导出错误：$error';
+  }
+
+  @override
+  String get backupImportTitle => '导入备份';
+
+  @override
+  String get backupMergeRuleTitle => '安全与合并规则';
+
+  @override
+  String get backupMergeRule1 => '• 导入基于合并 (MERGE) 逻辑运行；您现有的记录绝不会被删除。\n';
+
+  @override
+  String get backupMergeRule2 => '• 备份文件可能包含 Wi-Fi 密码或个人数据；仅加载来自受信任来源的文件。\n';
+
+  @override
+  String get backupMergeRule3 => '• 文件大小限制：2 MiB。加载前会对数据进行严格的架构和 Base64 验证。';
+
+  @override
+  String get backupSelectFilePrompt => '请选择要合并的有效 .json 备份文件。';
+
+  @override
+  String get selectFileButton => '选择文件';
+
+  @override
+  String get fileSelectionCancelled => '文件选择已取消。';
+
+  @override
+  String get backupFileExceedsLimit => '所选文件超出了允许的 2 MiB 限制。';
+
+  @override
+  String fileReadError(String error) {
+    return '文件读取错误：$error';
+  }
+
+  @override
+  String backupValidationError(String error) {
+    return '备份验证错误：$error';
+  }
+
+  @override
+  String get backupHistoryDetectedTitle => '检测到扫描历史记录';
+
+  @override
+  String backupHistoryDetectedMsg(num count) {
+    return '备份中包含 $count 条历史记录，但此设备上已禁用扫描历史记录功能。\n\n';
+  }
+
+  @override
+  String get backupHistoryDetectedPrompt =>
+      '是否要导入历史记录并启用该功能？还是跳过历史记录仅导入模板和标签备注？';
+
+  @override
+  String get backupSkipHistoryOption => '跳过历史记录（仅加载模板和备注）';
+
+  @override
+  String get backupEnableHistoryOption => '启用历史记录并加载';
+
+  @override
+  String backupImportSuccessWithSummary(String summary) {
+    return '导入成功：\n$summary';
+  }
+
+  @override
+  String backupMergeError(String error) {
+    return '合并错误：$error';
+  }
+
+  @override
+  String get nfcReadyStatus => 'NFC 已就绪';
+
+  @override
+  String get nfcReadyDesc => 'NFC 硬件处于活动状态并可随时使用';
+
+  @override
+  String get nfcDisabledStatus => 'NFC 已关闭';
+
+  @override
+  String get nfcDisabledDesc => 'NFC 已关闭。请在设备设置中开启。';
+
+  @override
+  String ndefClipboardBanner(num count, num bytes, String source) {
+    return 'NDEF 剪贴板：$count 条记录 ($bytes B) - $source';
+  }
+
+  @override
+  String get template => '模板';
+
+  @override
+  String get nfcScannerTitle => 'NFC 扫描仪';
+
+  @override
+  String lastScannedTagId(String id) {
+    return '上次扫描的标签：$id';
+  }
+
+  @override
+  String get composeRecord => '创建记录';
+
+  @override
+  String get protectOrRemove => '保护 / 移除';
+
+  @override
+  String get previousScans => '历史扫描';
+
+  @override
+  String scanErrorWithMsg(String error) {
+    return '扫描错误：$error';
+  }
+
+  @override
+  String get noScannedTagYet => '尚未扫描任何 NFC 标签';
+
+  @override
+  String get tapScanPrompt => '轻触“开始扫描”并将标签贴近手机。';
+
+  @override
+  String get ndefCopyAndRewriteTitle => 'NDEF 内容复制与重新写入';
+
+  @override
+  String ndefCopyNotice(num count, num bytes) {
+    return '$count 条记录 ($bytes 字节) - 仅处理 NDEF 数据，未克隆 UID。';
+  }
+
+  @override
+  String tagIdHeader(String id) {
+    return '标签 $id';
+  }
+
+  @override
+  String get savedTagNoteHeader => '已保存的标签备注（应用内规则）';
+
+  @override
+  String get tagNoteOrRule => '标签备注 / 规则';
+
+  @override
+  String get editNote => '编辑备注';
+
+  @override
+  String get deleteNote => '删除备注';
+
+  @override
+  String get tagNoteDigestNotice => '此备注与精确 NDEF 字节的 SHA-256 摘要相匹配。不会触发外部操作。';
+
+  @override
+  String get addCustomTagNotePrompt => '您可以为此 NDEF 内容添加自定义本地备注或说明。';
+
+  @override
+  String get addNoteToThisTag => '为此标签添加备注';
+
+  @override
+  String get ndefSupport => 'NDEF 支持：';
+
+  @override
+  String get usedSpace => '已用空间：';
+
+  @override
+  String get freeSpace => '剩余空间：';
+
+  @override
+  String errorWithMsg(String error) {
+    return '错误：$error';
+  }
+
+  @override
+  String get noNdefMessageOnTag => '未在标签上找到已保存的 NDEF 消息。';
+
+  @override
+  String readNdefRecordsHeader(num count) {
+    return '已读取的 NDEF 记录 ($count)';
+  }
+
+  @override
+  String stagedNdefRecordsHeader(num count) {
+    return '编写的 NDEF 记录 ($count)';
+  }
+
+  @override
+  String get hideDetails => '隐藏详情';
+
+  @override
+  String get advancedRecordInspector => '记录检查器（高级）';
+
+  @override
+  String get ndefRecordInspectorTitle => '高级 NDEF 记录检查器';
+
+  @override
+  String get inspectorType => '类型：';
+
+  @override
+  String get inspectorPayloadLength => '有效载荷长度：';
+
+  @override
+  String get inspectorRawHexPreview => '原始十六进制预览（受限）：';
+
+  @override
+  String inspectorPayloadTruncated(num length) {
+    return '注意：有效载荷为 $length 字节；仅显示前 64 字节。';
+  }
+
+  @override
+  String get ndefRecordsToWriteTitle => '要写入的 NDEF 记录';
+
+  @override
+  String get pasteFromClipboardAction => '从剪贴板粘贴（替换 / 追加）';
+
+  @override
+  String get importAction => '导入';
+
+  @override
+  String get importFromTagAction => '从 NFC 标签导入';
+
+  @override
+  String get importFromQrAction => '从二维码导入';
+
+  @override
+  String get importFromCsvAction => '从 CSV 文件导入';
+
+  @override
+  String composerTotalSizeAndCount(num bytes, num count) {
+    return '总大小：$bytes 字节 | 记录数：$count';
+  }
+
+  @override
+  String get composerEmptyDescription =>
+      '您可以将文本、网页链接、Wi-Fi、电话、电子邮件、联系人卡片等写入标签。';
+
+  @override
+  String get urlSafetyReview => 'URL 检查';
+
+  @override
+  String get inspector => '检查器';
+
+  @override
+  String get typeLabel => '类型：';
+
+  @override
+  String get payloadLabel => '有效载荷：';
+
+  @override
+  String get writeAndVerify => '写入标签并验证';
+
+  @override
+  String writeAndVerifyWithBytes(num bytes) {
+    return '写入标签并验证 ($bytes 字节)';
+  }
+
+  @override
+  String get batchWriteButtonLabel => '批量标签写入 (2..100 个标签)';
+
+  @override
+  String get clearTagButtonLabel => '重置标签（清除内容）';
+
+  @override
+  String get confirmWriteTitle => '确认写入标签';
+
+  @override
+  String get confirmWriteMessage1 => '此操作将完全覆盖目标标签上的现有 NDEF 内容。';
+
+  @override
+  String confirmWriteRecordCount(num count) {
+    return '要写入的记录数：$count';
+  }
+
+  @override
+  String get confirmWriteMessage2 => '请确保目标标签可写（未锁定）。写入后将自动验证标签内容。';
+
+  @override
+  String get yesWrite => '是的，写入';
+
+  @override
+  String get scanHistoryDisabledTitle => '扫描历史记录已关闭';
+
+  @override
+  String get scanHistoryDisabledDesc => '出于隐私考虑，默认不保存扫描历史记录。您可以在“设置”选项卡中启用它。';
+
+  @override
+  String get enableHistory => '启用历史记录';
+
+  @override
+  String get historySearchHint => '按 UID、文本或类型搜索（例如：URL、Wi-Fi、04A1...）';
+
+  @override
+  String historyScansCount(num count) {
+    return '已保存的扫描：$count';
+  }
+
+  @override
+  String get noHistoryYet => '暂无保存的扫描历史记录。';
+
+  @override
+  String noHistoryResultsForQuery(String query) {
+    return '未找到“$query”的结果。';
+  }
+
+  @override
+  String get tryDifferentQuery => '请尝试其他 UID、文本内容或记录类型。';
+
+  @override
+  String get clearSearch => '清除搜索';
+
+  @override
+  String historyItemHeader(String time, num count) {
+    return '$time | $count 条记录';
+  }
+
+  @override
+  String get deleteThisRecord => '删除此记录';
+
+  @override
+  String historyCapacitySummary(num cap, num used) {
+    return '容量：${cap}B | 已用：${used}B';
+  }
+
+  @override
+  String historyUidHeader(String uid) {
+    return '历史 UID $uid';
+  }
+
+  @override
+  String get qrPreview => 'QR 预览';
+
+  @override
+  String templateRecordCountWithDate(num count, String date) {
+    return '$count 条记录 | $date';
+  }
+
+  @override
+  String writeVerificationSummary(num bytes, String status) {
+    return '写入字节：$bytes | 验证：$status';
+  }
+
+  @override
+  String get lockTagConfirmTitle => '永久锁定标签';
+
+  @override
+  String get lockTagWarning1 => '锁定的标签将变为只读：内容无法再次修改、删除，且无法解锁。';
+
+  @override
+  String get lockTagWarning2 => '请务必先确认已写入正确的内容。';
+
+  @override
+  String get langTr => 'Türkçe';
+
+  @override
+  String get langEn => 'English';
+
+  @override
+  String get langDe => 'Deutsch';
+
+  @override
+  String get langFr => 'Français';
+
+  @override
+  String get langEs => 'Español';
+
+  @override
+  String get langIt => 'Italiano';
+
+  @override
+  String get langPt => 'Português';
+
+  @override
+  String get langRu => 'Русский';
+
+  @override
+  String get langAr => 'العربية';
+
+  @override
+  String get langJa => '日本語';
+
+  @override
+  String get langZh => '中文';
+
+  @override
+  String get langKo => '한국어';
+
+  @override
+  String get langNl => 'Nederlands';
+
+  @override
+  String get langUk => 'Українська';
+
+  @override
+  String get qrPreviewTooltip => 'QR码预览';
+
+  @override
+  String get unknownParentheses => '(未知)';
+
+  @override
+  String get ok => '确定';
 }

@@ -6,8 +6,12 @@ const bool _pendingI18nWiring = true;
 
 /// Literals that are allowed to stay Turkish: data formats and the like.
 const Map<String, Set<String>> _allowed = {
-  // CSV import keeps accepting Turkish type keywords (data format, not UI)
-  'lib/domain/csv_records.dart': {'tür', 'e-posta', 'tur', 'metin', 'telefon', 'eposta', 'konum'},
+  // CSV import keywords and sample CSV file payload template
+  'lib/domain/csv_records.dart': {'tür', 'e-posta', 'tur', 'metin', 'telefon', 'eposta', 'konum', r'metin,Merhaba dünya\n'},
+  // Storage model serialization fallback values (file excluded from edits)
+  'lib/domain/storage_models.dart': {'Bilinmiyor', 'Şablon'},
+  // Turkish character normalization mapping for search indexing
+  'lib/domain/tag_library.dart': {'İ', 'ı'},
 };
 
 final _literal = RegExp(r"'((?:[^'\\\n]|\\.)*)'");
