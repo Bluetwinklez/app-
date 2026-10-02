@@ -1,0 +1,851 @@
+{
+  "@@locale": "tr",
+  "addRecord": "Kayıt Ekle",
+  "addRule": "Kural Ekle",
+  "addTag": "Etiket Ekle",
+  "addToComposerList": "Yazma Listesine Ekle",
+  "addToWriteList": "Yazma listesine ekle",
+  "addressCannotBeEmpty": "Adres boş bırakılamaz.",
+  "advancedCommandsDesc": "Her satıra bir komut yazın (hex). Örn: 60 = GET_VERSION, 30 04 = sayfa 4'ten oku. Yanlış yazma komutları etiketi kalıcı olarak bozabilir.",
+  "advancedCommandsSubtitle": "Etikete ham onaltılık (hex) komut gönderir",
+  "advancedCommandsTitle": "Gelişmiş NFC Komutları",
+  "allRulesCleared": "Tüm kurallar silindi",
+  "appLinksDesc": "Bu bağlantıları bir etikete yazarsanız, iPhone etikete dokununca bildirim gösterir ve uygulamayı ilgili ekranda açar.",
+  "appLinksSection": "Uygulama bağlantıları",
+  "appPackageName": "Android Paket Adı",
+  "appSettings": "Uygulama Ayarları",
+  "appTitle": "NFC Etiket Yöneticisi",
+  "autoRunOnTap": "Etikete dokununca otomatik çalıştır",
+  "backupExportSuccess": "Yedek dosyası başarıyla kaydedildi",
+  "backupFileSizeExceeded": "Yedek dosyası boyutu 2 MiB sınırını aşıyor.",
+  "backupHistoryMustBeList": "\"history\" alanı bir dizi olmalıdır.",
+  "backupImportFailed": "Yedek içe aktarılamadı: {error}",
+  "@backupImportFailed": {
+    "placeholders": {
+      "error": {
+        "type": "String"
+      }
+    }
+  },
+  "backupImportSuccess": "Yedek başarıyla içe aktarıldı: {templates} şablon, {rules} kural, {history} geçmiş eklendi",
+  "@backupImportSuccess": {
+    "placeholders": {
+      "history": {
+        "type": "int"
+      },
+      "rules": {
+        "type": "int"
+      },
+      "templates": {
+        "type": "int"
+      }
+    }
+  },
+  "backupInvalidBase64Id": "Kayıt kimliği geçerli Base64 verisi değil: {id}",
+  "@backupInvalidBase64Id": {
+    "placeholders": {
+      "id": {
+        "type": "String"
+      }
+    }
+  },
+  "backupInvalidBase64Payload": "Kayıt yükü geçerli Base64 verisi değil: {payload}",
+  "@backupInvalidBase64Payload": {
+    "placeholders": {
+      "payload": {
+        "type": "String"
+      }
+    }
+  },
+  "backupInvalidBase64Type": "Kayıt türü geçerli Base64 verisi değil: {type}",
+  "@backupInvalidBase64Type": {
+    "placeholders": {
+      "type": {
+        "type": "String"
+      }
+    }
+  },
+  "backupInvalidJson": "Geçersiz JSON biçimi: {error}",
+  "@backupInvalidJson": {
+    "placeholders": {
+      "error": {
+        "type": "String"
+      }
+    }
+  },
+  "backupInvalidRuleNote": "Etiket kuralı notu (note) geçerli bir metin olmalıdır.",
+  "backupInvalidRuleSha": "Etiket kuralı NDEF özeti geçerli bir 64 karakterli SHA-256 onaltılık (hex) dize olmalıdır.",
+  "backupInvalidTemplateCreatedAt": "Şablon oluşturulma tarihi (createdAt) ISO-8601 olmalıdır: {date}",
+  "@backupInvalidTemplateCreatedAt": {
+    "placeholders": {
+      "date": {
+        "type": "String"
+      }
+    }
+  },
+  "backupInvalidTemplateId": "Şablon kimliği (id) geçerli bir metin olmalıdır.",
+  "backupInvalidTemplateName": "Şablon adı (name) geçerli bir metin olmalıdır.",
+  "backupInvalidTnf": "Geçersiz TNF değeri ({tnf}). 0-7 arasında bir tamsayı olmalıdır.",
+  "@backupInvalidTnf": {
+    "placeholders": {
+      "tnf": {
+        "type": "String"
+      }
+    }
+  },
+  "backupMaxHistoryExceeded": "Geçmiş kayıt sayısı izin verilen {max} sınırını aşıyor ({count}).",
+  "@backupMaxHistoryExceeded": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      },
+      "max": {
+        "type": "int"
+      }
+    }
+  },
+  "backupMaxRecordsExceeded": "Kayıt sayısı izin verilen {max} sınırını aşıyor ({count}).",
+  "@backupMaxRecordsExceeded": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      },
+      "max": {
+        "type": "int"
+      }
+    }
+  },
+  "backupMaxTagRulesExceeded": "Etiket kuralı sayısı izin verilen {max} sınırını aşıyor ({count}).",
+  "@backupMaxTagRulesExceeded": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      },
+      "max": {
+        "type": "int"
+      }
+    }
+  },
+  "backupMaxTemplatesExceeded": "Şablon sayısı izin verilen {max} sınırını aşıyor ({count}).",
+  "@backupMaxTemplatesExceeded": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      },
+      "max": {
+        "type": "int"
+      }
+    }
+  },
+  "backupMissingSchemaVersion": "Yedek dosyasında \"schemaVersion\" alanı eksik.",
+  "backupRecordMustBeObject": "Her NDEF kaydı bir JSON nesnesi olmalıdır.",
+  "backupRecordsMustBeList": "Kayıt listesi (records) bir dizi olmalıdır.",
+  "backupRestoreSubtitle": "Şablonlarınızı, uygulama içi etiket notlarınızı ve isteğe bağlı tarama geçmişinizi sürüm kontrollü JSON formatında yedekleyin veya mevcut verilerinizle birleştirin.",
+  "backupRestoreTitle": "Yedekleme ve Geri Yükleme (JSON)",
+  "backupRootMustBeObject": "Yedek dosyasının kök yapısı bir JSON nesnesi olmalıdır.",
+  "backupRuleMustBeObject": "Her etiket kuralı bir JSON nesnesi olmalıdır.",
+  "backupSchemaVersionMustBeInt": "\"schemaVersion\" alanı bir tamsayı olmalıdır.",
+  "backupSizeExceeded": "Yedekleme verisi izin verilen 2 MiB sınırını aşıyor ({bytes} bayt).",
+  "@backupSizeExceeded": {
+    "placeholders": {
+      "bytes": {
+        "type": "int"
+      }
+    }
+  },
+  "backupTagRulesMustBeList": "\"tagRules\" alanı bir dizi olmalıdır.",
+  "backupTemplateMustBeObject": "Her şablon bir JSON nesnesi olmalıdır.",
+  "backupTemplatesMustBeList": "\"templates\" alanı bir dizi (list) olmalıdır.",
+  "backupUnsupportedSchemaVersion": "Desteklenmeyen yedek şema sürümü: {version}.",
+  "@backupUnsupportedSchemaVersion": {
+    "placeholders": {
+      "version": {
+        "type": "String"
+      }
+    }
+  },
+  "batchWrite": "Toplu Yazma",
+  "bluetoothDeviceName": "Cihaz Adı (İsteğe bağlı)",
+  "bluetoothMac": "Bluetooth MAC Adresi",
+  "bytesWrittenWithVerification": "Yazılan Bayt: {bytes} | Doğrulama: {status}",
+  "@bytesWrittenWithVerification": {
+    "placeholders": {
+      "bytes": {
+        "type": "int"
+      },
+      "status": {
+        "type": "String"
+      }
+    }
+  },
+  "cameraError": "Kamera açılamadı. Ayarlar > Gizlilik > Kamera bölümünden izin verin.\n({error})",
+  "@cameraError": {
+    "placeholders": {
+      "error": {
+        "type": "String"
+      }
+    }
+  },
+  "cancel": "İptal",
+  "catBusiness": "İşletme",
+  "catCar": "Araba",
+  "catHome": "Ev",
+  "catOther": "Diğer",
+  "catPersonal": "Kişisel",
+  "catWork": "İş",
+  "categoryLabel": "Kategori",
+  "chooseFromGallery": "Galeriden seç",
+  "clear": "Temizle",
+  "clearAll": "Tümünü Sil",
+  "clearAllRulesConfirm": "Kayıtlı tüm uygulama içi etiket notları silinecektir. Onaylıyor musunuz?",
+  "clearConfirmButton": "Evet, Temizle",
+  "clearConfirmMessage": "Bu işlem etiket üzerindeki tüm NDEF kayıtlarını silecek ve boş bir kayıt yazacaktır. Devam etmek istiyor musunuz?",
+  "clearConfirmTitle": "Etiket İçeriğini Sıfırla",
+  "clearHistory": "Geçmişi Temizle",
+  "clearList": "Listeyi Temizle",
+  "clearTagSubtitle": "Tüm kayıtları silip boş NDEF yazar",
+  "clearTagTitle": "Etiketi Sil",
+  "clipboardBanner": "{count, plural, =1{Panoda 1 kayıt hazır} other{Panoda {count} kayıt hazır}} ({bytes} B) · {source}",
+  "@clipboardBanner": {
+    "placeholders": {
+      "bytes": {
+        "type": "int"
+      },
+      "count": {
+        "type": "int"
+      },
+      "source": {
+        "type": "String"
+      }
+    }
+  },
+  "close": "Kapat",
+  "commandsEmptyError": "En az bir komut giriniz.",
+  "commandsLabel": "Komutlar",
+  "composeRecordTitle": "Yeni Kayıt Ekle",
+  "confirmClearHistoryContent": "Cihazda kayıtlı tüm tarama geçmişi silinecektir. Onaylıyor musunuz?",
+  "confirmClearHistoryTitle": "Tarama Geçmişini Temizle",
+  "confirmClearTemplatesContent": "Kayıtlı tüm yazma şablonları silinecektir. Onaylıyor musunuz?",
+  "confirmClearTemplatesTitle": "Şablonları Temizle",
+  "contactCompany": "Şirket / Kurum",
+  "contactEmail": "E-posta",
+  "contactFullName": "Ad Soyad",
+  "contactNote": "Not",
+  "contactPhone": "Telefon",
+  "contactTitle": "Unvan",
+  "contactWebsite": "Web Sitesi",
+  "contentSummary": "İçerik: {count, plural, =1{1 kayıt} other{{count} kayıt}} · {content}",
+  "@contentSummary": {
+    "placeholders": {
+      "content": {
+        "type": "String"
+      },
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "copy": "Kopyala",
+  "copyAllRecords": "Tüm Kayıtları Kopyala",
+  "copyTagUid": "UID Kopyala",
+  "copyToComposer": "Yazma listesine kopyala",
+  "csvInvalidAddress": "geçersiz adres.",
+  "csvInvalidEmail": "geçersiz e-posta adresi.",
+  "csvInvalidLocation": "konum için enlem ve boylam giriniz (Örn: konum,41.0082,28.9784).",
+  "csvMaxRowsExceeded": "En fazla {max} kayıt içe aktarılabilir; kalan satırlar atlandı.",
+  "@csvMaxRowsExceeded": {
+    "placeholders": {
+      "max": {
+        "type": "int"
+      }
+    }
+  },
+  "csvRowEmptyValue": "Satır {row}: değer boş.",
+  "@csvRowEmptyValue": {
+    "placeholders": {
+      "row": {
+        "type": "int"
+      }
+    }
+  },
+  "csvRowError": "Satır {row}: {error}",
+  "@csvRowError": {
+    "placeholders": {
+      "error": {
+        "type": "String"
+      },
+      "row": {
+        "type": "int"
+      }
+    }
+  },
+  "csvUnknownType": "bilinmeyen tür \"{type}\".",
+  "@csvUnknownType": {
+    "placeholders": {
+      "type": {
+        "type": "String"
+      }
+    }
+  },
+  "csvWifiPasswordLength": "Wi-Fi şifresi 8-63 karakter olmalı.",
+  "delete": "Sil",
+  "deleteTagConfirmContent": "\"{name}\" kütüphaneden silinsin mi? Fiziksel etiket değişmez.",
+  "@deleteTagConfirmContent": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
+  "deleteTagConfirmTitle": "Etiketi Sil",
+  "deleteTemplateTooltip": "Şablonu Sil",
+  "deviceNameTooLong": "Cihaz adı çok uzun.",
+  "dismiss": "Vazgeç",
+  "editRecordTitle": "Kaydı Düzenle",
+  "editRule": "Kuralı Düzenle",
+  "editTag": "Etiketi Düzenle",
+  "emailBody": "E-posta Metni",
+  "emailRecipient": "Alıcı E-posta",
+  "emailSubject": "Konu",
+  "emptyComposerSubtitle": "\"Kayıt Ekle\" butonuna dokunarak Web URL, Metin, Wi-Fi, Kişi Kartı ve daha fazlasını oluşturun.",
+  "emptyComposerTitle": "Henüz kayıt eklenmedi",
+  "emptyHistorySubtitle": "Etiket taradığınızda geçmiş kayıtları burada listelenir.",
+  "emptyHistoryTitle": "Henüz tarama geçmişi yok",
+  "emptyLibrary": "Henüz kayıtlı etiket yok.\nBir etiketi okuttuktan sonra buraya isim ve fotoğrafla kaydedin.",
+  "eventDescription": "Açıklama",
+  "eventEnd": "Bitiş Zamanı",
+  "eventLocation": "Konum / Yer",
+  "eventStart": "Başlangıç Zamanı",
+  "eventTitle": "Etkinlik Başlığı",
+  "exportBackup": "Dışa Aktar",
+  "facetimePrompt": "Telefon numarası veya Apple kimliği e-posta adresi giriniz.",
+  "fieldCannotBeEmpty": "\"{field}\" boş bırakılamaz.",
+  "@fieldCannotBeEmpty": {
+    "placeholders": {
+      "field": {
+        "type": "String"
+      }
+    }
+  },
+  "fieldTextPrompt": "Etikete yazılacak metin",
+  "fieldUrlPrompt": "Web sitesi adresi (https://...)",
+  "fileUrl": "Dosya Bağlantısı (URL)",
+  "filterAll": "Tümü",
+  "flashlight": "Fener",
+  "formatConfirmButton": "Biçimlendir",
+  "formatConfirmMessage": "Etiketteki veriler silinir ve etiket boş bir NDEF etiketi olarak hazırlanır. Devam edilsin mi?",
+  "formatMemorySubtitle": "NDEF için hazırlar (boş veya bozuk etiketler)",
+  "formatMemoryTitle": "Belleği Biçimlendir",
+  "hardwareAvailable": "NFC Donanımı Hazır",
+  "hardwareDisabled": "NFC Devre Dışı",
+  "hardwareNotSupported": "NFC Desteklenmiyor",
+  "historyFilteredEmpty": "Aramayla eşleşen geçmiş kaydı bulunamadı.",
+  "idTooLarge": "Kimlik (ID) boyutu 255 baytı aşamaz",
+  "importBackup": "İçe Aktar (Birleştir)",
+  "importCsv": "CSV İçe Aktar",
+  "inAppTagRules": "Uygulama İçi Etiket Kuralları",
+  "invalidHexId": "Geçersiz Hex ID dizesi",
+  "invalidHexPayload": "Geçersiz Hex yük (payload) dizesi",
+  "invalidHexType": "Geçersiz Hex tür dizesi",
+  "languageTitle": "Dil / Language",
+  "latitude": "Enlem (Lat)",
+  "linkCopied": "Bağlantı kopyalandı",
+  "linkHistoryDesc": "Geçmişi açar",
+  "linkScanDesc": "Uygulamayı açıp taramayı başlatır",
+  "linkToolsDesc": "Araçlar ekranını açar",
+  "linkWriteDesc": "Yazma ekranını açar",
+  "loadToComposerTooltip": "Yazma Bestesine Aktar",
+  "locationHint": "Örn: Buzdolabının kapağı",
+  "locationLabel": "Nerede?",
+  "lockAcknowledge": "Bu işlemin geri alınamayacağını anlıyorum",
+  "lockButton": "Kilitle",
+  "lockTagSubtitle": "Kalıcı olarak salt okunur yapar (geri alınamaz)",
+  "lockTagTitle": "Etiketi Kilitle",
+  "lockWarning": "Kilitlenen etiket salt okunur olur: içeriği bir daha DEĞİŞTİRİLEMEZ, silinemez ve kilit KALDIRILAMAZ. Önce doğru içeriği yazdığınızdan emin olun.",
+  "longitude": "Boylam (Lng)",
+  "manage": "Yönet",
+  "matchedRule": "Eşleşen Kural / Not",
+  "mimePayloadHex": "Yük (Payload) Hex / Metin",
+  "mimeTypeLabel": "MIME Türü",
+  "nameRequired": "Etikete bir isim verin.",
+  "navHistory": "Geçmiş",
+  "navHistoryTitle": "Geçmiş",
+  "navRead": "Oku",
+  "navReadTitle": "Etiket Oku",
+  "navSettings": "Ayarlar",
+  "navSettingsTitle": "Şablonlar & Ayarlar",
+  "navTools": "Araçlar",
+  "navToolsTitle": "Araçlar",
+  "navWrite": "Yaz",
+  "navWriteTitle": "Etiket Yaz",
+  "ndefRecordsCount": "{count, plural, =1{1 Kayıt} other{{count} Kayıt}}",
+  "@ndefRecordsCount": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "ndefRecordsTitle": "NDEF Kayıtları",
+  "nfcPromptClear": "Etiketi sıfırlamak için cihazınıza yaklaştırın",
+  "nfcPromptLock": "Kalıcı olarak kilitlenecek etiketi yaklaştırın",
+  "nfcPromptScan": "NFC etiketini okumak için cihazınızın arkasına dokundurun",
+  "nfcPromptWrite": "Verileri kaydetmek için NFC etiketini yaklaştırın",
+  "no": "Hayır",
+  "noContentInTag": "Bu kayıtta etiket içeriği yok.",
+  "noLibraryMatches": "Aramayla eşleşen etiket yok.",
+  "noRecordsOnTag": "Etikette NDEF kaydı bulunamadı.",
+  "noTemplates": "Henüz kayıtlı bir yazma şablonu yok.\n\"Etiket Yaz\" sekmesinden kayıt oluşturup şablon olarak kaydedebilirsiniz.",
+  "noteLabel": "Not",
+  "onboardingContinue": "Devam",
+  "onboardingSkip": "Geç",
+  "onboardingStart": "Başla",
+  "onboardingStep1Body": "Alttaki mavi butona dokunun ve etiketi telefonun üst kısmına yaklaştırın. İçerik, kapasite ve seri numarası anında görünür.",
+  "onboardingStep1Title": "Etiketi okut",
+  "onboardingStep2Body": "\"Yaz\" bölümünde \"Kayıt Ekle\"ye dokunun: web adresi, Wi-Fi, kartvizit, sosyal medya ve daha fazlası. Hazır şablonlarla saniyeler içinde hazırlayın.",
+  "onboardingStep2Title": "İstediğini yaz",
+  "onboardingStep3Body": "Belleği okuyun, şifre koyun, etiketi kilitleyin veya biçimlendirin. Hepsi \"Araçlar\" bölümünde.",
+  "onboardingStep3Title": "Uzman araçlar",
+  "onboardingStep4Body": "Yazdığınız etiketlere isim, not ve fotoğraf ekleyip kütüphanenizde saklayın. Dili ve görünümü Ayarlar'dan değiştirebilirsiniz.",
+  "onboardingStep4Title": "Etiketlerini düzenle",
+  "optionalField": "{label} (isteğe bağlı)",
+  "@optionalField": {
+    "placeholders": {
+      "label": {
+        "type": "String"
+      }
+    }
+  },
+  "pageN": "Sayfa {page}",
+  "@pageN": {
+    "placeholders": {
+      "page": {
+        "type": "int"
+      }
+    }
+  },
+  "pageRoleCc": "CC",
+  "pageRoleData": "Veri",
+  "pageRoleLock": "Kilit",
+  "pageRoleUid": "UID",
+  "pageRoleUidLock": "UID / Kilit",
+  "passwordDialogAction": "Şifreyi Ayarla",
+  "passwordDialogTitle": "Şifre Belirle",
+  "passwordDialogWarning": "Şifreyi unutursanız etiketin içeriğini bir daha değiştiremezsiniz. Okuma herkese açık kalır.",
+  "passwordError": "Tam 4 karakter veya 8 hex rakam giriniz.",
+  "passwordHint": "4 karakter (Örn: 1234) veya 8 hex",
+  "passwordLabel": "Şifre",
+  "paste": "Yapıştır",
+  "phoneNumber": "Telefon Numarası",
+  "phoneWithCountryCode": "Ülke koduyla birlikte telefon numarası giriniz (Örn: 905551112233).",
+  "presetAppDownloadDesc": "Android kullanıcılarına uygulamanızı açar veya yükletir.",
+  "presetAppDownloadTitle": "Uygulama İndirme",
+  "presetBusinessCardDesc": "Telefona dokununca kişi kartınız rehbere eklenir.",
+  "presetBusinessCardTitle": "Dijital Kartvizit",
+  "presetDirectionsDesc": "Haritada adres veya mekan gösterir.",
+  "presetDirectionsTitle": "Konum / Yol Tarifi",
+  "presetEmergencyDesc": "Kan grubu, acil durum irtibatı ve kritik bilgiler.",
+  "presetEmergencyTitle": "Acil Durum Kartı",
+  "presetGoogleReviewDesc": "İşletmenizin Google yorum sayfasına yönlendirir.",
+  "presetGoogleReviewTitle": "Google Harita / Yorum",
+  "presetGuestWifiDesc": "Misafirler şifre yazmadan ağa bağlanır.",
+  "presetGuestWifiTitle": "Misafir Wi-Fi Kartı",
+  "presetInstagramDesc": "Dokunan kişi doğrudan Instagram profilinizi açar.",
+  "presetInstagramTitle": "Instagram Profili",
+  "presetMenuLinkDesc": "Masaya yapıştırın, müşteriler menüyü anında görsün.",
+  "presetMenuLinkTitle": "Restoran Menüsü",
+  "presetPetTagDesc": "Kayıp durumunda bulan kişinin sizi aramasını sağlar.",
+  "presetPetTagTitle": "Evcil Hayvan Tasması",
+  "presetShortcutDesc": "iPhone Kısayollar ve uygulama içi eylemleri başlatır.",
+  "presetShortcutTitle": "Kısayol Tetikleyici",
+  "presetWebsiteDesc": "Herhangi bir web sayfasına yönlendirir.",
+  "presetWebsiteTitle": "Web Sitesi",
+  "presetWhatsappDesc": "Numara kaydetmeden doğrudan sohbet başlatır.",
+  "presetWhatsappTitle": "WhatsApp ile İletişim",
+  "qrCode": "QR Kod",
+  "qrContentChars": "İçerik ({chars} Karakter):",
+  "@qrContentChars": {
+    "placeholders": {
+      "chars": {
+        "type": "int"
+      }
+    }
+  },
+  "qrContentEmpty": "QR koda dönüştürülecek içerik boş.",
+  "qrContentTooLarge": "İçerik boyutu QR kod için çok büyük ({chars} karakter, maksimum 2048 karakter desteklenir).",
+  "@qrContentTooLarge": {
+    "placeholders": {
+      "chars": {
+        "type": "int"
+      }
+    }
+  },
+  "qrFrameInstructions": "QR kodu çerçevenin içine getirin. Web adresi, Wi-Fi ve metin QR kodları kayda dönüştürülür.",
+  "qrGenerationFailed": "QR kod oluşturulamadı: {error}",
+  "@qrGenerationFailed": {
+    "placeholders": {
+      "error": {
+        "type": "String"
+      }
+    }
+  },
+  "qrPreviewTitle": "QR Kod Önizleme: {title}",
+  "@qrPreviewTitle": {
+    "placeholders": {
+      "title": {
+        "type": "String"
+      }
+    }
+  },
+  "qrScanTitle": "QR Kodu Tara",
+  "qrSecurityNote": "QR kod önizlemesi yalnızca okunabilir Düz Metin (Text) ve Web URL kayıtları için desteklenir.\n\nWi-Fi parolaları, vCard veya ikili yükler gizlilik ve güvenlik nedeniyle otomatik olarak QR koduna dönüştürülmez.",
+  "qrUserOnlyNote": "Sadece kullanıcı isteğiyle açılır. Otomatik işlem yürütülmez.",
+  "rawInspection": "Ayrıntılı İnceleme",
+  "rawRecordDetailsTitle": "Kayıt Ayrıntıları (Salt Okunur)",
+  "rawRecordEditorTitle": "Ham NDEF Kaydı Düzenle",
+  "readHeroButton": "Taramayı Başlat",
+  "readHeroEyebrow": "NFC OKUYUCU",
+  "readHeroScanning": "Taranıyor...",
+  "readHeroSubtitle": "Telefonunuzun üst kısmını bir NFC etiketine yaklaştırarak içindeki tüm NDEF kayıtlarını ve donanım bilgilerini okuyun.",
+  "readHeroTitle": "Etiketi Tara",
+  "readMemorySubtitle": "Sayfa sayfa ham bellek; kopyala veya .bin olarak kaydet",
+  "readMemoryTitle": "Belleği Oku",
+  "readyTemplates": "Hazır Şablonlar",
+  "recordCopied": "Kayıt içeriği kopyalandı",
+  "recordIndex": "Kayıt #{index}",
+  "@recordIndex": {
+    "placeholders": {
+      "index": {
+        "type": "int"
+      }
+    }
+  },
+  "recordTypeCalendar": "Takvim Etkinliği (iCal)",
+  "recordTypeCustomMime": "Özel MIME ({mime})",
+  "@recordTypeCustomMime": {
+    "placeholders": {
+      "mime": {
+        "type": "String"
+      }
+    }
+  },
+  "recordTypeEmail": "E-posta Kaydı",
+  "recordTypeLocation": "Konum / GPS",
+  "recordTypePhone": "Telefon Numarası",
+  "recordTypeSmartPoster": "Akıllı Poster (Smart Poster)",
+  "recordTypeSmartPosterCorrupt": "Bozuk veya eksik akıllı poster yükü ({bytes} bayt)",
+  "@recordTypeSmartPosterCorrupt": {
+    "placeholders": {
+      "bytes": {
+        "type": "int"
+      }
+    }
+  },
+  "recordTypeSmartPosterInvalid": "Akıllı Poster (Geçersiz Yük)",
+  "recordTypeSms": "SMS Kaydı",
+  "recordTypeText": "Metin Kaydı",
+  "recordTypeUnknown": "Bilinmeyen Kayıt",
+  "recordTypeUrl": "Web Bağlantısı (URL)",
+  "recordTypeVCard": "Kişi Kartı (vCard)",
+  "recordTypeWifi": "Wi-Fi Yapılandırması (WSC)",
+  "recordTypeWifiCorrupt": "Bozuk veya tanınmayan WSC yükü",
+  "recordsCopiedToClipboard": "{count, plural, =1{1 kayıt panoya kopyalandı} other{{count} kayıt panoya kopyalandı}}",
+  "@recordsCopiedToClipboard": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "redo": "Yinele",
+  "removePasswordDialogTitle": "Şifreyi Kaldır",
+  "removePasswordDialogWarning": "Etikete daha önce koyduğunuz şifreyi girin.",
+  "removePasswordSubtitle": "Bilinen şifreyle korumayı kaldırır",
+  "removePasswordTitle": "Şifreyi Kaldır",
+  "removePhoto": "Kaldır",
+  "rewriteTag": "Yeniden Yaz",
+  "ruleDeleteConfirm": "\"{note}\" açıklamalı etiket kuralı silinecektir. Devam edilsin mi?",
+  "@ruleDeleteConfirm": {
+    "placeholders": {
+      "note": {
+        "type": "String"
+      }
+    }
+  },
+  "ruleDeleted": "Kural silindi",
+  "ruleNoteDialogTitle": "Etiket Notunu Düzenle",
+  "ruleNoteHint": "Örn: Depo Rafı #4 veya Toplantı Odası",
+  "ruleNoteLabel": "Uygulama İçi Not / Açıklama",
+  "ruleSaved": "Kural kaydedildi",
+  "save": "Kaydet",
+  "saveAsTemplate": "Şablon Olarak Kaydet",
+  "saveBin": ".bin Kaydet",
+  "saveLocalHistory": "Yerel Tarama Geçmişini Kaydet",
+  "saveLocalHistorySubtitle": "Kapalıyken taramalar cihazda tutulmaz. Açıldığında başarılı taramalar yerel belleğe kaydedilir. Hatalı taramalar asla kaydedilmez.",
+  "saveTemplateDialogTitle": "Şablon Olarak Kaydet",
+  "saveToLibrary": "Kütüphaneye Kaydet",
+  "scanFabLabel": "Etiketi tara",
+  "scanQrToRecord": "QR Kod Tara",
+  "scannedTag": "Taranan Etiket",
+  "searchEngine": "Arama Motoru",
+  "searchHistoryHint": "Geçmişte ara (UID, içerik, tür)...",
+  "searchLibraryHint": "İsim, not, konum veya içerikte ara",
+  "searchQuery": "Arama Metni",
+  "searchQueryCannotBeEmpty": "Arama metni boş bırakılamaz.",
+  "securityRestriction": "Güvenlik Kısıtlaması",
+  "send": "Gönder",
+  "setPasswordSubtitle": "Etiket içeriğini yazmaya karşı şifreyle korur",
+  "setPasswordTitle": "Şifre Belirle",
+  "shareRecords": "Kayıtları Paylaş",
+  "shortcutAutomationNote": "Not: Otomasyon etiketin seri numarasına bağlanır; etiketin içeriği değişse de çalışır.",
+  "shortcutStep1": "Kısayollar uygulamasını açın ve alttan \"Otomasyon\"a dokunun.",
+  "shortcutStep2": "\"Yeni Otomasyon\" (+) → \"NFC\" seçin.",
+  "shortcutStep3": "\"Tara\"ya dokunun, etiketi iPhone'un üst kısmına yaklaştırın ve bir isim verin.",
+  "shortcutStep4": "\"Hemen Çalıştır\"ı seçin, sonra istediğiniz eylemi ekleyin (ışıkları aç, müzik çal, mesaj gönder…).",
+  "shortcutStep5": "Bu uygulamayı açtırmak için eylem olarak \"Etiketi Tara\" veya \"Etikete Yaz\"ı seçin.",
+  "shortcutsGuideSubtitle": "Etikete dokununca bir işlemi otomatik çalıştırabilir veya Siri'ye sesle tarama yaptırabilirsiniz.",
+  "shortcutsGuideTitle": "Siri ve Kısayollar",
+  "siriPhraseScan": "\"Hey Siri, NFC Etiket Yöneticisi ile etiket tara\"",
+  "siriPhraseWrite": "\"Hey Siri, NFC Etiket Yöneticisi ile etikete yaz\"",
+  "siriShortcutsNote": "Aynı komutlar Kısayollar uygulamasında ve Spotlight aramasında da görünür.",
+  "smsMessage": "Mesaj Metni",
+  "socialNetwork": "Platform",
+  "socialUsername": "Kullanıcı Adı",
+  "sourceComposer": "Yazma listesindeki kayıtlar",
+  "sourceEmpty": "İçeriksiz (sadece not)",
+  "sourceLastScan": "Son taranan etiket",
+  "sourceSelectPrompt": "Etiketin içeriği nereden alınsın?",
+  "statusCancelled": "İşlem iptal edildi.",
+  "statusClearError": "Sıfırlama hatası: {error}",
+  "@statusClearError": {
+    "placeholders": {
+      "error": {
+        "type": "String"
+      }
+    }
+  },
+  "statusClearFailed": "Sıfırlama başarısız: {error}",
+  "@statusClearFailed": {
+    "placeholders": {
+      "error": {
+        "type": "String"
+      }
+    }
+  },
+  "statusClearSuccess": "Etiket içeriği başarıyla temizlendi.",
+  "statusClearing": "Sıfırlama modu aktif. Etiketi yaklaştırın...",
+  "statusLockError": "Kilitleme hatası: {error}",
+  "@statusLockError": {
+    "placeholders": {
+      "error": {
+        "type": "String"
+      }
+    }
+  },
+  "statusLockFailed": "Kilitleme başarısız: {error}",
+  "@statusLockFailed": {
+    "placeholders": {
+      "error": {
+        "type": "String"
+      }
+    }
+  },
+  "statusLockSuccess": "Etiket kalıcı olarak kilitlendi (salt okunur).",
+  "statusLocking": "Kilitleme modu aktif. Etiketi yaklaştırın...",
+  "statusNfcDisabled": "NFC kapalı. Lütfen cihaz ayarlarından NFC özelliğini açın.",
+  "statusNfcNotSupported": "Bu cihazda NFC donanımı bulunmuyor veya desteklenmiyor.",
+  "statusNfcUnavailable": "NFC şu anda kullanılamaz durumda.",
+  "statusReady": "Hazır",
+  "statusScanError": "Tarama Hatası: {error}",
+  "@statusScanError": {
+    "placeholders": {
+      "error": {
+        "type": "String"
+      }
+    }
+  },
+  "statusScanSuccess": "Etiket başarıyla okundu ({id}).",
+  "@statusScanSuccess": {
+    "placeholders": {
+      "id": {
+        "type": "String"
+      }
+    }
+  },
+  "statusScanning": "Etiket taranıyor... Telefonunuzu etikete yaklaştırın.",
+  "statusUnexpectedError": "Beklenmeyen hata: {error}",
+  "@statusUnexpectedError": {
+    "placeholders": {
+      "error": {
+        "type": "String"
+      }
+    }
+  },
+  "statusWriteError": "Yazma hatası: {error}",
+  "@statusWriteError": {
+    "placeholders": {
+      "error": {
+        "type": "String"
+      }
+    }
+  },
+  "statusWriteFailed": "Yazma işlemi tamamlanamadı: {error}",
+  "@statusWriteFailed": {
+    "placeholders": {
+      "error": {
+        "type": "String"
+      }
+    }
+  },
+  "statusWriteSuccess": "Yazma ve doğrulama başarılı! ({bytes} bayt)",
+  "@statusWriteSuccess": {
+    "placeholders": {
+      "bytes": {
+        "type": "int"
+      }
+    }
+  },
+  "statusWriting": "Yazma modu aktif. Hedef NFC etiketini yaklaştırın...",
+  "systemLanguage": "Sistem Dili",
+  "tabApp": "Uygulama",
+  "tabBluetooth": "Bluetooth",
+  "tabCalendar": "Takvim",
+  "tabContact": "Kişi (vCard)",
+  "tabCustomMime": "Özel MIME",
+  "tabEmail": "E-posta",
+  "tabFile": "Dosya",
+  "tabLocation": "Konum",
+  "tabPhone": "Telefon",
+  "tabSearch": "Arama",
+  "tabSms": "SMS",
+  "tabSocial": "Sosyal Medya",
+  "tabText": "Metin",
+  "tabUrl": "Web URL",
+  "tabVideo": "Video",
+  "tabWifi": "Wi-Fi",
+  "tagCapacity": "Kapasite",
+  "tagCapacityValue": "{used} / {max} bayt ({available} bayt boş)",
+  "@tagCapacityValue": {
+    "placeholders": {
+      "available": {
+        "type": "int"
+      },
+      "max": {
+        "type": "int"
+      },
+      "used": {
+        "type": "int"
+      }
+    }
+  },
+  "tagInfoTitle": "Etiket Bilgileri",
+  "tagLibraryTitle": "Etiket Kütüphanem",
+  "tagNameHint": "Örn: Mutfak etiketi",
+  "tagNameLabel": "İsim",
+  "tagReadOnly": "Salt Okunur (Kilitli)",
+  "tagRulesCount": "Kayıtlı Kural / Not Sayısı: {count}",
+  "@tagRulesCount": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "tagRulesSubtitle": "NDEF içerik baytlarının SHA-256 özetine göre eşleşen etiketlerde yalnızca kaydedilen not gösterilir. Harici işlem başlatmaz.",
+  "tagSerialNumber": "Seri Numarası (UID)",
+  "tagTechnology": "Teknoloji",
+  "tagType": "Tür",
+  "tagUidCopied": "Etiket UID kopyalandı",
+  "tagWritable": "Yazılabilir",
+  "takePhoto": "Fotoğraf çek",
+  "templateGalleryTitle": "Hazır Şablonlar",
+  "templateNameHint": "Şablon Adı",
+  "templateRecordCount": "{count, plural, =1{1 Kayıt} other{{count} Kayıt}} | {date}",
+  "@templateRecordCount": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      },
+      "date": {
+        "type": "String"
+      }
+    }
+  },
+  "templateSaved": "Şablon başarıyla kaydedildi",
+  "toolsExpertSection": "Uzman",
+  "toolsFooterNote": "Bellek, şifre ve komut araçları NTAG213/215/216 ve MIFARE Ultralight EV1 etiketlerde çalışır. Etiketi işlem bitene kadar telefona yakın tutun.",
+  "toolsMemorySection": "Bellek",
+  "toolsSecuritySection": "Güvenlik",
+  "toolsTagSection": "Etiket",
+  "totalBytes": "Toplam Boyut",
+  "typeTooLarge": "Tür boyutu 255 baytı aşamaz",
+  "undo": "Geri Al",
+  "unknownChip16Pages": "Bilinmeyen çip (ilk 16 sayfa)",
+  "urlSafetyInvalidUrl": "Geçersiz veya ayrıştırılamayan URL biçimi.",
+  "urlSafetyIpv4": "Hedef adres doğrudan IPv4 adresi içeriyor. Standart alan adı yerine IP kullanımı dikkat gerektirir.",
+  "urlSafetyIpv6": "Hedef adres IPv6 adresi içeriyor.",
+  "urlSafetyMissingScheme": "URL protokol şeması (http/https vb.) eksik veya tanımsız.",
+  "urlSafetyNonStandardPort": "Standart dışı ağ bağlantı noktası (Port: {port}).",
+  "@urlSafetyNonStandardPort": {
+    "placeholders": {
+      "port": {
+        "type": "String"
+      }
+    }
+  },
+  "urlSafetyPunycode": "Uluslararası alan adı / Punycode tespit edildi (\"xn--\"). Benzer harflerle yanıltma (homoglif saldırısı) olabilir.",
+  "urlSafetySuspiciousScheme": "Standart dışı URL şeması: \"{scheme}\". Cihazda beklenmeyen bir uygulamayı tetikleyebilir.",
+  "@urlSafetySuspiciousScheme": {
+    "placeholders": {
+      "scheme": {
+        "type": "String"
+      }
+    }
+  },
+  "urlSafetyUnencrypted": "Şifrelenmemiş bağlantı (http://). Veriler ağ üzerinde açık iletilir.",
+  "urlSafetyUserInfo": "URL kimlik doğrulama/kullanıcı bilgisi içeriyor (userinfo). Oltalama/yanıltma amaçlı olabilir.",
+  "usernameCannotBeEmpty": "Kullanıcı adı boş bırakılamaz.",
+  "usernameNoSpaces": "Kullanıcı adı boşluk içeremez.",
+  "validAndroidPackage": "Geçerli bir Android paket adı giriniz (Örn: com.whatsapp).",
+  "validBluetoothMac": "Geçerli bir Bluetooth MAC adresi giriniz (Örn: 00:11:22:AA:BB:CC).",
+  "validVideoUrl": "Geçerli bir video bağlantısı giriniz.",
+  "validWebAddress": "Geçerli bir web adresi giriniz (Örn: https://example.com/dosya.pdf).",
+  "verificationNotChecked": "Kontrol edilmedi",
+  "verificationPassed": "Geçti",
+  "videoUrlCannotBeEmpty": "Video bağlantısı boş bırakılamaz.",
+  "videoUrlOrId": "Video Bağlantısı veya YouTube ID",
+  "videoUrlOrIdPrompt": "Video bağlantısı (https://...) veya YouTube video kimliği giriniz.",
+  "wifiAuthOpen": "Açık (Şifresiz)",
+  "wifiAuthType": "Güvenlik Türü",
+  "wifiAuthWpa": "WPA Personal",
+  "wifiAuthWpa2": "WPA2 Personal",
+  "wifiAuthWpaWpa2": "WPA/WPA2 Personal",
+  "wifiHidden": "Gizli Ağ",
+  "wifiPassword": "Şifre",
+  "wifiSsid": "Ağ Adı (SSID)",
+  "withSiri": "Siri ile",
+  "writeDumpConfirmButton": "Yaz",
+  "writeDumpConfirmMessage": "\"{name}\" ({bytes} bayt) etiketin kullanıcı belleğine yazılacak. UID, kilit ve ayar sayfalarına dokunulmaz. Etiketteki mevcut veri silinir.",
+  "@writeDumpConfirmMessage": {
+    "placeholders": {
+      "bytes": {
+        "type": "int"
+      },
+      "name": {
+        "type": "String"
+      }
+    }
+  },
+  "writeDumpSubtitle": "Kayıtlı bellek dosyasını etikete yazar",
+  "writeDumpTitle": "Dump Yaz (.bin)",
+  "writeHeroButton": "Yazmayı Başlat",
+  "writeHeroEyebrow": "NDEF YAZICI",
+  "writeHeroSubtitle": "Birden fazla NDEF kaydı hazırlayın ve hedef NFC etiketine tek seferde yazın.",
+  "writeHeroTitle": "Etikete Yaz",
+  "writeHeroWriting": "Yazılıyor...",
+  "writeResultFailed": "İşlem Başarısız",
+  "writeResultSuccess": "İşlem Başarılı",
+  "writeTemplates": "Yazma Şablonları",
+  "writeTemplatesSubtitle": "Sık kullandığınız NDEF içeriklerini şablon olarak kaydedip dilediğiniz zaman etiketlere tek dokunuşla yazabilirsiniz.",
+  "yes": "Evet"
+}

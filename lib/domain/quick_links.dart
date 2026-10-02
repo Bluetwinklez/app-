@@ -1,5 +1,6 @@
 import 'dart:convert';
 import 'dart:typed_data';
+import '../l10n/l10n.dart';
 import 'ndef_record.dart';
 
 /// Ready-made record shortcuts offered in the composer next to the core
@@ -83,7 +84,7 @@ class QuickLinkBuilder {
   static String socialUrl(SocialNetwork network, String handle) {
     var clean = handle.trim();
     if (clean.isEmpty) {
-      throw const QuickLinkException('Kullanıcı adı boş bırakılamaz.');
+      throw QuickLinkException(L10n.current.usernameCannotBeEmpty);
     }
     if (clean.startsWith('http://') || clean.startsWith('https://')) {
       return clean;
@@ -92,10 +93,10 @@ class QuickLinkBuilder {
     if (network == SocialNetwork.whatsapp) {
       clean = clean.replaceAll(RegExp(r'[^\d]'), '');
       if (clean.length < 6) {
-        throw const QuickLinkException('Ülke koduyla birlikte telefon numarası giriniz (Örn: 905551112233).');
+        throw QuickLinkException(L10n.current.phoneWithCountryCode);
       }
     } else if (clean.contains(RegExp(r'\s'))) {
-      throw const QuickLinkException('Kullanıcı adı boşluk içeremez.');
+      throw QuickLinkException(L10n.current.usernameNoSpaces);
     }
     return '${network.baseUrl}${Uri.encodeComponent(clean)}';
   }
@@ -104,24 +105,24 @@ class QuickLinkBuilder {
   static String videoUrl(String input) {
     final clean = input.trim();
     if (clean.isEmpty) {
-      throw const QuickLinkException('Video bağlantısı boş bırakılamaz.');
+      throw QuickLinkException(L10n.current.videoUrlCannotBeEmpty);
     }
     if (clean.startsWith('http://') || clean.startsWith('https://')) {
       if (!isValidUri(clean)) {
-        throw const QuickLinkException('Geçerli bir video bağlantısı giriniz.');
+        throw QuickLinkException(L10n.current.validVideoUrl);
       }
       return clean;
     }
     if (RegExp(r'^[A-Za-z0-9_-]{6,20}$').hasMatch(clean)) {
       return 'https://www.youtube.com/watch?v=$clean';
     }
-    throw const QuickLinkException('Video bağlantısı (https://...) veya YouTube video kimliği giriniz.');
+    throw QuickLinkException(L10n.current.videoUrlOrIdPrompt);
   }
 
   static String searchUrl(SearchEngine engine, String query) {
     final clean = query.trim();
     if (clean.isEmpty) {
-      throw const QuickLinkException('Arama metni boş bırakılamaz.');
+      throw QuickLinkException(L10n.current.searchQueryCannotBeEmpty);
     }
     return '${engine.baseUrl}${Uri.encodeQueryComponent(clean)}';
   }
@@ -136,7 +137,7 @@ class QuickLinkBuilder {
     if (parsed == null ||
         (parsed.scheme != 'https' && parsed.scheme != 'http') ||
         parsed.host.isEmpty) {
-      throw const QuickLinkException('Geçerli bir web adresi giriniz (Örn: https://example.com/dosya.pdf).');
+      throw QuickLinkException(L10n.current.validWebAddress);
     }
     return withScheme;
   }
@@ -147,7 +148,7 @@ class QuickLinkBuilder {
     final isEmail = RegExp(r'^[^@\s]+@[^@\s]+\.[^@\s]+$').hasMatch(clean);
     final isPhone = RegExp(r'^\+?\d{3,20}$').hasMatch(clean);
     if (!isEmail && !isPhone) {
-      throw const QuickLinkException('Telefon numarası veya Apple kimliği e-posta adresi giriniz.');
+      throw QuickLinkException(L10n.current.facetimePrompt);
     }
     return '${audioOnly ? 'facetime-audio' : 'facetime'}:$clean';
   }
@@ -155,7 +156,7 @@ class QuickLinkBuilder {
   static String addressUrl(MapProvider provider, String address) {
     final clean = address.trim();
     if (clean.isEmpty) {
-      throw const QuickLinkException('Adres boş bırakılamaz.');
+      throw QuickLinkException(L10n.current.addressCannotBeEmpty);
     }
     return '${provider.baseUrl}${Uri.encodeQueryComponent(clean)}';
   }
@@ -165,7 +166,7 @@ class QuickLinkBuilder {
   static NdefRecordModel androidAppRecord(String packageName) {
     final clean = packageName.trim();
     if (!RegExp(r'^[A-Za-z][A-Za-z0-9_]*(\.[A-Za-z][A-Za-z0-9_]*)+$').hasMatch(clean)) {
-      throw const QuickLinkException('Geçerli bir Android paket adı giriniz (Örn: com.whatsapp).');
+      throw QuickLinkException(L10n.current.validAndroidPackage);
     }
     return NdefRecordModel(
       tnf: NdefTnf.external,
@@ -179,7 +180,7 @@ class QuickLinkBuilder {
   static NdefRecordModel bluetoothRecord(String macAddress, {String? deviceName}) {
     final hex = macAddress.trim().replaceAll(RegExp(r'[:\-\s]'), '');
     if (!RegExp(r'^[0-9A-Fa-f]{12}$').hasMatch(hex)) {
-      throw const QuickLinkException('Geçerli bir Bluetooth MAC adresi giriniz (Örn: 00:11:22:AA:BB:CC).');
+      throw QuickLinkException(L10n.current.validBluetoothMac);
     }
     final mac = <int>[
       for (int i = 0; i < 12; i += 2) int.parse(hex.substring(i, i + 2), radix: 16),
@@ -192,7 +193,7 @@ class QuickLinkBuilder {
     if (name.isNotEmpty) {
       final nameBytes = utf8.encode(name);
       if (nameBytes.length > 240) {
-        throw const QuickLinkException('Cihaz adı çok uzun.');
+        throw QuickLinkException(L10n.current.deviceNameTooLong);
       }
       body.addByte(nameBytes.length + 1);
       body.addByte(0x09); // EIR: Complete Local Name

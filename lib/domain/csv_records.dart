@@ -1,3 +1,4 @@
+import '../l10n/l10n.dart';
 import 'ndef_record.dart';
 import 'quick_links.dart';
 
@@ -43,22 +44,22 @@ class CsvRecordImporter {
       final type = cells.first.trim().toLowerCase();
       if (i == 0 && (type == 'tur' || type == 'tür' || type == 'type')) continue;
       if (records.length >= maxRows) {
-        errors.add('En fazla $maxRows kayıt içe aktarılabilir; kalan satırlar atlandı.');
+        errors.add(L10n.current.csvMaxRowsExceeded(maxRows));
         break;
       }
       final value = cells.length > 1 ? cells[1].trim() : '';
       final extra = cells.length > 2 ? cells[2].trim() : '';
       final row = i + 1;
       if (value.isEmpty) {
-        errors.add('Satır $row: değer boş.');
+        errors.add(L10n.current.csvRowEmptyValue(row));
         continue;
       }
       try {
         records.add(_build(type, value, extra));
       } on FormatException catch (e) {
-        errors.add('Satır $row: ${e.message}');
+        errors.add(L10n.current.csvRowError(e.message, row));
       } on QuickLinkException catch (e) {
-        errors.add('Satır $row: ${e.message}');
+        errors.add(L10n.current.csvRowError(e.message, row));
       }
     }
     return CsvImportResult(records, errors);
@@ -71,7 +72,7 @@ class CsvRecordImporter {
       case 'link':
       case 'web':
         if (!QuickLinkBuilder.isValidUri(value)) {
-          throw const FormatException('geçersiz adres.');
+          throw FormatException(L10n.current.csvInvalidAddress);
         }
         return NdefCodec.encodeUri(value);
       case 'metin':
@@ -86,7 +87,7 @@ class CsvRecordImporter {
       case 'email':
       case 'mail':
         if (!value.contains('@')) {
-          throw const FormatException('geçersiz e-posta adresi.');
+          throw FormatException(L10n.current.csvInvalidEmail);
         }
         return NdefCodec.encodeEmail(recipient: value, subject: extra.isEmpty ? null : extra);
       case 'sms':
@@ -97,12 +98,12 @@ class CsvRecordImporter {
         final lat = double.tryParse(value);
         final lng = double.tryParse(extra);
         if (lat == null || lng == null || lat.abs() > 90 || lng.abs() > 180) {
-          throw const FormatException('konum için enlem ve boylam giriniz (Örn: konum,41.0082,28.9784).');
+          throw FormatException(L10n.current.csvInvalidLocation);
         }
         return NdefCodec.encodeLocation(latitude: lat, longitude: lng);
       case 'wifi':
         if (extra.isNotEmpty && (extra.length < 8 || extra.length > 63)) {
-          throw const FormatException('Wi-Fi şifresi 8-63 karakter olmalı.');
+          throw FormatException(L10n.current.csvWifiPasswordLength);
         }
         return NdefCodec.encodeWifiWsc(
           ssid: value,
@@ -111,7 +112,7 @@ class CsvRecordImporter {
           encryptionType: extra.isEmpty ? WifiEncryptionType.none : WifiEncryptionType.aes,
         );
       default:
-        throw FormatException('bilinmeyen tür "$type".');
+        throw FormatException(L10n.current.csvUnknownType(type));
     }
   }
 
