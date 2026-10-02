@@ -3,9 +3,9 @@ import Flutter
 import CoreNFC
 
 @UIApplicationMain
-@objc class AppDelegate: FlutterAppDelegate, NFCNDEFReaderSessionDelegate {
+@objc class AppDelegate: FlutterAppDelegate, NFCTagReaderSessionDelegate {
     private let CHANNEL = "com.antigravity.nfc_tag_master/nfc"
-    private var nfcSession: NFCNDEFReaderSession?
+    private var nfcSession: NFCTagReaderSession?
     private var pendingResult: FlutterResult?
     private var pendingOperation: String? // "scan" or "write"
     private var stagedRecordsData: [[String: Any]]?
@@ -26,14 +26,14 @@ import CoreNFC
 
             switch call.method {
             case "checkAvailability":
-                if NFCNDEFReaderSession.readingAvailable {
+                if NFCTagReaderSession.readingAvailable {
                     result("available")
                 } else {
                     result("notSupported")
                 }
 
             case "scanTag":
-                guard NFCNDEFReaderSession.readingAvailable else {
+                guard NFCTagReaderSession.readingAvailable else {
                     result(FlutterError(code: "NFC_UNAVAILABLE", message: "Bu iOS cihazında NFC okuyucu desteklenmiyor", details: nil))
                     return
                 }
@@ -53,7 +53,7 @@ import CoreNFC
                 self.startSession(alertMessage: prompt)
 
             case "writeTag":
-                guard NFCNDEFReaderSession.readingAvailable else {
+                guard NFCTagReaderSession.readingAvailable else {
                     result(FlutterError(code: "NFC_UNAVAILABLE", message: "Bu iOS cihazında NFC okuyucu desteklenmiyor", details: nil))
                     return
                 }
@@ -99,20 +99,41 @@ import CoreNFC
     }
 
     private func startSession(alertMessage: String) {
-        let session = NFCNDEFReaderSession(delegate: self, queue: nil, invalidateAfterFirstRead: false)
+        guard let session = NFCTagReaderSession(pollingOption: [.iso14443, .iso15693], delegate: self, queue: nil) else {
+            finishWithResult(FlutterError(code: "NFC_UNAVAILABLE", message: "NFC taraması başlatılamadı", details: nil))
+            return
+        }
         session.alertMessage = alertMessage
         self.nfcSession = session
         session.begin()
     }
 
-    // MARK: - NFCNDEFReaderSessionDelegate
+    // MARK: - NFCTagReaderSessionDelegate
 
-    func readerSession(_ session: NFCNDEFReaderSession, didDetectNDEFs messages: [NFCNDEFMessage]) {
-        // Handled in didDetect tags for comprehensive query & write support
-    }
+    func tagReaderSessionDidBecomeActive(_ session: NFCTagReaderSession) {}
 
-    func readerSession(_ session: NFCNDEFReaderSession, didDetect tags: [NFCNDEFTag]) {
-        guard let tag = tags.first else { return }
+    func tagReaderSession(_ session: NFCTagReaderSession, didDetect tags: [NFCTag]) {
+        guard tags.count == 1, let tag = tags.first else {
+            session.alertMessage = "Birden fazla etiket algılandı. Yalnızca bir etiket yaklaştırın."
+            session.restartPolling()
+            return
+        }
+
+        let ndefTag: NFCNDEFTag
+        switch tag {
+        case .miFare(let value):
+            ndefTag = value
+        case .iso15693(let value):
+            ndefTag = value
+        case .iso7816(let value):
+            ndefTag = value
+        case .feliCa(let value):
+            ndefTag = value
+        @unknown default:
+            finishWithResult(FlutterError(code: "UNSUPPORTED_TAG", message: "Bu NFC etiket türü desteklenmiyor", details: nil))
+            session.invalidate(errorMessage: "Etiket türü desteklenmiyor")
+            return
+        }
 
         session.connect(to: tag) { [weak self] (error: Error?) in
             guard let self = self else { return }
@@ -123,7 +144,7 @@ import CoreNFC
                 return
             }
 
-            tag.queryNDEFStatus { (status: NFCNDEFStatus, capacity: Int, error: Error?) in
+            ndefTag.queryNDEFStatus { (status: NFCNDEFStatus, capacity: Int, error: Error?) in
                 if let error = error {
                     self.finishWithResult(FlutterError(code: "QUERY_FAILED", message: error.localizedDescription, details: nil))
                     session.invalidate(errorMessage: "Durum okunamadı: \(error.localizedDescription)")
@@ -135,15 +156,22 @@ import CoreNFC
                 self.lock.unlock()
 
                 if op == "scan" {
-                    self.handleTagScan(session: session, tag: tag, status: status, capacity: capacity)
+                    self.handleTagScan(session: session, tag: ndefTag, status: status, capacity: capacity)
                 } else if op == "write" {
-                    self.handleTagWrite(session: session, tag: tag, status: status, capacity: capacity)
+                    self.handleTagWrite(session: session, tag: ndefTag, status: status, capacity: capacity)
                 }
             }
         }
     }
 
-    private func handleTagScan(session: NFCNDEFReaderSession, tag: NFCNDEFTag, status: NFCNDEFStatus, capacity: Int) {
+    private func handleTagScan(session: NFCTagReaderSession, tag: NFCNDEFTag, status: NFCNDEFStatus, capacity: Int) {
+        if status == .notSupported {
+            finishWithResult(tagInfo(status: status, capacity: capacity, message: nil))
+            session.alertMessage = "Etiket algılandı; NDEF biçiminde değil."
+            session.invalidate()
+            return
+        }
+
         tag.readNDEF { [weak self] (message: NFCNDEFMessage?, error: Error?) in
             guard let self = self else { return }
 
@@ -153,45 +181,37 @@ import CoreNFC
                 return
             }
 
-            let isWritable = (status == .readWrite)
-            var rawRecords: [[String: Any]] = []
-            var usedBytes = 0
-
-            if let msg = message {
-                usedBytes = msg.length
-                for r in msg.records {
-                    let typeData = FlutterStandardTypedData(bytes: r.type)
-                    let idData = FlutterStandardTypedData(bytes: r.identifier)
-                    let payloadData = FlutterStandardTypedData(bytes: r.payload)
-                    rawRecords.append([
-                        "tnf": Int(r.typeNameFormat.rawValue),
-                        "type": typeData,
-                        "id": idData,
-                        "payload": payloadData
-                    ])
-                }
-            }
-
-            let tagInfo: [String: Any] = [
-                "identifier": "iOS-NFC-Tag",
-                "standardTechnologies": ["CoreNFC", "NDEF"],
-                "isNdefSupported": (status != .notSupported),
-                "isWritable": isWritable,
-                "maxByteCapacity": capacity,
-                "currentBytesUsed": usedBytes,
-                "records": rawRecords
-            ]
-
             session.alertMessage = "Etiket başarıyla okundu!"
-            self.finishWithResult(tagInfo)
+            self.finishWithResult(self.tagInfo(status: status, capacity: capacity, message: message))
             session.invalidate()
         }
     }
 
-    private func handleTagWrite(session: NFCNDEFReaderSession, tag: NFCNDEFTag, status: NFCNDEFStatus, capacity: Int) {
+    private func tagInfo(status: NFCNDEFStatus, capacity: Int, message: NFCNDEFMessage?) -> [String: Any] {
+        let rawRecords: [[String: Any]] = message?.records.map { record in
+            [
+                "tnf": Int(record.typeNameFormat.rawValue),
+                "type": FlutterStandardTypedData(bytes: record.type),
+                "id": FlutterStandardTypedData(bytes: record.identifier),
+                "payload": FlutterStandardTypedData(bytes: record.payload)
+            ]
+        } ?? []
+        return [
+                "identifier": "iOS-NFC-Tag",
+                "standardTechnologies": status == .notSupported ? ["CoreNFC"] : ["CoreNFC", "NDEF"],
+                "isNdefSupported": (status != .notSupported),
+                "isWritable": (status == .readWrite),
+                "maxByteCapacity": capacity,
+                "currentBytesUsed": message?.length ?? 0,
+                "records": rawRecords
+        ]
+    }
+
+    private func handleTagWrite(session: NFCTagReaderSession, tag: NFCNDEFTag, status: NFCNDEFStatus, capacity: Int) {
         guard status == .readWrite else {
-            self.finishWithResult(FlutterError(code: "TAG_NOT_WRITABLE", message: "Etiket salt okunur, yazılamaz", details: nil))
-            session.invalidate(errorMessage: "Etiket salt okunur veya kilitli!")
+            let message = status == .notSupported ? "Etiket NDEF biçiminde değil; iPhone bu etikete NDEF yazamıyor" : "Etiket salt okunur, yazılamaz"
+            self.finishWithResult(FlutterError(code: "TAG_NOT_WRITABLE", message: message, details: nil))
+            session.invalidate(errorMessage: message)
             return
         }
 
@@ -317,7 +337,7 @@ import CoreNFC
         }
     }
 
-    func readerSession(_ session: NFCNDEFReaderSession, didInvalidateWithError error: Error) {
+    func tagReaderSession(_ session: NFCTagReaderSession, didInvalidateWithError error: Error) {
         lock.lock()
         let completed = isCompleted
         lock.unlock()
