@@ -845,5 +845,7 @@
   "backupInvalidLibraryEntry": "标签库条目无效。",
   "backupMaxLibraryExceeded": "标签库最多 {max} 条。",
   "backupSummaryLibrary": "标签库：新增 {added}",
-  "backupLibraryCount": "• 标签库：{count}（不含照片）"
+  "backupLibraryCount": "• 标签库：{count}（不含照片）",
+  "lastTagCapacityFit": "上个标签：{bytes} / {max} B",
+  "contentTooLargeForChips": "内容超出常见标签容量；请缩短文本或使用短链接。"
 }

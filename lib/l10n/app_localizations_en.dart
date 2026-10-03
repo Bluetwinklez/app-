@@ -3000,4 +3000,13 @@ class AppLocalizationsEn extends AppLocalizations {
   String backupLibraryCount(String count) {
     return '• Tag library: $count (without photos)';
   }
+
+  @override
+  String lastTagCapacityFit(String bytes, String max) {
+    return 'Last tag: $bytes / $max B';
+  }
+
+  @override
+  String get contentTooLargeForChips =>
+      'Too large for common tags; shorten the text or use a short link.';
 }

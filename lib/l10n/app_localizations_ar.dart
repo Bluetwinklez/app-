@@ -2979,4 +2979,13 @@ class AppLocalizationsAr extends AppLocalizations {
   String backupLibraryCount(String count) {
     return '• المكتبة: $count (بدون صور)';
   }
+
+  @override
+  String lastTagCapacityFit(String bytes, String max) {
+    return 'آخر وسم: $bytes / $max ب';
+  }
+
+  @override
+  String get contentTooLargeForChips =>
+      'كبير جدًا على الوسوم الشائعة؛ اختصر النص أو استخدم رابطًا قصيرًا.';
 }

@@ -3017,4 +3017,13 @@ class AppLocalizationsRu extends AppLocalizations {
   String backupLibraryCount(String count) {
     return '• Библиотека: $count (без фото)';
   }
+
+  @override
+  String lastTagCapacityFit(String bytes, String max) {
+    return 'Посл. метка: $bytes / $max Б';
+  }
+
+  @override
+  String get contentTooLargeForChips =>
+      'Слишком много для обычных меток: сократите текст или используйте короткую ссылку.';
 }

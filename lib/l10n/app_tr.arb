@@ -2024,5 +2024,17 @@
         "type": "String"
       }
     }
-  }
+  },
+  "lastTagCapacityFit": "Son etiket: {bytes} / {max} B",
+  "@lastTagCapacityFit": {
+    "placeholders": {
+      "bytes": {
+        "type": "String"
+      },
+      "max": {
+        "type": "String"
+      }
+    }
+  },
+  "contentTooLargeForChips": "İçerik yaygın etiketlere sığmıyor; metni kısaltın veya kısa bağlantı kullanın."
 }

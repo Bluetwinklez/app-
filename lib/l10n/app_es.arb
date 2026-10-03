@@ -845,5 +845,7 @@
   "backupInvalidLibraryEntry": "Entrada de biblioteca no válida.",
   "backupMaxLibraryExceeded": "La biblioteca puede tener como máximo {max} entradas.",
   "backupSummaryLibrary": "Biblioteca: {added} añadidos",
-  "backupLibraryCount": "• Biblioteca: {count} (sin fotos)"
+  "backupLibraryCount": "• Biblioteca: {count} (sin fotos)",
+  "lastTagCapacityFit": "Última etiqueta: {bytes} / {max} B",
+  "contentTooLargeForChips": "Demasiado grande para etiquetas comunes; acorta el texto o usa un enlace corto."
 }

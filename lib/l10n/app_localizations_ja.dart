@@ -2887,4 +2887,13 @@ class AppLocalizationsJa extends AppLocalizations {
   String backupLibraryCount(String count) {
     return '• タグライブラリ: $count (写真を除く)';
   }
+
+  @override
+  String lastTagCapacityFit(String bytes, String max) {
+    return '前回のタグ: $bytes / $max B';
+  }
+
+  @override
+  String get contentTooLargeForChips =>
+      '一般的なタグには大きすぎます。テキストを短くするか短縮リンクを使ってください。';
 }

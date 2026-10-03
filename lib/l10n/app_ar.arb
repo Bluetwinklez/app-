@@ -845,5 +845,7 @@
   "backupInvalidLibraryEntry": "إدخال مكتبة غير صالح.",
   "backupMaxLibraryExceeded": "يمكن أن تحتوي المكتبة على {max} إدخال كحد أقصى.",
   "backupSummaryLibrary": "المكتبة: أضيف {added}",
-  "backupLibraryCount": "• المكتبة: {count} (بدون صور)"
+  "backupLibraryCount": "• المكتبة: {count} (بدون صور)",
+  "lastTagCapacityFit": "آخر وسم: {bytes} / {max} ب",
+  "contentTooLargeForChips": "كبير جدًا على الوسوم الشائعة؛ اختصر النص أو استخدم رابطًا قصيرًا."
 }

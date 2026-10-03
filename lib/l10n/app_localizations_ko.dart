@@ -2896,4 +2896,13 @@ class AppLocalizationsKo extends AppLocalizations {
   String backupLibraryCount(String count) {
     return '• 태그 보관함: $count (사진 제외)';
   }
+
+  @override
+  String lastTagCapacityFit(String bytes, String max) {
+    return '마지막 태그: $bytes / $max B';
+  }
+
+  @override
+  String get contentTooLargeForChips =>
+      '일반 태그에 담기에 너무 큽니다. 텍스트를 줄이거나 짧은 링크를 쓰세요.';
 }
