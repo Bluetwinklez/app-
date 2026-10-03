@@ -1341,5 +1341,11 @@
   "ideaInventoryDesc": "Inventario: dónde se vio cada etiqueta por última vez.",
   "firstTagTitle": "Crea tu primera etiqueta",
   "firstTagSubtitle": "Elige uno, rellena los campos y acerca la etiqueta. 30 segundos.",
-  "firstTagMore": "Más ideas"
+  "firstTagMore": "Más ideas",
+  "iconRed": "Rojo",
+  "iconTeal": "Turquesa",
+  "iconGold": "Dorado",
+  "iconIndigo": "Índigo",
+  "iconLight": "Blanco",
+  "iconRainbow": "Arcoíris"
 }

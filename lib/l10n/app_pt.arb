@@ -1341,5 +1341,11 @@
   "ideaInventoryDesc": "Inventário: onde cada tag foi vista por último.",
   "firstTagTitle": "Crie sua primeira tag",
   "firstTagSubtitle": "Escolha, preencha os campos e aproxime a tag. Leva 30 segundos.",
-  "firstTagMore": "Mais ideias"
+  "firstTagMore": "Mais ideias",
+  "iconRed": "Vermelho",
+  "iconTeal": "Turquesa",
+  "iconGold": "Dourado",
+  "iconIndigo": "Índigo",
+  "iconLight": "Branco",
+  "iconRainbow": "Arco-íris"
 }

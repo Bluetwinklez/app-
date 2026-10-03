@@ -1341,5 +1341,11 @@
   "ideaInventoryDesc": "الجرد: أين شوهد كل وسم آخر مرة.",
   "firstTagTitle": "اصنع وسمك الأول",
   "firstTagSubtitle": "اختر واحدًا واملأ الحقول وقرّب الوسم. 30 ثانية فقط.",
-  "firstTagMore": "أفكار أكثر"
+  "firstTagMore": "أفكار أكثر",
+  "iconRed": "أحمر",
+  "iconTeal": "فيروزي",
+  "iconGold": "ذهبي",
+  "iconIndigo": "نيلي",
+  "iconLight": "أبيض",
+  "iconRainbow": "قوس قزح"
 }

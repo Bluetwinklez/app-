@@ -4740,4 +4740,22 @@ class AppLocalizationsAr extends AppLocalizations {
 
   @override
   String get firstTagMore => 'أفكار أكثر';
+
+  @override
+  String get iconRed => 'أحمر';
+
+  @override
+  String get iconTeal => 'فيروزي';
+
+  @override
+  String get iconGold => 'ذهبي';
+
+  @override
+  String get iconIndigo => 'نيلي';
+
+  @override
+  String get iconLight => 'أبيض';
+
+  @override
+  String get iconRainbow => 'قوس قزح';
 }

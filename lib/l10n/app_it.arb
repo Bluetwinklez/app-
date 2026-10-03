@@ -1341,5 +1341,11 @@
   "ideaInventoryDesc": "Inventario: dove è stato visto l'ultima volta ogni tag.",
   "firstTagTitle": "Crea il tuo primo tag",
   "firstTagSubtitle": "Scegline uno, compila i campi, avvicina il tag. 30 secondi.",
-  "firstTagMore": "Altre idee"
+  "firstTagMore": "Altre idee",
+  "iconRed": "Rosso",
+  "iconTeal": "Turchese",
+  "iconGold": "Oro",
+  "iconIndigo": "Indaco",
+  "iconLight": "Bianco",
+  "iconRainbow": "Arcobaleno"
 }

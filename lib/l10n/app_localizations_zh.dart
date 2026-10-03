@@ -4547,4 +4547,22 @@ class AppLocalizationsZh extends AppLocalizations {
 
   @override
   String get firstTagMore => '更多创意';
+
+  @override
+  String get iconRed => '红色';
+
+  @override
+  String get iconTeal => '青绿色';
+
+  @override
+  String get iconGold => '金色';
+
+  @override
+  String get iconIndigo => '靛蓝';
+
+  @override
+  String get iconLight => '白色';
+
+  @override
+  String get iconRainbow => '彩虹';
 }
