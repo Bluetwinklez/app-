@@ -83,6 +83,7 @@ void main() {
         addTearDown(tester.view.reset);
 
         final storage = InMemoryAppStorageService();
+        await storage.setOnboardingDone(true);
         await storage.setLocaleCode(lang);
 
         final controller = NfcStateController(

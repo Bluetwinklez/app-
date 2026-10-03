@@ -207,7 +207,7 @@ class RecordInspectionData {
       idText: idText.isEmpty ? L10n.current.emptyValue : idText,
       idHex: idHex.isEmpty ? L10n.current.emptyValue : idHex,
       payloadLength: payloadLength,
-      payloadHexPreview: payloadHexPreview.isEmpty ? '(0 bayt)' : payloadHexPreview,
+      payloadHexPreview: payloadHexPreview.isEmpty ? '(${L10n.current.bytesValue('0')})' : payloadHexPreview,
       payloadTextPreview: textPreview,
       isPayloadTruncated: isPayloadTruncated,
     );

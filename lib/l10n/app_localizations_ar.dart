@@ -2698,4 +2698,154 @@ class AppLocalizationsAr extends AppLocalizations {
   String lockTagWarningFull(String more) {
     return 'يصبح الوسم المقفل للقراءة فقط: لا يمكن أبدًا تغيير محتواه أو مسحه، ولا يمكن إزالة القفل. $more';
   }
+
+  @override
+  String messageSizeBytes(String bytes) {
+    return 'حجم الرسالة: $bytes بايت';
+  }
+
+  @override
+  String bytesShort(String bytes) {
+    return 'البايتات: $bytes ب';
+  }
+
+  @override
+  String bytesValue(String bytes) {
+    return '$bytes بايت';
+  }
+
+  @override
+  String bytesOfCapacity(String bytes, String max) {
+    return '$bytes / $max بايت';
+  }
+
+  @override
+  String get valueNone => 'لا يوجد';
+
+  @override
+  String get valueYesIp => 'نعم (عنوان IP)';
+
+  @override
+  String get nfcMissingShort => 'لا NFC';
+
+  @override
+  String get clearClipboard => 'مسح الحافظة';
+
+  @override
+  String get statLibrary => 'المكتبة';
+
+  @override
+  String get scanTagTitle => 'مسح الوسم';
+
+  @override
+  String get readingInProgress => 'جارٍ القراءة...';
+
+  @override
+  String get rawMemorySubtitle => 'الذاكرة الخام';
+
+  @override
+  String get copyToClipboard => 'نسخ إلى الحافظة';
+
+  @override
+  String get serialUidLabel => 'الرقم التسلسلي (UID):';
+
+  @override
+  String get totalCapacityLabel => 'السعة الإجمالية:';
+
+  @override
+  String get technologiesLabel => 'التقنيات:';
+
+  @override
+  String get idLabel => 'المعرّف (ID):';
+
+  @override
+  String get undoTooltip => 'تراجع';
+
+  @override
+  String get clearComposer => 'مسح القائمة';
+
+  @override
+  String composerTotalSize(String bytes) {
+    return 'الحجم الإجمالي: $bytes بايت';
+  }
+
+  @override
+  String get yesClear => 'نعم، امسح';
+
+  @override
+  String get ssidTooLong => 'لا يمكن أن يتجاوز SSID ‏32 بايت.';
+
+  @override
+  String get locationPlace => 'الموقع / المكان';
+
+  @override
+  String get targetWebUrl => 'عنوان URL الهدف *';
+
+  @override
+  String get languageCodeLabel => 'رمز اللغة (ISO 639-1) *';
+
+  @override
+  String get utf8Text => 'نص UTF-8';
+
+  @override
+  String recordDebugSummary(String tnf, String bytes) {
+    return 'TNF: $tnf، الحجم: $bytes بايت';
+  }
+
+  @override
+  String get quickGallerySubtitle => 'جاهز بلمسة واحدة';
+
+  @override
+  String get quickLibraryTitle => 'مكتبتي';
+
+  @override
+  String get quickLibrarySubtitle => 'الوسوم المحفوظة';
+
+  @override
+  String get saveToLibrary => 'حفظ في المكتبة';
+
+  @override
+  String libraryMatch(String name) {
+    return 'في مكتبتك: $name';
+  }
+
+  @override
+  String tagChipLabel(String chip) {
+    return 'الشريحة: $chip';
+  }
+
+  @override
+  String tagManufacturerLabel(String name) {
+    return 'الشركة المصنّعة: $name';
+  }
+
+  @override
+  String get settingsLibrarySubtitle => 'وسومك مع الأسماء والملاحظات والصور';
+
+  @override
+  String get showOnboardingAgain => 'عرض المقدمة مرة أخرى';
+
+  @override
+  String get importFromGallery => 'إضافة من القوالب الجاهزة';
+
+  @override
+  String get appearanceTitle => 'المظهر';
+
+  @override
+  String get themeSystem => 'النظام';
+
+  @override
+  String get themeLight => 'فاتح';
+
+  @override
+  String get themeDark => 'داكن';
+
+  @override
+  String get valuePresentRisky => 'موجود (قد يكون خطرًا)';
+
+  @override
+  String get supportedValue => 'مدعوم';
+
+  @override
+  String get notSupportedValue => 'غير مدعوم';
 }

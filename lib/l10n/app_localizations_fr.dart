@@ -2754,4 +2754,154 @@ class AppLocalizationsFr extends AppLocalizations {
   String lockTagWarningFull(String more) {
     return 'Un tag verrouillé passe en lecture seule : son contenu ne pourra JAMAIS être modifié ni effacé, et le verrou est DÉFINITIF. $more';
   }
+
+  @override
+  String messageSizeBytes(String bytes) {
+    return 'Taille du message : $bytes octets';
+  }
+
+  @override
+  String bytesShort(String bytes) {
+    return 'Octets : $bytes o';
+  }
+
+  @override
+  String bytesValue(String bytes) {
+    return '$bytes octets';
+  }
+
+  @override
+  String bytesOfCapacity(String bytes, String max) {
+    return '$bytes / $max octets';
+  }
+
+  @override
+  String get valueNone => 'Aucun';
+
+  @override
+  String get valueYesIp => 'Oui (adresse IP)';
+
+  @override
+  String get nfcMissingShort => 'Pas de NFC';
+
+  @override
+  String get clearClipboard => 'Vider le presse-papiers';
+
+  @override
+  String get statLibrary => 'Bibliothèque';
+
+  @override
+  String get scanTagTitle => 'Scanner un tag';
+
+  @override
+  String get readingInProgress => 'Lecture...';
+
+  @override
+  String get rawMemorySubtitle => 'Mémoire brute';
+
+  @override
+  String get copyToClipboard => 'Copier';
+
+  @override
+  String get serialUidLabel => 'N° de série (UID) :';
+
+  @override
+  String get totalCapacityLabel => 'Capacité totale :';
+
+  @override
+  String get technologiesLabel => 'Technologies :';
+
+  @override
+  String get idLabel => 'Identifiant (ID) :';
+
+  @override
+  String get undoTooltip => 'Annuler';
+
+  @override
+  String get clearComposer => 'Vider la liste';
+
+  @override
+  String composerTotalSize(String bytes) {
+    return 'Taille totale : $bytes octets';
+  }
+
+  @override
+  String get yesClear => 'Oui, effacer';
+
+  @override
+  String get ssidTooLong => 'Le SSID ne peut dépasser 32 octets.';
+
+  @override
+  String get locationPlace => 'Lieu';
+
+  @override
+  String get targetWebUrl => 'URL cible *';
+
+  @override
+  String get languageCodeLabel => 'Code langue (ISO 639-1) *';
+
+  @override
+  String get utf8Text => 'Texte UTF-8';
+
+  @override
+  String recordDebugSummary(String tnf, String bytes) {
+    return 'TNF : $tnf, taille : $bytes octets';
+  }
+
+  @override
+  String get quickGallerySubtitle => 'Prêt en un geste';
+
+  @override
+  String get quickLibraryTitle => 'Mes tags';
+
+  @override
+  String get quickLibrarySubtitle => 'Tags enregistrés';
+
+  @override
+  String get saveToLibrary => 'Enregistrer dans la bibliothèque';
+
+  @override
+  String libraryMatch(String name) {
+    return 'Dans la bibliothèque : $name';
+  }
+
+  @override
+  String tagChipLabel(String chip) {
+    return 'Puce : $chip';
+  }
+
+  @override
+  String tagManufacturerLabel(String name) {
+    return 'Fabricant : $name';
+  }
+
+  @override
+  String get settingsLibrarySubtitle => 'Vos tags avec noms, notes et photos';
+
+  @override
+  String get showOnboardingAgain => 'Revoir la présentation';
+
+  @override
+  String get importFromGallery => 'Ajouter depuis les modèles';
+
+  @override
+  String get appearanceTitle => 'Apparence';
+
+  @override
+  String get themeSystem => 'Système';
+
+  @override
+  String get themeLight => 'Clair';
+
+  @override
+  String get themeDark => 'Sombre';
+
+  @override
+  String get valuePresentRisky => 'Présent (peut être risqué)';
+
+  @override
+  String get supportedValue => 'Pris en charge';
+
+  @override
+  String get notSupportedValue => 'Non pris en charge';
 }

@@ -2733,4 +2733,155 @@ class AppLocalizationsTr extends AppLocalizations {
   String lockTagWarningFull(String more) {
     return 'Kilitlenen etiket salt okunur olur: içeriği bir daha DEĞİŞTİRİLEMEZ, silinemez ve kilit KALDIRILAMAZ. $more';
   }
+
+  @override
+  String messageSizeBytes(String bytes) {
+    return 'Mesaj boyutu: $bytes bayt';
+  }
+
+  @override
+  String bytesShort(String bytes) {
+    return 'Bayt: $bytes B';
+  }
+
+  @override
+  String bytesValue(String bytes) {
+    return '$bytes bayt';
+  }
+
+  @override
+  String bytesOfCapacity(String bytes, String max) {
+    return '$bytes / $max bayt';
+  }
+
+  @override
+  String get valueNone => 'Yok';
+
+  @override
+  String get valueYesIp => 'Evet (IP adresi)';
+
+  @override
+  String get nfcMissingShort => 'NFC Yok';
+
+  @override
+  String get clearClipboard => 'Panoyu temizle';
+
+  @override
+  String get statLibrary => 'Kütüphane';
+
+  @override
+  String get scanTagTitle => 'Etiketi Tara';
+
+  @override
+  String get readingInProgress => 'Okunuyor...';
+
+  @override
+  String get rawMemorySubtitle => 'Ham bellek';
+
+  @override
+  String get copyToClipboard => 'Panoya kopyala';
+
+  @override
+  String get serialUidLabel => 'Seri No (UID):';
+
+  @override
+  String get totalCapacityLabel => 'Toplam kapasite:';
+
+  @override
+  String get technologiesLabel => 'Teknolojiler:';
+
+  @override
+  String get idLabel => 'Kimlik (ID):';
+
+  @override
+  String get undoTooltip => 'Geri al';
+
+  @override
+  String get clearComposer => 'Listeyi temizle';
+
+  @override
+  String composerTotalSize(String bytes) {
+    return 'Toplam boyut: $bytes bayt';
+  }
+
+  @override
+  String get yesClear => 'Evet, temizle';
+
+  @override
+  String get ssidTooLong => 'SSID en fazla 32 bayt olabilir.';
+
+  @override
+  String get locationPlace => 'Konum / Yer';
+
+  @override
+  String get targetWebUrl => 'Hedef web URL *';
+
+  @override
+  String get languageCodeLabel => 'Dil kodu (ISO 639-1) *';
+
+  @override
+  String get utf8Text => 'UTF-8 metin';
+
+  @override
+  String recordDebugSummary(String tnf, String bytes) {
+    return 'TNF: $tnf, boyut: $bytes bayt';
+  }
+
+  @override
+  String get quickGallerySubtitle => 'Tek dokunuşla hazır';
+
+  @override
+  String get quickLibraryTitle => 'Kütüphanem';
+
+  @override
+  String get quickLibrarySubtitle => 'Kayıtlı etiketler';
+
+  @override
+  String get saveToLibrary => 'Kütüphaneye kaydet';
+
+  @override
+  String libraryMatch(String name) {
+    return 'Kütüphanede: $name';
+  }
+
+  @override
+  String tagChipLabel(String chip) {
+    return 'Çip: $chip';
+  }
+
+  @override
+  String tagManufacturerLabel(String name) {
+    return 'Üretici: $name';
+  }
+
+  @override
+  String get settingsLibrarySubtitle =>
+      'İsim, not ve fotoğrafla kayıtlı etiketleriniz';
+
+  @override
+  String get showOnboardingAgain => 'Tanıtım rehberini tekrar göster';
+
+  @override
+  String get importFromGallery => 'Hazır şablonlardan ekle';
+
+  @override
+  String get appearanceTitle => 'Görünüm';
+
+  @override
+  String get themeSystem => 'Sistem';
+
+  @override
+  String get themeLight => 'Açık';
+
+  @override
+  String get themeDark => 'Koyu';
+
+  @override
+  String get valuePresentRisky => 'Var (riskli olabilir)';
+
+  @override
+  String get supportedValue => 'Destekleniyor';
+
+  @override
+  String get notSupportedValue => 'Desteklenmiyor';
 }

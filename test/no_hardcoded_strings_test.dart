@@ -7,7 +7,7 @@ const bool _pendingI18nWiring = false;
 /// Literals that are allowed to stay Turkish: data formats and the like.
 const Map<String, Set<String>> _allowed = {
   // CSV import keywords and sample CSV file payload template
-  'lib/domain/csv_records.dart': {'tür', 'e-posta', 'tur', 'metin', 'telefon', 'eposta', 'konum', r'metin,Merhaba dünya\n'},
+  'lib/domain/csv_records.dart': {'tür', 'e-posta', 'tur', 'metin', 'telefon', 'eposta', 'konum', r'metin,Merhaba dünya\n', r'sms,+905551112233,Mesaj\n'},
   // Storage model serialization fallback values (file excluded from edits)
   'lib/domain/storage_models.dart': {'Bilinmiyor', 'Şablon'},
   // Turkish character normalization mapping for search indexing
@@ -17,7 +17,9 @@ const Map<String, Set<String>> _allowed = {
 final _literal = RegExp(r"'((?:[^'\\\n]|\\.)*)'");
 final _turkishLetters = RegExp('[çğıöşüÇĞİÖŞÜ]');
 final _turkishWords = RegExp(
-  r'\b(Etiket|etiket|Kayıt|kayıt|Kaydet|Sil|Tamam|Hata|Ekle|Kapat|Vazgeç|Yaz|Oku|Bilinmiyor|Lütfen|bir|ve|ile|için)\b',
+  r'\b(Etiket|etiket|Etiketi|Kayıt|kayıt|Kaydet|Sil|Tamam|Hata|Ekle|Kapat|Vazgeç|Yaz|Oku|Okunuyor|Tara|Bilinmiyor|Lütfen|bir|ve|ile|için|'
+  r'Toplam|Kapasite|Bayt|bayt|Ham|bellek|Boyut|Seri|Evet|Hayır|Kimlik|Teknolojiler|Var|Yok|Dil|Kaynak|Hedef|Panoya|Kopyala|'
+  r'Temizle|Geri|Besteyi|Mesaj|Yer|Konum|Metin|Kural|Hazır|Not|Mevcut|Riskli)\b',
 );
 
 /// Returns `path:line: 'literal'` for every string literal that still looks Turkish.

@@ -2718,4 +2718,155 @@ class AppLocalizationsEn extends AppLocalizations {
   String lockTagWarningFull(String more) {
     return 'A locked tag becomes read-only: its content can NEVER be changed or erased, and the lock CANNOT be removed. $more';
   }
+
+  @override
+  String messageSizeBytes(String bytes) {
+    return 'Message size: $bytes bytes';
+  }
+
+  @override
+  String bytesShort(String bytes) {
+    return 'Bytes: $bytes B';
+  }
+
+  @override
+  String bytesValue(String bytes) {
+    return '$bytes bytes';
+  }
+
+  @override
+  String bytesOfCapacity(String bytes, String max) {
+    return '$bytes / $max bytes';
+  }
+
+  @override
+  String get valueNone => 'None';
+
+  @override
+  String get valueYesIp => 'Yes (IP address)';
+
+  @override
+  String get nfcMissingShort => 'No NFC';
+
+  @override
+  String get clearClipboard => 'Clear clipboard';
+
+  @override
+  String get statLibrary => 'Library';
+
+  @override
+  String get scanTagTitle => 'Scan Tag';
+
+  @override
+  String get readingInProgress => 'Reading...';
+
+  @override
+  String get rawMemorySubtitle => 'Raw memory';
+
+  @override
+  String get copyToClipboard => 'Copy to clipboard';
+
+  @override
+  String get serialUidLabel => 'Serial (UID):';
+
+  @override
+  String get totalCapacityLabel => 'Total capacity:';
+
+  @override
+  String get technologiesLabel => 'Technologies:';
+
+  @override
+  String get idLabel => 'Identifier (ID):';
+
+  @override
+  String get undoTooltip => 'Undo';
+
+  @override
+  String get clearComposer => 'Clear list';
+
+  @override
+  String composerTotalSize(String bytes) {
+    return 'Total size: $bytes bytes';
+  }
+
+  @override
+  String get yesClear => 'Yes, clear';
+
+  @override
+  String get ssidTooLong => 'SSID can be at most 32 bytes.';
+
+  @override
+  String get locationPlace => 'Location / Place';
+
+  @override
+  String get targetWebUrl => 'Target web URL *';
+
+  @override
+  String get languageCodeLabel => 'Language code (ISO 639-1) *';
+
+  @override
+  String get utf8Text => 'UTF-8 text';
+
+  @override
+  String recordDebugSummary(String tnf, String bytes) {
+    return 'TNF: $tnf, size: $bytes bytes';
+  }
+
+  @override
+  String get quickGallerySubtitle => 'Ready in one tap';
+
+  @override
+  String get quickLibraryTitle => 'My Library';
+
+  @override
+  String get quickLibrarySubtitle => 'Saved tags';
+
+  @override
+  String get saveToLibrary => 'Save to library';
+
+  @override
+  String libraryMatch(String name) {
+    return 'In your library: $name';
+  }
+
+  @override
+  String tagChipLabel(String chip) {
+    return 'Chip: $chip';
+  }
+
+  @override
+  String tagManufacturerLabel(String name) {
+    return 'Manufacturer: $name';
+  }
+
+  @override
+  String get settingsLibrarySubtitle =>
+      'Your tags with names, notes and photos';
+
+  @override
+  String get showOnboardingAgain => 'Show the introduction again';
+
+  @override
+  String get importFromGallery => 'Add from ready-made templates';
+
+  @override
+  String get appearanceTitle => 'Appearance';
+
+  @override
+  String get themeSystem => 'System';
+
+  @override
+  String get themeLight => 'Light';
+
+  @override
+  String get themeDark => 'Dark';
+
+  @override
+  String get valuePresentRisky => 'Present (may be risky)';
+
+  @override
+  String get supportedValue => 'Supported';
+
+  @override
+  String get notSupportedValue => 'Not supported';
 }

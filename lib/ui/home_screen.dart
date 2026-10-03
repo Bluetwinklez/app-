@@ -18,6 +18,14 @@ import 'qr_preview_dialog.dart';
 import 'tag_rules_manager_sheet.dart';
 import 'app_theme.dart';
 import 'tools_tab.dart';
+import 'onboarding_page.dart';
+import 'template_gallery_page.dart';
+import 'tag_library_page.dart';
+import 'shortcuts_guide_sheet.dart';
+import '../services/launch_action_service.dart';
+import '../domain/tag_identity.dart';
+import '../domain/tag_library.dart';
+import 'dart:async';
 import 'qr_scan_page.dart';
 import 'package:intl/intl.dart';
 import '../l10n/app_localizations.dart';
@@ -63,6 +71,11 @@ class _HomeScreenState extends State<HomeScreen>
       TextEditingController();
   String _historySearchQuery = '';
 
+  final LaunchActionService _launchActions = LaunchActionService();
+  StreamSubscription<LaunchAction>? _launchSubscription;
+  bool _showOnboarding = false;
+
+  @override
   @override
   void initState() {
     super.initState();
@@ -71,7 +84,196 @@ class _HomeScreenState extends State<HomeScreen>
     _tabController.addListener(_onControllerUpdate);
     _controller.addListener(_onControllerUpdate);
     WidgetsBinding.instance.addObserver(this);
+    _showOnboarding = !_controller.onboardingDone;
     _controller.init();
+    _launchSubscription = _launchActions.actions.listen(_handleLaunchAction);
+    _launchActions.start();
+  }
+
+  /// Opens the screen requested by a Siri shortcut or an nfctagmaster:// link.
+  void _handleLaunchAction(LaunchAction action) {
+    if (!mounted) return;
+    if (_showOnboarding) setState(() => _showOnboarding = false);
+    switch (action) {
+      case LaunchAction.scan:
+        _tabController.animateTo(0);
+        if (!_controller.isBusy) _controller.scanTag();
+        break;
+      case LaunchAction.write:
+        _tabController.animateTo(1);
+        break;
+      case LaunchAction.tools:
+        _tabController.animateTo(2);
+        break;
+      case LaunchAction.history:
+        _tabController.animateTo(3);
+        break;
+      case LaunchAction.settings:
+        _tabController.animateTo(4);
+        break;
+    }
+  }
+
+  void _finishOnboarding() {
+    _controller.setOnboardingDone(true);
+    setState(() => _showOnboarding = false);
+  }
+
+  void _openTemplateGallery() {
+    TemplateGalleryPage.open(
+      context,
+      onRecordsCreated: (records, title) => _appendImportedRecords(records, title),
+    );
+  }
+
+  void _openTagLibrary({bool saveLastScan = false}) {
+    final tag = _controller.lastScannedTag;
+    final hasScan = tag != null && tag.error == null;
+    Navigator.of(context).push(MaterialPageRoute(
+      builder: (_) => TagLibraryPage(
+        storage: _controller.storage,
+        lastScanRecords: hasScan ? List<NdefRecordModel>.from(tag.records) : const [],
+        lastScanUid: hasScan ? tag.identifier : null,
+        composerRecords: List<NdefRecordModel>.from(_recordsToWrite),
+        onUseRecords: (records, name) => _appendImportedRecords(List<NdefRecordModel>.from(records), name),
+        startWithLastScan: saveLastScan,
+      ),
+    )).then((_) {
+      if (mounted) setState(() {});
+    });
+  }
+
+  void _openShortcutsGuide() {
+    ShortcutsGuideSheet.show(
+      context,
+      onAddRecord: (record, title) => _appendImportedRecords([record], title),
+    );
+  }
+
+  Widget _buildPreferencesCard() {
+    final mode = _controller.themeMode;
+    return Card(
+      child: Padding(
+        padding: const EdgeInsets.symmetric(vertical: 8),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.stretch,
+          children: [
+            Padding(
+              padding: const EdgeInsets.fromLTRB(16, 8, 16, 8),
+              child: Row(
+                children: [
+                  const Icon(Icons.palette_outlined, color: AppColors.accent),
+                  const SizedBox(width: 10),
+                  Text(L10n.current.appearanceTitle,
+                      style: const TextStyle(fontSize: 16, fontWeight: FontWeight.bold)),
+                ],
+              ),
+            ),
+            Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 16),
+              child: SegmentedButton<ThemeMode>(
+                segments: [
+                  ButtonSegment(value: ThemeMode.system, label: Text(L10n.current.themeSystem),
+                      icon: const Icon(Icons.brightness_auto_outlined)),
+                  ButtonSegment(value: ThemeMode.light, label: Text(L10n.current.themeLight),
+                      icon: const Icon(Icons.light_mode_outlined)),
+                  ButtonSegment(value: ThemeMode.dark, label: Text(L10n.current.themeDark),
+                      icon: const Icon(Icons.dark_mode_outlined)),
+                ],
+                selected: {mode},
+                showSelectedIcon: false,
+                onSelectionChanged: (value) => _controller.setThemeMode(value.first),
+              ),
+            ),
+            const Divider(height: 24),
+            ListTile(
+              leading: const Icon(Icons.collections_bookmark_outlined, color: AppColors.accent),
+              title: Text(L10n.current.tagLibraryTitle),
+              subtitle: Text(L10n.current.settingsLibrarySubtitle),
+              trailing: const Icon(Icons.chevron_right),
+              onTap: _openTagLibrary,
+            ),
+            ListTile(
+              leading: const Icon(Icons.auto_awesome_rounded, color: AppColors.accent),
+              title: Text(L10n.current.readyTemplates),
+              subtitle: Text(L10n.current.quickGallerySubtitle),
+              trailing: const Icon(Icons.chevron_right),
+              onTap: _openTemplateGallery,
+            ),
+            ListTile(
+              leading: const Icon(Icons.mic_none_rounded, color: AppColors.accent),
+              title: Text(L10n.current.shortcutsGuideTitle),
+              subtitle: Text(L10n.current.shortcutsGuideSubtitle),
+              trailing: const Icon(Icons.chevron_right),
+              onTap: _openShortcutsGuide,
+            ),
+            ListTile(
+              leading: const Icon(Icons.school_outlined, color: AppColors.accent),
+              title: Text(L10n.current.showOnboardingAgain),
+              trailing: const Icon(Icons.chevron_right),
+              onTap: () => setState(() => _showOnboarding = true),
+            ),
+          ],
+        ),
+      ),
+    );
+  }
+
+  Widget _buildTagIdentityChips(NfcTagInfo tag) {
+    final identity = TagIdentity.of(tag);
+    final match = _libraryMatchFor(tag.identifier);
+    final chips = <Widget>[
+      if (match != null)
+        _infoChip(Icons.collections_bookmark_outlined, L10n.current.libraryMatch(match.name), AppColors.success),
+      if (identity.chipGuess != null)
+        _infoChip(Icons.memory_rounded, L10n.current.tagChipLabel(identity.chipGuess!), AppColors.accent),
+      if (identity.manufacturer != null)
+        _infoChip(Icons.factory_outlined, L10n.current.tagManufacturerLabel(identity.manufacturer!), AppColors.secondary),
+    ];
+    return Padding(
+      padding: const EdgeInsets.symmetric(vertical: 6),
+      child: Wrap(
+        spacing: 6,
+        runSpacing: 6,
+        crossAxisAlignment: WrapCrossAlignment.center,
+        children: [
+          ...chips,
+          if (tag.error == null && match == null)
+            ActionChip(
+              avatar: const Icon(Icons.bookmark_add_outlined, size: 16, color: AppColors.accent),
+              label: Text(L10n.current.saveToLibrary),
+              onPressed: () => _openTagLibrary(saveLastScan: tag.records.isNotEmpty),
+            ),
+        ],
+      ),
+    );
+  }
+
+  Widget _infoChip(IconData icon, String label, Color color) {
+    return Container(
+      padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 6),
+      decoration: BoxDecoration(
+        color: color.withValues(alpha: 0.1),
+        borderRadius: BorderRadius.circular(20),
+      ),
+      child: Row(
+        mainAxisSize: MainAxisSize.min,
+        children: [
+          Icon(icon, size: 14, color: color),
+          const SizedBox(width: 5),
+          Flexible(child: Text(label, style: TextStyle(fontSize: 12, color: color, fontWeight: FontWeight.w600))),
+        ],
+      ),
+    );
+  }
+
+  /// Library entry whose UID matches the last scan, if any.
+  TagLibraryEntry? _libraryMatchFor(String uid) {
+    if (uid.isEmpty) return null;
+    for (final entry in _controller.storage.getLibrary()) {
+      if (entry.uid != null && entry.uid!.toUpperCase() == uid.toUpperCase()) return entry;
+    }
+    return null;
   }
 
   @override
@@ -87,6 +289,8 @@ class _HomeScreenState extends State<HomeScreen>
 
   @override
   void dispose() {
+    _launchSubscription?.cancel();
+    _launchActions.dispose();
     WidgetsBinding.instance.removeObserver(this);
     _tabController.dispose();
     _historySearchController.dispose();
@@ -622,7 +826,7 @@ class _HomeScreenState extends State<HomeScreen>
               const SizedBox(height: 12),
               Text(L10n.current.rewriteSourceUid(_rewriteSourceUid ?? L10n.current.unknown)),
               Text(L10n.current.recordsToWriteCount('${records.length}')),
-              Text('Mesaj Boyutu: $byteSize Bayt'),
+              Text(L10n.current.messageSizeBytes('$byteSize')),
               const Divider(height: 20),
               Text(
                 L10n.current.rewriteInstruction,
@@ -722,7 +926,7 @@ class _HomeScreenState extends State<HomeScreen>
             ),
             const SizedBox(height: 8),
             Text(L10n.current.writtenRecordsCount('${writtenRecords.length}')),
-            Text('Bayt: ${encodeNdefMessage(writtenRecords).length} B'),
+            Text(L10n.current.bytesShort('${encodeNdefMessage(writtenRecords).length}')),
             const SizedBox(height: 12),
             Text(
               L10n.current.writeVerifiedHint,
@@ -1287,13 +1491,13 @@ class _HomeScreenState extends State<HomeScreen>
                     L10n.current.urlSafetyPort, assessment.port.toString()),
               _buildSafetyParam(
                 L10n.current.urlSafetyUserInfoLabel,
-                assessment.hasUserInfo ? 'Mevcut (Riskli olabilir)' : 'Yok',
+                assessment.hasUserInfo ? L10n.current.valuePresentRisky : L10n.current.valueNone,
                 highlight: assessment.hasUserInfo,
               ),
               _buildSafetyParam(
                 L10n.current.urlSafetyIpLiteral,
                 assessment.isIpLiteral
-                    ? 'Evet (IP adresi)'
+                    ? L10n.current.valueYesIp
                     : L10n.current.urlSafetyDomain,
                 highlight: assessment.isIpLiteral,
               ),
@@ -1976,6 +2180,9 @@ class _HomeScreenState extends State<HomeScreen>
 
   @override
   Widget build(BuildContext context) {
+    if (_showOnboarding) {
+      return OnboardingPage(onFinished: _finishOnboarding);
+    }
     final destinations = _getDestinations(context);
     final current = destinations[_tabController.index];
     return DecoratedBox(
@@ -2215,7 +2422,7 @@ class _HomeScreenState extends State<HomeScreen>
         break;
       case NfcAvailability.notSupported:
         color = AppColors.danger;
-        label = 'NFC Yok';
+        label = L10n.current.nfcMissingShort;
         tooltip = 'Bu cihazda NFC desteklenmiyor';
         break;
     }
@@ -2289,7 +2496,7 @@ class _HomeScreenState extends State<HomeScreen>
             padding: EdgeInsets.zero,
             constraints: const BoxConstraints(),
             icon: const Icon(Icons.close, size: 16, color: Colors.black54),
-            tooltip: 'Panoyu Temizle',
+            tooltip: L10n.current.clearClipboard,
             onPressed: () => _controller.clearClipboard(),
           ),
         ],
@@ -2301,14 +2508,14 @@ class _HomeScreenState extends State<HomeScreen>
   // TAB 1: READ TAB (Inspector & Safety Preview & Content Copy / Rewrite)
   // -------------------------------------------------------------
 
-  Widget _buildQuickAction(IconData icon, String title, String subtitle, int tabIndex) {
+  Widget _buildQuickAction(IconData icon, String title, String subtitle, VoidCallback onTap) {
     return Padding(
       padding: const EdgeInsets.only(right: 10),
       child: SizedBox(
         width: 136,
         child: SoftCard(
           padding: const EdgeInsets.all(14),
-          onTap: () => _tabController.animateTo(tabIndex),
+          onTap: onTap,
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             mainAxisSize: MainAxisSize.min,
@@ -2365,9 +2572,9 @@ class _HomeScreenState extends State<HomeScreen>
               const SizedBox(width: 10),
               Expanded(
                 child: StatTile(
-                  label: 'Kural',
-                  value: '${_controller.storage.getTagRules().length}',
-                  icon: Icons.rule_rounded,
+                  label: L10n.current.statLibrary,
+                  value: '${_controller.storage.getLibrary().length}',
+                  icon: Icons.collections_bookmark_outlined,
                 ),
               ),
             ],
@@ -2375,11 +2582,11 @@ class _HomeScreenState extends State<HomeScreen>
           const SizedBox(height: 16),
           HeroActionCard(
             eyebrow: L10n.current.nfcScannerTitle,
-            title: 'Etiketi Tara',
+            title: L10n.current.scanTagTitle,
             subtitle: tag == null
                 ? L10n.current.heroScanSubtitle
                 : L10n.current.lastTagLabel(tag.identifier),
-            buttonLabel: _controller.isBusy ? 'Okunuyor...' : L10n.current.readHeroButton,
+            buttonLabel: _controller.isBusy ? L10n.current.readingInProgress : L10n.current.readHeroButton,
             icon: Icons.sensors_rounded,
             busy: _controller.isBusy,
             onPressed: _controller.isBusy ? null : () => _controller.scanTag(),
@@ -2392,10 +2599,18 @@ class _HomeScreenState extends State<HomeScreen>
               child: Row(
                 crossAxisAlignment: CrossAxisAlignment.stretch,
                 children: [
-                _buildQuickAction(Icons.edit_note_rounded, L10n.current.writeHeroTitle, L10n.current.composeRecord, 1),
-                _buildQuickAction(Icons.layers_outlined, L10n.current.readMemoryTitle, 'Ham bellek', 2),
-                _buildQuickAction(Icons.key_outlined, L10n.current.passwordLabel, L10n.current.protectOrRemove, 2),
-                  _buildQuickAction(Icons.history_rounded, L10n.current.navHistory, L10n.current.previousScans, 3),
+                  _buildQuickAction(Icons.auto_awesome_rounded, L10n.current.readyTemplates,
+                      L10n.current.quickGallerySubtitle, _openTemplateGallery),
+                  _buildQuickAction(Icons.collections_bookmark_outlined, L10n.current.quickLibraryTitle,
+                      L10n.current.quickLibrarySubtitle, _openTagLibrary),
+                  _buildQuickAction(Icons.edit_note_rounded, L10n.current.writeHeroTitle,
+                      L10n.current.composeRecord, () => _tabController.animateTo(1)),
+                  _buildQuickAction(Icons.layers_outlined, L10n.current.readMemoryTitle,
+                      L10n.current.rawMemorySubtitle, () => _tabController.animateTo(2)),
+                  _buildQuickAction(Icons.key_outlined, L10n.current.passwordLabel,
+                      L10n.current.protectOrRemove, () => _tabController.animateTo(2)),
+                  _buildQuickAction(Icons.history_rounded, L10n.current.navHistory,
+                      L10n.current.previousScans, () => _tabController.animateTo(3)),
                 ],
               ),
             ),
@@ -2483,8 +2698,8 @@ class _HomeScreenState extends State<HomeScreen>
                                 side: const BorderSide(color: AppColors.accent),
                               ),
                               icon: const Icon(Icons.copy, size: 16),
-                              label: const Text('Panoya Kopyala',
-                                  style: TextStyle(fontSize: 12)),
+                              label: Text(L10n.current.copyToClipboard,
+                                  style: const TextStyle(fontSize: 12)),
                               onPressed: () => _copyToClipboard(tag.records,
                                   source: L10n.current.tagSourceLabel(tag.identifier)),
                             ),
@@ -2670,12 +2885,13 @@ class _HomeScreenState extends State<HomeScreen>
               ],
             ),
             const Divider(height: 20),
-            _buildMetaRow('Seri No (UID):', tag.identifier),
+            _buildMetaRow(L10n.current.serialUidLabel, tag.identifier),
+            _buildTagIdentityChips(tag),
             _buildMetaRow(L10n.current.ndefSupport,
-                tag.isNdefSupported ? 'Destekleniyor' : 'Desteklenmiyor'),
-            _buildMetaRow('Toplam Kapasite:', '${tag.maxByteCapacity} Bayt'),
-            _buildMetaRow(L10n.current.usedSpace, '${tag.currentBytesUsed} Bayt'),
-            _buildMetaRow(L10n.current.freeSpace, '${tag.availableBytes} Bayt'),
+                tag.isNdefSupported ? L10n.current.supportedValue : L10n.current.notSupportedValue),
+            _buildMetaRow(L10n.current.totalCapacityLabel, L10n.current.bytesValue('${tag.maxByteCapacity}')),
+            _buildMetaRow(L10n.current.usedSpace, L10n.current.bytesValue('${tag.currentBytesUsed}')),
+            _buildMetaRow(L10n.current.freeSpace, L10n.current.bytesValue('${tag.availableBytes}')),
             if (tag.maxByteCapacity > 0) ...[
               const SizedBox(height: 6),
               ClipRRect(
@@ -2693,7 +2909,7 @@ class _HomeScreenState extends State<HomeScreen>
             ],
             if (tag.standardTechnologies.isNotEmpty)
               _buildMetaRow(
-                  'Teknolojiler:', tag.standardTechnologies.join(', ')),
+                  L10n.current.technologiesLabel, tag.standardTechnologies.join(', ')),
             if (tag.error != null) ...[
               const SizedBox(height: 8),
               Text(
@@ -2753,7 +2969,7 @@ class _HomeScreenState extends State<HomeScreen>
               style: const TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
             ),
             Text(
-              '$totalBytes Bayt ${maxCapacity > 0 ? "/ $maxCapacity Bayt" : ""}',
+              maxCapacity > 0 ? L10n.current.bytesOfCapacity('$totalBytes', '$maxCapacity') : L10n.current.bytesValue('$totalBytes'),
               style: const TextStyle(
                   fontSize: 12,
                   fontWeight: FontWeight.w500,
@@ -2920,10 +3136,10 @@ class _HomeScreenState extends State<HomeScreen>
                             'TNF (Type Name Format):', inspection.tnfName),
                         _buildInspectorRow(L10n.current.inspectorType,
                             '${inspection.typeText} [Hex: ${inspection.typeHex}]'),
-                        _buildInspectorRow('Kimlik (ID):',
+                        _buildInspectorRow(L10n.current.idLabel,
                             '${inspection.idText} [Hex: ${inspection.idHex}]'),
                         _buildInspectorRow(L10n.current.inspectorPayloadLength,
-                            '${inspection.payloadLength} Bayt'),
+                            L10n.current.bytesValue('${inspection.payloadLength}')),
                         const SizedBox(height: 6),
                         Text(L10n.current.inspectorRawHexPreview,
                             style: const TextStyle(
@@ -3008,7 +3224,7 @@ class _HomeScreenState extends State<HomeScreen>
                       children: [
                         IconButton(
                           icon: const Icon(Icons.undo),
-                          tooltip: 'Geri Al (Undo)',
+                          tooltip: L10n.current.undoTooltip,
                           onPressed:
                               _composerHistory.canUndo ? _undoComposer : null,
                         ),
@@ -3038,9 +3254,19 @@ class _HomeScreenState extends State<HomeScreen>
                               case 'qr':
                                 _importFromQr();
                                 break;
+                              case 'gallery':
+                                _openTemplateGallery();
+                                break;
                             }
                           },
                           itemBuilder: (_) => [
+                            PopupMenuItem(
+                              value: 'gallery',
+                              child: ListTile(
+                                leading: const Icon(Icons.auto_awesome_rounded),
+                                title: Text(L10n.current.importFromGallery),
+                              ),
+                            ),
                             PopupMenuItem(
                               value: 'tag',
                               child: ListTile(
@@ -3075,7 +3301,7 @@ class _HomeScreenState extends State<HomeScreen>
                           IconButton(
                             icon: const Icon(Icons.delete_sweep_outlined,
                                 color: Colors.red),
-                            tooltip: 'Besteyi Temizle',
+                            tooltip: L10n.current.clearComposer,
                             onPressed: () {
                               setState(() {
                                 _composerHistory.push(_recordsToWrite);
@@ -3273,7 +3499,7 @@ class _HomeScreenState extends State<HomeScreen>
                                   _buildInspectorRow(
                                       L10n.current.typeLabel, inspection.typeText),
                                   _buildInspectorRow(L10n.current.payloadLabel,
-                                      '${inspection.payloadLength} Bayt'),
+                                      L10n.current.bytesValue('${inspection.payloadLength}')),
                                   const SizedBox(height: 4),
                                   SelectableText(
                                     'Hex: ${inspection.payloadHexPreview}',
@@ -3357,7 +3583,7 @@ class _HomeScreenState extends State<HomeScreen>
             ),
             const SizedBox(height: 8),
             Text(L10n.current.recordsToWriteCount('${_recordsToWrite.length}')),
-            Text('Toplam Boyut: $_stagedBytesTotal Bayt'),
+            Text(L10n.current.composerTotalSize('$_stagedBytesTotal')),
             const SizedBox(height: 8),
             Text(
               L10n.current.confirmWriteMessage2,
@@ -3607,10 +3833,10 @@ class _HomeScreenState extends State<HomeScreen>
                                               ),
                                               icon: const Icon(Icons.copy,
                                                   size: 14),
-                                              label: const Text(
-                                                  'Panoya Kopyala',
+                                              label: Text(
+                                                  L10n.current.copyToClipboard,
                                                   style:
-                                                      TextStyle(fontSize: 11)),
+                                                      const TextStyle(fontSize: 11)),
                                             ),
                                             ElevatedButton.icon(
                                               style: ElevatedButton.styleFrom(
@@ -3769,6 +3995,8 @@ class _HomeScreenState extends State<HomeScreen>
             ),
           ),
         ),
+        const SizedBox(height: 16),
+        _buildPreferencesCard(),
         const SizedBox(height: 16),
 
         // Settings Section
@@ -4124,7 +4352,7 @@ class _HomeScreenState extends State<HomeScreen>
               Navigator.of(ctx).pop();
               _controller.clearTag();
             },
-            child: const Text('Evet, Temizle'),
+            child: Text(L10n.current.yesClear),
           ),
         ],
       ),

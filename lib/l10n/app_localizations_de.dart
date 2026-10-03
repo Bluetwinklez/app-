@@ -2736,4 +2736,155 @@ class AppLocalizationsDe extends AppLocalizations {
   String lockTagWarningFull(String more) {
     return 'Ein gesperrter Tag ist schreibgeschützt: Der Inhalt kann NIE geändert oder gelöscht und die Sperre NICHT aufgehoben werden. $more';
   }
+
+  @override
+  String messageSizeBytes(String bytes) {
+    return 'Nachrichtengröße: $bytes Byte';
+  }
+
+  @override
+  String bytesShort(String bytes) {
+    return 'Byte: $bytes B';
+  }
+
+  @override
+  String bytesValue(String bytes) {
+    return '$bytes Byte';
+  }
+
+  @override
+  String bytesOfCapacity(String bytes, String max) {
+    return '$bytes / $max Byte';
+  }
+
+  @override
+  String get valueNone => 'Keine';
+
+  @override
+  String get valueYesIp => 'Ja (IP-Adresse)';
+
+  @override
+  String get nfcMissingShort => 'Kein NFC';
+
+  @override
+  String get clearClipboard => 'Ablage leeren';
+
+  @override
+  String get statLibrary => 'Bibliothek';
+
+  @override
+  String get scanTagTitle => 'Tag scannen';
+
+  @override
+  String get readingInProgress => 'Wird gelesen...';
+
+  @override
+  String get rawMemorySubtitle => 'Rohspeicher';
+
+  @override
+  String get copyToClipboard => 'In Ablage kopieren';
+
+  @override
+  String get serialUidLabel => 'Seriennr. (UID):';
+
+  @override
+  String get totalCapacityLabel => 'Gesamtkapazität:';
+
+  @override
+  String get technologiesLabel => 'Technologien:';
+
+  @override
+  String get idLabel => 'Kennung (ID):';
+
+  @override
+  String get undoTooltip => 'Rückgängig';
+
+  @override
+  String get clearComposer => 'Liste leeren';
+
+  @override
+  String composerTotalSize(String bytes) {
+    return 'Gesamtgröße: $bytes Byte';
+  }
+
+  @override
+  String get yesClear => 'Ja, leeren';
+
+  @override
+  String get ssidTooLong => 'Die SSID darf höchstens 32 Byte lang sein.';
+
+  @override
+  String get locationPlace => 'Ort';
+
+  @override
+  String get targetWebUrl => 'Ziel-URL *';
+
+  @override
+  String get languageCodeLabel => 'Sprachcode (ISO 639-1) *';
+
+  @override
+  String get utf8Text => 'UTF-8-Text';
+
+  @override
+  String recordDebugSummary(String tnf, String bytes) {
+    return 'TNF: $tnf, Größe: $bytes Byte';
+  }
+
+  @override
+  String get quickGallerySubtitle => 'Mit einem Tipp fertig';
+
+  @override
+  String get quickLibraryTitle => 'Meine Tags';
+
+  @override
+  String get quickLibrarySubtitle => 'Gespeicherte Tags';
+
+  @override
+  String get saveToLibrary => 'In Bibliothek speichern';
+
+  @override
+  String libraryMatch(String name) {
+    return 'In der Bibliothek: $name';
+  }
+
+  @override
+  String tagChipLabel(String chip) {
+    return 'Chip: $chip';
+  }
+
+  @override
+  String tagManufacturerLabel(String name) {
+    return 'Hersteller: $name';
+  }
+
+  @override
+  String get settingsLibrarySubtitle =>
+      'Ihre Tags mit Namen, Notizen und Fotos';
+
+  @override
+  String get showOnboardingAgain => 'Einführung erneut anzeigen';
+
+  @override
+  String get importFromGallery => 'Aus fertigen Vorlagen hinzufügen';
+
+  @override
+  String get appearanceTitle => 'Darstellung';
+
+  @override
+  String get themeSystem => 'System';
+
+  @override
+  String get themeLight => 'Hell';
+
+  @override
+  String get themeDark => 'Dunkel';
+
+  @override
+  String get valuePresentRisky => 'Vorhanden (evtl. riskant)';
+
+  @override
+  String get supportedValue => 'Unterstützt';
+
+  @override
+  String get notSupportedValue => 'Nicht unterstützt';
 }

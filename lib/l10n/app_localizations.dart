@@ -4707,6 +4707,270 @@ abstract class AppLocalizations {
   /// In tr, this message translates to:
   /// **'Kilitlenen etiket salt okunur olur: içeriği bir daha DEĞİŞTİRİLEMEZ, silinemez ve kilit KALDIRILAMAZ. {more}'**
   String lockTagWarningFull(String more);
+
+  /// No description provided for @messageSizeBytes.
+  ///
+  /// In tr, this message translates to:
+  /// **'Mesaj boyutu: {bytes} bayt'**
+  String messageSizeBytes(String bytes);
+
+  /// No description provided for @bytesShort.
+  ///
+  /// In tr, this message translates to:
+  /// **'Bayt: {bytes} B'**
+  String bytesShort(String bytes);
+
+  /// No description provided for @bytesValue.
+  ///
+  /// In tr, this message translates to:
+  /// **'{bytes} bayt'**
+  String bytesValue(String bytes);
+
+  /// No description provided for @bytesOfCapacity.
+  ///
+  /// In tr, this message translates to:
+  /// **'{bytes} / {max} bayt'**
+  String bytesOfCapacity(String bytes, String max);
+
+  /// No description provided for @valueNone.
+  ///
+  /// In tr, this message translates to:
+  /// **'Yok'**
+  String get valueNone;
+
+  /// No description provided for @valueYesIp.
+  ///
+  /// In tr, this message translates to:
+  /// **'Evet (IP adresi)'**
+  String get valueYesIp;
+
+  /// No description provided for @nfcMissingShort.
+  ///
+  /// In tr, this message translates to:
+  /// **'NFC Yok'**
+  String get nfcMissingShort;
+
+  /// No description provided for @clearClipboard.
+  ///
+  /// In tr, this message translates to:
+  /// **'Panoyu temizle'**
+  String get clearClipboard;
+
+  /// No description provided for @statLibrary.
+  ///
+  /// In tr, this message translates to:
+  /// **'Kütüphane'**
+  String get statLibrary;
+
+  /// No description provided for @scanTagTitle.
+  ///
+  /// In tr, this message translates to:
+  /// **'Etiketi Tara'**
+  String get scanTagTitle;
+
+  /// No description provided for @readingInProgress.
+  ///
+  /// In tr, this message translates to:
+  /// **'Okunuyor...'**
+  String get readingInProgress;
+
+  /// No description provided for @rawMemorySubtitle.
+  ///
+  /// In tr, this message translates to:
+  /// **'Ham bellek'**
+  String get rawMemorySubtitle;
+
+  /// No description provided for @copyToClipboard.
+  ///
+  /// In tr, this message translates to:
+  /// **'Panoya kopyala'**
+  String get copyToClipboard;
+
+  /// No description provided for @serialUidLabel.
+  ///
+  /// In tr, this message translates to:
+  /// **'Seri No (UID):'**
+  String get serialUidLabel;
+
+  /// No description provided for @totalCapacityLabel.
+  ///
+  /// In tr, this message translates to:
+  /// **'Toplam kapasite:'**
+  String get totalCapacityLabel;
+
+  /// No description provided for @technologiesLabel.
+  ///
+  /// In tr, this message translates to:
+  /// **'Teknolojiler:'**
+  String get technologiesLabel;
+
+  /// No description provided for @idLabel.
+  ///
+  /// In tr, this message translates to:
+  /// **'Kimlik (ID):'**
+  String get idLabel;
+
+  /// No description provided for @undoTooltip.
+  ///
+  /// In tr, this message translates to:
+  /// **'Geri al'**
+  String get undoTooltip;
+
+  /// No description provided for @clearComposer.
+  ///
+  /// In tr, this message translates to:
+  /// **'Listeyi temizle'**
+  String get clearComposer;
+
+  /// No description provided for @composerTotalSize.
+  ///
+  /// In tr, this message translates to:
+  /// **'Toplam boyut: {bytes} bayt'**
+  String composerTotalSize(String bytes);
+
+  /// No description provided for @yesClear.
+  ///
+  /// In tr, this message translates to:
+  /// **'Evet, temizle'**
+  String get yesClear;
+
+  /// No description provided for @ssidTooLong.
+  ///
+  /// In tr, this message translates to:
+  /// **'SSID en fazla 32 bayt olabilir.'**
+  String get ssidTooLong;
+
+  /// No description provided for @locationPlace.
+  ///
+  /// In tr, this message translates to:
+  /// **'Konum / Yer'**
+  String get locationPlace;
+
+  /// No description provided for @targetWebUrl.
+  ///
+  /// In tr, this message translates to:
+  /// **'Hedef web URL *'**
+  String get targetWebUrl;
+
+  /// No description provided for @languageCodeLabel.
+  ///
+  /// In tr, this message translates to:
+  /// **'Dil kodu (ISO 639-1) *'**
+  String get languageCodeLabel;
+
+  /// No description provided for @utf8Text.
+  ///
+  /// In tr, this message translates to:
+  /// **'UTF-8 metin'**
+  String get utf8Text;
+
+  /// No description provided for @recordDebugSummary.
+  ///
+  /// In tr, this message translates to:
+  /// **'TNF: {tnf}, boyut: {bytes} bayt'**
+  String recordDebugSummary(String tnf, String bytes);
+
+  /// No description provided for @quickGallerySubtitle.
+  ///
+  /// In tr, this message translates to:
+  /// **'Tek dokunuşla hazır'**
+  String get quickGallerySubtitle;
+
+  /// No description provided for @quickLibraryTitle.
+  ///
+  /// In tr, this message translates to:
+  /// **'Kütüphanem'**
+  String get quickLibraryTitle;
+
+  /// No description provided for @quickLibrarySubtitle.
+  ///
+  /// In tr, this message translates to:
+  /// **'Kayıtlı etiketler'**
+  String get quickLibrarySubtitle;
+
+  /// No description provided for @saveToLibrary.
+  ///
+  /// In tr, this message translates to:
+  /// **'Kütüphaneye kaydet'**
+  String get saveToLibrary;
+
+  /// No description provided for @libraryMatch.
+  ///
+  /// In tr, this message translates to:
+  /// **'Kütüphanede: {name}'**
+  String libraryMatch(String name);
+
+  /// No description provided for @tagChipLabel.
+  ///
+  /// In tr, this message translates to:
+  /// **'Çip: {chip}'**
+  String tagChipLabel(String chip);
+
+  /// No description provided for @tagManufacturerLabel.
+  ///
+  /// In tr, this message translates to:
+  /// **'Üretici: {name}'**
+  String tagManufacturerLabel(String name);
+
+  /// No description provided for @settingsLibrarySubtitle.
+  ///
+  /// In tr, this message translates to:
+  /// **'İsim, not ve fotoğrafla kayıtlı etiketleriniz'**
+  String get settingsLibrarySubtitle;
+
+  /// No description provided for @showOnboardingAgain.
+  ///
+  /// In tr, this message translates to:
+  /// **'Tanıtım rehberini tekrar göster'**
+  String get showOnboardingAgain;
+
+  /// No description provided for @importFromGallery.
+  ///
+  /// In tr, this message translates to:
+  /// **'Hazır şablonlardan ekle'**
+  String get importFromGallery;
+
+  /// No description provided for @appearanceTitle.
+  ///
+  /// In tr, this message translates to:
+  /// **'Görünüm'**
+  String get appearanceTitle;
+
+  /// No description provided for @themeSystem.
+  ///
+  /// In tr, this message translates to:
+  /// **'Sistem'**
+  String get themeSystem;
+
+  /// No description provided for @themeLight.
+  ///
+  /// In tr, this message translates to:
+  /// **'Açık'**
+  String get themeLight;
+
+  /// No description provided for @themeDark.
+  ///
+  /// In tr, this message translates to:
+  /// **'Koyu'**
+  String get themeDark;
+
+  /// No description provided for @valuePresentRisky.
+  ///
+  /// In tr, this message translates to:
+  /// **'Var (riskli olabilir)'**
+  String get valuePresentRisky;
+
+  /// No description provided for @supportedValue.
+  ///
+  /// In tr, this message translates to:
+  /// **'Destekleniyor'**
+  String get supportedValue;
+
+  /// No description provided for @notSupportedValue.
+  ///
+  /// In tr, this message translates to:
+  /// **'Desteklenmiyor'**
+  String get notSupportedValue;
 }
 
 class _AppLocalizationsDelegate

@@ -1147,7 +1147,7 @@ class NdefCodec {
     return ParsedRecordData(
       type: ParsedRecordType.unknown,
       title: L10n.current.recordTypeUnknown,
-      content: 'TNF: ${record.tnf.name}, Boyut: ${record.payload.length} bayt',
+      content: L10n.current.recordDebugSummary(record.tnf.name, '${record.payload.length}'),
     );
   }
 
