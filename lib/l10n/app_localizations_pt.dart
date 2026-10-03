@@ -5040,4 +5040,15 @@ class AppLocalizationsPt extends AppLocalizations {
   @override
   String get whatsNew150 =>
       '• Página de ideias e cartão \"Sua primeira tag\"\n• Estatísticas, categorias automáticas, leitor de QR/código de barras\n• Combinar registros, cartão de visita digital, local por endereço\n• Sequências de hábitos, tarefas infantis, alimentação do pet, registro de visitantes\n• Lembretes, leitura em voz alta, patrimônio e garantia\n• Modelos por QR e importados de planilhas; modelos de restaurante e aluguel\n• 12 ícones, 9 cores de destaque, tamanho do texto';
+
+  @override
+  String get ocrTitle => 'Texto da foto (OCR)';
+
+  @override
+  String get ocrSubtitle =>
+      'Leia o texto de um documento ou cartão e grave numa tag';
+
+  @override
+  String get ocrNothing =>
+      'Nenhum texto legível encontrado (funciona no iPhone).';
 }
