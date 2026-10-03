@@ -1243,5 +1243,17 @@
   "secCheckTitle": "安全检查",
   "secCheckScore": "已开启 {ok}/{total} 项推荐设置",
   "secCheckBackup": "30 天内已备份",
-  "secCheckEncryptedNote": "备份可能包含 Wi-Fi 密码，建议导出时设置密码保护。"
+  "secCheckEncryptedNote": "备份可能包含 Wi-Fi 密码，建议导出时设置密码保护。",
+  "packShare": "作为团队包分享",
+  "packImport": "导入团队包",
+  "packHint": "当前显示的标签（按筛选）会打包成一个文件分享；同事可在 标签库 → 导入 中添加。照片不会分享。",
+  "packName": "包名称",
+  "packIncludeTemplates": "包含已保存的模板（{count}）",
+  "packCount": "将分享 {count} 个标签",
+  "packPassword": "密码（可选，至少 6 个字符）",
+  "packPasswordShort": "密码至少需要 6 个字符",
+  "packPreview": "“{name}”：{tags} 个标签，{templates} 个模板。要导入吗？",
+  "packImported": "已添加 {tags} 个标签和 {templates} 个模板 · {skipped} 个已存在",
+  "packInvalid": "此文件不是有效的团队包（{reason}）",
+  "libraryMoreActions": "更多操作"
 }

@@ -4257,4 +4257,51 @@ class AppLocalizationsJa extends AppLocalizations {
   @override
   String get secCheckEncryptedNote =>
       'バックアップにはWi-Fiパスワードが含まれる場合があります。パスワード保護をおすすめします。';
+
+  @override
+  String get packShare => 'チームパックとして共有';
+
+  @override
+  String get packImport => 'チームパックを読み込む';
+
+  @override
+  String get packHint =>
+      '表示中のタグ（フィルター適用後）を1つのファイルで共有します。仲間はライブラリ→読み込みで追加します。写真は共有されません。';
+
+  @override
+  String get packName => 'パック名';
+
+  @override
+  String packIncludeTemplates(String count) {
+    return '保存したテンプレートも含める（$count）';
+  }
+
+  @override
+  String packCount(String count) {
+    return '$count件のタグを共有します';
+  }
+
+  @override
+  String get packPassword => 'パスワード（任意、6文字以上）';
+
+  @override
+  String get packPasswordShort => 'パスワードは6文字以上にしてください';
+
+  @override
+  String packPreview(String name, String tags, String templates) {
+    return '「$name」：タグ$tags件、テンプレート$templates件。読み込みますか？';
+  }
+
+  @override
+  String packImported(String tags, String templates, String skipped) {
+    return 'タグ$tags件とテンプレート$templates件を追加 · $skipped件は既存';
+  }
+
+  @override
+  String packInvalid(String reason) {
+    return 'このファイルは有効なチームパックではありません（$reason）';
+  }
+
+  @override
+  String get libraryMoreActions => 'その他の操作';
 }

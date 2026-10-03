@@ -4464,4 +4464,51 @@ class AppLocalizationsPt extends AppLocalizations {
   @override
   String get secCheckEncryptedNote =>
       'Backups podem conter senhas de Wi-Fi; recomenda-se proteção por senha.';
+
+  @override
+  String get packShare => 'Compartilhar como pacote de equipe';
+
+  @override
+  String get packImport => 'Importar pacote de equipe';
+
+  @override
+  String get packHint =>
+      'As tags visíveis (conforme o filtro) são compartilhadas em um arquivo; colegas adicionam em Biblioteca → Importar. Fotos não são compartilhadas.';
+
+  @override
+  String get packName => 'Nome do pacote';
+
+  @override
+  String packIncludeTemplates(String count) {
+    return 'Incluir modelos salvos ($count)';
+  }
+
+  @override
+  String packCount(String count) {
+    return '$count tags serão compartilhadas';
+  }
+
+  @override
+  String get packPassword => 'Senha (opcional, no mínimo 6 caracteres)';
+
+  @override
+  String get packPasswordShort => 'A senha deve ter pelo menos 6 caracteres';
+
+  @override
+  String packPreview(String name, String tags, String templates) {
+    return '\"$name\": $tags tags, $templates modelos. Importar?';
+  }
+
+  @override
+  String packImported(String tags, String templates, String skipped) {
+    return '$tags tags e $templates modelos adicionados · $skipped já existiam';
+  }
+
+  @override
+  String packInvalid(String reason) {
+    return 'Este arquivo não é um pacote de equipe válido ($reason)';
+  }
+
+  @override
+  String get libraryMoreActions => 'Mais ações';
 }

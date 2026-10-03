@@ -4452,4 +4452,51 @@ class AppLocalizationsUk extends AppLocalizations {
   @override
   String get secCheckEncryptedNote =>
       'Резервні копії можуть містити паролі Wi-Fi; радимо захищати їх паролем.';
+
+  @override
+  String get packShare => 'Поділитися пакетом для команди';
+
+  @override
+  String get packImport => 'Імпорт пакета команди';
+
+  @override
+  String get packHint =>
+      'Видимі мітки (за фільтром) передаються одним файлом; колеги додають його через Бібліотека → Імпорт. Фото не передаються.';
+
+  @override
+  String get packName => 'Назва пакета';
+
+  @override
+  String packIncludeTemplates(String count) {
+    return 'Додати збережені шаблони ($count)';
+  }
+
+  @override
+  String packCount(String count) {
+    return 'Буде передано міток: $count';
+  }
+
+  @override
+  String get packPassword => 'Пароль (необов\'язково, щонайменше 6 символів)';
+
+  @override
+  String get packPasswordShort => 'Пароль має містити щонайменше 6 символів';
+
+  @override
+  String packPreview(String name, String tags, String templates) {
+    return '«$name»: міток $tags, шаблонів $templates. Імпортувати?';
+  }
+
+  @override
+  String packImported(String tags, String templates, String skipped) {
+    return 'Додано міток: $tags, шаблонів: $templates · уже були: $skipped';
+  }
+
+  @override
+  String packInvalid(String reason) {
+    return 'Файл не є дійсним пакетом команди ($reason)';
+  }
+
+  @override
+  String get libraryMoreActions => 'Інші дії';
 }

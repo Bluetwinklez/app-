@@ -1243,5 +1243,17 @@
   "secCheckTitle": "セキュリティチェック",
   "secCheckScore": "推奨設定 {ok}/{total} がオン",
   "secCheckBackup": "30日以内にバックアップ済み",
-  "secCheckEncryptedNote": "バックアップにはWi-Fiパスワードが含まれる場合があります。パスワード保護をおすすめします。"
+  "secCheckEncryptedNote": "バックアップにはWi-Fiパスワードが含まれる場合があります。パスワード保護をおすすめします。",
+  "packShare": "チームパックとして共有",
+  "packImport": "チームパックを読み込む",
+  "packHint": "表示中のタグ（フィルター適用後）を1つのファイルで共有します。仲間はライブラリ→読み込みで追加します。写真は共有されません。",
+  "packName": "パック名",
+  "packIncludeTemplates": "保存したテンプレートも含める（{count}）",
+  "packCount": "{count}件のタグを共有します",
+  "packPassword": "パスワード（任意、6文字以上）",
+  "packPasswordShort": "パスワードは6文字以上にしてください",
+  "packPreview": "「{name}」：タグ{tags}件、テンプレート{templates}件。読み込みますか？",
+  "packImported": "タグ{tags}件とテンプレート{templates}件を追加 · {skipped}件は既存",
+  "packInvalid": "このファイルは有効なチームパックではありません（{reason}）",
+  "libraryMoreActions": "その他の操作"
 }

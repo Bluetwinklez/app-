@@ -4484,4 +4484,52 @@ class AppLocalizationsFr extends AppLocalizations {
   @override
   String get secCheckEncryptedNote =>
       'Les sauvegardes peuvent contenir des mots de passe Wi-Fi ; protégez-les par mot de passe.';
+
+  @override
+  String get packShare => 'Partager en pack d\'équipe';
+
+  @override
+  String get packImport => 'Importer un pack d\'équipe';
+
+  @override
+  String get packHint =>
+      'Les tags visibles (selon le filtre) sont partagés dans un fichier ; vos collègues l\'ajoutent via Bibliothèque → Importer. Les photos ne sont pas partagées.';
+
+  @override
+  String get packName => 'Nom du pack';
+
+  @override
+  String packIncludeTemplates(String count) {
+    return 'Inclure les modèles enregistrés ($count)';
+  }
+
+  @override
+  String packCount(String count) {
+    return '$count tags seront partagés';
+  }
+
+  @override
+  String get packPassword => 'Mot de passe (facultatif, 6 caractères min.)';
+
+  @override
+  String get packPasswordShort =>
+      'Le mot de passe doit faire au moins 6 caractères';
+
+  @override
+  String packPreview(String name, String tags, String templates) {
+    return '« $name » : $tags tags, $templates modèles. Importer ?';
+  }
+
+  @override
+  String packImported(String tags, String templates, String skipped) {
+    return '$tags tags et $templates modèles ajoutés · $skipped existaient déjà';
+  }
+
+  @override
+  String packInvalid(String reason) {
+    return 'Ce fichier n\'est pas un pack d\'équipe valide ($reason)';
+  }
+
+  @override
+  String get libraryMoreActions => 'Autres actions';
 }

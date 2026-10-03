@@ -4454,4 +4454,51 @@ class AppLocalizationsRu extends AppLocalizations {
   @override
   String get secCheckEncryptedNote =>
       'Резервные копии могут содержать пароли Wi-Fi; защитите их паролем.';
+
+  @override
+  String get packShare => 'Поделиться пакетом для команды';
+
+  @override
+  String get packImport => 'Импорт пакета команды';
+
+  @override
+  String get packHint =>
+      'Видимые метки (с учётом фильтра) передаются одним файлом; коллеги добавляют его через Библиотека → Импорт. Фото не передаются.';
+
+  @override
+  String get packName => 'Название пакета';
+
+  @override
+  String packIncludeTemplates(String count) {
+    return 'Добавить сохранённые шаблоны ($count)';
+  }
+
+  @override
+  String packCount(String count) {
+    return 'Будет передано меток: $count';
+  }
+
+  @override
+  String get packPassword => 'Пароль (необязательно, не менее 6 символов)';
+
+  @override
+  String get packPasswordShort => 'Пароль должен быть не короче 6 символов';
+
+  @override
+  String packPreview(String name, String tags, String templates) {
+    return '«$name»: меток $tags, шаблонов $templates. Импортировать?';
+  }
+
+  @override
+  String packImported(String tags, String templates, String skipped) {
+    return 'Добавлено меток: $tags, шаблонов: $templates · уже были: $skipped';
+  }
+
+  @override
+  String packInvalid(String reason) {
+    return 'Файл не является пакетом команды ($reason)';
+  }
+
+  @override
+  String get libraryMoreActions => 'Другие действия';
 }

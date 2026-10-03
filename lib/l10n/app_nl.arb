@@ -1243,5 +1243,17 @@
   "secCheckTitle": "Beveiligingscheck",
   "secCheckScore": "{ok}/{total} aanbevolen instellingen aan",
   "secCheckBackup": "Back-up in de laatste 30 dagen",
-  "secCheckEncryptedNote": "Back-ups kunnen wifi-wachtwoorden bevatten; beveiliging met wachtwoord wordt aangeraden."
+  "secCheckEncryptedNote": "Back-ups kunnen wifi-wachtwoorden bevatten; beveiliging met wachtwoord wordt aangeraden.",
+  "packShare": "Delen als teampakket",
+  "packImport": "Teampakket importeren",
+  "packHint": "De zichtbare tags (volgens filter) worden in één bestand gedeeld; collega's voegen het toe via Bibliotheek → Importeren. Foto's worden niet gedeeld.",
+  "packName": "Pakketnaam",
+  "packIncludeTemplates": "Opgeslagen sjablonen meenemen ({count})",
+  "packCount": "{count} tags worden gedeeld",
+  "packPassword": "Wachtwoord (optioneel, minstens 6 tekens)",
+  "packPasswordShort": "Wachtwoord moet minstens 6 tekens hebben",
+  "packPreview": "\"{name}\": {tags} tags, {templates} sjablonen. Importeren?",
+  "packImported": "{tags} tags en {templates} sjablonen toegevoegd · {skipped} bestonden al",
+  "packInvalid": "Dit bestand is geen geldig teampakket ({reason})",
+  "libraryMoreActions": "Meer acties"
 }

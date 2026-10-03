@@ -7588,6 +7588,78 @@ abstract class AppLocalizations {
   /// In tr, this message translates to:
   /// **'Yedeklerde Wi-Fi şifreleri olabilir; dışa aktarırken parola koruması önerilir.'**
   String get secCheckEncryptedNote;
+
+  /// No description provided for @packShare.
+  ///
+  /// In tr, this message translates to:
+  /// **'Ekip paketi olarak paylaş'**
+  String get packShare;
+
+  /// No description provided for @packImport.
+  ///
+  /// In tr, this message translates to:
+  /// **'Ekip paketini içe aktar'**
+  String get packImport;
+
+  /// No description provided for @packHint.
+  ///
+  /// In tr, this message translates to:
+  /// **'Görünen etiketler (filtreye göre) tek bir dosyada paylaşılır; ekip arkadaşınız dosyayı Kütüphane → İçe aktar ile ekler. Fotoğraflar paylaşılmaz.'**
+  String get packHint;
+
+  /// No description provided for @packName.
+  ///
+  /// In tr, this message translates to:
+  /// **'Paket adı'**
+  String get packName;
+
+  /// No description provided for @packIncludeTemplates.
+  ///
+  /// In tr, this message translates to:
+  /// **'Kayıtlı şablonları da ekle ({count})'**
+  String packIncludeTemplates(String count);
+
+  /// No description provided for @packCount.
+  ///
+  /// In tr, this message translates to:
+  /// **'{count} etiket paylaşılacak'**
+  String packCount(String count);
+
+  /// No description provided for @packPassword.
+  ///
+  /// In tr, this message translates to:
+  /// **'Parola (isteğe bağlı, en az 6 karakter)'**
+  String get packPassword;
+
+  /// No description provided for @packPasswordShort.
+  ///
+  /// In tr, this message translates to:
+  /// **'Parola en az 6 karakter olmalı'**
+  String get packPasswordShort;
+
+  /// No description provided for @packPreview.
+  ///
+  /// In tr, this message translates to:
+  /// **'\"{name}\": {tags} etiket, {templates} şablon. İçe aktarılsın mı?'**
+  String packPreview(String name, String tags, String templates);
+
+  /// No description provided for @packImported.
+  ///
+  /// In tr, this message translates to:
+  /// **'{tags} etiket ve {templates} şablon eklendi · {skipped} zaten vardı'**
+  String packImported(String tags, String templates, String skipped);
+
+  /// No description provided for @packInvalid.
+  ///
+  /// In tr, this message translates to:
+  /// **'Bu dosya geçerli bir ekip paketi değil ({reason})'**
+  String packInvalid(String reason);
+
+  /// No description provided for @libraryMoreActions.
+  ///
+  /// In tr, this message translates to:
+  /// **'Diğer işlemler'**
+  String get libraryMoreActions;
 }
 
 class _AppLocalizationsDelegate
