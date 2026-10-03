@@ -1379,5 +1379,10 @@
   "cardEmail": "Correo",
   "cardWeb": "Web",
   "cardAddContact": "Añadir a contactos",
-  "cardTitle": "Tarjeta de visita digital"
+  "cardTitle": "Tarjeta de visita digital",
+  "templateImportTitle": "Importar plantillas desde hoja de cálculo",
+  "templateImportHint": "Cada fila: nombre, tipo, valor, extra. Tipos: url, text, phone, email, sms, location, wifi. Filas con el mismo nombre forman una plantilla.",
+  "templateImportPreview": "Se añadirán {count} plantillas",
+  "templateImportSkipped": "Filas omitidas: {rows}",
+  "templateImportDone": "{count} plantillas añadidas"
 }

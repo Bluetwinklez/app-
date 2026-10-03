@@ -4920,4 +4920,26 @@ class AppLocalizationsTr extends AppLocalizations {
 
   @override
   String get cardTitle => 'Dijital kartvizit';
+
+  @override
+  String get templateImportTitle => 'Şablonları tablodan içe aktar';
+
+  @override
+  String get templateImportHint =>
+      'Her satır: ad, tür, değer, ek. Türler: url, metin, telefon, eposta, sms, konum, wifi. Aynı adlı satırlar tek şablonda birleşir.';
+
+  @override
+  String templateImportPreview(String count) {
+    return '$count şablon eklenecek';
+  }
+
+  @override
+  String templateImportSkipped(String rows) {
+    return 'Atlanan satırlar: $rows';
+  }
+
+  @override
+  String templateImportDone(String count) {
+    return '$count şablon eklendi';
+  }
 }

@@ -4906,4 +4906,26 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get cardTitle => 'Digital business card';
+
+  @override
+  String get templateImportTitle => 'Import templates from a spreadsheet';
+
+  @override
+  String get templateImportHint =>
+      'Each row: name, type, value, extra. Types: url, text, phone, email, sms, location, wifi. Rows with the same name become one template.';
+
+  @override
+  String templateImportPreview(String count) {
+    return '$count templates will be added';
+  }
+
+  @override
+  String templateImportSkipped(String rows) {
+    return 'Skipped rows: $rows';
+  }
+
+  @override
+  String templateImportDone(String count) {
+    return '$count templates added';
+  }
 }

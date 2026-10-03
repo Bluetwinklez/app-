@@ -4862,4 +4862,26 @@ class AppLocalizationsAr extends AppLocalizations {
 
   @override
   String get cardTitle => 'بطاقة عمل رقمية';
+
+  @override
+  String get templateImportTitle => 'استيراد القوالب من جدول';
+
+  @override
+  String get templateImportHint =>
+      'كل صف: الاسم، النوع، القيمة، إضافي. الأنواع: url وtext وphone وemail وsms وlocation وwifi. الصفوف ذات الاسم نفسه تصبح قالبًا واحدًا.';
+
+  @override
+  String templateImportPreview(String count) {
+    return 'ستُضاف $count قوالب';
+  }
+
+  @override
+  String templateImportSkipped(String rows) {
+    return 'صفوف متخطاة: $rows';
+  }
+
+  @override
+  String templateImportDone(String count) {
+    return 'أُضيفت $count قوالب';
+  }
 }

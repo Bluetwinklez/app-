@@ -1379,5 +1379,10 @@
   "cardEmail": "E-mail",
   "cardWeb": "Sito",
   "cardAddContact": "Aggiungi ai contatti",
-  "cardTitle": "Biglietto da visita digitale"
+  "cardTitle": "Biglietto da visita digitale",
+  "templateImportTitle": "Importa modelli da foglio di calcolo",
+  "templateImportHint": "Ogni riga: nome, tipo, valore, extra. Tipi: url, text, phone, email, sms, location, wifi. Righe con lo stesso nome formano un modello.",
+  "templateImportPreview": "Verranno aggiunti {count} modelli",
+  "templateImportSkipped": "Righe saltate: {rows}",
+  "templateImportDone": "{count} modelli aggiunti"
 }

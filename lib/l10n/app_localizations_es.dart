@@ -4952,4 +4952,26 @@ class AppLocalizationsEs extends AppLocalizations {
 
   @override
   String get cardTitle => 'Tarjeta de visita digital';
+
+  @override
+  String get templateImportTitle => 'Importar plantillas desde hoja de cálculo';
+
+  @override
+  String get templateImportHint =>
+      'Cada fila: nombre, tipo, valor, extra. Tipos: url, text, phone, email, sms, location, wifi. Filas con el mismo nombre forman una plantilla.';
+
+  @override
+  String templateImportPreview(String count) {
+    return 'Se añadirán $count plantillas';
+  }
+
+  @override
+  String templateImportSkipped(String rows) {
+    return 'Filas omitidas: $rows';
+  }
+
+  @override
+  String templateImportDone(String count) {
+    return '$count plantillas añadidas';
+  }
 }

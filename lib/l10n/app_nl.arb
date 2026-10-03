@@ -1379,5 +1379,10 @@
   "cardEmail": "E-mail",
   "cardWeb": "Website",
   "cardAddContact": "Aan contacten toevoegen",
-  "cardTitle": "Digitaal visitekaartje"
+  "cardTitle": "Digitaal visitekaartje",
+  "templateImportTitle": "Sjablonen importeren uit spreadsheet",
+  "templateImportHint": "Elke rij: naam, type, waarde, extra. Types: url, text, phone, email, sms, location, wifi. Rijen met dezelfde naam worden één sjabloon.",
+  "templateImportPreview": "{count} sjablonen worden toegevoegd",
+  "templateImportSkipped": "Overgeslagen rijen: {rows}",
+  "templateImportDone": "{count} sjablonen toegevoegd"
 }

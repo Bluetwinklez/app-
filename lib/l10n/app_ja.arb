@@ -1379,5 +1379,10 @@
   "cardEmail": "メール",
   "cardWeb": "ウェブ",
   "cardAddContact": "連絡先に追加",
-  "cardTitle": "デジタル名刺"
+  "cardTitle": "デジタル名刺",
+  "templateImportTitle": "表からテンプレートを読み込む",
+  "templateImportHint": "各行：名前、種類、値、追加。種類：url, text, phone, email, sms, location, wifi。同名の行は1つのテンプレートになります。",
+  "templateImportPreview": "{count}件のテンプレートを追加します",
+  "templateImportSkipped": "スキップした行: {rows}",
+  "templateImportDone": "{count}件のテンプレートを追加しました"
 }

@@ -4667,4 +4667,26 @@ class AppLocalizationsZh extends AppLocalizations {
 
   @override
   String get cardTitle => '数字名片';
+
+  @override
+  String get templateImportTitle => '从表格导入模板';
+
+  @override
+  String get templateImportHint =>
+      '每行：名称、类型、值、附加。类型：url、text、phone、email、sms、location、wifi。同名的行合并为一个模板。';
+
+  @override
+  String templateImportPreview(String count) {
+    return '将添加 $count 个模板';
+  }
+
+  @override
+  String templateImportSkipped(String rows) {
+    return '跳过的行：$rows';
+  }
+
+  @override
+  String templateImportDone(String count) {
+    return '已添加 $count 个模板';
+  }
 }

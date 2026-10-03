@@ -65,6 +65,11 @@ class CsvRecordImporter {
     return CsvImportResult(records, errors);
   }
 
+  /// One record from a CSV row's type / value / extra cells. Throws
+  /// [FormatException] or [QuickLinkException] when invalid.
+  static NdefRecordModel buildRecord(String type, String value, String extra) =>
+      _build(type.trim().toLowerCase(), value.trim(), extra.trim());
+
   static NdefRecordModel _build(String type, String value, String extra) {
     switch (type) {
       case 'url':

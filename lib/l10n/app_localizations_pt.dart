@@ -4932,4 +4932,26 @@ class AppLocalizationsPt extends AppLocalizations {
 
   @override
   String get cardTitle => 'Cartão de visita digital';
+
+  @override
+  String get templateImportTitle => 'Importar modelos de planilha';
+
+  @override
+  String get templateImportHint =>
+      'Cada linha: nome, tipo, valor, extra. Tipos: url, text, phone, email, sms, location, wifi. Linhas com o mesmo nome viram um modelo.';
+
+  @override
+  String templateImportPreview(String count) {
+    return '$count modelos serão adicionados';
+  }
+
+  @override
+  String templateImportSkipped(String rows) {
+    return 'Linhas ignoradas: $rows';
+  }
+
+  @override
+  String templateImportDone(String count) {
+    return '$count modelos adicionados';
+  }
 }

@@ -1379,5 +1379,10 @@
   "cardEmail": "Пошта",
   "cardWeb": "Сайт",
   "cardAddContact": "До контактів",
-  "cardTitle": "Цифрова візитка"
+  "cardTitle": "Цифрова візитка",
+  "templateImportTitle": "Імпорт шаблонів із таблиці",
+  "templateImportHint": "Кожен рядок: назва, тип, значення, дод. Типи: url, text, phone, email, sms, location, wifi. Рядки з однаковою назвою об'єднуються.",
+  "templateImportPreview": "Буде додано шаблонів: {count}",
+  "templateImportSkipped": "Пропущено рядки: {rows}",
+  "templateImportDone": "Додано шаблонів: {count}"
 }

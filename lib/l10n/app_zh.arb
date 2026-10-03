@@ -1379,5 +1379,10 @@
   "cardEmail": "邮件",
   "cardWeb": "网站",
   "cardAddContact": "添加到通讯录",
-  "cardTitle": "数字名片"
+  "cardTitle": "数字名片",
+  "templateImportTitle": "从表格导入模板",
+  "templateImportHint": "每行：名称、类型、值、附加。类型：url、text、phone、email、sms、location、wifi。同名的行合并为一个模板。",
+  "templateImportPreview": "将添加 {count} 个模板",
+  "templateImportSkipped": "跳过的行：{rows}",
+  "templateImportDone": "已添加 {count} 个模板"
 }
