@@ -4995,4 +4995,32 @@ class AppLocalizationsUk extends AppLocalizations {
 
   @override
   String get madeWithText => 'Зроблено в NFC Tag Master';
+
+  @override
+  String get recipeMorningTitle => 'Доброго ранку';
+
+  @override
+  String get recipeMorningActions =>
+      'Тумбочка: вимкнути будильник · погода · ранковий плейлист';
+
+  @override
+  String get recipeLeaveTitle => 'Виходжу з дому';
+
+  @override
+  String get recipeLeaveActions =>
+      'Двері: світло вимк. · знизити термостат · надіслати час прибуття';
+
+  @override
+  String get recipeFocusTitle => 'Навчання / Фокус';
+
+  @override
+  String get recipeFocusActions =>
+      'Стіл: режим фокусу · таймер 25 хв · спокійна музика';
+
+  @override
+  String get recipeTravelTitle => 'Подорож';
+
+  @override
+  String get recipeTravelActions =>
+      'Валіза: посадковий · маршрут до аеропорту · повідомлення «я в дорозі»';
 }

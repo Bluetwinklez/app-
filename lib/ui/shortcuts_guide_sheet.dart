@@ -82,6 +82,10 @@ class ShortcutsGuideSheet extends StatelessWidget {
               (Icons.desk_outlined, loc.recipeDeskTitle, loc.recipeDeskActions),
               (Icons.fitness_center_outlined, loc.recipeGymTitle, loc.recipeGymActions),
               (Icons.kitchen_outlined, loc.recipeKitchenTitle, loc.recipeKitchenActions),
+              (Icons.wb_sunny_outlined, loc.recipeMorningTitle, loc.recipeMorningActions),
+              (Icons.logout_rounded, loc.recipeLeaveTitle, loc.recipeLeaveActions),
+              (Icons.menu_book_outlined, loc.recipeFocusTitle, loc.recipeFocusActions),
+              (Icons.flight_takeoff_rounded, loc.recipeTravelTitle, loc.recipeTravelActions),
             ])
               Padding(
                 padding: const EdgeInsets.only(bottom: 8),

@@ -4742,4 +4742,28 @@ class AppLocalizationsZh extends AppLocalizations {
 
   @override
   String get madeWithText => '由 NFC Tag Master 制作';
+
+  @override
+  String get recipeMorningTitle => '早安';
+
+  @override
+  String get recipeMorningActions => '床头：关闹钟 · 播报天气 · 播放早晨歌单';
+
+  @override
+  String get recipeLeaveTitle => '出门';
+
+  @override
+  String get recipeLeaveActions => '门口：关灯 · 调低温度 · 分享到达时间';
+
+  @override
+  String get recipeFocusTitle => '学习 / 专注';
+
+  @override
+  String get recipeFocusActions => '书桌：专注模式 · 25 分钟计时 · 轻音乐';
+
+  @override
+  String get recipeTravelTitle => '旅行';
+
+  @override
+  String get recipeTravelActions => '行李箱：打开登机牌 · 去机场的路线 · 发送“我出发了”';
 }

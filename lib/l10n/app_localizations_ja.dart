@@ -4782,4 +4782,28 @@ class AppLocalizationsJa extends AppLocalizations {
 
   @override
   String get madeWithText => 'NFC Tag Masterで作成';
+
+  @override
+  String get recipeMorningTitle => 'おはよう';
+
+  @override
+  String get recipeMorningActions => '枕元：アラーム停止・天気を読み上げ・朝のプレイリスト';
+
+  @override
+  String get recipeLeaveTitle => '外出';
+
+  @override
+  String get recipeLeaveActions => 'ドア：照明オフ・サーモスタットを下げる・到着予定を共有';
+
+  @override
+  String get recipeFocusTitle => '勉強・集中';
+
+  @override
+  String get recipeFocusActions => 'デスク：集中モード・25分タイマー・静かな音楽';
+
+  @override
+  String get recipeTravelTitle => '旅行';
+
+  @override
+  String get recipeTravelActions => 'スーツケース：搭乗券・空港への経路・「出発しました」メッセージ';
 }

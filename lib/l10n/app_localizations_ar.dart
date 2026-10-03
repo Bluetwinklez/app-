@@ -4938,4 +4938,32 @@ class AppLocalizationsAr extends AppLocalizations {
 
   @override
   String get madeWithText => 'صُنع باستخدام NFC Tag Master';
+
+  @override
+  String get recipeMorningTitle => 'صباح الخير';
+
+  @override
+  String get recipeMorningActions =>
+      'بجانب السرير: إيقاف المنبه · قراءة الطقس · قائمة الصباح';
+
+  @override
+  String get recipeLeaveTitle => 'مغادرة المنزل';
+
+  @override
+  String get recipeLeaveActions =>
+      'الباب: إطفاء الأنوار · خفض الحرارة · مشاركة وقت الوصول';
+
+  @override
+  String get recipeFocusTitle => 'دراسة / تركيز';
+
+  @override
+  String get recipeFocusActions =>
+      'المكتب: وضع التركيز · مؤقت 25 دقيقة · موسيقى هادئة';
+
+  @override
+  String get recipeTravelTitle => 'السفر';
+
+  @override
+  String get recipeTravelActions =>
+      'الحقيبة: بطاقة الصعود · الاتجاهات للمطار · رسالة \"أنا في الطريق\"';
 }

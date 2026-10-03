@@ -5008,4 +5008,32 @@ class AppLocalizationsPt extends AppLocalizations {
 
   @override
   String get madeWithText => 'Feito com NFC Tag Master';
+
+  @override
+  String get recipeMorningTitle => 'Bom dia';
+
+  @override
+  String get recipeMorningActions =>
+      'Cabeceira: parar alarme · ler o clima · playlist da manhã';
+
+  @override
+  String get recipeLeaveTitle => 'Saindo de casa';
+
+  @override
+  String get recipeLeaveActions =>
+      'Porta: apagar luzes · baixar termostato · compartilhar chegada';
+
+  @override
+  String get recipeFocusTitle => 'Estudo / Foco';
+
+  @override
+  String get recipeFocusActions =>
+      'Mesa: Foco · timer de 25 min · música calma';
+
+  @override
+  String get recipeTravelTitle => 'Viagem';
+
+  @override
+  String get recipeTravelActions =>
+      'Mala: cartão de embarque · rota ao aeroporto · mensagem \"a caminho\"';
 }

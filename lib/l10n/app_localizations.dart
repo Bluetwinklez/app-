@@ -8524,6 +8524,54 @@ abstract class AppLocalizations {
   /// In tr, this message translates to:
   /// **'NFC Etiket Yöneticisi ile yapıldı'**
   String get madeWithText;
+
+  /// No description provided for @recipeMorningTitle.
+  ///
+  /// In tr, this message translates to:
+  /// **'Günaydın'**
+  String get recipeMorningTitle;
+
+  /// No description provided for @recipeMorningActions.
+  ///
+  /// In tr, this message translates to:
+  /// **'Komodin: alarmı kapat · hava durumunu söyle · sabah çalma listesini aç'**
+  String get recipeMorningActions;
+
+  /// No description provided for @recipeLeaveTitle.
+  ///
+  /// In tr, this message translates to:
+  /// **'Evden Çıkış'**
+  String get recipeLeaveTitle;
+
+  /// No description provided for @recipeLeaveActions.
+  ///
+  /// In tr, this message translates to:
+  /// **'Kapı: ışıkları kapat · termostatı düşür · eve varış süresini paylaş'**
+  String get recipeLeaveActions;
+
+  /// No description provided for @recipeFocusTitle.
+  ///
+  /// In tr, this message translates to:
+  /// **'Ders / Odak'**
+  String get recipeFocusTitle;
+
+  /// No description provided for @recipeFocusActions.
+  ///
+  /// In tr, this message translates to:
+  /// **'Masa: Odak modunu aç · 25 dk zamanlayıcı · sessiz müzik'**
+  String get recipeFocusActions;
+
+  /// No description provided for @recipeTravelTitle.
+  ///
+  /// In tr, this message translates to:
+  /// **'Seyahat'**
+  String get recipeTravelTitle;
+
+  /// No description provided for @recipeTravelActions.
+  ///
+  /// In tr, this message translates to:
+  /// **'Bavul: biniş kartını aç · havalimanına yol tarifi · \"yola çıktım\" mesajı'**
+  String get recipeTravelActions;
 }
 
 class _AppLocalizationsDelegate

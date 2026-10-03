@@ -1399,5 +1399,13 @@
   "templateCodeInvalid": "Не вдалося прочитати шаблон із QR-коду",
   "madeWithTitle": "Додавати «зроблено в»",
   "madeWithSubtitle": "Наприкінці додається короткий текст, щоб інші дізналися про застосунок (≈30 байт).",
-  "madeWithText": "Зроблено в NFC Tag Master"
+  "madeWithText": "Зроблено в NFC Tag Master",
+  "recipeMorningTitle": "Доброго ранку",
+  "recipeMorningActions": "Тумбочка: вимкнути будильник · погода · ранковий плейлист",
+  "recipeLeaveTitle": "Виходжу з дому",
+  "recipeLeaveActions": "Двері: світло вимк. · знизити термостат · надіслати час прибуття",
+  "recipeFocusTitle": "Навчання / Фокус",
+  "recipeFocusActions": "Стіл: режим фокусу · таймер 25 хв · спокійна музика",
+  "recipeTravelTitle": "Подорож",
+  "recipeTravelActions": "Валіза: посадковий · маршрут до аеропорту · повідомлення «я в дорозі»"
 }

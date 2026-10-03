@@ -1399,5 +1399,13 @@
   "templateCodeInvalid": "The template in this QR code could not be read",
   "madeWithTitle": "Add a \"made with\" note",
   "madeWithSubtitle": "A short text record is added at the end of written tags so readers discover the app (about 30 bytes).",
-  "madeWithText": "Made with NFC Tag Master"
+  "madeWithText": "Made with NFC Tag Master",
+  "recipeMorningTitle": "Good Morning",
+  "recipeMorningActions": "Bedside: stop alarm · read the weather · start the morning playlist",
+  "recipeLeaveTitle": "Leaving Home",
+  "recipeLeaveActions": "Door: lights off · lower the thermostat · share your ETA",
+  "recipeFocusTitle": "Study / Focus",
+  "recipeFocusActions": "Desk: Focus on · 25-min timer · calm music",
+  "recipeTravelTitle": "Travel",
+  "recipeTravelActions": "Suitcase: open boarding pass · directions to the airport · \"on my way\" message"
 }

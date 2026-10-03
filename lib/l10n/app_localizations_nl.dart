@@ -4997,4 +4997,32 @@ class AppLocalizationsNl extends AppLocalizations {
 
   @override
   String get madeWithText => 'Gemaakt met NFC Tag Master';
+
+  @override
+  String get recipeMorningTitle => 'Goedemorgen';
+
+  @override
+  String get recipeMorningActions =>
+      'Nachtkastje: wekker uit · weer voorlezen · ochtendplaylist';
+
+  @override
+  String get recipeLeaveTitle => 'Ik vertrek';
+
+  @override
+  String get recipeLeaveActions =>
+      'Deur: lichten uit · thermostaat lager · aankomsttijd delen';
+
+  @override
+  String get recipeFocusTitle => 'Studeren / Focus';
+
+  @override
+  String get recipeFocusActions =>
+      'Bureau: Focus aan · timer 25 min · rustige muziek';
+
+  @override
+  String get recipeTravelTitle => 'Reis';
+
+  @override
+  String get recipeTravelActions =>
+      'Koffer: instapkaart · route naar luchthaven · \"onderweg\"-bericht';
 }
