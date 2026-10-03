@@ -1,5 +1,5 @@
 /// Shown in Settings > About. Keep in sync with `version:` in pubspec.yaml
 /// (a test checks this); the build number comes from CI.
 class AppInfo {
-  static const String version = '1.4.1';
+  static const String version = '1.5.0';
 }

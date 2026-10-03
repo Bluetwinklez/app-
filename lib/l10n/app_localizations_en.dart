@@ -5010,4 +5010,8 @@ class AppLocalizationsEn extends AppLocalizations {
   @override
   String get recipeTravelActions =>
       'Suitcase: open boarding pass · directions to the airport · \"on my way\" message';
+
+  @override
+  String get whatsNew150 =>
+      '• Ideas page and a \"Make your first tag\" card\n• Tag analytics, automatic categories, QR/barcode scanner\n• Merge records, digital business card view, location by address\n• Habit streaks, kids\' chore chart, pet feeding, visitor log\n• Reminders, read aloud, asset and warranty tracking\n• Share templates as QR and import them from a spreadsheet; restaurant and rental templates\n• 12 app icons, 9 accent colours, text size';
 }

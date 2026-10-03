@@ -5056,4 +5056,8 @@ class AppLocalizationsEs extends AppLocalizations {
   @override
   String get recipeTravelActions =>
       'Maleta: tarjeta de embarque · ruta al aeropuerto · mensaje \"voy de camino\"';
+
+  @override
+  String get whatsNew150 =>
+      '• Página de ideas y tarjeta \"Tu primera etiqueta\"\n• Estadísticas, categorías automáticas, escáner QR/código de barras\n• Combinar registros, tarjeta de visita digital, ubicación por dirección\n• Rachas de hábitos, tareas infantiles, comida de mascota, registro de visitas\n• Recordatorios, lectura en voz alta, activos y garantía\n• Compartir plantillas por QR e importarlas desde hojas; plantillas de restaurante y alquiler\n• 12 iconos, 9 colores de acento, tamaño de texto';
 }

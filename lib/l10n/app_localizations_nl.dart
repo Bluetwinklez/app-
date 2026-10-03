@@ -5025,4 +5025,8 @@ class AppLocalizationsNl extends AppLocalizations {
   @override
   String get recipeTravelActions =>
       'Koffer: instapkaart · route naar luchthaven · \"onderweg\"-bericht';
+
+  @override
+  String get whatsNew150 =>
+      '• Ideeënpagina en kaart \"Maak je eerste tag\"\n• Tagstatistieken, automatische categorieën, QR-/barcodescanner\n• Records samenvoegen, digitaal visitekaartje, locatie via adres\n• Gewoontereeksen, klusjeskaart, huisdier voeren, bezoekersregister\n• Herinneringen, voorlezen, inventaris en garantie\n• Sjablonen delen via QR en importeren uit spreadsheets; restaurant- en vakantiewoningsjablonen\n• 12 app-iconen, 9 accentkleuren, tekstgrootte';
 }

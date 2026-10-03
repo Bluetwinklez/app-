@@ -4766,4 +4766,8 @@ class AppLocalizationsZh extends AppLocalizations {
 
   @override
   String get recipeTravelActions => '行李箱：打开登机牌 · 去机场的路线 · 发送“我出发了”';
+
+  @override
+  String get whatsNew150 =>
+      '• 创意页面与“制作第一个标签”卡片\n• 标签统计、自动分类、二维码/条形码扫描\n• 合并记录、数字名片、按地址定位\n• 习惯连续、儿童任务表、宠物喂食、访客登记\n• 提醒、朗读、资产与保修跟踪\n• 以二维码分享模板、从表格导入；餐厅与民宿模板\n• 12 款图标、9 种强调色、文字大小';
 }

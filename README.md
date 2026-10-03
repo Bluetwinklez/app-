@@ -2,7 +2,7 @@
 
 iPhone ve Android için NFC etiketlerini okuma, yazma ve yönetme uygulaması. Flutter ile yazıldı; NFC erişimi platform kanalları üzerinden doğrudan Core NFC (iOS) ve `android.nfc` (Android) ile yapılır.
 
-- **Sürüm:** 1.4.1 — değişiklikler için [CHANGELOG.md](CHANGELOG.md)
+- **Sürüm:** 1.5.0 — değişiklikler için [CHANGELOG.md](CHANGELOG.md)
 - **Gereksinimler:** iOS 16+ (iPhone 8 ve sonrası), Android 7.0+ (NFC donanımı)
 - **Diller:** Türkçe, English, Deutsch, Français, Español, Italiano, Português, Русский, العربية, 日本語, 简体中文, 한국어, Nederlands, Українська
 - **Gizlilik:** Hesap, sunucu, reklam veya takip yok — [docs/PRIVACY.md](docs/PRIVACY.md)
@@ -17,7 +17,7 @@ iPhone ve Android için NFC etiketlerini okuma, yazma ve yönetme uygulaması. F
 
 **Yazma**
 - Kayıt türleri: metin, URL, e-posta, telefon, SMS, konum, vCard, takvim, Smart Poster, Wi-Fi (WSC), özel MIME, Bluetooth, uygulama kayıtları ve hazır sosyal/harita bağlantıları
-- 25 hazır şablon (kategoriler, arama, favoriler)
+- 27 hazır şablon (kategoriler, arama, favoriler)
 - "Dokununca ne olur?" önizlemesi: iPhone ve Android'in etikete ne yapacağı
 - Çip bazında kapasite uyarısı; boş (NDEF olmayan) NTAG etiketlere akıllı yazma
 - Doğrulamalı yazma (geri okuyup bayt bayt karşılaştırma), geri al/yinele
@@ -50,6 +50,11 @@ iPhone ve Android için NFC etiketlerini okuma, yazma ve yönetme uygulaması. F
 **1.4.0**
 - Güvenlik ve gizlilik bölümü, Anahtar Zinciri'nde imza anahtarı, Tüm verileri sil
 - Etiket haritası, ekip paketleri, alternatif uygulama simgeleri
+
+**1.5.0**
+- Fikirler, istatistikler, QR/barkod tarayıcı, kayıt birleştirme, dijital kartvizit
+- Alışkanlık, görev tablosu, besleme ve ziyaretçi defterleri; bildirim hatırlatıcıları
+- Demirbaş/garanti, şablonları QR ile paylaşma, 12 simge ve 9 renk, sesli okuma
 
 **Görünüm**
 - Açık/koyu tema, tanıtım rehberi, titreşim ve ses ayarları
