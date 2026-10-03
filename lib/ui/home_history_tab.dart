@@ -50,6 +50,10 @@ extension _HistoryTab on _HomeScreenState {
 
     final filteredHistory = allHistory.where((entry) {
       if (_historyCategory != null && ContentCategories.of(entry.records) != _historyCategory) return false;
+      if (_historyLabel != null &&
+          !entry.labels.any((l) => TextSearch.fold(l) == TextSearch.fold(_historyLabel!))) {
+        return false;
+      }
       if (query.isEmpty) return true;
       // Search in UID / identifier
       if (TextSearch.fold(entry.identifier).contains(query)) return true;
@@ -116,6 +120,16 @@ extension _HistoryTab on _HomeScreenState {
                   onSelected: (_) => _refresh(() => _historyCategory = null),
                 ),
               ),
+              for (final label in {for (final e in allHistory) ...e.labels})
+                Padding(
+                  padding: const EdgeInsetsDirectional.only(end: 8),
+                  child: FilterChip(
+                    avatar: const Icon(Icons.label_outline_rounded, size: 16),
+                    label: Text(label),
+                    selected: _historyLabel == label,
+                    onSelected: (_) => _refresh(() => _historyLabel = _historyLabel == label ? null : label),
+                  ),
+                ),
               for (final c in ContentCategory.values)
                 if (allHistory.any((e) => ContentCategories.of(e.records) == c))
                   Padding(
@@ -137,7 +151,7 @@ extension _HistoryTab on _HomeScreenState {
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
               Text(
-                query.isEmpty && _historyCategory == null
+                query.isEmpty && _historyCategory == null && _historyLabel == null
                     ? L10n.current.savedScansCount('${allHistory.length}')
                     : L10n.current.historyFoundCount('${filteredHistory.length}', '${allHistory.length}'),
                 style: const TextStyle(fontWeight: FontWeight.bold),
@@ -234,18 +248,31 @@ extension _HistoryTab on _HomeScreenState {
                                   const TextStyle(fontWeight: FontWeight.bold),
                             ),
                             subtitle: Text(
-                              L10n.current.historyItemMeta(item.timestamp.toLocal().toString().substring(0, 16), '${item.records.length}'),
+                              [
+                                L10n.current.historyItemMeta(item.timestamp.toLocal().toString().substring(0, 16), '${item.records.length}'),
+                                if (item.labels.isNotEmpty) item.labels.map((l) => '#$l').join(' '),
+                              ].join('\n'),
                               style: const TextStyle(fontSize: 12),
                             ),
-                            trailing: IconButton(
-                              icon: Icon(Icons.delete_outline,
-                                  color: AppColors.danger),
-                              tooltip: L10n.current.deleteThisRecord,
-                              onPressed: () async {
-                                await _controller.storage
-                                    .deleteHistoryEntry(item.id);
-                                _refresh(() {});
-                              },
+                            trailing: Row(
+                              mainAxisSize: MainAxisSize.min,
+                              children: [
+                                IconButton(
+                                  icon: Icon(Icons.label_outline_rounded, color: AppColors.accent),
+                                  tooltip: L10n.current.libraryLabelsField,
+                                  onPressed: () => _editHistoryLabels(item),
+                                ),
+                                IconButton(
+                                  icon: Icon(Icons.delete_outline,
+                                      color: AppColors.danger),
+                                  tooltip: L10n.current.deleteThisRecord,
+                                  onPressed: () async {
+                                    await _controller.storage
+                                        .deleteHistoryEntry(item.id);
+                                    _refresh(() {});
+                                  },
+                                ),
+                              ],
                             ),
                             children: [
                               Padding(
@@ -362,5 +389,30 @@ extension _HistoryTab on _HomeScreenState {
         ),
       ],
     );
+  }
+
+  Future<void> _editHistoryLabels(ScanHistoryEntry item) async {
+    final loc = L10n.current;
+    final field = TextEditingController(text: item.labels.join(', '));
+    final text = await showDialog<String>(
+      context: context,
+      builder: (ctx) => AlertDialog(
+        title: Text(loc.libraryLabelsField),
+        content: TextField(
+          controller: field,
+          autofocus: true,
+          decoration: InputDecoration(hintText: loc.libraryLabelsHint),
+          onSubmitted: (v) => Navigator.of(ctx).pop(v),
+        ),
+        actions: [
+          TextButton(onPressed: () => Navigator.of(ctx).pop(), child: Text(loc.cancel)),
+          ElevatedButton(onPressed: () => Navigator.of(ctx).pop(field.text), child: Text(loc.save)),
+        ],
+      ),
+    );
+    field.dispose();
+    if (text == null) return;
+    await _controller.storage.updateHistoryEntry(item.withLabels(TagLibraryEntry.parseLabels(text)));
+    _refresh(() {});
   }
 }

@@ -111,6 +111,7 @@ class _HomeScreenState extends State<HomeScreen>
       TextEditingController();
   String _historySearchQuery = '';
   ContentCategory? _historyCategory;
+  String? _historyLabel;
 
   // Continuous scanning (inventory)
   bool _continuousScan = false;
