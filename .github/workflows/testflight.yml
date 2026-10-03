@@ -86,12 +86,22 @@ jobs:
           ASC_API_KEY_ID: ${{ secrets.ASC_API_KEY_ID }}
           ASC_API_ISSUER_ID: ${{ secrets.ASC_API_ISSUER_ID }}
           ASC_API_PRIVATE_KEY_BASE64: ${{ secrets.ASC_API_PRIVATE_KEY_BASE64 }}
+          # Optional Admin key, pasted as-is (the .p8 file's text), used only
+          # for signing setup; uploads keep using the key above.
+          ASC_ADMIN_KEY_ID: ${{ secrets.ASC_ADMIN_KEY_ID }}
+          ASC_ADMIN_PRIVATE_KEY: ${{ secrets.ASC_ADMIN_PRIVATE_KEY }}
           IOS_BUNDLE_ID: ${{ secrets.IOS_BUNDLE_ID }}
         run: |
           set -euo pipefail
           python3 -m pip install --break-system-packages --quiet pyjwt cryptography
           key="$RUNNER_TEMP/asc_key.p8"
-          printf '%s' "$ASC_API_PRIVATE_KEY_BASE64" | base64 -D > "$key"
+          if [[ -n "$ASC_ADMIN_KEY_ID" && -n "$ASC_ADMIN_PRIVATE_KEY" ]]; then
+            echo "Using the Admin key for signing setup"
+            printf '%s\n' "$ASC_ADMIN_PRIVATE_KEY" > "$key"
+            export ASC_API_KEY_ID="$ASC_ADMIN_KEY_ID"
+          else
+            printf '%s' "$ASC_API_PRIVATE_KEY_BASE64" | base64 -D > "$key"
+          fi
           export ASC_API_PRIVATE_KEY_PATH="$key"
           export PROFILE_DIR="$HOME/Library/MobileDevice/Provisioning Profiles:$HOME/Library/Developer/Xcode/UserData/Provisioning Profiles"
           python3 tool/asc_provision.py
