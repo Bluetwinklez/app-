@@ -4917,4 +4917,15 @@ class AppLocalizationsAr extends AppLocalizations {
 
   @override
   String get reminderWarrantyBody => 'ينتهي الضمان اليوم.';
+
+  @override
+  String get templateShareQr => 'مشاركة كرمز QR';
+
+  @override
+  String templateReceived(String name) {
+    return 'أُضيف القالب: $name';
+  }
+
+  @override
+  String get templateCodeInvalid => 'تعذرت قراءة القالب من رمز QR هذا';
 }

@@ -4762,4 +4762,15 @@ class AppLocalizationsJa extends AppLocalizations {
 
   @override
   String get reminderWarrantyBody => '本日で保証が終了します。';
+
+  @override
+  String get templateShareQr => 'QRで共有';
+
+  @override
+  String templateReceived(String name) {
+    return 'テンプレートを追加: $name';
+  }
+
+  @override
+  String get templateCodeInvalid => 'このQRコードのテンプレートを読み取れません';
 }

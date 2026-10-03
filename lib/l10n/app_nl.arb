@@ -1393,5 +1393,8 @@
   "warrantyUntilText": "Garantie: {date}",
   "assigneeText": "Toegewezen: {name}",
   "reminderWarrantyTitle": "Garantie verloopt: {name}",
-  "reminderWarrantyBody": "De garantie loopt vandaag af."
+  "reminderWarrantyBody": "De garantie loopt vandaag af.",
+  "templateShareQr": "Delen als QR",
+  "templateReceived": "Sjabloon toegevoegd: {name}",
+  "templateCodeInvalid": "Het sjabloon in deze QR-code is onleesbaar"
 }

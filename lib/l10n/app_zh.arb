@@ -1393,5 +1393,8 @@
   "warrantyUntilText": "保修：{date}",
   "assigneeText": "领用：{name}",
   "reminderWarrantyTitle": "保修到期：{name}",
-  "reminderWarrantyBody": "保修今天到期。"
+  "reminderWarrantyBody": "保修今天到期。",
+  "templateShareQr": "以二维码分享",
+  "templateReceived": "已添加模板：{name}",
+  "templateCodeInvalid": "无法读取此二维码中的模板"
 }

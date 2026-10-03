@@ -4976,4 +4976,16 @@ class AppLocalizationsIt extends AppLocalizations {
 
   @override
   String get reminderWarrantyBody => 'La garanzia scade oggi.';
+
+  @override
+  String get templateShareQr => 'Condividi come QR';
+
+  @override
+  String templateReceived(String name) {
+    return 'Modello aggiunto: $name';
+  }
+
+  @override
+  String get templateCodeInvalid =>
+      'Impossibile leggere il modello da questo QR';
 }

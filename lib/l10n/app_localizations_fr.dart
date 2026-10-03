@@ -5012,4 +5012,15 @@ class AppLocalizationsFr extends AppLocalizations {
 
   @override
   String get reminderWarrantyBody => 'La garantie se termine aujourd\'hui.';
+
+  @override
+  String get templateShareQr => 'Partager en QR';
+
+  @override
+  String templateReceived(String name) {
+    return 'Modèle ajouté : $name';
+  }
+
+  @override
+  String get templateCodeInvalid => 'Le modèle de ce QR code est illisible';
 }

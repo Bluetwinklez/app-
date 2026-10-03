@@ -1393,5 +1393,8 @@
   "warrantyUntilText": "Гарантія: {date}",
   "assigneeText": "Закріплено: {name}",
   "reminderWarrantyTitle": "Гарантія закінчується: {name}",
-  "reminderWarrantyBody": "Гарантія закінчується сьогодні."
+  "reminderWarrantyBody": "Гарантія закінчується сьогодні.",
+  "templateShareQr": "Поділитися QR-кодом",
+  "templateReceived": "Шаблон додано: {name}",
+  "templateCodeInvalid": "Не вдалося прочитати шаблон із QR-коду"
 }

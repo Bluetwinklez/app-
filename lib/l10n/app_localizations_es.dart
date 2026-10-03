@@ -5007,4 +5007,15 @@ class AppLocalizationsEs extends AppLocalizations {
 
   @override
   String get reminderWarrantyBody => 'La garantía termina hoy.';
+
+  @override
+  String get templateShareQr => 'Compartir como QR';
+
+  @override
+  String templateReceived(String name) {
+    return 'Plantilla añadida: $name';
+  }
+
+  @override
+  String get templateCodeInvalid => 'No se pudo leer la plantilla de este QR';
 }

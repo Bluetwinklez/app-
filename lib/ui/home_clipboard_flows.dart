@@ -69,7 +69,32 @@ extension _ClipboardAndRewriteFlows on _HomeScreenState {
     final loc = AppLocalizations.of(context) ?? L10n.current;
     final value = await QrScanPage.scan(context);
     if (!mounted || value == null) return;
+    if (await _receiveTemplateCode(value)) return;
     _appendImportedRecords([QrRecordImporter.fromQr(value)], loc.sourceQr);
+  }
+
+  /// A template shared from another phone (see TemplateShareCode): saved
+  /// and added to the write list. Returns false for ordinary QR content.
+  Future<bool> _receiveTemplateCode(String value) async {
+    if (!TemplateShareCode.isCode(value)) return false;
+    final loc = AppLocalizations.of(context) ?? L10n.current;
+    final decoded = TemplateShareCode.decode(value);
+    if (decoded == null) {
+      ScaffoldMessenger.of(context).showSnackBar(
+          SnackBar(content: Text(loc.templateCodeInvalid), backgroundColor: AppColors.danger));
+      return true;
+    }
+    final (name, records) = decoded;
+    final title = name.isEmpty ? loc.template : name;
+    await _controller.storage.saveTemplate(WriteTemplate(
+      id: 'qr_${DateTime.now().microsecondsSinceEpoch}',
+      name: title,
+      createdAt: DateTime.now(),
+      records: records,
+    ));
+    if (!mounted) return true;
+    _appendImportedRecords(records, loc.templateReceived(title));
+    return true;
   }
 
   Future<void> _mergeRecords() async {
@@ -92,6 +117,7 @@ extension _ClipboardAndRewriteFlows on _HomeScreenState {
     final result = await QrScanPage.scanCode(context);
     if (result == null || !mounted) return;
     final (value, format) = result;
+    if (await _receiveTemplateCode(value) || !mounted) return;
     final isLink = Uri.tryParse(value)?.hasScheme == true && !value.contains(' ');
     await showModalBottomSheet<void>(
       context: context,

@@ -4778,4 +4778,15 @@ class AppLocalizationsKo extends AppLocalizations {
 
   @override
   String get reminderWarrantyBody => '보증이 오늘 만료됩니다.';
+
+  @override
+  String get templateShareQr => 'QR로 공유';
+
+  @override
+  String templateReceived(String name) {
+    return '템플릿 추가됨: $name';
+  }
+
+  @override
+  String get templateCodeInvalid => '이 QR 코드의 템플릿을 읽을 수 없습니다';
 }

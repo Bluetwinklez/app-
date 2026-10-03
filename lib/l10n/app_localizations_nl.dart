@@ -4975,4 +4975,16 @@ class AppLocalizationsNl extends AppLocalizations {
 
   @override
   String get reminderWarrantyBody => 'De garantie loopt vandaag af.';
+
+  @override
+  String get templateShareQr => 'Delen als QR';
+
+  @override
+  String templateReceived(String name) {
+    return 'Sjabloon toegevoegd: $name';
+  }
+
+  @override
+  String get templateCodeInvalid =>
+      'Het sjabloon in deze QR-code is onleesbaar';
 }

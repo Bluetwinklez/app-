@@ -3401,5 +3401,15 @@
       }
     }
   },
-  "reminderWarrantyBody": "Bugün garanti süresi doluyor."
+  "reminderWarrantyBody": "Bugün garanti süresi doluyor.",
+  "templateShareQr": "QR ile paylaş",
+  "templateReceived": "Şablon eklendi: {name}",
+  "@templateReceived": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
+  "templateCodeInvalid": "Bu QR kodundaki şablon okunamadı"
 }

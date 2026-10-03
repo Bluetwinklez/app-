@@ -4988,4 +4988,16 @@ class AppLocalizationsDe extends AppLocalizations {
 
   @override
   String get reminderWarrantyBody => 'Die Garantie endet heute.';
+
+  @override
+  String get templateShareQr => 'Als QR teilen';
+
+  @override
+  String templateReceived(String name) {
+    return 'Vorlage hinzugefügt: $name';
+  }
+
+  @override
+  String get templateCodeInvalid =>
+      'Die Vorlage in diesem QR-Code ist unlesbar';
 }

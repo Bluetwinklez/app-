@@ -1393,5 +1393,8 @@
   "warrantyUntilText": "보증: {date}",
   "assigneeText": "담당: {name}",
   "reminderWarrantyTitle": "보증 만료: {name}",
-  "reminderWarrantyBody": "보증이 오늘 만료됩니다."
+  "reminderWarrantyBody": "보증이 오늘 만료됩니다.",
+  "templateShareQr": "QR로 공유",
+  "templateReceived": "템플릿 추가됨: {name}",
+  "templateCodeInvalid": "이 QR 코드의 템플릿을 읽을 수 없습니다"
 }

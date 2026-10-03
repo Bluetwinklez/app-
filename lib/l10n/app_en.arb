@@ -1393,5 +1393,8 @@
   "warrantyUntilText": "Warranty: {date}",
   "assigneeText": "Assigned: {name}",
   "reminderWarrantyTitle": "Warranty ends: {name}",
-  "reminderWarrantyBody": "The warranty ends today."
+  "reminderWarrantyBody": "The warranty ends today.",
+  "templateShareQr": "Share as QR",
+  "templateReceived": "Template added: {name}",
+  "templateCodeInvalid": "The template in this QR code could not be read"
 }
