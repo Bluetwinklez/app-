@@ -42,6 +42,6 @@ class CsvExport {
 
   static String library(List<TagLibraryEntry> entries, {required List<String> header}) => build(header, [
         for (final e in entries)
-          [e.name, e.category.name, e.locationNote, e.note, e.uid ?? '', _content(e.records), _date(e.updatedAt)],
+          [e.name, e.category.name, e.locationNote, e.labels.join(', '), e.note, e.uid ?? '', _content(e.records), _date(e.updatedAt)],
       ]);
 }

@@ -984,5 +984,9 @@
   "recipeGymTitle": "تمرين",
   "recipeGymActions": "حقيبة الرياضة: بدء تمرين · قائمة تشغيل · عدم الإزعاج",
   "recipeKitchenTitle": "مؤقت المطبخ",
-  "recipeKitchenActions": "المطبخ: مؤقت 10 دقائق · فتح قائمة التسوق"
+  "recipeKitchenActions": "المطبخ: مؤقت 10 دقائق · فتح قائمة التسوق",
+  "libraryLabelsField": "التسميات / المجلدات (مفصولة بفواصل)",
+  "libraryLabelsHint": "المكتب، الطابق 2",
+  "librarySaveFailed": "تعذّر الحفظ: {error}",
+  "csvColumnLabels": "التسميات"
 }

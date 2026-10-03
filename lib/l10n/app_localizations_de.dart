@@ -3510,4 +3510,18 @@ class AppLocalizationsDe extends AppLocalizations {
   @override
   String get recipeKitchenActions =>
       'Küche: 10-Minuten-Timer · Einkaufsliste öffnen';
+
+  @override
+  String get libraryLabelsField => 'Labels / Ordner (durch Komma getrennt)';
+
+  @override
+  String get libraryLabelsHint => 'Büro, 2. Stock';
+
+  @override
+  String librarySaveFailed(String error) {
+    return 'Speichern fehlgeschlagen: $error';
+  }
+
+  @override
+  String get csvColumnLabels => 'Labels';
 }

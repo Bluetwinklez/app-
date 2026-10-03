@@ -3503,4 +3503,18 @@ class AppLocalizationsIt extends AppLocalizations {
   @override
   String get recipeKitchenActions =>
       'Cucina: timer 10 min · apri la lista della spesa';
+
+  @override
+  String get libraryLabelsField => 'Etichette / cartelle (separate da virgole)';
+
+  @override
+  String get libraryLabelsHint => 'ufficio, piano 2';
+
+  @override
+  String librarySaveFailed(String error) {
+    return 'Impossibile salvare: $error';
+  }
+
+  @override
+  String get csvColumnLabels => 'Etichette';
 }
