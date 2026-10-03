@@ -12,6 +12,7 @@ void main() {
     addTearDown(tester.view.reset);
 
     final storage = InMemoryAppStorageService();
+    await storage.setOnboardingDone(true);
     await storage.setLocaleCode('tr');
     final controller = NfcStateController(
       service: MockNfcPlatformService(),
@@ -35,5 +36,49 @@ void main() {
     await tester.drag(find.text('Belleği Oku'), const Offset(0, -400));
     await tester.pumpAndSettle();
     expect(find.text('Şifre Belirle'), findsOneWidget);
+  });
+
+  testWidgets('first launch shows onboarding, finishing opens the app once', (tester) async {
+    tester.view.physicalSize = const Size(1179, 2556);
+    tester.view.devicePixelRatio = 3;
+    addTearDown(tester.view.reset);
+
+    final storage = InMemoryAppStorageService();
+    await storage.setLocaleCode('tr');
+    final controller = NfcStateController(service: MockNfcPlatformService(), storage: storage);
+    await tester.pumpWidget(NfcTagMasterApp(controller: controller));
+    await tester.pumpAndSettle();
+
+    expect(find.text('Etiketi okut'), findsOneWidget);
+    expect(find.text('Etiketi Tara'), findsNothing);
+
+    await tester.tap(find.text('Geç'));
+    await tester.pumpAndSettle();
+    expect(find.text('Etiketi Tara'), findsOneWidget);
+    expect(storage.onboardingDone, isTrue);
+  });
+
+  testWidgets('settings offer library, templates, shortcuts and theme', (tester) async {
+    tester.view.physicalSize = const Size(1179, 2556);
+    tester.view.devicePixelRatio = 3;
+    addTearDown(tester.view.reset);
+
+    final storage = InMemoryAppStorageService();
+    await storage.setOnboardingDone(true);
+    await storage.setLocaleCode('tr');
+    final controller = NfcStateController(service: MockNfcPlatformService(), storage: storage);
+    await tester.pumpWidget(NfcTagMasterApp(controller: controller));
+    await tester.pumpAndSettle();
+
+    await tester.tap(find.text('Ayarlar').last);
+    await tester.pumpAndSettle();
+    await tester.drag(find.byType(Scrollable).last, const Offset(0, -500));
+    await tester.pumpAndSettle();
+    expect(find.text('Görünüm'), findsOneWidget);
+
+    await tester.tap(find.text('Koyu'));
+    await tester.pumpAndSettle();
+    expect(storage.themeMode, 'dark');
+    expect(tester.takeException(), isNull);
   });
 }

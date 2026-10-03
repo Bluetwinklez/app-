@@ -2616,4 +2616,154 @@ class AppLocalizationsKo extends AppLocalizations {
   String lockTagWarningFull(String more) {
     return '잠근 태그는 읽기 전용이 되어 내용을 다시는 바꾸거나 지울 수 없고 잠금도 해제할 수 없습니다. $more';
   }
+
+  @override
+  String messageSizeBytes(String bytes) {
+    return '메시지 크기: $bytes바이트';
+  }
+
+  @override
+  String bytesShort(String bytes) {
+    return '바이트: $bytes B';
+  }
+
+  @override
+  String bytesValue(String bytes) {
+    return '$bytes바이트';
+  }
+
+  @override
+  String bytesOfCapacity(String bytes, String max) {
+    return '$bytes / $max바이트';
+  }
+
+  @override
+  String get valueNone => '없음';
+
+  @override
+  String get valueYesIp => '예 (IP 주소)';
+
+  @override
+  String get nfcMissingShort => 'NFC 없음';
+
+  @override
+  String get clearClipboard => '클립보드 지우기';
+
+  @override
+  String get statLibrary => '보관함';
+
+  @override
+  String get scanTagTitle => '태그 스캔';
+
+  @override
+  String get readingInProgress => '읽는 중...';
+
+  @override
+  String get rawMemorySubtitle => '원시 메모리';
+
+  @override
+  String get copyToClipboard => '클립보드에 복사';
+
+  @override
+  String get serialUidLabel => '일련번호 (UID):';
+
+  @override
+  String get totalCapacityLabel => '전체 용량:';
+
+  @override
+  String get technologiesLabel => '기술:';
+
+  @override
+  String get idLabel => '식별자 (ID):';
+
+  @override
+  String get undoTooltip => '실행 취소';
+
+  @override
+  String get clearComposer => '목록 지우기';
+
+  @override
+  String composerTotalSize(String bytes) {
+    return '전체 크기: $bytes바이트';
+  }
+
+  @override
+  String get yesClear => '예, 지우기';
+
+  @override
+  String get ssidTooLong => 'SSID는 최대 32바이트입니다.';
+
+  @override
+  String get locationPlace => '장소';
+
+  @override
+  String get targetWebUrl => '대상 URL *';
+
+  @override
+  String get languageCodeLabel => '언어 코드 (ISO 639-1) *';
+
+  @override
+  String get utf8Text => 'UTF-8 텍스트';
+
+  @override
+  String recordDebugSummary(String tnf, String bytes) {
+    return 'TNF: $tnf, 크기: $bytes바이트';
+  }
+
+  @override
+  String get quickGallerySubtitle => '한 번에 완성';
+
+  @override
+  String get quickLibraryTitle => '내 태그';
+
+  @override
+  String get quickLibrarySubtitle => '저장된 태그';
+
+  @override
+  String get saveToLibrary => '보관함에 저장';
+
+  @override
+  String libraryMatch(String name) {
+    return '보관함: $name';
+  }
+
+  @override
+  String tagChipLabel(String chip) {
+    return '칩: $chip';
+  }
+
+  @override
+  String tagManufacturerLabel(String name) {
+    return '제조사: $name';
+  }
+
+  @override
+  String get settingsLibrarySubtitle => '이름, 메모, 사진이 있는 태그';
+
+  @override
+  String get showOnboardingAgain => '소개 다시 보기';
+
+  @override
+  String get importFromGallery => '템플릿에서 추가';
+
+  @override
+  String get appearanceTitle => '화면 모드';
+
+  @override
+  String get themeSystem => '시스템';
+
+  @override
+  String get themeLight => '라이트';
+
+  @override
+  String get themeDark => '다크';
+
+  @override
+  String get valuePresentRisky => '있음 (위험할 수 있음)';
+
+  @override
+  String get supportedValue => '지원됨';
+
+  @override
+  String get notSupportedValue => '지원 안 됨';
 }

@@ -2736,4 +2736,155 @@ class AppLocalizationsUk extends AppLocalizations {
   String lockTagWarningFull(String more) {
     return 'Заблокована мітка стане лише для читання: вміст НЕМОЖЛИВО буде змінити чи стерти, а блокування — ЗНЯТИ. $more';
   }
+
+  @override
+  String messageSizeBytes(String bytes) {
+    return 'Розмір повідомлення: $bytes байт';
+  }
+
+  @override
+  String bytesShort(String bytes) {
+    return 'Байт: $bytes Б';
+  }
+
+  @override
+  String bytesValue(String bytes) {
+    return '$bytes байт';
+  }
+
+  @override
+  String bytesOfCapacity(String bytes, String max) {
+    return '$bytes / $max байт';
+  }
+
+  @override
+  String get valueNone => 'Немає';
+
+  @override
+  String get valueYesIp => 'Так (IP-адреса)';
+
+  @override
+  String get nfcMissingShort => 'Немає NFC';
+
+  @override
+  String get clearClipboard => 'Очистити буфер';
+
+  @override
+  String get statLibrary => 'Бібліотека';
+
+  @override
+  String get scanTagTitle => 'Сканувати';
+
+  @override
+  String get readingInProgress => 'Зчитування...';
+
+  @override
+  String get rawMemorySubtitle => 'Сира пам\'ять';
+
+  @override
+  String get copyToClipboard => 'Копіювати в буфер';
+
+  @override
+  String get serialUidLabel => 'Серійний № (UID):';
+
+  @override
+  String get totalCapacityLabel => 'Загальна ємність:';
+
+  @override
+  String get technologiesLabel => 'Технології:';
+
+  @override
+  String get idLabel => 'Ідентифікатор (ID):';
+
+  @override
+  String get undoTooltip => 'Скасувати';
+
+  @override
+  String get clearComposer => 'Очистити список';
+
+  @override
+  String composerTotalSize(String bytes) {
+    return 'Загальний розмір: $bytes байт';
+  }
+
+  @override
+  String get yesClear => 'Так, очистити';
+
+  @override
+  String get ssidTooLong => 'SSID — не більше 32 байт.';
+
+  @override
+  String get locationPlace => 'Місце';
+
+  @override
+  String get targetWebUrl => 'Цільова URL *';
+
+  @override
+  String get languageCodeLabel => 'Код мови (ISO 639-1) *';
+
+  @override
+  String get utf8Text => 'Текст UTF-8';
+
+  @override
+  String recordDebugSummary(String tnf, String bytes) {
+    return 'TNF: $tnf, розмір: $bytes байт';
+  }
+
+  @override
+  String get quickGallerySubtitle => 'Готово одним дотиком';
+
+  @override
+  String get quickLibraryTitle => 'Мої мітки';
+
+  @override
+  String get quickLibrarySubtitle => 'Збережені мітки';
+
+  @override
+  String get saveToLibrary => 'Зберегти в бібліотеку';
+
+  @override
+  String libraryMatch(String name) {
+    return 'У бібліотеці: $name';
+  }
+
+  @override
+  String tagChipLabel(String chip) {
+    return 'Чип: $chip';
+  }
+
+  @override
+  String tagManufacturerLabel(String name) {
+    return 'Виробник: $name';
+  }
+
+  @override
+  String get settingsLibrarySubtitle =>
+      'Ваші мітки з назвами, нотатками й фото';
+
+  @override
+  String get showOnboardingAgain => 'Показати вступ знову';
+
+  @override
+  String get importFromGallery => 'Додати з готових шаблонів';
+
+  @override
+  String get appearanceTitle => 'Вигляд';
+
+  @override
+  String get themeSystem => 'Системна';
+
+  @override
+  String get themeLight => 'Світла';
+
+  @override
+  String get themeDark => 'Темна';
+
+  @override
+  String get valuePresentRisky => 'Є (може бути небезпечно)';
+
+  @override
+  String get supportedValue => 'Підтримується';
+
+  @override
+  String get notSupportedValue => 'Не підтримується';
 }

@@ -58,6 +58,9 @@ class TagLibraryPage extends StatefulWidget {
   /// Copies an entry's records into the write list.
   final void Function(List<NdefRecordModel> records, String name) onUseRecords;
 
+  /// Opens the editor for a new entry from the last scan right away.
+  final bool startWithLastScan;
+
   const TagLibraryPage({
     super.key,
     required this.storage,
@@ -65,6 +68,7 @@ class TagLibraryPage extends StatefulWidget {
     required this.lastScanUid,
     required this.composerRecords,
     required this.onUseRecords,
+    this.startWithLastScan = false,
   });
 
   @override
@@ -82,6 +86,23 @@ class _TagLibraryPageState extends State<TagLibraryPage> {
     getApplicationDocumentsDirectory().then((dir) {
       if (mounted) setState(() => _docsDir = dir);
     }).catchError((_) {});
+    if (widget.startWithLastScan && widget.lastScanRecords.isNotEmpty) {
+      WidgetsBinding.instance.addPostFrameCallback((_) {
+        if (!mounted) return;
+        final now = DateTime.now();
+        _edit(
+          TagLibraryEntry(
+            id: '${now.microsecondsSinceEpoch}',
+            name: '',
+            uid: widget.lastScanUid,
+            records: List<NdefRecordModel>.from(widget.lastScanRecords),
+            createdAt: now,
+            updatedAt: now,
+          ),
+          isNew: true,
+        );
+      });
+    }
   }
 
   File? _photoFile(TagLibraryEntry entry) {

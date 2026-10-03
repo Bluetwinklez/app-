@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import '../l10n/app_localizations.dart';
 import '../domain/ndef_record.dart';
 import '../domain/quick_links.dart';
+import '../l10n/l10n.dart';
 import 'app_theme.dart';
 
 /// Form dialog / bottom sheet for composing or editing NDEF records
@@ -519,7 +520,7 @@ class _ComposeRecordSheetState extends State<ComposeRecordSheet> {
           return;
         }
         if (utf8.encode(ssid).length > 32) {
-          setState(() => _wifiSsidError = 'SSID en fazla 32 bayt olabilir.');
+          setState(() => _wifiSsidError = L10n.current.ssidTooLong);
           return;
         }
 
@@ -1178,7 +1179,7 @@ class _ComposeRecordSheetState extends State<ComposeRecordSheet> {
             TextField(
               controller: _calLocationController,
               decoration: InputDecoration(
-                labelText: 'Konum / Yer',
+                labelText: L10n.current.locationPlace,
                 hintText: loc.composeCalLocationHint,
                 border: const OutlineInputBorder(),
               ),
@@ -1276,7 +1277,7 @@ class _ComposeRecordSheetState extends State<ComposeRecordSheet> {
               controller: _spUriController,
               keyboardType: TextInputType.url,
               decoration: InputDecoration(
-                labelText: 'Hedef Web URL *',
+                labelText: L10n.current.targetWebUrl,
                 hintText: 'https://example.com',
                 errorText: _spUriError,
                 border: const OutlineInputBorder(),
@@ -1295,7 +1296,7 @@ class _ComposeRecordSheetState extends State<ComposeRecordSheet> {
             TextField(
               controller: _spLangController,
               decoration: InputDecoration(
-                labelText: 'Dil Kodu (ISO 639-1) *',
+                labelText: L10n.current.languageCodeLabel,
                 hintText: 'tr',
                 errorText: _spLangError,
                 border: const OutlineInputBorder(),
@@ -1322,7 +1323,7 @@ class _ComposeRecordSheetState extends State<ComposeRecordSheet> {
               children: [
                 Text(loc.composeDataFormat, style: const TextStyle(fontWeight: FontWeight.w500)),
                 ChoiceChip(
-                  label: const Text('UTF-8 Metin'),
+                  label: Text(L10n.current.utf8Text),
                   selected: !_mimeIsHex,
                   onSelected: (val) {
                     if (val) setState(() => _mimeIsHex = false);
@@ -1441,7 +1442,7 @@ class _ComposeRecordSheetState extends State<ComposeRecordSheet> {
                 DropdownMenuItem(value: WifiEncryptionType.aes, child: Text(loc.composeWifiAesRecommended)),
                 const DropdownMenuItem(value: WifiEncryptionType.tkipAes, child: Text('TKIP / AES')),
                 const DropdownMenuItem(value: WifiEncryptionType.tkip, child: Text('TKIP')),
-                const DropdownMenuItem(value: WifiEncryptionType.none, child: Text('Yok / None')),
+                DropdownMenuItem(value: WifiEncryptionType.none, child: Text(L10n.current.valueNone)),
               ],
               onChanged: (val) {
                 if (val != null) setState(() => _wifiEncryptionType = val);

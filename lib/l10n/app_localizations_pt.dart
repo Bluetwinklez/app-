@@ -2747,4 +2747,154 @@ class AppLocalizationsPt extends AppLocalizations {
   String lockTagWarningFull(String more) {
     return 'Uma tag bloqueada fica somente leitura: o conteúdo NUNCA poderá ser alterado ou apagado e o bloqueio NÃO pode ser removido. $more';
   }
+
+  @override
+  String messageSizeBytes(String bytes) {
+    return 'Tamanho da mensagem: $bytes bytes';
+  }
+
+  @override
+  String bytesShort(String bytes) {
+    return 'Bytes: $bytes B';
+  }
+
+  @override
+  String bytesValue(String bytes) {
+    return '$bytes bytes';
+  }
+
+  @override
+  String bytesOfCapacity(String bytes, String max) {
+    return '$bytes / $max bytes';
+  }
+
+  @override
+  String get valueNone => 'Nenhum';
+
+  @override
+  String get valueYesIp => 'Sim (endereço IP)';
+
+  @override
+  String get nfcMissingShort => 'Sem NFC';
+
+  @override
+  String get clearClipboard => 'Limpar área';
+
+  @override
+  String get statLibrary => 'Biblioteca';
+
+  @override
+  String get scanTagTitle => 'Ler tag';
+
+  @override
+  String get readingInProgress => 'Lendo...';
+
+  @override
+  String get rawMemorySubtitle => 'Memória bruta';
+
+  @override
+  String get copyToClipboard => 'Copiar';
+
+  @override
+  String get serialUidLabel => 'N.º de série (UID):';
+
+  @override
+  String get totalCapacityLabel => 'Capacidade total:';
+
+  @override
+  String get technologiesLabel => 'Tecnologias:';
+
+  @override
+  String get idLabel => 'Identificador (ID):';
+
+  @override
+  String get undoTooltip => 'Desfazer';
+
+  @override
+  String get clearComposer => 'Limpar lista';
+
+  @override
+  String composerTotalSize(String bytes) {
+    return 'Tamanho total: $bytes bytes';
+  }
+
+  @override
+  String get yesClear => 'Sim, limpar';
+
+  @override
+  String get ssidTooLong => 'O SSID pode ter no máximo 32 bytes.';
+
+  @override
+  String get locationPlace => 'Local';
+
+  @override
+  String get targetWebUrl => 'URL de destino *';
+
+  @override
+  String get languageCodeLabel => 'Código de idioma (ISO 639-1) *';
+
+  @override
+  String get utf8Text => 'Texto UTF-8';
+
+  @override
+  String recordDebugSummary(String tnf, String bytes) {
+    return 'TNF: $tnf, tamanho: $bytes bytes';
+  }
+
+  @override
+  String get quickGallerySubtitle => 'Pronto com um toque';
+
+  @override
+  String get quickLibraryTitle => 'Minhas tags';
+
+  @override
+  String get quickLibrarySubtitle => 'Tags salvas';
+
+  @override
+  String get saveToLibrary => 'Salvar na biblioteca';
+
+  @override
+  String libraryMatch(String name) {
+    return 'Na biblioteca: $name';
+  }
+
+  @override
+  String tagChipLabel(String chip) {
+    return 'Chip: $chip';
+  }
+
+  @override
+  String tagManufacturerLabel(String name) {
+    return 'Fabricante: $name';
+  }
+
+  @override
+  String get settingsLibrarySubtitle => 'Suas tags com nomes, notas e fotos';
+
+  @override
+  String get showOnboardingAgain => 'Ver a introdução novamente';
+
+  @override
+  String get importFromGallery => 'Adicionar dos modelos';
+
+  @override
+  String get appearanceTitle => 'Aparência';
+
+  @override
+  String get themeSystem => 'Sistema';
+
+  @override
+  String get themeLight => 'Claro';
+
+  @override
+  String get themeDark => 'Escuro';
+
+  @override
+  String get valuePresentRisky => 'Presente (pode ser arriscado)';
+
+  @override
+  String get supportedValue => 'Compatível';
+
+  @override
+  String get notSupportedValue => 'Não compatível';
 }
