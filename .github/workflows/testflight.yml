@@ -97,6 +97,36 @@ jobs:
           python3 tool/asc_provision.py
           rm -f "$key"
 
+      # Without an Admin API key no profiles can be created: sign the app
+      # alone with the App Store profile from the repository secrets and
+      # leave the widgets and the watch app out of this build.
+      - name: Fall back to the stored App Store profile
+        if: env.SIGNING_MODE == 'legacy'
+        env:
+          IOS_APPSTORE_PROFILE_BASE64: ${{ secrets.IOS_APPSTORE_PROFILE_BASE64 }}
+          IOS_BUNDLE_ID: ${{ secrets.IOS_BUNDLE_ID }}
+          IOS_TEAM_ID: ${{ secrets.IOS_TEAM_ID }}
+        run: |
+          set -euo pipefail
+          [[ -n "$IOS_APPSTORE_PROFILE_BASE64" ]] || { echo '::error::Missing repository secret: IOS_APPSTORE_PROFILE_BASE64'; exit 1; }
+          printf '%s' "$IOS_APPSTORE_PROFILE_BASE64" | base64 -D > "$RUNNER_TEMP/signing.mobileprovision"
+          security cms -D -i "$RUNNER_TEMP/signing.mobileprovision" > "$RUNNER_TEMP/profile.plist"
+          profile_value() { /usr/libexec/PlistBuddy -c "Print :$1" "$RUNNER_TEMP/profile.plist"; }
+          profile_uuid="$(profile_value UUID)"
+          profile_name="$(profile_value Name)"
+          [[ "$(profile_value TeamIdentifier:0)" == "$IOS_TEAM_ID" ]] || { echo '::error::Profile team does not match IOS_TEAM_ID'; exit 1; }
+          [[ "$(profile_value Entitlements:application-identifier)" == "$IOS_TEAM_ID.$IOS_BUNDLE_ID" ]] || { echo '::error::Profile app ID does not match IOS_BUNDLE_ID'; exit 1; }
+          for dir in "$HOME/Library/MobileDevice/Provisioning Profiles" "$HOME/Library/Developer/Xcode/UserData/Provisioning Profiles"; do
+            mkdir -p "$dir"
+            cp "$RUNNER_TEMP/signing.mobileprovision" "$dir/$profile_uuid.mobileprovision"
+          done
+          sed -i '' "s/PROVISIONING_PROFILE_SPECIFIER = \"NFCTM CI App\";/PROVISIONING_PROFILE_SPECIFIER = \"$profile_name\";/" ios/Runner.xcodeproj/project.pbxproj
+          echo "APP_PROFILE_NAME=$profile_name" >> "$GITHUB_ENV"
+          echo "ICLOUD_ENABLED=0" >> "$GITHUB_ENV"
+          ruby -e 'require "xcodeproj"' 2>/dev/null || gem install --user-install --no-document xcodeproj
+          ruby tool/strip_ios_extensions.rb
+          rm -f "$RUNNER_TEMP/signing.mobileprovision" "$RUNNER_TEMP/profile.plist"
+
       # iCloud backup ships only when the profile allows it (enabling the
       # capability needs an Admin API key); otherwise the app hides it.
       - name: Match iCloud entitlement to the profile
@@ -130,7 +160,7 @@ jobs:
             <key>signingStyle</key><string>manual</string>
             <key>teamID</key><string>$IOS_TEAM_ID</string>
             <key>provisioningProfiles</key><dict>
-              <key>$IOS_BUNDLE_ID</key><string>NFCTM CI App</string>
+              <key>$IOS_BUNDLE_ID</key><string>${APP_PROFILE_NAME:-NFCTM CI App}</string>
               <key>$IOS_BUNDLE_ID.widgets</key><string>NFCTM CI Widgets</string>
               <key>$IOS_BUNDLE_ID.watchkitapp</key><string>NFCTM CI Watch</string>
             </dict>
@@ -165,7 +195,7 @@ jobs:
         run: |
           rm -rf "$HOME/Library/MobileDevice/Provisioning Profiles" "$HOME/Library/Developer/Xcode/UserData/Provisioning Profiles"
           security delete-keychain "$RUNNER_TEMP/signing.keychain-db" 2>/dev/null || true
-          rm -f "$RUNNER_TEMP/signing.p12" "$RUNNER_TEMP/asc_key.p8" "$RUNNER_TEMP/ExportOptions.plist"
+          rm -f "$RUNNER_TEMP/signing.p12" "$RUNNER_TEMP/asc_key.p8" "$RUNNER_TEMP/ExportOptions.plist" "$RUNNER_TEMP/signing.mobileprovision" "$RUNNER_TEMP/profile.plist"
           if [[ -n "${ASC_API_KEY_ID:-}" ]]; then
             rm -f "$HOME/.private_keys/AuthKey_${ASC_API_KEY_ID}.p8"
           fi
