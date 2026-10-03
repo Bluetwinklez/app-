@@ -38,6 +38,12 @@ class TagLibraryEntry {
   /// Logbook that gets an entry whenever this tag is scanned. Null = none.
   final String? autoLogBookId;
 
+  /// Asset details (inventory / equipment): serial number, who has it and
+  /// when the warranty ends.
+  final String assetSerial;
+  final String assignee;
+  final DateTime? warrantyUntil;
+
   /// Where the tag is stuck (for the tag map). Null when unknown.
   final double? latitude;
   final double? longitude;
@@ -61,7 +67,15 @@ class TagLibraryEntry {
     this.autoLogBookId,
     this.latitude,
     this.longitude,
+    this.assetSerial = '',
+    this.assignee = '',
+    this.warrantyUntil,
   });
+
+  bool get hasAssetInfo => assetSerial.isNotEmpty || assignee.isNotEmpty || warrantyUntil != null;
+
+  /// Warranty ended (on or before [now]).
+  bool warrantyExpired(DateTime now) => warrantyUntil != null && !now.isBefore(warrantyUntil!);
 
   /// Saved coordinates, else the first `geo:` link written on the tag.
   ({double lat, double lng})? get position {
@@ -114,6 +128,10 @@ class TagLibraryEntry {
     double? latitude,
     double? longitude,
     bool clearPosition = false,
+    String? assetSerial,
+    String? assignee,
+    DateTime? warrantyUntil,
+    bool clearWarranty = false,
   }) {
     return TagLibraryEntry(
       id: id,
@@ -132,6 +150,9 @@ class TagLibraryEntry {
       autoLogBookId: clearAutoLog ? null : (autoLogBookId ?? this.autoLogBookId),
       latitude: clearPosition ? null : (latitude ?? this.latitude),
       longitude: clearPosition ? null : (longitude ?? this.longitude),
+      assetSerial: assetSerial ?? this.assetSerial,
+      assignee: assignee ?? this.assignee,
+      warrantyUntil: clearWarranty ? null : (warrantyUntil ?? this.warrantyUntil),
     );
   }
 
@@ -139,7 +160,8 @@ class TagLibraryEntry {
   bool matches(String query) {
     final q = foldForSearch(query.trim());
     if (q.isEmpty) return true;
-    if (foldForSearch('$name $note $locationNote ${labels.join(' ')} ${uid ?? ''}').contains(q)) {
+    if (foldForSearch('$name $note $locationNote ${labels.join(' ')} ${uid ?? ''} $assetSerial $assignee')
+        .contains(q)) {
       return true;
     }
     for (final record in records) {
@@ -224,6 +246,9 @@ class TagLibraryEntry {
         if (checkEveryDays != null) 'checkEveryDays': checkEveryDays,
         if (autoLogBookId != null) 'autoLogBookId': autoLogBookId,
         if (latitude != null && longitude != null) ...{'lat': latitude, 'lng': longitude},
+        if (assetSerial.isNotEmpty) 'serial': assetSerial,
+        if (assignee.isNotEmpty) 'assignee': assignee,
+        if (warrantyUntil != null) 'warranty': warrantyUntil!.toIso8601String(),
       };
 
   factory TagLibraryEntry.fromJsonMap(Map<String, dynamic> map) {
@@ -251,6 +276,9 @@ class TagLibraryEntry {
       autoLogBookId: map['autoLogBookId'] as String?,
       latitude: (map['lat'] as num?)?.toDouble(),
       longitude: (map['lng'] as num?)?.toDouble(),
+      assetSerial: map['serial'] as String? ?? '',
+      assignee: map['assignee'] as String? ?? '',
+      warrantyUntil: DateTime.tryParse(map['warranty'] as String? ?? ''),
     );
   }
 }

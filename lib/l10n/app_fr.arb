@@ -1384,5 +1384,14 @@
   "templateImportHint": "Chaque ligne : nom, type, valeur, extra. Types : url, text, phone, email, sms, location, wifi. Les lignes de même nom forment un modèle.",
   "templateImportPreview": "{count} modèles seront ajoutés",
   "templateImportSkipped": "Lignes ignorées : {rows}",
-  "templateImportDone": "{count} modèles ajoutés"
+  "templateImportDone": "{count} modèles ajoutés",
+  "assetSection": "Infos d'inventaire",
+  "assetSerialLabel": "N° de série / inventaire",
+  "assigneeLabel": "Attribué à",
+  "warrantyLabel": "Garantie jusqu'au",
+  "warrantyExpired": "Garantie expirée",
+  "warrantyUntilText": "Garantie : {date}",
+  "assigneeText": "Attribué : {name}",
+  "reminderWarrantyTitle": "Fin de garantie : {name}",
+  "reminderWarrantyBody": "La garantie se termine aujourd'hui."
 }

@@ -4942,4 +4942,37 @@ class AppLocalizationsTr extends AppLocalizations {
   String templateImportDone(String count) {
     return '$count şablon eklendi';
   }
+
+  @override
+  String get assetSection => 'Demirbaş bilgileri';
+
+  @override
+  String get assetSerialLabel => 'Seri / demirbaş no';
+
+  @override
+  String get assigneeLabel => 'Zimmetli kişi';
+
+  @override
+  String get warrantyLabel => 'Garanti bitişi';
+
+  @override
+  String get warrantyExpired => 'Garanti bitti';
+
+  @override
+  String warrantyUntilText(String date) {
+    return 'Garanti: $date';
+  }
+
+  @override
+  String assigneeText(String name) {
+    return 'Zimmet: $name';
+  }
+
+  @override
+  String reminderWarrantyTitle(String name) {
+    return 'Garanti bitiyor: $name';
+  }
+
+  @override
+  String get reminderWarrantyBody => 'Bugün garanti süresi doluyor.';
 }

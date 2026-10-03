@@ -74,6 +74,8 @@ class NotificationService {
         bookBody: bookBody,
         inspectionTitle: (e) => L10n.current.reminderInspectionTitle(e.name),
         inspectionBody: L10n.current.reminderInspectionBody,
+        warrantyTitle: (e) => L10n.current.reminderWarrantyTitle(e.name),
+        warrantyBody: L10n.current.reminderWarrantyBody,
       );
       for (final r in plan) {
         final now = tz.TZDateTime.now(tz.local);

@@ -8434,6 +8434,60 @@ abstract class AppLocalizations {
   /// In tr, this message translates to:
   /// **'{count} şablon eklendi'**
   String templateImportDone(String count);
+
+  /// No description provided for @assetSection.
+  ///
+  /// In tr, this message translates to:
+  /// **'Demirbaş bilgileri'**
+  String get assetSection;
+
+  /// No description provided for @assetSerialLabel.
+  ///
+  /// In tr, this message translates to:
+  /// **'Seri / demirbaş no'**
+  String get assetSerialLabel;
+
+  /// No description provided for @assigneeLabel.
+  ///
+  /// In tr, this message translates to:
+  /// **'Zimmetli kişi'**
+  String get assigneeLabel;
+
+  /// No description provided for @warrantyLabel.
+  ///
+  /// In tr, this message translates to:
+  /// **'Garanti bitişi'**
+  String get warrantyLabel;
+
+  /// No description provided for @warrantyExpired.
+  ///
+  /// In tr, this message translates to:
+  /// **'Garanti bitti'**
+  String get warrantyExpired;
+
+  /// No description provided for @warrantyUntilText.
+  ///
+  /// In tr, this message translates to:
+  /// **'Garanti: {date}'**
+  String warrantyUntilText(String date);
+
+  /// No description provided for @assigneeText.
+  ///
+  /// In tr, this message translates to:
+  /// **'Zimmet: {name}'**
+  String assigneeText(String name);
+
+  /// No description provided for @reminderWarrantyTitle.
+  ///
+  /// In tr, this message translates to:
+  /// **'Garanti bitiyor: {name}'**
+  String reminderWarrantyTitle(String name);
+
+  /// No description provided for @reminderWarrantyBody.
+  ///
+  /// In tr, this message translates to:
+  /// **'Bugün garanti süresi doluyor.'**
+  String get reminderWarrantyBody;
 }
 
 class _AppLocalizationsDelegate

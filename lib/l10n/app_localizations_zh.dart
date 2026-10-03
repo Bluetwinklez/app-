@@ -4689,4 +4689,37 @@ class AppLocalizationsZh extends AppLocalizations {
   String templateImportDone(String count) {
     return '已添加 $count 个模板';
   }
+
+  @override
+  String get assetSection => '资产信息';
+
+  @override
+  String get assetSerialLabel => '序列号 / 资产编号';
+
+  @override
+  String get assigneeLabel => '领用人';
+
+  @override
+  String get warrantyLabel => '保修至';
+
+  @override
+  String get warrantyExpired => '保修已过期';
+
+  @override
+  String warrantyUntilText(String date) {
+    return '保修：$date';
+  }
+
+  @override
+  String assigneeText(String name) {
+    return '领用：$name';
+  }
+
+  @override
+  String reminderWarrantyTitle(String name) {
+    return '保修到期：$name';
+  }
+
+  @override
+  String get reminderWarrantyBody => '保修今天到期。';
 }

@@ -4928,4 +4928,37 @@ class AppLocalizationsEn extends AppLocalizations {
   String templateImportDone(String count) {
     return '$count templates added';
   }
+
+  @override
+  String get assetSection => 'Asset details';
+
+  @override
+  String get assetSerialLabel => 'Serial / asset no.';
+
+  @override
+  String get assigneeLabel => 'Assigned to';
+
+  @override
+  String get warrantyLabel => 'Warranty until';
+
+  @override
+  String get warrantyExpired => 'Warranty expired';
+
+  @override
+  String warrantyUntilText(String date) {
+    return 'Warranty: $date';
+  }
+
+  @override
+  String assigneeText(String name) {
+    return 'Assigned: $name';
+  }
+
+  @override
+  String reminderWarrantyTitle(String name) {
+    return 'Warranty ends: $name';
+  }
+
+  @override
+  String get reminderWarrantyBody => 'The warranty ends today.';
 }
