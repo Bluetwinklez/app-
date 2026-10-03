@@ -26,6 +26,9 @@ class TagLibraryEntry {
   final DateTime createdAt;
   final DateTime updatedAt;
 
+  /// Last time this tag was scanned (matched by UID); null if never.
+  final DateTime? lastSeenAt;
+
   const TagLibraryEntry({
     required this.id,
     required this.name,
@@ -38,7 +41,12 @@ class TagLibraryEntry {
     this.records = const [],
     required this.createdAt,
     required this.updatedAt,
+    this.lastSeenAt,
   });
+
+  /// Not scanned for at least [days] days (or never).
+  bool unseenFor(int days, DateTime now) =>
+      lastSeenAt == null || now.difference(lastSeenAt!).inDays >= days;
 
   TagLibraryEntry copyWith({
     String? name,
@@ -51,6 +59,7 @@ class TagLibraryEntry {
     String? uid,
     List<NdefRecordModel>? records,
     DateTime? updatedAt,
+    DateTime? lastSeenAt,
   }) {
     return TagLibraryEntry(
       id: id,
@@ -64,6 +73,7 @@ class TagLibraryEntry {
       records: records ?? this.records,
       createdAt: createdAt,
       updatedAt: updatedAt ?? this.updatedAt,
+      lastSeenAt: lastSeenAt ?? this.lastSeenAt,
     );
   }
 
@@ -130,6 +140,7 @@ class TagLibraryEntry {
         'records': records.map((r) => r.toJsonMap()).toList(),
         'createdAt': createdAt.toIso8601String(),
         'updatedAt': updatedAt.toIso8601String(),
+        if (lastSeenAt != null) 'lastSeenAt': lastSeenAt!.toIso8601String(),
       };
 
   factory TagLibraryEntry.fromJsonMap(Map<String, dynamic> map) {
@@ -152,6 +163,7 @@ class TagLibraryEntry {
           .toList(),
       createdAt: created,
       updatedAt: DateTime.tryParse(map['updatedAt'] as String? ?? '') ?? created,
+      lastSeenAt: DateTime.tryParse(map['lastSeenAt'] as String? ?? ''),
     );
   }
 }

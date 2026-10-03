@@ -6645,6 +6645,36 @@ abstract class AppLocalizations {
   /// In tr, this message translates to:
   /// **'{count} kayıt'**
   String logbookEntries(String count);
+
+  /// No description provided for @lastSeenAt.
+  ///
+  /// In tr, this message translates to:
+  /// **'Son görülme: {date}'**
+  String lastSeenAt(String date);
+
+  /// No description provided for @neverSeen.
+  ///
+  /// In tr, this message translates to:
+  /// **'Henüz okutulmadı'**
+  String get neverSeen;
+
+  /// No description provided for @sortLongestUnseen.
+  ///
+  /// In tr, this message translates to:
+  /// **'En uzun süredir görülmeyen'**
+  String get sortLongestUnseen;
+
+  /// No description provided for @unseen30Days.
+  ///
+  /// In tr, this message translates to:
+  /// **'30+ gündür görülmedi'**
+  String get unseen30Days;
+
+  /// No description provided for @inventoryCardTitle.
+  ///
+  /// In tr, this message translates to:
+  /// **'Bu etiket kütüphanenizde'**
+  String get inventoryCardTitle;
 }
 
 class _AppLocalizationsDelegate

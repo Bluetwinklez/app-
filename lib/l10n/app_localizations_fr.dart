@@ -3894,4 +3894,21 @@ class AppLocalizationsFr extends AppLocalizations {
   String logbookEntries(String count) {
     return '$count entrées';
   }
+
+  @override
+  String lastSeenAt(String date) {
+    return 'Vu pour la dernière fois : $date';
+  }
+
+  @override
+  String get neverSeen => 'Pas encore scanné';
+
+  @override
+  String get sortLongestUnseen => 'Non vus depuis le plus longtemps';
+
+  @override
+  String get unseen30Days => 'Non vu depuis 30+ jours';
+
+  @override
+  String get inventoryCardTitle => 'Ce tag est dans votre bibliothèque';
 }

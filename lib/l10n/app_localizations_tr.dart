@@ -3865,4 +3865,21 @@ class AppLocalizationsTr extends AppLocalizations {
   String logbookEntries(String count) {
     return '$count kayıt';
   }
+
+  @override
+  String lastSeenAt(String date) {
+    return 'Son görülme: $date';
+  }
+
+  @override
+  String get neverSeen => 'Henüz okutulmadı';
+
+  @override
+  String get sortLongestUnseen => 'En uzun süredir görülmeyen';
+
+  @override
+  String get unseen30Days => '30+ gündür görülmedi';
+
+  @override
+  String get inventoryCardTitle => 'Bu etiket kütüphanenizde';
 }

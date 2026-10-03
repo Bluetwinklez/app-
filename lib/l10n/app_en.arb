@@ -1086,5 +1086,10 @@
   "logbookMedNotTaken": "Not taken yet today",
   "logbookInventorySummary": "{count} different tags counted",
   "logbookDeleteConfirm": "Delete the logbook \"{name}\" and all its entries?",
-  "logbookEntries": "{count} entries"
+  "logbookEntries": "{count} entries",
+  "lastSeenAt": "Last seen: {date}",
+  "neverSeen": "Not scanned yet",
+  "sortLongestUnseen": "Longest unseen",
+  "unseen30Days": "Not seen for 30+ days",
+  "inventoryCardTitle": "This tag is in your library"
 }

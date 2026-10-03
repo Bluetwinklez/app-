@@ -196,6 +196,8 @@ class NfcStateController extends ChangeNotifier {
         _statusMessage = L10n.current.statusScanSuccess(info.identifier);
         _feedback(success: true);
 
+        await _markLibrarySeen(info.identifier);
+
         // Check if there is an in-app tag rule matching exact NDEF bytes SHA-256
         if (info.records.isNotEmpty) {
           final sha = computeRecordsSha256(info.records);
@@ -225,6 +227,21 @@ class NfcStateController extends ChangeNotifier {
     } finally {
       _isBusy = false;
       notifyListeners();
+    }
+  }
+
+  /// Remembers when a saved library tag was last scanned (health tracking).
+  Future<void> _markLibrarySeen(String uid) async {
+    if (uid.isEmpty) return;
+    for (final entry in _storage.getLibrary()) {
+      if (entry.uid != null && entry.uid!.toUpperCase() == uid.toUpperCase()) {
+        try {
+          await _storage.saveLibraryEntry(entry.copyWith(lastSeenAt: DateTime.now()));
+        } catch (_) {
+          // Best effort; the scan itself succeeded.
+        }
+        return;
+      }
     }
   }
 

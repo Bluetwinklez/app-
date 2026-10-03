@@ -1086,5 +1086,10 @@
   "logbookMedNotTaken": "Aún no tomada hoy",
   "logbookInventorySummary": "{count} etiquetas distintas contadas",
   "logbookDeleteConfirm": "¿Eliminar el registro «{name}» y todas sus entradas?",
-  "logbookEntries": "{count} entradas"
+  "logbookEntries": "{count} entradas",
+  "lastSeenAt": "Visto por última vez: {date}",
+  "neverSeen": "Aún no escaneada",
+  "sortLongestUnseen": "Más tiempo sin ver",
+  "unseen30Days": "Sin ver hace 30+ días",
+  "inventoryCardTitle": "Esta etiqueta está en tu biblioteca"
 }

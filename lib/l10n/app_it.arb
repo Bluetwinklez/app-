@@ -1086,5 +1086,10 @@
   "logbookMedNotTaken": "Non ancora preso oggi",
   "logbookInventorySummary": "{count} tag diversi contati",
   "logbookDeleteConfirm": "Eliminare il registro \"{name}\" e tutte le voci?",
-  "logbookEntries": "{count} voci"
+  "logbookEntries": "{count} voci",
+  "lastSeenAt": "Visto l'ultima volta: {date}",
+  "neverSeen": "Non ancora letto",
+  "sortLongestUnseen": "Non visti da più tempo",
+  "unseen30Days": "Non visto da 30+ giorni",
+  "inventoryCardTitle": "Questo tag è nella tua libreria"
 }

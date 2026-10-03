@@ -1086,5 +1086,10 @@
   "logbookMedNotTaken": "Heute noch nicht genommen",
   "logbookInventorySummary": "{count} verschiedene Tags gezählt",
   "logbookDeleteConfirm": "Logbuch „{name}“ mit allen Einträgen löschen?",
-  "logbookEntries": "{count} Einträge"
+  "logbookEntries": "{count} Einträge",
+  "lastSeenAt": "Zuletzt gesehen: {date}",
+  "neverSeen": "Noch nicht gescannt",
+  "sortLongestUnseen": "Am längsten nicht gesehen",
+  "unseen30Days": "Seit 30+ Tagen nicht gesehen",
+  "inventoryCardTitle": "Dieser Tag ist in Ihrer Bibliothek"
 }

@@ -1086,5 +1086,10 @@
   "logbookMedNotTaken": "Сьогодні ще не прийнято",
   "logbookInventorySummary": "Враховано різних міток: {count}",
   "logbookDeleteConfirm": "Видалити журнал «{name}» з усіма записами?",
-  "logbookEntries": "Записів: {count}"
+  "logbookEntries": "Записів: {count}",
+  "lastSeenAt": "Востаннє: {date}",
+  "neverSeen": "Ще не сканувалася",
+  "sortLongestUnseen": "Найдовше не бачили",
+  "unseen30Days": "Не бачили 30+ днів",
+  "inventoryCardTitle": "Ця мітка є в бібліотеці"
 }

@@ -1086,5 +1086,10 @@
   "logbookMedNotTaken": "Vandaag nog niet ingenomen",
   "logbookInventorySummary": "{count} verschillende tags geteld",
   "logbookDeleteConfirm": "Logboek \"{name}\" en alle vermeldingen verwijderen?",
-  "logbookEntries": "{count} vermeldingen"
+  "logbookEntries": "{count} vermeldingen",
+  "lastSeenAt": "Laatst gezien: {date}",
+  "neverSeen": "Nog niet gescand",
+  "sortLongestUnseen": "Langst niet gezien",
+  "unseen30Days": "30+ dagen niet gezien",
+  "inventoryCardTitle": "Deze tag staat in je bibliotheek"
 }

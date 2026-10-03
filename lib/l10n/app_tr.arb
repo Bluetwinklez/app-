@@ -2560,5 +2560,17 @@
         "type": "String"
       }
     }
-  }
+  },
+  "lastSeenAt": "Son görülme: {date}",
+  "@lastSeenAt": {
+    "placeholders": {
+      "date": {
+        "type": "String"
+      }
+    }
+  },
+  "neverSeen": "Henüz okutulmadı",
+  "sortLongestUnseen": "En uzun süredir görülmeyen",
+  "unseen30Days": "30+ gündür görülmedi",
+  "inventoryCardTitle": "Bu etiket kütüphanenizde"
 }

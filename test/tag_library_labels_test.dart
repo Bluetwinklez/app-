@@ -39,4 +39,14 @@ void main() {
     final csv = CsvExport.library([entry('a', ['x', 'y'])], header: ['n', 'c', 'l', 'lb', 'no', 'u', 'ct', 't']);
     expect(csv, contains('"x, y"'));
   });
+
+  test('lastSeenAt round-trips and drives the 30-day check', () {
+    final now = DateTime(2026, 6, 1);
+    final e = entry('a', []).copyWith(lastSeenAt: now.subtract(const Duration(days: 31)));
+    final back = TagLibraryEntry.fromJsonMap(e.toJsonMap());
+    expect(back.lastSeenAt, e.lastSeenAt);
+    expect(back.unseenFor(30, now), isTrue);
+    expect(back.copyWith(lastSeenAt: now).unseenFor(30, now), isFalse);
+    expect(entry('b', []).unseenFor(30, now), isTrue, reason: 'never seen');
+  });
 }
