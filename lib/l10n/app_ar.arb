@@ -1054,5 +1054,9 @@
   "chipUseAccess": "بطاقات الأبواب والفنادق",
   "chipUseIndustrial": "المكتبات والمستودعات والصناعة؛ مدى قراءة أطول",
   "chipUseJapan": "شائع في اليابان (النقل، الدفع)",
-  "chipUseLegacy": "نوع قديم؛ غير مستحسن للمشاريع الجديدة"
+  "chipUseLegacy": "نوع قديم؛ غير مستحسن للمشاريع الجديدة",
+  "templateVarsHint": "نصيحة: ضع {date} أو {time} أو {counter} في نص أو رابط لتُملأ عند الكتابة.",
+  "templateVarsPreview": "عند الكتابة: {date} · {time} · العداد {counter}",
+  "libraryWriteToTag": "اكتب على وسم",
+  "libraryWritePrompt": "قرّب وسمًا لكتابة \"{name}\""
 }

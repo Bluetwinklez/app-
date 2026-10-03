@@ -38,6 +38,7 @@ import '../l10n/app_localizations.dart';
 import '../l10n/l10n.dart';
 import '../domain/csv_records.dart';
 import '../domain/serial_plan.dart';
+import '../domain/template_variables.dart';
 
 part 'home_clipboard_flows.dart';
 part 'home_batch_flow.dart';
@@ -272,6 +273,10 @@ class _HomeScreenState extends State<HomeScreen>
         lastScanUid: hasScan ? tag.identifier : null,
         composerRecords: List<NdefRecordModel>.from(_recordsToWrite),
         onUseRecords: (records, name) => _appendImportedRecords(List<NdefRecordModel>.from(records), name),
+        onWriteRecords: (records, name) => _controller.writeRecords(
+          List<NdefRecordModel>.from(records),
+          promptMessage: L10n.current.libraryWritePrompt(name),
+        ),
         startWithLastScan: saveLastScan,
       ),
     )).then((_) {

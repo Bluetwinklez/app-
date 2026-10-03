@@ -1054,5 +1054,9 @@
   "chipUseAccess": "Toegangs- en hotelpassen",
   "chipUseIndustrial": "Bibliotheek-, magazijn- en industriële tags; groter bereik",
   "chipUseJapan": "Gangbaar in Japan (ov, betalen)",
-  "chipUseLegacy": "Verouderd type; niet aanbevolen"
+  "chipUseLegacy": "Verouderd type; niet aanbevolen",
+  "templateVarsHint": "Tip: {date}, {time} of {counter} in tekst of link worden bij het schrijven ingevuld.",
+  "templateVarsPreview": "Bij schrijven: {date} · {time} · teller {counter}",
+  "libraryWriteToTag": "Naar tag schrijven",
+  "libraryWritePrompt": "Houd een tag in de buurt om \"{name}\" te schrijven"
 }

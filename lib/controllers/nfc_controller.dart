@@ -6,6 +6,7 @@ import '../domain/storage_models.dart';
 import '../domain/nfc_workflow_models.dart';
 import '../domain/tag_rule.dart';
 import '../domain/ntag_tools.dart';
+import '../domain/template_variables.dart';
 import '../l10n/l10n.dart';
 import '../services/nfc_service.dart';
 import '../services/app_storage_service.dart';
@@ -271,6 +272,14 @@ class NfcStateController extends ChangeNotifier {
     _statusMessage = L10n.current.statusWriting;
     notifyListeners();
 
+    // {date} {time} {counter} in records are filled in now.
+    final usesVariables = TemplateVariables.hasAny(records);
+    final usesCounter = TemplateVariables.usesCounter(records);
+    final nextCounter = _storage.writeCounter + 1;
+    if (usesVariables) {
+      records = TemplateVariables.apply(records, now: DateTime.now(), counterValue: nextCounter);
+    }
+
     try {
       final result = await _service.writeTag(
         records: records,
@@ -285,6 +294,9 @@ class NfcStateController extends ChangeNotifier {
       }
       _feedback(success: result.isSuccess);
       if (result.isSuccess) {
+        if (usesCounter) {
+          await _storage.setWriteCounter(nextCounter);
+        }
         _statusMessage = L10n.current.statusWriteSuccess(result.bytesWritten);
       } else {
         _statusMessage = L10n.current.statusWriteFailed(result.message);

@@ -3590,4 +3590,22 @@ class AppLocalizationsKo extends AppLocalizations {
 
   @override
   String get chipUseLegacy => '구형, 새 프로젝트에 비추천';
+
+  @override
+  String templateVarsHint(String date, String time, String counter) {
+    return '팁: 텍스트나 링크에 $date, $time, $counter를 넣으면 쓸 때 자동으로 채워집니다.';
+  }
+
+  @override
+  String templateVarsPreview(String date, String time, String counter) {
+    return '쓸 때: $date · $time · 카운터 $counter';
+  }
+
+  @override
+  String get libraryWriteToTag => '태그에 쓰기';
+
+  @override
+  String libraryWritePrompt(String name) {
+    return '\"$name\"을(를) 쓰려면 태그를 대세요';
+  }
 }

@@ -3545,4 +3545,22 @@ class AppLocalizationsZh extends AppLocalizations {
 
   @override
   String get chipUseLegacy => '旧型号；不建议用于新项目';
+
+  @override
+  String templateVarsHint(String date, String time, String counter) {
+    return '提示：在文本或链接中写入 $date、$time、$counter，写入时会自动填充。';
+  }
+
+  @override
+  String templateVarsPreview(String date, String time, String counter) {
+    return '写入时：$date · $time · 计数 $counter';
+  }
+
+  @override
+  String get libraryWriteToTag => '写入标签';
+
+  @override
+  String libraryWritePrompt(String name) {
+    return '靠近标签以写入“$name”';
+  }
 }

@@ -1054,5 +1054,9 @@
   "chipUseAccess": "入退室カード、ホテルのカードキー",
   "chipUseIndustrial": "図書館・倉庫・産業用。読取距離が長い",
   "chipUseJapan": "日本で一般的 (交通、決済)",
-  "chipUseLegacy": "旧式。新規には非推奨"
+  "chipUseLegacy": "旧式。新規には非推奨",
+  "templateVarsHint": "ヒント: テキストやリンクに{date}・{time}・{counter}を入れると書き込み時に自動入力されます。",
+  "templateVarsPreview": "書き込み時: {date} · {time} · カウンター {counter}",
+  "libraryWriteToTag": "タグに書き込む",
+  "libraryWritePrompt": "「{name}」を書き込むタグをかざしてください"
 }

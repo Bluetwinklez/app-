@@ -3695,4 +3695,22 @@ class AppLocalizationsAr extends AppLocalizations {
 
   @override
   String get chipUseLegacy => 'نوع قديم؛ غير مستحسن للمشاريع الجديدة';
+
+  @override
+  String templateVarsHint(String date, String time, String counter) {
+    return 'نصيحة: ضع $date أو $time أو $counter في نص أو رابط لتُملأ عند الكتابة.';
+  }
+
+  @override
+  String templateVarsPreview(String date, String time, String counter) {
+    return 'عند الكتابة: $date · $time · العداد $counter';
+  }
+
+  @override
+  String get libraryWriteToTag => 'اكتب على وسم';
+
+  @override
+  String libraryWritePrompt(String name) {
+    return 'قرّب وسمًا لكتابة \"$name\"';
+  }
 }

@@ -1054,5 +1054,9 @@
   "chipUseAccess": "Cartões de acesso e de hotel",
   "chipUseIndustrial": "Bibliotecas, armazéns e indústria; maior alcance",
   "chipUseJapan": "Comum no Japão (transporte, pagamentos)",
-  "chipUseLegacy": "Tipo antigo; não recomendado"
+  "chipUseLegacy": "Tipo antigo; não recomendado",
+  "templateVarsHint": "Dica: {date}, {time} ou {counter} num texto ou link são preenchidos ao gravar.",
+  "templateVarsPreview": "Ao gravar: {date} · {time} · contador {counter}",
+  "libraryWriteToTag": "Gravar numa tag",
+  "libraryWritePrompt": "Aproxime uma tag para gravar \"{name}\""
 }

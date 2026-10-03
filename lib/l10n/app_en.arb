@@ -1054,5 +1054,9 @@
   "chipUseAccess": "Door/turnstile and hotel key cards",
   "chipUseIndustrial": "Library, warehouse and industrial tags; longer read range",
   "chipUseJapan": "Common in Japan (transit, payments)",
-  "chipUseLegacy": "Legacy type; not recommended for new projects"
+  "chipUseLegacy": "Legacy type; not recommended for new projects",
+  "templateVarsHint": "Tip: put {date}, {time} or {counter} in a text or link and it is filled in when writing.",
+  "templateVarsPreview": "When written: {date} · {time} · counter {counter}",
+  "libraryWriteToTag": "Write to a tag",
+  "libraryWritePrompt": "Hold a tag near to write \"{name}\""
 }
