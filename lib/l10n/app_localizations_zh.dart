@@ -3093,4 +3093,99 @@ class AppLocalizationsZh extends AppLocalizations {
 
   @override
   String get cloneEditFirst => '先编辑';
+
+  @override
+  String get tapPreviewTitle => '手机触碰时会发生什么？';
+
+  @override
+  String get tapPreviewIphone => 'iPhone';
+
+  @override
+  String get tapPreviewAndroid => 'Android';
+
+  @override
+  String get tapNone => '标签为空，不会发生任何事。';
+
+  @override
+  String tapIosUrl(String target) {
+    return '会出现通知，点按后在 Safari 或对应应用中打开 $target。';
+  }
+
+  @override
+  String tapAndroidUrl(String target) {
+    return '$target 会直接在浏览器或对应应用中打开。';
+  }
+
+  @override
+  String tapIosApp(String target) {
+    return '会出现通知；若已安装应用，将通过“$target”打开。';
+  }
+
+  @override
+  String tapAndroidApp(String target) {
+    return '若已安装应用，将通过“$target”打开。';
+  }
+
+  @override
+  String tapIosCall(String target) {
+    return '会出现通知，点按即拨打 $target。';
+  }
+
+  @override
+  String tapAndroidCall(String target) {
+    return '电话应用将打开并填入 $target。';
+  }
+
+  @override
+  String tapIosSms(String target) {
+    return '会出现通知，“信息”将打开发给 $target 的新信息。';
+  }
+
+  @override
+  String tapAndroidSms(String target) {
+    return '短信应用将打开并发给 $target。';
+  }
+
+  @override
+  String tapIosEmail(String target) {
+    return '会出现通知，“邮件”将打开发给 $target 的新邮件。';
+  }
+
+  @override
+  String tapAndroidEmail(String target) {
+    return '邮件应用将打开并发给 $target。';
+  }
+
+  @override
+  String get tapIosMap =>
+      'iPhone 不会自动打开“geo:”位置，请改用 Apple 或 Google 地图链接（快捷链接）。';
+
+  @override
+  String get tapAndroidMap => '地图应用将在此位置打开。';
+
+  @override
+  String get tapIosNeedsApp => 'iPhone 不会自动处理此内容，需要用 NFC 应用读取。';
+
+  @override
+  String get tapAndroidText => '大多数手机不会有反应，或在系统界面显示文本。';
+
+  @override
+  String get tapAndroidContact => '会提示添加联系人。';
+
+  @override
+  String get tapAndroidWifi => '会提示加入网络（Android 10 及以上）。';
+
+  @override
+  String get tapAndroidCalendar => '若日历应用支持，会提示添加该日程。';
+
+  @override
+  String get tapAndroidOther => '仅当安装了支持此内容的应用时才会打开。';
+
+  @override
+  String tapIgnoredRecords(String count) {
+    return '手机只执行第一条记录，其余 $count 条可在 NFC 应用中查看。';
+  }
+
+  @override
+  String get tapIosRequirement => 'iPhone XS 及更新机型在解锁且未打开相机/钱包时可后台读取。';
 }

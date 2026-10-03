@@ -5625,6 +5625,150 @@ abstract class AppLocalizations {
   /// In tr, this message translates to:
   /// **'Önce düzenle'**
   String get cloneEditFirst;
+
+  /// No description provided for @tapPreviewTitle.
+  ///
+  /// In tr, this message translates to:
+  /// **'Telefon dokununca ne olur?'**
+  String get tapPreviewTitle;
+
+  /// No description provided for @tapPreviewIphone.
+  ///
+  /// In tr, this message translates to:
+  /// **'iPhone'**
+  String get tapPreviewIphone;
+
+  /// No description provided for @tapPreviewAndroid.
+  ///
+  /// In tr, this message translates to:
+  /// **'Android'**
+  String get tapPreviewAndroid;
+
+  /// No description provided for @tapNone.
+  ///
+  /// In tr, this message translates to:
+  /// **'Etiket boş; dokununca hiçbir şey olmaz.'**
+  String get tapNone;
+
+  /// No description provided for @tapIosUrl.
+  ///
+  /// In tr, this message translates to:
+  /// **'Bildirim çıkar; dokununca {target} Safari\'de ya da ilgili uygulamada açılır.'**
+  String tapIosUrl(String target);
+
+  /// No description provided for @tapAndroidUrl.
+  ///
+  /// In tr, this message translates to:
+  /// **'{target} doğrudan tarayıcıda ya da ilgili uygulamada açılır.'**
+  String tapAndroidUrl(String target);
+
+  /// No description provided for @tapIosApp.
+  ///
+  /// In tr, this message translates to:
+  /// **'Bildirim çıkar; uygulama yüklüyse \"{target}\" bağlantısıyla açılır.'**
+  String tapIosApp(String target);
+
+  /// No description provided for @tapAndroidApp.
+  ///
+  /// In tr, this message translates to:
+  /// **'Uygulama yüklüyse \"{target}\" bağlantısıyla açılır.'**
+  String tapAndroidApp(String target);
+
+  /// No description provided for @tapIosCall.
+  ///
+  /// In tr, this message translates to:
+  /// **'Bildirim çıkar; dokununca {target} aranır.'**
+  String tapIosCall(String target);
+
+  /// No description provided for @tapAndroidCall.
+  ///
+  /// In tr, this message translates to:
+  /// **'Telefon uygulaması {target} numarasıyla açılır.'**
+  String tapAndroidCall(String target);
+
+  /// No description provided for @tapIosSms.
+  ///
+  /// In tr, this message translates to:
+  /// **'Bildirim çıkar; Mesajlar {target} için yeni mesajla açılır.'**
+  String tapIosSms(String target);
+
+  /// No description provided for @tapAndroidSms.
+  ///
+  /// In tr, this message translates to:
+  /// **'Mesajlaşma uygulaması {target} için açılır.'**
+  String tapAndroidSms(String target);
+
+  /// No description provided for @tapIosEmail.
+  ///
+  /// In tr, this message translates to:
+  /// **'Bildirim çıkar; Mail {target} adresine yeni e-postayla açılır.'**
+  String tapIosEmail(String target);
+
+  /// No description provided for @tapAndroidEmail.
+  ///
+  /// In tr, this message translates to:
+  /// **'E-posta uygulaması {target} için açılır.'**
+  String tapAndroidEmail(String target);
+
+  /// No description provided for @tapIosMap.
+  ///
+  /// In tr, this message translates to:
+  /// **'iPhone \"geo:\" konumlarını kendiliğinden açmaz. Apple ya da Google Haritalar bağlantısı kullanın (Hızlı bağlantılar).'**
+  String get tapIosMap;
+
+  /// No description provided for @tapAndroidMap.
+  ///
+  /// In tr, this message translates to:
+  /// **'Harita uygulaması bu konumda açılır.'**
+  String get tapAndroidMap;
+
+  /// No description provided for @tapIosNeedsApp.
+  ///
+  /// In tr, this message translates to:
+  /// **'iPhone bu içerikle kendiliğinden bir şey yapmaz; görmek için bir NFC uygulamasıyla okutulmalı.'**
+  String get tapIosNeedsApp;
+
+  /// No description provided for @tapAndroidText.
+  ///
+  /// In tr, this message translates to:
+  /// **'Çoğu telefonda bir şey olmaz ya da metin sistem ekranında gösterilir.'**
+  String get tapAndroidText;
+
+  /// No description provided for @tapAndroidContact.
+  ///
+  /// In tr, this message translates to:
+  /// **'Kişiyi rehbere ekleme önerilir.'**
+  String get tapAndroidContact;
+
+  /// No description provided for @tapAndroidWifi.
+  ///
+  /// In tr, this message translates to:
+  /// **'Ağa bağlanma önerilir (Android 10 ve sonrası).'**
+  String get tapAndroidWifi;
+
+  /// No description provided for @tapAndroidCalendar.
+  ///
+  /// In tr, this message translates to:
+  /// **'Takvim uygulaması destekliyorsa etkinlik eklenmesi önerilir.'**
+  String get tapAndroidCalendar;
+
+  /// No description provided for @tapAndroidOther.
+  ///
+  /// In tr, this message translates to:
+  /// **'Yalnızca bu içeriği tanıyan bir uygulama yüklüyse açılır.'**
+  String get tapAndroidOther;
+
+  /// No description provided for @tapIgnoredRecords.
+  ///
+  /// In tr, this message translates to:
+  /// **'Telefonlar yalnızca ilk kaydı çalıştırır; diğer {count} kayıt NFC uygulamalarında görünür.'**
+  String tapIgnoredRecords(String count);
+
+  /// No description provided for @tapIosRequirement.
+  ///
+  /// In tr, this message translates to:
+  /// **'iPhone XS ve sonrası, ekran kilidi açıkken ve kamera/Cüzdan açık değilken arka planda okur.'**
+  String get tapIosRequirement;
 }
 
 class _AppLocalizationsDelegate

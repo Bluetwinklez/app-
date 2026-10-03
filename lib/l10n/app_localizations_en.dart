@@ -3238,4 +3238,105 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get cloneEditFirst => 'Edit first';
+
+  @override
+  String get tapPreviewTitle => 'What happens when a phone taps it?';
+
+  @override
+  String get tapPreviewIphone => 'iPhone';
+
+  @override
+  String get tapPreviewAndroid => 'Android';
+
+  @override
+  String get tapNone => 'The tag is empty; nothing happens.';
+
+  @override
+  String tapIosUrl(String target) {
+    return 'A notification appears; tapping it opens $target in Safari or the matching app.';
+  }
+
+  @override
+  String tapAndroidUrl(String target) {
+    return '$target opens directly in the browser or the matching app.';
+  }
+
+  @override
+  String tapIosApp(String target) {
+    return 'A notification appears; the app opens via \"$target\" if installed.';
+  }
+
+  @override
+  String tapAndroidApp(String target) {
+    return 'The app opens via \"$target\" if installed.';
+  }
+
+  @override
+  String tapIosCall(String target) {
+    return 'A notification appears; tapping it calls $target.';
+  }
+
+  @override
+  String tapAndroidCall(String target) {
+    return 'The phone app opens with $target.';
+  }
+
+  @override
+  String tapIosSms(String target) {
+    return 'A notification appears; Messages opens a new message to $target.';
+  }
+
+  @override
+  String tapAndroidSms(String target) {
+    return 'The messaging app opens for $target.';
+  }
+
+  @override
+  String tapIosEmail(String target) {
+    return 'A notification appears; Mail opens a new email to $target.';
+  }
+
+  @override
+  String tapAndroidEmail(String target) {
+    return 'The email app opens for $target.';
+  }
+
+  @override
+  String get tapIosMap =>
+      'iPhone does not open \"geo:\" locations by itself. Use an Apple or Google Maps link instead (Quick links).';
+
+  @override
+  String get tapAndroidMap => 'The maps app opens at this location.';
+
+  @override
+  String get tapIosNeedsApp =>
+      'iPhone does nothing with this content by itself; it must be read with an NFC app.';
+
+  @override
+  String get tapAndroidText =>
+      'On most phones nothing happens, or the text is shown on a system screen.';
+
+  @override
+  String get tapAndroidContact => 'It offers to add the contact.';
+
+  @override
+  String get tapAndroidWifi =>
+      'It offers to join the network (Android 10 and later).';
+
+  @override
+  String get tapAndroidCalendar =>
+      'If the calendar app supports it, it offers to add the event.';
+
+  @override
+  String get tapAndroidOther =>
+      'Opens only if an app that understands this content is installed.';
+
+  @override
+  String tapIgnoredRecords(String count) {
+    return 'Phones act on the first record only; the other $count are visible in NFC apps.';
+  }
+
+  @override
+  String get tapIosRequirement =>
+      'iPhone XS and later read in the background while unlocked and when Camera/Wallet are not open.';
 }
