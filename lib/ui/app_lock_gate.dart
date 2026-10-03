@@ -7,17 +7,16 @@ import '../services/launch_action_service.dart';
 import 'app_theme.dart';
 
 /// Covers the app with a lock screen when the app lock is on: at launch and
-/// after more than [relockAfter] in the background.
+/// after [AppStorageService.lockAfterSeconds] in the background. Also applies
+/// the app switcher privacy cover setting at start.
 class AppLockGate extends StatefulWidget {
   final AppStorageService storage;
   final Widget child;
-  final Duration relockAfter;
 
   const AppLockGate({
     super.key,
     required this.storage,
     required this.child,
-    this.relockAfter = const Duration(seconds: 60),
   });
 
   @override
@@ -33,6 +32,7 @@ class _AppLockGateState extends State<AppLockGate> with WidgetsBindingObserver {
   void initState() {
     super.initState();
     WidgetsBinding.instance.addObserver(this);
+    LaunchActionService.setPrivacyCover(widget.storage.hideInSwitcher);
     if (_locked) WidgetsBinding.instance.addPostFrameCallback((_) => _unlock());
   }
 
@@ -50,7 +50,7 @@ class _AppLockGateState extends State<AppLockGate> with WidgetsBindingObserver {
     } else if (state == AppLifecycleState.resumed && _backgroundSince != null) {
       final away = DateTime.now().difference(_backgroundSince!);
       _backgroundSince = null;
-      if (away >= widget.relockAfter) {
+      if (away.inSeconds >= widget.storage.lockAfterSeconds) {
         setState(() => _locked = true);
         _unlock();
       }

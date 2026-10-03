@@ -10,7 +10,6 @@
   "appLinksDesc": "Bu bağlantıları bir etikete yazarsanız, iPhone etikete dokununca bildirim gösterir ve uygulamayı ilgili ekranda açar.",
   "appLinksSection": "Uygulama bağlantıları",
   "appPackageName": "Android Paket Adı",
-  "appSettings": "Uygulama Ayarları",
   "appTitle": "NFC Etiket Yöneticisi",
   "autoRunOnTap": "Etikete dokununca otomatik çalıştır",
   "backupFileSizeExceeded": "Yedek dosyası boyutu 2 MiB sınırını aşıyor.",
@@ -2993,5 +2992,65 @@
       }
     }
   },
-  "whatsNew130": "• Giriş/Çıkış (mesai) defteri: kim içeride, bugün kaç saat\n• Kütüphane etiketi okutulunca deftere otomatik kayıt\n• Bakım/kontrol hatırlatıcısı ve \"kontrol bekleyenler\" filtresi\n• Kopya etiket uyarısı\n• NDEF Doktoru: bozuk etiketleri teşhis eder\n• Excel/Numbers'tan kütüphaneye toplu ekleme\n• Yeni şablonlar: Hediye mesajı, Bitki bakımı, Çocuk bilekliği, Kullanım talimatı"
+  "whatsNew130": "• Giriş/Çıkış (mesai) defteri: kim içeride, bugün kaç saat\n• Kütüphane etiketi okutulunca deftere otomatik kayıt\n• Bakım/kontrol hatırlatıcısı ve \"kontrol bekleyenler\" filtresi\n• Kopya etiket uyarısı\n• NDEF Doktoru: bozuk etiketleri teşhis eder\n• Excel/Numbers'tan kütüphaneye toplu ekleme\n• Yeni şablonlar: Hediye mesajı, Bitki bakımı, Çocuk bilekliği, Kullanım talimatı",
+  "securityTitle": "Güvenlik ve gizlilik",
+  "lockAfterTitle": "Yeniden kilitleme",
+  "lockImmediately": "Hemen",
+  "lockAfterSecondsLabel": "{n} sn",
+  "@lockAfterSecondsLabel": {
+    "placeholders": {
+      "n": {
+        "type": "String"
+      }
+    }
+  },
+  "lockAfterMinutesLabel": "{n} dk",
+  "@lockAfterMinutesLabel": {
+    "placeholders": {
+      "n": {
+        "type": "String"
+      }
+    }
+  },
+  "hideInSwitcherTitle": "Uygulama değiştiricide gizle",
+  "hideInSwitcherSubtitle": "Arka plandayken ekran bulanıklaşır. Android'de ekran görüntüsü de engellenir.",
+  "clearClipboardTitle": "Panoyu otomatik temizle",
+  "clearClipboardSubtitle": "Kopyalanan anahtar gibi hassas bilgiler 60 saniye sonra panodan silinir.",
+  "securityConfirmReason": "Devam etmek için kimliğinizi doğrulayın",
+  "securityCopiedClears": "Kopyalandı · 60 sn sonra panodan silinecek",
+  "wipeTitle": "Tüm verileri sil",
+  "wipeSubtitle": "Geçmiş, kütüphane, fotoğraflar, defterler, şablonlar, imza anahtarı ve ayarlar",
+  "wipeConfirm": "Tüm veriler bu cihazdan kalıcı olarak silinsin mi? Bu işlem geri alınamaz; önce yedek almanızı öneririz.",
+  "wipeDone": "Tüm veriler silindi",
+  "dataSummary": "{history} geçmiş · {library} kütüphane · {books} defter · {templates} şablon",
+  "@dataSummary": {
+    "placeholders": {
+      "history": {
+        "type": "String"
+      },
+      "library": {
+        "type": "String"
+      },
+      "books": {
+        "type": "String"
+      },
+      "templates": {
+        "type": "String"
+      }
+    }
+  },
+  "secCheckTitle": "Güvenlik kontrolü",
+  "secCheckScore": "{ok}/{total} önerilen ayar açık",
+  "@secCheckScore": {
+    "placeholders": {
+      "ok": {
+        "type": "String"
+      },
+      "total": {
+        "type": "String"
+      }
+    }
+  },
+  "secCheckBackup": "Son 30 günde yedek alındı",
+  "secCheckEncryptedNote": "Yedeklerde Wi-Fi şifreleri olabilir; dışa aktarırken parola koruması önerilir."
 }

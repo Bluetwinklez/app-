@@ -67,6 +67,9 @@ class LaunchActionService {
     }
   }
 
+  /// Blurs the app in the app switcher (iOS) / hides it in Recents (Android).
+  static Future<bool> setPrivacyCover(bool enabled) => _invokeBool('setPrivacyCover', {'enabled': enabled});
+
   /// Whether the device has Face ID / Touch ID / a passcode to unlock with.
   static Future<bool> canAuthenticate() => _invokeBool('canAuthenticate');
 

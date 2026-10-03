@@ -40,9 +40,6 @@ class AppLocalizationsKo extends AppLocalizations {
   String get appPackageName => 'Android 패키지 이름';
 
   @override
-  String get appSettings => '앱 설정';
-
-  @override
   String get appTitle => 'NFC Tag Master';
 
   @override
@@ -4206,4 +4203,75 @@ class AppLocalizationsKo extends AppLocalizations {
   @override
   String get whatsNew130 =>
       '• 출근/퇴근(근태) 기록부: 재실자와 오늘 근무 시간\n• 보관함 태그를 스캔하면 기록부에 자동 기록\n• 점검 알림과 \"점검 대기\" 필터\n• 복제 태그 경고\n• NDEF 진단: 손상된 태그 진단\n• Excel/Numbers에서 보관함으로 일괄 추가\n• 새 템플릿: 선물 메시지, 식물 관리, 어린이 팔찌, 사용법 카드';
+
+  @override
+  String get securityTitle => '보안 및 개인정보';
+
+  @override
+  String get lockAfterTitle => '다시 잠금';
+
+  @override
+  String get lockImmediately => '즉시';
+
+  @override
+  String lockAfterSecondsLabel(String n) {
+    return '$n초';
+  }
+
+  @override
+  String lockAfterMinutesLabel(String n) {
+    return '$n분';
+  }
+
+  @override
+  String get hideInSwitcherTitle => '앱 전환기에서 숨기기';
+
+  @override
+  String get hideInSwitcherSubtitle =>
+      '백그라운드에서 화면이 흐려집니다. Android에서는 스크린샷도 차단됩니다.';
+
+  @override
+  String get clearClipboardTitle => '클립보드 자동 지우기';
+
+  @override
+  String get clearClipboardSubtitle => '복사한 키 같은 민감한 정보는 60초 후 지워집니다.';
+
+  @override
+  String get securityConfirmReason => '계속하려면 본인 확인하세요';
+
+  @override
+  String get securityCopiedClears => '복사됨 · 60초 후 삭제';
+
+  @override
+  String get wipeTitle => '모든 데이터 지우기';
+
+  @override
+  String get wipeSubtitle => '기록, 보관함, 사진, 기록부, 템플릿, 서명 키, 설정';
+
+  @override
+  String get wipeConfirm => '이 기기에서 모든 데이터를 영구 삭제할까요? 되돌릴 수 없으니 먼저 백업하세요.';
+
+  @override
+  String get wipeDone => '모든 데이터가 삭제됨';
+
+  @override
+  String dataSummary(
+      String history, String library, String books, String templates) {
+    return '기록 $history · 보관함 $library · 기록부 $books · 템플릿 $templates';
+  }
+
+  @override
+  String get secCheckTitle => '보안 점검';
+
+  @override
+  String secCheckScore(String ok, String total) {
+    return '권장 설정 $ok/$total개 켜짐';
+  }
+
+  @override
+  String get secCheckBackup => '최근 30일 내 백업함';
+
+  @override
+  String get secCheckEncryptedNote =>
+      '백업에 Wi-Fi 비밀번호가 있을 수 있으니 비밀번호 보호를 권장합니다.';
 }
