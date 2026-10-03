@@ -969,5 +969,20 @@
   "presetCallMeDesc": "태그한 휴대폰이 내 번호로 전화합니다.",
   "presetRunShortcutTitle": "단축어 실행",
   "presetRunShortcutDesc": "지정한 iPhone 단축어 실행: 조명 켜기, 음악 재생, 집중 모드 변경...",
-  "shortcutNameLabel": "단축어 이름"
+  "shortcutNameLabel": "단축어 이름",
+  "recipesSection": "자동화 레시피",
+  "recipesIntro": "단축어 앱에서 아래 이름으로 단축어를 만들고 동작을 추가하세요. 그런 다음 NFC 자동화에 연결하거나 \"태그에 추가\"로 실행 링크를 쓰세요.",
+  "recipeAddToTag": "태그에 추가",
+  "recipeBedTitle": "굿나잇",
+  "recipeBedActions": "침대 옆: 수면 집중 모드 · 알람 설정 · 조명 끄기",
+  "recipeCarTitle": "차량 모드",
+  "recipeCarActions": "차량 거치대: 운전 집중 모드 · 집 경로 안내 · 음악 재생",
+  "recipeDoorTitle": "집 도착",
+  "recipeDoorActions": "현관: 조명 켜기 · Wi-Fi 켜기 · 가족에게 \"도착\" 메시지",
+  "recipeDeskTitle": "집중 시간",
+  "recipeDeskActions": "책상: 업무 집중 모드 · 25분 타이머 · 집중 플레이리스트",
+  "recipeGymTitle": "운동",
+  "recipeGymActions": "운동 가방: 운동 시작 · 운동 플레이리스트 · 방해 금지",
+  "recipeKitchenTitle": "주방 타이머",
+  "recipeKitchenActions": "주방: 10분 타이머 · 장보기 목록 열기"
 }

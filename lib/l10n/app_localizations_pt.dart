@@ -3461,4 +3461,56 @@ class AppLocalizationsPt extends AppLocalizations {
 
   @override
   String get shortcutNameLabel => 'Nome do atalho';
+
+  @override
+  String get recipesSection => 'Receitas de automação';
+
+  @override
+  String get recipesIntro =>
+      'Crie em Atalhos um atalho com o nome abaixo e adicione as ações. Depois vincule a uma automação NFC ou use \"Adicionar à tag\" para gravar um link que o executa.';
+
+  @override
+  String get recipeAddToTag => 'Adicionar à tag';
+
+  @override
+  String get recipeBedTitle => 'Boa noite';
+
+  @override
+  String get recipeBedActions =>
+      'Mesa de cabeceira: Foco Sono · despertador · apagar luzes';
+
+  @override
+  String get recipeCarTitle => 'Modo carro';
+
+  @override
+  String get recipeCarActions =>
+      'Suporte do carro: Foco Direção · rota para casa · música';
+
+  @override
+  String get recipeDoorTitle => 'Cheguei em casa';
+
+  @override
+  String get recipeDoorActions =>
+      'Entrada: luzes · Wi-Fi ligado · mensagem \"Cheguei\" para a família';
+
+  @override
+  String get recipeDeskTitle => 'Modo trabalho';
+
+  @override
+  String get recipeDeskActions =>
+      'Mesa: Foco Trabalho · timer de 25 min · playlist';
+
+  @override
+  String get recipeGymTitle => 'Treino';
+
+  @override
+  String get recipeGymActions =>
+      'Bolsa de academia: iniciar treino · playlist · Não perturbe';
+
+  @override
+  String get recipeKitchenTitle => 'Timer de cozinha';
+
+  @override
+  String get recipeKitchenActions =>
+      'Cozinha: timer de 10 min · abrir lista de compras';
 }

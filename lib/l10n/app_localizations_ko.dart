@@ -3317,4 +3317,50 @@ class AppLocalizationsKo extends AppLocalizations {
 
   @override
   String get shortcutNameLabel => '단축어 이름';
+
+  @override
+  String get recipesSection => '자동화 레시피';
+
+  @override
+  String get recipesIntro =>
+      '단축어 앱에서 아래 이름으로 단축어를 만들고 동작을 추가하세요. 그런 다음 NFC 자동화에 연결하거나 \"태그에 추가\"로 실행 링크를 쓰세요.';
+
+  @override
+  String get recipeAddToTag => '태그에 추가';
+
+  @override
+  String get recipeBedTitle => '굿나잇';
+
+  @override
+  String get recipeBedActions => '침대 옆: 수면 집중 모드 · 알람 설정 · 조명 끄기';
+
+  @override
+  String get recipeCarTitle => '차량 모드';
+
+  @override
+  String get recipeCarActions => '차량 거치대: 운전 집중 모드 · 집 경로 안내 · 음악 재생';
+
+  @override
+  String get recipeDoorTitle => '집 도착';
+
+  @override
+  String get recipeDoorActions => '현관: 조명 켜기 · Wi-Fi 켜기 · 가족에게 \"도착\" 메시지';
+
+  @override
+  String get recipeDeskTitle => '집중 시간';
+
+  @override
+  String get recipeDeskActions => '책상: 업무 집중 모드 · 25분 타이머 · 집중 플레이리스트';
+
+  @override
+  String get recipeGymTitle => '운동';
+
+  @override
+  String get recipeGymActions => '운동 가방: 운동 시작 · 운동 플레이리스트 · 방해 금지';
+
+  @override
+  String get recipeKitchenTitle => '주방 타이머';
+
+  @override
+  String get recipeKitchenActions => '주방: 10분 타이머 · 장보기 목록 열기';
 }

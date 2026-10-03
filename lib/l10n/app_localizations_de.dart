@@ -3458,4 +3458,56 @@ class AppLocalizationsDe extends AppLocalizations {
 
   @override
   String get shortcutNameLabel => 'Name des Kurzbefehls';
+
+  @override
+  String get recipesSection => 'Fertige Automations-Rezepte';
+
+  @override
+  String get recipesIntro =>
+      'Erstellen Sie in Kurzbefehle einen Kurzbefehl mit dem Namen unten und fügen Sie die Aktionen hinzu. Verknüpfen Sie ihn dann mit einer NFC-Automation oder schreiben Sie mit „Zum Tag hinzufügen“ einen Startlink.';
+
+  @override
+  String get recipeAddToTag => 'Zum Tag hinzufügen';
+
+  @override
+  String get recipeBedTitle => 'Gute Nacht';
+
+  @override
+  String get recipeBedActions =>
+      'Nachttisch: Schlaf-Fokus an · Wecker stellen · Licht aus';
+
+  @override
+  String get recipeCarTitle => 'Automodus';
+
+  @override
+  String get recipeCarActions =>
+      'Autohalterung: Fokus Fahren · Route nach Hause · Musik starten';
+
+  @override
+  String get recipeDoorTitle => 'Bin zu Hause';
+
+  @override
+  String get recipeDoorActions =>
+      'Haustür: Licht an · WLAN an · Familie „Bin da“ schreiben';
+
+  @override
+  String get recipeDeskTitle => 'Fokuszeit';
+
+  @override
+  String get recipeDeskActions =>
+      'Schreibtisch: Fokus Arbeit · 25-Minuten-Timer · Fokus-Playlist';
+
+  @override
+  String get recipeGymTitle => 'Training';
+
+  @override
+  String get recipeGymActions =>
+      'Sporttasche: Training starten · Trainings-Playlist · Nicht stören';
+
+  @override
+  String get recipeKitchenTitle => 'Küchentimer';
+
+  @override
+  String get recipeKitchenActions =>
+      'Küche: 10-Minuten-Timer · Einkaufsliste öffnen';
 }

@@ -3277,4 +3277,50 @@ class AppLocalizationsZh extends AppLocalizations {
 
   @override
   String get shortcutNameLabel => '快捷指令名称';
+
+  @override
+  String get recipesSection => '现成的自动化方案';
+
+  @override
+  String get recipesIntro =>
+      '在“快捷指令”中按下方名称创建快捷指令并添加操作，然后关联到 NFC 自动化，或用“添加到标签”写入运行链接。';
+
+  @override
+  String get recipeAddToTag => '添加到标签';
+
+  @override
+  String get recipeBedTitle => '晚安';
+
+  @override
+  String get recipeBedActions => '床头：开启睡眠专注 · 设闹钟 · 关灯';
+
+  @override
+  String get recipeCarTitle => '驾车模式';
+
+  @override
+  String get recipeCarActions => '车载支架：驾驶专注 · 导航回家 · 播放音乐';
+
+  @override
+  String get recipeDoorTitle => '我到家了';
+
+  @override
+  String get recipeDoorActions => '门口：开灯 · 打开 Wi-Fi · 给家人发“我到家了”';
+
+  @override
+  String get recipeDeskTitle => '专注时间';
+
+  @override
+  String get recipeDeskActions => '书桌：工作专注 · 25 分钟计时 · 专注歌单';
+
+  @override
+  String get recipeGymTitle => '锻炼';
+
+  @override
+  String get recipeGymActions => '健身包：开始锻炼 · 运动歌单 · 勿扰模式';
+
+  @override
+  String get recipeKitchenTitle => '厨房计时器';
+
+  @override
+  String get recipeKitchenActions => '厨房：10 分钟计时 · 打开购物清单';
 }

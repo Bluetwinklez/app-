@@ -3408,4 +3408,55 @@ class AppLocalizationsAr extends AppLocalizations {
 
   @override
   String get shortcutNameLabel => 'اسم الاختصار';
+
+  @override
+  String get recipesSection => 'وصفات أتمتة جاهزة';
+
+  @override
+  String get recipesIntro =>
+      'أنشئ في تطبيق الاختصارات اختصارًا بالاسم أدناه وأضف الإجراءات. ثم اربطه بأتمتة NFC أو استخدم \"إضافة إلى الوسم\" لكتابة رابط يشغّله.';
+
+  @override
+  String get recipeAddToTag => 'إضافة إلى الوسم';
+
+  @override
+  String get recipeBedTitle => 'تصبح على خير';
+
+  @override
+  String get recipeBedActions =>
+      'بجانب السرير: تشغيل تركيز النوم · ضبط منبّه · إطفاء الأضواء';
+
+  @override
+  String get recipeCarTitle => 'وضع السيارة';
+
+  @override
+  String get recipeCarActions =>
+      'حامل السيارة: تركيز القيادة · الاتجاهات إلى المنزل · تشغيل الموسيقى';
+
+  @override
+  String get recipeDoorTitle => 'وصلت إلى المنزل';
+
+  @override
+  String get recipeDoorActions =>
+      'الباب الأمامي: تشغيل الأضواء · تفعيل Wi-Fi · رسالة \"وصلت\" للعائلة';
+
+  @override
+  String get recipeDeskTitle => 'وقت التركيز';
+
+  @override
+  String get recipeDeskActions =>
+      'المكتب: تركيز العمل · مؤقت 25 دقيقة · قائمة تشغيل';
+
+  @override
+  String get recipeGymTitle => 'تمرين';
+
+  @override
+  String get recipeGymActions =>
+      'حقيبة الرياضة: بدء تمرين · قائمة تشغيل · عدم الإزعاج';
+
+  @override
+  String get recipeKitchenTitle => 'مؤقت المطبخ';
+
+  @override
+  String get recipeKitchenActions => 'المطبخ: مؤقت 10 دقائق · فتح قائمة التسوق';
 }
