@@ -4377,4 +4377,8 @@ class AppLocalizationsNl extends AppLocalizations {
   String autoLogged(String book) {
     return 'Gelogd in \"$book\"';
   }
+
+  @override
+  String get whatsNew130 =>
+      '• In-/uitcheck-logboek (prikklok): wie is er, uren vandaag\n• Bibliotheektags kunnen bij scannen automatisch in een logboek komen\n• Controleherinneringen en filter \"controle nodig\"\n• Waarschuwing voor gekopieerde tags\n• NDEF-dokter: stelt kapotte tags vast\n• Bulk toevoegen aan de bibliotheek vanuit Excel/Numbers\n• Nieuwe sjablonen: Cadeaubericht, Plantverzorging, Kinderbandje, Instructiekaart';
 }

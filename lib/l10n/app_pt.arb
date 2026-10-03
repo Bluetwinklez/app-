@@ -1223,5 +1223,6 @@
   "manualLink": "Link de vídeo / manual (opcional)",
   "libraryAutoLog": "Registrar em um caderno ao ler",
   "libraryAutoLogHint": "Ao ler esta tag pela tela principal, uma entrada é adicionada ao caderno escolhido (ex.: tag da porta → ponto).",
-  "autoLogged": "Registrado em \"{book}\""
+  "autoLogged": "Registrado em \"{book}\"",
+  "whatsNew130": "• Caderno de entrada/saída (ponto): quem está, horas de hoje\n• Tags da biblioteca podem registrar sozinhas ao serem lidas\n• Lembretes de verificação e filtro \"pendentes\"\n• Aviso de tag copiada\n• Doutor NDEF: diagnostica tags com defeito\n• Inclusão em massa na biblioteca a partir do Excel/Numbers\n• Novos modelos: Mensagem de presente, Cuidado da planta, Pulseira infantil, Instruções"
 }

@@ -4389,4 +4389,8 @@ class AppLocalizationsPt extends AppLocalizations {
   String autoLogged(String book) {
     return 'Registrado em \"$book\"';
   }
+
+  @override
+  String get whatsNew130 =>
+      '• Caderno de entrada/saída (ponto): quem está, horas de hoje\n• Tags da biblioteca podem registrar sozinhas ao serem lidas\n• Lembretes de verificação e filtro \"pendentes\"\n• Aviso de tag copiada\n• Doutor NDEF: diagnostica tags com defeito\n• Inclusão em massa na biblioteca a partir do Excel/Numbers\n• Novos modelos: Mensagem de presente, Cuidado da planta, Pulseira infantil, Instruções';
 }

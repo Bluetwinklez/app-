@@ -4150,4 +4150,8 @@ class AppLocalizationsZh extends AppLocalizations {
   String autoLogged(String book) {
     return '已记入“$book”';
   }
+
+  @override
+  String get whatsNew130 =>
+      '• 签到/签退（考勤）记录本：谁在场、今日时长\n• 扫描标签库中的标签可自动记入记录本\n• 检查提醒和“待检查”筛选\n• 复制标签警告\n• NDEF 诊断：诊断损坏的标签\n• 从 Excel/Numbers 批量添加到标签库\n• 新模板：礼物留言、植物养护、儿童手环、使用说明卡';
 }
