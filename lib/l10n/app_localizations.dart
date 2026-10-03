@@ -7077,6 +7077,120 @@ abstract class AppLocalizations {
   /// In tr, this message translates to:
   /// **'• Kayıt Defteri: yoklama, ilaç ve envanter takibi\n• Güvenlik: Face ID kilidi, şifreli yedek, imzalı etiket, sahte site uyarısı\n• Şablon değişkenleri ({date}, {time}, {counter}) ve kütüphaneden etikete yazma\n• Yeni şablonlar: Akıllı Kart, Kayıp Eşya, Sesli Mesaj\n• QR kodlu yazdırılabilir etiket sayfası (PDF)\n• Basit mod, amiibo bilgisi, bayt düzenleyici, NFC çipleri rehberi\n• Sürükle-bırak sıralama ve Uyumluluk modu'**
   String whatsNew120(String date, String time, String counter);
+
+  /// No description provided for @logbookKindTimeClock.
+  ///
+  /// In tr, this message translates to:
+  /// **'Giriş / Çıkış (mesai)'**
+  String get logbookKindTimeClock;
+
+  /// No description provided for @logbookCheckIn.
+  ///
+  /// In tr, this message translates to:
+  /// **'Giriş'**
+  String get logbookCheckIn;
+
+  /// No description provided for @logbookCheckOut.
+  ///
+  /// In tr, this message translates to:
+  /// **'Çıkış'**
+  String get logbookCheckOut;
+
+  /// No description provided for @logbookCheckedIn.
+  ///
+  /// In tr, this message translates to:
+  /// **'Giriş yapıldı: {label}'**
+  String logbookCheckedIn(String label);
+
+  /// No description provided for @logbookCheckedOut.
+  ///
+  /// In tr, this message translates to:
+  /// **'Çıkış yapıldı: {label}'**
+  String logbookCheckedOut(String label);
+
+  /// No description provided for @logbookPresentNow.
+  ///
+  /// In tr, this message translates to:
+  /// **'Şu an içeride: {count}'**
+  String logbookPresentNow(String count);
+
+  /// No description provided for @logbookWorkedToday.
+  ///
+  /// In tr, this message translates to:
+  /// **'Bugün toplam süre: {duration}'**
+  String logbookWorkedToday(String duration);
+
+  /// No description provided for @logbookWorkedPerPerson.
+  ///
+  /// In tr, this message translates to:
+  /// **'Bugünkü süreler'**
+  String get logbookWorkedPerPerson;
+
+  /// No description provided for @durationHm.
+  ///
+  /// In tr, this message translates to:
+  /// **'{h} sa {m} dk'**
+  String durationHm(String h, String m);
+
+  /// No description provided for @csvColumnDirection.
+  ///
+  /// In tr, this message translates to:
+  /// **'Yön'**
+  String get csvColumnDirection;
+
+  /// No description provided for @libraryCheckEvery.
+  ///
+  /// In tr, this message translates to:
+  /// **'Kontrol aralığı'**
+  String get libraryCheckEvery;
+
+  /// No description provided for @libraryCheckNone.
+  ///
+  /// In tr, this message translates to:
+  /// **'Yok'**
+  String get libraryCheckNone;
+
+  /// No description provided for @libraryCheckDays.
+  ///
+  /// In tr, this message translates to:
+  /// **'{days} günde bir'**
+  String libraryCheckDays(String days);
+
+  /// No description provided for @libraryCheckHint.
+  ///
+  /// In tr, this message translates to:
+  /// **'Etiketi bu sürede bir okutmazsanız \"kontrol zamanı\" uyarısı çıkar (yangın tüpü, filtre, bitki sulama…).'**
+  String get libraryCheckHint;
+
+  /// No description provided for @libraryCheckDue.
+  ///
+  /// In tr, this message translates to:
+  /// **'Kontrol zamanı geldi'**
+  String get libraryCheckDue;
+
+  /// No description provided for @libraryCheckNext.
+  ///
+  /// In tr, this message translates to:
+  /// **'Sonraki kontrol: {date}'**
+  String libraryCheckNext(String date);
+
+  /// No description provided for @libraryDueFilter.
+  ///
+  /// In tr, this message translates to:
+  /// **'Kontrol bekleyenler ({count})'**
+  String libraryDueFilter(String count);
+
+  /// No description provided for @libraryCheckRecorded.
+  ///
+  /// In tr, this message translates to:
+  /// **'Kontrol kaydedildi · sonraki: {date}'**
+  String libraryCheckRecorded(String date);
+
+  /// No description provided for @cloneWarning.
+  ///
+  /// In tr, this message translates to:
+  /// **'Bu içerik kütüphanenizde \"{name}\" adlı etikette farklı bir UID ile kayıtlı. Bu etiket bir kopya olabilir.'**
+  String cloneWarning(String name);
 }
 
 class _AppLocalizationsDelegate
