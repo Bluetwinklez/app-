@@ -26,6 +26,7 @@ class ToolsTab extends StatelessWidget {
   final VoidCallback? onCloneTag;
   final VoidCallback? onScanCode;
   final VoidCallback? onMergeRecords;
+  final VoidCallback? onTextFromPhoto;
 
   const ToolsTab({
     super.key,
@@ -35,6 +36,7 @@ class ToolsTab extends StatelessWidget {
     this.onCloneTag,
     this.onScanCode,
     this.onMergeRecords,
+    this.onTextFromPhoto,
   });
 
   bool get _idle => !controller.isBusy;
@@ -73,6 +75,13 @@ class ToolsTab extends StatelessWidget {
             title: loc.codeScannerTitle,
             subtitle: loc.codeScannerSubtitle,
             onTap: onScanCode,
+          ),
+        if (onTextFromPhoto != null)
+          ToolTile(
+            icon: Icons.document_scanner_outlined,
+            title: loc.ocrTitle,
+            subtitle: loc.ocrSubtitle,
+            onTap: onTextFromPhoto,
           ),
         if (onMergeRecords != null)
           ToolTile(

@@ -97,6 +97,81 @@ extension _ClipboardAndRewriteFlows on _HomeScreenState {
     return true;
   }
 
+  Future<void> _textFromPhoto() async {
+    final loc = AppLocalizations.of(context) ?? L10n.current;
+    final source = await showModalBottomSheet<ImageSource>(
+      context: context,
+      builder: (ctx) => SafeArea(
+        child: Column(
+          mainAxisSize: MainAxisSize.min,
+          children: [
+            ListTile(
+              leading: const Icon(Icons.photo_camera_outlined),
+              title: Text(loc.takePhoto),
+              onTap: () => Navigator.of(ctx).pop(ImageSource.camera),
+            ),
+            ListTile(
+              leading: const Icon(Icons.photo_library_outlined),
+              title: Text(loc.chooseFromGallery),
+              onTap: () => Navigator.of(ctx).pop(ImageSource.gallery),
+            ),
+          ],
+        ),
+      ),
+    );
+    if (source == null || !mounted) return;
+    XFile? picked;
+    try {
+      picked = await ImagePicker().pickImage(source: source, maxWidth: 2400, imageQuality: 90);
+    } catch (_) {
+      picked = null;
+    }
+    if (picked == null || !mounted) return;
+    final text = await LaunchActionService.recognizeText(picked.path);
+    if (!mounted) return;
+    if (text == null) {
+      ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Text(loc.ocrNothing)));
+      return;
+    }
+    final field = TextEditingController(text: text.length > 800 ? text.substring(0, 800) : text);
+    final action = await showModalBottomSheet<String>(
+      context: context,
+      isScrollControlled: true,
+      showDragHandle: true,
+      builder: (ctx) => Padding(
+        padding: EdgeInsets.fromLTRB(20, 0, 20, MediaQuery.of(ctx).viewInsets.bottom + 16),
+        child: Column(
+          mainAxisSize: MainAxisSize.min,
+          crossAxisAlignment: CrossAxisAlignment.stretch,
+          children: [
+            Text(loc.ocrTitle, style: const TextStyle(fontSize: 18, fontWeight: FontWeight.w700)),
+            const SizedBox(height: 10),
+            TextField(controller: field, minLines: 3, maxLines: 10),
+            const SizedBox(height: 12),
+            FilledButton.icon(
+              onPressed: () => Navigator.of(ctx).pop('write'),
+              icon: const Icon(Icons.nfc_rounded),
+              label: Text(loc.codeToTag),
+            ),
+            TextButton.icon(
+              onPressed: () => Navigator.of(ctx).pop('copy'),
+              icon: const Icon(Icons.copy_rounded),
+              label: Text(loc.copy),
+            ),
+          ],
+        ),
+      ),
+    );
+    final value = field.text.trim();
+    field.dispose();
+    if (action == null || value.isEmpty || !mounted) return;
+    if (action == 'copy') {
+      await Clipboard.setData(ClipboardData(text: value));
+    } else {
+      _appendImportedRecords([NdefCodec.encodeText(value)], loc.ocrTitle);
+    }
+  }
+
   Future<void> _mergeRecords() async {
     final loc = AppLocalizations.of(context) ?? L10n.current;
     final last = _controller.lastScannedTag;

@@ -5028,4 +5028,15 @@ class AppLocalizationsTr extends AppLocalizations {
   @override
   String get whatsNew150 =>
       '• Fikirler sayfası ve \"İlk etiketini yap\" kartı\n• Etiket istatistikleri, otomatik kategoriler, QR/barkod tarayıcı\n• Kayıtları birleştir, dijital kartvizit görünümü, adresle konum arama\n• Alışkanlık serisi, çocuk görev tablosu, evcil hayvan besleme, ziyaretçi defteri\n• Bildirim hatırlatıcıları, sesli okuma, demirbaş ve garanti takibi\n• Şablonları QR ile paylaş ve tablodan içe aktar; restoran ve kiralık ev şablonları\n• 12 uygulama simgesi, 9 vurgu rengi, yazı boyutu';
+
+  @override
+  String get ocrTitle => 'Fotoğraftan metin (OCR)';
+
+  @override
+  String get ocrSubtitle =>
+      'Belge, tabela veya kartvizitteki yazıyı okuyup etikete yaz';
+
+  @override
+  String get ocrNothing =>
+      'Fotoğrafta okunabilir yazı bulunamadı (bu özellik iPhone\'da çalışır).';
 }
