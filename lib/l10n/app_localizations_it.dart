@@ -3644,4 +3644,20 @@ class AppLocalizationsIt extends AppLocalizations {
   @override
   String get whatsNew110 =>
       '• 14 lingue, modalità scura e nuovo design\n• Modelli con categorie, ricerca e preferiti\n• Scrittura in serie: numeri di serie, CSV e clonazione\n• Anteprima \"Cosa succede al tocco?\" e avvisi di capacità\n• Libreria tag con foto, note ed etichette\n• Report, confronto, scansione continua ed export CSV\n• Siri, Comandi rapidi e ricette di automazione';
+
+  @override
+  String lastBackupAt(String date) {
+    return 'Ultimo backup: $date';
+  }
+
+  @override
+  String get noBackupYet => 'Nessun backup finora.';
+
+  @override
+  String get backupStale =>
+      'L\'ultimo backup ha più di 30 giorni; conviene farne uno nuovo.';
+
+  @override
+  String get backupICloudTip =>
+      'Suggerimento: nel menu Condividi scegli \"Salva su File\" → iCloud Drive.';
 }

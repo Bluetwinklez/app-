@@ -3645,4 +3645,19 @@ class AppLocalizationsUk extends AppLocalizations {
   @override
   String get whatsNew110 =>
       '• 14 мов, темна тема й новий дизайн\n• Шаблони з категоріями, пошуком і обраним\n• Пакетний запис: серійні номери, CSV і клонування\n• Попередній перегляд «Що буде при дотику?» і попередження про ємність\n• Бібліотека міток із фото, нотатками й мітками\n• Звіт, порівняння, безперервне сканування та експорт CSV\n• Siri, Команди й готові рецепти автоматизації';
+
+  @override
+  String lastBackupAt(String date) {
+    return 'Остання копія: $date';
+  }
+
+  @override
+  String get noBackupYet => 'Резервних копій ще немає.';
+
+  @override
+  String get backupStale => 'Останній копії понад 30 днів; варто зробити нову.';
+
+  @override
+  String get backupICloudTip =>
+      'Порада: у меню «Поділитися» виберіть «Зберегти у Файли» → iCloud Drive.';
 }

@@ -1025,5 +1025,9 @@
   "aboutVersion": "Version {version}",
   "privacySummary": "Ihre Daten bleiben auf diesem Gerät: kein Konto, kein Server, keine Werbung, kein Tracking.",
   "whatsNewTitle": "Neuigkeiten",
-  "whatsNew110": "• 14 Sprachen, Dunkelmodus und neues Design\n• Vorlagen mit Kategorien, Suche und Favoriten\n• Stapelschreiben mit Seriennummern, CSV und Klonen\n• Vorschau „Was passiert beim Antippen?“ und Kapazitätswarnungen\n• Tag-Bibliothek mit Fotos, Notizen und Labels\n• Tag-Bericht, Vergleich, Dauerscan und CSV-Export\n• Siri, Kurzbefehle und fertige Automationen"
+  "whatsNew110": "• 14 Sprachen, Dunkelmodus und neues Design\n• Vorlagen mit Kategorien, Suche und Favoriten\n• Stapelschreiben mit Seriennummern, CSV und Klonen\n• Vorschau „Was passiert beim Antippen?“ und Kapazitätswarnungen\n• Tag-Bibliothek mit Fotos, Notizen und Labels\n• Tag-Bericht, Vergleich, Dauerscan und CSV-Export\n• Siri, Kurzbefehle und fertige Automationen",
+  "lastBackupAt": "Letzte Sicherung: {date}",
+  "noBackupYet": "Noch keine Sicherung.",
+  "backupStale": "Die letzte Sicherung ist über 30 Tage alt; erstellen Sie eine neue.",
+  "backupICloudTip": "Tipp: Wählen Sie im Teilen-Menü „In Dateien sichern“ → iCloud Drive, um die Sicherung in iCloud abzulegen."
 }

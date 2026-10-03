@@ -1025,5 +1025,9 @@
   "aboutVersion": "Version {version}",
   "privacySummary": "Vos données restent sur cet appareil : pas de compte, pas de serveur, ni pub ni pistage.",
   "whatsNewTitle": "Nouveautés",
-  "whatsNew110": "• 14 langues, mode sombre et nouveau design\n• Modèles prêts avec catégories, recherche et favoris\n• Écriture par lot : numéros de série, CSV et clonage\n• Aperçu « Que se passe-t-il au contact ? » et alertes de capacité\n• Bibliothèque de tags avec photos, notes et libellés\n• Rapport de tag, comparaison, scan continu et export CSV\n• Siri, Raccourcis et recettes d'automatisation"
+  "whatsNew110": "• 14 langues, mode sombre et nouveau design\n• Modèles prêts avec catégories, recherche et favoris\n• Écriture par lot : numéros de série, CSV et clonage\n• Aperçu « Que se passe-t-il au contact ? » et alertes de capacité\n• Bibliothèque de tags avec photos, notes et libellés\n• Rapport de tag, comparaison, scan continu et export CSV\n• Siri, Raccourcis et recettes d'automatisation",
+  "lastBackupAt": "Dernière sauvegarde : {date}",
+  "noBackupYet": "Aucune sauvegarde pour l'instant.",
+  "backupStale": "La dernière sauvegarde date de plus de 30 jours ; pensez à en refaire une.",
+  "backupICloudTip": "Astuce : dans le menu de partage, choisissez « Enregistrer dans Fichiers » → iCloud Drive."
 }
