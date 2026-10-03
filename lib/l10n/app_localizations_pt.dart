@@ -3028,4 +3028,13 @@ class AppLocalizationsPt extends AppLocalizations {
   String backupLibraryCount(String count) {
     return '• Biblioteca: $count (sem fotos)';
   }
+
+  @override
+  String lastTagCapacityFit(String bytes, String max) {
+    return 'Última tag: $bytes / $max B';
+  }
+
+  @override
+  String get contentTooLargeForChips =>
+      'Grande demais para tags comuns; encurte o texto ou use um link curto.';
 }

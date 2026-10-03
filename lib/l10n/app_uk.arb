@@ -845,5 +845,7 @@
   "backupInvalidLibraryEntry": "Недійсний запис бібліотеки.",
   "backupMaxLibraryExceeded": "У бібліотеці не більше {max} записів.",
   "backupSummaryLibrary": "Бібліотека: додано {added}",
-  "backupLibraryCount": "• Бібліотека: {count} (без фото)"
+  "backupLibraryCount": "• Бібліотека: {count} (без фото)",
+  "lastTagCapacityFit": "Ост. мітка: {bytes} / {max} Б",
+  "contentTooLargeForChips": "Завеликий для звичайних міток: скоротіть текст або використайте коротке посилання."
 }

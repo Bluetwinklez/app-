@@ -3018,4 +3018,13 @@ class AppLocalizationsUk extends AppLocalizations {
   String backupLibraryCount(String count) {
     return '• Бібліотека: $count (без фото)';
   }
+
+  @override
+  String lastTagCapacityFit(String bytes, String max) {
+    return 'Ост. мітка: $bytes / $max Б';
+  }
+
+  @override
+  String get contentTooLargeForChips =>
+      'Завеликий для звичайних міток: скоротіть текст або використайте коротке посилання.';
 }

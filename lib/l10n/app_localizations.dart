@@ -5199,6 +5199,18 @@ abstract class AppLocalizations {
   /// In tr, this message translates to:
   /// **'• Etiket kütüphanesi: {count} (fotoğraflar hariç)'**
   String backupLibraryCount(String count);
+
+  /// No description provided for @lastTagCapacityFit.
+  ///
+  /// In tr, this message translates to:
+  /// **'Son etiket: {bytes} / {max} B'**
+  String lastTagCapacityFit(String bytes, String max);
+
+  /// No description provided for @contentTooLargeForChips.
+  ///
+  /// In tr, this message translates to:
+  /// **'İçerik yaygın etiketlere sığmıyor; metni kısaltın veya kısa bağlantı kullanın.'**
+  String get contentTooLargeForChips;
 }
 
 class _AppLocalizationsDelegate

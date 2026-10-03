@@ -845,5 +845,7 @@
   "backupInvalidLibraryEntry": "無効なライブラリ項目です。",
   "backupMaxLibraryExceeded": "ライブラリは最大{max}件です。",
   "backupSummaryLibrary": "ライブラリ: {added}件追加",
-  "backupLibraryCount": "• タグライブラリ: {count} (写真を除く)"
+  "backupLibraryCount": "• タグライブラリ: {count} (写真を除く)",
+  "lastTagCapacityFit": "前回のタグ: {bytes} / {max} B",
+  "contentTooLargeForChips": "一般的なタグには大きすぎます。テキストを短くするか短縮リンクを使ってください。"
 }

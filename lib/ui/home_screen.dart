@@ -24,6 +24,7 @@ import 'tag_library_page.dart';
 import 'shortcuts_guide_sheet.dart';
 import '../services/launch_action_service.dart';
 import '../domain/tag_identity.dart';
+import '../domain/capacity.dart';
 import '../domain/tag_library.dart';
 import '../util/text_search.dart';
 import 'dart:async';
@@ -148,6 +149,36 @@ class _HomeScreenState extends State<HomeScreen>
     ShortcutsGuideSheet.show(
       context,
       onAddRecord: (record, title) => _appendImportedRecords([record], title),
+    );
+  }
+
+  Widget _buildCapacityChips() {
+    final fits = CapacityCheck.fitsFor(_recordsToWrite);
+    final lastCapacity = _controller.lastScannedTag?.maxByteCapacity ?? 0;
+    final messageBytes = _stagedBytesTotal;
+    return Padding(
+      padding: const EdgeInsets.only(top: 8),
+      child: Wrap(
+        spacing: 6,
+        runSpacing: 6,
+        children: [
+          for (final fit in fits)
+            _infoChip(
+              fit.fits ? Icons.check_circle_outline : Icons.block,
+              fit.chip,
+              fit.fits ? AppColors.success : AppColors.danger,
+            ),
+          if (lastCapacity > 0)
+            _infoChip(
+              messageBytes <= lastCapacity ? Icons.nfc_rounded : Icons.warning_amber_rounded,
+              L10n.current.lastTagCapacityFit('$messageBytes', '$lastCapacity'),
+              messageBytes <= lastCapacity ? AppColors.accent : AppColors.warning,
+            ),
+          if (fits.every((f) => !f.fits))
+            Text(L10n.current.contentTooLargeForChips,
+                style: TextStyle(color: AppColors.danger, fontSize: 12)),
+        ],
+      ),
     );
   }
 
@@ -3339,6 +3370,7 @@ class _HomeScreenState extends State<HomeScreen>
                   L10n.current.composerTotals('$_stagedBytesTotal', '${_recordsToWrite.length}'),
                   style: TextStyle(color: AppColors.secondary, fontSize: 13),
                 ),
+                if (_recordsToWrite.isNotEmpty) _buildCapacityChips(),
                 const Divider(),
                 if (_recordsToWrite.isEmpty)
                   Padding(

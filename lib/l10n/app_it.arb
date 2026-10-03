@@ -845,5 +845,7 @@
   "backupInvalidLibraryEntry": "Voce di libreria non valida.",
   "backupMaxLibraryExceeded": "La libreria può contenere al massimo {max} voci.",
   "backupSummaryLibrary": "Libreria: {added} aggiunti",
-  "backupLibraryCount": "• Libreria: {count} (senza foto)"
+  "backupLibraryCount": "• Libreria: {count} (senza foto)",
+  "lastTagCapacityFit": "Ultimo tag: {bytes} / {max} B",
+  "contentTooLargeForChips": "Troppo grande per i tag comuni; accorcia il testo o usa un link breve."
 }

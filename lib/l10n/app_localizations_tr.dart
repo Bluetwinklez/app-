@@ -3015,4 +3015,13 @@ class AppLocalizationsTr extends AppLocalizations {
   String backupLibraryCount(String count) {
     return '• Etiket kütüphanesi: $count (fotoğraflar hariç)';
   }
+
+  @override
+  String lastTagCapacityFit(String bytes, String max) {
+    return 'Son etiket: $bytes / $max B';
+  }
+
+  @override
+  String get contentTooLargeForChips =>
+      'İçerik yaygın etiketlere sığmıyor; metni kısaltın veya kısa bağlantı kullanın.';
 }

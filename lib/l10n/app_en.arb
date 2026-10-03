@@ -845,5 +845,7 @@
   "backupInvalidLibraryEntry": "Invalid tag library entry.",
   "backupMaxLibraryExceeded": "The tag library can contain at most {max} entries.",
   "backupSummaryLibrary": "Library: {added} added",
-  "backupLibraryCount": "• Tag library: {count} (without photos)"
+  "backupLibraryCount": "• Tag library: {count} (without photos)",
+  "lastTagCapacityFit": "Last tag: {bytes} / {max} B",
+  "contentTooLargeForChips": "Too large for common tags; shorten the text or use a short link."
 }

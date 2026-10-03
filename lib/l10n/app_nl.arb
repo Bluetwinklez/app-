@@ -845,5 +845,7 @@
   "backupInvalidLibraryEntry": "Ongeldig bibliotheekitem.",
   "backupMaxLibraryExceeded": "De bibliotheek mag maximaal {max} items bevatten.",
   "backupSummaryLibrary": "Bibliotheek: {added} toegevoegd",
-  "backupLibraryCount": "• Tagbibliotheek: {count} (zonder foto's)"
+  "backupLibraryCount": "• Tagbibliotheek: {count} (zonder foto's)",
+  "lastTagCapacityFit": "Laatste tag: {bytes} / {max} B",
+  "contentTooLargeForChips": "Te groot voor gangbare tags; kort de tekst in of gebruik een korte link."
 }
