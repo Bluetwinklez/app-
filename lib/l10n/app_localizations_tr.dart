@@ -3139,4 +3139,17 @@ class AppLocalizationsTr extends AppLocalizations {
 
   @override
   String get blankTagAction => 'Hazırla ve yaz';
+
+  @override
+  String get shareTag => 'Paylaş';
+
+  @override
+  String get shareAsText => 'Metin olarak paylaş';
+
+  @override
+  String get shareAsFile => 'Dosya olarak paylaş (.json)';
+
+  @override
+  String get shareAsFileSubtitle =>
+      'Kayıtlar başka bir cihazda aynen yazılabilir';
 }

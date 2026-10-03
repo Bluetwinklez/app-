@@ -2982,4 +2982,16 @@ class AppLocalizationsZh extends AppLocalizations {
 
   @override
   String get blankTagAction => '准备并写入';
+
+  @override
+  String get shareTag => '分享';
+
+  @override
+  String get shareAsText => '以文本分享';
+
+  @override
+  String get shareAsFile => '以文件分享（.json）';
+
+  @override
+  String get shareAsFileSubtitle => '可在其他设备上原样写入';
 }

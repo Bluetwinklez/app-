@@ -3140,4 +3140,17 @@ class AppLocalizationsNl extends AppLocalizations {
 
   @override
   String get blankTagAction => 'Voorbereiden en schrijven';
+
+  @override
+  String get shareTag => 'Delen';
+
+  @override
+  String get shareAsText => 'Delen als tekst';
+
+  @override
+  String get shareAsFile => 'Delen als bestand (.json)';
+
+  @override
+  String get shareAsFileSubtitle =>
+      'Records kunnen exact op een ander apparaat worden geschreven';
 }

@@ -883,5 +883,9 @@
   "verifyFailedAfterWrite": "書き込みを検証できません。タグを長めにかざしてください。",
   "blankTagTitle": "タグはまだ準備できていません",
   "blankTagBody": "このタグは新品でNDEF未フォーマットです。アプリで準備して内容を1回のタッチで書き込めます (NTAG・MIFARE Ultralight)。",
-  "blankTagAction": "準備して書き込む"
+  "blankTagAction": "準備して書き込む",
+  "shareTag": "共有",
+  "shareAsText": "テキストで共有",
+  "shareAsFile": "ファイルで共有 (.json)",
+  "shareAsFileSubtitle": "別の端末でそのまま書き込めます"
 }

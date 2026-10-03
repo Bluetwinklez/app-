@@ -3018,4 +3018,16 @@ class AppLocalizationsKo extends AppLocalizations {
 
   @override
   String get blankTagAction => '준비 후 쓰기';
+
+  @override
+  String get shareTag => '공유';
+
+  @override
+  String get shareAsText => '텍스트로 공유';
+
+  @override
+  String get shareAsFile => '파일로 공유 (.json)';
+
+  @override
+  String get shareAsFileSubtitle => '다른 기기에서 그대로 쓸 수 있습니다';
 }

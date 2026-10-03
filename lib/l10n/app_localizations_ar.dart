@@ -3102,4 +3102,16 @@ class AppLocalizationsAr extends AppLocalizations {
 
   @override
   String get blankTagAction => 'جهّز واكتب';
+
+  @override
+  String get shareTag => 'مشاركة';
+
+  @override
+  String get shareAsText => 'مشاركة كنص';
+
+  @override
+  String get shareAsFile => 'مشاركة كملف (.json)';
+
+  @override
+  String get shareAsFileSubtitle => 'يمكن كتابة السجلات كما هي على جهاز آخر';
 }

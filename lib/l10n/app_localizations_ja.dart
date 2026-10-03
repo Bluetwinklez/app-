@@ -3009,4 +3009,16 @@ class AppLocalizationsJa extends AppLocalizations {
 
   @override
   String get blankTagAction => '準備して書き込む';
+
+  @override
+  String get shareTag => '共有';
+
+  @override
+  String get shareAsText => 'テキストで共有';
+
+  @override
+  String get shareAsFile => 'ファイルで共有 (.json)';
+
+  @override
+  String get shareAsFileSubtitle => '別の端末でそのまま書き込めます';
 }
