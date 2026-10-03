@@ -1399,5 +1399,13 @@
   "templateCodeInvalid": "Het sjabloon in deze QR-code is onleesbaar",
   "madeWithTitle": "\"Gemaakt met\"-notitie toevoegen",
   "madeWithSubtitle": "Er komt een korte tekst aan het einde zodat lezers de app ontdekken (ca. 30 bytes).",
-  "madeWithText": "Gemaakt met NFC Tag Master"
+  "madeWithText": "Gemaakt met NFC Tag Master",
+  "recipeMorningTitle": "Goedemorgen",
+  "recipeMorningActions": "Nachtkastje: wekker uit · weer voorlezen · ochtendplaylist",
+  "recipeLeaveTitle": "Ik vertrek",
+  "recipeLeaveActions": "Deur: lichten uit · thermostaat lager · aankomsttijd delen",
+  "recipeFocusTitle": "Studeren / Focus",
+  "recipeFocusActions": "Bureau: Focus aan · timer 25 min · rustige muziek",
+  "recipeTravelTitle": "Reis",
+  "recipeTravelActions": "Koffer: instapkaart · route naar luchthaven · \"onderweg\"-bericht"
 }

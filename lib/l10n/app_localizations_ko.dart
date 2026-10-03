@@ -4798,4 +4798,28 @@ class AppLocalizationsKo extends AppLocalizations {
 
   @override
   String get madeWithText => 'NFC Tag Master로 제작';
+
+  @override
+  String get recipeMorningTitle => '좋은 아침';
+
+  @override
+  String get recipeMorningActions => '침대 옆: 알람 끄기 · 날씨 읽기 · 아침 플레이리스트';
+
+  @override
+  String get recipeLeaveTitle => '외출';
+
+  @override
+  String get recipeLeaveActions => '문: 조명 끄기 · 온도 낮추기 · 도착 예정 공유';
+
+  @override
+  String get recipeFocusTitle => '공부 / 집중';
+
+  @override
+  String get recipeFocusActions => '책상: 집중 모드 · 25분 타이머 · 잔잔한 음악';
+
+  @override
+  String get recipeTravelTitle => '여행';
+
+  @override
+  String get recipeTravelActions => '캐리어: 탑승권 열기 · 공항 길찾기 · \"출발했어\" 메시지';
 }

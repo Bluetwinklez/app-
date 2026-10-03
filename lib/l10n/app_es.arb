@@ -1399,5 +1399,13 @@
   "templateCodeInvalid": "No se pudo leer la plantilla de este QR",
   "madeWithTitle": "Añadir \"hecho con\"",
   "madeWithSubtitle": "Se añade un texto corto al final para que otros conozcan la app (unos 30 bytes).",
-  "madeWithText": "Hecho con NFC Tag Master"
+  "madeWithText": "Hecho con NFC Tag Master",
+  "recipeMorningTitle": "Buenos días",
+  "recipeMorningActions": "Mesita: apagar alarma · decir el tiempo · lista de la mañana",
+  "recipeLeaveTitle": "Salir de casa",
+  "recipeLeaveActions": "Puerta: apagar luces · bajar termostato · compartir hora de llegada",
+  "recipeFocusTitle": "Estudio / Enfoque",
+  "recipeFocusActions": "Escritorio: Concentración · temporizador 25 min · música tranquila",
+  "recipeTravelTitle": "Viaje",
+  "recipeTravelActions": "Maleta: tarjeta de embarque · ruta al aeropuerto · mensaje \"voy de camino\""
 }

@@ -5033,4 +5033,32 @@ class AppLocalizationsFr extends AppLocalizations {
 
   @override
   String get madeWithText => 'Créé avec NFC Tag Master';
+
+  @override
+  String get recipeMorningTitle => 'Bonjour';
+
+  @override
+  String get recipeMorningActions =>
+      'Chevet : arrêter l\'alarme · météo · playlist du matin';
+
+  @override
+  String get recipeLeaveTitle => 'Je pars';
+
+  @override
+  String get recipeLeaveActions =>
+      'Porte : éteindre · baisser le thermostat · partager l\'heure d\'arrivée';
+
+  @override
+  String get recipeFocusTitle => 'Étude / Concentration';
+
+  @override
+  String get recipeFocusActions =>
+      'Bureau : Concentration · minuteur 25 min · musique calme';
+
+  @override
+  String get recipeTravelTitle => 'Voyage';
+
+  @override
+  String get recipeTravelActions =>
+      'Valise : carte d\'embarquement · itinéraire aéroport · message « en route »';
 }

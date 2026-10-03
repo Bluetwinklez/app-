@@ -1399,5 +1399,13 @@
   "templateCodeInvalid": "تعذرت قراءة القالب من رمز QR هذا",
   "madeWithTitle": "إضافة ملاحظة \"صُنع بـ\"",
   "madeWithSubtitle": "يُضاف نص قصير في النهاية ليتعرف القرّاء على التطبيق (نحو 30 بايت).",
-  "madeWithText": "صُنع باستخدام NFC Tag Master"
+  "madeWithText": "صُنع باستخدام NFC Tag Master",
+  "recipeMorningTitle": "صباح الخير",
+  "recipeMorningActions": "بجانب السرير: إيقاف المنبه · قراءة الطقس · قائمة الصباح",
+  "recipeLeaveTitle": "مغادرة المنزل",
+  "recipeLeaveActions": "الباب: إطفاء الأنوار · خفض الحرارة · مشاركة وقت الوصول",
+  "recipeFocusTitle": "دراسة / تركيز",
+  "recipeFocusActions": "المكتب: وضع التركيز · مؤقت 25 دقيقة · موسيقى هادئة",
+  "recipeTravelTitle": "السفر",
+  "recipeTravelActions": "الحقيبة: بطاقة الصعود · الاتجاهات للمطار · رسالة \"أنا في الطريق\""
 }

@@ -1399,5 +1399,13 @@
   "templateCodeInvalid": "Impossibile leggere il modello da questo QR",
   "madeWithTitle": "Aggiungi \"creato con\"",
   "madeWithSubtitle": "Un breve testo alla fine fa scoprire l'app (circa 30 byte).",
-  "madeWithText": "Creato con NFC Tag Master"
+  "madeWithText": "Creato con NFC Tag Master",
+  "recipeMorningTitle": "Buongiorno",
+  "recipeMorningActions": "Comodino: spegni sveglia · meteo · playlist del mattino",
+  "recipeLeaveTitle": "Esco di casa",
+  "recipeLeaveActions": "Porta: luci spente · abbassa il termostato · condividi l'arrivo",
+  "recipeFocusTitle": "Studio / Concentrazione",
+  "recipeFocusActions": "Scrivania: Full immersion · timer 25 min · musica calma",
+  "recipeTravelTitle": "Viaggio",
+  "recipeTravelActions": "Valigia: carta d'imbarco · strada per l'aeroporto · messaggio \"sto arrivando\""
 }
