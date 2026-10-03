@@ -4034,4 +4034,70 @@ class AppLocalizationsDe extends AppLocalizations {
   @override
   String get sigReplaceKeyConfirm =>
       'Aktuellen Schlüssel ersetzen? Mit dem alten signierte Tags gelten dann als „anderer Schlüssel“.';
+
+  @override
+  String get amiiboTitle => 'Amiibo-Info';
+
+  @override
+  String get amiiboSubtitle => 'Figur-/Karten-ID und Serie (nur lesen)';
+
+  @override
+  String get amiiboPrompt => 'Amiibo-Figur oder -Karte annähern';
+
+  @override
+  String amiiboNotNtag215(String chip) {
+    return 'Kein amiibo ($chip); amiibo nutzen NTAG215.';
+  }
+
+  @override
+  String get amiiboNotFound => 'NTAG215 gelesen, aber keine amiibo-Daten.';
+
+  @override
+  String amiiboSeries(String series) {
+    return 'Serie: $series';
+  }
+
+  @override
+  String amiiboType(String type) {
+    return 'Typ: $type';
+  }
+
+  @override
+  String get amiiboFigure => 'Figur';
+
+  @override
+  String get amiiboCard => 'Karte';
+
+  @override
+  String get amiiboYarn => 'Wolle';
+
+  @override
+  String get amiiboLookup => 'Namen online suchen (amiiboapi.com)';
+
+  @override
+  String memoryEditPage(String page) {
+    return 'Seite $page bearbeiten (4 Hex-Bytes)';
+  }
+
+  @override
+  String get memoryEditHint =>
+      'Tippen Sie auf eine Benutzerseite, um sie zu bearbeiten.';
+
+  @override
+  String memoryEditPrompt(String page) {
+    return 'Denselben Tag annähern, um Seite $page zu schreiben';
+  }
+
+  @override
+  String memoryPageWritten(String page) {
+    return 'Seite $page geschrieben.';
+  }
+
+  @override
+  String get memoryUidMismatch => 'Anderer Tag erkannt; nichts geschrieben.';
+
+  @override
+  String memoryReadSpeed(String ms, String rate) {
+    return 'Lesezeit: $ms ms ($rate Byte/s)';
+  }
 }

@@ -4019,4 +4019,70 @@ class AppLocalizationsTr extends AppLocalizations {
   @override
   String get sigReplaceKeyConfirm =>
       'Mevcut anahtar değiştirilsin mi? Eski anahtarla imzalanan etiketler artık \"başka anahtar\" olarak görünür.';
+
+  @override
+  String get amiiboTitle => 'Amiibo bilgisi';
+
+  @override
+  String get amiiboSubtitle => 'Figür/kart kimliği ve serisi (yalnızca okuma)';
+
+  @override
+  String get amiiboPrompt => 'Amiibo figürünü veya kartını yaklaştırın';
+
+  @override
+  String amiiboNotNtag215(String chip) {
+    return 'Bu bir amiibo değil ($chip); amiibo\'lar NTAG215 kullanır.';
+  }
+
+  @override
+  String get amiiboNotFound => 'NTAG215 okundu ama amiibo verisi bulunamadı.';
+
+  @override
+  String amiiboSeries(String series) {
+    return 'Seri: $series';
+  }
+
+  @override
+  String amiiboType(String type) {
+    return 'Tür: $type';
+  }
+
+  @override
+  String get amiiboFigure => 'Figür';
+
+  @override
+  String get amiiboCard => 'Kart';
+
+  @override
+  String get amiiboYarn => 'Örgü';
+
+  @override
+  String get amiiboLookup => 'Adını çevrimiçi ara (amiiboapi.com)';
+
+  @override
+  String memoryEditPage(String page) {
+    return 'Sayfa $page düzenle (4 bayt hex)';
+  }
+
+  @override
+  String get memoryEditHint =>
+      'Kullanıcı sayfalarına dokunup düzenleyebilirsiniz.';
+
+  @override
+  String memoryEditPrompt(String page) {
+    return 'Sayfa $page için aynı etiketi yaklaştırın';
+  }
+
+  @override
+  String memoryPageWritten(String page) {
+    return 'Sayfa $page yazıldı.';
+  }
+
+  @override
+  String get memoryUidMismatch => 'Farklı bir etiket algılandı; yazılmadı.';
+
+  @override
+  String memoryReadSpeed(String ms, String rate) {
+    return 'Okuma süresi: $ms ms ($rate bayt/sn)';
+  }
 }

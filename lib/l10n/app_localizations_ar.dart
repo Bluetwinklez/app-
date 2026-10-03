@@ -3970,4 +3970,69 @@ class AppLocalizationsAr extends AppLocalizations {
   @override
   String get sigReplaceKeyConfirm =>
       'استبدال المفتاح الحالي؟ ستظهر الوسوم الموقّعة بالقديم كـ\"مفتاح آخر\".';
+
+  @override
+  String get amiiboTitle => 'معلومات amiibo';
+
+  @override
+  String get amiiboSubtitle => 'معرّف المجسم/البطاقة وسلسلته (قراءة فقط)';
+
+  @override
+  String get amiiboPrompt => 'قرّب مجسم أو بطاقة amiibo';
+
+  @override
+  String amiiboNotNtag215(String chip) {
+    return 'هذا ليس amiibo ‏($chip)؛ تستخدم amiibo شريحة NTAG215.';
+  }
+
+  @override
+  String get amiiboNotFound => 'تمت قراءة NTAG215 لكن لم توجد بيانات amiibo.';
+
+  @override
+  String amiiboSeries(String series) {
+    return 'السلسلة: $series';
+  }
+
+  @override
+  String amiiboType(String type) {
+    return 'النوع: $type';
+  }
+
+  @override
+  String get amiiboFigure => 'مجسم';
+
+  @override
+  String get amiiboCard => 'بطاقة';
+
+  @override
+  String get amiiboYarn => 'صوف';
+
+  @override
+  String get amiiboLookup => 'ابحث عن اسمه عبر الإنترنت (amiiboapi.com)';
+
+  @override
+  String memoryEditPage(String page) {
+    return 'تعديل الصفحة $page ‏(4 بايت hex)';
+  }
+
+  @override
+  String get memoryEditHint => 'المس صفحة مستخدم لتعديلها.';
+
+  @override
+  String memoryEditPrompt(String page) {
+    return 'قرّب الوسم نفسه لكتابة الصفحة $page';
+  }
+
+  @override
+  String memoryPageWritten(String page) {
+    return 'تمت كتابة الصفحة $page.';
+  }
+
+  @override
+  String get memoryUidMismatch => 'تم اكتشاف وسم مختلف؛ لم يُكتب شيء.';
+
+  @override
+  String memoryReadSpeed(String ms, String rate) {
+    return 'زمن القراءة: $ms مللي ث ($rate بايت/ث)';
+  }
 }
