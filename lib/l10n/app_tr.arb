@@ -3338,5 +3338,7 @@
     }
   },
   "mergeEmpty": "Birleştirilecek kayıt yok. Önce kütüphaneye etiket ya da şablon kaydedin.",
-  "mergeLastScan": "Son okunan etiket"
+  "mergeLastScan": "Son okunan etiket",
+  "locationSearchHint": "Adres veya yer adı ara",
+  "locationNotFound": "Adres bulunamadı"
 }

@@ -4899,4 +4899,10 @@ class AppLocalizationsNl extends AppLocalizations {
 
   @override
   String get mergeLastScan => 'Laatst gescande tag';
+
+  @override
+  String get locationSearchHint => 'Zoek een adres of plaats';
+
+  @override
+  String get locationNotFound => 'Adres niet gevonden';
 }

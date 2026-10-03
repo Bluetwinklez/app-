@@ -4912,4 +4912,10 @@ class AppLocalizationsDe extends AppLocalizations {
 
   @override
   String get mergeLastScan => 'Zuletzt gescannter Tag';
+
+  @override
+  String get locationSearchHint => 'Adresse oder Ort suchen';
+
+  @override
+  String get locationNotFound => 'Adresse nicht gefunden';
 }

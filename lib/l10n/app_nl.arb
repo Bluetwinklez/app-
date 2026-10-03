@@ -1372,5 +1372,7 @@
   "mergeSubtitle": "Kies records uit bibliotheek, sjablonen en laatste scan voor één tag",
   "mergeButton": "Samenvoegen ({count})",
   "mergeEmpty": "Nog niets om samen te voegen. Bewaar eerst tags of sjablonen.",
-  "mergeLastScan": "Laatst gescande tag"
+  "mergeLastScan": "Laatst gescande tag",
+  "locationSearchHint": "Zoek een adres of plaats",
+  "locationNotFound": "Adres niet gevonden"
 }

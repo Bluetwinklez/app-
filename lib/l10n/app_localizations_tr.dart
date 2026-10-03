@@ -4899,4 +4899,10 @@ class AppLocalizationsTr extends AppLocalizations {
 
   @override
   String get mergeLastScan => 'Son okunan etiket';
+
+  @override
+  String get locationSearchHint => 'Adres veya yer adı ara';
+
+  @override
+  String get locationNotFound => 'Adres bulunamadı';
 }

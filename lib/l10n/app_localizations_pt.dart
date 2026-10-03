@@ -4911,4 +4911,10 @@ class AppLocalizationsPt extends AppLocalizations {
 
   @override
   String get mergeLastScan => 'Última tag lida';
+
+  @override
+  String get locationSearchHint => 'Buscar endereço ou local';
+
+  @override
+  String get locationNotFound => 'Endereço não encontrado';
 }
