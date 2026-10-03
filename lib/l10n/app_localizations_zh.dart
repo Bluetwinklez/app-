@@ -3032,4 +3032,65 @@ class AppLocalizationsZh extends AppLocalizations {
 
   @override
   String get csvColumnUsed => '已用（B）';
+
+  @override
+  String get batchSerialToggle => '添加序列号';
+
+  @override
+  String batchSerialHint(String token) {
+    return '在记录中写入 $token，编号会填入该处；否则会为每个标签另加一条带编号的文本记录。';
+  }
+
+  @override
+  String get batchSerialPrefix => '前缀';
+
+  @override
+  String get batchSerialStart => '起始';
+
+  @override
+  String get batchSerialDigits => '位数';
+
+  @override
+  String batchSerialPreview(String first, String last) {
+    return '首个：$first · 末个：$last';
+  }
+
+  @override
+  String get batchFromCsvButton => '从 CSV 文件（每行一个标签）';
+
+  @override
+  String get batchCsvTitle => '从 CSV 批量写入';
+
+  @override
+  String batchCsvSummary(String count) {
+    return '将写入 $count 个标签，每个标签按顺序写入 CSV 的一行。';
+  }
+
+  @override
+  String batchCsvTruncated(String max) {
+    return '批量写入最多使用 $max 行，其余已跳过。';
+  }
+
+  @override
+  String get cloneTagTitle => '克隆标签';
+
+  @override
+  String get cloneTagSubtitle => '读取一个标签并将内容写入其他标签';
+
+  @override
+  String get cloneSourceStep => '第 1 步：扫描源标签。仅复制 NDEF 内容，UID 无法克隆。';
+
+  @override
+  String get cloneSourceEmpty => '源标签没有可复制的 NDEF 记录。';
+
+  @override
+  String get cloneReadyTitle => '已读取源标签';
+
+  @override
+  String cloneReadySummary(String count, String bytes) {
+    return '将复制 $count 条记录（$bytes 字节）。请选择要写入的标签数量。';
+  }
+
+  @override
+  String get cloneEditFirst => '先编辑';
 }

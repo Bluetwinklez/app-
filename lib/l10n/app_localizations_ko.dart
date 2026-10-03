@@ -3068,4 +3068,66 @@ class AppLocalizationsKo extends AppLocalizations {
 
   @override
   String get csvColumnUsed => '사용 (B)';
+
+  @override
+  String get batchSerialToggle => '일련번호 추가';
+
+  @override
+  String batchSerialHint(String token) {
+    return '레코드에 $token을 넣으면 그 자리에 번호가 들어갑니다. 없으면 번호가 담긴 텍스트 레코드가 태그마다 추가됩니다.';
+  }
+
+  @override
+  String get batchSerialPrefix => '접두사';
+
+  @override
+  String get batchSerialStart => '시작';
+
+  @override
+  String get batchSerialDigits => '자릿수';
+
+  @override
+  String batchSerialPreview(String first, String last) {
+    return '처음: $first · 마지막: $last';
+  }
+
+  @override
+  String get batchFromCsvButton => 'CSV 파일에서 (한 줄에 태그 하나)';
+
+  @override
+  String get batchCsvTitle => 'CSV로 일괄 쓰기';
+
+  @override
+  String batchCsvSummary(String count) {
+    return '$count개 태그에 씁니다. 각 태그에 CSV 한 줄이 순서대로 기록됩니다.';
+  }
+
+  @override
+  String batchCsvTruncated(String max) {
+    return '일괄 쓰기는 최대 $max줄까지 사용하며 나머지는 건너뛰었습니다.';
+  }
+
+  @override
+  String get cloneTagTitle => '태그 복제';
+
+  @override
+  String get cloneTagSubtitle => '태그를 읽고 내용을 다른 태그에 씁니다';
+
+  @override
+  String get cloneSourceStep =>
+      '1단계: 원본 태그를 스캔하세요. NDEF 내용만 복사되며 UID는 복제할 수 없습니다.';
+
+  @override
+  String get cloneSourceEmpty => '원본 태그에 복사할 NDEF 레코드가 없습니다.';
+
+  @override
+  String get cloneReadyTitle => '원본 읽기 완료';
+
+  @override
+  String cloneReadySummary(String count, String bytes) {
+    return '$count개 레코드($bytes바이트)를 복사합니다. 쓸 태그 수를 선택하세요.';
+  }
+
+  @override
+  String get cloneEditFirst => '먼저 편집';
 }

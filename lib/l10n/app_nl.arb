@@ -899,5 +899,22 @@
   "csvColumnRecords": "Records",
   "csvColumnContent": "Inhoud",
   "csvColumnCapacity": "Capaciteit (B)",
-  "csvColumnUsed": "Gebruikt (B)"
+  "csvColumnUsed": "Gebruikt (B)",
+  "batchSerialToggle": "Serienummers toevoegen",
+  "batchSerialHint": "Zet {token} in een record om het nummer daar te plaatsen; anders krijgt elke tag een apart tekstrecord met het nummer.",
+  "batchSerialPrefix": "Voorvoegsel",
+  "batchSerialStart": "Start",
+  "batchSerialDigits": "Cijfers",
+  "batchSerialPreview": "Eerste: {first} · Laatste: {last}",
+  "batchFromCsvButton": "Uit CSV-bestand (één rij per tag)",
+  "batchCsvTitle": "Batchgewijs schrijven uit CSV",
+  "batchCsvSummary": "Er worden {count} tags beschreven. Elke tag krijgt op volgorde één rij uit de CSV.",
+  "batchCsvTruncated": "Batchgewijs schrijven gebruikt maximaal {max} rijen; de rest is overgeslagen.",
+  "cloneTagTitle": "Tag klonen",
+  "cloneTagSubtitle": "Lees een tag en schrijf de inhoud naar andere tags",
+  "cloneSourceStep": "Stap 1: scan de brontag. Alleen de NDEF-inhoud wordt gekopieerd; de UID kan niet worden gekloond.",
+  "cloneSourceEmpty": "De brontag heeft geen NDEF-records om te kopiëren.",
+  "cloneReadyTitle": "Bron gelezen",
+  "cloneReadySummary": "{count} records ({bytes} bytes) worden gekopieerd. Kies hoeveel tags.",
+  "cloneEditFirst": "Eerst bewerken"
 }

@@ -899,5 +899,22 @@
   "csvColumnRecords": "Записи",
   "csvColumnContent": "Содержимое",
   "csvColumnCapacity": "Ёмкость (Б)",
-  "csvColumnUsed": "Занято (Б)"
+  "csvColumnUsed": "Занято (Б)",
+  "batchSerialToggle": "Добавить серийные номера",
+  "batchSerialHint": "Укажите {token} в записи, и номер встанет туда; иначе к каждой метке добавится отдельная текстовая запись с номером.",
+  "batchSerialPrefix": "Префикс",
+  "batchSerialStart": "Начало",
+  "batchSerialDigits": "Разрядов",
+  "batchSerialPreview": "Первый: {first} · Последний: {last}",
+  "batchFromCsvButton": "Из CSV-файла (строка на метку)",
+  "batchCsvTitle": "Пакетная запись из CSV",
+  "batchCsvSummary": "Будет записано меток: {count}. Каждая получает одну строку CSV по порядку.",
+  "batchCsvTruncated": "Для пакетной записи берётся не более {max} строк; остальные пропущены.",
+  "cloneTagTitle": "Клонировать метку",
+  "cloneTagSubtitle": "Прочитать метку и записать её содержимое на другие",
+  "cloneSourceStep": "Шаг 1: отсканируйте исходную метку. Копируется только NDEF-содержимое; UID клонировать нельзя.",
+  "cloneSourceEmpty": "На исходной метке нет NDEF-записей для копирования.",
+  "cloneReadyTitle": "Источник прочитан",
+  "cloneReadySummary": "Будет скопировано записей: {count} ({bytes} байт). Выберите количество меток.",
+  "cloneEditFirst": "Сначала изменить"
 }

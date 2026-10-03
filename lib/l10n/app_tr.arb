@@ -2112,5 +2112,63 @@
   "csvColumnRecords": "Kayıt",
   "csvColumnContent": "İçerik",
   "csvColumnCapacity": "Kapasite (B)",
-  "csvColumnUsed": "Kullanılan (B)"
+  "csvColumnUsed": "Kullanılan (B)",
+  "batchSerialToggle": "Seri numara ekle",
+  "batchSerialHint": "Bir kayda {token} yazarsanız numara oraya gelir; yoksa her etikete numarayı taşıyan ayrı bir metin kaydı eklenir.",
+  "@batchSerialHint": {
+    "placeholders": {
+      "token": {
+        "type": "String"
+      }
+    }
+  },
+  "batchSerialPrefix": "Ön ek",
+  "batchSerialStart": "Başlangıç",
+  "batchSerialDigits": "Basamak",
+  "batchSerialPreview": "İlk: {first} · Son: {last}",
+  "@batchSerialPreview": {
+    "placeholders": {
+      "first": {
+        "type": "String"
+      },
+      "last": {
+        "type": "String"
+      }
+    }
+  },
+  "batchFromCsvButton": "CSV dosyasından (her satır bir etiket)",
+  "batchCsvTitle": "CSV ile toplu yazım",
+  "batchCsvSummary": "{count} etiket yazılacak. Her etikete CSV dosyasındaki bir satır yazılır, sırası korunur.",
+  "@batchCsvSummary": {
+    "placeholders": {
+      "count": {
+        "type": "String"
+      }
+    }
+  },
+  "batchCsvTruncated": "Toplu yazımda en fazla {max} satır kullanılır; fazlası atlandı.",
+  "@batchCsvTruncated": {
+    "placeholders": {
+      "max": {
+        "type": "String"
+      }
+    }
+  },
+  "cloneTagTitle": "Etiket Kopyala",
+  "cloneTagSubtitle": "Bir etiketi okuyun, içeriğini başka etiketlere yazın",
+  "cloneSourceStep": "1. adım: Kopyalanacak kaynak etiketi okutun. Yalnızca NDEF içeriği kopyalanır; UID kopyalanamaz.",
+  "cloneSourceEmpty": "Kaynak etikette kopyalanacak NDEF kaydı yok.",
+  "cloneReadyTitle": "Kaynak okundu",
+  "cloneReadySummary": "{count} kayıt ({bytes} bayt) kopyalanacak. Şimdi kaç etikete yazılacağını seçin.",
+  "@cloneReadySummary": {
+    "placeholders": {
+      "count": {
+        "type": "String"
+      },
+      "bytes": {
+        "type": "String"
+      }
+    }
+  },
+  "cloneEditFirst": "Önce düzenle"
 }

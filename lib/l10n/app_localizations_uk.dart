@@ -3194,4 +3194,67 @@ class AppLocalizationsUk extends AppLocalizations {
 
   @override
   String get csvColumnUsed => 'Зайнято (Б)';
+
+  @override
+  String get batchSerialToggle => 'Додати серійні номери';
+
+  @override
+  String batchSerialHint(String token) {
+    return 'Вкажіть $token у записі, і номер стане туди; інакше до кожної мітки додасться окремий текстовий запис із номером.';
+  }
+
+  @override
+  String get batchSerialPrefix => 'Префікс';
+
+  @override
+  String get batchSerialStart => 'Початок';
+
+  @override
+  String get batchSerialDigits => 'Розрядів';
+
+  @override
+  String batchSerialPreview(String first, String last) {
+    return 'Перший: $first · Останній: $last';
+  }
+
+  @override
+  String get batchFromCsvButton => 'З CSV-файлу (рядок на мітку)';
+
+  @override
+  String get batchCsvTitle => 'Пакетний запис із CSV';
+
+  @override
+  String batchCsvSummary(String count) {
+    return 'Буде записано міток: $count. Кожна отримує один рядок CSV за порядком.';
+  }
+
+  @override
+  String batchCsvTruncated(String max) {
+    return 'Для пакетного запису береться не більше $max рядків; решту пропущено.';
+  }
+
+  @override
+  String get cloneTagTitle => 'Клонувати мітку';
+
+  @override
+  String get cloneTagSubtitle => 'Прочитати мітку й записати її вміст на інші';
+
+  @override
+  String get cloneSourceStep =>
+      'Крок 1: відскануйте вихідну мітку. Копіюється лише NDEF-вміст; UID клонувати не можна.';
+
+  @override
+  String get cloneSourceEmpty =>
+      'На вихідній мітці немає NDEF-записів для копіювання.';
+
+  @override
+  String get cloneReadyTitle => 'Джерело прочитано';
+
+  @override
+  String cloneReadySummary(String count, String bytes) {
+    return 'Буде скопійовано записів: $count ($bytes байт). Виберіть кількість міток.';
+  }
+
+  @override
+  String get cloneEditFirst => 'Спершу змінити';
 }

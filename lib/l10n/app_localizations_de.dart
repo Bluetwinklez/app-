@@ -3197,4 +3197,68 @@ class AppLocalizationsDe extends AppLocalizations {
 
   @override
   String get csvColumnUsed => 'Belegt (B)';
+
+  @override
+  String get batchSerialToggle => 'Seriennummern hinzufügen';
+
+  @override
+  String batchSerialHint(String token) {
+    return 'Steht $token in einem Eintrag, kommt die Nummer dorthin; sonst wird jedem Tag ein eigener Texteintrag mit der Nummer hinzugefügt.';
+  }
+
+  @override
+  String get batchSerialPrefix => 'Präfix';
+
+  @override
+  String get batchSerialStart => 'Start';
+
+  @override
+  String get batchSerialDigits => 'Stellen';
+
+  @override
+  String batchSerialPreview(String first, String last) {
+    return 'Erste: $first · Letzte: $last';
+  }
+
+  @override
+  String get batchFromCsvButton => 'Aus CSV-Datei (eine Zeile pro Tag)';
+
+  @override
+  String get batchCsvTitle => 'Stapelschreiben aus CSV';
+
+  @override
+  String batchCsvSummary(String count) {
+    return '$count Tags werden beschrieben. Jeder Tag erhält der Reihe nach eine Zeile der CSV-Datei.';
+  }
+
+  @override
+  String batchCsvTruncated(String max) {
+    return 'Beim Stapelschreiben werden höchstens $max Zeilen verwendet; der Rest wurde übersprungen.';
+  }
+
+  @override
+  String get cloneTagTitle => 'Tag klonen';
+
+  @override
+  String get cloneTagSubtitle =>
+      'Tag lesen und Inhalt auf andere Tags schreiben';
+
+  @override
+  String get cloneSourceStep =>
+      'Schritt 1: Quell-Tag scannen. Nur der NDEF-Inhalt wird kopiert; die UID lässt sich nicht klonen.';
+
+  @override
+  String get cloneSourceEmpty =>
+      'Der Quell-Tag enthält keine NDEF-Einträge zum Kopieren.';
+
+  @override
+  String get cloneReadyTitle => 'Quelle gelesen';
+
+  @override
+  String cloneReadySummary(String count, String bytes) {
+    return '$count Einträge ($bytes Byte) werden kopiert. Wählen Sie nun die Anzahl der Tags.';
+  }
+
+  @override
+  String get cloneEditFirst => 'Erst bearbeiten';
 }

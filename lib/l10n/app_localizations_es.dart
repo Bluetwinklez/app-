@@ -3213,4 +3213,68 @@ class AppLocalizationsEs extends AppLocalizations {
 
   @override
   String get csvColumnUsed => 'Usado (B)';
+
+  @override
+  String get batchSerialToggle => 'Añadir números de serie';
+
+  @override
+  String batchSerialHint(String token) {
+    return 'Escribe $token en un registro para colocar ahí el número; si no, se añade a cada etiqueta un registro de texto con el número.';
+  }
+
+  @override
+  String get batchSerialPrefix => 'Prefijo';
+
+  @override
+  String get batchSerialStart => 'Inicio';
+
+  @override
+  String get batchSerialDigits => 'Dígitos';
+
+  @override
+  String batchSerialPreview(String first, String last) {
+    return 'Primero: $first · Último: $last';
+  }
+
+  @override
+  String get batchFromCsvButton => 'Desde un CSV (una fila por etiqueta)';
+
+  @override
+  String get batchCsvTitle => 'Escritura por lotes desde CSV';
+
+  @override
+  String batchCsvSummary(String count) {
+    return 'Se escribirán $count etiquetas. Cada una recibe una fila del CSV, en orden.';
+  }
+
+  @override
+  String batchCsvTruncated(String max) {
+    return 'La escritura por lotes usa como máximo $max filas; el resto se omitió.';
+  }
+
+  @override
+  String get cloneTagTitle => 'Clonar etiqueta';
+
+  @override
+  String get cloneTagSubtitle =>
+      'Lee una etiqueta y escribe su contenido en otras';
+
+  @override
+  String get cloneSourceStep =>
+      'Paso 1: escanea la etiqueta de origen. Solo se copia el contenido NDEF; el UID no se puede clonar.';
+
+  @override
+  String get cloneSourceEmpty =>
+      'La etiqueta de origen no tiene registros NDEF.';
+
+  @override
+  String get cloneReadyTitle => 'Origen leído';
+
+  @override
+  String cloneReadySummary(String count, String bytes) {
+    return 'Se copiarán $count registros ($bytes bytes). Elige cuántas etiquetas escribir.';
+  }
+
+  @override
+  String get cloneEditFirst => 'Editar primero';
 }
