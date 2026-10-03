@@ -11,7 +11,7 @@ const Map<String, Set<String>> _allowed = {
   // Storage model serialization fallback values (file excluded from edits)
   'lib/domain/storage_models.dart': {'Bilinmiyor', 'Şablon'},
   // Turkish character normalization mapping for search indexing
-  'lib/domain/tag_library.dart': {'İ', 'ı'},
+  'lib/util/text_search.dart': {'İ', 'ı'},
 };
 
 final _literal = RegExp(r"'((?:[^'\\\n]|\\.)*)'");
