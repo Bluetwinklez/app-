@@ -7756,6 +7756,78 @@ abstract class AppLocalizations {
   /// In tr, this message translates to:
   /// **'• Güvenlik ve gizlilik bölümü: güvenlik kontrolü, kilit gecikmesi, uygulama değiştiricide gizleme, pano temizleme, tüm verileri sil\n• İmza anahtarı artık Anahtar Zinciri\'nde; hassas işlemler Face ID ister\n• Etiket haritası ve etikete konum kaydetme\n• Ekip paketi: etiket ve şablonları tek dosyayla paylaşın\n• Alternatif uygulama simgeleri\n• Daha sade ayarlar ve kütüphane menüsü'**
   String get whatsNew140;
+
+  /// No description provided for @ruleAddByScan.
+  ///
+  /// In tr, this message translates to:
+  /// **'Etiket okutup not ekle'**
+  String get ruleAddByScan;
+
+  /// No description provided for @ruleAddLastScan.
+  ///
+  /// In tr, this message translates to:
+  /// **'Son okunan etikete not ekle'**
+  String get ruleAddLastScan;
+
+  /// No description provided for @ruleNeedsContent.
+  ///
+  /// In tr, this message translates to:
+  /// **'Bu etiket boş; not yalnızca içeriği olan etiketlere eklenebilir.'**
+  String get ruleNeedsContent;
+
+  /// No description provided for @simpleWrite.
+  ///
+  /// In tr, this message translates to:
+  /// **'Etikete Yaz'**
+  String get simpleWrite;
+
+  /// No description provided for @simpleWriteWhat.
+  ///
+  /// In tr, this message translates to:
+  /// **'Ne yazılsın?'**
+  String get simpleWriteWhat;
+
+  /// No description provided for @simpleKindText.
+  ///
+  /// In tr, this message translates to:
+  /// **'Yazı'**
+  String get simpleKindText;
+
+  /// No description provided for @simpleKindPhone.
+  ///
+  /// In tr, this message translates to:
+  /// **'Telefon'**
+  String get simpleKindPhone;
+
+  /// No description provided for @simpleKindLink.
+  ///
+  /// In tr, this message translates to:
+  /// **'Bağlantı'**
+  String get simpleKindLink;
+
+  /// No description provided for @simpleWriteNow.
+  ///
+  /// In tr, this message translates to:
+  /// **'Yaz ve etiketi yaklaştır'**
+  String get simpleWriteNow;
+
+  /// No description provided for @simpleWritten.
+  ///
+  /// In tr, this message translates to:
+  /// **'Etikete yazıldı ✓'**
+  String get simpleWritten;
+
+  /// No description provided for @simpleSaved.
+  ///
+  /// In tr, this message translates to:
+  /// **'Kayıtlı etiketlerim'**
+  String get simpleSaved;
+
+  /// No description provided for @simpleSavedHint.
+  ///
+  /// In tr, this message translates to:
+  /// **'Birine dokunun, aynısını yeni etikete yazın.'**
+  String get simpleSavedHint;
 }
 
 class _AppLocalizationsDelegate

@@ -4566,4 +4566,42 @@ class AppLocalizationsPt extends AppLocalizations {
   @override
   String get whatsNew140 =>
       '• Seção Segurança e privacidade: verificação, atraso do bloqueio, ocultar no seletor, limpar área de transferência, apagar tudo\n• Chave de assinatura nas Chaves; Face ID para ações sensíveis\n• Mapa de tags e local de uma tag\n• Pacotes de equipe: tags e modelos em um arquivo\n• Ícones alternativos\n• Ajustes e menu da biblioteca mais organizados';
+
+  @override
+  String get ruleAddByScan => 'Ler uma tag e adicionar nota';
+
+  @override
+  String get ruleAddLastScan => 'Adicionar nota à última tag lida';
+
+  @override
+  String get ruleNeedsContent =>
+      'Esta tag está vazia; notas só em tags com conteúdo.';
+
+  @override
+  String get simpleWrite => 'Gravar tag';
+
+  @override
+  String get simpleWriteWhat => 'O que gravar?';
+
+  @override
+  String get simpleKindText => 'Texto';
+
+  @override
+  String get simpleKindPhone => 'Telefone';
+
+  @override
+  String get simpleKindLink => 'Link';
+
+  @override
+  String get simpleWriteNow => 'Gravar – aproxime a tag';
+
+  @override
+  String get simpleWritten => 'Gravado na tag ✓';
+
+  @override
+  String get simpleSaved => 'Minhas tags salvas';
+
+  @override
+  String get simpleSavedHint =>
+      'Toque em uma para gravar o mesmo em outra tag.';
 }

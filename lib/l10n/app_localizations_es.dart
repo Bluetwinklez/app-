@@ -4585,4 +4585,42 @@ class AppLocalizationsEs extends AppLocalizations {
   @override
   String get whatsNew140 =>
       '• Sección Seguridad y privacidad: revisión, retraso de bloqueo, ocultar en el selector, limpiar portapapeles, borrar todo\n• Clave de firma en el llavero; Face ID para acciones sensibles\n• Mapa de etiquetas y ubicación de una etiqueta\n• Paquetes de equipo: etiquetas y plantillas en un archivo\n• Iconos alternativos\n• Ajustes y menú de biblioteca más ordenados';
+
+  @override
+  String get ruleAddByScan => 'Escanear una etiqueta y añadir nota';
+
+  @override
+  String get ruleAddLastScan => 'Añadir nota a la última etiqueta';
+
+  @override
+  String get ruleNeedsContent =>
+      'Esta etiqueta está vacía; solo se pueden añadir notas a etiquetas con contenido.';
+
+  @override
+  String get simpleWrite => 'Escribir etiqueta';
+
+  @override
+  String get simpleWriteWhat => '¿Qué debe contener?';
+
+  @override
+  String get simpleKindText => 'Texto';
+
+  @override
+  String get simpleKindPhone => 'Teléfono';
+
+  @override
+  String get simpleKindLink => 'Enlace';
+
+  @override
+  String get simpleWriteNow => 'Escribir – acerca la etiqueta';
+
+  @override
+  String get simpleWritten => 'Escrito en la etiqueta ✓';
+
+  @override
+  String get simpleSaved => 'Mis etiquetas guardadas';
+
+  @override
+  String get simpleSavedHint =>
+      'Toca una para escribir lo mismo en otra etiqueta.';
 }

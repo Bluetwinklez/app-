@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import '../l10n/app_localizations.dart';
+import '../domain/ndef_record.dart';
 import '../domain/tag_rule.dart';
 import '../l10n/l10n.dart';
 import '../services/app_storage_service.dart';
@@ -10,13 +11,32 @@ class TagRulesManagerSheet extends StatefulWidget {
   final AppStorageService storage;
   final VoidCallback onRulesChanged;
 
+  /// Scans a tag and returns its records (null when cancelled / failed).
+  final Future<List<NdefRecordModel>?> Function()? onScan;
+
+  /// Records of the last scanned tag, if any.
+  final List<NdefRecordModel> lastScanRecords;
+
+  /// Saves a note for the given records.
+  final Future<void> Function(List<NdefRecordModel> records, String note)? onSaveRule;
+
   const TagRulesManagerSheet({
     super.key,
     required this.storage,
     required this.onRulesChanged,
+    this.onScan,
+    this.lastScanRecords = const [],
+    this.onSaveRule,
   });
 
-  static void show(BuildContext context, {required AppStorageService storage, required VoidCallback onRulesChanged}) {
+  static void show(
+    BuildContext context, {
+    required AppStorageService storage,
+    required VoidCallback onRulesChanged,
+    Future<List<NdefRecordModel>?> Function()? onScan,
+    List<NdefRecordModel> lastScanRecords = const [],
+    Future<void> Function(List<NdefRecordModel> records, String note)? onSaveRule,
+  }) {
     showModalBottomSheet(
       context: context,
       isScrollControlled: true,
@@ -26,6 +46,9 @@ class TagRulesManagerSheet extends StatefulWidget {
       builder: (ctx) => TagRulesManagerSheet(
         storage: storage,
         onRulesChanged: onRulesChanged,
+        onScan: onScan,
+        lastScanRecords: lastScanRecords,
+        onSaveRule: onSaveRule,
       ),
     );
   }
@@ -98,6 +121,50 @@ class _TagRulesManagerSheetState extends State<TagRulesManagerSheet> {
         ],
       ),
     );
+  }
+
+  Future<void> _addFor(List<NdefRecordModel>? records) async {
+    final loc = AppLocalizations.of(context) ?? L10n.current;
+    if (records == null || !mounted) return;
+    if (records.isEmpty) {
+      ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Text(loc.ruleNeedsContent)));
+      return;
+    }
+    final note = TextEditingController();
+    final text = await showDialog<String>(
+      context: context,
+      builder: (ctx) => AlertDialog(
+        title: Text(loc.tagNoteEditTitle),
+        content: Column(
+          mainAxisSize: MainAxisSize.min,
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Text(NdefCodec.parseRecord(records.first).content,
+                maxLines: 2, overflow: TextOverflow.ellipsis, style: TextStyle(color: AppColors.secondary)),
+            const SizedBox(height: 12),
+            TextField(
+              controller: note,
+              autofocus: true,
+              maxLines: 3,
+              decoration: InputDecoration(
+                labelText: loc.tagNoteInputLabel,
+                hintText: loc.tagNoteInputHint,
+                border: const OutlineInputBorder(),
+              ),
+            ),
+          ],
+        ),
+        actions: [
+          TextButton(onPressed: () => Navigator.of(ctx).pop(), child: Text(loc.dismiss)),
+          ElevatedButton(onPressed: () => Navigator.of(ctx).pop(note.text.trim()), child: Text(loc.save)),
+        ],
+      ),
+    );
+    note.dispose();
+    if (text == null || text.isEmpty || widget.onSaveRule == null) return;
+    await widget.onSaveRule!(records, text);
+    widget.onRulesChanged();
+    _refreshRules();
   }
 
   void _deleteRule(TagRule rule) {
@@ -198,6 +265,21 @@ class _TagRulesManagerSheetState extends State<TagRulesManagerSheet> {
                 style: TextStyle(fontSize: 11, color: AppColors.secondary),
               ),
             ),
+            if (widget.onSaveRule != null) ...[
+              const SizedBox(height: 10),
+              if (widget.onScan != null)
+                FilledButton.icon(
+                  onPressed: () async => _addFor(await widget.onScan!()),
+                  icon: const Icon(Icons.nfc_rounded),
+                  label: Text(loc.ruleAddByScan),
+                ),
+              if (widget.lastScanRecords.isNotEmpty)
+                TextButton.icon(
+                  onPressed: () => _addFor(widget.lastScanRecords),
+                  icon: const Icon(Icons.history_rounded),
+                  label: Text(loc.ruleAddLastScan),
+                ),
+            ],
             const SizedBox(height: 12),
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,

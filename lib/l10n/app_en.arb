@@ -1271,5 +1271,17 @@
   "mapPositionSaved": "Location: {lat}, {lng}",
   "mapLocationDenied": "Location permission was not granted. You can allow it in Settings → Privacy → Location Services.",
   "mapLocationFailed": "Could not get the location: {error}",
-  "whatsNew140": "• Security & privacy section: security check, lock delay, hide in app switcher, clipboard clearing, erase all data\n• Signing key now in the Keychain; sensitive actions ask for Face ID\n• Tag map and saving a tag's location\n• Team packs: share tags and templates in one file\n• Alternate app icons\n• Tidier settings and library menu"
+  "whatsNew140": "• Security & privacy section: security check, lock delay, hide in app switcher, clipboard clearing, erase all data\n• Signing key now in the Keychain; sensitive actions ask for Face ID\n• Tag map and saving a tag's location\n• Team packs: share tags and templates in one file\n• Alternate app icons\n• Tidier settings and library menu",
+  "ruleAddByScan": "Scan a tag and add a note",
+  "ruleAddLastScan": "Add a note to the last scanned tag",
+  "ruleNeedsContent": "This tag is empty; notes can only be added to tags with content.",
+  "simpleWrite": "Write a Tag",
+  "simpleWriteWhat": "What should it hold?",
+  "simpleKindText": "Text",
+  "simpleKindPhone": "Phone",
+  "simpleKindLink": "Link",
+  "simpleWriteNow": "Write – hold the tag near",
+  "simpleWritten": "Written to the tag ✓",
+  "simpleSaved": "My saved tags",
+  "simpleSavedHint": "Tap one to write the same onto a new tag."
 }

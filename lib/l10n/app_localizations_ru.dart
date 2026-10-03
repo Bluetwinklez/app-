@@ -4556,4 +4556,41 @@ class AppLocalizationsRu extends AppLocalizations {
   @override
   String get whatsNew140 =>
       '• Раздел «Безопасность и конфиденциальность»: проверка, задержка блокировки, скрытие в переключателе, очистка буфера, стереть всё\n• Ключ подписи в Связке ключей; Face ID для важных действий\n• Карта меток и сохранение места метки\n• Пакеты для команды: метки и шаблоны одним файлом\n• Альтернативные значки\n• Аккуратнее настройки и меню библиотеки';
+
+  @override
+  String get ruleAddByScan => 'Сканировать метку и добавить заметку';
+
+  @override
+  String get ruleAddLastScan => 'Заметка к последней метке';
+
+  @override
+  String get ruleNeedsContent =>
+      'Метка пуста; заметку можно добавить только к метке с содержимым.';
+
+  @override
+  String get simpleWrite => 'Записать метку';
+
+  @override
+  String get simpleWriteWhat => 'Что записать?';
+
+  @override
+  String get simpleKindText => 'Текст';
+
+  @override
+  String get simpleKindPhone => 'Телефон';
+
+  @override
+  String get simpleKindLink => 'Ссылка';
+
+  @override
+  String get simpleWriteNow => 'Записать – поднесите метку';
+
+  @override
+  String get simpleWritten => 'Записано на метку ✓';
+
+  @override
+  String get simpleSaved => 'Мои сохранённые метки';
+
+  @override
+  String get simpleSavedHint => 'Нажмите, чтобы записать то же на новую метку.';
 }
