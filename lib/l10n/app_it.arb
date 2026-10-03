@@ -1262,5 +1262,13 @@
   "iconGreen": "Verde",
   "iconPurple": "Viola",
   "iconOrange": "Arancione",
-  "iconDark": "Notte"
+  "iconDark": "Notte",
+  "mapTitle": "Mappa dei tag",
+  "mapEmpty": "Nessun tag da mostrare. Modifica un tag e tocca \"Aggiungi posizione attuale\", oppure scrivi una posizione sul tag.",
+  "mapTilesNote": "Le immagini della mappa sono caricate da OpenStreetMap.",
+  "mapOpenInMaps": "Apri in Mappe",
+  "mapAddCurrent": "Aggiungi posizione attuale",
+  "mapPositionSaved": "Posizione: {lat}, {lng}",
+  "mapLocationDenied": "Permesso di localizzazione negato. Puoi consentirlo in Impostazioni → Privacy → Localizzazione.",
+  "mapLocationFailed": "Impossibile ottenere la posizione: {error}"
 }

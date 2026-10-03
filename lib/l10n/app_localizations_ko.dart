@@ -4342,4 +4342,33 @@ class AppLocalizationsKo extends AppLocalizations {
 
   @override
   String get iconDark => '나이트';
+
+  @override
+  String get mapTitle => '태그 지도';
+
+  @override
+  String get mapEmpty =>
+      '표시할 태그가 없습니다. 태그를 편집해 \"현재 위치 추가\"를 누르거나 태그에 위치를 쓰세요.';
+
+  @override
+  String get mapTilesNote => '지도 이미지는 OpenStreetMap에서 불러옵니다.';
+
+  @override
+  String get mapOpenInMaps => '지도에서 열기';
+
+  @override
+  String get mapAddCurrent => '현재 위치 추가';
+
+  @override
+  String mapPositionSaved(String lat, String lng) {
+    return '위치: $lat, $lng';
+  }
+
+  @override
+  String get mapLocationDenied => '위치 권한이 없습니다. 설정 → 개인정보 보호 → 위치 서비스에서 허용하세요.';
+
+  @override
+  String mapLocationFailed(String error) {
+    return '위치를 가져올 수 없음: $error';
+  }
 }

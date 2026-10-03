@@ -3,3 +3,4 @@
 "NSPhotoLibraryUsageDescription" = "Le tue foto servono ad aggiungere immagini ai tag della libreria.";
 "NFCReaderUsageDescription" = "L'accesso NFC serve per leggere tag NFC e scrivere messaggi NDEF.";
 "NSFaceIDUsageDescription" = "Face ID protegge la libreria dei tag quando il blocco app è attivo.";
+"NSLocationWhenInUseUsageDescription" = "Su tua richiesta, la posizione del tag viene salvata per mostrarla sulla mappa.";

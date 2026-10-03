@@ -3,6 +3,7 @@ import 'dart:io';
 import 'package:flutter/material.dart';
 import 'package:file_selector/file_selector.dart';
 import 'package:flutter/services.dart';
+import 'package:geolocator/geolocator.dart';
 import 'package:pdf/widgets.dart' as pw;
 import 'package:image_picker/image_picker.dart';
 import 'package:intl/intl.dart';
@@ -13,6 +14,7 @@ import '../domain/library_import.dart';
 import '../domain/team_pack.dart';
 import '../services/backup_crypto.dart';
 import 'password_prompt.dart';
+import 'tag_map_page.dart';
 import '../domain/logbook.dart';
 import '../domain/ndef_record.dart';
 import '../domain/tag_library.dart';
@@ -575,6 +577,11 @@ class _TagLibraryPageState extends State<TagLibraryPage> {
         appBar: AppBar(
           title: Text(loc.tagLibraryTitle),
           actions: [
+            IconButton(
+              tooltip: loc.mapTitle,
+              icon: const Icon(Icons.map_outlined),
+              onPressed: () => TagMapPage.open(context, _visible),
+            ),
             PopupMenuButton<String>(
               tooltip: loc.libraryMoreActions,
               icon: const Icon(Icons.more_horiz_rounded),
@@ -911,6 +918,9 @@ class _EntryEditorState extends State<_EntryEditor> {
   late TagCategory _category = widget.entry.category;
   late String? _photoPath = widget.entry.photoPath;
   late int? _checkEvery = widget.entry.checkEveryDays;
+  late double? _lat = widget.entry.latitude;
+  late double? _lng = widget.entry.longitude;
+  bool _locating = false;
   late String? _autoLog = widget.logBooks.any((b) => b.id == widget.entry.autoLogBookId)
       ? widget.entry.autoLogBookId
       : null;
@@ -955,6 +965,35 @@ class _EntryEditorState extends State<_EntryEditor> {
     }
   }
 
+  Future<void> _useCurrentLocation() async {
+    final loc = AppLocalizations.of(context) ?? L10n.current;
+    setState(() {
+      _locating = true;
+      _error = null;
+    });
+    try {
+      var permission = await Geolocator.checkPermission();
+      if (permission == LocationPermission.denied) permission = await Geolocator.requestPermission();
+      if (permission == LocationPermission.denied || permission == LocationPermission.deniedForever) {
+        if (mounted) setState(() => _error = loc.mapLocationDenied);
+        return;
+      }
+      final p = await Geolocator.getCurrentPosition(
+        locationSettings: const LocationSettings(accuracy: LocationAccuracy.high, timeLimit: Duration(seconds: 20)),
+      );
+      if (mounted) {
+        setState(() {
+          _lat = double.parse(p.latitude.toStringAsFixed(6));
+          _lng = double.parse(p.longitude.toStringAsFixed(6));
+        });
+      }
+    } catch (e) {
+      if (mounted) setState(() => _error = loc.mapLocationFailed('$e'));
+    } finally {
+      if (mounted) setState(() => _locating = false);
+    }
+  }
+
   void _save() {
     final name = _name.text.trim();
     if (name.isEmpty) {
@@ -975,6 +1014,9 @@ class _EntryEditorState extends State<_EntryEditor> {
       clearCheck: _checkEvery == null,
       autoLogBookId: _autoLog,
       clearAutoLog: _autoLog == null,
+      latitude: _lat,
+      longitude: _lng,
+      clearPosition: _lat == null || _lng == null,
       updatedAt: DateTime.now(),
     ));
   }
@@ -1061,7 +1103,29 @@ class _EntryEditorState extends State<_EntryEditor> {
                   labelText: loc.locationLabel,
                   hintText: loc.tagLibraryLocationHint),
             ),
-            const SizedBox(height: 12),
+            Row(
+              children: [
+                Expanded(
+                  child: _lat != null && _lng != null
+                      ? Text(loc.mapPositionSaved(_lat!.toStringAsFixed(5), _lng!.toStringAsFixed(5)),
+                          style: TextStyle(fontSize: 12.5, color: AppColors.secondary))
+                      : TextButton.icon(
+                          onPressed: _locating ? null : _useCurrentLocation,
+                          icon: _locating
+                              ? const SizedBox(width: 16, height: 16, child: CircularProgressIndicator(strokeWidth: 2))
+                              : const Icon(Icons.my_location_rounded, size: 18),
+                          label: Text(loc.mapAddCurrent),
+                        ),
+                ),
+                if (_lat != null)
+                  IconButton(
+                    tooltip: loc.remove,
+                    icon: const Icon(Icons.close_rounded, size: 18),
+                    onPressed: () => setState(() => _lat = _lng = null),
+                  ),
+              ],
+            ),
+            const SizedBox(height: 4),
             TextField(
               controller: _labels,
               decoration: InputDecoration(

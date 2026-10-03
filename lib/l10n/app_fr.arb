@@ -1262,5 +1262,13 @@
   "iconGreen": "Vert",
   "iconPurple": "Violet",
   "iconOrange": "Orange",
-  "iconDark": "Nuit"
+  "iconDark": "Nuit",
+  "mapTitle": "Carte des tags",
+  "mapEmpty": "Aucun tag à afficher. Modifiez un tag et touchez « Ajouter la position actuelle », ou écrivez une position sur le tag.",
+  "mapTilesNote": "Les images de carte proviennent d'OpenStreetMap.",
+  "mapOpenInMaps": "Ouvrir dans Plans",
+  "mapAddCurrent": "Ajouter la position actuelle",
+  "mapPositionSaved": "Position : {lat}, {lng}",
+  "mapLocationDenied": "Accès à la position refusé. Autorisez-le dans Réglages → Confidentialité → Service de localisation.",
+  "mapLocationFailed": "Position indisponible : {error}"
 }

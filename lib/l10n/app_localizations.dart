@@ -7702,6 +7702,54 @@ abstract class AppLocalizations {
   /// In tr, this message translates to:
   /// **'Gece'**
   String get iconDark;
+
+  /// No description provided for @mapTitle.
+  ///
+  /// In tr, this message translates to:
+  /// **'Etiket haritası'**
+  String get mapTitle;
+
+  /// No description provided for @mapEmpty.
+  ///
+  /// In tr, this message translates to:
+  /// **'Haritada gösterilecek etiket yok. Bir etiketi düzenleyip \"Şu anki konumu ekle\"ye dokunun ya da etikete konum yazın.'**
+  String get mapEmpty;
+
+  /// No description provided for @mapTilesNote.
+  ///
+  /// In tr, this message translates to:
+  /// **'Harita görüntüleri OpenStreetMap\'ten yüklenir.'**
+  String get mapTilesNote;
+
+  /// No description provided for @mapOpenInMaps.
+  ///
+  /// In tr, this message translates to:
+  /// **'Haritalar\'da aç'**
+  String get mapOpenInMaps;
+
+  /// No description provided for @mapAddCurrent.
+  ///
+  /// In tr, this message translates to:
+  /// **'Şu anki konumu ekle'**
+  String get mapAddCurrent;
+
+  /// No description provided for @mapPositionSaved.
+  ///
+  /// In tr, this message translates to:
+  /// **'Konum: {lat}, {lng}'**
+  String mapPositionSaved(String lat, String lng);
+
+  /// No description provided for @mapLocationDenied.
+  ///
+  /// In tr, this message translates to:
+  /// **'Konum izni verilmedi. Ayarlar → Gizlilik → Konum Servisleri\'nden izin verebilirsiniz.'**
+  String get mapLocationDenied;
+
+  /// No description provided for @mapLocationFailed.
+  ///
+  /// In tr, this message translates to:
+  /// **'Konum alınamadı: {error}'**
+  String mapLocationFailed(String error);
 }
 
 class _AppLocalizationsDelegate
