@@ -4375,4 +4375,40 @@ class AppLocalizationsKo extends AppLocalizations {
   @override
   String get whatsNew140 =>
       '• 보안 및 개인정보: 보안 점검, 잠금 지연, 앱 전환기에서 숨기기, 클립보드 지우기, 모든 데이터 지우기\n• 서명 키를 키체인에 보관, 민감한 작업은 Face ID 확인\n• 태그 지도와 태그 위치 저장\n• 팀 팩: 태그와 템플릿을 파일 하나로 공유\n• 대체 앱 아이콘\n• 더 깔끔한 설정과 보관함 메뉴';
+
+  @override
+  String get ruleAddByScan => '태그를 스캔해 메모 추가';
+
+  @override
+  String get ruleAddLastScan => '마지막 스캔 태그에 메모 추가';
+
+  @override
+  String get ruleNeedsContent => '빈 태그입니다. 내용이 있는 태그에만 메모를 추가할 수 있습니다.';
+
+  @override
+  String get simpleWrite => '태그에 쓰기';
+
+  @override
+  String get simpleWriteWhat => '무엇을 쓸까요?';
+
+  @override
+  String get simpleKindText => '글자';
+
+  @override
+  String get simpleKindPhone => '전화';
+
+  @override
+  String get simpleKindLink => '링크';
+
+  @override
+  String get simpleWriteNow => '쓰기 – 태그를 대세요';
+
+  @override
+  String get simpleWritten => '태그에 썼습니다 ✓';
+
+  @override
+  String get simpleSaved => '저장한 태그';
+
+  @override
+  String get simpleSavedHint => '하나를 누르면 같은 내용을 새 태그에 씁니다.';
 }

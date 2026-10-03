@@ -1,5 +1,10 @@
 # Değişiklik Günlüğü
 
+## 1.4.1
+
+- Etiket kuralları ekranına "Etiket okutup not ekle" ve "Son okunan etikete not ekle" düğmeleri
+- Basit mod: büyük "Etikete Yaz" düğmesi (yazı, telefon, bağlantı) ve kayıtlı etiketleri tek dokunuşla yeni etikete yazma
+
 ## 1.4.0
 
 **Güvenlik ve gizlilik**

@@ -4588,4 +4588,42 @@ class AppLocalizationsFr extends AppLocalizations {
   @override
   String get whatsNew140 =>
       '• Section Sécurité et confidentialité : bilan, délai de verrouillage, masquage dans le sélecteur, effacement du presse-papiers, tout effacer\n• Clé de signature dans le trousseau ; Face ID pour les actions sensibles\n• Carte des tags et position d\'un tag\n• Packs d\'équipe : tags et modèles dans un seul fichier\n• Icônes alternatives\n• Réglages et menu de bibliothèque simplifiés';
+
+  @override
+  String get ruleAddByScan => 'Scanner un tag et ajouter une note';
+
+  @override
+  String get ruleAddLastScan => 'Ajouter une note au dernier tag scanné';
+
+  @override
+  String get ruleNeedsContent =>
+      'Ce tag est vide ; une note nécessite un contenu.';
+
+  @override
+  String get simpleWrite => 'Écrire un tag';
+
+  @override
+  String get simpleWriteWhat => 'Que doit-il contenir ?';
+
+  @override
+  String get simpleKindText => 'Texte';
+
+  @override
+  String get simpleKindPhone => 'Téléphone';
+
+  @override
+  String get simpleKindLink => 'Lien';
+
+  @override
+  String get simpleWriteNow => 'Écrire – approchez le tag';
+
+  @override
+  String get simpleWritten => 'Écrit sur le tag ✓';
+
+  @override
+  String get simpleSaved => 'Mes tags enregistrés';
+
+  @override
+  String get simpleSavedHint =>
+      'Touchez-en un pour l\'écrire sur un nouveau tag.';
 }

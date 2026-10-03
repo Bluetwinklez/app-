@@ -4553,4 +4553,41 @@ class AppLocalizationsTr extends AppLocalizations {
   @override
   String get whatsNew140 =>
       '• Güvenlik ve gizlilik bölümü: güvenlik kontrolü, kilit gecikmesi, uygulama değiştiricide gizleme, pano temizleme, tüm verileri sil\n• İmza anahtarı artık Anahtar Zinciri\'nde; hassas işlemler Face ID ister\n• Etiket haritası ve etikete konum kaydetme\n• Ekip paketi: etiket ve şablonları tek dosyayla paylaşın\n• Alternatif uygulama simgeleri\n• Daha sade ayarlar ve kütüphane menüsü';
+
+  @override
+  String get ruleAddByScan => 'Etiket okutup not ekle';
+
+  @override
+  String get ruleAddLastScan => 'Son okunan etikete not ekle';
+
+  @override
+  String get ruleNeedsContent =>
+      'Bu etiket boş; not yalnızca içeriği olan etiketlere eklenebilir.';
+
+  @override
+  String get simpleWrite => 'Etikete Yaz';
+
+  @override
+  String get simpleWriteWhat => 'Ne yazılsın?';
+
+  @override
+  String get simpleKindText => 'Yazı';
+
+  @override
+  String get simpleKindPhone => 'Telefon';
+
+  @override
+  String get simpleKindLink => 'Bağlantı';
+
+  @override
+  String get simpleWriteNow => 'Yaz ve etiketi yaklaştır';
+
+  @override
+  String get simpleWritten => 'Etikete yazıldı ✓';
+
+  @override
+  String get simpleSaved => 'Kayıtlı etiketlerim';
+
+  @override
+  String get simpleSavedHint => 'Birine dokunun, aynısını yeni etikete yazın.';
 }

@@ -4568,4 +4568,42 @@ class AppLocalizationsDe extends AppLocalizations {
   @override
   String get whatsNew140 =>
       '• Bereich Sicherheit & Datenschutz: Sicherheitscheck, Sperrverzögerung, im App-Umschalter ausblenden, Zwischenablage leeren, alle Daten löschen\n• Signaturschlüssel jetzt im Schlüsselbund; sensible Aktionen fragen nach Face ID\n• Tag-Karte und Ort eines Tags speichern\n• Team-Pakete: Tags und Vorlagen in einer Datei teilen\n• Alternative App-Symbole\n• Aufgeräumte Einstellungen und Bibliotheksmenü';
+
+  @override
+  String get ruleAddByScan => 'Tag scannen und Notiz hinzufügen';
+
+  @override
+  String get ruleAddLastScan => 'Notiz zum zuletzt gescannten Tag';
+
+  @override
+  String get ruleNeedsContent =>
+      'Dieser Tag ist leer; Notizen gehen nur bei Tags mit Inhalt.';
+
+  @override
+  String get simpleWrite => 'Tag beschreiben';
+
+  @override
+  String get simpleWriteWhat => 'Was soll drauf?';
+
+  @override
+  String get simpleKindText => 'Text';
+
+  @override
+  String get simpleKindPhone => 'Telefon';
+
+  @override
+  String get simpleKindLink => 'Link';
+
+  @override
+  String get simpleWriteNow => 'Schreiben – Tag heranhalten';
+
+  @override
+  String get simpleWritten => 'Auf den Tag geschrieben ✓';
+
+  @override
+  String get simpleSaved => 'Meine gespeicherten Tags';
+
+  @override
+  String get simpleSavedHint =>
+      'Antippen, um dasselbe auf einen neuen Tag zu schreiben.';
 }
