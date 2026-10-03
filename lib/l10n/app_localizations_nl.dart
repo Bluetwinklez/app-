@@ -3357,4 +3357,99 @@ class AppLocalizationsNl extends AppLocalizations {
   @override
   String get tapIosRequirement =>
       'iPhone XS en nieuwer lezen op de achtergrond als ze ontgrendeld zijn en Camera/Wallet niet open is.';
+
+  @override
+  String get galleryCatBusiness => 'Zakelijk';
+
+  @override
+  String get galleryCatSocial => 'Sociaal';
+
+  @override
+  String get galleryCatHome => 'Thuis';
+
+  @override
+  String get galleryCatPersonal => 'Persoonlijk';
+
+  @override
+  String get galleryCatAutomation => 'Automatisering';
+
+  @override
+  String get galleryFavorites => 'Favorieten';
+
+  @override
+  String get gallerySearchHint => 'Sjablonen zoeken...';
+
+  @override
+  String get galleryNoResults => 'Geen overeenkomende sjablonen.';
+
+  @override
+  String get galleryAddFavorite => 'Aan favorieten toevoegen';
+
+  @override
+  String get galleryRemoveFavorite => 'Uit favorieten verwijderen';
+
+  @override
+  String get presetEventTitle => 'Evenementuitnodiging';
+
+  @override
+  String get presetEventDesc =>
+      'Schrijft het evenement als iCalendar; Android kan het aan de agenda toevoegen.';
+
+  @override
+  String get eventNameLabel => 'Naam evenement';
+
+  @override
+  String get eventDateLabel => 'Datum (JJJJ-MM-DD)';
+
+  @override
+  String get eventTimeLabel => 'Tijd (UU:MM)';
+
+  @override
+  String get eventDateTimeInvalid =>
+      'Ongeldige datum of tijd. Voorbeeld: 2026-12-31 en 19:00';
+
+  @override
+  String get presetLuggageTitle => 'Bagagelabel';
+
+  @override
+  String get presetLuggageDesc =>
+      'Raakt hij kwijt, dan kan de vinder je makkelijk bereiken.';
+
+  @override
+  String luggageMessage(String name, String contact) {
+    return 'Deze bagage is van $name. Gevonden? Neem contact op: $contact';
+  }
+
+  @override
+  String get presetPlaylistTitle => 'Afspeellijst';
+
+  @override
+  String get presetPlaylistDesc =>
+      'Opent een Spotify-, Apple Music- of YouTube-afspeellijst.';
+
+  @override
+  String get playlistLinkLabel => 'Link naar afspeellijst';
+
+  @override
+  String get presetEmailMeTitle => 'Mail mij';
+
+  @override
+  String get presetEmailMeDesc =>
+      'Opent een nieuwe e-mail aan jou met een vast onderwerp.';
+
+  @override
+  String get presetCallMeTitle => 'Bel mij';
+
+  @override
+  String get presetCallMeDesc => 'De telefoon belt jouw nummer.';
+
+  @override
+  String get presetRunShortcutTitle => 'Opdracht uitvoeren';
+
+  @override
+  String get presetRunShortcutDesc =>
+      'Voert de genoemde iPhone-opdracht uit: lampen aan, muziek starten, Focus wijzigen...';
+
+  @override
+  String get shortcutNameLabel => 'Naam van opdracht';
 }

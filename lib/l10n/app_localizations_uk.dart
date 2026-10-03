@@ -3358,4 +3358,98 @@ class AppLocalizationsUk extends AppLocalizations {
   @override
   String get tapIosRequirement =>
       'iPhone XS і новіші читають у фоні, якщо розблоковано й не відкрито Камеру/Wallet.';
+
+  @override
+  String get galleryCatBusiness => 'Бізнес';
+
+  @override
+  String get galleryCatSocial => 'Соцмережі';
+
+  @override
+  String get galleryCatHome => 'Дім';
+
+  @override
+  String get galleryCatPersonal => 'Особисте';
+
+  @override
+  String get galleryCatAutomation => 'Автоматизація';
+
+  @override
+  String get galleryFavorites => 'Обране';
+
+  @override
+  String get gallerySearchHint => 'Пошук шаблонів...';
+
+  @override
+  String get galleryNoResults => 'Відповідних шаблонів немає.';
+
+  @override
+  String get galleryAddFavorite => 'До обраного';
+
+  @override
+  String get galleryRemoveFavorite => 'Прибрати з обраного';
+
+  @override
+  String get presetEventTitle => 'Запрошення на подію';
+
+  @override
+  String get presetEventDesc =>
+      'Записує подію у форматі iCalendar; Android може додати її до календаря.';
+
+  @override
+  String get eventNameLabel => 'Назва події';
+
+  @override
+  String get eventDateLabel => 'Дата (РРРР-ММ-ДД)';
+
+  @override
+  String get eventTimeLabel => 'Час (ГГ:ХХ)';
+
+  @override
+  String get eventDateTimeInvalid =>
+      'Неправильна дата чи час. Приклад: 2026-12-31 і 19:00';
+
+  @override
+  String get presetLuggageTitle => 'Багажна бирка';
+
+  @override
+  String get presetLuggageDesc =>
+      'Якщо загубиться, той, хто знайде, легко зв\'яжеться з вами.';
+
+  @override
+  String luggageMessage(String name, String contact) {
+    return 'Цей багаж належить: $name. Якщо знайшли, зв\'яжіться: $contact';
+  }
+
+  @override
+  String get presetPlaylistTitle => 'Плейлист';
+
+  @override
+  String get presetPlaylistDesc =>
+      'Відкриває плейлист Spotify, Apple Music чи YouTube.';
+
+  @override
+  String get playlistLinkLabel => 'Посилання на плейлист';
+
+  @override
+  String get presetEmailMeTitle => 'Напишіть мені';
+
+  @override
+  String get presetEmailMeDesc => 'Відкриває новий лист вам із готовою темою.';
+
+  @override
+  String get presetCallMeTitle => 'Зателефонуйте мені';
+
+  @override
+  String get presetCallMeDesc => 'Телефон зателефонує на ваш номер.';
+
+  @override
+  String get presetRunShortcutTitle => 'Запустити швидку команду';
+
+  @override
+  String get presetRunShortcutDesc =>
+      'Запускає вказану швидку команду iPhone: світло, музика, зміна режиму зосередження...';
+
+  @override
+  String get shortcutNameLabel => 'Назва команди';
 }

@@ -3217,4 +3217,94 @@ class AppLocalizationsJa extends AppLocalizations {
   @override
   String get tapIosRequirement =>
       'iPhone XS以降は、ロック解除中かつカメラ/ウォレットを開いていないときにバックグラウンドで読み取ります。';
+
+  @override
+  String get galleryCatBusiness => 'ビジネス';
+
+  @override
+  String get galleryCatSocial => 'ソーシャル';
+
+  @override
+  String get galleryCatHome => 'ホーム';
+
+  @override
+  String get galleryCatPersonal => 'パーソナル';
+
+  @override
+  String get galleryCatAutomation => 'オートメーション';
+
+  @override
+  String get galleryFavorites => 'お気に入り';
+
+  @override
+  String get gallerySearchHint => 'テンプレートを検索...';
+
+  @override
+  String get galleryNoResults => '一致するテンプレートはありません。';
+
+  @override
+  String get galleryAddFavorite => 'お気に入りに追加';
+
+  @override
+  String get galleryRemoveFavorite => 'お気に入りから削除';
+
+  @override
+  String get presetEventTitle => 'イベント招待';
+
+  @override
+  String get presetEventDesc => '予定をiCalendar形式で書き込みます。Androidではカレンダーに追加できます。';
+
+  @override
+  String get eventNameLabel => 'イベント名';
+
+  @override
+  String get eventDateLabel => '日付 (YYYY-MM-DD)';
+
+  @override
+  String get eventTimeLabel => '時刻 (HH:MM)';
+
+  @override
+  String get eventDateTimeInvalid => '日付または時刻が無効です。例: 2026-12-31 と 19:00';
+
+  @override
+  String get presetLuggageTitle => '手荷物タグ';
+
+  @override
+  String get presetLuggageDesc => '紛失時に拾った人があなたに連絡できます。';
+
+  @override
+  String luggageMessage(String name, String contact) {
+    return 'この荷物は$nameのものです。見つけたらご連絡ください: $contact';
+  }
+
+  @override
+  String get presetPlaylistTitle => 'プレイリスト';
+
+  @override
+  String get presetPlaylistDesc => 'Spotify・Apple Music・YouTubeのプレイリストを開きます。';
+
+  @override
+  String get playlistLinkLabel => 'プレイリストのリンク';
+
+  @override
+  String get presetEmailMeTitle => 'メールを送る';
+
+  @override
+  String get presetEmailMeDesc => '件名入りの新規メールを開きます。';
+
+  @override
+  String get presetCallMeTitle => '電話をかける';
+
+  @override
+  String get presetCallMeDesc => 'かざしたスマホからあなたに発信します。';
+
+  @override
+  String get presetRunShortcutTitle => 'ショートカットを実行';
+
+  @override
+  String get presetRunShortcutDesc =>
+      '指定したiPhoneのショートカットを実行: 照明オン、音楽再生、集中モード変更など';
+
+  @override
+  String get shortcutNameLabel => 'ショートカット名';
 }

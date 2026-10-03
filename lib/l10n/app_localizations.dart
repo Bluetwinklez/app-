@@ -5769,6 +5769,180 @@ abstract class AppLocalizations {
   /// In tr, this message translates to:
   /// **'iPhone XS ve sonrası, ekran kilidi açıkken ve kamera/Cüzdan açık değilken arka planda okur.'**
   String get tapIosRequirement;
+
+  /// No description provided for @galleryCatBusiness.
+  ///
+  /// In tr, this message translates to:
+  /// **'İş'**
+  String get galleryCatBusiness;
+
+  /// No description provided for @galleryCatSocial.
+  ///
+  /// In tr, this message translates to:
+  /// **'Sosyal'**
+  String get galleryCatSocial;
+
+  /// No description provided for @galleryCatHome.
+  ///
+  /// In tr, this message translates to:
+  /// **'Ev'**
+  String get galleryCatHome;
+
+  /// No description provided for @galleryCatPersonal.
+  ///
+  /// In tr, this message translates to:
+  /// **'Kişisel'**
+  String get galleryCatPersonal;
+
+  /// No description provided for @galleryCatAutomation.
+  ///
+  /// In tr, this message translates to:
+  /// **'Otomasyon'**
+  String get galleryCatAutomation;
+
+  /// No description provided for @galleryFavorites.
+  ///
+  /// In tr, this message translates to:
+  /// **'Favoriler'**
+  String get galleryFavorites;
+
+  /// No description provided for @gallerySearchHint.
+  ///
+  /// In tr, this message translates to:
+  /// **'Şablon ara...'**
+  String get gallerySearchHint;
+
+  /// No description provided for @galleryNoResults.
+  ///
+  /// In tr, this message translates to:
+  /// **'Eşleşen şablon yok.'**
+  String get galleryNoResults;
+
+  /// No description provided for @galleryAddFavorite.
+  ///
+  /// In tr, this message translates to:
+  /// **'Favorilere ekle'**
+  String get galleryAddFavorite;
+
+  /// No description provided for @galleryRemoveFavorite.
+  ///
+  /// In tr, this message translates to:
+  /// **'Favorilerden çıkar'**
+  String get galleryRemoveFavorite;
+
+  /// No description provided for @presetEventTitle.
+  ///
+  /// In tr, this message translates to:
+  /// **'Etkinlik Daveti'**
+  String get presetEventTitle;
+
+  /// No description provided for @presetEventDesc.
+  ///
+  /// In tr, this message translates to:
+  /// **'Etkinliği takvim (iCalendar) biçiminde yazar; Android takvime ekleyebilir.'**
+  String get presetEventDesc;
+
+  /// No description provided for @eventNameLabel.
+  ///
+  /// In tr, this message translates to:
+  /// **'Etkinlik adı'**
+  String get eventNameLabel;
+
+  /// No description provided for @eventDateLabel.
+  ///
+  /// In tr, this message translates to:
+  /// **'Tarih (YYYY-AA-GG)'**
+  String get eventDateLabel;
+
+  /// No description provided for @eventTimeLabel.
+  ///
+  /// In tr, this message translates to:
+  /// **'Saat (SS:DD)'**
+  String get eventTimeLabel;
+
+  /// No description provided for @eventDateTimeInvalid.
+  ///
+  /// In tr, this message translates to:
+  /// **'Tarih ya da saat geçersiz. Örnek: 2026-12-31 ve 19:00'**
+  String get eventDateTimeInvalid;
+
+  /// No description provided for @presetLuggageTitle.
+  ///
+  /// In tr, this message translates to:
+  /// **'Bavul Etiketi'**
+  String get presetLuggageTitle;
+
+  /// No description provided for @presetLuggageDesc.
+  ///
+  /// In tr, this message translates to:
+  /// **'Kaybolursa bulan kişi size kolayca ulaşsın.'**
+  String get presetLuggageDesc;
+
+  /// No description provided for @luggageMessage.
+  ///
+  /// In tr, this message translates to:
+  /// **'Bu bavul {name} kişisine aittir. Bulursanız lütfen ulaşın: {contact}'**
+  String luggageMessage(String name, String contact);
+
+  /// No description provided for @presetPlaylistTitle.
+  ///
+  /// In tr, this message translates to:
+  /// **'Çalma Listesi'**
+  String get presetPlaylistTitle;
+
+  /// No description provided for @presetPlaylistDesc.
+  ///
+  /// In tr, this message translates to:
+  /// **'Spotify, Apple Music ya da YouTube listesini açar.'**
+  String get presetPlaylistDesc;
+
+  /// No description provided for @playlistLinkLabel.
+  ///
+  /// In tr, this message translates to:
+  /// **'Çalma listesi bağlantısı'**
+  String get playlistLinkLabel;
+
+  /// No description provided for @presetEmailMeTitle.
+  ///
+  /// In tr, this message translates to:
+  /// **'Bana E-posta Gönder'**
+  String get presetEmailMeTitle;
+
+  /// No description provided for @presetEmailMeDesc.
+  ///
+  /// In tr, this message translates to:
+  /// **'Hazır konuyla size yeni bir e-posta açar.'**
+  String get presetEmailMeDesc;
+
+  /// No description provided for @presetCallMeTitle.
+  ///
+  /// In tr, this message translates to:
+  /// **'Beni Ara'**
+  String get presetCallMeTitle;
+
+  /// No description provided for @presetCallMeDesc.
+  ///
+  /// In tr, this message translates to:
+  /// **'Dokunan telefon numaranızı arar.'**
+  String get presetCallMeDesc;
+
+  /// No description provided for @presetRunShortcutTitle.
+  ///
+  /// In tr, this message translates to:
+  /// **'Kısayol Çalıştır'**
+  String get presetRunShortcutTitle;
+
+  /// No description provided for @presetRunShortcutDesc.
+  ///
+  /// In tr, this message translates to:
+  /// **'iPhone\'da adını verdiğiniz Kısayolu çalıştırır: ışıkları aç, müzik başlat, odak modunu değiştir...'**
+  String get presetRunShortcutDesc;
+
+  /// No description provided for @shortcutNameLabel.
+  ///
+  /// In tr, this message translates to:
+  /// **'Kısayol adı'**
+  String get shortcutNameLabel;
 }
 
 class _AppLocalizationsDelegate

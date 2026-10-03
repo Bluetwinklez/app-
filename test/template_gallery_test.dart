@@ -60,4 +60,42 @@ void main() {
   test('shortcut trigger writes the app deep link', () {
     expect(NdefCodec.decodeUri(preset('shortcut_trigger').create({}).single), 'nfctagmaster://scan');
   });
+
+  group('gallery extras', () {
+    test('every preset has a category and filtering by category works', () {
+      final auto = TemplateGallery.filter(category: GalleryCategory.automation).map((p) => p.id);
+      expect(auto, containsAll(['shortcut_trigger', 'run_shortcut']));
+      expect(auto, isNot(contains('business_card')));
+    });
+
+    test('favourites come first and can be filtered alone', () {
+      final all = TemplateGallery.filter(favorites: ['playlist', 'pet_tag']);
+      expect(all.take(2).map((p) => p.id), ['playlist', 'pet_tag']);
+      expect(all.length, TemplateGallery.presets.length);
+      final favs = TemplateGallery.filter(favoritesOnly: true, favorites: ['pet_tag']);
+      expect(favs.single.id, 'pet_tag');
+    });
+
+    test('search ignores case and Turkish dotted letters', () {
+      final r = TemplateGallery.filter(query: 'İNSTAGRAM');
+      expect(r.map((p) => p.id), contains('instagram'));
+      expect(TemplateGallery.filter(query: 'zzzz-nothing'), isEmpty);
+    });
+
+    test('event date parsing rejects impossible dates', () {
+      expect(TemplateGallery.parseEventStart('2026-12-31', '19:00'), DateTime(2026, 12, 31, 19));
+      expect(TemplateGallery.parseEventStart('2026-02-31', '10:00'), isNull);
+      expect(TemplateGallery.parseEventStart('31.12.2026', '10:00'), isNull);
+      expect(TemplateGallery.parseEventStart('2026-01-01', '24:00'), isNull);
+      expect(
+        () => preset('event_invite').create({'name': 'X', 'date': 'soon', 'time': '10:00'}),
+        throwsA(isA<QuickLinkException>()),
+      );
+    });
+
+    test('run shortcut encodes the name', () {
+      final r = preset('run_shortcut').create({'name': 'Good Night'}).single;
+      expect(NdefCodec.decodeUri(r), 'shortcuts://run-shortcut?name=Good%20Night');
+    });
+  });
 }

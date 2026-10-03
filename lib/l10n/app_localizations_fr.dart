@@ -3377,4 +3377,99 @@ class AppLocalizationsFr extends AppLocalizations {
   @override
   String get tapIosRequirement =>
       'L\'iPhone XS et ultérieur lit en arrière-plan s\'il est déverrouillé et que Appareil photo/Cartes ne sont pas ouverts.';
+
+  @override
+  String get galleryCatBusiness => 'Pro';
+
+  @override
+  String get galleryCatSocial => 'Social';
+
+  @override
+  String get galleryCatHome => 'Maison';
+
+  @override
+  String get galleryCatPersonal => 'Personnel';
+
+  @override
+  String get galleryCatAutomation => 'Automatisation';
+
+  @override
+  String get galleryFavorites => 'Favoris';
+
+  @override
+  String get gallerySearchHint => 'Rechercher un modèle...';
+
+  @override
+  String get galleryNoResults => 'Aucun modèle correspondant.';
+
+  @override
+  String get galleryAddFavorite => 'Ajouter aux favoris';
+
+  @override
+  String get galleryRemoveFavorite => 'Retirer des favoris';
+
+  @override
+  String get presetEventTitle => 'Invitation à un événement';
+
+  @override
+  String get presetEventDesc =>
+      'Écrit l\'événement au format iCalendar ; Android peut l\'ajouter au calendrier.';
+
+  @override
+  String get eventNameLabel => 'Nom de l\'événement';
+
+  @override
+  String get eventDateLabel => 'Date (AAAA-MM-JJ)';
+
+  @override
+  String get eventTimeLabel => 'Heure (HH:MM)';
+
+  @override
+  String get eventDateTimeInvalid =>
+      'Date ou heure invalide. Exemple : 2026-12-31 et 19:00';
+
+  @override
+  String get presetLuggageTitle => 'Étiquette de bagage';
+
+  @override
+  String get presetLuggageDesc =>
+      'En cas de perte, la personne qui le trouve peut vous joindre.';
+
+  @override
+  String luggageMessage(String name, String contact) {
+    return 'Ce bagage appartient à $name. Si vous le trouvez, contactez : $contact';
+  }
+
+  @override
+  String get presetPlaylistTitle => 'Playlist';
+
+  @override
+  String get presetPlaylistDesc =>
+      'Ouvre une playlist Spotify, Apple Music ou YouTube.';
+
+  @override
+  String get playlistLinkLabel => 'Lien de la playlist';
+
+  @override
+  String get presetEmailMeTitle => 'Écrivez-moi';
+
+  @override
+  String get presetEmailMeDesc =>
+      'Ouvre un nouvel e-mail vers vous avec un objet prêt.';
+
+  @override
+  String get presetCallMeTitle => 'Appelez-moi';
+
+  @override
+  String get presetCallMeDesc => 'Le téléphone appelle votre numéro.';
+
+  @override
+  String get presetRunShortcutTitle => 'Exécuter un raccourci';
+
+  @override
+  String get presetRunShortcutDesc =>
+      'Exécute le raccourci iPhone indiqué : allumer, lancer la musique, changer de Concentration...';
+
+  @override
+  String get shortcutNameLabel => 'Nom du raccourci';
 }
