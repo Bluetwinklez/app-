@@ -1,4 +1,5 @@
 import 'dart:convert';
+import 'dart:ui' show PlatformDispatcher;
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import '../domain/logbook.dart';
@@ -14,6 +15,7 @@ import '../l10n/l10n.dart';
 import '../services/nfc_service.dart';
 import '../services/app_storage_service.dart';
 import '../services/backup_codec.dart';
+import '../services/speech_service.dart';
 
 /// App state controller managing NFC lifecycle, active scans, composing, writes, history, templates, and tag rules
 class NfcStateController extends ChangeNotifier {
@@ -220,6 +222,10 @@ class NfcStateController extends ChangeNotifier {
         _feedback(success: true);
 
         await _markLibrarySeen(info.identifier, autoLog: autoLog);
+        if (_storage.speakAfterScan && info.records.isNotEmpty) {
+          SpeechService.speak(SpeechService.describe(info.records),
+              languageCode: _storage.localeCode ?? PlatformDispatcher.instance.locale.languageCode);
+        }
 
         // Check if there is an in-app tag rule matching exact NDEF bytes SHA-256
         if (info.records.isNotEmpty) {

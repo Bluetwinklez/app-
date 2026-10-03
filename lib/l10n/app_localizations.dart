@@ -7846,6 +7846,24 @@ abstract class AppLocalizations {
   /// In tr, this message translates to:
   /// **'Yazı boyutu'**
   String get textSizeTitle;
+
+  /// No description provided for @speakTag.
+  ///
+  /// In tr, this message translates to:
+  /// **'Sesli oku'**
+  String get speakTag;
+
+  /// No description provided for @speakAfterScanTitle.
+  ///
+  /// In tr, this message translates to:
+  /// **'Okununca sesli oku'**
+  String get speakAfterScanTitle;
+
+  /// No description provided for @speakAfterScanSubtitle.
+  ///
+  /// In tr, this message translates to:
+  /// **'Etiketin içeriği sesli söylenir; görme güçlüğü olanlar ve basit mod için'**
+  String get speakAfterScanSubtitle;
 }
 
 class _AppLocalizationsDelegate

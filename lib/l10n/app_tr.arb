@@ -3159,5 +3159,8 @@
   "simpleSavedHint": "Birine dokunun, aynısını yeni etikete yazın.",
   "accentColorTitle": "Vurgu rengi",
   "colorPink": "Pembe",
-  "textSizeTitle": "Yazı boyutu"
+  "textSizeTitle": "Yazı boyutu",
+  "speakTag": "Sesli oku",
+  "speakAfterScanTitle": "Okununca sesli oku",
+  "speakAfterScanSubtitle": "Etiketin içeriği sesli söylenir; görme güçlüğü olanlar ve basit mod için"
 }

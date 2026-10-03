@@ -4586,4 +4586,14 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get textSizeTitle => 'Text size';
+
+  @override
+  String get speakTag => 'Read aloud';
+
+  @override
+  String get speakAfterScanTitle => 'Read aloud after scanning';
+
+  @override
+  String get speakAfterScanSubtitle =>
+      'The tag content is spoken; helpful for low vision and simple mode';
 }

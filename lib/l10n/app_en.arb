@@ -1286,5 +1286,8 @@
   "simpleSavedHint": "Tap one to write the same onto a new tag.",
   "accentColorTitle": "Accent colour",
   "colorPink": "Pink",
-  "textSizeTitle": "Text size"
+  "textSizeTitle": "Text size",
+  "speakTag": "Read aloud",
+  "speakAfterScanTitle": "Read aloud after scanning",
+  "speakAfterScanSubtitle": "The tag content is spoken; helpful for low vision and simple mode"
 }

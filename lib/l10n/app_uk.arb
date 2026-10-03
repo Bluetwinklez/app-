@@ -1286,5 +1286,8 @@
   "simpleSavedHint": "Торкніться, щоб записати те саме на нову мітку.",
   "accentColorTitle": "Акцентний колір",
   "colorPink": "Рожевий",
-  "textSizeTitle": "Розмір тексту"
+  "textSizeTitle": "Розмір тексту",
+  "speakTag": "Прочитати вголос",
+  "speakAfterScanTitle": "Читати вголос після сканування",
+  "speakAfterScanSubtitle": "Вміст озвучується; зручно при слабкому зорі та в простому режимі"
 }

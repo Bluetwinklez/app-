@@ -4615,4 +4615,14 @@ class AppLocalizationsDe extends AppLocalizations {
 
   @override
   String get textSizeTitle => 'Textgröße';
+
+  @override
+  String get speakTag => 'Vorlesen';
+
+  @override
+  String get speakAfterScanTitle => 'Nach dem Scannen vorlesen';
+
+  @override
+  String get speakAfterScanSubtitle =>
+      'Der Inhalt wird vorgelesen; hilfreich bei Sehschwäche und im einfachen Modus';
 }
