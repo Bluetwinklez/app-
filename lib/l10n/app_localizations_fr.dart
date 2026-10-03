@@ -4957,4 +4957,26 @@ class AppLocalizationsFr extends AppLocalizations {
 
   @override
   String get cardTitle => 'Carte de visite numérique';
+
+  @override
+  String get templateImportTitle => 'Importer des modèles depuis un tableur';
+
+  @override
+  String get templateImportHint =>
+      'Chaque ligne : nom, type, valeur, extra. Types : url, text, phone, email, sms, location, wifi. Les lignes de même nom forment un modèle.';
+
+  @override
+  String templateImportPreview(String count) {
+    return '$count modèles seront ajoutés';
+  }
+
+  @override
+  String templateImportSkipped(String rows) {
+    return 'Lignes ignorées : $rows';
+  }
+
+  @override
+  String templateImportDone(String count) {
+    return '$count modèles ajoutés';
+  }
 }

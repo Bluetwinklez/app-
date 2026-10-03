@@ -4921,4 +4921,26 @@ class AppLocalizationsRu extends AppLocalizations {
 
   @override
   String get cardTitle => 'Цифровая визитка';
+
+  @override
+  String get templateImportTitle => 'Импорт шаблонов из таблицы';
+
+  @override
+  String get templateImportHint =>
+      'Каждая строка: название, тип, значение, доп. Типы: url, text, phone, email, sms, location, wifi. Строки с одним названием объединяются.';
+
+  @override
+  String templateImportPreview(String count) {
+    return 'Будет добавлено шаблонов: $count';
+  }
+
+  @override
+  String templateImportSkipped(String rows) {
+    return 'Пропущены строки: $rows';
+  }
+
+  @override
+  String templateImportDone(String count) {
+    return 'Добавлено шаблонов: $count';
+  }
 }

@@ -3345,5 +3345,31 @@
   "cardEmail": "E-posta",
   "cardWeb": "Web",
   "cardAddContact": "Rehbere ekle",
-  "cardTitle": "Dijital kartvizit"
+  "cardTitle": "Dijital kartvizit",
+  "templateImportTitle": "Şablonları tablodan içe aktar",
+  "templateImportHint": "Her satır: ad, tür, değer, ek. Türler: url, metin, telefon, eposta, sms, konum, wifi. Aynı adlı satırlar tek şablonda birleşir.",
+  "templateImportPreview": "{count} şablon eklenecek",
+  "@templateImportPreview": {
+    "placeholders": {
+      "count": {
+        "type": "String"
+      }
+    }
+  },
+  "templateImportSkipped": "Atlanan satırlar: {rows}",
+  "@templateImportSkipped": {
+    "placeholders": {
+      "rows": {
+        "type": "String"
+      }
+    }
+  },
+  "templateImportDone": "{count} şablon eklendi",
+  "@templateImportDone": {
+    "placeholders": {
+      "count": {
+        "type": "String"
+      }
+    }
+  }
 }

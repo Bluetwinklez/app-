@@ -4707,4 +4707,26 @@ class AppLocalizationsJa extends AppLocalizations {
 
   @override
   String get cardTitle => 'デジタル名刺';
+
+  @override
+  String get templateImportTitle => '表からテンプレートを読み込む';
+
+  @override
+  String get templateImportHint =>
+      '各行：名前、種類、値、追加。種類：url, text, phone, email, sms, location, wifi。同名の行は1つのテンプレートになります。';
+
+  @override
+  String templateImportPreview(String count) {
+    return '$count件のテンプレートを追加します';
+  }
+
+  @override
+  String templateImportSkipped(String rows) {
+    return 'スキップした行: $rows';
+  }
+
+  @override
+  String templateImportDone(String count) {
+    return '$count件のテンプレートを追加しました';
+  }
 }

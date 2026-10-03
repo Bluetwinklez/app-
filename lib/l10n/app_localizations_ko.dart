@@ -4723,4 +4723,26 @@ class AppLocalizationsKo extends AppLocalizations {
 
   @override
   String get cardTitle => '디지털 명함';
+
+  @override
+  String get templateImportTitle => '표에서 템플릿 가져오기';
+
+  @override
+  String get templateImportHint =>
+      '각 행: 이름, 유형, 값, 추가. 유형: url, text, phone, email, sms, location, wifi. 같은 이름의 행은 하나의 템플릿이 됩니다.';
+
+  @override
+  String templateImportPreview(String count) {
+    return '템플릿 $count개가 추가됩니다';
+  }
+
+  @override
+  String templateImportSkipped(String rows) {
+    return '건너뛴 행: $rows';
+  }
+
+  @override
+  String templateImportDone(String count) {
+    return '템플릿 $count개 추가됨';
+  }
 }

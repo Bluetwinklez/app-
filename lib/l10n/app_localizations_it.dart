@@ -4921,4 +4921,26 @@ class AppLocalizationsIt extends AppLocalizations {
 
   @override
   String get cardTitle => 'Biglietto da visita digitale';
+
+  @override
+  String get templateImportTitle => 'Importa modelli da foglio di calcolo';
+
+  @override
+  String get templateImportHint =>
+      'Ogni riga: nome, tipo, valore, extra. Tipi: url, text, phone, email, sms, location, wifi. Righe con lo stesso nome formano un modello.';
+
+  @override
+  String templateImportPreview(String count) {
+    return 'Verranno aggiunti $count modelli';
+  }
+
+  @override
+  String templateImportSkipped(String rows) {
+    return 'Righe saltate: $rows';
+  }
+
+  @override
+  String templateImportDone(String count) {
+    return '$count modelli aggiunti';
+  }
 }

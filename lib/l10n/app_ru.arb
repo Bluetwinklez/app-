@@ -1379,5 +1379,10 @@
   "cardEmail": "Почта",
   "cardWeb": "Сайт",
   "cardAddContact": "В контакты",
-  "cardTitle": "Цифровая визитка"
+  "cardTitle": "Цифровая визитка",
+  "templateImportTitle": "Импорт шаблонов из таблицы",
+  "templateImportHint": "Каждая строка: название, тип, значение, доп. Типы: url, text, phone, email, sms, location, wifi. Строки с одним названием объединяются.",
+  "templateImportPreview": "Будет добавлено шаблонов: {count}",
+  "templateImportSkipped": "Пропущены строки: {rows}",
+  "templateImportDone": "Добавлено шаблонов: {count}"
 }
