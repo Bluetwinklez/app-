@@ -4539,4 +4539,13 @@ class AppLocalizationsAr extends AppLocalizations {
 
   @override
   String get simpleSavedHint => 'اضغط على أحدها لكتابته على وسم جديد.';
+
+  @override
+  String get accentColorTitle => 'لون التمييز';
+
+  @override
+  String get colorPink => 'وردي';
+
+  @override
+  String get textSizeTitle => 'حجم النص';
 }

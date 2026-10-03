@@ -4592,4 +4592,13 @@ class AppLocalizationsIt extends AppLocalizations {
 
   @override
   String get simpleSavedHint => 'Toccane uno per scriverlo su un nuovo tag.';
+
+  @override
+  String get accentColorTitle => 'Colore principale';
+
+  @override
+  String get colorPink => 'Rosa';
+
+  @override
+  String get textSizeTitle => 'Dimensione testo';
 }

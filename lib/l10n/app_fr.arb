@@ -1283,5 +1283,8 @@
   "simpleWriteNow": "Écrire – approchez le tag",
   "simpleWritten": "Écrit sur le tag ✓",
   "simpleSaved": "Mes tags enregistrés",
-  "simpleSavedHint": "Touchez-en un pour l'écrire sur un nouveau tag."
+  "simpleSavedHint": "Touchez-en un pour l'écrire sur un nouveau tag.",
+  "accentColorTitle": "Couleur d'accent",
+  "colorPink": "Rose",
+  "textSizeTitle": "Taille du texte"
 }

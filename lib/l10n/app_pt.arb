@@ -1283,5 +1283,8 @@
   "simpleWriteNow": "Gravar – aproxime a tag",
   "simpleWritten": "Gravado na tag ✓",
   "simpleSaved": "Minhas tags salvas",
-  "simpleSavedHint": "Toque em uma para gravar o mesmo em outra tag."
+  "simpleSavedHint": "Toque em uma para gravar o mesmo em outra tag.",
+  "accentColorTitle": "Cor de destaque",
+  "colorPink": "Rosa",
+  "textSizeTitle": "Tamanho do texto"
 }

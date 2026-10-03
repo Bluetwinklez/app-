@@ -84,6 +84,8 @@ class NfcTagMasterApp extends StatelessWidget {
   }
 
   Widget _buildApp(NfcStateController? appController) {
+    AppColors.setAccent(appController?.accentIndex ?? 0);
+    final scale = (appController?.textScalePercent ?? 100) / 100;
     return MaterialApp(
       onGenerateTitle: (context) => AppLocalizations.of(context)?.appTitle ?? L10n.current.appTitle,
       debugShowCheckedModeBanner: false,
@@ -103,7 +105,13 @@ class NfcTagMasterApp extends StatelessWidget {
       builder: (context, child) {
         L10n.update(Localizations.localeOf(context));
         AppColors.setDark(Theme.of(context).brightness == Brightness.dark);
-        return child ?? const SizedBox.shrink();
+        final content = child ?? const SizedBox.shrink();
+        if (scale == 1) return content;
+        final mq = MediaQuery.of(context);
+        return MediaQuery(
+          data: mq.copyWith(textScaler: TextScaler.linear(mq.textScaler.scale(1) * scale)),
+          child: content,
+        );
       },
       theme: AppTheme.light(),
       darkTheme: AppTheme.dark(),

@@ -1283,5 +1283,8 @@
   "simpleWriteNow": "Записати – піднесіть мітку",
   "simpleWritten": "Записано на мітку ✓",
   "simpleSaved": "Мої збережені мітки",
-  "simpleSavedHint": "Торкніться, щоб записати те саме на нову мітку."
+  "simpleSavedHint": "Торкніться, щоб записати те саме на нову мітку.",
+  "accentColorTitle": "Акцентний колір",
+  "colorPink": "Рожевий",
+  "textSizeTitle": "Розмір тексту"
 }

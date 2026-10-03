@@ -4623,4 +4623,13 @@ class AppLocalizationsEs extends AppLocalizations {
   @override
   String get simpleSavedHint =>
       'Toca una para escribir lo mismo en otra etiqueta.';
+
+  @override
+  String get accentColorTitle => 'Color de acento';
+
+  @override
+  String get colorPink => 'Rosa';
+
+  @override
+  String get textSizeTitle => 'Tamaño del texto';
 }

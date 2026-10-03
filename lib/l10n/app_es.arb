@@ -1283,5 +1283,8 @@
   "simpleWriteNow": "Escribir – acerca la etiqueta",
   "simpleWritten": "Escrito en la etiqueta ✓",
   "simpleSaved": "Mis etiquetas guardadas",
-  "simpleSavedHint": "Toca una para escribir lo mismo en otra etiqueta."
+  "simpleSavedHint": "Toca una para escribir lo mismo en otra etiqueta.",
+  "accentColorTitle": "Color de acento",
+  "colorPink": "Rosa",
+  "textSizeTitle": "Tamaño del texto"
 }

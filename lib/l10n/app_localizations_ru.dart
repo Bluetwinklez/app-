@@ -4593,4 +4593,13 @@ class AppLocalizationsRu extends AppLocalizations {
 
   @override
   String get simpleSavedHint => 'Нажмите, чтобы записать то же на новую метку.';
+
+  @override
+  String get accentColorTitle => 'Акцентный цвет';
+
+  @override
+  String get colorPink => 'Розовый';
+
+  @override
+  String get textSizeTitle => 'Размер текста';
 }
