@@ -2,7 +2,7 @@ import 'dart:io';
 import 'package:flutter_test/flutter_test.dart';
 
 /// Turn this off once every user-visible string goes through AppLocalizations.
-const bool _pendingI18nWiring = true;
+const bool _pendingI18nWiring = false;
 
 /// Literals that are allowed to stay Turkish: data formats and the like.
 const Map<String, Set<String>> _allowed = {

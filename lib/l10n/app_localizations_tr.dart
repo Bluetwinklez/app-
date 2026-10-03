@@ -12,12 +12,6 @@ class AppLocalizationsTr extends AppLocalizations {
   String get addRecord => 'Kayıt Ekle';
 
   @override
-  String get addRule => 'Kural Ekle';
-
-  @override
-  String get addTag => 'Etiket Ekle';
-
-  @override
   String get addToComposerList => 'Yazma Listesine Ekle';
 
   @override
@@ -36,9 +30,6 @@ class AppLocalizationsTr extends AppLocalizations {
 
   @override
   String get advancedCommandsTitle => 'Gelişmiş NFC Komutları';
-
-  @override
-  String get allRulesCleared => 'Tüm kurallar silindi';
 
   @override
   String get appLinksDesc =>
@@ -60,39 +51,11 @@ class AppLocalizationsTr extends AppLocalizations {
   String get autoRunOnTap => 'Etikete dokununca otomatik çalıştır';
 
   @override
-  String get backupExportSuccess => 'Yedek dosyası başarıyla kaydedildi';
-
-  @override
   String get backupFileSizeExceeded =>
       'Yedek dosyası boyutu 2 MiB sınırını aşıyor.';
 
   @override
   String get backupHistoryMustBeList => '\"history\" alanı bir dizi olmalıdır.';
-
-  @override
-  String backupImportFailed(String error) {
-    return 'Yedek içe aktarılamadı: $error';
-  }
-
-  @override
-  String backupImportSuccess(int history, int rules, int templates) {
-    return 'Yedek başarıyla içe aktarıldı: $templates şablon, $rules kural, $history geçmiş eklendi';
-  }
-
-  @override
-  String backupInvalidBase64Id(String id) {
-    return 'Kayıt kimliği geçerli Base64 verisi değil: $id';
-  }
-
-  @override
-  String backupInvalidBase64Payload(String payload) {
-    return 'Kayıt yükü geçerli Base64 verisi değil: $payload';
-  }
-
-  @override
-  String backupInvalidBase64Type(String type) {
-    return 'Kayıt türü geçerli Base64 verisi değil: $type';
-  }
 
   @override
   String backupInvalidJson(String error) {
@@ -108,11 +71,6 @@ class AppLocalizationsTr extends AppLocalizations {
       'Etiket kuralı NDEF özeti geçerli bir 64 karakterli SHA-256 onaltılık (hex) dize olmalıdır.';
 
   @override
-  String backupInvalidTemplateCreatedAt(String date) {
-    return 'Şablon oluşturulma tarihi (createdAt) ISO-8601 olmalıdır: $date';
-  }
-
-  @override
   String get backupInvalidTemplateId =>
       'Şablon kimliği (id) geçerli bir metin olmalıdır.';
 
@@ -121,18 +79,8 @@ class AppLocalizationsTr extends AppLocalizations {
       'Şablon adı (name) geçerli bir metin olmalıdır.';
 
   @override
-  String backupInvalidTnf(String tnf) {
-    return 'Geçersiz TNF değeri ($tnf). 0-7 arasında bir tamsayı olmalıdır.';
-  }
-
-  @override
   String backupMaxHistoryExceeded(int count, int max) {
     return 'Geçmiş kayıt sayısı izin verilen $max sınırını aşıyor ($count).';
-  }
-
-  @override
-  String backupMaxRecordsExceeded(int count, int max) {
-    return 'Kayıt sayısı izin verilen $max sınırını aşıyor ($count).';
   }
 
   @override
@@ -152,10 +100,6 @@ class AppLocalizationsTr extends AppLocalizations {
   @override
   String get backupRecordMustBeObject =>
       'Her NDEF kaydı bir JSON nesnesi olmalıdır.';
-
-  @override
-  String get backupRecordsMustBeList =>
-      'Kayıt listesi (records) bir dizi olmalıdır.';
 
   @override
   String get backupRestoreSubtitle =>
@@ -199,20 +143,6 @@ class AppLocalizationsTr extends AppLocalizations {
   }
 
   @override
-  String get batchWrite => 'Toplu Yazma';
-
-  @override
-  String get bluetoothDeviceName => 'Cihaz Adı (İsteğe bağlı)';
-
-  @override
-  String get bluetoothMac => 'Bluetooth MAC Adresi';
-
-  @override
-  String bytesWrittenWithVerification(int bytes, String status) {
-    return 'Yazılan Bayt: $bytes | Doğrulama: $status';
-  }
-
-  @override
   String cameraError(String error) {
     return 'Kamera açılamadı. Ayarlar > Gizlilik > Kamera bölümünden izin verin.\n($error)';
   }
@@ -251,13 +181,6 @@ class AppLocalizationsTr extends AppLocalizations {
   String get clearAll => 'Tümünü Sil';
 
   @override
-  String get clearAllRulesConfirm =>
-      'Kayıtlı tüm uygulama içi etiket notları silinecektir. Onaylıyor musunuz?';
-
-  @override
-  String get clearConfirmButton => 'Evet, Temizle';
-
-  @override
   String get clearConfirmMessage =>
       'Bu işlem etiket üzerindeki tüm NDEF kayıtlarını silecek ve boş bir kayıt yazacaktır. Devam etmek istiyor musunuz?';
 
@@ -268,24 +191,10 @@ class AppLocalizationsTr extends AppLocalizations {
   String get clearHistory => 'Geçmişi Temizle';
 
   @override
-  String get clearList => 'Listeyi Temizle';
-
-  @override
   String get clearTagSubtitle => 'Tüm kayıtları silip boş NDEF yazar';
 
   @override
   String get clearTagTitle => 'Etiketi Sil';
-
-  @override
-  String clipboardBanner(int bytes, int count, String source) {
-    String _temp0 = intl.Intl.pluralLogic(
-      count,
-      locale: localeName,
-      other: 'Panoda $count kayıt hazır',
-      one: 'Panoda 1 kayıt hazır',
-    );
-    return '$_temp0 ($bytes B) · $source';
-  }
 
   @override
   String get close => 'Kapat';
@@ -295,9 +204,6 @@ class AppLocalizationsTr extends AppLocalizations {
 
   @override
   String get commandsLabel => 'Komutlar';
-
-  @override
-  String get composeRecordTitle => 'Yeni Kayıt Ekle';
 
   @override
   String get confirmClearHistoryContent =>
@@ -323,9 +229,6 @@ class AppLocalizationsTr extends AppLocalizations {
   String get contactFullName => 'Ad Soyad';
 
   @override
-  String get contactNote => 'Not';
-
-  @override
   String get contactPhone => 'Telefon';
 
   @override
@@ -335,21 +238,7 @@ class AppLocalizationsTr extends AppLocalizations {
   String get contactWebsite => 'Web Sitesi';
 
   @override
-  String contentSummary(String content, int count) {
-    String _temp0 = intl.Intl.pluralLogic(
-      count,
-      locale: localeName,
-      other: '$count kayıt',
-      one: '1 kayıt',
-    );
-    return 'İçerik: $_temp0 · $content';
-  }
-
-  @override
   String get copy => 'Kopyala';
-
-  @override
-  String get copyAllRecords => 'Tüm Kayıtları Kopyala';
 
   @override
   String get copyTagUid => 'UID Kopyala';
@@ -394,14 +283,6 @@ class AppLocalizationsTr extends AppLocalizations {
   String get delete => 'Sil';
 
   @override
-  String deleteTagConfirmContent(String name) {
-    return '\"$name\" kütüphaneden silinsin mi? Fiziksel etiket değişmez.';
-  }
-
-  @override
-  String get deleteTagConfirmTitle => 'Etiketi Sil';
-
-  @override
   String get deleteTemplateTooltip => 'Şablonu Sil';
 
   @override
@@ -414,52 +295,7 @@ class AppLocalizationsTr extends AppLocalizations {
   String get editRecordTitle => 'Kaydı Düzenle';
 
   @override
-  String get editRule => 'Kuralı Düzenle';
-
-  @override
-  String get editTag => 'Etiketi Düzenle';
-
-  @override
-  String get emailBody => 'E-posta Metni';
-
-  @override
   String get emailRecipient => 'Alıcı E-posta';
-
-  @override
-  String get emailSubject => 'Konu';
-
-  @override
-  String get emptyComposerSubtitle =>
-      '\"Kayıt Ekle\" butonuna dokunarak Web URL, Metin, Wi-Fi, Kişi Kartı ve daha fazlasını oluşturun.';
-
-  @override
-  String get emptyComposerTitle => 'Henüz kayıt eklenmedi';
-
-  @override
-  String get emptyHistorySubtitle =>
-      'Etiket taradığınızda geçmiş kayıtları burada listelenir.';
-
-  @override
-  String get emptyHistoryTitle => 'Henüz tarama geçmişi yok';
-
-  @override
-  String get emptyLibrary =>
-      'Henüz kayıtlı etiket yok.\nBir etiketi okuttuktan sonra buraya isim ve fotoğrafla kaydedin.';
-
-  @override
-  String get eventDescription => 'Açıklama';
-
-  @override
-  String get eventEnd => 'Bitiş Zamanı';
-
-  @override
-  String get eventLocation => 'Konum / Yer';
-
-  @override
-  String get eventStart => 'Başlangıç Zamanı';
-
-  @override
-  String get eventTitle => 'Etkinlik Başlığı';
 
   @override
   String get exportBackup => 'Dışa Aktar';
@@ -474,26 +310,7 @@ class AppLocalizationsTr extends AppLocalizations {
   }
 
   @override
-  String get fieldTextPrompt => 'Etikete yazılacak metin';
-
-  @override
-  String get fieldUrlPrompt => 'Web sitesi adresi (https://...)';
-
-  @override
-  String get fileUrl => 'Dosya Bağlantısı (URL)';
-
-  @override
-  String get filterAll => 'Tümü';
-
-  @override
   String get flashlight => 'Fener';
-
-  @override
-  String get formatConfirmButton => 'Biçimlendir';
-
-  @override
-  String get formatConfirmMessage =>
-      'Etiketteki veriler silinir ve etiket boş bir NDEF etiketi olarak hazırlanır. Devam edilsin mi?';
 
   @override
   String get formatMemorySubtitle =>
@@ -503,26 +320,10 @@ class AppLocalizationsTr extends AppLocalizations {
   String get formatMemoryTitle => 'Belleği Biçimlendir';
 
   @override
-  String get hardwareAvailable => 'NFC Donanımı Hazır';
-
-  @override
-  String get hardwareDisabled => 'NFC Devre Dışı';
-
-  @override
-  String get hardwareNotSupported => 'NFC Desteklenmiyor';
-
-  @override
-  String get historyFilteredEmpty =>
-      'Aramayla eşleşen geçmiş kaydı bulunamadı.';
-
-  @override
   String get idTooLarge => 'Kimlik (ID) boyutu 255 baytı aşamaz';
 
   @override
   String get importBackup => 'İçe Aktar (Birleştir)';
-
-  @override
-  String get importCsv => 'CSV İçe Aktar';
 
   @override
   String get inAppTagRules => 'Uygulama İçi Etiket Kuralları';
@@ -540,9 +341,6 @@ class AppLocalizationsTr extends AppLocalizations {
   String get languageTitle => 'Dil / Language';
 
   @override
-  String get latitude => 'Enlem (Lat)';
-
-  @override
   String get linkCopied => 'Bağlantı kopyalandı';
 
   @override
@@ -558,19 +356,10 @@ class AppLocalizationsTr extends AppLocalizations {
   String get linkWriteDesc => 'Yazma ekranını açar';
 
   @override
-  String get loadToComposerTooltip => 'Yazma Bestesine Aktar';
-
-  @override
-  String get locationHint => 'Örn: Buzdolabının kapağı';
-
-  @override
   String get locationLabel => 'Nerede?';
 
   @override
   String get lockAcknowledge => 'Bu işlemin geri alınamayacağını anlıyorum';
-
-  @override
-  String get lockButton => 'Kilitle';
 
   @override
   String get lockTagSubtitle =>
@@ -580,26 +369,7 @@ class AppLocalizationsTr extends AppLocalizations {
   String get lockTagTitle => 'Etiketi Kilitle';
 
   @override
-  String get lockWarning =>
-      'Kilitlenen etiket salt okunur olur: içeriği bir daha DEĞİŞTİRİLEMEZ, silinemez ve kilit KALDIRILAMAZ. Önce doğru içeriği yazdığınızdan emin olun.';
-
-  @override
-  String get longitude => 'Boylam (Lng)';
-
-  @override
   String get manage => 'Yönet';
-
-  @override
-  String get matchedRule => 'Eşleşen Kural / Not';
-
-  @override
-  String get mimePayloadHex => 'Yük (Payload) Hex / Metin';
-
-  @override
-  String get mimeTypeLabel => 'MIME Türü';
-
-  @override
-  String get nameRequired => 'Etikete bir isim verin.';
 
   @override
   String get navHistory => 'Geçmiş';
@@ -643,9 +413,6 @@ class AppLocalizationsTr extends AppLocalizations {
   }
 
   @override
-  String get ndefRecordsTitle => 'NDEF Kayıtları';
-
-  @override
   String get nfcPromptClear => 'Etiketi sıfırlamak için cihazınıza yaklaştırın';
 
   @override
@@ -660,15 +427,6 @@ class AppLocalizationsTr extends AppLocalizations {
 
   @override
   String get no => 'Hayır';
-
-  @override
-  String get noContentInTag => 'Bu kayıtta etiket içeriği yok.';
-
-  @override
-  String get noLibraryMatches => 'Aramayla eşleşen etiket yok.';
-
-  @override
-  String get noRecordsOnTag => 'Etikette NDEF kaydı bulunamadı.';
 
   @override
   String get noTemplates =>
@@ -718,36 +476,6 @@ class AppLocalizationsTr extends AppLocalizations {
   String optionalField(String label) {
     return '$label (isteğe bağlı)';
   }
-
-  @override
-  String pageN(int page) {
-    return 'Sayfa $page';
-  }
-
-  @override
-  String get pageRoleCc => 'CC';
-
-  @override
-  String get pageRoleData => 'Veri';
-
-  @override
-  String get pageRoleLock => 'Kilit';
-
-  @override
-  String get pageRoleUid => 'UID';
-
-  @override
-  String get pageRoleUidLock => 'UID / Kilit';
-
-  @override
-  String get passwordDialogAction => 'Şifreyi Ayarla';
-
-  @override
-  String get passwordDialogTitle => 'Şifre Belirle';
-
-  @override
-  String get passwordDialogWarning =>
-      'Şifreyi unutursanız etiketin içeriğini bir daha değiştiremezsiniz. Okuma herkese açık kalır.';
 
   @override
   String get passwordError => 'Tam 4 karakter veya 8 hex rakam giriniz.';
@@ -891,9 +619,6 @@ class AppLocalizationsTr extends AppLocalizations {
       'Sadece kullanıcı isteğiyle açılır. Otomatik işlem yürütülmez.';
 
   @override
-  String get rawInspection => 'Ayrıntılı İnceleme';
-
-  @override
   String get rawRecordDetailsTitle => 'Kayıt Ayrıntıları (Salt Okunur)';
 
   @override
@@ -901,19 +626,6 @@ class AppLocalizationsTr extends AppLocalizations {
 
   @override
   String get readHeroButton => 'Taramayı Başlat';
-
-  @override
-  String get readHeroEyebrow => 'NFC OKUYUCU';
-
-  @override
-  String get readHeroScanning => 'Taranıyor...';
-
-  @override
-  String get readHeroSubtitle =>
-      'Telefonunuzun üst kısmını bir NFC etiketine yaklaştırarak içindeki tüm NDEF kayıtlarını ve donanım bilgilerini okuyun.';
-
-  @override
-  String get readHeroTitle => 'Etiketi Tara';
 
   @override
   String get readMemorySubtitle =>
@@ -924,14 +636,6 @@ class AppLocalizationsTr extends AppLocalizations {
 
   @override
   String get readyTemplates => 'Hazır Şablonlar';
-
-  @override
-  String get recordCopied => 'Kayıt içeriği kopyalandı';
-
-  @override
-  String recordIndex(int index) {
-    return 'Kayıt #$index';
-  }
 
   @override
   String get recordTypeCalendar => 'Takvim Etkinliği (iCal)';
@@ -983,34 +687,13 @@ class AppLocalizationsTr extends AppLocalizations {
   String get recordTypeWifiCorrupt => 'Bozuk veya tanınmayan WSC yükü';
 
   @override
-  String recordsCopiedToClipboard(int count) {
-    String _temp0 = intl.Intl.pluralLogic(
-      count,
-      locale: localeName,
-      other: '$count kayıt panoya kopyalandı',
-      one: '1 kayıt panoya kopyalandı',
-    );
-    return '$_temp0';
-  }
-
-  @override
   String get redo => 'Yinele';
-
-  @override
-  String get removePasswordDialogTitle => 'Şifreyi Kaldır';
-
-  @override
-  String get removePasswordDialogWarning =>
-      'Etikete daha önce koyduğunuz şifreyi girin.';
 
   @override
   String get removePasswordSubtitle => 'Bilinen şifreyle korumayı kaldırır';
 
   @override
   String get removePasswordTitle => 'Şifreyi Kaldır';
-
-  @override
-  String get removePhoto => 'Kaldır';
 
   @override
   String get rewriteTag => 'Yeniden Yaz';
@@ -1021,19 +704,10 @@ class AppLocalizationsTr extends AppLocalizations {
   }
 
   @override
-  String get ruleDeleted => 'Kural silindi';
-
-  @override
   String get ruleNoteDialogTitle => 'Etiket Notunu Düzenle';
 
   @override
-  String get ruleNoteHint => 'Örn: Depo Rafı #4 veya Toplantı Odası';
-
-  @override
   String get ruleNoteLabel => 'Uygulama İçi Not / Açıklama';
-
-  @override
-  String get ruleSaved => 'Kural kaydedildi';
 
   @override
   String get save => 'Kaydet';
@@ -1052,31 +726,10 @@ class AppLocalizationsTr extends AppLocalizations {
       'Kapalıyken taramalar cihazda tutulmaz. Açıldığında başarılı taramalar yerel belleğe kaydedilir. Hatalı taramalar asla kaydedilmez.';
 
   @override
-  String get saveTemplateDialogTitle => 'Şablon Olarak Kaydet';
-
-  @override
-  String get saveToLibrary => 'Kütüphaneye Kaydet';
-
-  @override
   String get scanFabLabel => 'Etiketi tara';
 
   @override
-  String get scanQrToRecord => 'QR Kod Tara';
-
-  @override
   String get scannedTag => 'Taranan Etiket';
-
-  @override
-  String get searchEngine => 'Arama Motoru';
-
-  @override
-  String get searchHistoryHint => 'Geçmişte ara (UID, içerik, tür)...';
-
-  @override
-  String get searchLibraryHint => 'İsim, not, konum veya içerikte ara';
-
-  @override
-  String get searchQuery => 'Arama Metni';
 
   @override
   String get searchQueryCannotBeEmpty => 'Arama metni boş bırakılamaz.';
@@ -1093,9 +746,6 @@ class AppLocalizationsTr extends AppLocalizations {
 
   @override
   String get setPasswordTitle => 'Şifre Belirle';
-
-  @override
-  String get shareRecords => 'Kayıtları Paylaş';
 
   @override
   String get shortcutAutomationNote =>
@@ -1143,19 +793,7 @@ class AppLocalizationsTr extends AppLocalizations {
   String get smsMessage => 'Mesaj Metni';
 
   @override
-  String get socialNetwork => 'Platform';
-
-  @override
   String get socialUsername => 'Kullanıcı Adı';
-
-  @override
-  String get sourceComposer => 'Yazma listesindeki kayıtlar';
-
-  @override
-  String get sourceEmpty => 'İçeriksiz (sadece not)';
-
-  @override
-  String get sourceLastScan => 'Son taranan etiket';
 
   @override
   String get sourceSelectPrompt => 'Etiketin içeriği nereden alınsın?';
@@ -1252,15 +890,6 @@ class AppLocalizationsTr extends AppLocalizations {
   String get systemLanguage => 'Sistem Dili';
 
   @override
-  String get tabApp => 'Uygulama';
-
-  @override
-  String get tabBluetooth => 'Bluetooth';
-
-  @override
-  String get tabCalendar => 'Takvim';
-
-  @override
   String get tabContact => 'Kişi (vCard)';
 
   @override
@@ -1270,22 +899,10 @@ class AppLocalizationsTr extends AppLocalizations {
   String get tabEmail => 'E-posta';
 
   @override
-  String get tabFile => 'Dosya';
-
-  @override
-  String get tabLocation => 'Konum';
-
-  @override
   String get tabPhone => 'Telefon';
 
   @override
-  String get tabSearch => 'Arama';
-
-  @override
   String get tabSms => 'SMS';
-
-  @override
-  String get tabSocial => 'Sosyal Medya';
 
   @override
   String get tabText => 'Metin';
@@ -1294,33 +911,13 @@ class AppLocalizationsTr extends AppLocalizations {
   String get tabUrl => 'Web URL';
 
   @override
-  String get tabVideo => 'Video';
-
-  @override
   String get tabWifi => 'Wi-Fi';
-
-  @override
-  String get tagCapacity => 'Kapasite';
-
-  @override
-  String tagCapacityValue(int available, int max, int used) {
-    return '$used / $max bayt ($available bayt boş)';
-  }
 
   @override
   String get tagInfoTitle => 'Etiket Bilgileri';
 
   @override
   String get tagLibraryTitle => 'Etiket Kütüphanem';
-
-  @override
-  String get tagNameHint => 'Örn: Mutfak etiketi';
-
-  @override
-  String get tagNameLabel => 'İsim';
-
-  @override
-  String get tagReadOnly => 'Salt Okunur (Kilitli)';
 
   @override
   String tagRulesCount(int count) {
@@ -1332,42 +929,13 @@ class AppLocalizationsTr extends AppLocalizations {
       'NDEF içerik baytlarının SHA-256 özetine göre eşleşen etiketlerde yalnızca kaydedilen not gösterilir. Harici işlem başlatmaz.';
 
   @override
-  String get tagSerialNumber => 'Seri Numarası (UID)';
-
-  @override
-  String get tagTechnology => 'Teknoloji';
-
-  @override
-  String get tagType => 'Tür';
-
-  @override
-  String get tagUidCopied => 'Etiket UID kopyalandı';
-
-  @override
   String get tagWritable => 'Yazılabilir';
 
   @override
   String get takePhoto => 'Fotoğraf çek';
 
   @override
-  String get templateGalleryTitle => 'Hazır Şablonlar';
-
-  @override
   String get templateNameHint => 'Şablon Adı';
-
-  @override
-  String templateRecordCount(int count, String date) {
-    String _temp0 = intl.Intl.pluralLogic(
-      count,
-      locale: localeName,
-      other: '$count Kayıt',
-      one: '1 Kayıt',
-    );
-    return '$_temp0 | $date';
-  }
-
-  @override
-  String get templateSaved => 'Şablon başarıyla kaydedildi';
 
   @override
   String get toolsExpertSection => 'Uzman';
@@ -1384,9 +952,6 @@ class AppLocalizationsTr extends AppLocalizations {
 
   @override
   String get toolsTagSection => 'Etiket';
-
-  @override
-  String get totalBytes => 'Toplam Boyut';
 
   @override
   String get typeTooLarge => 'Tür boyutu 255 baytı aşamaz';
@@ -1465,29 +1030,11 @@ class AppLocalizationsTr extends AppLocalizations {
   String get videoUrlCannotBeEmpty => 'Video bağlantısı boş bırakılamaz.';
 
   @override
-  String get videoUrlOrId => 'Video Bağlantısı veya YouTube ID';
-
-  @override
   String get videoUrlOrIdPrompt =>
       'Video bağlantısı (https://...) veya YouTube video kimliği giriniz.';
 
   @override
   String get wifiAuthOpen => 'Açık (Şifresiz)';
-
-  @override
-  String get wifiAuthType => 'Güvenlik Türü';
-
-  @override
-  String get wifiAuthWpa => 'WPA Personal';
-
-  @override
-  String get wifiAuthWpa2 => 'WPA2 Personal';
-
-  @override
-  String get wifiAuthWpaWpa2 => 'WPA/WPA2 Personal';
-
-  @override
-  String get wifiHidden => 'Gizli Ağ';
 
   @override
   String get wifiPassword => 'Şifre';
@@ -1499,9 +1046,6 @@ class AppLocalizationsTr extends AppLocalizations {
   String get withSiri => 'Siri ile';
 
   @override
-  String get writeDumpConfirmButton => 'Yaz';
-
-  @override
   String writeDumpConfirmMessage(int bytes, String name) {
     return '\"$name\" ($bytes bayt) etiketin kullanıcı belleğine yazılacak. UID, kilit ve ayar sayfalarına dokunulmaz. Etiketteki mevcut veri silinir.';
   }
@@ -1511,16 +1055,6 @@ class AppLocalizationsTr extends AppLocalizations {
 
   @override
   String get writeDumpTitle => 'Dump Yaz (.bin)';
-
-  @override
-  String get writeHeroButton => 'Yazmayı Başlat';
-
-  @override
-  String get writeHeroEyebrow => 'NDEF YAZICI';
-
-  @override
-  String get writeHeroSubtitle =>
-      'Birden fazla NDEF kaydı hazırlayın ve hedef NFC etiketine tek seferde yazın.';
 
   @override
   String get writeHeroTitle => 'Etikete Yaz';
@@ -1540,9 +1074,6 @@ class AppLocalizationsTr extends AppLocalizations {
   @override
   String get writeTemplatesSubtitle =>
       'Sık kullandığınız NDEF içeriklerini şablon olarak kaydedip dilediğiniz zaman etiketlere tek dokunuşla yazabilirsiniz.';
-
-  @override
-  String get yes => 'Evet';
 
   @override
   String get unknown => 'Bilinmiyor';
@@ -2511,16 +2042,6 @@ class AppLocalizationsTr extends AppLocalizations {
       '• İşlem önceki etikete sessizce yazmaz; yeni bir NFC dokunuşu beklenir.';
 
   @override
-  String rewriteSourceUidLabel(String uid) {
-    return 'Kaynak UID: $uid';
-  }
-
-  @override
-  String rewriteRecordCountLabel(num count) {
-    return 'Yazılacak Kayıt Sayısı: $count';
-  }
-
-  @override
   String get rewriteInstruction =>
       'Hedef etiketi hazırlayın ve \"Dokun ve Yaz\" butonuna bastıktan sonra etiketi telefonun arkasına yaklaştırın.';
 
@@ -2532,21 +2053,11 @@ class AppLocalizationsTr extends AppLocalizations {
       'Hedef etiketi cihazınıza yaklaştırın (İçerik tamamen yenilenecektir)';
 
   @override
-  String rewriteFailedMessage(String error) {
-    return 'Yeniden yazma başarısız: $error';
-  }
-
-  @override
   String get writeVerifiedTitle => 'Yazma Doğrulandı';
 
   @override
   String get writeVerifiedDesc =>
       'NDEF içeriği hedef etikete başarıyla yazıldı ve doğrulandı.';
-
-  @override
-  String writtenRecordCount(num count) {
-    return 'Yazılan Kayıt Sayısı: $count';
-  }
 
   @override
   String get writeVerifiedHint =>
@@ -2560,21 +2071,6 @@ class AppLocalizationsTr extends AppLocalizations {
 
   @override
   String get differenceDetected => 'Farklılık Tespit Edildi';
-
-  @override
-  String compareScannedUid(String uid) {
-    return 'Taranan Etiket UID: $uid';
-  }
-
-  @override
-  String compareWrittenData(num count, num bytes) {
-    return 'Yazılan Veri: $count kayıt ($bytes Bayt)';
-  }
-
-  @override
-  String compareScannedData(num count, num bytes) {
-    return 'Taranan Veri: $count kayıt ($bytes Bayt)';
-  }
 
   @override
   String get compareMatchDesc =>
@@ -2607,16 +2103,6 @@ class AppLocalizationsTr extends AppLocalizations {
       '• Otomatik arka arkaya tarama yapılmaz; her etiket fiziksel olarak değiştirilmelidir.';
 
   @override
-  String batchTargetCountLabel(num count) {
-    return 'Hedef Etiket Sayısı: $count';
-  }
-
-  @override
-  String batchComposerSummary(num count, num bytes) {
-    return 'Bestedeki Kayıtlar: $count adet ($bytes Bayt)';
-  }
-
-  @override
   String get batchStartButton => 'Toplu Yazımı Başlat';
 
   @override
@@ -2629,50 +2115,15 @@ class AppLocalizationsTr extends AppLocalizations {
   String get batchAllCompleted => 'Tüm etiket denemeleri tamamlandı!';
 
   @override
-  String batchNextTag(num current, num total) {
-    return 'Sıradaki: Etiket #$current / $total';
-  }
-
-  @override
-  String batchStats(num success, num fail, num remaining) {
-    return 'Başarılı: $success | Hatalı: $fail | Kalan: $remaining';
-  }
-
-  @override
-  String batchSuccessMsg(String message) {
-    return 'Başarılı ($message)';
-  }
-
-  @override
-  String batchFailMsg(String message) {
-    return 'Başarısız: $message';
-  }
-
-  @override
-  String tagNumberLabel(num index) {
-    return 'Etiket #$index: ';
+  String batchStats(String ok, String failed, String left) {
+    return 'Başarılı: $ok | Hatalı: $failed | Kalan: $left';
   }
 
   @override
   String get waitingForTag => 'Etiket Bekleniyor...';
 
   @override
-  String tapToWriteForTag(num index) {
-    return 'Etiket #$index İçin Dokun ve Yaz';
-  }
-
-  @override
   String get batchFinishButton => 'Toplu Yazımı Bitir';
-
-  @override
-  String batchPromptMessage(num current, num total) {
-    return 'Toplu Yazım: #$current / $total etiketi cihaza yaklaştırın';
-  }
-
-  @override
-  String batchTagSuccessSummary(num count) {
-    return '$count kayıt yazıldı ve doğrulandı';
-  }
 
   @override
   String get writeError => 'Yazma hatası';
@@ -2726,17 +2177,12 @@ class AppLocalizationsTr extends AppLocalizations {
       'NOT: Bu analiz tamamen yerel/çevrimdışı kurallarla yapılmıştır. Ağ üzerinden zararlı yazılım veya antivirüs kontrolü iddiasında bulunmaz. URL otomatik olarak açılmaz.';
 
   @override
-  String templateLoadedToComposer(String name) {
-    return '\"$name\" şablonundaki kayıtlar yazma bestesine aktarıldı.';
-  }
-
-  @override
   String get templateSaveEmptyError =>
       'Şablon olarak kaydetmek için önce kayıt ekleyiniz.';
 
   @override
-  String templateDefaultName(num index) {
-    return 'Şablon $index';
+  String templateDefaultName(String n) {
+    return 'Şablon $n';
   }
 
   @override
@@ -2757,15 +2203,7 @@ class AppLocalizationsTr extends AppLocalizations {
       'Bu not, etiketin NDEF içerik SHA-256 özetine bağlanır. Etiket tekrar tarandığında sadece bu açıklama gösterilir; harici eylem başlatmaz veya sistem ayarlarını değiştirmez.';
 
   @override
-  String ruleNoteShaSummary(String sha) {
-    return 'NDEF İçerik Özeti (SHA-256):\n$sha';
-  }
-
-  @override
   String get ruleNoteSavedSnack => 'Etiket notu kaydedildi.';
-
-  @override
-  String get ruleNoteDeleteTitle => 'Etiket Notunu Sil';
 
   @override
   String get ruleNoteDeleteConfirm =>
@@ -2788,13 +2226,13 @@ class AppLocalizationsTr extends AppLocalizations {
   String get backupIncludedItems => 'Dahil Edilecek Öğeler:';
 
   @override
-  String backupTemplatesCount(num count) {
-    return '• Şablonlar: $count adet';
+  String backupTemplatesCount(String count) {
+    return '• Şablonlar: $count';
   }
 
   @override
-  String backupRulesCount(num count) {
-    return '• Uygulama İçi Etiket Notları/Kuralları: $count adet';
+  String backupRulesCount(String count) {
+    return '• Uygulama içi etiket notları/kuralları: $count';
   }
 
   @override
@@ -2802,8 +2240,8 @@ class AppLocalizationsTr extends AppLocalizations {
       'Tarama Geçmişini Dahil Et (İsteğe Bağlı)';
 
   @override
-  String backupHistoryCount(num count) {
-    return '$count adet geçmiş kaydı';
+  String backupHistoryCount(String count) {
+    return '$count geçmiş kaydı';
   }
 
   @override
@@ -2825,11 +2263,6 @@ class AppLocalizationsTr extends AppLocalizations {
 
   @override
   String get backupExportCancelled => 'Dışa aktarma paylaşımı iptal edildi.';
-
-  @override
-  String backupExportError(String error) {
-    return 'Dışa aktarma hatası: $error';
-  }
 
   @override
   String get backupImportTitle => 'Yedek İçe Aktar';
@@ -2877,11 +2310,6 @@ class AppLocalizationsTr extends AppLocalizations {
   String get backupHistoryDetectedTitle => 'Tarama Geçmişi Algılandı';
 
   @override
-  String backupHistoryDetectedMsg(num count) {
-    return 'Yedek dosyasında $count adet tarama geçmişi kaydı bulunuyor, ancak bu cihazda tarama geçmişi özelliği kapalıdır.\n\n';
-  }
-
-  @override
   String get backupHistoryDetectedPrompt =>
       'Geçmişi de içe aktarıp tarama geçmişini etkinleştirmek istiyor musunuz? Yoksa geçmiş kayıtları atlanıp yalnızca şablonlar ve etiket notları mı içe aktarılsın?';
 
@@ -2891,16 +2319,6 @@ class AppLocalizationsTr extends AppLocalizations {
 
   @override
   String get backupEnableHistoryOption => 'Geçmişi Etkinleştir ve Yükle';
-
-  @override
-  String backupImportSuccessWithSummary(String summary) {
-    return 'İçe Aktarma Başarılı:\n$summary';
-  }
-
-  @override
-  String backupMergeError(String error) {
-    return 'Birleştirme hatası: $error';
-  }
 
   @override
   String get nfcReadyStatus => 'NFC Hazır';
@@ -2915,20 +2333,10 @@ class AppLocalizationsTr extends AppLocalizations {
   String get nfcDisabledDesc => 'NFC kapalı. Lütfen cihaz ayarlarından açın.';
 
   @override
-  String ndefClipboardBanner(num count, num bytes, String source) {
-    return 'NDEF Panosu: $count kayıt ($bytes B) - $source';
-  }
-
-  @override
   String get template => 'Şablon';
 
   @override
   String get nfcScannerTitle => 'NFC Tarayıcı';
-
-  @override
-  String lastScannedTagId(String id) {
-    return 'Son etiket: $id';
-  }
 
   @override
   String get composeRecord => 'Kayıt oluştur';
@@ -2940,11 +2348,6 @@ class AppLocalizationsTr extends AppLocalizations {
   String get previousScans => 'Önceki taramalar';
 
   @override
-  String scanErrorWithMsg(String error) {
-    return 'Tarama hatası: $error';
-  }
-
-  @override
   String get noScannedTagYet => 'Henüz taranmış bir NFC etiketi yok';
 
   @override
@@ -2954,16 +2357,6 @@ class AppLocalizationsTr extends AppLocalizations {
   @override
   String get ndefCopyAndRewriteTitle =>
       'NDEF İçerik Kopyalama ve Yeniden Yazım';
-
-  @override
-  String ndefCopyNotice(num count, num bytes) {
-    return '$count kayıt ($bytes Bayt) - Yalnızca NDEF verisi işlenir, UID kopyalanmaz.';
-  }
-
-  @override
-  String tagIdHeader(String id) {
-    return 'Etiket $id';
-  }
 
   @override
   String get savedTagNoteHeader => 'Kayıtlı Etiket Notu (Uygulama İçi Kural)';
@@ -2998,22 +2391,7 @@ class AppLocalizationsTr extends AppLocalizations {
   String get freeSpace => 'Boş Alan:';
 
   @override
-  String errorWithMsg(String error) {
-    return 'Hata: $error';
-  }
-
-  @override
   String get noNdefMessageOnTag => 'Etikette kayıtlı NDEF mesajı bulunamadı.';
-
-  @override
-  String readNdefRecordsHeader(num count) {
-    return 'Okunan NDEF Kayıtları ($count)';
-  }
-
-  @override
-  String stagedNdefRecordsHeader(num count) {
-    return 'Bestelenen NDEF Kayıtları ($count)';
-  }
 
   @override
   String get hideDetails => 'Ayrıntıları Gizle';
@@ -3035,11 +2413,6 @@ class AppLocalizationsTr extends AppLocalizations {
   String get inspectorRawHexPreview => 'Ham Hex Önizleme (Sınırlandırılmış):';
 
   @override
-  String inspectorPayloadTruncated(num length) {
-    return 'Not: Yük $length bayt olduğu için ilk 64 baytı gösterilmektedir.';
-  }
-
-  @override
   String get ndefRecordsToWriteTitle => 'Yazılacak NDEF Kayıtları';
 
   @override
@@ -3056,11 +2429,6 @@ class AppLocalizationsTr extends AppLocalizations {
 
   @override
   String get importFromCsvAction => 'CSV dosyasından içe aktar';
-
-  @override
-  String composerTotalSizeAndCount(num bytes, num count) {
-    return 'Toplam Boyut: $bytes Bayt | Kayıt Sayısı: $count';
-  }
 
   @override
   String get composerEmptyDescription =>
@@ -3082,11 +2450,6 @@ class AppLocalizationsTr extends AppLocalizations {
   String get writeAndVerify => 'Etikete Yaz ve Doğrula';
 
   @override
-  String writeAndVerifyWithBytes(num bytes) {
-    return 'Etikete Yaz ve Doğrula ($bytes Bayt)';
-  }
-
-  @override
   String get batchWriteButtonLabel => 'Toplu Etiket Yazımı (2..100 Etiket)';
 
   @override
@@ -3098,11 +2461,6 @@ class AppLocalizationsTr extends AppLocalizations {
   @override
   String get confirmWriteMessage1 =>
       'Bu işlem hedef etiketin mevcut NDEF içeriğini tamamen DEĞİŞTİRİR (üzerine yazar).';
-
-  @override
-  String confirmWriteRecordCount(num count) {
-    return 'Yazılacak Kayıt Sayısı: $count';
-  }
 
   @override
   String get confirmWriteMessage2 =>
@@ -3126,17 +2484,7 @@ class AppLocalizationsTr extends AppLocalizations {
       'UID, metin veya tür ile ara (Örn: URL, Wi-Fi, 04A1...)';
 
   @override
-  String historyScansCount(num count) {
-    return 'Kayıtlı Taramalar: $count';
-  }
-
-  @override
   String get noHistoryYet => 'Henüz kayıtlı tarama geçmişi bulunmuyor.';
-
-  @override
-  String noHistoryResultsForQuery(String query) {
-    return '\"$query\" için sonuç bulunamadı.';
-  }
 
   @override
   String get tryDifferentQuery =>
@@ -3146,54 +2494,13 @@ class AppLocalizationsTr extends AppLocalizations {
   String get clearSearch => 'Aramayı Temizle';
 
   @override
-  String historyItemHeader(String time, num count) {
-    String _temp0 = intl.Intl.pluralLogic(
-      count,
-      locale: localeName,
-      other: '$count Kayıt',
-      one: '1 Kayıt',
-    );
-    return '$time | $_temp0';
-  }
-
-  @override
   String get deleteThisRecord => 'Bu kaydı sil';
-
-  @override
-  String historyCapacitySummary(num cap, num used) {
-    return 'Kapasite: ${cap}B | Kullanılan: ${used}B';
-  }
-
-  @override
-  String historyUidHeader(String uid) {
-    return 'Geçmiş UID $uid';
-  }
 
   @override
   String get qrPreview => 'QR Önizleme';
 
   @override
-  String templateRecordCountWithDate(num count, String date) {
-    String _temp0 = intl.Intl.pluralLogic(
-      count,
-      locale: localeName,
-      other: '$count Kayıt',
-      one: '1 Kayıt',
-    );
-    return '$_temp0 | $date';
-  }
-
-  @override
-  String writeVerificationSummary(num bytes, String status) {
-    return 'Yazılan Bayt: $bytes | Doğrulama: $status';
-  }
-
-  @override
   String get lockTagConfirmTitle => 'Etiketi Kalıcı Olarak Kilitle';
-
-  @override
-  String get lockTagWarning1 =>
-      'Kilitlenen etiket salt okunur olur: içeriği bir daha DEĞİŞTİRİLEMEZ, silinemez ve kilit KALDIRILAMAZ.';
 
   @override
   String get lockTagWarning2 => 'Önce doğru içeriği yazdığınızdan emin olun.';
@@ -3202,43 +2509,7 @@ class AppLocalizationsTr extends AppLocalizations {
   String get langTr => 'Türkçe';
 
   @override
-  String get langEn => 'English';
-
-  @override
-  String get langDe => 'Deutsch';
-
-  @override
   String get langFr => 'Français';
-
-  @override
-  String get langEs => 'Español';
-
-  @override
-  String get langIt => 'Italiano';
-
-  @override
-  String get langPt => 'Português';
-
-  @override
-  String get langRu => 'Русский';
-
-  @override
-  String get langAr => 'العربية';
-
-  @override
-  String get langJa => '日本語';
-
-  @override
-  String get langZh => '中文';
-
-  @override
-  String get langKo => '한국어';
-
-  @override
-  String get langNl => 'Nederlands';
-
-  @override
-  String get langUk => 'Українська';
 
   @override
   String get qrPreviewTooltip => 'QR Kod Önizleme';
@@ -3248,4 +2519,218 @@ class AppLocalizationsTr extends AppLocalizations {
 
   @override
   String get ok => 'Tamam';
+
+  @override
+  String rewriteSourceUid(String uid) {
+    return 'Kaynak UID: $uid';
+  }
+
+  @override
+  String recordsToWriteCount(String count) {
+    return 'Yazılacak kayıt: $count';
+  }
+
+  @override
+  String rewriteFailed(String message) {
+    return 'Yeniden yazma başarısız: $message';
+  }
+
+  @override
+  String writtenRecordsCount(String count) {
+    return 'Yazılan kayıt: $count';
+  }
+
+  @override
+  String scannedTagUid(String uid) {
+    return 'Taranan etiket UID: $uid';
+  }
+
+  @override
+  String writtenDataSummary(String count, String bytes) {
+    return 'Yazılan veri: $count kayıt ($bytes bayt)';
+  }
+
+  @override
+  String scannedDataSummary(String count, String bytes) {
+    return 'Taranan veri: $count kayıt ($bytes bayt)';
+  }
+
+  @override
+  String batchTargetCount(String count) {
+    return 'Hedef etiket sayısı: $count';
+  }
+
+  @override
+  String composerRecordsSummary(String count, String bytes) {
+    return 'Yazma listesi: $count kayıt ($bytes bayt)';
+  }
+
+  @override
+  String batchNext(String current, String total) {
+    return 'Sıradaki: Etiket #$current / $total';
+  }
+
+  @override
+  String batchAttemptOk(String message) {
+    return 'Başarılı ($message)';
+  }
+
+  @override
+  String batchAttemptFailed(String message) {
+    return 'Başarısız: $message';
+  }
+
+  @override
+  String batchAttemptLabel(String n) {
+    return 'Etiket #$n: ';
+  }
+
+  @override
+  String batchTapToWrite(String n) {
+    return 'Etiket #$n için dokun ve yaz';
+  }
+
+  @override
+  String batchPrompt(String current, String total) {
+    return 'Toplu yazım: #$current / $total etiketi cihaza yaklaştırın';
+  }
+
+  @override
+  String batchWrittenVerified(String count) {
+    return '$count kayıt yazıldı ve doğrulandı';
+  }
+
+  @override
+  String templateLoaded(String name) {
+    return '\"$name\" şablonundaki kayıtlar yazma listesine aktarıldı.';
+  }
+
+  @override
+  String ndefSha256Summary(String sha) {
+    return 'NDEF içerik özeti (SHA-256):\n$sha';
+  }
+
+  @override
+  String exportError(String error) {
+    return 'Dışa aktarma hatası: $error';
+  }
+
+  @override
+  String backupHistoryDetected(String count, String prompt) {
+    return 'Yedek dosyasında $count tarama geçmişi kaydı var, ancak bu cihazda tarama geçmişi kapalı.\n\n$prompt';
+  }
+
+  @override
+  String importSucceeded(String summary) {
+    return 'İçe aktarma başarılı:\n$summary';
+  }
+
+  @override
+  String mergeError(String error) {
+    return 'Birleştirme hatası: $error';
+  }
+
+  @override
+  String clipboardBannerText(String count, String bytes, String source) {
+    return 'NDEF panosu: $count kayıt ($bytes B) - $source';
+  }
+
+  @override
+  String get heroScanSubtitle =>
+      'Etiketi telefonun üst kısmına yaklaştırın; içerik, kapasite ve seri numarası anında görünür.';
+
+  @override
+  String lastTagLabel(String uid) {
+    return 'Son etiket: $uid';
+  }
+
+  @override
+  String scanErrorWithMessage(String message) {
+    return 'Tarama hatası: $message';
+  }
+
+  @override
+  String copyContentSummary(String count, String bytes) {
+    return '$count kayıt ($bytes bayt) - Yalnızca NDEF verisi işlenir, UID kopyalanmaz.';
+  }
+
+  @override
+  String tagSourceLabel(String uid) {
+    return 'Etiket $uid';
+  }
+
+  @override
+  String errorWithMessage(String message) {
+    return 'Hata: $message';
+  }
+
+  @override
+  String readRecordsHeader(String count) {
+    return 'Okunan NDEF kayıtları ($count)';
+  }
+
+  @override
+  String composedRecordsHeader(String count) {
+    return 'Yazılacak NDEF kayıtları ($count)';
+  }
+
+  @override
+  String payloadTruncatedNote(String bytes) {
+    return 'Not: Yük $bytes bayt olduğu için ilk 64 baytı gösteriliyor.';
+  }
+
+  @override
+  String composerTotals(String bytes, String count) {
+    return 'Toplam boyut: $bytes bayt | Kayıt sayısı: $count';
+  }
+
+  @override
+  String writeAndVerifyWithSize(String bytes) {
+    return 'Etikete yaz ve doğrula ($bytes bayt)';
+  }
+
+  @override
+  String savedScansCount(String count) {
+    return 'Kayıtlı taramalar: $count';
+  }
+
+  @override
+  String historyNoResults(String query) {
+    return '\"$query\" için sonuç bulunamadı.';
+  }
+
+  @override
+  String historyItemMeta(String date, String count) {
+    return '$date | $count kayıt';
+  }
+
+  @override
+  String historyCapacity(String max, String used) {
+    return 'Kapasite: $max B | Kullanılan: $used B';
+  }
+
+  @override
+  String historySourceLabel(String uid) {
+    return 'Geçmiş UID $uid';
+  }
+
+  @override
+  String templateMeta(String count, String date) {
+    return '$count kayıt | $date';
+  }
+
+  @override
+  String rulesCountLabel(String count) {
+    return 'Kayıtlı kural / not sayısı: $count';
+  }
+
+  @override
+  String writeResultDetails(String bytes, String verification) {
+    return 'Yazılan bayt: $bytes | Doğrulama: $verification';
+  }
+
+  @override
+  String lockTagWarningFull(String more) {
+    return 'Kilitlenen etiket salt okunur olur: içeriği bir daha DEĞİŞTİRİLEMEZ, silinemez ve kilit KALDIRILAMAZ. $more';
+  }
 }

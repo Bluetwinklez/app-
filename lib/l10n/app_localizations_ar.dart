@@ -12,12 +12,6 @@ class AppLocalizationsAr extends AppLocalizations {
   String get addRecord => 'إضافة سجل';
 
   @override
-  String get addRule => 'إضافة قاعدة';
-
-  @override
-  String get addTag => 'إضافة بطاقة';
-
-  @override
   String get addToComposerList => 'إضافة إلى قائمة الكتابة';
 
   @override
@@ -36,9 +30,6 @@ class AppLocalizationsAr extends AppLocalizations {
 
   @override
   String get advancedCommandsTitle => 'أوامر NFC المتقدمة';
-
-  @override
-  String get allRulesCleared => 'تم حذف جميع القواعد';
 
   @override
   String get appLinksDesc =>
@@ -60,38 +51,10 @@ class AppLocalizationsAr extends AppLocalizations {
   String get autoRunOnTap => 'تشغيل تلقائي عند اللمس';
 
   @override
-  String get backupExportSuccess => 'تم حفظ ملف النسخة الاحتياطية بنجاح';
-
-  @override
   String get backupFileSizeExceeded => 'حجم ملف النسخة يتجاوز 2 ميغابايت.';
 
   @override
   String get backupHistoryMustBeList => 'يجب أن يكون الحقل \"history\" قائمة.';
-
-  @override
-  String backupImportFailed(String error) {
-    return 'فشل استيراد النسخة الاحتياطية: $error';
-  }
-
-  @override
-  String backupImportSuccess(int history, int rules, int templates) {
-    return 'تم استيراد النسخة بنجاح: تمت إضافة $templates قوالب، $rules قواعد، $history سجلات';
-  }
-
-  @override
-  String backupInvalidBase64Id(String id) {
-    return 'معرف السجل ليس بتنسيق Base64 صالح: $id';
-  }
-
-  @override
-  String backupInvalidBase64Payload(String payload) {
-    return 'حمولة السجل ليست بتنسيق Base64 صالح: $payload';
-  }
-
-  @override
-  String backupInvalidBase64Type(String type) {
-    return 'نوع السجل ليس بتنسيق Base64 صالح: $type';
-  }
 
   @override
   String backupInvalidJson(String error) {
@@ -105,28 +68,13 @@ class AppLocalizationsAr extends AppLocalizations {
   String get backupInvalidRuleSha => 'تجزئة SHA-256 للقاعدة غير صالحة.';
 
   @override
-  String backupInvalidTemplateCreatedAt(String date) {
-    return 'تاريخ إنشاء القالب غير صالح: $date';
-  }
-
-  @override
   String get backupInvalidTemplateId => 'معرف القالب غير صالح.';
 
   @override
   String get backupInvalidTemplateName => 'اسم القالب غير صالح.';
 
   @override
-  String backupInvalidTnf(String tnf) {
-    return 'قيمة TNF غير صالحة ($tnf). يجب أن تكون بين 0 و 7.';
-  }
-
-  @override
   String backupMaxHistoryExceeded(int count, int max) {
-    return 'عدد السجلات يتجاوز الحد المسموح $max ($count).';
-  }
-
-  @override
-  String backupMaxRecordsExceeded(int count, int max) {
     return 'عدد السجلات يتجاوز الحد المسموح $max ($count).';
   }
 
@@ -145,9 +93,6 @@ class AppLocalizationsAr extends AppLocalizations {
 
   @override
   String get backupRecordMustBeObject => 'يجب أن يكون كل سجل NDEF كائن JSON.';
-
-  @override
-  String get backupRecordsMustBeList => 'يجب أن تكون السجلات قائمة.';
 
   @override
   String get backupRestoreSubtitle =>
@@ -185,20 +130,6 @@ class AppLocalizationsAr extends AppLocalizations {
   @override
   String backupUnsupportedSchemaVersion(String version) {
     return 'إصدار مخطط النسخة غير مدعوم: $version.';
-  }
-
-  @override
-  String get batchWrite => 'كتابة دفعات';
-
-  @override
-  String get bluetoothDeviceName => 'اسم الجهاز (اختياري)';
-
-  @override
-  String get bluetoothMac => 'عنوان MAC للبلوتوث';
-
-  @override
-  String bytesWrittenWithVerification(int bytes, String status) {
-    return 'البايتات المكتوبة: $bytes | التحقق: $status';
   }
 
   @override
@@ -240,12 +171,6 @@ class AppLocalizationsAr extends AppLocalizations {
   String get clearAll => 'مسح الكل';
 
   @override
-  String get clearAllRulesConfirm => 'حذف جميع الملاحظات المحلية المحفوظة؟';
-
-  @override
-  String get clearConfirmButton => 'نعم، امسح';
-
-  @override
   String get clearConfirmMessage =>
       'ستؤدي هذه العملية إلى مسح جميع السجلات وكتابة سجل فارغ. هل تريد المتابعة؟';
 
@@ -256,24 +181,10 @@ class AppLocalizationsAr extends AppLocalizations {
   String get clearHistory => 'مسح السجل';
 
   @override
-  String get clearList => 'مسح القائمة';
-
-  @override
   String get clearTagSubtitle => 'يحذف جميع السجلات ويكتب NDEF فارغاً';
 
   @override
   String get clearTagTitle => 'مسح البطاقة';
-
-  @override
-  String clipboardBanner(int bytes, int count, String source) {
-    String _temp0 = intl.Intl.pluralLogic(
-      count,
-      locale: localeName,
-      other: '$count سجلات في الحافظة',
-      one: 'سجل واحد جاهز في الحافظة',
-    );
-    return '$_temp0 ($bytes بايت) · $source';
-  }
 
   @override
   String get close => 'إغلاق';
@@ -283,9 +194,6 @@ class AppLocalizationsAr extends AppLocalizations {
 
   @override
   String get commandsLabel => 'الأوامر';
-
-  @override
-  String get composeRecordTitle => 'إضافة سجل جديد';
 
   @override
   String get confirmClearHistoryContent =>
@@ -311,9 +219,6 @@ class AppLocalizationsAr extends AppLocalizations {
   String get contactFullName => 'الاسم الكامل';
 
   @override
-  String get contactNote => 'ملاحظة';
-
-  @override
   String get contactPhone => 'الهاتف';
 
   @override
@@ -323,21 +228,7 @@ class AppLocalizationsAr extends AppLocalizations {
   String get contactWebsite => 'الموقع الإلكتروني';
 
   @override
-  String contentSummary(String content, int count) {
-    String _temp0 = intl.Intl.pluralLogic(
-      count,
-      locale: localeName,
-      other: '$count سجلات',
-      one: 'سجل واحد',
-    );
-    return 'المحتوى: $_temp0 · $content';
-  }
-
-  @override
   String get copy => 'نسخ';
-
-  @override
-  String get copyAllRecords => 'نسخ جميع السجلات';
 
   @override
   String get copyTagUid => 'نسخ UID';
@@ -383,14 +274,6 @@ class AppLocalizationsAr extends AppLocalizations {
   String get delete => 'حذف';
 
   @override
-  String deleteTagConfirmContent(String name) {
-    return 'حذف \"$name\" من المكتبة؟ لن تتأثر البطاقة الفعلية.';
-  }
-
-  @override
-  String get deleteTagConfirmTitle => 'حذف البطاقة';
-
-  @override
   String get deleteTemplateTooltip => 'حذف القالب';
 
   @override
@@ -403,51 +286,7 @@ class AppLocalizationsAr extends AppLocalizations {
   String get editRecordTitle => 'تعديل السجل';
 
   @override
-  String get editRule => 'تعديل القاعدة';
-
-  @override
-  String get editTag => 'تعديل البطاقة';
-
-  @override
-  String get emailBody => 'نص الرسالة';
-
-  @override
   String get emailRecipient => 'البريد المستلم';
-
-  @override
-  String get emailSubject => 'الموضوع';
-
-  @override
-  String get emptyComposerSubtitle =>
-      'انقر على \"إضافة سجل\" لإنشاء روابط ويب، نصوص، Wi-Fi، وجهات اتصال.';
-
-  @override
-  String get emptyComposerTitle => 'لم تتم إضافة سجلات بعد';
-
-  @override
-  String get emptyHistorySubtitle => 'ستظهر البطاقات التي تم مسحها هنا.';
-
-  @override
-  String get emptyHistoryTitle => 'لا يوجد سجل مسح بعد';
-
-  @override
-  String get emptyLibrary =>
-      'لا توجد بطاقات محفوظة بعد.\nامسح بطاقة واحفظها هنا مع اسم وصورة.';
-
-  @override
-  String get eventDescription => 'الوصف';
-
-  @override
-  String get eventEnd => 'وقت الانتهاء';
-
-  @override
-  String get eventLocation => 'المكان / الموقع';
-
-  @override
-  String get eventStart => 'وقت البدء';
-
-  @override
-  String get eventTitle => 'عنوان الفعالية';
 
   @override
   String get exportBackup => 'تصدير';
@@ -461,26 +300,7 @@ class AppLocalizationsAr extends AppLocalizations {
   }
 
   @override
-  String get fieldTextPrompt => 'النص المراد كتابته على البطاقة';
-
-  @override
-  String get fieldUrlPrompt => 'عنوان موقع الويب (https://...)';
-
-  @override
-  String get fileUrl => 'رابط الملف';
-
-  @override
-  String get filterAll => 'الكل';
-
-  @override
   String get flashlight => 'الكشاف';
-
-  @override
-  String get formatConfirmButton => 'تهيئة';
-
-  @override
-  String get formatConfirmMessage =>
-      'سيتم مسح البيانات وإعداد البطاقة كبطاقة NDEF فارغة. هل تريد المتابعة؟';
 
   @override
   String get formatMemorySubtitle =>
@@ -490,25 +310,10 @@ class AppLocalizationsAr extends AppLocalizations {
   String get formatMemoryTitle => 'تهيئة الذاكرة';
 
   @override
-  String get hardwareAvailable => 'عتاد NFC جاهز';
-
-  @override
-  String get hardwareDisabled => 'NFC معطل';
-
-  @override
-  String get hardwareNotSupported => 'NFC غير مدعوم';
-
-  @override
-  String get historyFilteredEmpty => 'لم يتم العثور على نتائج مطابقة في السجل.';
-
-  @override
   String get idTooLarge => 'لا يمكن أن يتجاوز حجم المعرّف 255 بايت';
 
   @override
   String get importBackup => 'استيراد (دمج)';
-
-  @override
-  String get importCsv => 'استيراد CSV';
 
   @override
   String get inAppTagRules => 'قواعد البطاقات المحلية';
@@ -526,9 +331,6 @@ class AppLocalizationsAr extends AppLocalizations {
   String get languageTitle => 'Dil / Language';
 
   @override
-  String get latitude => 'خط العرض (Lat)';
-
-  @override
   String get linkCopied => 'تم نسخ الرابط';
 
   @override
@@ -544,19 +346,10 @@ class AppLocalizationsAr extends AppLocalizations {
   String get linkWriteDesc => 'يفتح شاشة كتابة البطاقة';
 
   @override
-  String get loadToComposerTooltip => 'تحميل إلى المحرر';
-
-  @override
-  String get locationHint => 'مثال: باب الثلاجة';
-
-  @override
   String get locationLabel => 'أين مكانها؟';
 
   @override
   String get lockAcknowledge => 'أدرك أن هذه العملية لا يمكن التراجع عنها';
-
-  @override
-  String get lockButton => 'قفل';
 
   @override
   String get lockTagSubtitle =>
@@ -566,26 +359,7 @@ class AppLocalizationsAr extends AppLocalizations {
   String get lockTagTitle => 'قفل البطاقة';
 
   @override
-  String get lockWarning =>
-      'البطاقة المقفلة تصبح للقراءة فقط نهائياً: لا يمكن تعديلها أو مسحها أو إلغاء قفلها مطلقاً. تأكد من صحة المحتوى أولاً.';
-
-  @override
-  String get longitude => 'خط الطول (Lng)';
-
-  @override
   String get manage => 'إدارة';
-
-  @override
-  String get matchedRule => 'الملاحظة المطابقة';
-
-  @override
-  String get mimePayloadHex => 'البيانات (Hex / نص)';
-
-  @override
-  String get mimeTypeLabel => 'نوع MIME';
-
-  @override
-  String get nameRequired => 'يرجى إعطاء اسم للبطاقة.';
 
   @override
   String get navHistory => 'سجل';
@@ -629,9 +403,6 @@ class AppLocalizationsAr extends AppLocalizations {
   }
 
   @override
-  String get ndefRecordsTitle => 'سجلات NDEF';
-
-  @override
   String get nfcPromptClear => 'قرّب البطاقة من الجهاز لإعادة ضبطها';
 
   @override
@@ -645,15 +416,6 @@ class AppLocalizationsAr extends AppLocalizations {
 
   @override
   String get no => 'لا';
-
-  @override
-  String get noContentInTag => 'لا يوجد محتوى بطاقة في هذا السجل.';
-
-  @override
-  String get noLibraryMatches => 'لا توجد بطاقات مطابقة.';
-
-  @override
-  String get noRecordsOnTag => 'لم يتم العثور على سجلات NDEF في البطاقة.';
 
   @override
   String get noTemplates =>
@@ -703,36 +465,6 @@ class AppLocalizationsAr extends AppLocalizations {
   String optionalField(String label) {
     return '$label (اختياري)';
   }
-
-  @override
-  String pageN(int page) {
-    return 'الصفحة $page';
-  }
-
-  @override
-  String get pageRoleCc => 'CC';
-
-  @override
-  String get pageRoleData => 'بيانات';
-
-  @override
-  String get pageRoleLock => 'قفل';
-
-  @override
-  String get pageRoleUid => 'UID';
-
-  @override
-  String get pageRoleUidLock => 'UID / قفل';
-
-  @override
-  String get passwordDialogAction => 'تعيين';
-
-  @override
-  String get passwordDialogTitle => 'تعيين كلمة مرور';
-
-  @override
-  String get passwordDialogWarning =>
-      'إذا نسيت كلمة المرور هذه، فلن تتمكن من تعديل محتوى البطاقة مجدداً. تبقى القراءة متاحة للجميع.';
 
   @override
   String get passwordError => 'يرجى إدخال 4 أحرف بالضبط أو 8 خانات hex.';
@@ -873,9 +605,6 @@ class AppLocalizationsAr extends AppLocalizations {
   String get qrUserOnlyNote => 'يفتح بطلب المستخدم فقط.';
 
   @override
-  String get rawInspection => 'فحص تفصيلي';
-
-  @override
   String get rawRecordDetailsTitle => 'تفاصيل السجل (للقراءة فقط)';
 
   @override
@@ -883,19 +612,6 @@ class AppLocalizationsAr extends AppLocalizations {
 
   @override
   String get readHeroButton => 'بدء المسح';
-
-  @override
-  String get readHeroEyebrow => 'قارئ NFC';
-
-  @override
-  String get readHeroScanning => 'جارٍ المسح...';
-
-  @override
-  String get readHeroSubtitle =>
-      'قرّب الجزء العلوي من الهاتف من بطاقة NFC لقراءة سجلات NDEF وبيانات الشريحة.';
-
-  @override
-  String get readHeroTitle => 'مسح البطاقة';
 
   @override
   String get readMemorySubtitle =>
@@ -906,14 +622,6 @@ class AppLocalizationsAr extends AppLocalizations {
 
   @override
   String get readyTemplates => 'قوالب جاهزة';
-
-  @override
-  String get recordCopied => 'تم نسخ محتوى السجل';
-
-  @override
-  String recordIndex(int index) {
-    return 'سجل #$index';
-  }
 
   @override
   String get recordTypeCalendar => 'فعالية تقويم (iCal)';
@@ -965,25 +673,7 @@ class AppLocalizationsAr extends AppLocalizations {
   String get recordTypeWifiCorrupt => 'بيانات WSC تالفة';
 
   @override
-  String recordsCopiedToClipboard(int count) {
-    String _temp0 = intl.Intl.pluralLogic(
-      count,
-      locale: localeName,
-      other: 'تم نسخ $count سجلات',
-      one: 'تم نسخ سجل واحد',
-    );
-    return '$_temp0';
-  }
-
-  @override
   String get redo => 'إعادة';
-
-  @override
-  String get removePasswordDialogTitle => 'إزالة كلمة المرور';
-
-  @override
-  String get removePasswordDialogWarning =>
-      'أدخل كلمة المرور الحالية المحددة في البطاقة.';
 
   @override
   String get removePasswordSubtitle =>
@@ -991,9 +681,6 @@ class AppLocalizationsAr extends AppLocalizations {
 
   @override
   String get removePasswordTitle => 'إزالة كلمة المرور';
-
-  @override
-  String get removePhoto => 'إزالة';
 
   @override
   String get rewriteTag => 'إعادة الكتابة';
@@ -1004,19 +691,10 @@ class AppLocalizationsAr extends AppLocalizations {
   }
 
   @override
-  String get ruleDeleted => 'تم حذف القاعدة';
-
-  @override
   String get ruleNoteDialogTitle => 'تعديل ملاحظة البطاقة';
 
   @override
-  String get ruleNoteHint => 'مثال: رف المستودع #4 أو غرفة الاجتماعات';
-
-  @override
   String get ruleNoteLabel => 'الملاحظة المحلية / الوصف';
-
-  @override
-  String get ruleSaved => 'تم حفظ القاعدة';
 
   @override
   String get save => 'حفظ';
@@ -1035,31 +713,10 @@ class AppLocalizationsAr extends AppLocalizations {
       'عند التعطيل لن يتم تخزين المسح. عند التفعيل يتم حفظ عمليات المسح الناجحة محلياً.';
 
   @override
-  String get saveTemplateDialogTitle => 'حفظ كقالب';
-
-  @override
-  String get saveToLibrary => 'حفظ في المكتبة';
-
-  @override
   String get scanFabLabel => 'مسح البطاقة';
 
   @override
-  String get scanQrToRecord => 'مسح رمز QR';
-
-  @override
   String get scannedTag => 'البطاقة الممسوحة';
-
-  @override
-  String get searchEngine => 'محرك البحث';
-
-  @override
-  String get searchHistoryHint => 'بحث في السجل (UID، محتوى، نوع)...';
-
-  @override
-  String get searchLibraryHint => 'بحث بالاسم أو الملاحظة أو المكان أو المحتوى';
-
-  @override
-  String get searchQuery => 'نص البحث';
 
   @override
   String get searchQueryCannotBeEmpty => 'نص البحث لا يمكن أن يكون فارغاً.';
@@ -1076,9 +733,6 @@ class AppLocalizationsAr extends AppLocalizations {
 
   @override
   String get setPasswordTitle => 'تعيين كلمة مرور';
-
-  @override
-  String get shareRecords => 'مشاركة السجلات';
 
   @override
   String get shortcutAutomationNote =>
@@ -1127,19 +781,7 @@ class AppLocalizationsAr extends AppLocalizations {
   String get smsMessage => 'نص الرسالة';
 
   @override
-  String get socialNetwork => 'المنصة';
-
-  @override
   String get socialUsername => 'اسم المستخدم';
-
-  @override
-  String get sourceComposer => 'السجلات في قائمة الكتابة';
-
-  @override
-  String get sourceEmpty => 'بدون محتوى (ملاحظة فقط)';
-
-  @override
-  String get sourceLastScan => 'آخر بطاقة تم مسحها';
 
   @override
   String get sourceSelectPrompt => 'من أين يتم أخذ محتوى البطاقة؟';
@@ -1231,15 +873,6 @@ class AppLocalizationsAr extends AppLocalizations {
   String get systemLanguage => 'لغة النظام';
 
   @override
-  String get tabApp => 'تطبيق';
-
-  @override
-  String get tabBluetooth => 'بلوتوث';
-
-  @override
-  String get tabCalendar => 'تقويم';
-
-  @override
   String get tabContact => 'جهة اتصال (vCard)';
 
   @override
@@ -1249,22 +882,10 @@ class AppLocalizationsAr extends AppLocalizations {
   String get tabEmail => 'بريد إلكتروني';
 
   @override
-  String get tabFile => 'ملف';
-
-  @override
-  String get tabLocation => 'موقع جغرافي';
-
-  @override
   String get tabPhone => 'هاتف';
 
   @override
-  String get tabSearch => 'بحث';
-
-  @override
   String get tabSms => 'رسالة SMS';
-
-  @override
-  String get tabSocial => 'وسائل التواصل';
 
   @override
   String get tabText => 'نص';
@@ -1273,33 +894,13 @@ class AppLocalizationsAr extends AppLocalizations {
   String get tabUrl => 'رابط ويب';
 
   @override
-  String get tabVideo => 'فيديو';
-
-  @override
   String get tabWifi => 'Wi-Fi';
-
-  @override
-  String get tagCapacity => 'السعة';
-
-  @override
-  String tagCapacityValue(int available, int max, int used) {
-    return '$used / $max بايت ($available بايت فارغ)';
-  }
 
   @override
   String get tagInfoTitle => 'معلومات البطاقة';
 
   @override
   String get tagLibraryTitle => 'مكتبة البطاقات';
-
-  @override
-  String get tagNameHint => 'مثال: بطاقة المطبخ';
-
-  @override
-  String get tagNameLabel => 'الاسم';
-
-  @override
-  String get tagReadOnly => 'للقراءة فقط (مقفلة)';
 
   @override
   String tagRulesCount(int count) {
@@ -1311,42 +912,13 @@ class AppLocalizationsAr extends AppLocalizations {
       'تعرض الملاحظة المحفوظة وفق تجزئة SHA-256 لمحتوى NDEF فقط.';
 
   @override
-  String get tagSerialNumber => 'الرقم التسلسلي (UID)';
-
-  @override
-  String get tagTechnology => 'التقنية';
-
-  @override
-  String get tagType => 'النوع';
-
-  @override
-  String get tagUidCopied => 'تم نسخ UID البطاقة';
-
-  @override
   String get tagWritable => 'قابلة للكتابة';
 
   @override
   String get takePhoto => 'التقاط صورة';
 
   @override
-  String get templateGalleryTitle => 'قوالب جاهزة';
-
-  @override
   String get templateNameHint => 'اسم القالب';
-
-  @override
-  String templateRecordCount(int count, String date) {
-    String _temp0 = intl.Intl.pluralLogic(
-      count,
-      locale: localeName,
-      other: '$count سجلات',
-      one: 'سجل واحد',
-    );
-    return '$_temp0 | $date';
-  }
-
-  @override
-  String get templateSaved => 'تم حفظ القالب بنجاح';
 
   @override
   String get toolsExpertSection => 'المتقدم';
@@ -1363,9 +935,6 @@ class AppLocalizationsAr extends AppLocalizations {
 
   @override
   String get toolsTagSection => 'البطاقة';
-
-  @override
-  String get totalBytes => 'الحجم الإجمالي';
 
   @override
   String get typeTooLarge => 'لا يمكن أن يتجاوز حجم النوع 255 بايت';
@@ -1440,28 +1009,10 @@ class AppLocalizationsAr extends AppLocalizations {
   String get videoUrlCannotBeEmpty => 'رابط الفيديو لا يمكن أن يكون فارغاً.';
 
   @override
-  String get videoUrlOrId => 'رابط الفيديو أو معرف YouTube';
-
-  @override
   String get videoUrlOrIdPrompt => 'أدخل رابط الفيديو أو معرف YouTube.';
 
   @override
   String get wifiAuthOpen => 'مفتوحة (بدون حماية)';
-
-  @override
-  String get wifiAuthType => 'نوع الأمان';
-
-  @override
-  String get wifiAuthWpa => 'WPA Personal';
-
-  @override
-  String get wifiAuthWpa2 => 'WPA2 Personal';
-
-  @override
-  String get wifiAuthWpaWpa2 => 'WPA/WPA2 Personal';
-
-  @override
-  String get wifiHidden => 'شبكة مخفية';
 
   @override
   String get wifiPassword => 'كلمة المرور';
@@ -1473,9 +1024,6 @@ class AppLocalizationsAr extends AppLocalizations {
   String get withSiri => 'باستخدام Siri';
 
   @override
-  String get writeDumpConfirmButton => 'كتابة';
-
-  @override
   String writeDumpConfirmMessage(int bytes, String name) {
     return 'سيتم كتابة \"$name\" ($bytes بايت) إلى الذاكرة. صفحات UID والقفل محمية.';
   }
@@ -1485,16 +1033,6 @@ class AppLocalizationsAr extends AppLocalizations {
 
   @override
   String get writeDumpTitle => 'كتابة ملف الذاكرة (.bin)';
-
-  @override
-  String get writeHeroButton => 'بدء الكتابة';
-
-  @override
-  String get writeHeroEyebrow => 'كاتب NDEF';
-
-  @override
-  String get writeHeroSubtitle =>
-      'جهّز سجلات NDEF متعددة واكتبها على البطاقة دفعة واحدة.';
 
   @override
   String get writeHeroTitle => 'كتابة البطاقة';
@@ -1514,9 +1052,6 @@ class AppLocalizationsAr extends AppLocalizations {
   @override
   String get writeTemplatesSubtitle =>
       'احفظ محتويات NDEF الشائعة كقوالب لتتمكن من كتابتها بنقرة واحدة.';
-
-  @override
-  String get yes => 'نعم';
 
   @override
   String get unknown => 'غير معروف';
@@ -2374,7 +1909,7 @@ class AppLocalizationsAr extends AppLocalizations {
 
   @override
   String filePickerError(String error) {
-    return 'تعذر فتح منتقي الملفات: $error';
+    return 'تعذّر فتح منتقي الملفات: $error';
   }
 
   @override
@@ -2479,16 +2014,6 @@ class AppLocalizationsAr extends AppLocalizations {
       '• لا تتم الكتابة تلقائياً على الشريحة السابقة؛ يلزم لمس NFC جديد.';
 
   @override
-  String rewriteSourceUidLabel(String uid) {
-    return 'المعرّف المصدر: $uid';
-  }
-
-  @override
-  String rewriteRecordCountLabel(num count) {
-    return 'عدد السجلات المراد كتابتها: $count';
-  }
-
-  @override
   String get rewriteInstruction =>
       'جهز الشريحة واضغط على \"المس واكتب\" ثم قرب الشريحة من الهاتف.';
 
@@ -2500,21 +2025,11 @@ class AppLocalizationsAr extends AppLocalizations {
       'قرب الشريحة المستهدفة من الجهاز (سيتم تجديد المحتوى بالكامل)';
 
   @override
-  String rewriteFailedMessage(String error) {
-    return 'فشلت إعادة الكتابة: $error';
-  }
-
-  @override
   String get writeVerifiedTitle => 'تم التحقق من الكتابة';
 
   @override
   String get writeVerifiedDesc =>
       'تمت كتابة محتوى NDEF والتحقق منه بنجاح على الشريحة.';
-
-  @override
-  String writtenRecordCount(num count) {
-    return 'عدد السجلات المكتوبة: $count';
-  }
 
   @override
   String get writeVerifiedHint =>
@@ -2528,21 +2043,6 @@ class AppLocalizationsAr extends AppLocalizations {
 
   @override
   String get differenceDetected => 'تم اكتشاف اختلاف';
-
-  @override
-  String compareScannedUid(String uid) {
-    return 'معرّف الشريحة الممسوحة: $uid';
-  }
-
-  @override
-  String compareWrittenData(num count, num bytes) {
-    return 'البيانات المكتوبة: $count سجلات ($bytes بايت)';
-  }
-
-  @override
-  String compareScannedData(num count, num bytes) {
-    return 'البيانات الممسوحة: $count سجلات ($bytes بايت)';
-  }
 
   @override
   String get compareMatchDesc =>
@@ -2575,16 +2075,6 @@ class AppLocalizationsAr extends AppLocalizations {
       '• لا يتم المسح المتتالي تلقائياً؛ يجب استبدال كل شريحة يدوياً.';
 
   @override
-  String batchTargetCountLabel(num count) {
-    return 'عدد الشرائح المستهدفة: $count';
-  }
-
-  @override
-  String batchComposerSummary(num count, num bytes) {
-    return 'سجلات المنشئ: $count ($bytes بايت)';
-  }
-
-  @override
   String get batchStartButton => 'بدء الكتابة المجمعة';
 
   @override
@@ -2597,50 +2087,15 @@ class AppLocalizationsAr extends AppLocalizations {
   String get batchAllCompleted => 'اكتملت جميع محاولات الشرائح!';
 
   @override
-  String batchNextTag(num current, num total) {
-    return 'التالي: شريحة #$current / $total';
-  }
-
-  @override
-  String batchStats(num success, num fail, num remaining) {
-    return 'ناجح: $success | فاشل: $fail | متبقي: $remaining';
-  }
-
-  @override
-  String batchSuccessMsg(String message) {
-    return 'ناجح ($message)';
-  }
-
-  @override
-  String batchFailMsg(String message) {
-    return 'فشل: $message';
-  }
-
-  @override
-  String tagNumberLabel(num index) {
-    return 'شريحة #$index: ';
+  String batchStats(String ok, String failed, String left) {
+    return 'ناجح: $ok | فاشل: $failed | متبقٍ: $left';
   }
 
   @override
   String get waitingForTag => 'في انتظار الشريحة...';
 
   @override
-  String tapToWriteForTag(num index) {
-    return 'المس واكتب للشريحة #$index';
-  }
-
-  @override
   String get batchFinishButton => 'إنهاء الكتابة المجمعة';
-
-  @override
-  String batchPromptMessage(num current, num total) {
-    return 'كتابة مجمعة: قرب الشريحة #$current / $total';
-  }
-
-  @override
-  String batchTagSuccessSummary(num count) {
-    return 'تمت كتابة $count سجلات والتحقق منها';
-  }
 
   @override
   String get writeError => 'خطأ في الكتابة';
@@ -2694,16 +2149,11 @@ class AppLocalizationsAr extends AppLocalizations {
       'ملاحظة: هذا التحليل محلي تماماً دون اتصال. لا يدعي فحص البرامج الضارة عبر الشبكة. لا يفتح الرابط تلقائياً.';
 
   @override
-  String templateLoadedToComposer(String name) {
-    return 'تم تحميل سجلات القالب \"$name\" إلى المنشئ.';
-  }
-
-  @override
   String get templateSaveEmptyError => 'أضف سجلات قبل الحفظ كقالب.';
 
   @override
-  String templateDefaultName(num index) {
-    return 'قالب $index';
+  String templateDefaultName(String n) {
+    return 'قالب $n';
   }
 
   @override
@@ -2724,15 +2174,7 @@ class AppLocalizationsAr extends AppLocalizations {
       'ترتبط هذه الملاحظة بملخص SHA-256 لمحتوى NDEF. يظهر هذا الوصف فقط عند المسح.';
 
   @override
-  String ruleNoteShaSummary(String sha) {
-    return 'ملخص محتوى NDEF (SHA-256):\n$sha';
-  }
-
-  @override
   String get ruleNoteSavedSnack => 'تم حفظ ملاحظة الشريحة.';
-
-  @override
-  String get ruleNoteDeleteTitle => 'حذف ملاحظة الشريحة';
 
   @override
   String get ruleNoteDeleteConfirm =>
@@ -2755,21 +2197,21 @@ class AppLocalizationsAr extends AppLocalizations {
   String get backupIncludedItems => 'العناصر المضمنة:';
 
   @override
-  String backupTemplatesCount(num count) {
+  String backupTemplatesCount(String count) {
     return '• القوالب: $count';
   }
 
   @override
-  String backupRulesCount(num count) {
-    return '• ملاحظات/قواعد الشرائح: $count';
+  String backupRulesCount(String count) {
+    return '• ملاحظات/قواعد الوسوم: $count';
   }
 
   @override
   String get backupIncludeHistoryOptional => 'تضمين سجل المسح (اختياري)';
 
   @override
-  String backupHistoryCount(num count) {
-    return '$count سجلات في السجل';
+  String backupHistoryCount(String count) {
+    return '$count من سجلات السجل';
   }
 
   @override
@@ -2791,11 +2233,6 @@ class AppLocalizationsAr extends AppLocalizations {
 
   @override
   String get backupExportCancelled => 'تم إلغاء مشاركة التصدير.';
-
-  @override
-  String backupExportError(String error) {
-    return 'خطأ في التصدير: $error';
-  }
 
   @override
   String get backupImportTitle => 'استيراد النسخة الاحتياطية';
@@ -2835,16 +2272,11 @@ class AppLocalizationsAr extends AppLocalizations {
 
   @override
   String backupValidationError(String error) {
-    return 'خطأ في التحقق من النسخة الاحتياطية: $error';
+    return 'خطأ في التحقق من النسخة: $error';
   }
 
   @override
   String get backupHistoryDetectedTitle => 'تم اكتشاف سجل المسح';
-
-  @override
-  String backupHistoryDetectedMsg(num count) {
-    return 'يحتوي ملف النسخ الاحتياطي على $count سجلات مسح، لكن الميزة معطلة على هذا الجهاز.\n\n';
-  }
 
   @override
   String get backupHistoryDetectedPrompt =>
@@ -2856,16 +2288,6 @@ class AppLocalizationsAr extends AppLocalizations {
 
   @override
   String get backupEnableHistoryOption => 'تفعيل السجل وتحميله';
-
-  @override
-  String backupImportSuccessWithSummary(String summary) {
-    return 'تم الاستيراد بنجاح:\n$summary';
-  }
-
-  @override
-  String backupMergeError(String error) {
-    return 'خطأ في الدمج: $error';
-  }
 
   @override
   String get nfcReadyStatus => 'NFC جاهز';
@@ -2880,20 +2302,10 @@ class AppLocalizationsAr extends AppLocalizations {
   String get nfcDisabledDesc => 'NFC مغلق. يرجى تفعيله من إعدادات الجهاز.';
 
   @override
-  String ndefClipboardBanner(num count, num bytes, String source) {
-    return 'حافظة NDEF: $count سجلات ($bytes بايت) - $source';
-  }
-
-  @override
   String get template => 'قالب';
 
   @override
   String get nfcScannerTitle => 'ماسح NFC';
-
-  @override
-  String lastScannedTagId(String id) {
-    return 'آخر شريحة: $id';
-  }
 
   @override
   String get composeRecord => 'إنشاء سجل';
@@ -2905,11 +2317,6 @@ class AppLocalizationsAr extends AppLocalizations {
   String get previousScans => 'عمليات المسح السابقة';
 
   @override
-  String scanErrorWithMsg(String error) {
-    return 'خطأ في المسح: $error';
-  }
-
-  @override
   String get noScannedTagYet => 'لم يتم مسح أي شريحة NFC بعد';
 
   @override
@@ -2917,16 +2324,6 @@ class AppLocalizationsAr extends AppLocalizations {
 
   @override
   String get ndefCopyAndRewriteTitle => 'نسخ محتوى NDEF وإعادة كتابته';
-
-  @override
-  String ndefCopyNotice(num count, num bytes) {
-    return '$count سجلات ($bytes بايت) - تتم معالجة بيانات NDEF فقط، ولا يتم استنساخ المعرّف.';
-  }
-
-  @override
-  String tagIdHeader(String id) {
-    return 'شريحة $id';
-  }
 
   @override
   String get savedTagNoteHeader => 'ملاحظة الشريحة المحفوظة (قاعدة في التطبيق)';
@@ -2961,22 +2358,7 @@ class AppLocalizationsAr extends AppLocalizations {
   String get freeSpace => 'المساحة المتبقية:';
 
   @override
-  String errorWithMsg(String error) {
-    return 'خطأ: $error';
-  }
-
-  @override
   String get noNdefMessageOnTag => 'لم يتم العثور على رسالة NDEF على الشريحة.';
-
-  @override
-  String readNdefRecordsHeader(num count) {
-    return 'سجلات NDEF المقروءة ($count)';
-  }
-
-  @override
-  String stagedNdefRecordsHeader(num count) {
-    return 'سجلات NDEF المُنشأة ($count)';
-  }
 
   @override
   String get hideDetails => 'إخفاء التفاصيل';
@@ -2997,11 +2379,6 @@ class AppLocalizationsAr extends AppLocalizations {
   String get inspectorRawHexPreview => 'معاينة Hex الأولية (محدودة):';
 
   @override
-  String inspectorPayloadTruncated(num length) {
-    return 'ملاحظة: حجم الحمولة $length بايت؛ يتم عرض أول 64 بايت فقط.';
-  }
-
-  @override
   String get ndefRecordsToWriteTitle => 'سجلات NDEF المراد كتابتها';
 
   @override
@@ -3018,11 +2395,6 @@ class AppLocalizationsAr extends AppLocalizations {
 
   @override
   String get importFromCsvAction => 'استيراد من ملف CSV';
-
-  @override
-  String composerTotalSizeAndCount(num bytes, num count) {
-    return 'الحجم الإجمالي: $bytes بايت | عدد السجلات: $count';
-  }
 
   @override
   String get composerEmptyDescription =>
@@ -3044,11 +2416,6 @@ class AppLocalizationsAr extends AppLocalizations {
   String get writeAndVerify => 'الكتابة على الشريحة والتحقق';
 
   @override
-  String writeAndVerifyWithBytes(num bytes) {
-    return 'الكتابة على الشريحة والتحقق ($bytes بايت)';
-  }
-
-  @override
   String get batchWriteButtonLabel => 'كتابة مجمعة للشرائح (2..100 شريحة)';
 
   @override
@@ -3060,11 +2427,6 @@ class AppLocalizationsAr extends AppLocalizations {
   @override
   String get confirmWriteMessage1 =>
       'ستقوم هذه العملية بالكتابة فوق محتوى NDEF الحالي بالكامل على الشريحة.';
-
-  @override
-  String confirmWriteRecordCount(num count) {
-    return 'عدد السجلات المراد كتابتها: $count';
-  }
 
   @override
   String get confirmWriteMessage2 =>
@@ -3088,17 +2450,7 @@ class AppLocalizationsAr extends AppLocalizations {
       'البحث بالمعرّف أو النص أو النوع (مثال: URL, Wi-Fi, 04A1...)';
 
   @override
-  String historyScansCount(num count) {
-    return 'عمليات المسح المحفوظة: $count';
-  }
-
-  @override
   String get noHistoryYet => 'لا يوجد سجل مسح محفوظ بعد.';
-
-  @override
-  String noHistoryResultsForQuery(String query) {
-    return 'لم يتم العثور على نتائج لـ \"$query\".';
-  }
 
   @override
   String get tryDifferentQuery => 'جرب معرّفاً أو نصاً أو نوع سجل مختلفاً.';
@@ -3107,54 +2459,13 @@ class AppLocalizationsAr extends AppLocalizations {
   String get clearSearch => 'مسح البحث';
 
   @override
-  String historyItemHeader(String time, num count) {
-    String _temp0 = intl.Intl.pluralLogic(
-      count,
-      locale: localeName,
-      other: '$count سجلات',
-      one: 'سجل واحد',
-    );
-    return '$time | $_temp0';
-  }
-
-  @override
   String get deleteThisRecord => 'حذف هذا السجل';
-
-  @override
-  String historyCapacitySummary(num cap, num used) {
-    return 'السعة: $cap بايت | المستخدم: $used بايت';
-  }
-
-  @override
-  String historyUidHeader(String uid) {
-    return 'معرّف السجل $uid';
-  }
 
   @override
   String get qrPreview => 'معاينة QR';
 
   @override
-  String templateRecordCountWithDate(num count, String date) {
-    String _temp0 = intl.Intl.pluralLogic(
-      count,
-      locale: localeName,
-      other: '$count سجلات',
-      one: 'سجل واحد',
-    );
-    return '$_temp0 | $date';
-  }
-
-  @override
-  String writeVerificationSummary(num bytes, String status) {
-    return 'البايتات المكتوبة: $bytes | التحقق: $status';
-  }
-
-  @override
   String get lockTagConfirmTitle => 'قفل الشريحة بشكل دائم';
-
-  @override
-  String get lockTagWarning1 =>
-      'تصبح الشريحة المقفلة للقراءة فقط: لا يمكن تعديل محتواها أو حذفه أو إزالة القفل أبداً.';
 
   @override
   String get lockTagWarning2 => 'تأكد من كتابة المحتوى الصحيح أولاً.';
@@ -3163,43 +2474,7 @@ class AppLocalizationsAr extends AppLocalizations {
   String get langTr => 'Türkçe';
 
   @override
-  String get langEn => 'English';
-
-  @override
-  String get langDe => 'Deutsch';
-
-  @override
   String get langFr => 'Français';
-
-  @override
-  String get langEs => 'Español';
-
-  @override
-  String get langIt => 'Italiano';
-
-  @override
-  String get langPt => 'Português';
-
-  @override
-  String get langRu => 'Русский';
-
-  @override
-  String get langAr => 'العربية';
-
-  @override
-  String get langJa => '日本語';
-
-  @override
-  String get langZh => '中文';
-
-  @override
-  String get langKo => '한국어';
-
-  @override
-  String get langNl => 'Nederlands';
-
-  @override
-  String get langUk => 'Українська';
 
   @override
   String get qrPreviewTooltip => 'معاينة رمز QR';
@@ -3209,4 +2484,218 @@ class AppLocalizationsAr extends AppLocalizations {
 
   @override
   String get ok => 'موافق';
+
+  @override
+  String rewriteSourceUid(String uid) {
+    return 'معرّف المصدر UID: $uid';
+  }
+
+  @override
+  String recordsToWriteCount(String count) {
+    return 'السجلات المراد كتابتها: $count';
+  }
+
+  @override
+  String rewriteFailed(String message) {
+    return 'فشلت إعادة الكتابة: $message';
+  }
+
+  @override
+  String writtenRecordsCount(String count) {
+    return 'السجلات المكتوبة: $count';
+  }
+
+  @override
+  String scannedTagUid(String uid) {
+    return 'UID الوسم الممسوح: $uid';
+  }
+
+  @override
+  String writtenDataSummary(String count, String bytes) {
+    return 'البيانات المكتوبة: $count سجلات ($bytes بايت)';
+  }
+
+  @override
+  String scannedDataSummary(String count, String bytes) {
+    return 'البيانات الممسوحة: $count سجلات ($bytes بايت)';
+  }
+
+  @override
+  String batchTargetCount(String count) {
+    return 'عدد الوسوم المستهدفة: $count';
+  }
+
+  @override
+  String composerRecordsSummary(String count, String bytes) {
+    return 'قائمة الكتابة: $count سجلات ($bytes بايت)';
+  }
+
+  @override
+  String batchNext(String current, String total) {
+    return 'التالي: الوسم #$current / $total';
+  }
+
+  @override
+  String batchAttemptOk(String message) {
+    return 'نجح ($message)';
+  }
+
+  @override
+  String batchAttemptFailed(String message) {
+    return 'فشل: $message';
+  }
+
+  @override
+  String batchAttemptLabel(String n) {
+    return 'الوسم #$n: ';
+  }
+
+  @override
+  String batchTapToWrite(String n) {
+    return 'المس واكتب الوسم #$n';
+  }
+
+  @override
+  String batchPrompt(String current, String total) {
+    return 'كتابة دفعية: قرّب الوسم #$current / $total';
+  }
+
+  @override
+  String batchWrittenVerified(String count) {
+    return 'تمت كتابة $count سجلات والتحقق منها';
+  }
+
+  @override
+  String templateLoaded(String name) {
+    return 'تمت إضافة سجلات \"$name\" إلى قائمة الكتابة.';
+  }
+
+  @override
+  String ndefSha256Summary(String sha) {
+    return 'بصمة محتوى NDEF (SHA-256):\n$sha';
+  }
+
+  @override
+  String exportError(String error) {
+    return 'خطأ في التصدير: $error';
+  }
+
+  @override
+  String backupHistoryDetected(String count, String prompt) {
+    return 'تحتوي النسخة على $count من سجلات المسح، لكن السجل متوقف على هذا الجهاز.\n\n$prompt';
+  }
+
+  @override
+  String importSucceeded(String summary) {
+    return 'نجح الاستيراد:\n$summary';
+  }
+
+  @override
+  String mergeError(String error) {
+    return 'خطأ في الدمج: $error';
+  }
+
+  @override
+  String clipboardBannerText(String count, String bytes, String source) {
+    return 'حافظة NDEF: $count سجلات ($bytes ب) - $source';
+  }
+
+  @override
+  String get heroScanSubtitle =>
+      'قرّب الوسم من أعلى الهاتف؛ يظهر المحتوى والسعة والرقم التسلسلي فورًا.';
+
+  @override
+  String lastTagLabel(String uid) {
+    return 'آخر وسم: $uid';
+  }
+
+  @override
+  String scanErrorWithMessage(String message) {
+    return 'خطأ في المسح: $message';
+  }
+
+  @override
+  String copyContentSummary(String count, String bytes) {
+    return '$count سجلات ($bytes بايت) - تُنسخ بيانات NDEF فقط دون UID.';
+  }
+
+  @override
+  String tagSourceLabel(String uid) {
+    return 'الوسم $uid';
+  }
+
+  @override
+  String errorWithMessage(String message) {
+    return 'خطأ: $message';
+  }
+
+  @override
+  String readRecordsHeader(String count) {
+    return 'سجلات NDEF المقروءة ($count)';
+  }
+
+  @override
+  String composedRecordsHeader(String count) {
+    return 'سجلات NDEF المراد كتابتها ($count)';
+  }
+
+  @override
+  String payloadTruncatedNote(String bytes) {
+    return 'ملاحظة: الحمولة $bytes بايت، لذا تُعرض أول 64 بايت فقط.';
+  }
+
+  @override
+  String composerTotals(String bytes, String count) {
+    return 'الحجم الإجمالي: $bytes بايت | السجلات: $count';
+  }
+
+  @override
+  String writeAndVerifyWithSize(String bytes) {
+    return 'اكتب وتحقق ($bytes بايت)';
+  }
+
+  @override
+  String savedScansCount(String count) {
+    return 'عمليات المسح المحفوظة: $count';
+  }
+
+  @override
+  String historyNoResults(String query) {
+    return 'لا توجد نتائج لـ \"$query\".';
+  }
+
+  @override
+  String historyItemMeta(String date, String count) {
+    return '$date | $count سجلات';
+  }
+
+  @override
+  String historyCapacity(String max, String used) {
+    return 'السعة: $max ب | المستخدم: $used ب';
+  }
+
+  @override
+  String historySourceLabel(String uid) {
+    return 'السجل UID $uid';
+  }
+
+  @override
+  String templateMeta(String count, String date) {
+    return '$count سجلات | $date';
+  }
+
+  @override
+  String rulesCountLabel(String count) {
+    return 'القواعد/الملاحظات المحفوظة: $count';
+  }
+
+  @override
+  String writeResultDetails(String bytes, String verification) {
+    return 'البايتات المكتوبة: $bytes | التحقق: $verification';
+  }
+
+  @override
+  String lockTagWarningFull(String more) {
+    return 'يصبح الوسم المقفل للقراءة فقط: لا يمكن أبدًا تغيير محتواه أو مسحه، ولا يمكن إزالة القفل. $more';
+  }
 }
