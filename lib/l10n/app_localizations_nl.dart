@@ -3153,4 +3153,10 @@ class AppLocalizationsNl extends AppLocalizations {
   @override
   String get shareAsFileSubtitle =>
       'Records kunnen exact op een ander apparaat worden geschreven';
+
+  @override
+  String get importFromJsonFile => 'Uit tagbestand (.json)';
+
+  @override
+  String get invalidTagFile => 'Ongeldig tagbestand.';
 }

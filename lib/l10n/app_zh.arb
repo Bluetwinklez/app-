@@ -887,5 +887,7 @@
   "shareTag": "分享",
   "shareAsText": "以文本分享",
   "shareAsFile": "以文件分享（.json）",
-  "shareAsFileSubtitle": "可在其他设备上原样写入"
+  "shareAsFileSubtitle": "可在其他设备上原样写入",
+  "importFromJsonFile": "从标签文件（.json）",
+  "invalidTagFile": "标签文件无效。"
 }

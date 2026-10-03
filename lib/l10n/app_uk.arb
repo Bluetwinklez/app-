@@ -887,5 +887,7 @@
   "shareTag": "Поділитися",
   "shareAsText": "Поділитися текстом",
   "shareAsFile": "Поділитися файлом (.json)",
-  "shareAsFileSubtitle": "Записи можна точно записати на іншому пристрої"
+  "shareAsFileSubtitle": "Записи можна точно записати на іншому пристрої",
+  "importFromJsonFile": "З файлу мітки (.json)",
+  "invalidTagFile": "Недійсний файл мітки."
 }

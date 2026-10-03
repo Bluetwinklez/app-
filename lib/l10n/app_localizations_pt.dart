@@ -3164,4 +3164,10 @@ class AppLocalizationsPt extends AppLocalizations {
   @override
   String get shareAsFileSubtitle =>
       'Os registros podem ser gravados iguais em outro aparelho';
+
+  @override
+  String get importFromJsonFile => 'De um arquivo de tag (.json)';
+
+  @override
+  String get invalidTagFile => 'Arquivo de tag inválido.';
 }

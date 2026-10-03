@@ -3021,4 +3021,10 @@ class AppLocalizationsJa extends AppLocalizations {
 
   @override
   String get shareAsFileSubtitle => '別の端末でそのまま書き込めます';
+
+  @override
+  String get importFromJsonFile => 'タグファイルから (.json)';
+
+  @override
+  String get invalidTagFile => '無効なタグファイルです。';
 }

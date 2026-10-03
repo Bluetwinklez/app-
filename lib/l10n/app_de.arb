@@ -887,5 +887,7 @@
   "shareTag": "Teilen",
   "shareAsText": "Als Text teilen",
   "shareAsFile": "Als Datei teilen (.json)",
-  "shareAsFileSubtitle": "Einträge lassen sich auf einem anderen Gerät exakt schreiben"
+  "shareAsFileSubtitle": "Einträge lassen sich auf einem anderen Gerät exakt schreiben",
+  "importFromJsonFile": "Aus Tag-Datei (.json)",
+  "invalidTagFile": "Ungültige Tag-Datei."
 }

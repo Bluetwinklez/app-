@@ -2093,5 +2093,7 @@
   "shareTag": "Paylaş",
   "shareAsText": "Metin olarak paylaş",
   "shareAsFile": "Dosya olarak paylaş (.json)",
-  "shareAsFileSubtitle": "Kayıtlar başka bir cihazda aynen yazılabilir"
+  "shareAsFileSubtitle": "Kayıtlar başka bir cihazda aynen yazılabilir",
+  "importFromJsonFile": "Etiket dosyasından (.json)",
+  "invalidTagFile": "Geçersiz etiket dosyası."
 }

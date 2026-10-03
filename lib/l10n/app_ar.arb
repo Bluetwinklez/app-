@@ -887,5 +887,7 @@
   "shareTag": "مشاركة",
   "shareAsText": "مشاركة كنص",
   "shareAsFile": "مشاركة كملف (.json)",
-  "shareAsFileSubtitle": "يمكن كتابة السجلات كما هي على جهاز آخر"
+  "shareAsFileSubtitle": "يمكن كتابة السجلات كما هي على جهاز آخر",
+  "importFromJsonFile": "من ملف وسم (.json)",
+  "invalidTagFile": "ملف وسم غير صالح."
 }

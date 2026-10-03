@@ -3174,4 +3174,10 @@ class AppLocalizationsEs extends AppLocalizations {
   @override
   String get shareAsFileSubtitle =>
       'Los registros se pueden escribir igual en otro dispositivo';
+
+  @override
+  String get importFromJsonFile => 'Desde un archivo de etiqueta (.json)';
+
+  @override
+  String get invalidTagFile => 'Archivo de etiqueta no válido.';
 }
