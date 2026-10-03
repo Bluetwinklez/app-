@@ -4822,4 +4822,8 @@ class AppLocalizationsKo extends AppLocalizations {
 
   @override
   String get recipeTravelActions => '캐리어: 탑승권 열기 · 공항 길찾기 · \"출발했어\" 메시지';
+
+  @override
+  String get whatsNew150 =>
+      '• 아이디어 페이지와 \"첫 태그 만들기\" 카드\n• 태그 통계, 자동 분류, QR/바코드 스캐너\n• 레코드 합치기, 디지털 명함, 주소로 위치 찾기\n• 습관 연속 기록, 어린이 집안일 표, 반려동물 급식, 방문자 기록\n• 알림, 소리내어 읽기, 비품·보증 관리\n• 템플릿 QR 공유와 표에서 가져오기, 식당·숙소 템플릿\n• 앱 아이콘 12종, 강조 색상 9종, 글자 크기';
 }
