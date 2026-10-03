@@ -4835,4 +4835,44 @@ class AppLocalizationsKo extends AppLocalizations {
 
   @override
   String get ocrNothing => '읽을 수 있는 글자가 없습니다(iPhone에서 동작).';
+
+  @override
+  String get iCloudTitle => 'iCloud 백업';
+
+  @override
+  String get iCloudSubtitle =>
+      '템플릿, 규칙, 태그 라이브러리를 iCloud 계정에 백업하고 새 iPhone에서 복원할 수 있습니다. 스캔 기록은 포함되지 않습니다.';
+
+  @override
+  String get iCloudAuto => '자동 백업';
+
+  @override
+  String get iCloudAutoHint => '앱을 나갈 때 백업';
+
+  @override
+  String get iCloudBackupNow => '지금 백업';
+
+  @override
+  String get iCloudRestore => '복원';
+
+  @override
+  String iCloudLastBackup(String date) {
+    return '마지막 iCloud 백업: $date';
+  }
+
+  @override
+  String get iCloudNoBackup => 'iCloud에 아직 백업이 없습니다';
+
+  @override
+  String get iCloudBackedUp => 'iCloud에 백업했습니다';
+
+  @override
+  String get iCloudNoAccount =>
+      '이 iPhone은 iCloud에 로그인되어 있지 않습니다. 설정 → Apple 계정 → iCloud를 확인하세요.';
+
+  @override
+  String get iCloudTooLarge => '백업이 iCloud 한도(1MB)를 넘습니다. 파일 백업을 사용하세요.';
+
+  @override
+  String get iCloudFailed => 'iCloud 백업을 저장할 수 없습니다';
 }

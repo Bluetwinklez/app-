@@ -4819,4 +4819,45 @@ class AppLocalizationsJa extends AppLocalizations {
 
   @override
   String get ocrNothing => '読み取れる文字が見つかりません（iPhoneで動作します）。';
+
+  @override
+  String get iCloudTitle => 'iCloudバックアップ';
+
+  @override
+  String get iCloudSubtitle =>
+      'テンプレート、ルール、タグライブラリをiCloudにバックアップし、新しいiPhoneで復元できます。スキャン履歴は含まれません。';
+
+  @override
+  String get iCloudAuto => '自動バックアップ';
+
+  @override
+  String get iCloudAutoHint => 'アプリを閉じるとバックアップ';
+
+  @override
+  String get iCloudBackupNow => '今すぐバックアップ';
+
+  @override
+  String get iCloudRestore => '復元';
+
+  @override
+  String iCloudLastBackup(String date) {
+    return '前回のiCloudバックアップ: $date';
+  }
+
+  @override
+  String get iCloudNoBackup => 'iCloudにバックアップはまだありません';
+
+  @override
+  String get iCloudBackedUp => 'iCloudにバックアップしました';
+
+  @override
+  String get iCloudNoAccount =>
+      'このiPhoneはiCloudにサインインしていません。設定 → Appleアカウント → iCloud を確認してください。';
+
+  @override
+  String get iCloudTooLarge =>
+      'バックアップがiCloudの上限(1 MB)を超えています。ファイルへのバックアップを使ってください。';
+
+  @override
+  String get iCloudFailed => 'iCloudバックアップを保存できませんでした';
 }

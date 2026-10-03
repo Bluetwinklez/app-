@@ -8596,6 +8596,78 @@ abstract class AppLocalizations {
   /// In tr, this message translates to:
   /// **'Fotoğrafta okunabilir yazı bulunamadı (bu özellik iPhone\'da çalışır).'**
   String get ocrNothing;
+
+  /// No description provided for @iCloudTitle.
+  ///
+  /// In tr, this message translates to:
+  /// **'iCloud yedekleme'**
+  String get iCloudTitle;
+
+  /// No description provided for @iCloudSubtitle.
+  ///
+  /// In tr, this message translates to:
+  /// **'Şablonlar, kurallar ve etiket kütüphanesi iCloud hesabına yedeklenir; yeni iPhone\'da geri yüklenebilir. Okuma geçmişi dahil değildir.'**
+  String get iCloudSubtitle;
+
+  /// No description provided for @iCloudAuto.
+  ///
+  /// In tr, this message translates to:
+  /// **'Otomatik yedekle'**
+  String get iCloudAuto;
+
+  /// No description provided for @iCloudAutoHint.
+  ///
+  /// In tr, this message translates to:
+  /// **'Uygulamadan çıkınca yedekler'**
+  String get iCloudAutoHint;
+
+  /// No description provided for @iCloudBackupNow.
+  ///
+  /// In tr, this message translates to:
+  /// **'Şimdi yedekle'**
+  String get iCloudBackupNow;
+
+  /// No description provided for @iCloudRestore.
+  ///
+  /// In tr, this message translates to:
+  /// **'Geri yükle'**
+  String get iCloudRestore;
+
+  /// No description provided for @iCloudLastBackup.
+  ///
+  /// In tr, this message translates to:
+  /// **'Son iCloud yedeği: {date}'**
+  String iCloudLastBackup(String date);
+
+  /// No description provided for @iCloudNoBackup.
+  ///
+  /// In tr, this message translates to:
+  /// **'iCloud\'da henüz yedek yok'**
+  String get iCloudNoBackup;
+
+  /// No description provided for @iCloudBackedUp.
+  ///
+  /// In tr, this message translates to:
+  /// **'iCloud\'a yedeklendi'**
+  String get iCloudBackedUp;
+
+  /// No description provided for @iCloudNoAccount.
+  ///
+  /// In tr, this message translates to:
+  /// **'Bu iPhone\'da iCloud\'a giriş yapılmamış. Ayarlar → Apple hesabı → iCloud bölümünü kontrol et.'**
+  String get iCloudNoAccount;
+
+  /// No description provided for @iCloudTooLarge.
+  ///
+  /// In tr, this message translates to:
+  /// **'Yedek iCloud sınırını (1 MB) aşıyor. Dosya olarak yedeklemeyi kullan.'**
+  String get iCloudTooLarge;
+
+  /// No description provided for @iCloudFailed.
+  ///
+  /// In tr, this message translates to:
+  /// **'iCloud yedeği kaydedilemedi'**
+  String get iCloudFailed;
 }
 
 class _AppLocalizationsDelegate

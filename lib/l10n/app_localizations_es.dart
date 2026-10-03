@@ -5070,4 +5070,45 @@ class AppLocalizationsEs extends AppLocalizations {
 
   @override
   String get ocrNothing => 'No se encontró texto legible (funciona en iPhone).';
+
+  @override
+  String get iCloudTitle => 'Copia en iCloud';
+
+  @override
+  String get iCloudSubtitle =>
+      'Las plantillas, reglas y la biblioteca de etiquetas se guardan en tu cuenta de iCloud y se pueden restaurar en un iPhone nuevo. El historial de lecturas no se incluye.';
+
+  @override
+  String get iCloudAuto => 'Copia automática';
+
+  @override
+  String get iCloudAutoHint => 'Guarda al salir de la app';
+
+  @override
+  String get iCloudBackupNow => 'Copiar ahora';
+
+  @override
+  String get iCloudRestore => 'Restaurar';
+
+  @override
+  String iCloudLastBackup(String date) {
+    return 'Última copia en iCloud: $date';
+  }
+
+  @override
+  String get iCloudNoBackup => 'Aún no hay copia en iCloud';
+
+  @override
+  String get iCloudBackedUp => 'Copiado en iCloud';
+
+  @override
+  String get iCloudNoAccount =>
+      'Este iPhone no tiene sesión en iCloud. Revisa Ajustes → Cuenta de Apple → iCloud.';
+
+  @override
+  String get iCloudTooLarge =>
+      'La copia supera el límite de iCloud (1 MB). Usa una copia en archivo.';
+
+  @override
+  String get iCloudFailed => 'No se pudo guardar la copia en iCloud';
 }

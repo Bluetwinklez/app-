@@ -5039,4 +5039,45 @@ class AppLocalizationsNl extends AppLocalizations {
 
   @override
   String get ocrNothing => 'Geen leesbare tekst gevonden (werkt op iPhone).';
+
+  @override
+  String get iCloudTitle => 'iCloud-back-up';
+
+  @override
+  String get iCloudSubtitle =>
+      'Sjablonen, regels en de tagbibliotheek worden in je iCloud-account bewaard en zijn op een nieuwe iPhone te herstellen. De scangeschiedenis hoort er niet bij.';
+
+  @override
+  String get iCloudAuto => 'Automatisch back-uppen';
+
+  @override
+  String get iCloudAutoHint => 'Maakt een back-up bij het verlaten van de app';
+
+  @override
+  String get iCloudBackupNow => 'Nu back-uppen';
+
+  @override
+  String get iCloudRestore => 'Herstellen';
+
+  @override
+  String iCloudLastBackup(String date) {
+    return 'Laatste iCloud-back-up: $date';
+  }
+
+  @override
+  String get iCloudNoBackup => 'Nog geen back-up in iCloud';
+
+  @override
+  String get iCloudBackedUp => 'Back-up in iCloud gemaakt';
+
+  @override
+  String get iCloudNoAccount =>
+      'Deze iPhone is niet bij iCloud ingelogd. Controleer Instellingen → Apple-account → iCloud.';
+
+  @override
+  String get iCloudTooLarge =>
+      'De back-up is groter dan de iCloud-limiet (1 MB). Gebruik een back-up naar bestand.';
+
+  @override
+  String get iCloudFailed => 'Kon de iCloud-back-up niet opslaan';
 }

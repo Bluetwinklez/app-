@@ -1411,5 +1411,17 @@
   "whatsNew150": "• Ideeënpagina en kaart \"Maak je eerste tag\"\n• Tagstatistieken, automatische categorieën, QR-/barcodescanner\n• Records samenvoegen, digitaal visitekaartje, locatie via adres\n• Gewoontereeksen, klusjeskaart, huisdier voeren, bezoekersregister\n• Herinneringen, voorlezen, inventaris en garantie\n• Sjablonen delen via QR en importeren uit spreadsheets; restaurant- en vakantiewoningsjablonen\n• 12 app-iconen, 9 accentkleuren, tekstgrootte",
   "ocrTitle": "Tekst uit foto (OCR)",
   "ocrSubtitle": "Lees de tekst op een document of kaart en schrijf die op een tag",
-  "ocrNothing": "Geen leesbare tekst gevonden (werkt op iPhone)."
+  "ocrNothing": "Geen leesbare tekst gevonden (werkt op iPhone).",
+  "iCloudTitle": "iCloud-back-up",
+  "iCloudSubtitle": "Sjablonen, regels en de tagbibliotheek worden in je iCloud-account bewaard en zijn op een nieuwe iPhone te herstellen. De scangeschiedenis hoort er niet bij.",
+  "iCloudAuto": "Automatisch back-uppen",
+  "iCloudAutoHint": "Maakt een back-up bij het verlaten van de app",
+  "iCloudBackupNow": "Nu back-uppen",
+  "iCloudRestore": "Herstellen",
+  "iCloudLastBackup": "Laatste iCloud-back-up: {date}",
+  "iCloudNoBackup": "Nog geen back-up in iCloud",
+  "iCloudBackedUp": "Back-up in iCloud gemaakt",
+  "iCloudNoAccount": "Deze iPhone is niet bij iCloud ingelogd. Controleer Instellingen → Apple-account → iCloud.",
+  "iCloudTooLarge": "De back-up is groter dan de iCloud-limiet (1 MB). Gebruik een back-up naar bestand.",
+  "iCloudFailed": "Kon de iCloud-back-up niet opslaan"
 }

@@ -4979,4 +4979,45 @@ class AppLocalizationsAr extends AppLocalizations {
 
   @override
   String get ocrNothing => 'لم يُعثر على نص مقروء (تعمل على iPhone).';
+
+  @override
+  String get iCloudTitle => 'نسخ احتياطي على iCloud';
+
+  @override
+  String get iCloudSubtitle =>
+      'يتم نسخ القوالب والقواعد ومكتبة الوسوم إلى حساب iCloud ويمكن استعادتها على iPhone جديد. لا يشمل ذلك سجل القراءات.';
+
+  @override
+  String get iCloudAuto => 'نسخ تلقائي';
+
+  @override
+  String get iCloudAutoHint => 'ينسخ عند مغادرة التطبيق';
+
+  @override
+  String get iCloudBackupNow => 'انسخ الآن';
+
+  @override
+  String get iCloudRestore => 'استعادة';
+
+  @override
+  String iCloudLastBackup(String date) {
+    return 'آخر نسخة على iCloud: $date';
+  }
+
+  @override
+  String get iCloudNoBackup => 'لا توجد نسخة على iCloud بعد';
+
+  @override
+  String get iCloudBackedUp => 'تم النسخ إلى iCloud';
+
+  @override
+  String get iCloudNoAccount =>
+      'لم يتم تسجيل الدخول إلى iCloud على هذا الـ iPhone. تحقق من الإعدادات ← حساب Apple ← iCloud.';
+
+  @override
+  String get iCloudTooLarge =>
+      'النسخة تتجاوز حد iCloud ‏(1 ميغابايت). استخدم النسخ إلى ملف بدلاً من ذلك.';
+
+  @override
+  String get iCloudFailed => 'تعذر حفظ نسخة iCloud';
 }
