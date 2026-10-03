@@ -3890,4 +3890,7 @@ class AppLocalizationsNl extends AppLocalizations {
   String scanReportLine(String unique, String dup, String empty) {
     return '$unique verschillende tags · $dup opnieuw gelezen · $empty leeg';
   }
+
+  @override
+  String get printSheet => 'Afdrukbaar etiketvel (PDF)';
 }

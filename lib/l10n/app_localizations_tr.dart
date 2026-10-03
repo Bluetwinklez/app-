@@ -3887,4 +3887,7 @@ class AppLocalizationsTr extends AppLocalizations {
   String scanReportLine(String unique, String dup, String empty) {
     return '$unique farklı etiket · $dup tekrar okunan · $empty boş';
   }
+
+  @override
+  String get printSheet => 'Yazdırılabilir etiket sayfası (PDF)';
 }

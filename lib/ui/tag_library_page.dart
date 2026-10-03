@@ -1,7 +1,8 @@
 import 'dart:convert';
 import 'dart:io';
-import 'dart:typed_data';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
+import 'package:pdf/widgets.dart' as pw;
 import 'package:image_picker/image_picker.dart';
 import 'package:intl/intl.dart';
 import 'package:path_provider/path_provider.dart';
@@ -12,6 +13,7 @@ import '../domain/tag_library.dart';
 import '../l10n/app_localizations.dart';
 import '../l10n/l10n.dart';
 import '../services/app_storage_service.dart';
+import '../services/print_sheet.dart';
 import 'app_theme.dart';
 
 String tagCategoryLabel(TagCategory c, [AppLocalizations? loc]) {
@@ -247,6 +249,45 @@ class _TagLibraryPageState extends State<TagLibraryPage> {
     if (mounted) setState(() {});
   }
 
+  /// PDF with a QR label per visible entry, shared through the share sheet.
+  Future<void> _printSheet() async {
+    final loc = AppLocalizations.of(context) ?? L10n.current;
+    final fontData = await rootBundle.load('assets/fonts/NotoSans-Regular.ttf');
+    final labels = [
+      for (final e in _visible)
+        PrintLabel(
+          title: e.name,
+          subtitle: e.locationNote.isNotEmpty
+              ? e.locationNote
+              : (e.records.isEmpty ? '' : NdefCodec.parseRecord(e.records.first).content),
+          qrData: e.records.isEmpty ? null : _qrDataFor(e.records.first),
+        ),
+    ];
+    final bytes = await PrintSheet.build(labels, font: pw.Font.ttf(fontData), heading: loc.tagLibraryTitle);
+    final name = 'nfc_labels_${DateTime.now().toIso8601String().substring(0, 10)}.pdf';
+    await SharePlus.instance.share(ShareParams(
+      files: [XFile.fromData(bytes, mimeType: 'application/pdf', name: name)],
+      fileNameOverrides: [name],
+    ));
+  }
+
+  /// URL or text that a QR code can carry for this record, if any.
+  static String? _qrDataFor(NdefRecordModel record) {
+    final parsed = NdefCodec.parseRecord(record);
+    switch (parsed.type) {
+      case ParsedRecordType.url:
+        return parsed.extra['url'] as String? ?? parsed.content;
+      case ParsedRecordType.smartPoster:
+        return parsed.extra['uri'] as String?;
+      case ParsedRecordType.text:
+      case ParsedRecordType.phone:
+      case ParsedRecordType.email:
+        return parsed.content;
+      default:
+        return null;
+    }
+  }
+
   Future<void> _writeEntry(TagLibraryEntry entry) async {
     final loc = AppLocalizations.of(context) ?? L10n.current;
     final ok = await widget.onWriteRecords!(entry.records, entry.name);
@@ -296,6 +337,12 @@ class _TagLibraryPageState extends State<TagLibraryPage> {
         appBar: AppBar(
           title: Text(loc.tagLibraryTitle),
           actions: [
+            if (widget.storage.getLibrary().isNotEmpty)
+              IconButton(
+                tooltip: loc.printSheet,
+                icon: const Icon(Icons.print_outlined),
+                onPressed: _printSheet,
+              ),
             if (widget.storage.getLibrary().isNotEmpty)
               IconButton(
                 tooltip: loc.exportCsv,

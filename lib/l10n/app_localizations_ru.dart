@@ -3890,4 +3890,7 @@ class AppLocalizationsRu extends AppLocalizations {
   String scanReportLine(String unique, String dup, String empty) {
     return '$unique разных меток · $dup повторно · $empty пустых';
   }
+
+  @override
+  String get printSheet => 'Лист этикеток для печати (PDF)';
 }

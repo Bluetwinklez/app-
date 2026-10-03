@@ -3718,4 +3718,7 @@ class AppLocalizationsJa extends AppLocalizations {
   String scanReportLine(String unique, String dup, String empty) {
     return '$unique種類 · 再読取 $dup · 空 $empty';
   }
+
+  @override
+  String get printSheet => '印刷用ラベルシート (PDF)';
 }

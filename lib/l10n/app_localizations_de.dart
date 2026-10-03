@@ -3899,4 +3899,7 @@ class AppLocalizationsDe extends AppLocalizations {
   String scanReportLine(String unique, String dup, String empty) {
     return '$unique verschiedene Tags · $dup doppelt · $empty leer';
   }
+
+  @override
+  String get printSheet => 'Druckbarer Etikettenbogen (PDF)';
 }

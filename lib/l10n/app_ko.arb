@@ -1092,5 +1092,6 @@
   "sortLongestUnseen": "오래 확인 안 된 순",
   "unseen30Days": "30일 이상 미확인",
   "inventoryCardTitle": "이 태그는 보관함에 있습니다",
-  "scanReportLine": "서로 다른 태그 {unique}개 · 재스캔 {dup}개 · 빈 태그 {empty}개"
+  "scanReportLine": "서로 다른 태그 {unique}개 · 재스캔 {dup}개 · 빈 태그 {empty}개",
+  "printSheet": "인쇄용 라벨 시트(PDF)"
 }

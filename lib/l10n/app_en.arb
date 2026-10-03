@@ -1092,5 +1092,6 @@
   "sortLongestUnseen": "Longest unseen",
   "unseen30Days": "Not seen for 30+ days",
   "inventoryCardTitle": "This tag is in your library",
-  "scanReportLine": "{unique} different tags · {dup} read again · {empty} empty"
+  "scanReportLine": "{unique} different tags · {dup} read again · {empty} empty",
+  "printSheet": "Printable label sheet (PDF)"
 }

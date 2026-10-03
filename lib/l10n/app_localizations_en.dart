@@ -3874,4 +3874,7 @@ class AppLocalizationsEn extends AppLocalizations {
   String scanReportLine(String unique, String dup, String empty) {
     return '$unique different tags · $dup read again · $empty empty';
   }
+
+  @override
+  String get printSheet => 'Printable label sheet (PDF)';
 }

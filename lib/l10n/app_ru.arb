@@ -1092,5 +1092,6 @@
   "sortLongestUnseen": "Дольше всего не видели",
   "unseen30Days": "Не видели 30+ дней",
   "inventoryCardTitle": "Эта метка есть в библиотеке",
-  "scanReportLine": "{unique} разных меток · {dup} повторно · {empty} пустых"
+  "scanReportLine": "{unique} разных меток · {dup} повторно · {empty} пустых",
+  "printSheet": "Лист этикеток для печати (PDF)"
 }

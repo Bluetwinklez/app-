@@ -3685,4 +3685,7 @@ class AppLocalizationsZh extends AppLocalizations {
   String scanReportLine(String unique, String dup, String empty) {
     return '$unique 个不同标签 · $dup 个重复 · $empty 个空白';
   }
+
+  @override
+  String get printSheet => '可打印标签页（PDF）';
 }

@@ -6681,6 +6681,12 @@ abstract class AppLocalizations {
   /// In tr, this message translates to:
   /// **'{unique} farklı etiket · {dup} tekrar okunan · {empty} boş'**
   String scanReportLine(String unique, String dup, String empty);
+
+  /// No description provided for @printSheet.
+  ///
+  /// In tr, this message translates to:
+  /// **'Yazdırılabilir etiket sayfası (PDF)'**
+  String get printSheet;
 }
 
 class _AppLocalizationsDelegate
