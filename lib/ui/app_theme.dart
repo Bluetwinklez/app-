@@ -3,24 +3,110 @@ import 'package:flutter/material.dart';
 /// Design tokens. Neutrals and the single action blue follow the Apple design
 /// system from open-design (design-systems/apple); the soft canvas gradient
 /// and floating navigation follow the reference screens.
-class AppColors {
-  static const ink = Color(0xFF1D1D1F);
-  static const secondary = Color(0xFF6E6E73);
-  static const border = Color(0xFFD2D2D7);
-  static const canvas = Color(0xFFF5F5F7);
-  static const surface = Colors.white;
-  static const accent = Color(0xFF0071E3);
-  static const accentBright = Color(0xFF2997FF);
-  static const accentSoft = Color(0xFFE8F1FC);
-  static const success = Color(0xFF1E8E3E);
-  static const warning = Color(0xFFB25E00);
-  static const danger = Color(0xFFD70015);
+class _Palette {
+  final Color ink;
+  final Color secondary;
+  final Color border;
+  final Color canvas;
+  final Color surface;
+  final Color subtleFill;
+  final Color accent;
+  final Color accentBright;
+  final Color accentSoft;
+  final Color success;
+  final Color warning;
+  final Color danger;
+  final Color shadow;
+  final List<Color> canvasStops;
 
-  static const canvasGradient = LinearGradient(
-    begin: Alignment.topLeft,
-    end: Alignment.bottomRight,
-    colors: [Color(0xFFE9EEF6), Color(0xFFF5F5F7), Color(0xFFEFF3F8)],
+  const _Palette({
+    required this.ink,
+    required this.secondary,
+    required this.border,
+    required this.canvas,
+    required this.surface,
+    required this.subtleFill,
+    required this.accent,
+    required this.accentBright,
+    required this.accentSoft,
+    required this.success,
+    required this.warning,
+    required this.danger,
+    required this.shadow,
+    required this.canvasStops,
+  });
+}
+
+/// Design tokens. Neutrals and the single action blue follow the Apple design
+/// system from open-design (design-systems/apple); the soft canvas gradient
+/// and floating navigation follow the reference screens. Values switch with
+/// the active brightness (see [AppColors.setDark]).
+class AppColors {
+  static const _Palette _light = _Palette(
+    ink: Color(0xFF1D1D1F),
+    secondary: Color(0xFF6E6E73),
+    border: Color(0xFFD2D2D7),
+    canvas: Color(0xFFF5F5F7),
+    surface: Colors.white,
+    subtleFill: Color(0xFFF2F2F7),
+    accent: Color(0xFF0071E3),
+    accentBright: Color(0xFF2997FF),
+    accentSoft: Color(0xFFE8F1FC),
+    success: Color(0xFF1E8E3E),
+    warning: Color(0xFFB25E00),
+    danger: Color(0xFFD70015),
+    shadow: Color(0x141D3B6E),
+    canvasStops: [Color(0xFFE9EEF6), Color(0xFFF5F5F7), Color(0xFFEFF3F8)],
   );
+
+  static const _Palette _dark = _Palette(
+    ink: Color(0xFFF5F5F7),
+    secondary: Color(0xFF98989D),
+    border: Color(0xFF38383A),
+    canvas: Color(0xFF000000),
+    surface: Color(0xFF1C1C1E),
+    subtleFill: Color(0xFF2C2C2E),
+    accent: Color(0xFF0A84FF),
+    accentBright: Color(0xFF64D2FF),
+    accentSoft: Color(0xFF0F2A47),
+    success: Color(0xFF30D158),
+    warning: Color(0xFFFF9F0A),
+    danger: Color(0xFFFF453A),
+    shadow: Color(0x66000000),
+    canvasStops: [Color(0xFF0B0F17), Color(0xFF000000), Color(0xFF0A0E16)],
+  );
+
+  static bool _isDark = false;
+  static _Palette get _p => _isDark ? _dark : _light;
+
+  /// Called from MaterialApp.builder with the resolved brightness.
+  static void setDark(bool value) => _isDark = value;
+  static bool get isDark => _isDark;
+
+  static Color get ink => _p.ink;
+  static Color get secondary => _p.secondary;
+  static Color get border => _p.border;
+  static Color get canvas => _p.canvas;
+  static Color get surface => _p.surface;
+  static Color get subtleFill => _p.subtleFill;
+  static Color get accent => _p.accent;
+  static Color get accentBright => _p.accentBright;
+  static Color get accentSoft => _p.accentSoft;
+  static Color get success => _p.success;
+  static Color get warning => _p.warning;
+  static Color get danger => _p.danger;
+
+  /// Tinted backgrounds for notices; readable in both themes.
+  static Color get successSoft => _p.success.withValues(alpha: _isDark ? 0.18 : 0.10);
+  static Color get warningSoft => _p.warning.withValues(alpha: _isDark ? 0.18 : 0.10);
+  static Color get dangerSoft => _p.danger.withValues(alpha: _isDark ? 0.18 : 0.08);
+  static Color get neutralSoft => _p.subtleFill;
+
+  static LinearGradient get canvasGradient => LinearGradient(
+        begin: Alignment.topLeft,
+        end: Alignment.bottomRight,
+        colors: _p.canvasStops,
+      );
 
   static const heroGradient = LinearGradient(
     begin: Alignment.topLeft,
@@ -30,7 +116,7 @@ class AppColors {
 
   static List<BoxShadow> get softShadow => [
         BoxShadow(
-          color: const Color(0xFF1D3B6E).withValues(alpha: 0.08),
+          color: _p.shadow,
           blurRadius: 24,
           offset: const Offset(0, 8),
         ),
@@ -38,49 +124,49 @@ class AppColors {
 }
 
 class AppTheme {
-  /// Dark variant. Until the dark palette lands this mirrors [light] so that
-  /// choosing "dark" never produces unreadable screens.
-  static ThemeData dark() => light();
+  static ThemeData dark() => _build(AppColors._dark, Brightness.dark);
 
-  static ThemeData light() {
+  static ThemeData light() => _build(AppColors._light, Brightness.light);
+
+  static ThemeData _build(_Palette c, Brightness brightness) {
     final scheme = ColorScheme.fromSeed(
-      seedColor: AppColors.accent,
-      brightness: Brightness.light,
+      seedColor: c.accent,
+      brightness: brightness,
     ).copyWith(
-      primary: AppColors.accent,
+      primary: c.accent,
       onPrimary: Colors.white,
-      surface: AppColors.surface,
-      onSurface: AppColors.ink,
-      onSurfaceVariant: AppColors.secondary,
-      outline: AppColors.border,
-      outlineVariant: AppColors.border,
-      error: AppColors.danger,
+      surface: c.surface,
+      onSurface: c.ink,
+      onSurfaceVariant: c.secondary,
+      outline: c.border,
+      outlineVariant: c.border,
+      error: c.danger,
     );
 
-    final base = ThemeData(useMaterial3: true, colorScheme: scheme);
-    final text = base.textTheme.apply(bodyColor: AppColors.ink, displayColor: AppColors.ink);
+    final base = ThemeData(useMaterial3: true, brightness: brightness, colorScheme: scheme);
+    final text = base.textTheme.apply(bodyColor: c.ink, displayColor: c.ink);
 
     const stadium = StadiumBorder();
     const buttonPadding = EdgeInsets.symmetric(horizontal: 20, vertical: 14);
     const buttonText = TextStyle(fontSize: 15, fontWeight: FontWeight.w600, letterSpacing: -0.2);
 
     return base.copyWith(
-      scaffoldBackgroundColor: AppColors.canvas,
+      scaffoldBackgroundColor: c.canvas,
       textTheme: text.copyWith(
         headlineMedium: text.headlineMedium?.copyWith(fontWeight: FontWeight.w700, letterSpacing: -0.6),
         headlineSmall: text.headlineSmall?.copyWith(fontWeight: FontWeight.w700, letterSpacing: -0.4),
         titleLarge: text.titleLarge?.copyWith(fontWeight: FontWeight.w700, letterSpacing: -0.3),
         titleMedium: text.titleMedium?.copyWith(fontWeight: FontWeight.w600, letterSpacing: -0.2),
       ),
-      appBarTheme: const AppBarTheme(
+      appBarTheme: AppBarTheme(
         backgroundColor: Colors.transparent,
-        foregroundColor: AppColors.ink,
+        foregroundColor: c.ink,
         elevation: 0,
         scrolledUnderElevation: 0,
         centerTitle: false,
       ),
       cardTheme: CardThemeData(
-        color: AppColors.surface,
+        color: c.surface,
         surfaceTintColor: Colors.transparent,
         elevation: 2,
         shadowColor: const Color(0xFF1D3B6E).withValues(alpha: 0.18),
@@ -89,9 +175,9 @@ class AppTheme {
       ),
       elevatedButtonTheme: ElevatedButtonThemeData(
         style: ElevatedButton.styleFrom(
-          backgroundColor: AppColors.accent,
+          backgroundColor: c.accent,
           foregroundColor: Colors.white,
-          disabledBackgroundColor: AppColors.border.withValues(alpha: 0.6),
+          disabledBackgroundColor: c.border.withValues(alpha: 0.6),
           elevation: 0,
           shape: stadium,
           padding: buttonPadding,
@@ -100,7 +186,7 @@ class AppTheme {
       ),
       filledButtonTheme: FilledButtonThemeData(
         style: FilledButton.styleFrom(
-          backgroundColor: AppColors.accent,
+          backgroundColor: c.accent,
           shape: stadium,
           padding: buttonPadding,
           textStyle: buttonText,
@@ -108,9 +194,9 @@ class AppTheme {
       ),
       outlinedButtonTheme: OutlinedButtonThemeData(
         style: OutlinedButton.styleFrom(
-          foregroundColor: AppColors.ink,
-          backgroundColor: AppColors.surface,
-          side: const BorderSide(color: AppColors.border),
+          foregroundColor: c.ink,
+          backgroundColor: c.surface,
+          side: BorderSide(color: c.border),
           shape: stadium,
           padding: buttonPadding,
           textStyle: buttonText,
@@ -118,55 +204,55 @@ class AppTheme {
       ),
       textButtonTheme: TextButtonThemeData(
         style: TextButton.styleFrom(
-          foregroundColor: AppColors.accent,
+          foregroundColor: c.accent,
           textStyle: const TextStyle(fontWeight: FontWeight.w600),
         ),
       ),
       chipTheme: base.chipTheme.copyWith(
-        shape: const StadiumBorder(side: BorderSide(color: AppColors.border)),
-        backgroundColor: AppColors.surface,
-        selectedColor: AppColors.accent,
-        secondarySelectedColor: AppColors.accent,
-        labelStyle: const TextStyle(color: AppColors.ink, fontWeight: FontWeight.w500),
+        shape: StadiumBorder(side: BorderSide(color: c.border)),
+        backgroundColor: c.surface,
+        selectedColor: c.accent,
+        secondarySelectedColor: c.accent,
+        labelStyle: TextStyle(color: c.ink, fontWeight: FontWeight.w500),
         secondaryLabelStyle: const TextStyle(color: Colors.white, fontWeight: FontWeight.w600),
         checkmarkColor: Colors.white,
         showCheckmark: false,
       ),
       inputDecorationTheme: InputDecorationTheme(
         filled: true,
-        fillColor: AppColors.surface,
+        fillColor: c.surface,
         contentPadding: const EdgeInsets.symmetric(horizontal: 16, vertical: 14),
         border: OutlineInputBorder(
           borderRadius: BorderRadius.circular(14),
-          borderSide: const BorderSide(color: AppColors.border),
+          borderSide: BorderSide(color: c.border),
         ),
         enabledBorder: OutlineInputBorder(
           borderRadius: BorderRadius.circular(14),
-          borderSide: const BorderSide(color: AppColors.border),
+          borderSide: BorderSide(color: c.border),
         ),
         focusedBorder: OutlineInputBorder(
           borderRadius: BorderRadius.circular(14),
-          borderSide: const BorderSide(color: AppColors.accent, width: 1.6),
+          borderSide: BorderSide(color: c.accent, width: 1.6),
         ),
       ),
       dialogTheme: DialogThemeData(
-        backgroundColor: AppColors.surface,
+        backgroundColor: c.surface,
         surfaceTintColor: Colors.transparent,
         shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(26)),
       ),
-      bottomSheetTheme: const BottomSheetThemeData(
-        backgroundColor: AppColors.surface,
+      bottomSheetTheme: BottomSheetThemeData(
+        backgroundColor: c.surface,
         surfaceTintColor: Colors.transparent,
         showDragHandle: true,
-        shape: RoundedRectangleBorder(borderRadius: BorderRadius.vertical(top: Radius.circular(28))),
+        shape: const RoundedRectangleBorder(borderRadius: BorderRadius.vertical(top: Radius.circular(28))),
       ),
       snackBarTheme: SnackBarThemeData(
         behavior: SnackBarBehavior.floating,
         shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(16)),
       ),
       dividerTheme: const DividerThemeData(color: Color(0xFFE5E5EA), space: 24),
-      listTileTheme: const ListTileThemeData(iconColor: AppColors.secondary),
-      progressIndicatorTheme: const ProgressIndicatorThemeData(color: AppColors.accent),
+      listTileTheme: ListTileThemeData(iconColor: c.secondary),
+      progressIndicatorTheme: ProgressIndicatorThemeData(color: c.accent),
     );
   }
 }
@@ -265,7 +351,7 @@ class StatTile extends StatelessWidget {
                   label,
                   maxLines: 1,
                   overflow: TextOverflow.ellipsis,
-                  style: const TextStyle(fontSize: 13, color: AppColors.secondary, fontWeight: FontWeight.w500),
+                  style: TextStyle(fontSize: 13, color: AppColors.secondary, fontWeight: FontWeight.w500),
                 ),
               ),
               Icon(icon, size: 18, color: AppColors.secondary),
@@ -383,7 +469,8 @@ class HeroActionCard extends StatelessWidget {
                   onPressed: onPressed,
                   style: ElevatedButton.styleFrom(
                     backgroundColor: Colors.white,
-                    foregroundColor: AppColors.ink,
+                    foregroundColor: const Color(0xFF1D1D1F),
+                    disabledForegroundColor: const Color(0xFF6E6E73),
                     disabledBackgroundColor: Colors.white.withValues(alpha: 0.6),
                   ),
                   child: Row(
@@ -416,7 +503,7 @@ class ToolTile extends StatelessWidget {
   final IconData icon;
   final String title;
   final String subtitle;
-  final Color color;
+  final Color? color;
   final VoidCallback? onTap;
 
   const ToolTile({
@@ -424,12 +511,13 @@ class ToolTile extends StatelessWidget {
     required this.icon,
     required this.title,
     required this.subtitle,
-    this.color = AppColors.accent,
+    this.color,
     this.onTap,
   });
 
   @override
   Widget build(BuildContext context) {
+    final tint = color ?? AppColors.accent;
     return Padding(
       padding: const EdgeInsets.only(bottom: 10),
       child: SoftCard(
@@ -441,10 +529,10 @@ class ToolTile extends StatelessWidget {
               width: 44,
               height: 44,
               decoration: BoxDecoration(
-                color: color.withValues(alpha: 0.1),
+                color: tint.withValues(alpha: 0.1),
                 borderRadius: BorderRadius.circular(14),
               ),
-              child: Icon(icon, color: color),
+              child: Icon(icon, color: tint),
             ),
             const SizedBox(width: 14),
             Expanded(
@@ -453,7 +541,7 @@ class ToolTile extends StatelessWidget {
                 children: [
                   Text(title, style: const TextStyle(fontSize: 16, fontWeight: FontWeight.w600)),
                   const SizedBox(height: 2),
-                  Text(subtitle, style: const TextStyle(fontSize: 13, color: AppColors.secondary)),
+                  Text(subtitle, style: TextStyle(fontSize: 13, color: AppColors.secondary)),
                 ],
               ),
             ),

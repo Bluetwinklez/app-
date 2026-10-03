@@ -2884,4 +2884,98 @@ class AppLocalizationsNl extends AppLocalizations {
 
   @override
   String get notSupportedValue => 'Niet ondersteund';
+
+  @override
+  String get nfcUnsupportedDesc => 'NFC wordt niet ondersteund op dit apparaat';
+
+  @override
+  String get ndefTrailingData => 'Extra gegevens na het NDEF-bericht';
+
+  @override
+  String get ndefMissingEnd => 'Einde van NDEF-bericht ontbreekt';
+
+  @override
+  String vcardPhoneShort(String value) {
+    return 'Tel.: $value';
+  }
+
+  @override
+  String vcardEmailShort(String value) {
+    return 'E-mail: $value';
+  }
+
+  @override
+  String vcardOrgShort(String value) {
+    return 'Bedrijf: $value';
+  }
+
+  @override
+  String get pageUidLock => 'UID / Vergrendeling';
+
+  @override
+  String get pageData => 'Data';
+
+  @override
+  String get pageLock => 'Vergrendeling';
+
+  @override
+  String memoryPageLine(String page) {
+    return 'Pagina $page';
+  }
+
+  @override
+  String get socialWhatsappPhone => 'WhatsApp (telefoon)';
+
+  @override
+  String get mapApple => 'Apple Kaarten';
+
+  @override
+  String get mapGoogle => 'Google Maps';
+
+  @override
+  String get whatsappMessageHint => 'Hallo, ik wil graag informatie';
+
+  @override
+  String get facetimeTargetHint => '+31612345678 of naam@icloud.com';
+
+  @override
+  String get bluetoothMacLabel => 'Bluetooth-MAC-adres';
+
+  @override
+  String get webAddressUrlLabel => 'Webadres (URL)';
+
+  @override
+  String get latitudeLabel => 'Breedtegraad (Lat)';
+
+  @override
+  String get longitudeLabel => 'Lengtegraad (Lng)';
+
+  @override
+  String get emailAddressLabel => 'E-mailadres';
+
+  @override
+  String get websiteLabel => 'Website';
+
+  @override
+  String get wifiAuthWpa2Home => 'WPA2 Personal (standaard thuis/kantoor)';
+
+  @override
+  String get wifiAuthMixed => 'WPA/WPA2 Personal (gemengd)';
+
+  @override
+  String get hostLabel => 'Host:';
+
+  @override
+  String get readOnlyLocked => 'Alleen-lezen (vergrendeld)';
+
+  @override
+  String get redoTooltip => 'Opnieuw';
+
+  @override
+  String historyFoundCount(String found, String total) {
+    return 'Gevonden: $found / $total';
+  }
+
+  @override
+  String get addToWriteListShort => 'Naar schrijflijst';
 }

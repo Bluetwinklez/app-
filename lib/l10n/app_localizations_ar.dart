@@ -2848,4 +2848,98 @@ class AppLocalizationsAr extends AppLocalizations {
 
   @override
   String get notSupportedValue => 'غير مدعوم';
+
+  @override
+  String get nfcUnsupportedDesc => 'هذا الجهاز لا يدعم NFC';
+
+  @override
+  String get ndefTrailingData => 'بيانات زائدة بعد رسالة NDEF';
+
+  @override
+  String get ndefMissingEnd => 'نهاية رسالة NDEF مفقودة';
+
+  @override
+  String vcardPhoneShort(String value) {
+    return 'الهاتف: $value';
+  }
+
+  @override
+  String vcardEmailShort(String value) {
+    return 'البريد: $value';
+  }
+
+  @override
+  String vcardOrgShort(String value) {
+    return 'الشركة: $value';
+  }
+
+  @override
+  String get pageUidLock => 'UID / قفل';
+
+  @override
+  String get pageData => 'بيانات';
+
+  @override
+  String get pageLock => 'قفل';
+
+  @override
+  String memoryPageLine(String page) {
+    return 'صفحة $page';
+  }
+
+  @override
+  String get socialWhatsappPhone => 'واتساب (هاتف)';
+
+  @override
+  String get mapApple => 'خرائط Apple';
+
+  @override
+  String get mapGoogle => 'خرائط Google';
+
+  @override
+  String get whatsappMessageHint => 'مرحبًا، أود الحصول على معلومات';
+
+  @override
+  String get facetimeTargetHint => '‎+9665xxxxxxxx أو name@icloud.com';
+
+  @override
+  String get bluetoothMacLabel => 'عنوان MAC للبلوتوث';
+
+  @override
+  String get webAddressUrlLabel => 'عنوان الويب (URL)';
+
+  @override
+  String get latitudeLabel => 'خط العرض (Lat)';
+
+  @override
+  String get longitudeLabel => 'خط الطول (Lng)';
+
+  @override
+  String get emailAddressLabel => 'عنوان البريد';
+
+  @override
+  String get websiteLabel => 'الموقع الإلكتروني';
+
+  @override
+  String get wifiAuthWpa2Home => 'WPA2 Personal (معيار المنزل/المكتب)';
+
+  @override
+  String get wifiAuthMixed => 'WPA/WPA2 Personal (مختلط)';
+
+  @override
+  String get hostLabel => 'المضيف:';
+
+  @override
+  String get readOnlyLocked => 'للقراءة فقط (مقفل)';
+
+  @override
+  String get redoTooltip => 'إعادة';
+
+  @override
+  String historyFoundCount(String found, String total) {
+    return 'تم العثور: $found / $total';
+  }
+
+  @override
+  String get addToWriteListShort => 'إضافة إلى القائمة';
 }

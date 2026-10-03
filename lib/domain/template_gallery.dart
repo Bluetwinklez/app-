@@ -183,7 +183,7 @@ class TemplateGallery {
       icon: 'chat',
       fields: [
         GalleryField('phone', L10n.current.contactPhone, hint: '905551112233', kind: GalleryFieldKind.phone),
-        GalleryField('message', L10n.current.smsMessage, hint: 'Merhaba, bilgi almak istiyorum', kind: GalleryFieldKind.multiline, required: false),
+        GalleryField('message', L10n.current.smsMessage, hint: L10n.current.whatsappMessageHint, kind: GalleryFieldKind.multiline, required: false),
       ],
       build: (v) {
         final base = QuickLinkBuilder.socialUrl(SocialNetwork.whatsapp, v['phone']!);

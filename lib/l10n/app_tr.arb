@@ -1927,5 +1927,71 @@
   "themeDark": "Koyu",
   "valuePresentRisky": "Var (riskli olabilir)",
   "supportedValue": "Destekleniyor",
-  "notSupportedValue": "Desteklenmiyor"
+  "notSupportedValue": "Desteklenmiyor",
+  "nfcUnsupportedDesc": "Bu cihazda NFC desteklenmiyor",
+  "ndefTrailingData": "NDEF sonunda fazladan veri var",
+  "ndefMissingEnd": "NDEF mesaj sonu eksik",
+  "vcardPhoneShort": "Tel: {value}",
+  "@vcardPhoneShort": {
+    "placeholders": {
+      "value": {
+        "type": "String"
+      }
+    }
+  },
+  "vcardEmailShort": "E-posta: {value}",
+  "@vcardEmailShort": {
+    "placeholders": {
+      "value": {
+        "type": "String"
+      }
+    }
+  },
+  "vcardOrgShort": "Kurum: {value}",
+  "@vcardOrgShort": {
+    "placeholders": {
+      "value": {
+        "type": "String"
+      }
+    }
+  },
+  "pageUidLock": "UID / Kilit",
+  "pageData": "Veri",
+  "pageLock": "Kilit",
+  "memoryPageLine": "Sayfa {page}",
+  "@memoryPageLine": {
+    "placeholders": {
+      "page": {
+        "type": "String"
+      }
+    }
+  },
+  "socialWhatsappPhone": "WhatsApp (telefon)",
+  "mapApple": "Apple Haritalar",
+  "mapGoogle": "Google Haritalar",
+  "whatsappMessageHint": "Merhaba, bilgi almak istiyorum",
+  "facetimeTargetHint": "+905551112233 veya ad@icloud.com",
+  "bluetoothMacLabel": "Bluetooth MAC adresi",
+  "webAddressUrlLabel": "Web adresi (URL)",
+  "latitudeLabel": "Enlem (Lat)",
+  "longitudeLabel": "Boylam (Lng)",
+  "emailAddressLabel": "E-posta adresi",
+  "websiteLabel": "Web sitesi",
+  "wifiAuthWpa2Home": "WPA2 Personal (ev/ofis standardı)",
+  "wifiAuthMixed": "WPA/WPA2 Personal (karma)",
+  "hostLabel": "Sunucu / Host:",
+  "readOnlyLocked": "Salt okunur (kilitli)",
+  "redoTooltip": "Yinele",
+  "historyFoundCount": "Bulunan: {found} / {total}",
+  "@historyFoundCount": {
+    "placeholders": {
+      "found": {
+        "type": "String"
+      },
+      "total": {
+        "type": "String"
+      }
+    }
+  },
+  "addToWriteListShort": "Yazma listesine aktar"
 }

@@ -53,7 +53,7 @@ class QrPreviewDialog extends StatelessWidget {
     return AlertDialog(
       title: Row(
         children: [
-          const Icon(Icons.qr_code_2, color: AppColors.accent),
+          Icon(Icons.qr_code_2, color: AppColors.accent),
           const SizedBox(width: 8),
           Expanded(
             child: Text(
@@ -72,13 +72,13 @@ class QrPreviewDialog extends StatelessWidget {
               Container(
                 padding: const EdgeInsets.all(12),
                 decoration: BoxDecoration(
-                  color: Colors.amber.shade50,
+                  color: AppColors.warningSoft,
                   borderRadius: BorderRadius.circular(8),
-                  border: Border.all(color: Colors.amber.shade400),
+                  border: Border.all(color: AppColors.warning),
                 ),
                 child: Column(
                   children: [
-                    const Icon(Icons.security, color: Colors.orange, size: 36),
+                    Icon(Icons.security, color: AppColors.warning, size: 36),
                     const SizedBox(height: 8),
                     Text(
                       loc.securityRestriction,
@@ -88,7 +88,7 @@ class QrPreviewDialog extends StatelessWidget {
                     Text(
                       loc.qrSecurityNote,
                       textAlign: TextAlign.center,
-                      style: const TextStyle(fontSize: 12, color: Colors.black87),
+                      style: TextStyle(fontSize: 12, color: AppColors.ink),
                     ),
                   ],
                 ),
@@ -98,20 +98,20 @@ class QrPreviewDialog extends StatelessWidget {
                 padding: const EdgeInsets.all(16.0),
                 child: Text(
                   loc.qrContentEmpty,
-                  style: const TextStyle(color: Colors.grey),
+                  style: TextStyle(color: AppColors.secondary),
                 ),
               )
             else if (isContentTooLarge)
               Container(
                 padding: const EdgeInsets.all(12),
                 decoration: BoxDecoration(
-                  color: Colors.red.shade50,
+                  color: AppColors.dangerSoft,
                   borderRadius: BorderRadius.circular(8),
-                  border: Border.all(color: Colors.red.shade300),
+                  border: Border.all(color: AppColors.danger),
                 ),
                 child: Text(
                   loc.qrContentTooLarge(contentToEncode.length),
-                  style: const TextStyle(color: Colors.red, fontSize: 13),
+                  style: TextStyle(color: AppColors.danger, fontSize: 13),
                 ),
               )
             else ...[
@@ -122,7 +122,7 @@ class QrPreviewDialog extends StatelessWidget {
                 decoration: BoxDecoration(
                   color: Colors.white,
                   borderRadius: BorderRadius.circular(12),
-                  border: Border.all(color: Colors.grey.shade300),
+                  border: Border.all(color: AppColors.border),
                   boxShadow: const [
                     BoxShadow(
                       color: Colors.black12,
@@ -144,7 +144,7 @@ class QrPreviewDialog extends StatelessWidget {
                       child: Text(
                         loc.qrGenerationFailed(err.toString()),
                         textAlign: TextAlign.center,
-                        style: const TextStyle(color: Colors.red, fontSize: 11),
+                        style: TextStyle(color: AppColors.danger, fontSize: 11),
                       ),
                     );
                   },
@@ -154,7 +154,7 @@ class QrPreviewDialog extends StatelessWidget {
               Container(
                 padding: const EdgeInsets.all(8),
                 decoration: BoxDecoration(
-                  color: Colors.grey.shade100,
+                  color: AppColors.subtleFill,
                   borderRadius: BorderRadius.circular(6),
                 ),
                 child: Column(
@@ -162,7 +162,7 @@ class QrPreviewDialog extends StatelessWidget {
                   children: [
                     Text(
                       loc.qrContentChars(contentToEncode.length),
-                      style: const TextStyle(fontSize: 11, fontWeight: FontWeight.bold, color: Colors.black54),
+                      style: TextStyle(fontSize: 11, fontWeight: FontWeight.bold, color: AppColors.secondary),
                     ),
                     const SizedBox(height: 4),
                     SelectableText(
@@ -176,7 +176,7 @@ class QrPreviewDialog extends StatelessWidget {
               const SizedBox(height: 6),
               Text(
                 loc.qrUserOnlyNote,
-                style: const TextStyle(fontSize: 10, color: Colors.grey),
+                style: TextStyle(fontSize: 10, color: AppColors.secondary),
               ),
             ],
           ],

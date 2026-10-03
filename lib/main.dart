@@ -68,6 +68,7 @@ class NfcTagMasterApp extends StatelessWidget {
       },
       builder: (context, child) {
         L10n.update(Localizations.localeOf(context));
+        AppColors.setDark(Theme.of(context).brightness == Brightness.dark);
         return child ?? const SizedBox.shrink();
       },
       theme: AppTheme.light(),

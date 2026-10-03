@@ -67,7 +67,7 @@ class _OnboardingPageState extends State<OnboardingPage> {
       ),
     ];
     return DecoratedBox(
-      decoration: const BoxDecoration(gradient: AppColors.canvasGradient),
+      decoration: BoxDecoration(gradient: AppColors.canvasGradient),
       child: Scaffold(
         backgroundColor: Colors.transparent,
         body: SafeArea(
@@ -157,7 +157,7 @@ class _OnboardingPageState extends State<OnboardingPage> {
           Text(
             step.body,
             textAlign: TextAlign.center,
-            style: const TextStyle(fontSize: 16, height: 1.5, color: AppColors.secondary),
+            style: TextStyle(fontSize: 16, height: 1.5, color: AppColors.secondary),
           ),
         ],
       ),

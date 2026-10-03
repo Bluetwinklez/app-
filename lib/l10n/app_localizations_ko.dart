@@ -2766,4 +2766,98 @@ class AppLocalizationsKo extends AppLocalizations {
 
   @override
   String get notSupportedValue => '지원 안 됨';
+
+  @override
+  String get nfcUnsupportedDesc => '이 기기는 NFC를 지원하지 않습니다';
+
+  @override
+  String get ndefTrailingData => 'NDEF 메시지 뒤에 추가 데이터가 있습니다';
+
+  @override
+  String get ndefMissingEnd => 'NDEF 메시지 끝이 없습니다';
+
+  @override
+  String vcardPhoneShort(String value) {
+    return '전화: $value';
+  }
+
+  @override
+  String vcardEmailShort(String value) {
+    return '이메일: $value';
+  }
+
+  @override
+  String vcardOrgShort(String value) {
+    return '회사: $value';
+  }
+
+  @override
+  String get pageUidLock => 'UID / 잠금';
+
+  @override
+  String get pageData => '데이터';
+
+  @override
+  String get pageLock => '잠금';
+
+  @override
+  String memoryPageLine(String page) {
+    return '페이지 $page';
+  }
+
+  @override
+  String get socialWhatsappPhone => 'WhatsApp (전화)';
+
+  @override
+  String get mapApple => 'Apple 지도';
+
+  @override
+  String get mapGoogle => 'Google 지도';
+
+  @override
+  String get whatsappMessageHint => '안녕하세요, 문의드립니다';
+
+  @override
+  String get facetimeTargetHint => '+821012345678 또는 name@icloud.com';
+
+  @override
+  String get bluetoothMacLabel => '블루투스 MAC 주소';
+
+  @override
+  String get webAddressUrlLabel => '웹 주소 (URL)';
+
+  @override
+  String get latitudeLabel => '위도 (Lat)';
+
+  @override
+  String get longitudeLabel => '경도 (Lng)';
+
+  @override
+  String get emailAddressLabel => '이메일 주소';
+
+  @override
+  String get websiteLabel => '웹사이트';
+
+  @override
+  String get wifiAuthWpa2Home => 'WPA2 개인 (가정/사무실 표준)';
+
+  @override
+  String get wifiAuthMixed => 'WPA/WPA2 개인 (혼합)';
+
+  @override
+  String get hostLabel => '호스트:';
+
+  @override
+  String get readOnlyLocked => '읽기 전용 (잠김)';
+
+  @override
+  String get redoTooltip => '다시 실행';
+
+  @override
+  String historyFoundCount(String found, String total) {
+    return '찾음: $found / $total';
+  }
+
+  @override
+  String get addToWriteListShort => '쓰기 목록에 추가';
 }

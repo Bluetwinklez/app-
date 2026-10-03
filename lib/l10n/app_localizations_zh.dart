@@ -2731,4 +2731,98 @@ class AppLocalizationsZh extends AppLocalizations {
 
   @override
   String get notSupportedValue => '不支持';
+
+  @override
+  String get nfcUnsupportedDesc => '此设备不支持 NFC';
+
+  @override
+  String get ndefTrailingData => 'NDEF 消息后有多余数据';
+
+  @override
+  String get ndefMissingEnd => 'NDEF 消息缺少结尾';
+
+  @override
+  String vcardPhoneShort(String value) {
+    return '电话：$value';
+  }
+
+  @override
+  String vcardEmailShort(String value) {
+    return '邮箱：$value';
+  }
+
+  @override
+  String vcardOrgShort(String value) {
+    return '单位：$value';
+  }
+
+  @override
+  String get pageUidLock => 'UID / 锁定';
+
+  @override
+  String get pageData => '数据';
+
+  @override
+  String get pageLock => '锁定';
+
+  @override
+  String memoryPageLine(String page) {
+    return '页 $page';
+  }
+
+  @override
+  String get socialWhatsappPhone => 'WhatsApp（电话）';
+
+  @override
+  String get mapApple => 'Apple 地图';
+
+  @override
+  String get mapGoogle => 'Google 地图';
+
+  @override
+  String get whatsappMessageHint => '你好，我想了解一下';
+
+  @override
+  String get facetimeTargetHint => '+8613812345678 或 name@icloud.com';
+
+  @override
+  String get bluetoothMacLabel => '蓝牙 MAC 地址';
+
+  @override
+  String get webAddressUrlLabel => '网址（URL）';
+
+  @override
+  String get latitudeLabel => '纬度（Lat）';
+
+  @override
+  String get longitudeLabel => '经度（Lng）';
+
+  @override
+  String get emailAddressLabel => '电子邮箱';
+
+  @override
+  String get websiteLabel => '网站';
+
+  @override
+  String get wifiAuthWpa2Home => 'WPA2 个人（家庭/办公标准）';
+
+  @override
+  String get wifiAuthMixed => 'WPA/WPA2 个人（混合）';
+
+  @override
+  String get hostLabel => '主机：';
+
+  @override
+  String get readOnlyLocked => '只读（已锁定）';
+
+  @override
+  String get redoTooltip => '重做';
+
+  @override
+  String historyFoundCount(String found, String total) {
+    return '找到：$found / $total';
+  }
+
+  @override
+  String get addToWriteListShort => '加入写入列表';
 }

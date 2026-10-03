@@ -28,7 +28,7 @@ enum SocialNetwork {
   youtube('YouTube', 'https://www.youtube.com/@'),
   github('GitHub', 'https://github.com/'),
   telegram('Telegram', 'https://t.me/'),
-  whatsapp('WhatsApp (telefon)', 'https://wa.me/'),
+  whatsapp('WhatsApp', 'https://wa.me/'),
   snapchat('Snapchat', 'https://www.snapchat.com/add/'),
   twitch('Twitch', 'https://www.twitch.tv/'),
   threads('Threads', 'https://www.threads.net/@');
@@ -36,6 +36,9 @@ enum SocialNetwork {
   final String label;
   final String baseUrl;
   const SocialNetwork(this.label, this.baseUrl);
+
+  /// Name shown in pickers.
+  String get displayLabel => this == SocialNetwork.whatsapp ? L10n.current.socialWhatsappPhone : label;
 }
 
 enum SearchEngine {
@@ -51,12 +54,15 @@ enum SearchEngine {
 }
 
 enum MapProvider {
-  apple('Apple Haritalar', 'https://maps.apple.com/?q='),
-  google('Google Haritalar', 'https://www.google.com/maps/search/?api=1&query=');
+  apple('Apple Maps', 'https://maps.apple.com/?q='),
+  google('Google Maps', 'https://www.google.com/maps/search/?api=1&query=');
 
   final String label;
   final String baseUrl;
   const MapProvider(this.label, this.baseUrl);
+
+  /// Localised name shown in pickers.
+  String get displayLabel => this == MapProvider.apple ? L10n.current.mapApple : L10n.current.mapGoogle;
 }
 
 /// Thrown when a quick link input cannot be turned into a record.

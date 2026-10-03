@@ -2757,4 +2757,98 @@ class AppLocalizationsJa extends AppLocalizations {
 
   @override
   String get notSupportedValue => '非対応';
+
+  @override
+  String get nfcUnsupportedDesc => 'この端末はNFCに対応していません';
+
+  @override
+  String get ndefTrailingData => 'NDEFメッセージの後に余分なデータがあります';
+
+  @override
+  String get ndefMissingEnd => 'NDEFメッセージの終端がありません';
+
+  @override
+  String vcardPhoneShort(String value) {
+    return '電話: $value';
+  }
+
+  @override
+  String vcardEmailShort(String value) {
+    return 'メール: $value';
+  }
+
+  @override
+  String vcardOrgShort(String value) {
+    return '会社: $value';
+  }
+
+  @override
+  String get pageUidLock => 'UID / ロック';
+
+  @override
+  String get pageData => 'データ';
+
+  @override
+  String get pageLock => 'ロック';
+
+  @override
+  String memoryPageLine(String page) {
+    return 'ページ $page';
+  }
+
+  @override
+  String get socialWhatsappPhone => 'WhatsApp (電話)';
+
+  @override
+  String get mapApple => 'Appleマップ';
+
+  @override
+  String get mapGoogle => 'Googleマップ';
+
+  @override
+  String get whatsappMessageHint => 'こんにちは、詳しく知りたいです';
+
+  @override
+  String get facetimeTargetHint => '+819012345678 または name@icloud.com';
+
+  @override
+  String get bluetoothMacLabel => 'Bluetooth MACアドレス';
+
+  @override
+  String get webAddressUrlLabel => 'Webアドレス (URL)';
+
+  @override
+  String get latitudeLabel => '緯度 (Lat)';
+
+  @override
+  String get longitudeLabel => '経度 (Lng)';
+
+  @override
+  String get emailAddressLabel => 'メールアドレス';
+
+  @override
+  String get websiteLabel => 'Webサイト';
+
+  @override
+  String get wifiAuthWpa2Home => 'WPA2 パーソナル (家庭/オフィス標準)';
+
+  @override
+  String get wifiAuthMixed => 'WPA/WPA2 パーソナル (混在)';
+
+  @override
+  String get hostLabel => 'ホスト:';
+
+  @override
+  String get readOnlyLocked => '読み取り専用 (ロック済み)';
+
+  @override
+  String get redoTooltip => 'やり直す';
+
+  @override
+  String historyFoundCount(String found, String total) {
+    return '見つかった件数: $found / $total';
+  }
+
+  @override
+  String get addToWriteListShort => '書き込みリストへ';
 }

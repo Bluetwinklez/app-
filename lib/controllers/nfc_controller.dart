@@ -25,7 +25,8 @@ class NfcStateController extends ChangeNotifier {
 
   NfcAvailability _availability = NfcAvailability.notSupported;
   bool _isBusy = false;
-  String _statusMessage = L10n.current.statusReady;
+  /// Null means "ready"; resolved lazily so it follows the active language.
+  String? _statusMessage;
   NfcTagInfo? _lastScannedTag;
   NfcWriteResult? _lastWriteResult;
   int _historySequence = 0;
@@ -37,7 +38,7 @@ class NfcStateController extends ChangeNotifier {
   // Getters
   NfcAvailability get availability => _availability;
   bool get isBusy => _isBusy;
-  String get statusMessage => _statusMessage;
+  String get statusMessage => _statusMessage ?? L10n.current.statusReady;
   NfcTagInfo? get lastScannedTag => _lastScannedTag;
   NfcWriteResult? get lastWriteResult => _lastWriteResult;
   NdefClipboardSnapshot? get clipboardSnapshot => _clipboardSnapshot;
@@ -377,7 +378,7 @@ class NfcStateController extends ChangeNotifier {
     _lastScannedTag = null;
     _lastWriteResult = null;
     _matchingRuleForLastScan = null;
-    _statusMessage = L10n.current.statusReady;
+    _statusMessage = null;
     notifyListeners();
   }
 }

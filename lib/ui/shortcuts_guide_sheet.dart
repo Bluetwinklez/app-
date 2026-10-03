@@ -43,7 +43,7 @@ class ShortcutsGuideSheet extends StatelessWidget {
             const SizedBox(height: 6),
             Text(
               loc.shortcutsGuideSubtitle,
-              style: const TextStyle(color: AppColors.secondary, height: 1.4),
+              style: TextStyle(color: AppColors.secondary, height: 1.4),
             ),
             SectionHeader(title: loc.withSiri),
             _Bullet(icon: Icons.mic_none_rounded, text: loc.siriPhraseScan),
@@ -62,13 +62,13 @@ class ShortcutsGuideSheet extends StatelessWidget {
               padding: const EdgeInsets.only(top: 4),
               child: Text(
                 loc.shortcutAutomationNote,
-                style: const TextStyle(fontSize: 12.5, color: AppColors.secondary),
+                style: TextStyle(fontSize: 12.5, color: AppColors.secondary),
               ),
             ),
             SectionHeader(title: loc.appLinksSection),
             Text(
               loc.appLinksDesc,
-              style: const TextStyle(color: AppColors.secondary, height: 1.4),
+              style: TextStyle(color: AppColors.secondary, height: 1.4),
             ),
             const SizedBox(height: 10),
             for (final (action, description) in links)
@@ -86,7 +86,7 @@ class ShortcutsGuideSheet extends StatelessWidget {
                               LaunchActionService.linkFor(action),
                               style: const TextStyle(fontFamily: 'Courier', fontWeight: FontWeight.w600),
                             ),
-                            Text(description, style: const TextStyle(fontSize: 12.5, color: AppColors.secondary)),
+                            Text(description, style: TextStyle(fontSize: 12.5, color: AppColors.secondary)),
                           ],
                         ),
                       ),
@@ -102,7 +102,7 @@ class ShortcutsGuideSheet extends StatelessWidget {
                       ),
                       IconButton(
                         tooltip: loc.addToWriteList,
-                        icon: const Icon(Icons.add_circle_outline_rounded, size: 22, color: AppColors.accent),
+                        icon: Icon(Icons.add_circle_outline_rounded, size: 22, color: AppColors.accent),
                         onPressed: () {
                           onAddRecord(
                             NdefCodec.encodeUri(LaunchActionService.linkFor(action)),
@@ -161,7 +161,7 @@ class _Step extends StatelessWidget {
             width: 24,
             height: 24,
             alignment: Alignment.center,
-            decoration: const BoxDecoration(color: AppColors.accent, shape: BoxShape.circle),
+            decoration: BoxDecoration(color: AppColors.accent, shape: BoxShape.circle),
             child: Text('$n', style: const TextStyle(color: Colors.white, fontSize: 12, fontWeight: FontWeight.w700)),
           ),
           const SizedBox(width: 10),
