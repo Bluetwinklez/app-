@@ -3518,4 +3518,19 @@ class AppLocalizationsNl extends AppLocalizations {
 
   @override
   String get csvColumnLabels => 'Labels';
+
+  @override
+  String get firstNameLabel => 'Voornaam';
+
+  @override
+  String get lastNameLabel => 'Achternaam';
+
+  @override
+  String get wifiPasswordMinHint => 'Minimaal 8 tekens';
+
+  @override
+  String get emailExampleHint => 'naam@voorbeeld.nl';
+
+  @override
+  String get wifiSsidExampleHint => 'Thuis_WiFi_5G';
 }

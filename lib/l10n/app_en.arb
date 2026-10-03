@@ -988,5 +988,10 @@
   "libraryLabelsField": "Labels / folders (comma separated)",
   "libraryLabelsHint": "office, floor 2",
   "librarySaveFailed": "Could not save: {error}",
-  "csvColumnLabels": "Labels"
+  "csvColumnLabels": "Labels",
+  "firstNameLabel": "First name",
+  "lastNameLabel": "Last name",
+  "wifiPasswordMinHint": "At least 8 characters",
+  "emailExampleHint": "name@example.com",
+  "wifiSsidExampleHint": "Home_WiFi_5G"
 }

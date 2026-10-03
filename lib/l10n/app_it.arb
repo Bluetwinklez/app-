@@ -988,5 +988,10 @@
   "libraryLabelsField": "Etichette / cartelle (separate da virgole)",
   "libraryLabelsHint": "ufficio, piano 2",
   "librarySaveFailed": "Impossibile salvare: {error}",
-  "csvColumnLabels": "Etichette"
+  "csvColumnLabels": "Etichette",
+  "firstNameLabel": "Nome",
+  "lastNameLabel": "Cognome",
+  "wifiPasswordMinHint": "Almeno 8 caratteri",
+  "emailExampleHint": "nome@esempio.it",
+  "wifiSsidExampleHint": "Casa_WiFi_5G"
 }

@@ -970,7 +970,7 @@ class _ComposeRecordSheetState extends State<ComposeRecordSheet> {
               keyboardType: TextInputType.emailAddress,
               decoration: InputDecoration(
                 labelText: loc.emailRecipient,
-                hintText: 'ornek@alanadi.com',
+                hintText: loc.emailExampleHint,
                 errorText: _emailError,
                 border: const OutlineInputBorder(),
               ),
@@ -1083,9 +1083,9 @@ class _ComposeRecordSheetState extends State<ComposeRecordSheet> {
                 Expanded(
                   child: TextField(
                     controller: _vcardFirstController,
-                    decoration: const InputDecoration(
-                      labelText: 'Ad',
-                      border: OutlineInputBorder(),
+                    decoration: InputDecoration(
+                      labelText: loc.firstNameLabel,
+                      border: const OutlineInputBorder(),
                     ),
                   ),
                 ),
@@ -1093,9 +1093,9 @@ class _ComposeRecordSheetState extends State<ComposeRecordSheet> {
                 Expanded(
                   child: TextField(
                     controller: _vcardLastController,
-                    decoration: const InputDecoration(
-                      labelText: 'Soyad',
-                      border: OutlineInputBorder(),
+                    decoration: InputDecoration(
+                      labelText: loc.lastNameLabel,
+                      border: const OutlineInputBorder(),
                     ),
                   ),
                 ),
@@ -1112,9 +1112,9 @@ class _ComposeRecordSheetState extends State<ComposeRecordSheet> {
             const SizedBox(height: 10),
             TextField(
               controller: _vcardTitleController,
-              decoration: const InputDecoration(
-                labelText: 'Unvan',
-                border: OutlineInputBorder(),
+              decoration: InputDecoration(
+                labelText: loc.contactTitle,
+                border: const OutlineInputBorder(),
               ),
             ),
             const SizedBox(height: 10),
@@ -1134,7 +1134,7 @@ class _ComposeRecordSheetState extends State<ComposeRecordSheet> {
               keyboardType: TextInputType.emailAddress,
               decoration: InputDecoration(
                 labelText: L10n.current.emailAddressLabel,
-                hintText: 'ahmet@sirket.com',
+                hintText: loc.emailExampleHint,
                 errorText: _vcardEmailError,
                 border: const OutlineInputBorder(),
               ),
@@ -1145,7 +1145,7 @@ class _ComposeRecordSheetState extends State<ComposeRecordSheet> {
               keyboardType: TextInputType.url,
               decoration: InputDecoration(
                 labelText: L10n.current.websiteLabel,
-                hintText: 'https://ahmet.dev',
+                hintText: 'https://example.com',
                 errorText: _vcardUrlError,
                 border: const OutlineInputBorder(),
               ),
@@ -1396,7 +1396,7 @@ class _ComposeRecordSheetState extends State<ComposeRecordSheet> {
               controller: _wifiSsidController,
               decoration: InputDecoration(
                 labelText: loc.composeWifiSsidLabel,
-                hintText: 'Ev_Interneti_5G',
+                hintText: loc.wifiSsidExampleHint,
                 errorText: _wifiSsidError,
                 border: const OutlineInputBorder(),
               ),
@@ -1425,7 +1425,7 @@ class _ComposeRecordSheetState extends State<ComposeRecordSheet> {
                 obscureText: true,
                 decoration: InputDecoration(
                   labelText: loc.composeWifiPasswordLabel,
-                  hintText: 'En az 8 karakter',
+                  hintText: loc.wifiPasswordMinHint,
                   errorText: _wifiPasswordError,
                   border: const OutlineInputBorder(),
                 ),

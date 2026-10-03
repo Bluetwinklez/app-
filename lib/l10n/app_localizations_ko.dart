@@ -3377,4 +3377,19 @@ class AppLocalizationsKo extends AppLocalizations {
 
   @override
   String get csvColumnLabels => '라벨';
+
+  @override
+  String get firstNameLabel => '이름';
+
+  @override
+  String get lastNameLabel => '성';
+
+  @override
+  String get wifiPasswordMinHint => '8자 이상';
+
+  @override
+  String get emailExampleHint => 'name@example.com';
+
+  @override
+  String get wifiSsidExampleHint => 'Home_WiFi_5G';
 }

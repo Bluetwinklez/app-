@@ -6057,6 +6057,36 @@ abstract class AppLocalizations {
   /// In tr, this message translates to:
   /// **'Etiketler'**
   String get csvColumnLabels;
+
+  /// No description provided for @firstNameLabel.
+  ///
+  /// In tr, this message translates to:
+  /// **'Ad'**
+  String get firstNameLabel;
+
+  /// No description provided for @lastNameLabel.
+  ///
+  /// In tr, this message translates to:
+  /// **'Soyad'**
+  String get lastNameLabel;
+
+  /// No description provided for @wifiPasswordMinHint.
+  ///
+  /// In tr, this message translates to:
+  /// **'En az 8 karakter'**
+  String get wifiPasswordMinHint;
+
+  /// No description provided for @emailExampleHint.
+  ///
+  /// In tr, this message translates to:
+  /// **'ornek@alanadi.com'**
+  String get emailExampleHint;
+
+  /// No description provided for @wifiSsidExampleHint.
+  ///
+  /// In tr, this message translates to:
+  /// **'Ev_Interneti_5G'**
+  String get wifiSsidExampleHint;
 }
 
 class _AppLocalizationsDelegate

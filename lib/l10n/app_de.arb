@@ -988,5 +988,10 @@
   "libraryLabelsField": "Labels / Ordner (durch Komma getrennt)",
   "libraryLabelsHint": "Büro, 2. Stock",
   "librarySaveFailed": "Speichern fehlgeschlagen: {error}",
-  "csvColumnLabels": "Labels"
+  "csvColumnLabels": "Labels",
+  "firstNameLabel": "Vorname",
+  "lastNameLabel": "Nachname",
+  "wifiPasswordMinHint": "Mindestens 8 Zeichen",
+  "emailExampleHint": "name@beispiel.de",
+  "wifiSsidExampleHint": "Heim_WLAN_5G"
 }

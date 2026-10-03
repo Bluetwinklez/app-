@@ -3473,4 +3473,19 @@ class AppLocalizationsAr extends AppLocalizations {
 
   @override
   String get csvColumnLabels => 'التسميات';
+
+  @override
+  String get firstNameLabel => 'الاسم الأول';
+
+  @override
+  String get lastNameLabel => 'اسم العائلة';
+
+  @override
+  String get wifiPasswordMinHint => '8 أحرف على الأقل';
+
+  @override
+  String get emailExampleHint => 'name@example.com';
+
+  @override
+  String get wifiSsidExampleHint => 'Home_WiFi_5G';
 }

@@ -988,5 +988,10 @@
   "libraryLabelsField": "Labels / mappen (komma-gescheiden)",
   "libraryLabelsHint": "kantoor, 2e verdieping",
   "librarySaveFailed": "Opslaan mislukt: {error}",
-  "csvColumnLabels": "Labels"
+  "csvColumnLabels": "Labels",
+  "firstNameLabel": "Voornaam",
+  "lastNameLabel": "Achternaam",
+  "wifiPasswordMinHint": "Minimaal 8 tekens",
+  "emailExampleHint": "naam@voorbeeld.nl",
+  "wifiSsidExampleHint": "Thuis_WiFi_5G"
 }

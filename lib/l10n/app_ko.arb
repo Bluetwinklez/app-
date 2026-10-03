@@ -988,5 +988,10 @@
   "libraryLabelsField": "라벨 / 폴더 (쉼표로 구분)",
   "libraryLabelsHint": "사무실, 2층",
   "librarySaveFailed": "저장하지 못했습니다: {error}",
-  "csvColumnLabels": "라벨"
+  "csvColumnLabels": "라벨",
+  "firstNameLabel": "이름",
+  "lastNameLabel": "성",
+  "wifiPasswordMinHint": "8자 이상",
+  "emailExampleHint": "name@example.com",
+  "wifiSsidExampleHint": "Home_WiFi_5G"
 }

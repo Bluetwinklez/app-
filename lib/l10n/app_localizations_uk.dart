@@ -3518,4 +3518,19 @@ class AppLocalizationsUk extends AppLocalizations {
 
   @override
   String get csvColumnLabels => 'Мітки';
+
+  @override
+  String get firstNameLabel => 'Ім\'я';
+
+  @override
+  String get lastNameLabel => 'Прізвище';
+
+  @override
+  String get wifiPasswordMinHint => 'Щонайменше 8 символів';
+
+  @override
+  String get emailExampleHint => 'name@example.com';
+
+  @override
+  String get wifiSsidExampleHint => 'Home_WiFi_5G';
 }

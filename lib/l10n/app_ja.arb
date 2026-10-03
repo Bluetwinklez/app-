@@ -988,5 +988,10 @@
   "libraryLabelsField": "ラベル / フォルダ (カンマ区切り)",
   "libraryLabelsHint": "オフィス, 2階",
   "librarySaveFailed": "保存できませんでした: {error}",
-  "csvColumnLabels": "ラベル"
+  "csvColumnLabels": "ラベル",
+  "firstNameLabel": "名",
+  "lastNameLabel": "姓",
+  "wifiPasswordMinHint": "8文字以上",
+  "emailExampleHint": "name@example.com",
+  "wifiSsidExampleHint": "Home_WiFi_5G"
 }

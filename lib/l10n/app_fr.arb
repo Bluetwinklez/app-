@@ -988,5 +988,10 @@
   "libraryLabelsField": "Libellés / dossiers (séparés par des virgules)",
   "libraryLabelsHint": "bureau, 2e étage",
   "librarySaveFailed": "Enregistrement impossible : {error}",
-  "csvColumnLabels": "Libellés"
+  "csvColumnLabels": "Libellés",
+  "firstNameLabel": "Prénom",
+  "lastNameLabel": "Nom",
+  "wifiPasswordMinHint": "Au moins 8 caractères",
+  "emailExampleHint": "nom@exemple.fr",
+  "wifiSsidExampleHint": "Maison_WiFi_5G"
 }

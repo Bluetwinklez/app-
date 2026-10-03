@@ -3513,4 +3513,19 @@ class AppLocalizationsTr extends AppLocalizations {
 
   @override
   String get csvColumnLabels => 'Etiketler';
+
+  @override
+  String get firstNameLabel => 'Ad';
+
+  @override
+  String get lastNameLabel => 'Soyad';
+
+  @override
+  String get wifiPasswordMinHint => 'En az 8 karakter';
+
+  @override
+  String get emailExampleHint => 'ornek@alanadi.com';
+
+  @override
+  String get wifiSsidExampleHint => 'Ev_Interneti_5G';
 }

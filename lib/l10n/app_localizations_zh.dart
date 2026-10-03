@@ -3337,4 +3337,19 @@ class AppLocalizationsZh extends AppLocalizations {
 
   @override
   String get csvColumnLabels => '标签';
+
+  @override
+  String get firstNameLabel => '名';
+
+  @override
+  String get lastNameLabel => '姓';
+
+  @override
+  String get wifiPasswordMinHint => '至少 8 个字符';
+
+  @override
+  String get emailExampleHint => 'name@example.com';
+
+  @override
+  String get wifiSsidExampleHint => 'Home_WiFi_5G';
 }

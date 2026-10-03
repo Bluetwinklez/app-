@@ -988,5 +988,10 @@
   "libraryLabelsField": "标签/文件夹（用逗号分隔）",
   "libraryLabelsHint": "办公室, 2楼",
   "librarySaveFailed": "无法保存：{error}",
-  "csvColumnLabels": "标签"
+  "csvColumnLabels": "标签",
+  "firstNameLabel": "名",
+  "lastNameLabel": "姓",
+  "wifiPasswordMinHint": "至少 8 个字符",
+  "emailExampleHint": "name@example.com",
+  "wifiSsidExampleHint": "Home_WiFi_5G"
 }
