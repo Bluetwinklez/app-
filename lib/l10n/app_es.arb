@@ -1384,5 +1384,14 @@
   "templateImportHint": "Cada fila: nombre, tipo, valor, extra. Tipos: url, text, phone, email, sms, location, wifi. Filas con el mismo nombre forman una plantilla.",
   "templateImportPreview": "Se añadirán {count} plantillas",
   "templateImportSkipped": "Filas omitidas: {rows}",
-  "templateImportDone": "{count} plantillas añadidas"
+  "templateImportDone": "{count} plantillas añadidas",
+  "assetSection": "Datos del activo",
+  "assetSerialLabel": "N.º de serie / activo",
+  "assigneeLabel": "Asignado a",
+  "warrantyLabel": "Garantía hasta",
+  "warrantyExpired": "Garantía vencida",
+  "warrantyUntilText": "Garantía: {date}",
+  "assigneeText": "Asignado: {name}",
+  "reminderWarrantyTitle": "Fin de garantía: {name}",
+  "reminderWarrantyBody": "La garantía termina hoy."
 }

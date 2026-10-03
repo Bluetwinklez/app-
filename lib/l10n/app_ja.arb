@@ -1384,5 +1384,14 @@
   "templateImportHint": "各行：名前、種類、値、追加。種類：url, text, phone, email, sms, location, wifi。同名の行は1つのテンプレートになります。",
   "templateImportPreview": "{count}件のテンプレートを追加します",
   "templateImportSkipped": "スキップした行: {rows}",
-  "templateImportDone": "{count}件のテンプレートを追加しました"
+  "templateImportDone": "{count}件のテンプレートを追加しました",
+  "assetSection": "備品情報",
+  "assetSerialLabel": "シリアル / 備品番号",
+  "assigneeLabel": "担当者",
+  "warrantyLabel": "保証期限",
+  "warrantyExpired": "保証切れ",
+  "warrantyUntilText": "保証: {date}",
+  "assigneeText": "担当: {name}",
+  "reminderWarrantyTitle": "保証終了: {name}",
+  "reminderWarrantyBody": "本日で保証が終了します。"
 }

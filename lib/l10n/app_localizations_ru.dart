@@ -4943,4 +4943,37 @@ class AppLocalizationsRu extends AppLocalizations {
   String templateImportDone(String count) {
     return 'Добавлено шаблонов: $count';
   }
+
+  @override
+  String get assetSection => 'Данные актива';
+
+  @override
+  String get assetSerialLabel => 'Серийный / инв. номер';
+
+  @override
+  String get assigneeLabel => 'Закреплено за';
+
+  @override
+  String get warrantyLabel => 'Гарантия до';
+
+  @override
+  String get warrantyExpired => 'Гарантия истекла';
+
+  @override
+  String warrantyUntilText(String date) {
+    return 'Гарантия: $date';
+  }
+
+  @override
+  String assigneeText(String name) {
+    return 'Закреплено: $name';
+  }
+
+  @override
+  String reminderWarrantyTitle(String name) {
+    return 'Гарантия заканчивается: $name';
+  }
+
+  @override
+  String get reminderWarrantyBody => 'Гарантия заканчивается сегодня.';
 }

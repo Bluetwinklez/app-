@@ -474,7 +474,9 @@ class _TagLibraryPageState extends State<TagLibraryPage> {
     }
     try {
       await widget.storage.saveLibraryEntry(result);
-      if (result.checkEveryDays != entry.checkEveryDays || result.checkEveryDays != null) {
+      if (result.checkEveryDays != entry.checkEveryDays ||
+          result.checkEveryDays != null ||
+          result.warrantyUntil != entry.warrantyUntil) {
         NotificationService.sync(widget.storage);
       }
       // The editor copies a new photo; drop the one it replaced.
@@ -850,6 +852,21 @@ class _EntryCard extends StatelessWidget {
                         : AppColors.secondary,
                   ),
                 ),
+                if (entry.assignee.isNotEmpty || entry.warrantyUntil != null)
+                  Text(
+                    [
+                      if (entry.assignee.isNotEmpty) loc.assigneeText(entry.assignee),
+                      if (entry.warrantyUntil != null)
+                        entry.warrantyExpired(DateTime.now())
+                            ? loc.warrantyExpired
+                            : loc.warrantyUntilText(DateFormat.yMMMd(Localizations.localeOf(context).toLanguageTag())
+                                .format(entry.warrantyUntil!)),
+                    ].join(' · '),
+                    style: TextStyle(
+                      fontSize: 12,
+                      color: entry.warrantyExpired(DateTime.now()) ? AppColors.danger : AppColors.secondary,
+                    ),
+                  ),
                 if (entry.nextCheckAt case final next?)
                   Row(
                     children: [
@@ -920,6 +937,9 @@ class _EntryEditorState extends State<_EntryEditor> {
   late final _note = TextEditingController(text: widget.entry.note);
   late final _location = TextEditingController(text: widget.entry.locationNote);
   late final _labels = TextEditingController(text: widget.entry.labels.join(', '));
+  late final _serial = TextEditingController(text: widget.entry.assetSerial);
+  late final _assignee = TextEditingController(text: widget.entry.assignee);
+  late DateTime? _warranty = widget.entry.warrantyUntil;
   final _pickedPhotos = <String>[];
   bool _saved = false;
   late TagCategory _category = widget.entry.category;
@@ -939,6 +959,8 @@ class _EntryEditorState extends State<_EntryEditor> {
     _note.dispose();
     _location.dispose();
     _labels.dispose();
+    _serial.dispose();
+    _assignee.dispose();
     // Photos picked in this editor but not kept are orphans; remove them.
     final keep = _saved ? _photoPath : null;
     final docs = widget.docsDir;
@@ -1023,6 +1045,10 @@ class _EntryEditorState extends State<_EntryEditor> {
       clearAutoLog: _autoLog == null,
       latitude: _lat,
       longitude: _lng,
+      assetSerial: _serial.text.trim(),
+      assignee: _assignee.text.trim(),
+      warrantyUntil: _warranty,
+      clearWarranty: _warranty == null,
       clearPosition: _lat == null || _lng == null,
       updatedAt: DateTime.now(),
     ));
@@ -1170,6 +1196,49 @@ class _EntryEditorState extends State<_EntryEditor> {
                 child: Text(loc.inspectionRemindersNote,
                     style: TextStyle(fontSize: 12, color: AppColors.secondary)),
               ),
+            const SizedBox(height: 8),
+            ExpansionTile(
+              tilePadding: EdgeInsets.zero,
+              initiallyExpanded: widget.entry.hasAssetInfo,
+              leading: const Icon(Icons.inventory_2_outlined),
+              title: Text(loc.assetSection),
+              childrenPadding: const EdgeInsets.only(bottom: 8),
+              children: [
+                TextField(controller: _serial, decoration: InputDecoration(labelText: loc.assetSerialLabel)),
+                const SizedBox(height: 10),
+                TextField(controller: _assignee, decoration: InputDecoration(labelText: loc.assigneeLabel)),
+                const SizedBox(height: 4),
+                ListTile(
+                  contentPadding: EdgeInsets.zero,
+                  title: Text(loc.warrantyLabel),
+                  subtitle: Text(_warranty == null
+                      ? loc.libraryCheckNone
+                      : DateFormat.yMMMd(Localizations.localeOf(context).toLanguageTag()).format(_warranty!)),
+                  trailing: Row(
+                    mainAxisSize: MainAxisSize.min,
+                    children: [
+                      if (_warranty != null)
+                        IconButton(
+                          tooltip: loc.remove,
+                          icon: const Icon(Icons.close_rounded, size: 18),
+                          onPressed: () => setState(() => _warranty = null),
+                        ),
+                      const Icon(Icons.event_outlined),
+                    ],
+                  ),
+                  onTap: () async {
+                    final now = DateTime.now();
+                    final d = await showDatePicker(
+                      context: context,
+                      initialDate: _warranty ?? DateTime(now.year + 1, now.month, now.day),
+                      firstDate: DateTime(now.year - 10),
+                      lastDate: DateTime(now.year + 20),
+                    );
+                    if (d != null) setState(() => _warranty = d);
+                  },
+                ),
+              ],
+            ),
             if (widget.logBooks.isNotEmpty) ...[
               const SizedBox(height: 12),
               DropdownButtonFormField<String?>(

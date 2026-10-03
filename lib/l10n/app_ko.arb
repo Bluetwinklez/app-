@@ -1384,5 +1384,14 @@
   "templateImportHint": "각 행: 이름, 유형, 값, 추가. 유형: url, text, phone, email, sms, location, wifi. 같은 이름의 행은 하나의 템플릿이 됩니다.",
   "templateImportPreview": "템플릿 {count}개가 추가됩니다",
   "templateImportSkipped": "건너뛴 행: {rows}",
-  "templateImportDone": "템플릿 {count}개 추가됨"
+  "templateImportDone": "템플릿 {count}개 추가됨",
+  "assetSection": "비품 정보",
+  "assetSerialLabel": "일련번호 / 자산번호",
+  "assigneeLabel": "담당자",
+  "warrantyLabel": "보증 만료",
+  "warrantyExpired": "보증 만료됨",
+  "warrantyUntilText": "보증: {date}",
+  "assigneeText": "담당: {name}",
+  "reminderWarrantyTitle": "보증 만료: {name}",
+  "reminderWarrantyBody": "보증이 오늘 만료됩니다."
 }

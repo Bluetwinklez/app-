@@ -4745,4 +4745,37 @@ class AppLocalizationsKo extends AppLocalizations {
   String templateImportDone(String count) {
     return '템플릿 $count개 추가됨';
   }
+
+  @override
+  String get assetSection => '비품 정보';
+
+  @override
+  String get assetSerialLabel => '일련번호 / 자산번호';
+
+  @override
+  String get assigneeLabel => '담당자';
+
+  @override
+  String get warrantyLabel => '보증 만료';
+
+  @override
+  String get warrantyExpired => '보증 만료됨';
+
+  @override
+  String warrantyUntilText(String date) {
+    return '보증: $date';
+  }
+
+  @override
+  String assigneeText(String name) {
+    return '담당: $name';
+  }
+
+  @override
+  String reminderWarrantyTitle(String name) {
+    return '보증 만료: $name';
+  }
+
+  @override
+  String get reminderWarrantyBody => '보증이 오늘 만료됩니다.';
 }

@@ -1384,5 +1384,14 @@
   "templateImportHint": "Каждая строка: название, тип, значение, доп. Типы: url, text, phone, email, sms, location, wifi. Строки с одним названием объединяются.",
   "templateImportPreview": "Будет добавлено шаблонов: {count}",
   "templateImportSkipped": "Пропущены строки: {rows}",
-  "templateImportDone": "Добавлено шаблонов: {count}"
+  "templateImportDone": "Добавлено шаблонов: {count}",
+  "assetSection": "Данные актива",
+  "assetSerialLabel": "Серийный / инв. номер",
+  "assigneeLabel": "Закреплено за",
+  "warrantyLabel": "Гарантия до",
+  "warrantyExpired": "Гарантия истекла",
+  "warrantyUntilText": "Гарантия: {date}",
+  "assigneeText": "Закреплено: {name}",
+  "reminderWarrantyTitle": "Гарантия заканчивается: {name}",
+  "reminderWarrantyBody": "Гарантия заканчивается сегодня."
 }
