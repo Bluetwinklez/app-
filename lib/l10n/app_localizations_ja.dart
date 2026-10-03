@@ -4355,4 +4355,8 @@ class AppLocalizationsJa extends AppLocalizations {
   String mapLocationFailed(String error) {
     return '位置を取得できません: $error';
   }
+
+  @override
+  String get whatsNew140 =>
+      '• セキュリティとプライバシー：チェック、ロック遅延、切替画面で隠す、クリップボード消去、全データ消去\n• 署名鍵をキーチェーンに保存、重要な操作はFace IDで確認\n• タグマップとタグの位置保存\n• チームパック：タグとテンプレートを1ファイルで共有\n• 代替アプリアイコン\n• 設定とライブラリメニューを整理';
 }
