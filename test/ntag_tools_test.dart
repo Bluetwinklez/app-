@@ -135,6 +135,34 @@ void main() {
     });
   });
 
+  group('TagHealth', () {
+    test('blank NTAG213 is writable and unprotected', () async {
+      final tag = FakeNtag213();
+      final health = await NtagTools.healthReport(tag.transceive);
+      expect(health.chip, NtagChip.ntag213);
+      expect(health.uidHex, '04:A1:B2:00:00:00:00');
+      expect(health.ndefFormatted, isFalse);
+      expect(health.writable, isTrue);
+      expect(health.passwordProtected, isFalse);
+      expect(health.dynamicLockBitsSet, isFalse);
+    });
+
+    test('formatted, password protected and locked states are detected', () async {
+      final tag = FakeNtag213();
+      await NtagTools.formatNdef(tag.transceive);
+      await NtagTools.setPassword(tag.transceive,
+          password: Uint8List.fromList([1, 2, 3, 4]), pack: Uint8List.fromList([0, 0]));
+      tag.memory[10] = 0xFF; // static lock byte
+      final health = await NtagTools.healthReport(tag.transceive);
+      expect(health.ndefFormatted, isTrue);
+      expect(health.ndefMessageLength, 0);
+      expect(health.passwordProtected, isTrue);
+      expect(health.readProtected, isFalse);
+      expect(health.staticLockBitsSet, isTrue);
+      expect(health.writable, isFalse);
+    });
+  });
+
   test('NfcStateController.computeRecordsSha256 is still empty for no records', () {
     expect(NfcStateController.computeRecordsSha256(const []), '');
   });

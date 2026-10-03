@@ -3026,4 +3026,60 @@ class AppLocalizationsRu extends AppLocalizations {
   @override
   String get contentTooLargeForChips =>
       'Слишком много для обычных меток: сократите текст или используйте короткую ссылку.';
+
+  @override
+  String get tagReportTitle => 'Отчёт о метке';
+
+  @override
+  String get tagReportSubtitle => 'Чип, блокировки, пароль и заполнение';
+
+  @override
+  String get tagReportPrompt => 'Поднесите метку для проверки';
+
+  @override
+  String get tagReportBusy => 'Проверка метки...';
+
+  @override
+  String tagReportDone(String chip) {
+    return 'Отчёт готов: $chip';
+  }
+
+  @override
+  String get unknownChip => 'Неизвестный чип';
+
+  @override
+  String get yes => 'Да';
+
+  @override
+  String get reportChip => 'Чип';
+
+  @override
+  String get reportNdefFormatted => 'Формат NDEF';
+
+  @override
+  String get reportWritable => 'Доступна запись';
+
+  @override
+  String get reportStaticLock => 'Статическая блокировка';
+
+  @override
+  String get reportDynamicLock => 'Динамическая блокировка';
+
+  @override
+  String get reportPassword => 'Защита паролем';
+
+  @override
+  String get reportReadProtected => 'Защита чтения';
+
+  @override
+  String get reportNdefUsage => 'Заполнение NDEF';
+
+  @override
+  String get reportVerdictWritable => 'Метка готова к записи';
+
+  @override
+  String get reportVerdictRestricted => 'Метка ограничена';
+
+  @override
+  String get reportCopied => 'Отчёт скопирован';
 }

@@ -2896,4 +2896,60 @@ class AppLocalizationsJa extends AppLocalizations {
   @override
   String get contentTooLargeForChips =>
       '一般的なタグには大きすぎます。テキストを短くするか短縮リンクを使ってください。';
+
+  @override
+  String get tagReportTitle => 'タグレポート';
+
+  @override
+  String get tagReportSubtitle => 'チップ・ロック・パスワード・使用量';
+
+  @override
+  String get tagReportPrompt => '確認するタグをかざしてください';
+
+  @override
+  String get tagReportBusy => 'タグを確認中...';
+
+  @override
+  String tagReportDone(String chip) {
+    return 'レポート完成: $chip';
+  }
+
+  @override
+  String get unknownChip => '不明なチップ';
+
+  @override
+  String get yes => 'はい';
+
+  @override
+  String get reportChip => 'チップ';
+
+  @override
+  String get reportNdefFormatted => 'NDEFフォーマット済み';
+
+  @override
+  String get reportWritable => '書き込み可能';
+
+  @override
+  String get reportStaticLock => '静的ロック';
+
+  @override
+  String get reportDynamicLock => '動的ロック';
+
+  @override
+  String get reportPassword => 'パスワード保護';
+
+  @override
+  String get reportReadProtected => '読み取り保護';
+
+  @override
+  String get reportNdefUsage => 'NDEF使用量';
+
+  @override
+  String get reportVerdictWritable => 'タグは書き込み可能です';
+
+  @override
+  String get reportVerdictRestricted => 'タグに制限があります';
+
+  @override
+  String get reportCopied => 'レポートをコピーしました';
 }

@@ -3045,4 +3045,60 @@ class AppLocalizationsEs extends AppLocalizations {
   @override
   String get contentTooLargeForChips =>
       'Demasiado grande para etiquetas comunes; acorta el texto o usa un enlace corto.';
+
+  @override
+  String get tagReportTitle => 'Informe de etiqueta';
+
+  @override
+  String get tagReportSubtitle => 'Chip, bloqueos, contraseña y uso';
+
+  @override
+  String get tagReportPrompt => 'Acerque la etiqueta a revisar';
+
+  @override
+  String get tagReportBusy => 'Revisando la etiqueta...';
+
+  @override
+  String tagReportDone(String chip) {
+    return 'Informe listo: $chip';
+  }
+
+  @override
+  String get unknownChip => 'Chip desconocido';
+
+  @override
+  String get yes => 'Sí';
+
+  @override
+  String get reportChip => 'Chip';
+
+  @override
+  String get reportNdefFormatted => 'Con formato NDEF';
+
+  @override
+  String get reportWritable => 'Escribible';
+
+  @override
+  String get reportStaticLock => 'Bloqueo estático';
+
+  @override
+  String get reportDynamicLock => 'Bloqueo dinámico';
+
+  @override
+  String get reportPassword => 'Protección con contraseña';
+
+  @override
+  String get reportReadProtected => 'Lectura protegida';
+
+  @override
+  String get reportNdefUsage => 'Uso NDEF';
+
+  @override
+  String get reportVerdictWritable => 'Etiqueta lista para escribir';
+
+  @override
+  String get reportVerdictRestricted => 'La etiqueta tiene restricciones';
+
+  @override
+  String get reportCopied => 'Informe copiado';
 }

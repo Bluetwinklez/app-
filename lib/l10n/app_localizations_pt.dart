@@ -3037,4 +3037,60 @@ class AppLocalizationsPt extends AppLocalizations {
   @override
   String get contentTooLargeForChips =>
       'Grande demais para tags comuns; encurte o texto ou use um link curto.';
+
+  @override
+  String get tagReportTitle => 'Relatório da tag';
+
+  @override
+  String get tagReportSubtitle => 'Chip, bloqueios, senha e uso';
+
+  @override
+  String get tagReportPrompt => 'Aproxime a tag a verificar';
+
+  @override
+  String get tagReportBusy => 'Verificando a tag...';
+
+  @override
+  String tagReportDone(String chip) {
+    return 'Relatório pronto: $chip';
+  }
+
+  @override
+  String get unknownChip => 'Chip desconhecido';
+
+  @override
+  String get yes => 'Sim';
+
+  @override
+  String get reportChip => 'Chip';
+
+  @override
+  String get reportNdefFormatted => 'Formatada NDEF';
+
+  @override
+  String get reportWritable => 'Gravável';
+
+  @override
+  String get reportStaticLock => 'Bloqueio estático';
+
+  @override
+  String get reportDynamicLock => 'Bloqueio dinâmico';
+
+  @override
+  String get reportPassword => 'Proteção por senha';
+
+  @override
+  String get reportReadProtected => 'Leitura protegida';
+
+  @override
+  String get reportNdefUsage => 'Uso NDEF';
+
+  @override
+  String get reportVerdictWritable => 'Tag pronta para gravar';
+
+  @override
+  String get reportVerdictRestricted => 'A tag tem restrições';
+
+  @override
+  String get reportCopied => 'Relatório copiado';
 }
