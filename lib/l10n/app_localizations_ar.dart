@@ -4069,4 +4069,9 @@ class AppLocalizationsAr extends AppLocalizations {
 
   @override
   String get simpleNothing => 'لا يوجد ما يُعرض في هذا الوسم.';
+
+  @override
+  String whatsNew120(String date, String time, String counter) {
+    return '• السجل: الحضور والأدوية والجرد\n• الأمان: قفل Face ID، نسخ احتياطية مشفّرة، وسوم موقّعة، تحذير من المواقع المزيفة\n• متغيرات القوالب ($date و$time و$counter) والكتابة من المكتبة\n• قوالب جديدة: بطاقة ذكية، مفقودات، رسالة صوتية\n• ورقة ملصقات للطباعة مع رموز QR ‏(PDF)\n• الوضع البسيط، معلومات amiibo، محرر البايتات، دليل شرائح NFC\n• الترتيب بالسحب ووضع التوافق';
+  }
 }

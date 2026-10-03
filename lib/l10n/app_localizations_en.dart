@@ -4107,4 +4107,9 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get simpleNothing => 'There is nothing to show on this tag.';
+
+  @override
+  String whatsNew120(String date, String time, String counter) {
+    return '• Logbook: attendance, medication and inventory tracking\n• Security: Face ID lock, encrypted backups, signed tags, fake-site warnings\n• Template variables ($date, $time, $counter) and write from the library\n• New templates: Smart Card, Lost & Found, Voice Message\n• Printable label sheet with QR codes (PDF)\n• Simple mode, amiibo info, byte editor, NFC chip guide\n• Drag-and-drop ordering and Compatibility mode';
+  }
 }

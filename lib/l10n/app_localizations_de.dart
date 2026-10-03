@@ -4134,4 +4134,9 @@ class AppLocalizationsDe extends AppLocalizations {
 
   @override
   String get simpleNothing => 'Auf diesem Tag gibt es nichts anzuzeigen.';
+
+  @override
+  String whatsNew120(String date, String time, String counter) {
+    return '• Logbuch: Anwesenheit, Medikamente und Inventur\n• Sicherheit: Face-ID-Sperre, verschlüsselte Backups, signierte Tags, Warnung vor Fake-Seiten\n• Vorlagenvariablen ($date, $time, $counter) und Schreiben aus der Bibliothek\n• Neue Vorlagen: Smart Card, Fundsache, Sprachnachricht\n• Druckbarer Etikettenbogen mit QR-Codes (PDF)\n• Einfacher Modus, amiibo-Info, Byte-Editor, NFC-Chip-Ratgeber\n• Sortieren per Drag & Drop und Kompatibilitätsmodus';
+  }
 }

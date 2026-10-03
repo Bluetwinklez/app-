@@ -2752,5 +2752,19 @@
   "simpleEmail": "E-posta yaz",
   "simpleMap": "Haritada aç",
   "simpleExit": "Normal görünüme dönmek için basılı tutun",
-  "simpleNothing": "Bu etikette gösterilecek bir şey yok."
+  "simpleNothing": "Bu etikette gösterilecek bir şey yok.",
+  "whatsNew120": "• Kayıt Defteri: yoklama, ilaç ve envanter takibi\n• Güvenlik: Face ID kilidi, şifreli yedek, imzalı etiket, sahte site uyarısı\n• Şablon değişkenleri ({date}, {time}, {counter}) ve kütüphaneden etikete yazma\n• Yeni şablonlar: Akıllı Kart, Kayıp Eşya, Sesli Mesaj\n• QR kodlu yazdırılabilir etiket sayfası (PDF)\n• Basit mod, amiibo bilgisi, bayt düzenleyici, NFC çipleri rehberi\n• Sürükle-bırak sıralama ve Uyumluluk modu",
+  "@whatsNew120": {
+    "placeholders": {
+      "date": {
+        "type": "String"
+      },
+      "time": {
+        "type": "String"
+      },
+      "counter": {
+        "type": "String"
+      }
+    }
+  }
 }

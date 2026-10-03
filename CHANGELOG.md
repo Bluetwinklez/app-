@@ -1,5 +1,34 @@
 # Değişiklik Günlüğü
 
+## 1.2.0
+
+**NFC Tools'ta olup eksik kalanlar**
+- Kayıtları sürükleyerek sıralama, Uyumluluk modu (geri okumasız yazma)
+- "NFC çipleri" rehberi, "Uygulamayı değerlendirin"
+
+**Yazma**
+- Şablon değişkenleri: `{date}`/`{tarih}`, `{time}`/`{saat}`, `{counter}`/`{sayac}`
+- Kütüphanedeki bir etiketi yeni etikete tek dokunuşla yazma
+- Yeni şablonlar: Akıllı Kart (site + kartvizit + Wi-Fi), Kayıp Eşya (hazır SMS), Sesli Mesaj
+
+**İşletme**
+- Kayıt Defteri: yoklama, ilaç takibi, envanter sayımı; CSV dışa aktarma
+- Okutulan etiket kütüphanedeyse yer/not/etiket kartı (envanter)
+- Etiket sağlık takibi: son görülme, 30+ gün uyarısı, sıralama
+- Sürekli taramada toplu okuma raporu
+- QR kodlu yazdırılabilir A4 etiket sayfası (PDF)
+
+**Güvenlik**
+- Face ID / Touch ID / cihaz parolasıyla uygulama kilidi
+- Parolalı (AES-256) yedekler
+- İmzalı etiketler (HMAC-SHA256) ile içerik değişikliği tespiti
+- Sahte site / oltalama bağlantı uyarıları (çevrimdışı)
+
+**Diğer**
+- Basit mod (çocuklar ve yaşlılar için dev düğmeler)
+- Amiibo bilgisi, bellek sayfası düzenleyici, okuma hızı
+- MIFARE Classic, DESFire, ISO 15693 ve FeliCa tanıma
+
 ## 1.1.0
 
 **Görünüm ve dil**

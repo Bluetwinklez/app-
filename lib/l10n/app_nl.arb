@@ -1157,5 +1157,6 @@
   "simpleEmail": "E-mail schrijven",
   "simpleMap": "Openen in Kaarten",
   "simpleExit": "Houd ingedrukt voor de normale weergave",
-  "simpleNothing": "Er staat niets op deze tag."
+  "simpleNothing": "Er staat niets op deze tag.",
+  "whatsNew120": "• Logboek: aanwezigheid, medicijnen en inventaris\n• Beveiliging: Face ID-vergrendeling, versleutelde back-ups, ondertekende tags, waarschuwing voor nepsites\n• Sjabloonvariabelen ({date}, {time}, {counter}) en schrijven vanuit de bibliotheek\n• Nieuwe sjablonen: Slimme kaart, Gevonden voorwerp, Spraakbericht\n• Afdrukbaar etiketvel met QR-codes (PDF)\n• Eenvoudige modus, amiibo-info, byte-editor, NFC-chipgids\n• Slepen om te ordenen en Compatibiliteitsmodus"
 }

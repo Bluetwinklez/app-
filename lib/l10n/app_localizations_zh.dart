@@ -3909,4 +3909,9 @@ class AppLocalizationsZh extends AppLocalizations {
 
   @override
   String get simpleNothing => '此标签没有可显示的内容。';
+
+  @override
+  String whatsNew120(String date, String time, String counter) {
+    return '• 记录簿：考勤、服药与库存\n• 安全：面容 ID 锁、加密备份、签名标签、仿冒网站警告\n• 模板变量（$date、$time、$counter）及从标签库写入\n• 新模板：智能名片、失物招领、语音留言\n• 带二维码的可打印标签页（PDF）\n• 简易模式、amiibo 信息、字节编辑器、NFC 芯片指南\n• 拖动排序与兼容模式';
+  }
 }

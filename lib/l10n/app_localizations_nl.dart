@@ -4121,4 +4121,9 @@ class AppLocalizationsNl extends AppLocalizations {
 
   @override
   String get simpleNothing => 'Er staat niets op deze tag.';
+
+  @override
+  String whatsNew120(String date, String time, String counter) {
+    return '• Logboek: aanwezigheid, medicijnen en inventaris\n• Beveiliging: Face ID-vergrendeling, versleutelde back-ups, ondertekende tags, waarschuwing voor nepsites\n• Sjabloonvariabelen ($date, $time, $counter) en schrijven vanuit de bibliotheek\n• Nieuwe sjablonen: Slimme kaart, Gevonden voorwerp, Spraakbericht\n• Afdrukbaar etiketvel met QR-codes (PDF)\n• Eenvoudige modus, amiibo-info, byte-editor, NFC-chipgids\n• Slepen om te ordenen en Compatibiliteitsmodus';
+  }
 }

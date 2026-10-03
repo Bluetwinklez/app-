@@ -4150,4 +4150,9 @@ class AppLocalizationsEs extends AppLocalizations {
 
   @override
   String get simpleNothing => 'No hay nada que mostrar en esta etiqueta.';
+
+  @override
+  String whatsNew120(String date, String time, String counter) {
+    return '• Registro: asistencia, medicación e inventario\n• Seguridad: bloqueo Face ID, copias cifradas, etiquetas firmadas, aviso de sitios falsos\n• Variables de plantilla ($date, $time, $counter) y escritura desde la biblioteca\n• Nuevas plantillas: Tarjeta inteligente, Objeto perdido, Mensaje de voz\n• Hoja de etiquetas imprimible con QR (PDF)\n• Modo sencillo, info amiibo, editor de bytes, guía de chips NFC\n• Ordenar arrastrando y modo Compatibilidad';
+  }
 }

@@ -7071,6 +7071,12 @@ abstract class AppLocalizations {
   /// In tr, this message translates to:
   /// **'Bu etikette gösterilecek bir şey yok.'**
   String get simpleNothing;
+
+  /// No description provided for @whatsNew120.
+  ///
+  /// In tr, this message translates to:
+  /// **'• Kayıt Defteri: yoklama, ilaç ve envanter takibi\n• Güvenlik: Face ID kilidi, şifreli yedek, imzalı etiket, sahte site uyarısı\n• Şablon değişkenleri ({date}, {time}, {counter}) ve kütüphaneden etikete yazma\n• Yeni şablonlar: Akıllı Kart, Kayıp Eşya, Sesli Mesaj\n• QR kodlu yazdırılabilir etiket sayfası (PDF)\n• Basit mod, amiibo bilgisi, bayt düzenleyici, NFC çipleri rehberi\n• Sürükle-bırak sıralama ve Uyumluluk modu'**
+  String whatsNew120(String date, String time, String counter);
 }
 
 class _AppLocalizationsDelegate
