@@ -577,6 +577,7 @@ class _ComposeRecordSheetState extends State<ComposeRecordSheet> {
                   style: const TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
                 ),
                 IconButton(
+                  tooltip: MaterialLocalizations.of(context).closeButtonTooltip,
                   icon: const Icon(Icons.close),
                   onPressed: () => Navigator.of(context).pop(),
                 ),

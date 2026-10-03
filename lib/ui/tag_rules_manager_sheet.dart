@@ -180,6 +180,7 @@ class _TagRulesManagerSheetState extends State<TagRulesManagerSheet> {
                   ],
                 ),
                 IconButton(
+                  tooltip: MaterialLocalizations.of(context).closeButtonTooltip,
                   icon: const Icon(Icons.close),
                   onPressed: () => Navigator.of(context).pop(),
                 ),
