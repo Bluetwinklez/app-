@@ -1302,5 +1302,13 @@
   "feedingNever": "No feeding logged yet",
   "visitorsToday": "{count} visitors today",
   "visitorNamePrompt": "Visitor name",
-  "visitorNameHint": "Name, company (optional)"
+  "visitorNameHint": "Name, company (optional)",
+  "reminderBody": "Don't forget to scan the tag 📲",
+  "reminderInspectionTitle": "Inspection due: {name}",
+  "reminderInspectionBody": "Scan the tag after checking it.",
+  "reminderTitle": "Daily reminder",
+  "reminderOff": "Off",
+  "reminderAt": "Every day at {time}",
+  "reminderDenied": "Notifications are not allowed. You can allow them in Settings.",
+  "inspectionRemindersNote": "Tags due for inspection notify you at 10:00 on the due day (if allowed)."
 }

@@ -4672,4 +4672,34 @@ class AppLocalizationsDe extends AppLocalizations {
 
   @override
   String get visitorNameHint => 'Name, Firma (optional)';
+
+  @override
+  String get reminderBody => 'Tag scannen nicht vergessen 📲';
+
+  @override
+  String reminderInspectionTitle(String name) {
+    return 'Prüfung fällig: $name';
+  }
+
+  @override
+  String get reminderInspectionBody => 'Nach der Prüfung den Tag scannen.';
+
+  @override
+  String get reminderTitle => 'Tägliche Erinnerung';
+
+  @override
+  String get reminderOff => 'Aus';
+
+  @override
+  String reminderAt(String time) {
+    return 'Täglich um $time';
+  }
+
+  @override
+  String get reminderDenied =>
+      'Mitteilungen nicht erlaubt. In den Einstellungen erlauben.';
+
+  @override
+  String get inspectionRemindersNote =>
+      'Fällige Tags melden sich am Fälligkeitstag um 10:00 (falls erlaubt).';
 }

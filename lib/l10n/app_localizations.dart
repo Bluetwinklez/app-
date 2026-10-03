@@ -7942,6 +7942,54 @@ abstract class AppLocalizations {
   /// In tr, this message translates to:
   /// **'Ad Soyad, firma (isteğe bağlı)'**
   String get visitorNameHint;
+
+  /// No description provided for @reminderBody.
+  ///
+  /// In tr, this message translates to:
+  /// **'Etiketi okutmayı unutma 📲'**
+  String get reminderBody;
+
+  /// No description provided for @reminderInspectionTitle.
+  ///
+  /// In tr, this message translates to:
+  /// **'Kontrol zamanı: {name}'**
+  String reminderInspectionTitle(String name);
+
+  /// No description provided for @reminderInspectionBody.
+  ///
+  /// In tr, this message translates to:
+  /// **'Kontrol ettikten sonra etiketi okutun.'**
+  String get reminderInspectionBody;
+
+  /// No description provided for @reminderTitle.
+  ///
+  /// In tr, this message translates to:
+  /// **'Günlük hatırlatma'**
+  String get reminderTitle;
+
+  /// No description provided for @reminderOff.
+  ///
+  /// In tr, this message translates to:
+  /// **'Kapalı'**
+  String get reminderOff;
+
+  /// No description provided for @reminderAt.
+  ///
+  /// In tr, this message translates to:
+  /// **'Her gün {time}'**
+  String reminderAt(String time);
+
+  /// No description provided for @reminderDenied.
+  ///
+  /// In tr, this message translates to:
+  /// **'Bildirim izni verilmedi. Ayarlar\'dan izin verebilirsiniz.'**
+  String get reminderDenied;
+
+  /// No description provided for @inspectionRemindersNote.
+  ///
+  /// In tr, this message translates to:
+  /// **'Kontrol tarihi gelen etiketler için saat 10:00\'da bildirim gelir (izin verdiyseniz).'**
+  String get inspectionRemindersNote;
 }
 
 class _AppLocalizationsDelegate

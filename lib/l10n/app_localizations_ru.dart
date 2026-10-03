@@ -4659,4 +4659,34 @@ class AppLocalizationsRu extends AppLocalizations {
 
   @override
   String get visitorNameHint => 'Имя, компания (необязательно)';
+
+  @override
+  String get reminderBody => 'Не забудьте отсканировать метку 📲';
+
+  @override
+  String reminderInspectionTitle(String name) {
+    return 'Пора проверить: $name';
+  }
+
+  @override
+  String get reminderInspectionBody => 'После проверки отсканируйте метку.';
+
+  @override
+  String get reminderTitle => 'Ежедневное напоминание';
+
+  @override
+  String get reminderOff => 'Выкл.';
+
+  @override
+  String reminderAt(String time) {
+    return 'Каждый день в $time';
+  }
+
+  @override
+  String get reminderDenied =>
+      'Уведомления не разрешены. Разрешите их в Настройках.';
+
+  @override
+  String get inspectionRemindersNote =>
+      'Метки к проверке напомнят в 10:00 в нужный день (если разрешено).';
 }

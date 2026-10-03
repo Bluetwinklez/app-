@@ -4420,4 +4420,32 @@ class AppLocalizationsZh extends AppLocalizations {
 
   @override
   String get visitorNameHint => '姓名、公司（可选）';
+
+  @override
+  String get reminderBody => '别忘了扫描标签 📲';
+
+  @override
+  String reminderInspectionTitle(String name) {
+    return '需要检查：$name';
+  }
+
+  @override
+  String get reminderInspectionBody => '检查后请扫描标签。';
+
+  @override
+  String get reminderTitle => '每日提醒';
+
+  @override
+  String get reminderOff => '关闭';
+
+  @override
+  String reminderAt(String time) {
+    return '每天 $time';
+  }
+
+  @override
+  String get reminderDenied => '未允许通知。可在设置中开启。';
+
+  @override
+  String get inspectionRemindersNote => '到期标签会在当天 10:00 提醒（若已允许）。';
 }

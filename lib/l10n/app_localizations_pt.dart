@@ -4670,4 +4670,34 @@ class AppLocalizationsPt extends AppLocalizations {
 
   @override
   String get visitorNameHint => 'Nome, empresa (opcional)';
+
+  @override
+  String get reminderBody => 'Não esqueça de ler a tag 📲';
+
+  @override
+  String reminderInspectionTitle(String name) {
+    return 'Verificação pendente: $name';
+  }
+
+  @override
+  String get reminderInspectionBody => 'Leia a tag depois de verificar.';
+
+  @override
+  String get reminderTitle => 'Lembrete diário';
+
+  @override
+  String get reminderOff => 'Desativado';
+
+  @override
+  String reminderAt(String time) {
+    return 'Todos os dias às $time';
+  }
+
+  @override
+  String get reminderDenied =>
+      'Notificações não permitidas. Permita em Ajustes.';
+
+  @override
+  String get inspectionRemindersNote =>
+      'Tags pendentes avisam às 10:00 do dia previsto (se permitido).';
 }

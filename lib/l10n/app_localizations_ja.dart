@@ -4460,4 +4460,32 @@ class AppLocalizationsJa extends AppLocalizations {
 
   @override
   String get visitorNameHint => '氏名・会社（任意）';
+
+  @override
+  String get reminderBody => 'タグの読み取りを忘れずに 📲';
+
+  @override
+  String reminderInspectionTitle(String name) {
+    return '点検時期: $name';
+  }
+
+  @override
+  String get reminderInspectionBody => '点検後にタグを読み取ってください。';
+
+  @override
+  String get reminderTitle => '毎日のリマインダー';
+
+  @override
+  String get reminderOff => 'オフ';
+
+  @override
+  String reminderAt(String time) {
+    return '毎日 $time';
+  }
+
+  @override
+  String get reminderDenied => '通知が許可されていません。設定で許可できます。';
+
+  @override
+  String get inspectionRemindersNote => '点検日の10:00に通知します（許可した場合）。';
 }

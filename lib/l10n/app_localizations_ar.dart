@@ -4605,4 +4605,34 @@ class AppLocalizationsAr extends AppLocalizations {
 
   @override
   String get visitorNameHint => 'الاسم، الشركة (اختياري)';
+
+  @override
+  String get reminderBody => 'لا تنسَ مسح الوسم 📲';
+
+  @override
+  String reminderInspectionTitle(String name) {
+    return 'حان وقت الفحص: $name';
+  }
+
+  @override
+  String get reminderInspectionBody => 'امسح الوسم بعد فحصه.';
+
+  @override
+  String get reminderTitle => 'تذكير يومي';
+
+  @override
+  String get reminderOff => 'متوقف';
+
+  @override
+  String reminderAt(String time) {
+    return 'كل يوم الساعة $time';
+  }
+
+  @override
+  String get reminderDenied =>
+      'الإشعارات غير مسموح بها. يمكنك السماح بها من الإعدادات.';
+
+  @override
+  String get inspectionRemindersNote =>
+      'تنبّهك الوسوم المستحقة للفحص الساعة 10:00 في يوم الاستحقاق (إن سُمح).';
 }

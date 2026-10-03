@@ -1302,5 +1302,13 @@
   "feedingNever": "Кормлений пока нет",
   "visitorsToday": "Посетителей сегодня: {count}",
   "visitorNamePrompt": "Имя посетителя",
-  "visitorNameHint": "Имя, компания (необязательно)"
+  "visitorNameHint": "Имя, компания (необязательно)",
+  "reminderBody": "Не забудьте отсканировать метку 📲",
+  "reminderInspectionTitle": "Пора проверить: {name}",
+  "reminderInspectionBody": "После проверки отсканируйте метку.",
+  "reminderTitle": "Ежедневное напоминание",
+  "reminderOff": "Выкл.",
+  "reminderAt": "Каждый день в {time}",
+  "reminderDenied": "Уведомления не разрешены. Разрешите их в Настройках.",
+  "inspectionRemindersNote": "Метки к проверке напомнят в 10:00 в нужный день (если разрешено)."
 }
