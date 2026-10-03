@@ -1384,5 +1384,14 @@
   "templateImportHint": "每行：名称、类型、值、附加。类型：url、text、phone、email、sms、location、wifi。同名的行合并为一个模板。",
   "templateImportPreview": "将添加 {count} 个模板",
   "templateImportSkipped": "跳过的行：{rows}",
-  "templateImportDone": "已添加 {count} 个模板"
+  "templateImportDone": "已添加 {count} 个模板",
+  "assetSection": "资产信息",
+  "assetSerialLabel": "序列号 / 资产编号",
+  "assigneeLabel": "领用人",
+  "warrantyLabel": "保修至",
+  "warrantyExpired": "保修已过期",
+  "warrantyUntilText": "保修：{date}",
+  "assigneeText": "领用：{name}",
+  "reminderWarrantyTitle": "保修到期：{name}",
+  "reminderWarrantyBody": "保修今天到期。"
 }

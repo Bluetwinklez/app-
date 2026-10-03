@@ -49,4 +49,21 @@ void main() {
     expect(b.copyWith(clearReminder: true).reminderMinutes, isNull);
     expect(b.add(LogEntry(time: now, uid: 'u', label: 'l')).reminderMinutes, 480);
   });
+
+  test('warranty end gets a reminder when a title builder is given', () {
+    final e = TagLibraryEntry(
+        id: 'w', name: 'Laptop', warrantyUntil: DateTime(2026, 7, 1), createdAt: now, updatedAt: now);
+    final r = ReminderPlan.build(
+      books: const [],
+      library: [e],
+      now: now,
+      bookBody: (_) => '',
+      inspectionTitle: (_) => '',
+      inspectionBody: '',
+      warrantyTitle: (x) => 'warranty ${x.name}',
+      warrantyBody: 'ends',
+    );
+    expect(r.single.title, 'warranty Laptop');
+    expect(r.single.at, DateTime(2026, 7, 1, 10));
+  });
 }

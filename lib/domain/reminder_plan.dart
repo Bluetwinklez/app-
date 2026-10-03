@@ -41,6 +41,8 @@ class ReminderPlan {
     required String Function(LogBook) bookBody,
     required String Function(TagLibraryEntry) inspectionTitle,
     required String inspectionBody,
+    String Function(TagLibraryEntry)? warrantyTitle,
+    String warrantyBody = '',
   }) {
     final out = <PlannedReminder>[];
     for (final b in books) {
@@ -48,18 +50,24 @@ class ReminderPlan {
       if (m == null) continue;
       out.add(PlannedReminder.daily(_id('book', b.id), b.name, bookBody(b), m ~/ 60, m % 60));
     }
-    final due = <(DateTime, TagLibraryEntry)>[];
+    final due = <(DateTime, String, String, String)>[];
     for (final e in library) {
       final next = e.nextCheckAt;
-      if (next == null) continue;
-      var at = DateTime(next.year, next.month, next.day, inspectionHour);
-      if (!at.isAfter(now)) continue; // already overdue: shown in the app instead
-      due.add((at, e));
+      if (next != null) {
+        final at = DateTime(next.year, next.month, next.day, inspectionHour);
+        // Already overdue: shown in the app instead.
+        if (at.isAfter(now)) due.add((at, _id('check', e.id).toString(), inspectionTitle(e), inspectionBody));
+      }
+      final w = e.warrantyUntil;
+      if (w != null && warrantyTitle != null) {
+        final at = DateTime(w.year, w.month, w.day, inspectionHour);
+        if (at.isAfter(now)) due.add((at, _id('warranty', e.id).toString(), warrantyTitle(e), warrantyBody));
+      }
     }
     due.sort((a, b) => a.$1.compareTo(b.$1));
-    for (final (at, e) in due) {
+    for (final (at, id, title, body) in due) {
       if (out.length >= maxPending) break;
-      out.add(PlannedReminder.once(_id('check', e.id), inspectionTitle(e), inspectionBody, at));
+      out.add(PlannedReminder.once(int.parse(id), title, body, at));
     }
     return out;
   }

@@ -1384,5 +1384,14 @@
   "templateImportHint": "كل صف: الاسم، النوع، القيمة، إضافي. الأنواع: url وtext وphone وemail وsms وlocation وwifi. الصفوف ذات الاسم نفسه تصبح قالبًا واحدًا.",
   "templateImportPreview": "ستُضاف {count} قوالب",
   "templateImportSkipped": "صفوف متخطاة: {rows}",
-  "templateImportDone": "أُضيفت {count} قوالب"
+  "templateImportDone": "أُضيفت {count} قوالب",
+  "assetSection": "بيانات الأصل",
+  "assetSerialLabel": "الرقم التسلسلي / رقم الأصل",
+  "assigneeLabel": "مُسند إلى",
+  "warrantyLabel": "الضمان حتى",
+  "warrantyExpired": "انتهى الضمان",
+  "warrantyUntilText": "الضمان: {date}",
+  "assigneeText": "مُسند: {name}",
+  "reminderWarrantyTitle": "ينتهي الضمان: {name}",
+  "reminderWarrantyBody": "ينتهي الضمان اليوم."
 }

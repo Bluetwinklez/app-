@@ -3371,5 +3371,35 @@
         "type": "String"
       }
     }
-  }
+  },
+  "assetSection": "Demirbaş bilgileri",
+  "assetSerialLabel": "Seri / demirbaş no",
+  "assigneeLabel": "Zimmetli kişi",
+  "warrantyLabel": "Garanti bitişi",
+  "warrantyExpired": "Garanti bitti",
+  "warrantyUntilText": "Garanti: {date}",
+  "@warrantyUntilText": {
+    "placeholders": {
+      "date": {
+        "type": "String"
+      }
+    }
+  },
+  "assigneeText": "Zimmet: {name}",
+  "@assigneeText": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
+  "reminderWarrantyTitle": "Garanti bitiyor: {name}",
+  "@reminderWarrantyTitle": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
+  "reminderWarrantyBody": "Bugün garanti süresi doluyor."
 }

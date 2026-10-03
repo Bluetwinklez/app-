@@ -1384,5 +1384,14 @@
   "templateImportHint": "Each row: name, type, value, extra. Types: url, text, phone, email, sms, location, wifi. Rows with the same name become one template.",
   "templateImportPreview": "{count} templates will be added",
   "templateImportSkipped": "Skipped rows: {rows}",
-  "templateImportDone": "{count} templates added"
+  "templateImportDone": "{count} templates added",
+  "assetSection": "Asset details",
+  "assetSerialLabel": "Serial / asset no.",
+  "assigneeLabel": "Assigned to",
+  "warrantyLabel": "Warranty until",
+  "warrantyExpired": "Warranty expired",
+  "warrantyUntilText": "Warranty: {date}",
+  "assigneeText": "Assigned: {name}",
+  "reminderWarrantyTitle": "Warranty ends: {name}",
+  "reminderWarrantyBody": "The warranty ends today."
 }

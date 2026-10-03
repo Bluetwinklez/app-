@@ -4941,4 +4941,37 @@ class AppLocalizationsUk extends AppLocalizations {
   String templateImportDone(String count) {
     return 'Додано шаблонів: $count';
   }
+
+  @override
+  String get assetSection => 'Дані активу';
+
+  @override
+  String get assetSerialLabel => 'Серійний / інв. номер';
+
+  @override
+  String get assigneeLabel => 'Закріплено за';
+
+  @override
+  String get warrantyLabel => 'Гарантія до';
+
+  @override
+  String get warrantyExpired => 'Гарантія закінчилась';
+
+  @override
+  String warrantyUntilText(String date) {
+    return 'Гарантія: $date';
+  }
+
+  @override
+  String assigneeText(String name) {
+    return 'Закріплено: $name';
+  }
+
+  @override
+  String reminderWarrantyTitle(String name) {
+    return 'Гарантія закінчується: $name';
+  }
+
+  @override
+  String get reminderWarrantyBody => 'Гарантія закінчується сьогодні.';
 }

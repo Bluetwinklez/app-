@@ -1384,5 +1384,14 @@
   "templateImportHint": "Jede Zeile: Name, Typ, Wert, Extra. Typen: url, text, phone, email, sms, location, wifi. Gleichnamige Zeilen ergeben eine Vorlage.",
   "templateImportPreview": "{count} Vorlagen werden hinzugefügt",
   "templateImportSkipped": "Übersprungene Zeilen: {rows}",
-  "templateImportDone": "{count} Vorlagen hinzugefügt"
+  "templateImportDone": "{count} Vorlagen hinzugefügt",
+  "assetSection": "Inventardaten",
+  "assetSerialLabel": "Serien- / Inventarnr.",
+  "assigneeLabel": "Zugewiesen an",
+  "warrantyLabel": "Garantie bis",
+  "warrantyExpired": "Garantie abgelaufen",
+  "warrantyUntilText": "Garantie: {date}",
+  "assigneeText": "Zugewiesen: {name}",
+  "reminderWarrantyTitle": "Garantie endet: {name}",
+  "reminderWarrantyBody": "Die Garantie endet heute."
 }

@@ -4942,4 +4942,37 @@ class AppLocalizationsNl extends AppLocalizations {
   String templateImportDone(String count) {
     return '$count sjablonen toegevoegd';
   }
+
+  @override
+  String get assetSection => 'Inventarisgegevens';
+
+  @override
+  String get assetSerialLabel => 'Serie- / inventarisnr.';
+
+  @override
+  String get assigneeLabel => 'Toegewezen aan';
+
+  @override
+  String get warrantyLabel => 'Garantie tot';
+
+  @override
+  String get warrantyExpired => 'Garantie verlopen';
+
+  @override
+  String warrantyUntilText(String date) {
+    return 'Garantie: $date';
+  }
+
+  @override
+  String assigneeText(String name) {
+    return 'Toegewezen: $name';
+  }
+
+  @override
+  String reminderWarrantyTitle(String name) {
+    return 'Garantie verloopt: $name';
+  }
+
+  @override
+  String get reminderWarrantyBody => 'De garantie loopt vandaag af.';
 }

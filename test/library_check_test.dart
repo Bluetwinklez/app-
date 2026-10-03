@@ -73,4 +73,15 @@ void main() {
       expect(saved.copyWith(clearPosition: true).latitude, isNull);
     });
   });
+
+  test('asset details survive JSON, are searchable and warn when expired', () {
+    final e = entry().copyWith(assetSerial: 'SN-42', assignee: 'Ayşe', warrantyUntil: DateTime(2026, 3, 1));
+    final back = TagLibraryEntry.fromJsonMap(e.toJsonMap());
+    expect((back.assetSerial, back.assignee, back.warrantyUntil), ('SN-42', 'Ayşe', DateTime(2026, 3, 1)));
+    expect(back.matches('sn-42'), isTrue);
+    expect(back.matches('AYŞE'), isTrue);
+    expect(back.warrantyExpired(DateTime(2026, 3, 1)), isTrue);
+    expect(back.warrantyExpired(DateTime(2026, 2, 28)), isFalse);
+    expect(back.copyWith(clearWarranty: true).warrantyUntil, isNull);
+  });
 }

@@ -1384,5 +1384,14 @@
   "templateImportHint": "Кожен рядок: назва, тип, значення, дод. Типи: url, text, phone, email, sms, location, wifi. Рядки з однаковою назвою об'єднуються.",
   "templateImportPreview": "Буде додано шаблонів: {count}",
   "templateImportSkipped": "Пропущено рядки: {rows}",
-  "templateImportDone": "Додано шаблонів: {count}"
+  "templateImportDone": "Додано шаблонів: {count}",
+  "assetSection": "Дані активу",
+  "assetSerialLabel": "Серійний / інв. номер",
+  "assigneeLabel": "Закріплено за",
+  "warrantyLabel": "Гарантія до",
+  "warrantyExpired": "Гарантія закінчилась",
+  "warrantyUntilText": "Гарантія: {date}",
+  "assigneeText": "Закріплено: {name}",
+  "reminderWarrantyTitle": "Гарантія закінчується: {name}",
+  "reminderWarrantyBody": "Гарантія закінчується сьогодні."
 }

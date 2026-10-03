@@ -4974,4 +4974,37 @@ class AppLocalizationsEs extends AppLocalizations {
   String templateImportDone(String count) {
     return '$count plantillas añadidas';
   }
+
+  @override
+  String get assetSection => 'Datos del activo';
+
+  @override
+  String get assetSerialLabel => 'N.º de serie / activo';
+
+  @override
+  String get assigneeLabel => 'Asignado a';
+
+  @override
+  String get warrantyLabel => 'Garantía hasta';
+
+  @override
+  String get warrantyExpired => 'Garantía vencida';
+
+  @override
+  String warrantyUntilText(String date) {
+    return 'Garantía: $date';
+  }
+
+  @override
+  String assigneeText(String name) {
+    return 'Asignado: $name';
+  }
+
+  @override
+  String reminderWarrantyTitle(String name) {
+    return 'Fin de garantía: $name';
+  }
+
+  @override
+  String get reminderWarrantyBody => 'La garantía termina hoy.';
 }

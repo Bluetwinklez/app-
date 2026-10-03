@@ -4884,4 +4884,37 @@ class AppLocalizationsAr extends AppLocalizations {
   String templateImportDone(String count) {
     return 'أُضيفت $count قوالب';
   }
+
+  @override
+  String get assetSection => 'بيانات الأصل';
+
+  @override
+  String get assetSerialLabel => 'الرقم التسلسلي / رقم الأصل';
+
+  @override
+  String get assigneeLabel => 'مُسند إلى';
+
+  @override
+  String get warrantyLabel => 'الضمان حتى';
+
+  @override
+  String get warrantyExpired => 'انتهى الضمان';
+
+  @override
+  String warrantyUntilText(String date) {
+    return 'الضمان: $date';
+  }
+
+  @override
+  String assigneeText(String name) {
+    return 'مُسند: $name';
+  }
+
+  @override
+  String reminderWarrantyTitle(String name) {
+    return 'ينتهي الضمان: $name';
+  }
+
+  @override
+  String get reminderWarrantyBody => 'ينتهي الضمان اليوم.';
 }

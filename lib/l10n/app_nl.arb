@@ -1384,5 +1384,14 @@
   "templateImportHint": "Elke rij: naam, type, waarde, extra. Types: url, text, phone, email, sms, location, wifi. Rijen met dezelfde naam worden één sjabloon.",
   "templateImportPreview": "{count} sjablonen worden toegevoegd",
   "templateImportSkipped": "Overgeslagen rijen: {rows}",
-  "templateImportDone": "{count} sjablonen toegevoegd"
+  "templateImportDone": "{count} sjablonen toegevoegd",
+  "assetSection": "Inventarisgegevens",
+  "assetSerialLabel": "Serie- / inventarisnr.",
+  "assigneeLabel": "Toegewezen aan",
+  "warrantyLabel": "Garantie tot",
+  "warrantyExpired": "Garantie verlopen",
+  "warrantyUntilText": "Garantie: {date}",
+  "assigneeText": "Toegewezen: {name}",
+  "reminderWarrantyTitle": "Garantie verloopt: {name}",
+  "reminderWarrantyBody": "De garantie loopt vandaag af."
 }

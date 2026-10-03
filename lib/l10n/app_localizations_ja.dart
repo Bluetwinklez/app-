@@ -4729,4 +4729,37 @@ class AppLocalizationsJa extends AppLocalizations {
   String templateImportDone(String count) {
     return '$count件のテンプレートを追加しました';
   }
+
+  @override
+  String get assetSection => '備品情報';
+
+  @override
+  String get assetSerialLabel => 'シリアル / 備品番号';
+
+  @override
+  String get assigneeLabel => '担当者';
+
+  @override
+  String get warrantyLabel => '保証期限';
+
+  @override
+  String get warrantyExpired => '保証切れ';
+
+  @override
+  String warrantyUntilText(String date) {
+    return '保証: $date';
+  }
+
+  @override
+  String assigneeText(String name) {
+    return '担当: $name';
+  }
+
+  @override
+  String reminderWarrantyTitle(String name) {
+    return '保証終了: $name';
+  }
+
+  @override
+  String get reminderWarrantyBody => '本日で保証が終了します。';
 }
