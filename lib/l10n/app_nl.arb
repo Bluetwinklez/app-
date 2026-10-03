@@ -1101,5 +1101,14 @@
   "phishBrandInName": "Het domein bevat \"{brand}\" maar is niet de officiële site.",
   "phishShortener": "Verkorte link ({host}): het echte adres is verborgen.",
   "phishRiskyTld": "De extensie \".{tld}\" wordt vaak voor phishing gebruikt.",
-  "phishDisclaimer": "Deze controle gebruikt offline aanwijzingen en garandeert geen veiligheid."
+  "phishDisclaimer": "Deze controle gebruikt offline aanwijzingen en garandeert geen veiligheid.",
+  "backupEncrypt": "Beveiligen met wachtwoord",
+  "backupEncryptHint": "De back-up wordt met AES-256 versleuteld. Zonder wachtwoord is hij niet te openen.",
+  "backupPassword": "Wachtwoord",
+  "backupPasswordRepeat": "Wachtwoord (herhalen)",
+  "backupPasswordTooShort": "Het wachtwoord moet minstens {min} tekens hebben.",
+  "backupPasswordMismatch": "De wachtwoorden komen niet overeen.",
+  "backupEncryptedPrompt": "Deze back-up is beveiligd. Voer het wachtwoord in.",
+  "backupWrongPassword": "Verkeerd wachtwoord.",
+  "backupDecryptFailed": "Ontsleutelen mislukt; het bestand is mogelijk beschadigd."
 }

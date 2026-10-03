@@ -3769,4 +3769,33 @@ class AppLocalizationsKo extends AppLocalizations {
 
   @override
   String get phishDisclaimer => '오프라인 단서를 이용한 검사로 안전을 보장하지 않습니다.';
+
+  @override
+  String get backupEncrypt => '비밀번호로 보호';
+
+  @override
+  String get backupEncryptHint => '백업은 AES-256으로 암호화됩니다. 비밀번호를 잊으면 열 수 없습니다.';
+
+  @override
+  String get backupPassword => '비밀번호';
+
+  @override
+  String get backupPasswordRepeat => '비밀번호 확인';
+
+  @override
+  String backupPasswordTooShort(String min) {
+    return '비밀번호는 $min자 이상이어야 합니다.';
+  }
+
+  @override
+  String get backupPasswordMismatch => '비밀번호가 일치하지 않습니다.';
+
+  @override
+  String get backupEncryptedPrompt => '이 백업은 비밀번호로 보호됩니다. 비밀번호를 입력하세요.';
+
+  @override
+  String get backupWrongPassword => '비밀번호가 틀렸습니다.';
+
+  @override
+  String get backupDecryptFailed => '복호화하지 못했습니다. 파일이 손상되었을 수 있습니다.';
 }

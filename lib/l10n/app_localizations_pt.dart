@@ -3939,4 +3939,36 @@ class AppLocalizationsPt extends AppLocalizations {
   @override
   String get phishDisclaimer =>
       'Esta verificação usa pistas offline; não garante que o site seja seguro.';
+
+  @override
+  String get backupEncrypt => 'Proteger com senha';
+
+  @override
+  String get backupEncryptHint =>
+      'O backup é criptografado com AES-256. Sem a senha, não pode ser aberto.';
+
+  @override
+  String get backupPassword => 'Senha';
+
+  @override
+  String get backupPasswordRepeat => 'Senha (repetir)';
+
+  @override
+  String backupPasswordTooShort(String min) {
+    return 'A senha deve ter pelo menos $min caracteres.';
+  }
+
+  @override
+  String get backupPasswordMismatch => 'As senhas não coincidem.';
+
+  @override
+  String get backupEncryptedPrompt =>
+      'Este backup é protegido. Digite a senha.';
+
+  @override
+  String get backupWrongPassword => 'Senha incorreta.';
+
+  @override
+  String get backupDecryptFailed =>
+      'Não foi possível descriptografar; o arquivo pode estar danificado.';
 }

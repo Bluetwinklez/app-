@@ -3927,4 +3927,36 @@ class AppLocalizationsUk extends AppLocalizations {
   @override
   String get phishDisclaimer =>
       'Перевірка офлайн-евристична й не гарантує безпеку.';
+
+  @override
+  String get backupEncrypt => 'Захистити паролем';
+
+  @override
+  String get backupEncryptHint =>
+      'Копію зашифровано AES-256. Без пароля її не відкрити.';
+
+  @override
+  String get backupPassword => 'Пароль';
+
+  @override
+  String get backupPasswordRepeat => 'Пароль (ще раз)';
+
+  @override
+  String backupPasswordTooShort(String min) {
+    return 'Пароль має містити щонайменше $min символів.';
+  }
+
+  @override
+  String get backupPasswordMismatch => 'Паролі не збігаються.';
+
+  @override
+  String get backupEncryptedPrompt =>
+      'Ця копія захищена паролем. Введіть пароль.';
+
+  @override
+  String get backupWrongPassword => 'Неправильний пароль.';
+
+  @override
+  String get backupDecryptFailed =>
+      'Не вдалося розшифрувати; файл може бути пошкоджено.';
 }

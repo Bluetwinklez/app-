@@ -3722,4 +3722,33 @@ class AppLocalizationsZh extends AppLocalizations {
 
   @override
   String get phishDisclaimer => '此检查基于离线线索，不能保证网站安全。';
+
+  @override
+  String get backupEncrypt => '用密码保护';
+
+  @override
+  String get backupEncryptHint => '备份使用 AES-256 加密，忘记密码将无法打开。';
+
+  @override
+  String get backupPassword => '密码';
+
+  @override
+  String get backupPasswordRepeat => '确认密码';
+
+  @override
+  String backupPasswordTooShort(String min) {
+    return '密码至少需要 $min 个字符。';
+  }
+
+  @override
+  String get backupPasswordMismatch => '两次密码不一致。';
+
+  @override
+  String get backupEncryptedPrompt => '此备份受密码保护，请输入密码。';
+
+  @override
+  String get backupWrongPassword => '密码错误。';
+
+  @override
+  String get backupDecryptFailed => '无法解密，文件可能已损坏。';
 }

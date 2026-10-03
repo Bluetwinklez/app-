@@ -1101,5 +1101,14 @@
   "phishBrandInName": "The domain contains \"{brand}\" but is not the official site.",
   "phishShortener": "Shortened link ({host}): the real address is hidden.",
   "phishRiskyTld": "The \".{tld}\" ending is often used by phishing sites.",
-  "phishDisclaimer": "This check uses offline hints; it cannot guarantee a site is safe."
+  "phishDisclaimer": "This check uses offline hints; it cannot guarantee a site is safe.",
+  "backupEncrypt": "Protect with a password",
+  "backupEncryptHint": "The backup is encrypted with AES-256. If you forget the password, it cannot be opened.",
+  "backupPassword": "Password",
+  "backupPasswordRepeat": "Password (again)",
+  "backupPasswordTooShort": "The password must be at least {min} characters.",
+  "backupPasswordMismatch": "The passwords do not match.",
+  "backupEncryptedPrompt": "This backup is password protected. Enter the password to open it.",
+  "backupWrongPassword": "Wrong password.",
+  "backupDecryptFailed": "The backup could not be decrypted; the file may be damaged."
 }

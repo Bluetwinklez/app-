@@ -3755,4 +3755,33 @@ class AppLocalizationsJa extends AppLocalizations {
 
   @override
   String get phishDisclaimer => 'オフラインの手がかりによる確認で、安全を保証するものではありません。';
+
+  @override
+  String get backupEncrypt => 'パスワードで保護';
+
+  @override
+  String get backupEncryptHint => 'バックアップはAES-256で暗号化されます。パスワードを忘れると開けません。';
+
+  @override
+  String get backupPassword => 'パスワード';
+
+  @override
+  String get backupPasswordRepeat => 'パスワード (確認)';
+
+  @override
+  String backupPasswordTooShort(String min) {
+    return 'パスワードは$min文字以上にしてください。';
+  }
+
+  @override
+  String get backupPasswordMismatch => 'パスワードが一致しません。';
+
+  @override
+  String get backupEncryptedPrompt => 'このバックアップはパスワードで保護されています。';
+
+  @override
+  String get backupWrongPassword => 'パスワードが違います。';
+
+  @override
+  String get backupDecryptFailed => '復号できませんでした。ファイルが壊れている可能性があります。';
 }

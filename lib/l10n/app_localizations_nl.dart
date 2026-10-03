@@ -3928,4 +3928,36 @@ class AppLocalizationsNl extends AppLocalizations {
   @override
   String get phishDisclaimer =>
       'Deze controle gebruikt offline aanwijzingen en garandeert geen veiligheid.';
+
+  @override
+  String get backupEncrypt => 'Beveiligen met wachtwoord';
+
+  @override
+  String get backupEncryptHint =>
+      'De back-up wordt met AES-256 versleuteld. Zonder wachtwoord is hij niet te openen.';
+
+  @override
+  String get backupPassword => 'Wachtwoord';
+
+  @override
+  String get backupPasswordRepeat => 'Wachtwoord (herhalen)';
+
+  @override
+  String backupPasswordTooShort(String min) {
+    return 'Het wachtwoord moet minstens $min tekens hebben.';
+  }
+
+  @override
+  String get backupPasswordMismatch => 'De wachtwoorden komen niet overeen.';
+
+  @override
+  String get backupEncryptedPrompt =>
+      'Deze back-up is beveiligd. Voer het wachtwoord in.';
+
+  @override
+  String get backupWrongPassword => 'Verkeerd wachtwoord.';
+
+  @override
+  String get backupDecryptFailed =>
+      'Ontsleutelen mislukt; het bestand is mogelijk beschadigd.';
 }

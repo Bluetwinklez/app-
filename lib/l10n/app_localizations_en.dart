@@ -3912,4 +3912,36 @@ class AppLocalizationsEn extends AppLocalizations {
   @override
   String get phishDisclaimer =>
       'This check uses offline hints; it cannot guarantee a site is safe.';
+
+  @override
+  String get backupEncrypt => 'Protect with a password';
+
+  @override
+  String get backupEncryptHint =>
+      'The backup is encrypted with AES-256. If you forget the password, it cannot be opened.';
+
+  @override
+  String get backupPassword => 'Password';
+
+  @override
+  String get backupPasswordRepeat => 'Password (again)';
+
+  @override
+  String backupPasswordTooShort(String min) {
+    return 'The password must be at least $min characters.';
+  }
+
+  @override
+  String get backupPasswordMismatch => 'The passwords do not match.';
+
+  @override
+  String get backupEncryptedPrompt =>
+      'This backup is password protected. Enter the password to open it.';
+
+  @override
+  String get backupWrongPassword => 'Wrong password.';
+
+  @override
+  String get backupDecryptFailed =>
+      'The backup could not be decrypted; the file may be damaged.';
 }

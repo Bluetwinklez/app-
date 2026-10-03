@@ -1101,5 +1101,14 @@
   "phishBrandInName": "Die Domain enthält „{brand}“, ist aber nicht die offizielle Seite.",
   "phishShortener": "Gekürzter Link ({host}): die echte Adresse ist verborgen.",
   "phishRiskyTld": "Die Endung „.{tld}“ wird oft für Phishing genutzt.",
-  "phishDisclaimer": "Diese Prüfung nutzt Offline-Hinweise und garantiert keine Sicherheit."
+  "phishDisclaimer": "Diese Prüfung nutzt Offline-Hinweise und garantiert keine Sicherheit.",
+  "backupEncrypt": "Mit Passwort schützen",
+  "backupEncryptHint": "Die Sicherung wird mit AES-256 verschlüsselt. Ohne Passwort lässt sie sich nicht öffnen.",
+  "backupPassword": "Passwort",
+  "backupPasswordRepeat": "Passwort (wiederholen)",
+  "backupPasswordTooShort": "Das Passwort braucht mindestens {min} Zeichen.",
+  "backupPasswordMismatch": "Die Passwörter stimmen nicht überein.",
+  "backupEncryptedPrompt": "Diese Sicherung ist geschützt. Passwort eingeben.",
+  "backupWrongPassword": "Falsches Passwort.",
+  "backupDecryptFailed": "Entschlüsselung fehlgeschlagen; die Datei ist evtl. beschädigt."
 }

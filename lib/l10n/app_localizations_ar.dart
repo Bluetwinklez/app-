@@ -3877,4 +3877,35 @@ class AppLocalizationsAr extends AppLocalizations {
   @override
   String get phishDisclaimer =>
       'يعتمد هذا الفحص على مؤشرات دون اتصال ولا يضمن أمان الموقع.';
+
+  @override
+  String get backupEncrypt => 'حماية بكلمة مرور';
+
+  @override
+  String get backupEncryptHint =>
+      'تُشفّر النسخة بـ AES-256. إذا نسيت كلمة المرور فلن تُفتح.';
+
+  @override
+  String get backupPassword => 'كلمة المرور';
+
+  @override
+  String get backupPasswordRepeat => 'كلمة المرور (مرة أخرى)';
+
+  @override
+  String backupPasswordTooShort(String min) {
+    return 'يجب ألا تقل كلمة المرور عن $min أحرف.';
+  }
+
+  @override
+  String get backupPasswordMismatch => 'كلمتا المرور غير متطابقتين.';
+
+  @override
+  String get backupEncryptedPrompt =>
+      'هذه النسخة محمية بكلمة مرور. أدخلها لفتحها.';
+
+  @override
+  String get backupWrongPassword => 'كلمة مرور خاطئة.';
+
+  @override
+  String get backupDecryptFailed => 'تعذّر فك التشفير؛ قد يكون الملف تالفًا.';
 }

@@ -13,6 +13,10 @@ extension _BackupActions on _HomeScreenState {
     final isHistoryEnabled = _controller.storage.isHistoryEnabled;
 
     bool includeHistory = isHistoryEnabled && history.isNotEmpty;
+    bool encrypt = false;
+    String? passwordError;
+    final pass1 = TextEditingController();
+    final pass2 = TextEditingController();
 
     showDialog(
       context: context,
@@ -88,6 +92,31 @@ extension _BackupActions on _HomeScreenState {
                         }
                       : null,
                 ),
+                SwitchListTile.adaptive(
+                  contentPadding: EdgeInsets.zero,
+                  dense: true,
+                  secondary: Icon(Icons.lock_outline_rounded, color: AppColors.accent),
+                  title: Text(L10n.current.backupEncrypt),
+                  value: encrypt,
+                  onChanged: (v) => setDlgState(() => encrypt = v),
+                ),
+                if (encrypt) ...[
+                  Text(L10n.current.backupEncryptHint,
+                      style: TextStyle(fontSize: 11, color: AppColors.secondary)),
+                  TextField(
+                    controller: pass1,
+                    obscureText: true,
+                    decoration: InputDecoration(labelText: L10n.current.backupPassword),
+                  ),
+                  TextField(
+                    controller: pass2,
+                    obscureText: true,
+                    decoration: InputDecoration(
+                      labelText: L10n.current.backupPasswordRepeat,
+                      errorText: passwordError,
+                    ),
+                  ),
+                ],
               ],
             ),
           ),
@@ -100,14 +129,30 @@ extension _BackupActions on _HomeScreenState {
               icon: const Icon(Icons.share),
               label: Text(L10n.current.backupExportAndShare),
               onPressed: () async {
+                String? password;
+                if (encrypt) {
+                  if (pass1.text.length < BackupCrypto.minPasswordLength) {
+                    setDlgState(() => passwordError =
+                        L10n.current.backupPasswordTooShort('${BackupCrypto.minPasswordLength}'));
+                    return;
+                  }
+                  if (pass1.text != pass2.text) {
+                    setDlgState(() => passwordError = L10n.current.backupPasswordMismatch);
+                    return;
+                  }
+                  password = pass1.text;
+                }
                 Navigator.of(ctx).pop();
-                await _executeExportBackup(includeHistory: includeHistory);
+                await _executeExportBackup(includeHistory: includeHistory, password: password);
               },
             ),
           ],
         ),
       ),
-    );
+    ).whenComplete(() {
+      pass1.dispose();
+      pass2.dispose();
+    });
   }
 
   Widget _buildLastBackupInfo() {
@@ -142,7 +187,7 @@ extension _BackupActions on _HomeScreenState {
     );
   }
 
-  Future<void> _executeExportBackup({required bool includeHistory}) async {
+  Future<void> _executeExportBackup({required bool includeHistory, String? password}) async {
     try {
       final templates = _controller.storage.getTemplates();
       final history = includeHistory ? _controller.storage.getHistory() : null;
@@ -155,10 +200,14 @@ extension _BackupActions on _HomeScreenState {
         tagLibrary: _controller.storage.getLibrary(),
         clientAppVersion: AppInfo.version,
       );
+      final fileContent =
+          password == null ? jsonContent : await BackupCrypto.encrypt(jsonContent, password);
 
       final dateStr = DateTime.now().toIso8601String().substring(0, 10);
-      final fileName = 'nfc_tag_master_backup_$dateStr.json';
-      final bytes = Uint8List.fromList(utf8.encode(jsonContent));
+      final fileName = password == null
+          ? 'nfc_tag_master_backup_$dateStr.json'
+          : 'nfc_tag_master_backup_${dateStr}_encrypted.json';
+      final bytes = Uint8List.fromList(utf8.encode(fileContent));
 
       final xfile = XFile.fromData(
         bytes,
@@ -309,11 +358,12 @@ extension _BackupActions on _HomeScreenState {
 
     String content;
     try {
-      if (await file.length() > BackupCodec.maxByteSize) {
+      // Encrypted files are base64 inside JSON, so allow them some room.
+      if (await file.length() > BackupCodec.maxByteSize * 2) {
         throw BackupValidationException(L10n.current.backupFileExceedsLimit);
       }
       final bytes = await file.readAsBytes();
-      if (bytes.length > BackupCodec.maxByteSize) {
+      if (bytes.length > BackupCodec.maxByteSize * 2) {
         throw BackupValidationException(
           L10n.current.backupFileExceedsLimit,
         );
@@ -328,6 +378,12 @@ extension _BackupActions on _HomeScreenState {
         ),
       );
       return;
+    }
+
+    if (BackupCrypto.isEncrypted(content)) {
+      final plain = await _askPasswordAndDecrypt(content);
+      if (plain == null || !mounted) return;
+      content = plain;
     }
 
     BackupPayload payload;
@@ -401,5 +457,53 @@ extension _BackupActions on _HomeScreenState {
         ),
       );
     }
+  }
+
+  /// Asks for the backup password until it decrypts or the user gives up.
+  Future<String?> _askPasswordAndDecrypt(String content) async {
+    final field = TextEditingController();
+    String? error;
+    String? result;
+    await showDialog<void>(
+      context: context,
+      builder: (ctx) => StatefulBuilder(
+        builder: (ctx, setDlg) => AlertDialog(
+          title: Row(children: [
+            Icon(Icons.lock_outline_rounded, color: AppColors.accent),
+            const SizedBox(width: 8),
+            Expanded(child: Text(L10n.current.backupPassword)),
+          ]),
+          content: Column(
+            mainAxisSize: MainAxisSize.min,
+            children: [
+              Text(L10n.current.backupEncryptedPrompt),
+              TextField(
+                controller: field,
+                obscureText: true,
+                autofocus: true,
+                decoration: InputDecoration(labelText: L10n.current.backupPassword, errorText: error),
+              ),
+            ],
+          ),
+          actions: [
+            TextButton(onPressed: () => Navigator.of(ctx).pop(), child: Text(L10n.current.cancel)),
+            ElevatedButton(
+              onPressed: () async {
+                try {
+                  result = await BackupCrypto.decrypt(content, field.text);
+                  if (ctx.mounted) Navigator.of(ctx).pop();
+                } on BackupDecryptException catch (e) {
+                  setDlg(() => error =
+                      e.wrongPassword ? L10n.current.backupWrongPassword : L10n.current.backupDecryptFailed);
+                }
+              },
+              child: Text(L10n.current.ok),
+            ),
+          ],
+        ),
+      ),
+    );
+    field.dispose();
+    return result;
   }
 }

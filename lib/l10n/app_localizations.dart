@@ -6735,6 +6735,60 @@ abstract class AppLocalizations {
   /// In tr, this message translates to:
   /// **'Bu kontrol çevrimdışı ipuçlarına dayanır; bir sitenin güvenli olduğunu garanti etmez.'**
   String get phishDisclaimer;
+
+  /// No description provided for @backupEncrypt.
+  ///
+  /// In tr, this message translates to:
+  /// **'Parolayla şifrele'**
+  String get backupEncrypt;
+
+  /// No description provided for @backupEncryptHint.
+  ///
+  /// In tr, this message translates to:
+  /// **'Yedek AES-256 ile şifrelenir. Parolayı unutursanız dosya açılamaz.'**
+  String get backupEncryptHint;
+
+  /// No description provided for @backupPassword.
+  ///
+  /// In tr, this message translates to:
+  /// **'Parola'**
+  String get backupPassword;
+
+  /// No description provided for @backupPasswordRepeat.
+  ///
+  /// In tr, this message translates to:
+  /// **'Parola (tekrar)'**
+  String get backupPasswordRepeat;
+
+  /// No description provided for @backupPasswordTooShort.
+  ///
+  /// In tr, this message translates to:
+  /// **'Parola en az {min} karakter olmalı.'**
+  String backupPasswordTooShort(String min);
+
+  /// No description provided for @backupPasswordMismatch.
+  ///
+  /// In tr, this message translates to:
+  /// **'Parolalar eşleşmiyor.'**
+  String get backupPasswordMismatch;
+
+  /// No description provided for @backupEncryptedPrompt.
+  ///
+  /// In tr, this message translates to:
+  /// **'Bu yedek parolayla korunuyor. Açmak için parolayı girin.'**
+  String get backupEncryptedPrompt;
+
+  /// No description provided for @backupWrongPassword.
+  ///
+  /// In tr, this message translates to:
+  /// **'Parola yanlış.'**
+  String get backupWrongPassword;
+
+  /// No description provided for @backupDecryptFailed.
+  ///
+  /// In tr, this message translates to:
+  /// **'Yedek çözülemedi; dosya bozuk olabilir.'**
+  String get backupDecryptFailed;
 }
 
 class _AppLocalizationsDelegate

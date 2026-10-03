@@ -3954,4 +3954,36 @@ class AppLocalizationsEs extends AppLocalizations {
   @override
   String get phishDisclaimer =>
       'Esta comprobación usa pistas sin conexión; no garantiza que el sitio sea seguro.';
+
+  @override
+  String get backupEncrypt => 'Proteger con contraseña';
+
+  @override
+  String get backupEncryptHint =>
+      'La copia se cifra con AES-256. Si olvidas la contraseña, no podrá abrirse.';
+
+  @override
+  String get backupPassword => 'Contraseña';
+
+  @override
+  String get backupPasswordRepeat => 'Contraseña (repetir)';
+
+  @override
+  String backupPasswordTooShort(String min) {
+    return 'La contraseña debe tener al menos $min caracteres.';
+  }
+
+  @override
+  String get backupPasswordMismatch => 'Las contraseñas no coinciden.';
+
+  @override
+  String get backupEncryptedPrompt =>
+      'Esta copia está protegida. Introduce la contraseña.';
+
+  @override
+  String get backupWrongPassword => 'Contraseña incorrecta.';
+
+  @override
+  String get backupDecryptFailed =>
+      'No se pudo descifrar; el archivo puede estar dañado.';
 }
