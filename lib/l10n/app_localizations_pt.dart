@@ -4808,4 +4808,22 @@ class AppLocalizationsPt extends AppLocalizations {
 
   @override
   String get firstTagMore => 'Mais ideias';
+
+  @override
+  String get iconRed => 'Vermelho';
+
+  @override
+  String get iconTeal => 'Turquesa';
+
+  @override
+  String get iconGold => 'Dourado';
+
+  @override
+  String get iconIndigo => 'Índigo';
+
+  @override
+  String get iconLight => 'Branco';
+
+  @override
+  String get iconRainbow => 'Arco-íris';
 }

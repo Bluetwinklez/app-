@@ -1341,5 +1341,11 @@
   "ideaInventoryDesc": "Инвентаризация: где каждую метку видели последний раз.",
   "firstTagTitle": "Создайте первую метку",
   "firstTagSubtitle": "Выберите, заполните поля и поднесите метку. 30 секунд.",
-  "firstTagMore": "Больше идей"
+  "firstTagMore": "Больше идей",
+  "iconRed": "Красный",
+  "iconTeal": "Бирюзовый",
+  "iconGold": "Золотой",
+  "iconIndigo": "Индиго",
+  "iconLight": "Белый",
+  "iconRainbow": "Радуга"
 }

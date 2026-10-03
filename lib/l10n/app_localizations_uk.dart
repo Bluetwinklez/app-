@@ -4795,4 +4795,22 @@ class AppLocalizationsUk extends AppLocalizations {
 
   @override
   String get firstTagMore => 'Більше ідей';
+
+  @override
+  String get iconRed => 'Червоний';
+
+  @override
+  String get iconTeal => 'Бірюзовий';
+
+  @override
+  String get iconGold => 'Золотий';
+
+  @override
+  String get iconIndigo => 'Індиго';
+
+  @override
+  String get iconLight => 'Білий';
+
+  @override
+  String get iconRainbow => 'Веселка';
 }

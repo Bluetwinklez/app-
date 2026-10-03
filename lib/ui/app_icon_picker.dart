@@ -17,6 +17,13 @@ class AppIconPicker extends StatefulWidget {
         ('AppIcon-Purple', 'assets/app_icons/purple.png', (l) => l.iconPurple),
         ('AppIcon-Orange', 'assets/app_icons/orange.png', (l) => l.iconOrange),
         ('AppIcon-Dark', 'assets/app_icons/dark.png', (l) => l.iconDark),
+        ('AppIcon-Red', 'assets/app_icons/red.png', (l) => l.iconRed),
+        ('AppIcon-Teal', 'assets/app_icons/teal.png', (l) => l.iconTeal),
+        ('AppIcon-Gold', 'assets/app_icons/gold.png', (l) => l.iconGold),
+        ('AppIcon-Pink', 'assets/app_icons/pink.png', (l) => l.colorPink),
+        ('AppIcon-Indigo', 'assets/app_icons/indigo.png', (l) => l.iconIndigo),
+        ('AppIcon-Light', 'assets/app_icons/light.png', (l) => l.iconLight),
+        ('AppIcon-Rainbow', 'assets/app_icons/rainbow.png', (l) => l.iconRainbow),
       ];
 
   static bool get supported => defaultTargetPlatform == TargetPlatform.iOS;

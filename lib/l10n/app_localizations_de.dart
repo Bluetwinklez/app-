@@ -4809,4 +4809,22 @@ class AppLocalizationsDe extends AppLocalizations {
 
   @override
   String get firstTagMore => 'Mehr Ideen';
+
+  @override
+  String get iconRed => 'Rot';
+
+  @override
+  String get iconTeal => 'Türkis';
+
+  @override
+  String get iconGold => 'Gold';
+
+  @override
+  String get iconIndigo => 'Indigo';
+
+  @override
+  String get iconLight => 'Weiß';
+
+  @override
+  String get iconRainbow => 'Regenbogen';
 }

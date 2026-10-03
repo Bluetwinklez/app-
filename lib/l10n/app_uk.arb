@@ -1341,5 +1341,11 @@
   "ideaInventoryDesc": "Інвентаризація: де кожну мітку бачили востаннє.",
   "firstTagTitle": "Створіть першу мітку",
   "firstTagSubtitle": "Оберіть, заповніть поля й піднесіть мітку. 30 секунд.",
-  "firstTagMore": "Більше ідей"
+  "firstTagMore": "Більше ідей",
+  "iconRed": "Червоний",
+  "iconTeal": "Бірюзовий",
+  "iconGold": "Золотий",
+  "iconIndigo": "Індиго",
+  "iconLight": "Білий",
+  "iconRainbow": "Веселка"
 }

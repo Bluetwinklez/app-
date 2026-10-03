@@ -4795,4 +4795,22 @@ class AppLocalizationsTr extends AppLocalizations {
 
   @override
   String get firstTagMore => 'Daha fazla fikir';
+
+  @override
+  String get iconRed => 'Kırmızı';
+
+  @override
+  String get iconTeal => 'Turkuaz';
+
+  @override
+  String get iconGold => 'Altın';
+
+  @override
+  String get iconIndigo => 'Lacivert';
+
+  @override
+  String get iconLight => 'Beyaz';
+
+  @override
+  String get iconRainbow => 'Gökkuşağı';
 }

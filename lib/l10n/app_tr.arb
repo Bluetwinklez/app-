@@ -3286,5 +3286,11 @@
   "ideaInventoryDesc": "Depo ve demirbaş sayımı: her etiketin son görüldüğü yer.",
   "firstTagTitle": "İlk etiketini yap",
   "firstTagSubtitle": "Birini seç, alanları doldur, etiketi telefona yaklaştır. 30 saniye sürer.",
-  "firstTagMore": "Daha fazla fikir"
+  "firstTagMore": "Daha fazla fikir",
+  "iconRed": "Kırmızı",
+  "iconTeal": "Turkuaz",
+  "iconGold": "Altın",
+  "iconIndigo": "Lacivert",
+  "iconLight": "Beyaz",
+  "iconRainbow": "Gökkuşağı"
 }
