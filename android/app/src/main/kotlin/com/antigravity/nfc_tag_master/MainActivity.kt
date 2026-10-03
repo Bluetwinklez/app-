@@ -7,6 +7,7 @@ import android.nfc.NfcAdapter
 import android.nfc.TagLostException
 import android.nfc.Tag
 import android.nfc.tech.Ndef
+import android.nfc.tech.MifareClassic
 import android.nfc.tech.NfcA
 import android.nfc.tech.NdefFormatable
 import android.nfc.NdefMessage
@@ -353,7 +354,14 @@ class MainActivity : FlutterActivity(), NfcAdapter.ReaderCallback {
         var ndef: Ndef? = null
         try {
             val idHex = bytesToHex(tag.id)
-            val techList = tag.techList.map { it.substringAfterLast('.') }
+            // MIFARE Classic carries its size so the app can tell 1K / 4K / Mini.
+            val techList = tag.techList.map { tech ->
+                val name = tech.substringAfterLast('.')
+                if (name == "MifareClassic") {
+                    val size = try { MifareClassic.get(tag)?.size } catch (_: Exception) { null }
+                    if (size != null) "MifareClassic:$size" else name
+                } else name
+            }
             ndef = Ndef.get(tag)
 
             if (ndef == null) {

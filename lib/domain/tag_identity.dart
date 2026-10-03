@@ -42,8 +42,33 @@ class TagIdentity {
   static TagIdentity of(NfcTagInfo info) {
     return TagIdentity(
       manufacturer: manufacturerFromUid(info.identifier),
-      chipGuess: _chipsByCapacity[info.maxByteCapacity],
+      chipGuess: _chipsByCapacity[info.maxByteCapacity] ?? familyFromTechnologies(info.standardTechnologies),
     );
+  }
+
+  /// Chip family from the technology list both platforms report
+  /// (Android tech class names; iOS sends the same names).
+  static String? familyFromTechnologies(List<String> techs) {
+    for (final t in techs) {
+      if (t.startsWith('MifareClassic')) {
+        final size = int.tryParse(t.split(':').last);
+        return switch (size) {
+          320 => 'MIFARE Classic Mini',
+          1024 => 'MIFARE Classic 1K',
+          2048 => 'MIFARE Classic 2K',
+          4096 => 'MIFARE Classic 4K',
+          _ => 'MIFARE Classic',
+        };
+      }
+    }
+    if (techs.contains('MifareDesfire')) return 'MIFARE DESFire';
+    if (techs.contains('MifarePlus')) return 'MIFARE Plus';
+    if (techs.contains('NfcV')) return 'ISO 15693 (NFC-V)';
+    if (techs.contains('NfcF')) return 'FeliCa (NFC-F)';
+    if (techs.contains('NfcB')) return 'ISO 14443-B';
+    if (techs.contains('IsoDep')) return 'ISO 14443-4';
+    if (techs.contains('MifareUltralight')) return 'MIFARE Ultralight / NTAG';
+    return null;
   }
 
   /// Accepts UIDs like `04:A1:B2:...` or `04A1B2...`.
