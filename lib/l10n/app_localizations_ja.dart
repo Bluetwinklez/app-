@@ -3121,4 +3121,100 @@ class AppLocalizationsJa extends AppLocalizations {
 
   @override
   String get cloneEditFirst => '先に編集';
+
+  @override
+  String get tapPreviewTitle => 'スマホをかざすとどうなる？';
+
+  @override
+  String get tapPreviewIphone => 'iPhone';
+
+  @override
+  String get tapPreviewAndroid => 'Android';
+
+  @override
+  String get tapNone => 'タグは空です。何も起こりません。';
+
+  @override
+  String tapIosUrl(String target) {
+    return '通知が表示され、タップすると$targetがSafariまたは対応アプリで開きます。';
+  }
+
+  @override
+  String tapAndroidUrl(String target) {
+    return '$targetがブラウザまたは対応アプリで直接開きます。';
+  }
+
+  @override
+  String tapIosApp(String target) {
+    return '通知が表示され、アプリがインストール済みなら「$target」で開きます。';
+  }
+
+  @override
+  String tapAndroidApp(String target) {
+    return 'アプリがインストール済みなら「$target」で開きます。';
+  }
+
+  @override
+  String tapIosCall(String target) {
+    return '通知が表示され、タップすると$targetに発信します。';
+  }
+
+  @override
+  String tapAndroidCall(String target) {
+    return '電話アプリが$targetで開きます。';
+  }
+
+  @override
+  String tapIosSms(String target) {
+    return '通知が表示され、メッセージで$target宛の新規メッセージが開きます。';
+  }
+
+  @override
+  String tapAndroidSms(String target) {
+    return 'メッセージアプリが$target宛で開きます。';
+  }
+
+  @override
+  String tapIosEmail(String target) {
+    return '通知が表示され、メールで$target宛の新規メールが開きます。';
+  }
+
+  @override
+  String tapAndroidEmail(String target) {
+    return 'メールアプリが$target宛で開きます。';
+  }
+
+  @override
+  String get tapIosMap =>
+      'iPhoneは「geo:」の位置を自動では開きません。AppleマップかGoogleマップのリンクを使ってください (クイックリンク)。';
+
+  @override
+  String get tapAndroidMap => '地図アプリがこの場所で開きます。';
+
+  @override
+  String get tapIosNeedsApp => 'iPhoneはこの内容に対して自動では何もしません。NFCアプリで読み取る必要があります。';
+
+  @override
+  String get tapAndroidText => '多くの端末では何も起きないか、システム画面にテキストが表示されます。';
+
+  @override
+  String get tapAndroidContact => '連絡先の追加が提案されます。';
+
+  @override
+  String get tapAndroidWifi => 'ネットワークへの接続が提案されます (Android 10以降)。';
+
+  @override
+  String get tapAndroidCalendar => 'カレンダーアプリが対応していれば、予定の追加が提案されます。';
+
+  @override
+  String get tapAndroidOther => '対応アプリがインストールされている場合のみ開きます。';
+
+  @override
+  String tapIgnoredRecords(String count) {
+    return 'スマホが実行するのは最初のレコードのみです。残り$count件はNFCアプリで表示されます。';
+  }
+
+  @override
+  String get tapIosRequirement =>
+      'iPhone XS以降は、ロック解除中かつカメラ/ウォレットを開いていないときにバックグラウンドで読み取ります。';
 }

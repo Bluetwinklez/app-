@@ -3255,4 +3255,105 @@ class AppLocalizationsIt extends AppLocalizations {
 
   @override
   String get cloneEditFirst => 'Modifica prima';
+
+  @override
+  String get tapPreviewTitle => 'Cosa succede quando un telefono lo tocca?';
+
+  @override
+  String get tapPreviewIphone => 'iPhone';
+
+  @override
+  String get tapPreviewAndroid => 'Android';
+
+  @override
+  String get tapNone => 'Il tag è vuoto; non succede nulla.';
+
+  @override
+  String tapIosUrl(String target) {
+    return 'Compare una notifica; toccandola $target si apre in Safari o nell\'app corrispondente.';
+  }
+
+  @override
+  String tapAndroidUrl(String target) {
+    return '$target si apre direttamente nel browser o nell\'app corrispondente.';
+  }
+
+  @override
+  String tapIosApp(String target) {
+    return 'Compare una notifica; l\'app si apre tramite \"$target\" se installata.';
+  }
+
+  @override
+  String tapAndroidApp(String target) {
+    return 'L\'app si apre tramite \"$target\" se installata.';
+  }
+
+  @override
+  String tapIosCall(String target) {
+    return 'Compare una notifica; toccandola si chiama $target.';
+  }
+
+  @override
+  String tapAndroidCall(String target) {
+    return 'L\'app Telefono si apre con $target.';
+  }
+
+  @override
+  String tapIosSms(String target) {
+    return 'Compare una notifica; Messaggi apre un nuovo messaggio a $target.';
+  }
+
+  @override
+  String tapAndroidSms(String target) {
+    return 'L\'app di messaggistica si apre per $target.';
+  }
+
+  @override
+  String tapIosEmail(String target) {
+    return 'Compare una notifica; Mail apre una nuova email a $target.';
+  }
+
+  @override
+  String tapAndroidEmail(String target) {
+    return 'L\'app email si apre per $target.';
+  }
+
+  @override
+  String get tapIosMap =>
+      'L\'iPhone non apre da solo le posizioni \"geo:\". Usa un link di Apple o Google Maps (Link rapidi).';
+
+  @override
+  String get tapAndroidMap => 'L\'app mappe si apre in questa posizione.';
+
+  @override
+  String get tapIosNeedsApp =>
+      'L\'iPhone non fa nulla da solo con questo contenuto; va letto con un\'app NFC.';
+
+  @override
+  String get tapAndroidText =>
+      'Sulla maggior parte dei telefoni non succede nulla o il testo appare in una schermata di sistema.';
+
+  @override
+  String get tapAndroidContact => 'Propone di aggiungere il contatto.';
+
+  @override
+  String get tapAndroidWifi =>
+      'Propone di connettersi alla rete (Android 10 e successivi).';
+
+  @override
+  String get tapAndroidCalendar =>
+      'Se l\'app calendario lo supporta, propone di aggiungere l\'evento.';
+
+  @override
+  String get tapAndroidOther =>
+      'Si apre solo se è installata un\'app compatibile.';
+
+  @override
+  String tapIgnoredRecords(String count) {
+    return 'I telefoni eseguono solo il primo record; gli altri $count sono visibili nelle app NFC.';
+  }
+
+  @override
+  String get tapIosRequirement =>
+      'iPhone XS e successivi leggono in background se sbloccati e con Fotocamera/Wallet chiusi.';
 }

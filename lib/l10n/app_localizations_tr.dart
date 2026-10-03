@@ -3254,4 +3254,104 @@ class AppLocalizationsTr extends AppLocalizations {
 
   @override
   String get cloneEditFirst => 'Önce düzenle';
+
+  @override
+  String get tapPreviewTitle => 'Telefon dokununca ne olur?';
+
+  @override
+  String get tapPreviewIphone => 'iPhone';
+
+  @override
+  String get tapPreviewAndroid => 'Android';
+
+  @override
+  String get tapNone => 'Etiket boş; dokununca hiçbir şey olmaz.';
+
+  @override
+  String tapIosUrl(String target) {
+    return 'Bildirim çıkar; dokununca $target Safari\'de ya da ilgili uygulamada açılır.';
+  }
+
+  @override
+  String tapAndroidUrl(String target) {
+    return '$target doğrudan tarayıcıda ya da ilgili uygulamada açılır.';
+  }
+
+  @override
+  String tapIosApp(String target) {
+    return 'Bildirim çıkar; uygulama yüklüyse \"$target\" bağlantısıyla açılır.';
+  }
+
+  @override
+  String tapAndroidApp(String target) {
+    return 'Uygulama yüklüyse \"$target\" bağlantısıyla açılır.';
+  }
+
+  @override
+  String tapIosCall(String target) {
+    return 'Bildirim çıkar; dokununca $target aranır.';
+  }
+
+  @override
+  String tapAndroidCall(String target) {
+    return 'Telefon uygulaması $target numarasıyla açılır.';
+  }
+
+  @override
+  String tapIosSms(String target) {
+    return 'Bildirim çıkar; Mesajlar $target için yeni mesajla açılır.';
+  }
+
+  @override
+  String tapAndroidSms(String target) {
+    return 'Mesajlaşma uygulaması $target için açılır.';
+  }
+
+  @override
+  String tapIosEmail(String target) {
+    return 'Bildirim çıkar; Mail $target adresine yeni e-postayla açılır.';
+  }
+
+  @override
+  String tapAndroidEmail(String target) {
+    return 'E-posta uygulaması $target için açılır.';
+  }
+
+  @override
+  String get tapIosMap =>
+      'iPhone \"geo:\" konumlarını kendiliğinden açmaz. Apple ya da Google Haritalar bağlantısı kullanın (Hızlı bağlantılar).';
+
+  @override
+  String get tapAndroidMap => 'Harita uygulaması bu konumda açılır.';
+
+  @override
+  String get tapIosNeedsApp =>
+      'iPhone bu içerikle kendiliğinden bir şey yapmaz; görmek için bir NFC uygulamasıyla okutulmalı.';
+
+  @override
+  String get tapAndroidText =>
+      'Çoğu telefonda bir şey olmaz ya da metin sistem ekranında gösterilir.';
+
+  @override
+  String get tapAndroidContact => 'Kişiyi rehbere ekleme önerilir.';
+
+  @override
+  String get tapAndroidWifi => 'Ağa bağlanma önerilir (Android 10 ve sonrası).';
+
+  @override
+  String get tapAndroidCalendar =>
+      'Takvim uygulaması destekliyorsa etkinlik eklenmesi önerilir.';
+
+  @override
+  String get tapAndroidOther =>
+      'Yalnızca bu içeriği tanıyan bir uygulama yüklüyse açılır.';
+
+  @override
+  String tapIgnoredRecords(String count) {
+    return 'Telefonlar yalnızca ilk kaydı çalıştırır; diğer $count kayıt NFC uygulamalarında görünür.';
+  }
+
+  @override
+  String get tapIosRequirement =>
+      'iPhone XS ve sonrası, ekran kilidi açıkken ve kamera/Cüzdan açık değilken arka planda okur.';
 }

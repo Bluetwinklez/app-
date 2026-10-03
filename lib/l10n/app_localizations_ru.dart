@@ -3257,4 +3257,105 @@ class AppLocalizationsRu extends AppLocalizations {
 
   @override
   String get cloneEditFirst => 'Сначала изменить';
+
+  @override
+  String get tapPreviewTitle => 'Что произойдёт при касании телефоном?';
+
+  @override
+  String get tapPreviewIphone => 'iPhone';
+
+  @override
+  String get tapPreviewAndroid => 'Android';
+
+  @override
+  String get tapNone => 'Метка пуста; ничего не произойдёт.';
+
+  @override
+  String tapIosUrl(String target) {
+    return 'Появится уведомление; по нажатию $target откроется в Safari или нужном приложении.';
+  }
+
+  @override
+  String tapAndroidUrl(String target) {
+    return '$target сразу откроется в браузере или нужном приложении.';
+  }
+
+  @override
+  String tapIosApp(String target) {
+    return 'Появится уведомление; приложение откроется через «$target», если установлено.';
+  }
+
+  @override
+  String tapAndroidApp(String target) {
+    return 'Приложение откроется через «$target», если установлено.';
+  }
+
+  @override
+  String tapIosCall(String target) {
+    return 'Появится уведомление; по нажатию начнётся звонок на $target.';
+  }
+
+  @override
+  String tapAndroidCall(String target) {
+    return 'Откроется приложение «Телефон» с номером $target.';
+  }
+
+  @override
+  String tapIosSms(String target) {
+    return 'Появится уведомление; «Сообщения» откроют новое сообщение для $target.';
+  }
+
+  @override
+  String tapAndroidSms(String target) {
+    return 'Откроется приложение сообщений для $target.';
+  }
+
+  @override
+  String tapIosEmail(String target) {
+    return 'Появится уведомление; «Почта» откроет новое письмо для $target.';
+  }
+
+  @override
+  String tapAndroidEmail(String target) {
+    return 'Откроется почтовое приложение для $target.';
+  }
+
+  @override
+  String get tapIosMap =>
+      'iPhone сам не открывает места «geo:». Используйте ссылку Apple или Google Карт (Быстрые ссылки).';
+
+  @override
+  String get tapAndroidMap => 'Карты откроются в этом месте.';
+
+  @override
+  String get tapIosNeedsApp =>
+      'iPhone сам ничего не делает с этим содержимым; его нужно читать NFC-приложением.';
+
+  @override
+  String get tapAndroidText =>
+      'На большинстве телефонов ничего не происходит или текст показывается на системном экране.';
+
+  @override
+  String get tapAndroidContact => 'Предлагается добавить контакт.';
+
+  @override
+  String get tapAndroidWifi =>
+      'Предлагается подключиться к сети (Android 10 и новее).';
+
+  @override
+  String get tapAndroidCalendar =>
+      'Если календарь поддерживает, предложит добавить событие.';
+
+  @override
+  String get tapAndroidOther =>
+      'Откроется, только если установлено подходящее приложение.';
+
+  @override
+  String tapIgnoredRecords(String count) {
+    return 'Телефоны выполняют только первую запись; остальные ($count) видны в NFC-приложениях.';
+  }
+
+  @override
+  String get tapIosRequirement =>
+      'iPhone XS и новее читают в фоне, если экран разблокирован и не открыты Камера/Wallet.';
 }

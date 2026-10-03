@@ -3277,4 +3277,105 @@ class AppLocalizationsEs extends AppLocalizations {
 
   @override
   String get cloneEditFirst => 'Editar primero';
+
+  @override
+  String get tapPreviewTitle => '¿Qué pasa al acercar un teléfono?';
+
+  @override
+  String get tapPreviewIphone => 'iPhone';
+
+  @override
+  String get tapPreviewAndroid => 'Android';
+
+  @override
+  String get tapNone => 'La etiqueta está vacía; no pasa nada.';
+
+  @override
+  String tapIosUrl(String target) {
+    return 'Aparece una notificación; al tocarla, $target se abre en Safari o en la app correspondiente.';
+  }
+
+  @override
+  String tapAndroidUrl(String target) {
+    return '$target se abre directamente en el navegador o en la app correspondiente.';
+  }
+
+  @override
+  String tapIosApp(String target) {
+    return 'Aparece una notificación; la app se abre con «$target» si está instalada.';
+  }
+
+  @override
+  String tapAndroidApp(String target) {
+    return 'La app se abre con «$target» si está instalada.';
+  }
+
+  @override
+  String tapIosCall(String target) {
+    return 'Aparece una notificación; al tocarla se llama a $target.';
+  }
+
+  @override
+  String tapAndroidCall(String target) {
+    return 'La app de teléfono se abre con $target.';
+  }
+
+  @override
+  String tapIosSms(String target) {
+    return 'Aparece una notificación; Mensajes abre un mensaje nuevo para $target.';
+  }
+
+  @override
+  String tapAndroidSms(String target) {
+    return 'La app de mensajes se abre para $target.';
+  }
+
+  @override
+  String tapIosEmail(String target) {
+    return 'Aparece una notificación; Mail abre un correo nuevo para $target.';
+  }
+
+  @override
+  String tapAndroidEmail(String target) {
+    return 'La app de correo se abre para $target.';
+  }
+
+  @override
+  String get tapIosMap =>
+      'El iPhone no abre ubicaciones «geo:» por sí solo. Usa un enlace de Apple o Google Maps (Enlaces rápidos).';
+
+  @override
+  String get tapAndroidMap => 'La app de mapas se abre en esta ubicación.';
+
+  @override
+  String get tapIosNeedsApp =>
+      'El iPhone no hace nada con este contenido por sí solo; hay que leerlo con una app NFC.';
+
+  @override
+  String get tapAndroidText =>
+      'En la mayoría de teléfonos no pasa nada o el texto aparece en una pantalla del sistema.';
+
+  @override
+  String get tapAndroidContact => 'Ofrece añadir el contacto.';
+
+  @override
+  String get tapAndroidWifi =>
+      'Ofrece conectarse a la red (Android 10 o posterior).';
+
+  @override
+  String get tapAndroidCalendar =>
+      'Si la app de calendario lo admite, ofrece añadir el evento.';
+
+  @override
+  String get tapAndroidOther =>
+      'Solo se abre si hay una app compatible instalada.';
+
+  @override
+  String tapIgnoredRecords(String count) {
+    return 'Los teléfonos solo ejecutan el primer registro; los otros $count se ven en apps NFC.';
+  }
+
+  @override
+  String get tapIosRequirement =>
+      'El iPhone XS o posterior lee en segundo plano si está desbloqueado y Cámara/Cartera no están abiertas.';
 }
