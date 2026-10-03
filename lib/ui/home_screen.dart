@@ -379,7 +379,61 @@ class _HomeScreenState extends State<HomeScreen>
                 onSelectionChanged: (value) => _controller.setThemeMode(value.first),
               ),
             ),
-            const SizedBox(height: 8),
+            const SizedBox(height: 12),
+            Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 16),
+              child: Text(L10n.current.accentColorTitle, style: const TextStyle(fontWeight: FontWeight.w600)),
+            ),
+            Padding(
+              padding: const EdgeInsets.fromLTRB(16, 8, 16, 4),
+              child: Wrap(
+                spacing: 12,
+                children: [
+                  for (int i = 0; i < AppColors.accentPresets.length; i++)
+                    Semantics(
+                      button: true,
+                      selected: _controller.accentIndex == i,
+                      label: [
+                        L10n.current.iconBlue,
+                        L10n.current.iconGreen,
+                        L10n.current.iconPurple,
+                        L10n.current.iconOrange,
+                        L10n.current.colorPink,
+                      ][i],
+                      child: GestureDetector(
+                        onTap: () => _controller.setAccentIndex(i),
+                        child: Container(
+                          width: 36,
+                          height: 36,
+                          decoration: BoxDecoration(
+                            color: AppColors.isDark ? AppColors.accentPresets[i].$2 : AppColors.accentPresets[i].$1,
+                            shape: BoxShape.circle,
+                            border: Border.all(
+                              color: _controller.accentIndex == i ? AppColors.ink : Colors.transparent,
+                              width: 3,
+                            ),
+                          ),
+                          child: _controller.accentIndex == i
+                              ? const Icon(Icons.check_rounded, color: Colors.white, size: 20)
+                              : null,
+                        ),
+                      ),
+                    ),
+                ],
+              ),
+            ),
+            ListTile(
+              leading: Icon(Icons.format_size_rounded, color: AppColors.accent),
+              title: Text(L10n.current.textSizeTitle),
+              subtitle: Slider(
+                value: _controller.textScalePercent.toDouble(),
+                min: 85,
+                max: 150,
+                divisions: 13,
+                label: '${_controller.textScalePercent}%',
+                onChanged: (v) => _controller.setTextScalePercent(v.round()),
+              ),
+            ),
             if (AppIconPicker.supported) const AppIconPicker(),
             SwitchListTile(
               secondary: Icon(Icons.vibration_rounded, color: AppColors.accent),

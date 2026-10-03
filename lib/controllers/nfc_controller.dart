@@ -119,6 +119,19 @@ class NfcStateController extends ChangeNotifier {
     notifyListeners();
   }
 
+  int get accentIndex => _storage.accentIndex;
+  int get textScalePercent => _storage.textScalePercent;
+
+  Future<void> setAccentIndex(int index) async {
+    await _storage.setAccentIndex(index);
+    notifyListeners();
+  }
+
+  Future<void> setTextScalePercent(int percent) async {
+    await _storage.setTextScalePercent(percent.clamp(85, 150));
+    notifyListeners();
+  }
+
   bool get onboardingDone => _storage.onboardingDone;
 
   Future<void> setOnboardingDone(bool done) async {

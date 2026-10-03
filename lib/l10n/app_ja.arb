@@ -1283,5 +1283,8 @@
   "simpleWriteNow": "書き込む – タグを近づける",
   "simpleWritten": "タグに書き込みました ✓",
   "simpleSaved": "保存したタグ",
-  "simpleSavedHint": "タップすると同じ内容を新しいタグに書き込みます。"
+  "simpleSavedHint": "タップすると同じ内容を新しいタグに書き込みます。",
+  "accentColorTitle": "アクセントカラー",
+  "colorPink": "ピンク",
+  "textSizeTitle": "文字サイズ"
 }

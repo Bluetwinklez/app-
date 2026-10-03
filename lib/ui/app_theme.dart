@@ -77,7 +77,45 @@ class AppColors {
   );
 
   static bool _isDark = false;
-  static _Palette get _p => _isDark ? _dark : _light;
+  static int _accentIndex = 0;
+
+  /// (light accent, dark accent, light soft, dark soft) per preset: blue,
+  /// green, purple, orange, pink.
+  static const List<(Color, Color, Color, Color)> accentPresets = [
+    (Color(0xFF0071E3), Color(0xFF0A84FF), Color(0xFFE8F1FC), Color(0xFF0F2A47)),
+    (Color(0xFF1B8A4B), Color(0xFF30D158), Color(0xFFE6F4EC), Color(0xFF0F3320)),
+    (Color(0xFF7A3FD1), Color(0xFFBF5AF2), Color(0xFFF1EAFB), Color(0xFF2E1847)),
+    (Color(0xFFC65A00), Color(0xFFFF9F0A), Color(0xFFFCEFE3), Color(0xFF3F2508)),
+    (Color(0xFFC2185B), Color(0xFFFF375F), Color(0xFFFCE8EF), Color(0xFF451425)),
+  ];
+
+  static _Palette get _p => _withAccent(_isDark ? _dark : _light, _isDark);
+
+  static _Palette _withAccent(_Palette base, bool dark) {
+    if (_accentIndex == 0) return base;
+    final a = accentPresets[_accentIndex];
+    return _Palette(
+      ink: base.ink,
+      secondary: base.secondary,
+      border: base.border,
+      canvas: base.canvas,
+      surface: base.surface,
+      subtleFill: base.subtleFill,
+      accent: dark ? a.$2 : a.$1,
+      accentBright: a.$2,
+      accentSoft: dark ? a.$4 : a.$3,
+      success: base.success,
+      warning: base.warning,
+      danger: base.danger,
+      shadow: base.shadow,
+      canvasStops: base.canvasStops,
+    );
+  }
+
+  /// Called when the accent setting changes (before the app rebuilds).
+  static void setAccent(int index) =>
+      _accentIndex = index >= 0 && index < accentPresets.length ? index : 0;
+  static int get accentIndex => _accentIndex;
 
   /// Called from MaterialApp.builder with the resolved brightness.
   static void setDark(bool value) => _isDark = value;
@@ -108,11 +146,14 @@ class AppColors {
         colors: _p.canvasStops,
       );
 
-  static const heroGradient = LinearGradient(
-    begin: Alignment.topLeft,
-    end: Alignment.bottomRight,
-    colors: [Color(0xFF0071E3), Color(0xFF4FA3F7), Color(0xFFBFDDFB)],
-  );
+  static LinearGradient get heroGradient {
+    final a = accentPresets[_accentIndex].$1;
+    return LinearGradient(
+      begin: Alignment.topLeft,
+      end: Alignment.bottomRight,
+      colors: [a, Color.lerp(a, Colors.white, 0.3)!, Color.lerp(a, Colors.white, 0.75)!],
+    );
+  }
 
   static List<BoxShadow> get softShadow => [
         BoxShadow(
@@ -124,9 +165,9 @@ class AppColors {
 }
 
 class AppTheme {
-  static ThemeData dark() => _build(AppColors._dark, Brightness.dark);
+  static ThemeData dark() => _build(AppColors._withAccent(AppColors._dark, true), Brightness.dark);
 
-  static ThemeData light() => _build(AppColors._light, Brightness.light);
+  static ThemeData light() => _build(AppColors._withAccent(AppColors._light, false), Brightness.light);
 
   static ThemeData _build(_Palette c, Brightness brightness) {
     final scheme = ColorScheme.fromSeed(

@@ -1283,5 +1283,8 @@
   "simpleWriteNow": "Schrijven – houd de tag erbij",
   "simpleWritten": "Op de tag geschreven ✓",
   "simpleSaved": "Mijn opgeslagen tags",
-  "simpleSavedHint": "Tik er één aan om hetzelfde op een nieuwe tag te zetten."
+  "simpleSavedHint": "Tik er één aan om hetzelfde op een nieuwe tag te zetten.",
+  "accentColorTitle": "Accentkleur",
+  "colorPink": "Roze",
+  "textSizeTitle": "Tekstgrootte"
 }

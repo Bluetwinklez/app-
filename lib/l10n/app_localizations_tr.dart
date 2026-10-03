@@ -4590,4 +4590,13 @@ class AppLocalizationsTr extends AppLocalizations {
 
   @override
   String get simpleSavedHint => 'Birine dokunun, aynısını yeni etikete yazın.';
+
+  @override
+  String get accentColorTitle => 'Vurgu rengi';
+
+  @override
+  String get colorPink => 'Pembe';
+
+  @override
+  String get textSizeTitle => 'Yazı boyutu';
 }

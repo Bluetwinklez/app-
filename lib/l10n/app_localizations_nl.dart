@@ -4593,4 +4593,13 @@ class AppLocalizationsNl extends AppLocalizations {
   @override
   String get simpleSavedHint =>
       'Tik er één aan om hetzelfde op een nieuwe tag te zetten.';
+
+  @override
+  String get accentColorTitle => 'Accentkleur';
+
+  @override
+  String get colorPink => 'Roze';
+
+  @override
+  String get textSizeTitle => 'Tekstgrootte';
 }

@@ -1283,5 +1283,8 @@
   "simpleWriteNow": "اكتب – قرّب الوسم",
   "simpleWritten": "تمت الكتابة على الوسم ✓",
   "simpleSaved": "وسومي المحفوظة",
-  "simpleSavedHint": "اضغط على أحدها لكتابته على وسم جديد."
+  "simpleSavedHint": "اضغط على أحدها لكتابته على وسم جديد.",
+  "accentColorTitle": "لون التمييز",
+  "colorPink": "وردي",
+  "textSizeTitle": "حجم النص"
 }

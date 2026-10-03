@@ -1283,5 +1283,8 @@
   "simpleWriteNow": "Write – hold the tag near",
   "simpleWritten": "Written to the tag ✓",
   "simpleSaved": "My saved tags",
-  "simpleSavedHint": "Tap one to write the same onto a new tag."
+  "simpleSavedHint": "Tap one to write the same onto a new tag.",
+  "accentColorTitle": "Accent colour",
+  "colorPink": "Pink",
+  "textSizeTitle": "Text size"
 }

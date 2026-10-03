@@ -4592,4 +4592,13 @@ class AppLocalizationsUk extends AppLocalizations {
   @override
   String get simpleSavedHint =>
       'Торкніться, щоб записати те саме на нову мітку.';
+
+  @override
+  String get accentColorTitle => 'Акцентний колір';
+
+  @override
+  String get colorPink => 'Рожевий';
+
+  @override
+  String get textSizeTitle => 'Розмір тексту';
 }

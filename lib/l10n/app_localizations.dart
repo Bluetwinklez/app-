@@ -7828,6 +7828,24 @@ abstract class AppLocalizations {
   /// In tr, this message translates to:
   /// **'Birine dokunun, aynısını yeni etikete yazın.'**
   String get simpleSavedHint;
+
+  /// No description provided for @accentColorTitle.
+  ///
+  /// In tr, this message translates to:
+  /// **'Vurgu rengi'**
+  String get accentColorTitle;
+
+  /// No description provided for @colorPink.
+  ///
+  /// In tr, this message translates to:
+  /// **'Pembe'**
+  String get colorPink;
+
+  /// No description provided for @textSizeTitle.
+  ///
+  /// In tr, this message translates to:
+  /// **'Yazı boyutu'**
+  String get textSizeTitle;
 }
 
 class _AppLocalizationsDelegate

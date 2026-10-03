@@ -4411,4 +4411,13 @@ class AppLocalizationsKo extends AppLocalizations {
 
   @override
   String get simpleSavedHint => '하나를 누르면 같은 내용을 새 태그에 씁니다.';
+
+  @override
+  String get accentColorTitle => '강조 색상';
+
+  @override
+  String get colorPink => '분홍';
+
+  @override
+  String get textSizeTitle => '글자 크기';
 }
