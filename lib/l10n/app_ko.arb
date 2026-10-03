@@ -883,5 +883,9 @@
   "verifyFailedAfterWrite": "쓴 데이터를 확인하지 못했습니다. 태그를 더 오래 대세요.",
   "blankTagTitle": "태그가 아직 준비되지 않았습니다",
   "blankTagBody": "새 태그라 NDEF 포맷이 되어 있지 않습니다. 앱에서 한 번에 준비하고 내용을 쓸 수 있습니다 (NTAG, MIFARE Ultralight).",
-  "blankTagAction": "준비 후 쓰기"
+  "blankTagAction": "준비 후 쓰기",
+  "shareTag": "공유",
+  "shareAsText": "텍스트로 공유",
+  "shareAsFile": "파일로 공유 (.json)",
+  "shareAsFileSubtitle": "다른 기기에서 그대로 쓸 수 있습니다"
 }

@@ -3142,4 +3142,17 @@ class AppLocalizationsUk extends AppLocalizations {
 
   @override
   String get blankTagAction => 'Підготувати й записати';
+
+  @override
+  String get shareTag => 'Поділитися';
+
+  @override
+  String get shareAsText => 'Поділитися текстом';
+
+  @override
+  String get shareAsFile => 'Поділитися файлом (.json)';
+
+  @override
+  String get shareAsFileSubtitle =>
+      'Записи можна точно записати на іншому пристрої';
 }

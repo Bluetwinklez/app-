@@ -883,5 +883,9 @@
   "verifyFailedAfterWrite": "Não foi possível verificar; segure a tag por mais tempo.",
   "blankTagTitle": "A tag ainda não está pronta",
   "blankTagBody": "Esta tag é nova e não está formatada para NDEF. O app pode prepará-la e gravar o conteúdo com um toque (NTAG e MIFARE Ultralight).",
-  "blankTagAction": "Preparar e gravar"
+  "blankTagAction": "Preparar e gravar",
+  "shareTag": "Compartilhar",
+  "shareAsText": "Compartilhar como texto",
+  "shareAsFile": "Compartilhar como arquivo (.json)",
+  "shareAsFileSubtitle": "Os registros podem ser gravados iguais em outro aparelho"
 }

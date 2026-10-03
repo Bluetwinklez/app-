@@ -3160,4 +3160,17 @@ class AppLocalizationsFr extends AppLocalizations {
 
   @override
   String get blankTagAction => 'Préparer et écrire';
+
+  @override
+  String get shareTag => 'Partager';
+
+  @override
+  String get shareAsText => 'Partager en texte';
+
+  @override
+  String get shareAsFile => 'Partager en fichier (.json)';
+
+  @override
+  String get shareAsFileSubtitle =>
+      'Les enregistrements peuvent être réécrits à l\'identique';
 }
