@@ -2,6 +2,11 @@
     package="com.antigravity.nfc_tag_master">
 
     <uses-permission android:name="android.permission.NFC" />
+    <!-- Tag map tiles (OpenStreetMap) -->
+    <uses-permission android:name="android.permission.INTERNET" />
+    <!-- Saving a tag's location, only when the user taps "Add current location" -->
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
     <uses-feature android:name="android.hardware.nfc" android:required="false" />
 
     <application

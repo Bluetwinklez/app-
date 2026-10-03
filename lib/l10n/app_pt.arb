@@ -1262,5 +1262,13 @@
   "iconGreen": "Verde",
   "iconPurple": "Roxo",
   "iconOrange": "Laranja",
-  "iconDark": "Noite"
+  "iconDark": "Noite",
+  "mapTitle": "Mapa de tags",
+  "mapEmpty": "Nenhuma tag para mostrar. Edite uma tag e toque em \"Adicionar local atual\" ou grave um local na tag.",
+  "mapTilesNote": "As imagens do mapa vêm do OpenStreetMap.",
+  "mapOpenInMaps": "Abrir no Mapas",
+  "mapAddCurrent": "Adicionar local atual",
+  "mapPositionSaved": "Local: {lat}, {lng}",
+  "mapLocationDenied": "Permissão de localização negada. Permita em Ajustes → Privacidade → Serviços de Localização.",
+  "mapLocationFailed": "Não foi possível obter o local: {error}"
 }

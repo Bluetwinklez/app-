@@ -4519,4 +4519,34 @@ class AppLocalizationsTr extends AppLocalizations {
 
   @override
   String get iconDark => 'Gece';
+
+  @override
+  String get mapTitle => 'Etiket haritası';
+
+  @override
+  String get mapEmpty =>
+      'Haritada gösterilecek etiket yok. Bir etiketi düzenleyip \"Şu anki konumu ekle\"ye dokunun ya da etikete konum yazın.';
+
+  @override
+  String get mapTilesNote => 'Harita görüntüleri OpenStreetMap\'ten yüklenir.';
+
+  @override
+  String get mapOpenInMaps => 'Haritalar\'da aç';
+
+  @override
+  String get mapAddCurrent => 'Şu anki konumu ekle';
+
+  @override
+  String mapPositionSaved(String lat, String lng) {
+    return 'Konum: $lat, $lng';
+  }
+
+  @override
+  String get mapLocationDenied =>
+      'Konum izni verilmedi. Ayarlar → Gizlilik → Konum Servisleri\'nden izin verebilirsiniz.';
+
+  @override
+  String mapLocationFailed(String error) {
+    return 'Konum alınamadı: $error';
+  }
 }

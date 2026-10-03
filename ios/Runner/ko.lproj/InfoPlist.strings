@@ -3,3 +3,4 @@
 "NSPhotoLibraryUsageDescription" = "태그 보관함의 태그에 사진을 추가하기 위해 사진에 접근합니다.";
 "NFCReaderUsageDescription" = "NFC 태그를 읽고 NDEF 메시지를 쓰려면 NFC 접근 권한이 필요합니다.";
 "NSFaceIDUsageDescription" = "앱 잠금이 켜져 있을 때 Face ID로 태그 보관함을 보호합니다.";
+"NSLocationWhenInUseUsageDescription" = "요청하면 태그 위치를 저장해 태그 지도에 표시합니다.";

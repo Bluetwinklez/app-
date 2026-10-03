@@ -3,3 +3,4 @@
 "NSPhotoLibraryUsageDescription" = "タグライブラリのタグに写真を追加するために写真へアクセスします。";
 "NFCReaderUsageDescription" = "NFCタグの読み取りとNDEFメッセージの書き込みにNFCへのアクセスが必要です。";
 "NSFaceIDUsageDescription" = "アプリロックが有効なとき、Face IDでタグライブラリを保護します。";
+"NSLocationWhenInUseUsageDescription" = "ご希望時にタグの位置を保存し、タグマップに表示します。";

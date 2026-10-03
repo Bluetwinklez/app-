@@ -4506,4 +4506,34 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get iconDark => 'Night';
+
+  @override
+  String get mapTitle => 'Tag map';
+
+  @override
+  String get mapEmpty =>
+      'No tags to show yet. Edit a tag and tap \"Add current location\", or write a location to the tag.';
+
+  @override
+  String get mapTilesNote => 'Map images are loaded from OpenStreetMap.';
+
+  @override
+  String get mapOpenInMaps => 'Open in Maps';
+
+  @override
+  String get mapAddCurrent => 'Add current location';
+
+  @override
+  String mapPositionSaved(String lat, String lng) {
+    return 'Location: $lat, $lng';
+  }
+
+  @override
+  String get mapLocationDenied =>
+      'Location permission was not granted. You can allow it in Settings → Privacy → Location Services.';
+
+  @override
+  String mapLocationFailed(String error) {
+    return 'Could not get the location: $error';
+  }
 }

@@ -1262,5 +1262,13 @@
   "iconGreen": "Groen",
   "iconPurple": "Paars",
   "iconOrange": "Oranje",
-  "iconDark": "Nacht"
+  "iconDark": "Nacht",
+  "mapTitle": "Tagkaart",
+  "mapEmpty": "Nog geen tags om te tonen. Bewerk een tag en tik op \"Huidige locatie toevoegen\", of schrijf een locatie op de tag.",
+  "mapTilesNote": "Kaartbeelden worden geladen van OpenStreetMap.",
+  "mapOpenInMaps": "Openen in Kaarten",
+  "mapAddCurrent": "Huidige locatie toevoegen",
+  "mapPositionSaved": "Locatie: {lat}, {lng}",
+  "mapLocationDenied": "Locatietoestemming niet gegeven. Sta het toe via Instellingen → Privacy → Locatievoorzieningen.",
+  "mapLocationFailed": "Locatie niet beschikbaar: {error}"
 }

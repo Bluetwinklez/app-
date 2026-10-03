@@ -4534,4 +4534,34 @@ class AppLocalizationsDe extends AppLocalizations {
 
   @override
   String get iconDark => 'Nacht';
+
+  @override
+  String get mapTitle => 'Tag-Karte';
+
+  @override
+  String get mapEmpty =>
+      'Noch keine Tags auf der Karte. Tag bearbeiten und „Aktuellen Ort hinzufügen\" tippen oder einen Ort auf den Tag schreiben.';
+
+  @override
+  String get mapTilesNote => 'Kartenbilder werden von OpenStreetMap geladen.';
+
+  @override
+  String get mapOpenInMaps => 'In Karten öffnen';
+
+  @override
+  String get mapAddCurrent => 'Aktuellen Ort hinzufügen';
+
+  @override
+  String mapPositionSaved(String lat, String lng) {
+    return 'Ort: $lat, $lng';
+  }
+
+  @override
+  String get mapLocationDenied =>
+      'Standortzugriff nicht erlaubt. Unter Einstellungen → Datenschutz → Ortungsdienste freigeben.';
+
+  @override
+  String mapLocationFailed(String error) {
+    return 'Standort nicht verfügbar: $error';
+  }
 }

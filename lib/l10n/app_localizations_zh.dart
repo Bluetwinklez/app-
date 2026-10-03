@@ -4287,4 +4287,32 @@ class AppLocalizationsZh extends AppLocalizations {
 
   @override
   String get iconDark => '夜间';
+
+  @override
+  String get mapTitle => '标签地图';
+
+  @override
+  String get mapEmpty => '暂无可显示的标签。编辑标签并点按“添加当前位置”，或在标签中写入位置。';
+
+  @override
+  String get mapTilesNote => '地图图片从 OpenStreetMap 加载。';
+
+  @override
+  String get mapOpenInMaps => '在地图中打开';
+
+  @override
+  String get mapAddCurrent => '添加当前位置';
+
+  @override
+  String mapPositionSaved(String lat, String lng) {
+    return '位置：$lat, $lng';
+  }
+
+  @override
+  String get mapLocationDenied => '未授予位置权限。可在 设置 → 隐私 → 定位服务 中允许。';
+
+  @override
+  String mapLocationFailed(String error) {
+    return '无法获取位置：$error';
+  }
 }

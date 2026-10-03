@@ -4325,4 +4325,34 @@ class AppLocalizationsJa extends AppLocalizations {
 
   @override
   String get iconDark => 'ナイト';
+
+  @override
+  String get mapTitle => 'タグマップ';
+
+  @override
+  String get mapEmpty =>
+      '表示するタグがありません。タグを編集して「現在地を追加」をタップするか、タグに位置情報を書き込んでください。';
+
+  @override
+  String get mapTilesNote => '地図画像はOpenStreetMapから読み込まれます。';
+
+  @override
+  String get mapOpenInMaps => 'マップで開く';
+
+  @override
+  String get mapAddCurrent => '現在地を追加';
+
+  @override
+  String mapPositionSaved(String lat, String lng) {
+    return '位置: $lat, $lng';
+  }
+
+  @override
+  String get mapLocationDenied =>
+      '位置情報の許可がありません。設定 → プライバシー → 位置情報サービスで許可できます。';
+
+  @override
+  String mapLocationFailed(String error) {
+    return '位置を取得できません: $error';
+  }
 }

@@ -3118,5 +3118,30 @@
   "iconGreen": "Yeşil",
   "iconPurple": "Mor",
   "iconOrange": "Turuncu",
-  "iconDark": "Gece"
+  "iconDark": "Gece",
+  "mapTitle": "Etiket haritası",
+  "mapEmpty": "Haritada gösterilecek etiket yok. Bir etiketi düzenleyip \"Şu anki konumu ekle\"ye dokunun ya da etikete konum yazın.",
+  "mapTilesNote": "Harita görüntüleri OpenStreetMap'ten yüklenir.",
+  "mapOpenInMaps": "Haritalar'da aç",
+  "mapAddCurrent": "Şu anki konumu ekle",
+  "mapPositionSaved": "Konum: {lat}, {lng}",
+  "@mapPositionSaved": {
+    "placeholders": {
+      "lat": {
+        "type": "String"
+      },
+      "lng": {
+        "type": "String"
+      }
+    }
+  },
+  "mapLocationDenied": "Konum izni verilmedi. Ayarlar → Gizlilik → Konum Servisleri'nden izin verebilirsiniz.",
+  "mapLocationFailed": "Konum alınamadı: {error}",
+  "@mapLocationFailed": {
+    "placeholders": {
+      "error": {
+        "type": "String"
+      }
+    }
+  }
 }

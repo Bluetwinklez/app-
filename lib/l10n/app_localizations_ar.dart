@@ -4468,4 +4468,34 @@ class AppLocalizationsAr extends AppLocalizations {
 
   @override
   String get iconDark => 'ليلي';
+
+  @override
+  String get mapTitle => 'خريطة الوسوم';
+
+  @override
+  String get mapEmpty =>
+      'لا توجد وسوم لعرضها. عدّل وسمًا واضغط \"إضافة الموقع الحالي\" أو اكتب موقعًا على الوسم.';
+
+  @override
+  String get mapTilesNote => 'تُحمَّل صور الخريطة من OpenStreetMap.';
+
+  @override
+  String get mapOpenInMaps => 'فتح في الخرائط';
+
+  @override
+  String get mapAddCurrent => 'إضافة الموقع الحالي';
+
+  @override
+  String mapPositionSaved(String lat, String lng) {
+    return 'الموقع: $lat، $lng';
+  }
+
+  @override
+  String get mapLocationDenied =>
+      'لم يُمنح إذن الموقع. يمكنك السماح به من الإعدادات ← الخصوصية ← خدمات الموقع.';
+
+  @override
+  String mapLocationFailed(String error) {
+    return 'تعذر الحصول على الموقع: $error';
+  }
 }

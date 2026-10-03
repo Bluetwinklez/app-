@@ -1262,5 +1262,13 @@
   "iconGreen": "أخضر",
   "iconPurple": "بنفسجي",
   "iconOrange": "برتقالي",
-  "iconDark": "ليلي"
+  "iconDark": "ليلي",
+  "mapTitle": "خريطة الوسوم",
+  "mapEmpty": "لا توجد وسوم لعرضها. عدّل وسمًا واضغط \"إضافة الموقع الحالي\" أو اكتب موقعًا على الوسم.",
+  "mapTilesNote": "تُحمَّل صور الخريطة من OpenStreetMap.",
+  "mapOpenInMaps": "فتح في الخرائط",
+  "mapAddCurrent": "إضافة الموقع الحالي",
+  "mapPositionSaved": "الموقع: {lat}، {lng}",
+  "mapLocationDenied": "لم يُمنح إذن الموقع. يمكنك السماح به من الإعدادات ← الخصوصية ← خدمات الموقع.",
+  "mapLocationFailed": "تعذر الحصول على الموقع: {error}"
 }

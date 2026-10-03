@@ -4520,4 +4520,34 @@ class AppLocalizationsUk extends AppLocalizations {
 
   @override
   String get iconDark => 'Ніч';
+
+  @override
+  String get mapTitle => 'Мапа міток';
+
+  @override
+  String get mapEmpty =>
+      'Поки нічого показати. Відкрийте мітку й натисніть «Додати поточне місце» або запишіть на мітку координати.';
+
+  @override
+  String get mapTilesNote => 'Зображення мапи завантажуються з OpenStreetMap.';
+
+  @override
+  String get mapOpenInMaps => 'Відкрити в Картах';
+
+  @override
+  String get mapAddCurrent => 'Додати поточне місце';
+
+  @override
+  String mapPositionSaved(String lat, String lng) {
+    return 'Місце: $lat, $lng';
+  }
+
+  @override
+  String get mapLocationDenied =>
+      'Доступ до геопозиції не надано. Дозвольте в Параметри → Конфіденційність → Служби геолокації.';
+
+  @override
+  String mapLocationFailed(String error) {
+    return 'Не вдалося визначити місце: $error';
+  }
 }

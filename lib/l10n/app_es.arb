@@ -1262,5 +1262,13 @@
   "iconGreen": "Verde",
   "iconPurple": "Morado",
   "iconOrange": "Naranja",
-  "iconDark": "Noche"
+  "iconDark": "Noche",
+  "mapTitle": "Mapa de etiquetas",
+  "mapEmpty": "Aún no hay etiquetas. Edita una y toca \"Añadir ubicación actual\", o escribe una ubicación en la etiqueta.",
+  "mapTilesNote": "Las imágenes del mapa se cargan desde OpenStreetMap.",
+  "mapOpenInMaps": "Abrir en Mapas",
+  "mapAddCurrent": "Añadir ubicación actual",
+  "mapPositionSaved": "Ubicación: {lat}, {lng}",
+  "mapLocationDenied": "Permiso de ubicación denegado. Puedes permitirlo en Ajustes → Privacidad → Localización.",
+  "mapLocationFailed": "No se pudo obtener la ubicación: {error}"
 }

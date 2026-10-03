@@ -3,3 +3,4 @@
 "NSPhotoLibraryUsageDescription" = "تُستخدم صورك لإضافة صور إلى الوسوم في مكتبتك.";
 "NFCReaderUsageDescription" = "يلزم الوصول إلى NFC لقراءة وسوم NFC وكتابة رسائل NDEF.";
 "NSFaceIDUsageDescription" = "يحمي Face ID مكتبة الوسوم عند تفعيل قفل التطبيق.";
+"NSLocationWhenInUseUsageDescription" = "عند طلبك، يُحفظ موقع الوسم لعرضه على خريطة الوسوم.";

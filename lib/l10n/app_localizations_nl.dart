@@ -4521,4 +4521,34 @@ class AppLocalizationsNl extends AppLocalizations {
 
   @override
   String get iconDark => 'Nacht';
+
+  @override
+  String get mapTitle => 'Tagkaart';
+
+  @override
+  String get mapEmpty =>
+      'Nog geen tags om te tonen. Bewerk een tag en tik op \"Huidige locatie toevoegen\", of schrijf een locatie op de tag.';
+
+  @override
+  String get mapTilesNote => 'Kaartbeelden worden geladen van OpenStreetMap.';
+
+  @override
+  String get mapOpenInMaps => 'Openen in Kaarten';
+
+  @override
+  String get mapAddCurrent => 'Huidige locatie toevoegen';
+
+  @override
+  String mapPositionSaved(String lat, String lng) {
+    return 'Locatie: $lat, $lng';
+  }
+
+  @override
+  String get mapLocationDenied =>
+      'Locatietoestemming niet gegeven. Sta het toe via Instellingen → Privacy → Locatievoorzieningen.';
+
+  @override
+  String mapLocationFailed(String error) {
+    return 'Locatie niet beschikbaar: $error';
+  }
 }

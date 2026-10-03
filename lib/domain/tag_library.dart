@@ -38,6 +38,10 @@ class TagLibraryEntry {
   /// Logbook that gets an entry whenever this tag is scanned. Null = none.
   final String? autoLogBookId;
 
+  /// Where the tag is stuck (for the tag map). Null when unknown.
+  final double? latitude;
+  final double? longitude;
+
   static const List<int> checkIntervals = [1, 7, 14, 30, 90, 180, 365];
 
   const TagLibraryEntry({
@@ -55,7 +59,22 @@ class TagLibraryEntry {
     this.lastSeenAt,
     this.checkEveryDays,
     this.autoLogBookId,
+    this.latitude,
+    this.longitude,
   });
+
+  /// Saved coordinates, else the first `geo:` link written on the tag.
+  ({double lat, double lng})? get position {
+    if (latitude != null && longitude != null) return (lat: latitude!, lng: longitude!);
+    for (final r in records) {
+      final parsed = NdefCodec.parseRecord(r);
+      if (parsed.type != ParsedRecordType.location) continue;
+      final lat = double.tryParse('${parsed.extra['latitude'] ?? ''}'.trim());
+      final lng = double.tryParse('${parsed.extra['longitude'] ?? ''}'.trim());
+      if (lat != null && lng != null && lat.abs() <= 90 && lng.abs() <= 180) return (lat: lat, lng: lng);
+    }
+    return null;
+  }
 
   /// Has an interval and was not scanned within it (counting from creation
   /// when never scanned).
@@ -92,6 +111,9 @@ class TagLibraryEntry {
     bool clearCheck = false,
     String? autoLogBookId,
     bool clearAutoLog = false,
+    double? latitude,
+    double? longitude,
+    bool clearPosition = false,
   }) {
     return TagLibraryEntry(
       id: id,
@@ -108,6 +130,8 @@ class TagLibraryEntry {
       lastSeenAt: lastSeenAt ?? this.lastSeenAt,
       checkEveryDays: clearCheck ? null : (checkEveryDays ?? this.checkEveryDays),
       autoLogBookId: clearAutoLog ? null : (autoLogBookId ?? this.autoLogBookId),
+      latitude: clearPosition ? null : (latitude ?? this.latitude),
+      longitude: clearPosition ? null : (longitude ?? this.longitude),
     );
   }
 
@@ -199,6 +223,7 @@ class TagLibraryEntry {
         if (lastSeenAt != null) 'lastSeenAt': lastSeenAt!.toIso8601String(),
         if (checkEveryDays != null) 'checkEveryDays': checkEveryDays,
         if (autoLogBookId != null) 'autoLogBookId': autoLogBookId,
+        if (latitude != null && longitude != null) ...{'lat': latitude, 'lng': longitude},
       };
 
   factory TagLibraryEntry.fromJsonMap(Map<String, dynamic> map) {
@@ -224,6 +249,8 @@ class TagLibraryEntry {
       lastSeenAt: DateTime.tryParse(map['lastSeenAt'] as String? ?? ''),
       checkEveryDays: (map['checkEveryDays'] as num?)?.toInt(),
       autoLogBookId: map['autoLogBookId'] as String?,
+      latitude: (map['lat'] as num?)?.toDouble(),
+      longitude: (map['lng'] as num?)?.toDouble(),
     );
   }
 }
