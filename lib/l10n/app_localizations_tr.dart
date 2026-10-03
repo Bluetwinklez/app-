@@ -3759,4 +3759,42 @@ class AppLocalizationsTr extends AppLocalizations {
   String libraryWritePrompt(String name) {
     return '\"$name\" içeriğini yazmak için etiketi yaklaştırın';
   }
+
+  @override
+  String get presetSmartCardTitle => 'Akıllı Kart';
+
+  @override
+  String get presetSmartCardDesc =>
+      'Tek etikette web siteniz, kartvizitiniz ve isteğe bağlı Wi-Fi. Telefon önce siteyi açar.';
+
+  @override
+  String get presetLostItemTitle => 'Kayıp Eşya';
+
+  @override
+  String get presetLostItemDesc =>
+      'Bulan kişi dokununca size hazır bir SMS taslağı açılır.';
+
+  @override
+  String get lostItemNameLabel => 'Eşya (ör. Anahtar, Cüzdan)';
+
+  @override
+  String lostItemSms(String item) {
+    return 'Merhaba, $item eşyanızı buldum.';
+  }
+
+  @override
+  String lostItemText(String item, String name) {
+    return 'Bu $item $name kişisine aittir. Bulduysanız lütfen haber verin.';
+  }
+
+  @override
+  String get presetVoiceTitle => 'Sesli Mesaj';
+
+  @override
+  String get presetVoiceDesc =>
+      'Hediye ya da kutu üzerine: dokununca sesli notunuz veya şarkınız açılır.';
+
+  @override
+  String get voiceLinkLabel =>
+      'Ses dosyası bağlantısı (iCloud, Drive, SoundCloud…)';
 }

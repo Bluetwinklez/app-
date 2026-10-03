@@ -3772,4 +3772,41 @@ class AppLocalizationsDe extends AppLocalizations {
   String libraryWritePrompt(String name) {
     return 'Tag annähern, um „$name“ zu schreiben';
   }
+
+  @override
+  String get presetSmartCardTitle => 'Smart Card';
+
+  @override
+  String get presetSmartCardDesc =>
+      'Website, Kontaktkarte und optional WLAN auf einem Tag. Telefone öffnen zuerst die Website.';
+
+  @override
+  String get presetLostItemTitle => 'Fundsache';
+
+  @override
+  String get presetLostItemDesc =>
+      'Der Finder bekommt beim Antippen eine fertige SMS an Sie.';
+
+  @override
+  String get lostItemNameLabel => 'Gegenstand (z. B. Schlüssel)';
+
+  @override
+  String lostItemSms(String item) {
+    return 'Hallo, ich habe Ihr(e) $item gefunden.';
+  }
+
+  @override
+  String lostItemText(String item, String name) {
+    return 'Dieses $item gehört $name. Bitte melden Sie sich, wenn Sie es gefunden haben.';
+  }
+
+  @override
+  String get presetVoiceTitle => 'Sprachnachricht';
+
+  @override
+  String get presetVoiceDesc =>
+      'Auf Geschenk oder Box: Antippen spielt Ihre Sprachnotiz oder Ihr Lied.';
+
+  @override
+  String get voiceLinkLabel => 'Audio-Link (iCloud, Drive, SoundCloud…)';
 }

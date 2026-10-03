@@ -1058,5 +1058,15 @@
   "templateVarsHint": "Dica: {date}, {time} ou {counter} num texto ou link são preenchidos ao gravar.",
   "templateVarsPreview": "Ao gravar: {date} · {time} · contador {counter}",
   "libraryWriteToTag": "Gravar numa tag",
-  "libraryWritePrompt": "Aproxime uma tag para gravar \"{name}\""
+  "libraryWritePrompt": "Aproxime uma tag para gravar \"{name}\"",
+  "presetSmartCardTitle": "Cartão inteligente",
+  "presetSmartCardDesc": "Site, cartão de contato e Wi-Fi opcional numa tag. O telefone abre primeiro o site.",
+  "presetLostItemTitle": "Achados e perdidos",
+  "presetLostItemDesc": "Quem encontrar abre um SMS pronto para você.",
+  "lostItemNameLabel": "Item (ex.: chaves, carteira)",
+  "lostItemSms": "Olá, encontrei seu {item}.",
+  "lostItemText": "Este {item} pertence a {name}. Se encontrou, entre em contato.",
+  "presetVoiceTitle": "Mensagem de voz",
+  "presetVoiceDesc": "Num presente ou caixa: um toque toca sua nota de voz ou música.",
+  "voiceLinkLabel": "Link do áudio (iCloud, Drive, SoundCloud…)"
 }

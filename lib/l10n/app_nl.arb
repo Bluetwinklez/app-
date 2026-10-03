@@ -1058,5 +1058,15 @@
   "templateVarsHint": "Tip: {date}, {time} of {counter} in tekst of link worden bij het schrijven ingevuld.",
   "templateVarsPreview": "Bij schrijven: {date} · {time} · teller {counter}",
   "libraryWriteToTag": "Naar tag schrijven",
-  "libraryWritePrompt": "Houd een tag in de buurt om \"{name}\" te schrijven"
+  "libraryWritePrompt": "Houd een tag in de buurt om \"{name}\" te schrijven",
+  "presetSmartCardTitle": "Slimme kaart",
+  "presetSmartCardDesc": "Website, contactkaart en optioneel wifi op één tag. Telefoons openen eerst de website.",
+  "presetLostItemTitle": "Gevonden voorwerp",
+  "presetLostItemDesc": "De vinder opent met één tik een kant-en-klare sms aan jou.",
+  "lostItemNameLabel": "Voorwerp (bv. sleutels)",
+  "lostItemSms": "Hallo, ik heb je {item} gevonden.",
+  "lostItemText": "Dit {item} is van {name}. Gevonden? Neem contact op.",
+  "presetVoiceTitle": "Spraakbericht",
+  "presetVoiceDesc": "Op een cadeau of doos: één tik speelt je spraakmemo of lied.",
+  "voiceLinkLabel": "Audiolink (iCloud, Drive, SoundCloud…)"
 }

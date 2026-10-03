@@ -3764,4 +3764,40 @@ class AppLocalizationsRu extends AppLocalizations {
   String libraryWritePrompt(String name) {
     return 'Поднесите метку, чтобы записать «$name»';
   }
+
+  @override
+  String get presetSmartCardTitle => 'Умная визитка';
+
+  @override
+  String get presetSmartCardDesc =>
+      'Сайт, визитка и Wi-Fi на одной метке. Телефон сначала откроет сайт.';
+
+  @override
+  String get presetLostItemTitle => 'Потерянная вещь';
+
+  @override
+  String get presetLostItemDesc => 'Нашедший откроет готовое SMS для вас.';
+
+  @override
+  String get lostItemNameLabel => 'Вещь (напр. ключи, кошелёк)';
+
+  @override
+  String lostItemSms(String item) {
+    return 'Здравствуйте, я нашёл вашу вещь: $item.';
+  }
+
+  @override
+  String lostItemText(String item, String name) {
+    return 'Эта вещь ($item) принадлежит: $name. Пожалуйста, свяжитесь.';
+  }
+
+  @override
+  String get presetVoiceTitle => 'Голосовое сообщение';
+
+  @override
+  String get presetVoiceDesc =>
+      'На подарке или коробке: касание включит голосовую заметку или песню.';
+
+  @override
+  String get voiceLinkLabel => 'Ссылка на аудио (iCloud, Drive, SoundCloud…)';
 }

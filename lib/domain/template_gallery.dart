@@ -369,6 +369,76 @@ class TemplateGallery {
       ],
     ),
     GalleryPreset(
+      id: 'smart_card',
+      title: L10n.current.presetSmartCardTitle,
+      description: L10n.current.presetSmartCardDesc,
+      icon: 'badge',
+      category: GalleryCategory.business,
+      fields: [
+        GalleryField('website', L10n.current.contactWebsite, hint: 'https://example.com', kind: GalleryFieldKind.url),
+        GalleryField('name', L10n.current.contactFullName, hint: 'Jane Doe'),
+        GalleryField('phone', L10n.current.contactPhone, hint: '+1 555 111 22 33', kind: GalleryFieldKind.phone, required: false),
+        GalleryField('email', L10n.current.contactEmail, hint: 'jane@example.com', kind: GalleryFieldKind.email, required: false),
+        GalleryField('ssid', L10n.current.wifiSsid, hint: 'Office_WiFi', required: false),
+        GalleryField('password', L10n.current.wifiPassword, hint: '••••••••', kind: GalleryFieldKind.password, required: false),
+      ],
+      build: (v) {
+        final url = QuickLinkBuilder.httpsUrl(v['website']!, emptyMessage: L10n.current.webAddress);
+        final ssid = _opt(v, 'ssid');
+        final password = v['password'] ?? '';
+        if (ssid != null && password.isNotEmpty && (password.length < 8 || password.length > 63)) {
+          throw QuickLinkException(L10n.current.csvWifiPasswordLength);
+        }
+        return [
+          NdefCodec.encodeUri(url),
+          NdefCodec.encodeVCard(
+            formattedName: v['name']!,
+            phone: _opt(v, 'phone'),
+            email: _opt(v, 'email'),
+            url: url,
+          ),
+          if (ssid != null)
+            NdefCodec.encodeWifiWsc(
+              ssid: ssid,
+              authType: password.isEmpty ? WifiAuthType.open : WifiAuthType.wpa2Psk,
+              password: password,
+              encryptionType: password.isEmpty ? WifiEncryptionType.none : WifiEncryptionType.aes,
+            ),
+        ];
+      },
+    ),
+    GalleryPreset(
+      id: 'lost_item',
+      title: L10n.current.presetLostItemTitle,
+      description: L10n.current.presetLostItemDesc,
+      icon: 'search',
+      category: GalleryCategory.personal,
+      fields: [
+        GalleryField('item', L10n.current.lostItemNameLabel, hint: 'Keys'),
+        GalleryField('name', L10n.current.contactFullName, hint: 'Jane Doe'),
+        GalleryField('phone', L10n.current.contactPhone, hint: '+1 555 111 22 33', kind: GalleryFieldKind.phone),
+      ],
+      build: (v) => [
+        // SMS first: it is the record phones act on.
+        NdefCodec.encodeSms(
+          phoneNumber: _phoneDigits(v['phone']!),
+          message: L10n.current.lostItemSms(v['item']!),
+        ),
+        NdefCodec.encodeText(L10n.current.lostItemText(v['item']!, v['name']!)),
+      ],
+    ),
+    GalleryPreset(
+      id: 'voice_message',
+      title: L10n.current.presetVoiceTitle,
+      description: L10n.current.presetVoiceDesc,
+      icon: 'mic',
+      category: GalleryCategory.personal,
+      fields: [
+        GalleryField('url', L10n.current.voiceLinkLabel, hint: 'https://www.icloud.com/iclouddrive/...', kind: GalleryFieldKind.url),
+      ],
+      build: (v) => [NdefCodec.encodeUri(QuickLinkBuilder.httpsUrl(v['url']!, emptyMessage: L10n.current.voiceLinkLabel))],
+    ),
+    GalleryPreset(
       id: 'shortcut_trigger',
       title: L10n.current.presetShortcutTitle,
       description: L10n.current.presetShortcutDesc,

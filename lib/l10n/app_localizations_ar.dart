@@ -3713,4 +3713,41 @@ class AppLocalizationsAr extends AppLocalizations {
   String libraryWritePrompt(String name) {
     return 'قرّب وسمًا لكتابة \"$name\"';
   }
+
+  @override
+  String get presetSmartCardTitle => 'بطاقة ذكية';
+
+  @override
+  String get presetSmartCardDesc =>
+      'موقعك وبطاقة الاتصال وWi-Fi اختياري في وسم واحد. يفتح الهاتف الموقع أولاً.';
+
+  @override
+  String get presetLostItemTitle => 'مفقودات';
+
+  @override
+  String get presetLostItemDesc =>
+      'عند اللمس يفتح لمن يجده رسالة SMS جاهزة إليك.';
+
+  @override
+  String get lostItemNameLabel => 'الغرض (مثل المفاتيح، المحفظة)';
+
+  @override
+  String lostItemSms(String item) {
+    return 'مرحبًا، وجدت $item الخاص بك.';
+  }
+
+  @override
+  String lostItemText(String item, String name) {
+    return 'هذا $item يخص $name. إذا وجدته فيرجى التواصل.';
+  }
+
+  @override
+  String get presetVoiceTitle => 'رسالة صوتية';
+
+  @override
+  String get presetVoiceDesc =>
+      'على هدية أو علبة: لمسة تشغّل ملاحظتك الصوتية أو أغنيتك.';
+
+  @override
+  String get voiceLinkLabel => 'رابط الصوت (iCloud وDrive وSoundCloud…)';
 }
