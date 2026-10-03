@@ -1243,5 +1243,17 @@
   "secCheckTitle": "فحص الأمان",
   "secCheckScore": "{ok}/{total} من الإعدادات الموصى بها مفعّلة",
   "secCheckBackup": "نسخة احتياطية خلال آخر 30 يومًا",
-  "secCheckEncryptedNote": "قد تحتوي النسخ الاحتياطية على كلمات مرور Wi-Fi؛ يُنصح بحمايتها بكلمة مرور."
+  "secCheckEncryptedNote": "قد تحتوي النسخ الاحتياطية على كلمات مرور Wi-Fi؛ يُنصح بحمايتها بكلمة مرور.",
+  "packShare": "مشاركة كحزمة فريق",
+  "packImport": "استيراد حزمة فريق",
+  "packHint": "تُشارك الوسوم الظاهرة (حسب الفلتر) في ملف واحد؛ يضيفه زملاؤك عبر المكتبة ← استيراد. لا تُشارك الصور.",
+  "packName": "اسم الحزمة",
+  "packIncludeTemplates": "تضمين القوالب المحفوظة ({count})",
+  "packCount": "ستُشارك {count} وسوم",
+  "packPassword": "كلمة مرور (اختيارية، 6 أحرف على الأقل)",
+  "packPasswordShort": "يجب ألا تقل كلمة المرور عن 6 أحرف",
+  "packPreview": "\"{name}\": {tags} وسوم، {templates} قوالب. استيراد؟",
+  "packImported": "أُضيفت {tags} وسوم و{templates} قوالب · {skipped} موجودة مسبقًا",
+  "packInvalid": "هذا الملف ليس حزمة فريق صالحة ({reason})",
+  "libraryMoreActions": "إجراءات أخرى"
 }

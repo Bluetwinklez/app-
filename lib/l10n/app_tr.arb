@@ -3052,5 +3052,64 @@
     }
   },
   "secCheckBackup": "Son 30 günde yedek alındı",
-  "secCheckEncryptedNote": "Yedeklerde Wi-Fi şifreleri olabilir; dışa aktarırken parola koruması önerilir."
+  "secCheckEncryptedNote": "Yedeklerde Wi-Fi şifreleri olabilir; dışa aktarırken parola koruması önerilir.",
+  "packShare": "Ekip paketi olarak paylaş",
+  "packImport": "Ekip paketini içe aktar",
+  "packHint": "Görünen etiketler (filtreye göre) tek bir dosyada paylaşılır; ekip arkadaşınız dosyayı Kütüphane → İçe aktar ile ekler. Fotoğraflar paylaşılmaz.",
+  "packName": "Paket adı",
+  "packIncludeTemplates": "Kayıtlı şablonları da ekle ({count})",
+  "@packIncludeTemplates": {
+    "placeholders": {
+      "count": {
+        "type": "String"
+      }
+    }
+  },
+  "packCount": "{count} etiket paylaşılacak",
+  "@packCount": {
+    "placeholders": {
+      "count": {
+        "type": "String"
+      }
+    }
+  },
+  "packPassword": "Parola (isteğe bağlı, en az 6 karakter)",
+  "packPasswordShort": "Parola en az 6 karakter olmalı",
+  "packPreview": "\"{name}\": {tags} etiket, {templates} şablon. İçe aktarılsın mı?",
+  "@packPreview": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      },
+      "tags": {
+        "type": "String"
+      },
+      "templates": {
+        "type": "String"
+      }
+    }
+  },
+  "packImported": "{tags} etiket ve {templates} şablon eklendi · {skipped} zaten vardı",
+  "@packImported": {
+    "placeholders": {
+      "tags": {
+        "type": "String"
+      },
+      "templates": {
+        "type": "String"
+      },
+      "skipped": {
+        "type": "String"
+      }
+    }
+  },
+  "packInvalid": "Bu dosya geçerli bir ekip paketi değil ({reason})",
+  "@packInvalid": {
+    "placeholders": {
+      "reason": {
+        "type": "String"
+      }
+    }
+  },
+  "libraryMoreActions": "Diğer işlemler"
 }

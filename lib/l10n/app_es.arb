@@ -1243,5 +1243,17 @@
   "secCheckTitle": "Revisión de seguridad",
   "secCheckScore": "{ok}/{total} ajustes recomendados activos",
   "secCheckBackup": "Copia en los últimos 30 días",
-  "secCheckEncryptedNote": "Las copias pueden incluir contraseñas Wi-Fi; se recomienda protegerlas con contraseña."
+  "secCheckEncryptedNote": "Las copias pueden incluir contraseñas Wi-Fi; se recomienda protegerlas con contraseña.",
+  "packShare": "Compartir como paquete de equipo",
+  "packImport": "Importar paquete de equipo",
+  "packHint": "Las etiquetas visibles (según el filtro) se comparten en un archivo; tus compañeros lo añaden desde Biblioteca → Importar. Las fotos no se comparten.",
+  "packName": "Nombre del paquete",
+  "packIncludeTemplates": "Incluir plantillas guardadas ({count})",
+  "packCount": "Se compartirán {count} etiquetas",
+  "packPassword": "Contraseña (opcional, mínimo 6 caracteres)",
+  "packPasswordShort": "La contraseña debe tener al menos 6 caracteres",
+  "packPreview": "\"{name}\": {tags} etiquetas, {templates} plantillas. ¿Importar?",
+  "packImported": "Se añadieron {tags} etiquetas y {templates} plantillas · {skipped} ya existían",
+  "packInvalid": "Este archivo no es un paquete de equipo válido ({reason})",
+  "libraryMoreActions": "Más acciones"
 }

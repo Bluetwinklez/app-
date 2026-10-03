@@ -1243,5 +1243,17 @@
   "secCheckTitle": "Sicherheitscheck",
   "secCheckScore": "{ok}/{total} empfohlene Einstellungen aktiv",
   "secCheckBackup": "In den letzten 30 Tagen gesichert",
-  "secCheckEncryptedNote": "Backups können WLAN-Passwörter enthalten; beim Export wird ein Passwortschutz empfohlen."
+  "secCheckEncryptedNote": "Backups können WLAN-Passwörter enthalten; beim Export wird ein Passwortschutz empfohlen.",
+  "packShare": "Als Team-Paket teilen",
+  "packImport": "Team-Paket importieren",
+  "packHint": "Die sichtbaren Tags (gefiltert) werden in einer Datei geteilt; Kollegen fügen sie über Bibliothek → Importieren hinzu. Fotos werden nicht geteilt.",
+  "packName": "Paketname",
+  "packIncludeTemplates": "Gespeicherte Vorlagen einschließen ({count})",
+  "packCount": "{count} Tags werden geteilt",
+  "packPassword": "Passwort (optional, mind. 6 Zeichen)",
+  "packPasswordShort": "Passwort muss mind. 6 Zeichen haben",
+  "packPreview": "„{name}\": {tags} Tags, {templates} Vorlagen. Importieren?",
+  "packImported": "{tags} Tags und {templates} Vorlagen hinzugefügt · {skipped} schon vorhanden",
+  "packInvalid": "Diese Datei ist kein gültiges Team-Paket ({reason})",
+  "libraryMoreActions": "Weitere Aktionen"
 }

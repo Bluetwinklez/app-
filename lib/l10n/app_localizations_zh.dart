@@ -4220,4 +4220,50 @@ class AppLocalizationsZh extends AppLocalizations {
 
   @override
   String get secCheckEncryptedNote => '备份可能包含 Wi-Fi 密码，建议导出时设置密码保护。';
+
+  @override
+  String get packShare => '作为团队包分享';
+
+  @override
+  String get packImport => '导入团队包';
+
+  @override
+  String get packHint => '当前显示的标签（按筛选）会打包成一个文件分享；同事可在 标签库 → 导入 中添加。照片不会分享。';
+
+  @override
+  String get packName => '包名称';
+
+  @override
+  String packIncludeTemplates(String count) {
+    return '包含已保存的模板（$count）';
+  }
+
+  @override
+  String packCount(String count) {
+    return '将分享 $count 个标签';
+  }
+
+  @override
+  String get packPassword => '密码（可选，至少 6 个字符）';
+
+  @override
+  String get packPasswordShort => '密码至少需要 6 个字符';
+
+  @override
+  String packPreview(String name, String tags, String templates) {
+    return '“$name”：$tags 个标签，$templates 个模板。要导入吗？';
+  }
+
+  @override
+  String packImported(String tags, String templates, String skipped) {
+    return '已添加 $tags 个标签和 $templates 个模板 · $skipped 个已存在';
+  }
+
+  @override
+  String packInvalid(String reason) {
+    return '此文件不是有效的团队包（$reason）';
+  }
+
+  @override
+  String get libraryMoreActions => '更多操作';
 }

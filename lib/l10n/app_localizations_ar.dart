@@ -4400,4 +4400,51 @@ class AppLocalizationsAr extends AppLocalizations {
   @override
   String get secCheckEncryptedNote =>
       'قد تحتوي النسخ الاحتياطية على كلمات مرور Wi-Fi؛ يُنصح بحمايتها بكلمة مرور.';
+
+  @override
+  String get packShare => 'مشاركة كحزمة فريق';
+
+  @override
+  String get packImport => 'استيراد حزمة فريق';
+
+  @override
+  String get packHint =>
+      'تُشارك الوسوم الظاهرة (حسب الفلتر) في ملف واحد؛ يضيفه زملاؤك عبر المكتبة ← استيراد. لا تُشارك الصور.';
+
+  @override
+  String get packName => 'اسم الحزمة';
+
+  @override
+  String packIncludeTemplates(String count) {
+    return 'تضمين القوالب المحفوظة ($count)';
+  }
+
+  @override
+  String packCount(String count) {
+    return 'ستُشارك $count وسوم';
+  }
+
+  @override
+  String get packPassword => 'كلمة مرور (اختيارية، 6 أحرف على الأقل)';
+
+  @override
+  String get packPasswordShort => 'يجب ألا تقل كلمة المرور عن 6 أحرف';
+
+  @override
+  String packPreview(String name, String tags, String templates) {
+    return '\"$name\": $tags وسوم، $templates قوالب. استيراد؟';
+  }
+
+  @override
+  String packImported(String tags, String templates, String skipped) {
+    return 'أُضيفت $tags وسوم و$templates قوالب · $skipped موجودة مسبقًا';
+  }
+
+  @override
+  String packInvalid(String reason) {
+    return 'هذا الملف ليس حزمة فريق صالحة ($reason)';
+  }
+
+  @override
+  String get libraryMoreActions => 'إجراءات أخرى';
 }

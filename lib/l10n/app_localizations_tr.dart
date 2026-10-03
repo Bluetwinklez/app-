@@ -4451,4 +4451,51 @@ class AppLocalizationsTr extends AppLocalizations {
   @override
   String get secCheckEncryptedNote =>
       'Yedeklerde Wi-Fi şifreleri olabilir; dışa aktarırken parola koruması önerilir.';
+
+  @override
+  String get packShare => 'Ekip paketi olarak paylaş';
+
+  @override
+  String get packImport => 'Ekip paketini içe aktar';
+
+  @override
+  String get packHint =>
+      'Görünen etiketler (filtreye göre) tek bir dosyada paylaşılır; ekip arkadaşınız dosyayı Kütüphane → İçe aktar ile ekler. Fotoğraflar paylaşılmaz.';
+
+  @override
+  String get packName => 'Paket adı';
+
+  @override
+  String packIncludeTemplates(String count) {
+    return 'Kayıtlı şablonları da ekle ($count)';
+  }
+
+  @override
+  String packCount(String count) {
+    return '$count etiket paylaşılacak';
+  }
+
+  @override
+  String get packPassword => 'Parola (isteğe bağlı, en az 6 karakter)';
+
+  @override
+  String get packPasswordShort => 'Parola en az 6 karakter olmalı';
+
+  @override
+  String packPreview(String name, String tags, String templates) {
+    return '\"$name\": $tags etiket, $templates şablon. İçe aktarılsın mı?';
+  }
+
+  @override
+  String packImported(String tags, String templates, String skipped) {
+    return '$tags etiket ve $templates şablon eklendi · $skipped zaten vardı';
+  }
+
+  @override
+  String packInvalid(String reason) {
+    return 'Bu dosya geçerli bir ekip paketi değil ($reason)';
+  }
+
+  @override
+  String get libraryMoreActions => 'Diğer işlemler';
 }
