@@ -2985,4 +2985,17 @@ class AppLocalizationsDe extends AppLocalizations {
 
   @override
   String get mimeTypeHint => 'application/json oder text/plain';
+
+  @override
+  String get hapticsToggle => 'Haptisches Feedback';
+
+  @override
+  String get hapticsToggleSubtitle =>
+      'Kurze Vibration nach dem Lesen oder Schreiben';
+
+  @override
+  String get soundsToggle => 'Töne';
+
+  @override
+  String get soundsToggleSubtitle => 'Kurzen Systemton beim Ergebnis abspielen';
 }

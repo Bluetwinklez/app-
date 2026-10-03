@@ -3002,4 +3002,17 @@ class AppLocalizationsFr extends AppLocalizations {
 
   @override
   String get mimeTypeHint => 'application/json ou text/plain';
+
+  @override
+  String get hapticsToggle => 'Vibrations';
+
+  @override
+  String get hapticsToggleSubtitle =>
+      'Courte vibration à la fin d\'une lecture ou écriture';
+
+  @override
+  String get soundsToggle => 'Sons';
+
+  @override
+  String get soundsToggleSubtitle => 'Jouer un court son système';
 }

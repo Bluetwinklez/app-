@@ -836,5 +836,9 @@
   "redoTooltip": "Ripeti",
   "historyFoundCount": "Trovati: {found} / {total}",
   "addToWriteListShort": "Aggiungi all'elenco",
-  "mimeTypeHint": "application/json o text/plain"
+  "mimeTypeHint": "application/json o text/plain",
+  "hapticsToggle": "Vibrazione",
+  "hapticsToggleSubtitle": "Breve vibrazione a fine lettura o scrittura",
+  "soundsToggle": "Suoni",
+  "soundsToggleSubtitle": "Riproduci un breve suono di sistema"
 }

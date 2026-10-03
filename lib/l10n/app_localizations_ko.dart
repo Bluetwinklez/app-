@@ -2863,4 +2863,16 @@ class AppLocalizationsKo extends AppLocalizations {
 
   @override
   String get mimeTypeHint => 'application/json 또는 text/plain';
+
+  @override
+  String get hapticsToggle => '햅틱';
+
+  @override
+  String get hapticsToggleSubtitle => '읽기·쓰기가 끝나면 짧게 진동';
+
+  @override
+  String get soundsToggle => '소리';
+
+  @override
+  String get soundsToggleSubtitle => '결과 시 짧은 시스템 소리 재생';
 }

@@ -836,5 +836,9 @@
   "redoTooltip": "重做",
   "historyFoundCount": "找到：{found} / {total}",
   "addToWriteListShort": "加入写入列表",
-  "mimeTypeHint": "application/json 或 text/plain"
+  "mimeTypeHint": "application/json 或 text/plain",
+  "hapticsToggle": "触感反馈",
+  "hapticsToggleSubtitle": "读取或写入完成时短暂振动",
+  "soundsToggle": "声音",
+  "soundsToggleSubtitle": "结果时播放短促系统音"
 }

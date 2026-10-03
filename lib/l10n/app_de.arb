@@ -836,5 +836,9 @@
   "redoTooltip": "Wiederholen",
   "historyFoundCount": "Gefunden: {found} / {total}",
   "addToWriteListShort": "Zur Schreibliste",
-  "mimeTypeHint": "application/json oder text/plain"
+  "mimeTypeHint": "application/json oder text/plain",
+  "hapticsToggle": "Haptisches Feedback",
+  "hapticsToggleSubtitle": "Kurze Vibration nach dem Lesen oder Schreiben",
+  "soundsToggle": "Töne",
+  "soundsToggleSubtitle": "Kurzen Systemton beim Ergebnis abspielen"
 }

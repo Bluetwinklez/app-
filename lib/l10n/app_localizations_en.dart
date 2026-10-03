@@ -2966,4 +2966,17 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get mimeTypeHint => 'application/json or text/plain';
+
+  @override
+  String get hapticsToggle => 'Haptics';
+
+  @override
+  String get hapticsToggleSubtitle =>
+      'A short vibration when a scan or write finishes';
+
+  @override
+  String get soundsToggle => 'Sounds';
+
+  @override
+  String get soundsToggleSubtitle => 'Play a short system sound on the result';
 }
