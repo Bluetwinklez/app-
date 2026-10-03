@@ -2875,4 +2875,25 @@ class AppLocalizationsKo extends AppLocalizations {
 
   @override
   String get soundsToggleSubtitle => '결과 시 짧은 시스템 소리 재생';
+
+  @override
+  String get backupLibraryMustBeList => '태그 보관함은 목록이어야 합니다.';
+
+  @override
+  String get backupInvalidLibraryEntry => '잘못된 보관함 항목입니다.';
+
+  @override
+  String backupMaxLibraryExceeded(String max) {
+    return '보관함은 최대 $max개까지입니다.';
+  }
+
+  @override
+  String backupSummaryLibrary(String added) {
+    return '보관함: $added개 추가';
+  }
+
+  @override
+  String backupLibraryCount(String count) {
+    return '• 태그 보관함: $count (사진 제외)';
+  }
 }

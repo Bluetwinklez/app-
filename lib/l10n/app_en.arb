@@ -840,5 +840,10 @@
   "hapticsToggle": "Haptics",
   "hapticsToggleSubtitle": "A short vibration when a scan or write finishes",
   "soundsToggle": "Sounds",
-  "soundsToggleSubtitle": "Play a short system sound on the result"
+  "soundsToggleSubtitle": "Play a short system sound on the result",
+  "backupLibraryMustBeList": "The tag library must be a list.",
+  "backupInvalidLibraryEntry": "Invalid tag library entry.",
+  "backupMaxLibraryExceeded": "The tag library can contain at most {max} entries.",
+  "backupSummaryLibrary": "Library: {added} added",
+  "backupLibraryCount": "• Tag library: {count} (without photos)"
 }

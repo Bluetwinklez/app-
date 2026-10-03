@@ -840,5 +840,10 @@
   "hapticsToggle": "Haptisches Feedback",
   "hapticsToggleSubtitle": "Kurze Vibration nach dem Lesen oder Schreiben",
   "soundsToggle": "Töne",
-  "soundsToggleSubtitle": "Kurzen Systemton beim Ergebnis abspielen"
+  "soundsToggleSubtitle": "Kurzen Systemton beim Ergebnis abspielen",
+  "backupLibraryMustBeList": "Die Tag-Bibliothek muss eine Liste sein.",
+  "backupInvalidLibraryEntry": "Ungültiger Bibliothekseintrag.",
+  "backupMaxLibraryExceeded": "Die Bibliothek darf höchstens {max} Einträge enthalten.",
+  "backupSummaryLibrary": "Bibliothek: {added} hinzugefügt",
+  "backupLibraryCount": "• Tag-Bibliothek: {count} (ohne Fotos)"
 }

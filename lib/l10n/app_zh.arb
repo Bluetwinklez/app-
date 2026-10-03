@@ -840,5 +840,10 @@
   "hapticsToggle": "触感反馈",
   "hapticsToggleSubtitle": "读取或写入完成时短暂振动",
   "soundsToggle": "声音",
-  "soundsToggleSubtitle": "结果时播放短促系统音"
+  "soundsToggleSubtitle": "结果时播放短促系统音",
+  "backupLibraryMustBeList": "标签库必须是列表。",
+  "backupInvalidLibraryEntry": "标签库条目无效。",
+  "backupMaxLibraryExceeded": "标签库最多 {max} 条。",
+  "backupSummaryLibrary": "标签库：新增 {added}",
+  "backupLibraryCount": "• 标签库：{count}（不含照片）"
 }

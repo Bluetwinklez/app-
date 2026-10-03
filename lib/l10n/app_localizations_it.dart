@@ -2995,4 +2995,25 @@ class AppLocalizationsIt extends AppLocalizations {
 
   @override
   String get soundsToggleSubtitle => 'Riproduci un breve suono di sistema';
+
+  @override
+  String get backupLibraryMustBeList => 'La libreria deve essere un elenco.';
+
+  @override
+  String get backupInvalidLibraryEntry => 'Voce di libreria non valida.';
+
+  @override
+  String backupMaxLibraryExceeded(String max) {
+    return 'La libreria può contenere al massimo $max voci.';
+  }
+
+  @override
+  String backupSummaryLibrary(String added) {
+    return 'Libreria: $added aggiunti';
+  }
+
+  @override
+  String backupLibraryCount(String count) {
+    return '• Libreria: $count (senza foto)';
+  }
 }

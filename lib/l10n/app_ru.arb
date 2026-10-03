@@ -840,5 +840,10 @@
   "hapticsToggle": "Вибрация",
   "hapticsToggleSubtitle": "Короткая вибрация после чтения или записи",
   "soundsToggle": "Звуки",
-  "soundsToggleSubtitle": "Короткий системный звук при результате"
+  "soundsToggleSubtitle": "Короткий системный звук при результате",
+  "backupLibraryMustBeList": "Библиотека меток должна быть списком.",
+  "backupInvalidLibraryEntry": "Недопустимая запись библиотеки.",
+  "backupMaxLibraryExceeded": "В библиотеке не более {max} записей.",
+  "backupSummaryLibrary": "Библиотека: добавлено {added}",
+  "backupLibraryCount": "• Библиотека: {count} (без фото)"
 }

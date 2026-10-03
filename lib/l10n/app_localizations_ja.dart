@@ -2866,4 +2866,25 @@ class AppLocalizationsJa extends AppLocalizations {
 
   @override
   String get soundsToggleSubtitle => '結果時に短いシステム音を鳴らす';
+
+  @override
+  String get backupLibraryMustBeList => 'タグライブラリはリストである必要があります。';
+
+  @override
+  String get backupInvalidLibraryEntry => '無効なライブラリ項目です。';
+
+  @override
+  String backupMaxLibraryExceeded(String max) {
+    return 'ライブラリは最大$max件です。';
+  }
+
+  @override
+  String backupSummaryLibrary(String added) {
+    return 'ライブラリ: $added件追加';
+  }
+
+  @override
+  String backupLibraryCount(String count) {
+    return '• タグライブラリ: $count (写真を除く)';
+  }
 }

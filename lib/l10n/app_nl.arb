@@ -840,5 +840,10 @@
   "hapticsToggle": "Trillen",
   "hapticsToggleSubtitle": "Korte trilling na lezen of schrijven",
   "soundsToggle": "Geluiden",
-  "soundsToggleSubtitle": "Kort systeemgeluid bij het resultaat"
+  "soundsToggleSubtitle": "Kort systeemgeluid bij het resultaat",
+  "backupLibraryMustBeList": "De tagbibliotheek moet een lijst zijn.",
+  "backupInvalidLibraryEntry": "Ongeldig bibliotheekitem.",
+  "backupMaxLibraryExceeded": "De bibliotheek mag maximaal {max} items bevatten.",
+  "backupSummaryLibrary": "Bibliotheek: {added} toegevoegd",
+  "backupLibraryCount": "• Tagbibliotheek: {count} (zonder foto's)"
 }

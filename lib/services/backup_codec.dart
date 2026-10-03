@@ -4,6 +4,7 @@ import 'package:crypto/crypto.dart';
 import '../domain/ndef_record.dart';
 import '../domain/storage_models.dart';
 import '../domain/tag_rule.dart';
+import '../domain/tag_library.dart';
 import '../l10n/l10n.dart';
 
 /// Pure Dart codec and validator for versioned JSON backups.
@@ -16,7 +17,9 @@ import '../l10n/l10n.dart';
 /// - Max records per entry/template: 100
 /// - Schema version: 1
 class BackupCodec {
-  static const int currentSchemaVersion = 1;
+  /// v2 adds the tag library. v1 files are still accepted.
+  static const int currentSchemaVersion = 2;
+  static const int maxLibraryCount = 500;
   static const int maxByteSize = 2 * 1024 * 1024; // 2 MiB
   static const int maxTemplatesCount = 500;
   static const int maxHistoryCount = 1000;
@@ -34,6 +37,7 @@ class BackupCodec {
     required List<WriteTemplate> templates,
     List<ScanHistoryEntry>? history,
     List<TagRule>? tagRules,
+    List<TagLibraryEntry>? tagLibrary,
     String? clientAppVersion,
   }) {
     final Map<String, dynamic> root = {
@@ -46,6 +50,9 @@ class BackupCodec {
         'history': history.map((h) => h.toJsonMap()).toList(),
       if (tagRules != null)
         'tagRules': tagRules.map((r) => r.toJsonMap()).toList(),
+      // Photos live in the app sandbox and are not portable, so they are left out
+      if (tagLibrary != null)
+        'tagLibrary': tagLibrary.map((e) => e.copyWith(clearPhoto: true).toJsonMap()).toList(),
     };
 
     final jsonStr = const JsonEncoder.withIndent('  ').convert(root);
@@ -98,7 +105,7 @@ class BackupCodec {
       throw BackupValidationException(
           L10n.current.backupSchemaVersionMustBeInt);
     }
-    if (version != currentSchemaVersion) {
+    if (version < 1 || version > currentSchemaVersion) {
       throw BackupValidationException(
         L10n.current.backupUnsupportedSchemaVersion(version.toString()),
       );
@@ -255,12 +262,40 @@ class BackupCodec {
       }
     }
 
+    // 4. Tag library (schema v2)
+    final rawLibrary = root['tagLibrary'];
+    List<TagLibraryEntry>? tagLibrary;
+    if (rawLibrary != null) {
+      if (rawLibrary is! List) {
+        throw BackupValidationException(L10n.current.backupLibraryMustBeList);
+      }
+      if (rawLibrary.length > maxLibraryCount) {
+        throw BackupValidationException(L10n.current.backupMaxLibraryExceeded('$maxLibraryCount'));
+      }
+      tagLibrary = [];
+      for (final item in rawLibrary) {
+        if (item is! Map) {
+          throw BackupValidationException(L10n.current.backupInvalidLibraryEntry);
+        }
+        final map = Map<String, dynamic>.from(item);
+        final id = map['id'];
+        final name = map['name'];
+        if (id is! String || id.isEmpty || id.length > 100 || name is! String || name.length > 200) {
+          throw BackupValidationException(L10n.current.backupInvalidLibraryEntry);
+        }
+        final records = _validateAndExtractRecords(map['records'], name);
+        final entry = TagLibraryEntry.fromJsonMap({...map, 'records': <dynamic>[]});
+        tagLibrary.add(entry.copyWith(records: records, clearPhoto: true));
+      }
+    }
+
     return BackupPayload(
       schemaVersion: version,
       exportedAt: _readDate(root['exportedAt'], 'exportedAt'),
       templates: templates,
       history: history,
       tagRules: tagRules,
+      tagLibrary: tagLibrary,
     );
   }
 
@@ -376,6 +411,7 @@ class BackupPayload {
   final List<WriteTemplate> templates;
   final List<ScanHistoryEntry>? history;
   final List<TagRule>? tagRules;
+  final List<TagLibraryEntry>? tagLibrary;
 
   const BackupPayload({
     required this.schemaVersion,
@@ -383,6 +419,7 @@ class BackupPayload {
     required this.templates,
     this.history,
     this.tagRules,
+    this.tagLibrary,
   });
 
   bool get hasHistory => history != null && history!.isNotEmpty;
@@ -398,6 +435,7 @@ class ImportMergeResult {
   final bool historySkippedDueToDisabled;
   final int addedRules;
   final int updatedRules;
+  final int addedLibrary;
 
   const ImportMergeResult({
     required this.addedTemplates,
@@ -407,6 +445,7 @@ class ImportMergeResult {
     required this.historySkippedDueToDisabled,
     required this.addedRules,
     required this.updatedRules,
+    this.addedLibrary = 0,
   });
 
   String toSummaryMessage() {
@@ -418,6 +457,9 @@ class ImportMergeResult {
     if (addedRules > 0 || updatedRules > 0) {
       parts.add(
           L10n.current.backupSummaryRules(addedRules.toString(), updatedRules.toString()));
+    }
+    if (addedLibrary > 0) {
+      parts.add(L10n.current.backupSummaryLibrary('$addedLibrary'));
     }
     if (historySkippedDueToDisabled) {
       final skippedStr = skippedHistory > 0 ? '$skippedHistory ' : '';
