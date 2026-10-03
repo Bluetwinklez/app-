@@ -4604,4 +4604,13 @@ class AppLocalizationsPt extends AppLocalizations {
   @override
   String get simpleSavedHint =>
       'Toque em uma para gravar o mesmo em outra tag.';
+
+  @override
+  String get accentColorTitle => 'Cor de destaque';
+
+  @override
+  String get colorPink => 'Rosa';
+
+  @override
+  String get textSizeTitle => 'Tamanho do texto';
 }

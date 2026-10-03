@@ -4395,4 +4395,13 @@ class AppLocalizationsJa extends AppLocalizations {
 
   @override
   String get simpleSavedHint => 'タップすると同じ内容を新しいタグに書き込みます。';
+
+  @override
+  String get accentColorTitle => 'アクセントカラー';
+
+  @override
+  String get colorPink => 'ピンク';
+
+  @override
+  String get textSizeTitle => '文字サイズ';
 }

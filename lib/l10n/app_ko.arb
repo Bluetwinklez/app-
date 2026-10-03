@@ -1283,5 +1283,8 @@
   "simpleWriteNow": "쓰기 – 태그를 대세요",
   "simpleWritten": "태그에 썼습니다 ✓",
   "simpleSaved": "저장한 태그",
-  "simpleSavedHint": "하나를 누르면 같은 내용을 새 태그에 씁니다."
+  "simpleSavedHint": "하나를 누르면 같은 내용을 새 태그에 씁니다.",
+  "accentColorTitle": "강조 색상",
+  "colorPink": "분홍",
+  "textSizeTitle": "글자 크기"
 }

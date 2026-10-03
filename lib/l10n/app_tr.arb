@@ -3156,5 +3156,8 @@
   "simpleWriteNow": "Yaz ve etiketi yaklaştır",
   "simpleWritten": "Etikete yazıldı ✓",
   "simpleSaved": "Kayıtlı etiketlerim",
-  "simpleSavedHint": "Birine dokunun, aynısını yeni etikete yazın."
+  "simpleSavedHint": "Birine dokunun, aynısını yeni etikete yazın.",
+  "accentColorTitle": "Vurgu rengi",
+  "colorPink": "Pembe",
+  "textSizeTitle": "Yazı boyutu"
 }

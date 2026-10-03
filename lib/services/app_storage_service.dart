@@ -74,6 +74,14 @@ abstract class AppStorageService {
   bool get clearClipboardAfterCopy;
   Future<void> setClearClipboardAfterCopy(bool value);
 
+  /// Accent colour preset (see AppColors.accentPresets).
+  int get accentIndex;
+  Future<void> setAccentIndex(int value);
+
+  /// Extra text size, percent (100 = system size).
+  int get textScalePercent;
+  Future<void> setTextScalePercent(int value);
+
   /// Compatibility mode: skip read-back verification after writes.
   bool get compatibilityMode;
   Future<void> setCompatibilityMode(bool enabled);
@@ -169,6 +177,22 @@ class InMemoryAppStorageService implements AppStorageService {
 
   @override
   Future<void> setCompatibilityMode(bool enabled) async => _compatibilityMode = enabled;
+
+  int _textScalePercent = 100;
+
+  @override
+  int get textScalePercent => _textScalePercent;
+
+  @override
+  Future<void> setTextScalePercent(int value) async => _textScalePercent = value;
+
+  int _accentIndex = 0;
+
+  @override
+  int get accentIndex => _accentIndex;
+
+  @override
+  Future<void> setAccentIndex(int value) async => _accentIndex = value;
 
   bool _clearClipboardAfterCopy = true;
 
@@ -506,6 +530,8 @@ class LocalFileAppStorageService implements AppStorageService {
               : const [];
           _lastBackupAt = DateTime.tryParse(data['lastBackupAt'] as String? ?? '');
           _compatibilityMode = data['compatibilityMode'] as bool? ?? false;
+          _textScalePercent = data['textScalePercent'] as int? ?? 100;
+          _accentIndex = data['accentIndex'] as int? ?? 0;
           _clearClipboardAfterCopy = data['clearClipboardAfterCopy'] as bool? ?? true;
           _hideInSwitcher = data['hideInSwitcher'] as bool? ?? true;
           _lockAfterSeconds = data['lockAfterSeconds'] as int? ?? 60;
@@ -688,6 +714,8 @@ class LocalFileAppStorageService implements AppStorageService {
       'favoritePresets': _favoritePresets,
       if (_lastBackupAt != null) 'lastBackupAt': _lastBackupAt!.toIso8601String(),
       'compatibilityMode': _compatibilityMode,
+      'textScalePercent': _textScalePercent,
+      'accentIndex': _accentIndex,
       'clearClipboardAfterCopy': _clearClipboardAfterCopy,
       'hideInSwitcher': _hideInSwitcher,
       'lockAfterSeconds': _lockAfterSeconds,
@@ -766,6 +794,28 @@ class LocalFileAppStorageService implements AppStorageService {
   @override
   Future<void> setCompatibilityMode(bool enabled) async {
     _compatibilityMode = enabled;
+    await _saveSettings();
+  }
+
+  int _textScalePercent = 100;
+
+  @override
+  int get textScalePercent => _textScalePercent;
+
+  @override
+  Future<void> setTextScalePercent(int value) async {
+    _textScalePercent = value;
+    await _saveSettings();
+  }
+
+  int _accentIndex = 0;
+
+  @override
+  int get accentIndex => _accentIndex;
+
+  @override
+  Future<void> setAccentIndex(int value) async {
+    _accentIndex = value;
     await _saveSettings();
   }
 

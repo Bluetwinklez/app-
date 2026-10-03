@@ -4355,4 +4355,13 @@ class AppLocalizationsZh extends AppLocalizations {
 
   @override
   String get simpleSavedHint => '点按一个即可写入新标签。';
+
+  @override
+  String get accentColorTitle => '强调色';
+
+  @override
+  String get colorPink => '粉色';
+
+  @override
+  String get textSizeTitle => '文字大小';
 }

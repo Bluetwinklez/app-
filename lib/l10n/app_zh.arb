@@ -1283,5 +1283,8 @@
   "simpleWriteNow": "写入 – 靠近标签",
   "simpleWritten": "已写入标签 ✓",
   "simpleSaved": "我保存的标签",
-  "simpleSavedHint": "点按一个即可写入新标签。"
+  "simpleSavedHint": "点按一个即可写入新标签。",
+  "accentColorTitle": "强调色",
+  "colorPink": "粉色",
+  "textSizeTitle": "文字大小"
 }

@@ -1283,5 +1283,8 @@
   "simpleWriteNow": "Schreiben – Tag heranhalten",
   "simpleWritten": "Auf den Tag geschrieben ✓",
   "simpleSaved": "Meine gespeicherten Tags",
-  "simpleSavedHint": "Antippen, um dasselbe auf einen neuen Tag zu schreiben."
+  "simpleSavedHint": "Antippen, um dasselbe auf einen neuen Tag zu schreiben.",
+  "accentColorTitle": "Akzentfarbe",
+  "colorPink": "Rosa",
+  "textSizeTitle": "Textgröße"
 }

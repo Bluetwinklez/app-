@@ -1283,5 +1283,8 @@
   "simpleWriteNow": "Записать – поднесите метку",
   "simpleWritten": "Записано на метку ✓",
   "simpleSaved": "Мои сохранённые метки",
-  "simpleSavedHint": "Нажмите, чтобы записать то же на новую метку."
+  "simpleSavedHint": "Нажмите, чтобы записать то же на новую метку.",
+  "accentColorTitle": "Акцентный цвет",
+  "colorPink": "Розовый",
+  "textSizeTitle": "Размер текста"
 }

@@ -4606,4 +4606,13 @@ class AppLocalizationsDe extends AppLocalizations {
   @override
   String get simpleSavedHint =>
       'Antippen, um dasselbe auf einen neuen Tag zu schreiben.';
+
+  @override
+  String get accentColorTitle => 'Akzentfarbe';
+
+  @override
+  String get colorPink => 'Rosa';
+
+  @override
+  String get textSizeTitle => 'Textgröße';
 }
