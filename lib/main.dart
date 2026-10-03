@@ -6,6 +6,7 @@ import 'controllers/nfc_controller.dart';
 import 'services/app_storage_service.dart';
 import 'services/nfc_service.dart';
 import 'ui/home_screen.dart';
+import 'ui/app_lock_gate.dart';
 import 'ui/app_theme.dart';
 
 import 'l10n/app_localizations.dart';
@@ -106,7 +107,9 @@ class NfcTagMasterApp extends StatelessWidget {
       theme: AppTheme.light(),
       darkTheme: AppTheme.dark(),
       themeMode: appController?.themeMode ?? ThemeMode.light,
-      home: HomeScreen(controller: controller),
+      home: controller == null
+          ? HomeScreen(controller: controller)
+          : AppLockGate(storage: controller!.storage, child: HomeScreen(controller: controller)),
     );
   }
 }

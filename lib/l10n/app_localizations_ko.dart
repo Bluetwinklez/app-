@@ -3798,4 +3798,22 @@ class AppLocalizationsKo extends AppLocalizations {
 
   @override
   String get backupDecryptFailed => '복호화하지 못했습니다. 파일이 손상되었을 수 있습니다.';
+
+  @override
+  String get appLockTitle => '앱 잠금';
+
+  @override
+  String get appLockSubtitle => '열 때 Face ID, Touch ID 또는 기기 암호 요구';
+
+  @override
+  String get appLockUnavailable => '이 기기에 화면 잠금이 설정되어 있지 않습니다.';
+
+  @override
+  String get appLockLocked => '앱이 잠겨 있습니다';
+
+  @override
+  String get appLockUnlock => '잠금 해제';
+
+  @override
+  String get appLockReason => '태그 보관함과 기록을 열기 위해';
 }

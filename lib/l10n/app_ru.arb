@@ -1110,5 +1110,11 @@
   "backupPasswordMismatch": "Пароли не совпадают.",
   "backupEncryptedPrompt": "Копия защищена паролем. Введите пароль.",
   "backupWrongPassword": "Неверный пароль.",
-  "backupDecryptFailed": "Не удалось расшифровать; файл может быть повреждён."
+  "backupDecryptFailed": "Не удалось расшифровать; файл может быть повреждён.",
+  "appLockTitle": "Блокировка приложения",
+  "appLockSubtitle": "Запрашивать Face ID, Touch ID или код при открытии",
+  "appLockUnavailable": "На устройстве не настроена блокировка экрана.",
+  "appLockLocked": "Приложение заблокировано",
+  "appLockUnlock": "Разблокировать",
+  "appLockReason": "Чтобы открыть библиотеку меток и историю"
 }

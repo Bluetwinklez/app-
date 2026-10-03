@@ -1110,5 +1110,11 @@
   "backupPasswordMismatch": "비밀번호가 일치하지 않습니다.",
   "backupEncryptedPrompt": "이 백업은 비밀번호로 보호됩니다. 비밀번호를 입력하세요.",
   "backupWrongPassword": "비밀번호가 틀렸습니다.",
-  "backupDecryptFailed": "복호화하지 못했습니다. 파일이 손상되었을 수 있습니다."
+  "backupDecryptFailed": "복호화하지 못했습니다. 파일이 손상되었을 수 있습니다.",
+  "appLockTitle": "앱 잠금",
+  "appLockSubtitle": "열 때 Face ID, Touch ID 또는 기기 암호 요구",
+  "appLockUnavailable": "이 기기에 화면 잠금이 설정되어 있지 않습니다.",
+  "appLockLocked": "앱이 잠겨 있습니다",
+  "appLockUnlock": "잠금 해제",
+  "appLockReason": "태그 보관함과 기록을 열기 위해"
 }

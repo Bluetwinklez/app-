@@ -3986,4 +3986,23 @@ class AppLocalizationsEs extends AppLocalizations {
   @override
   String get backupDecryptFailed =>
       'No se pudo descifrar; el archivo puede estar dañado.';
+
+  @override
+  String get appLockTitle => 'Bloqueo de la app';
+
+  @override
+  String get appLockSubtitle => 'Pedir Face ID, Touch ID o el código al abrir';
+
+  @override
+  String get appLockUnavailable =>
+      'No hay bloqueo de pantalla configurado en este dispositivo.';
+
+  @override
+  String get appLockLocked => 'App bloqueada';
+
+  @override
+  String get appLockUnlock => 'Desbloquear';
+
+  @override
+  String get appLockReason => 'Para abrir tu biblioteca e historial';
 }

@@ -1110,5 +1110,11 @@
   "backupPasswordMismatch": "Die Passwörter stimmen nicht überein.",
   "backupEncryptedPrompt": "Diese Sicherung ist geschützt. Passwort eingeben.",
   "backupWrongPassword": "Falsches Passwort.",
-  "backupDecryptFailed": "Entschlüsselung fehlgeschlagen; die Datei ist evtl. beschädigt."
+  "backupDecryptFailed": "Entschlüsselung fehlgeschlagen; die Datei ist evtl. beschädigt.",
+  "appLockTitle": "App-Sperre",
+  "appLockSubtitle": "Face ID, Touch ID oder Gerätecode beim Öffnen verlangen",
+  "appLockUnavailable": "Auf diesem Gerät ist keine Bildschirmsperre eingerichtet.",
+  "appLockLocked": "App gesperrt",
+  "appLockUnlock": "Entsperren",
+  "appLockReason": "Um Ihre Tag-Bibliothek und den Verlauf zu öffnen"
 }
