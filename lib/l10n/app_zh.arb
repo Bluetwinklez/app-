@@ -1093,5 +1093,13 @@
   "unseen30Days": "30 天以上未见",
   "inventoryCardTitle": "此标签在你的标签库中",
   "scanReportLine": "{unique} 个不同标签 · {dup} 个重复 · {empty} 个空白",
-  "printSheet": "可打印标签页（PDF）"
+  "printSheet": "可打印标签页（PDF）",
+  "phishDangerTitle": "警告：可能是仿冒网站",
+  "phishCautionTitle": "打开前请检查此链接",
+  "phishLookalike": "地址看起来像 {brand}，但不是其官方域名。",
+  "phishBrandInSubdomain": "“{brand}”被放在另一个域名前面，真实网站并非它。",
+  "phishBrandInName": "域名包含“{brand}”，但不是官方网站。",
+  "phishShortener": "短链接（{host}）：真实地址被隐藏。",
+  "phishRiskyTld": "“.{tld}”后缀常被钓鱼网站使用。",
+  "phishDisclaimer": "此检查基于离线线索，不能保证网站安全。"
 }

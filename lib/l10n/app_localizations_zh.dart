@@ -3688,4 +3688,38 @@ class AppLocalizationsZh extends AppLocalizations {
 
   @override
   String get printSheet => '可打印标签页（PDF）';
+
+  @override
+  String get phishDangerTitle => '警告：可能是仿冒网站';
+
+  @override
+  String get phishCautionTitle => '打开前请检查此链接';
+
+  @override
+  String phishLookalike(String brand) {
+    return '地址看起来像 $brand，但不是其官方域名。';
+  }
+
+  @override
+  String phishBrandInSubdomain(String brand) {
+    return '“$brand”被放在另一个域名前面，真实网站并非它。';
+  }
+
+  @override
+  String phishBrandInName(String brand) {
+    return '域名包含“$brand”，但不是官方网站。';
+  }
+
+  @override
+  String phishShortener(String host) {
+    return '短链接（$host）：真实地址被隐藏。';
+  }
+
+  @override
+  String phishRiskyTld(String tld) {
+    return '“.$tld”后缀常被钓鱼网站使用。';
+  }
+
+  @override
+  String get phishDisclaimer => '此检查基于离线线索，不能保证网站安全。';
 }

@@ -3919,4 +3919,39 @@ class AppLocalizationsFr extends AppLocalizations {
 
   @override
   String get printSheet => 'Planche d\'étiquettes (PDF)';
+
+  @override
+  String get phishDangerTitle => 'Attention : site peut-être frauduleux';
+
+  @override
+  String get phishCautionTitle => 'Vérifiez ce lien avant de l\'ouvrir';
+
+  @override
+  String phishLookalike(String brand) {
+    return 'L\'adresse ressemble à $brand mais n\'est pas son domaine officiel.';
+  }
+
+  @override
+  String phishBrandInSubdomain(String brand) {
+    return '« $brand » est placé devant un autre domaine ; le vrai site est différent.';
+  }
+
+  @override
+  String phishBrandInName(String brand) {
+    return 'Le domaine contient « $brand » mais n\'est pas le site officiel.';
+  }
+
+  @override
+  String phishShortener(String host) {
+    return 'Lien raccourci ($host) : la vraie adresse est cachée.';
+  }
+
+  @override
+  String phishRiskyTld(String tld) {
+    return 'L\'extension « .$tld » est souvent utilisée pour l\'hameçonnage.';
+  }
+
+  @override
+  String get phishDisclaimer =>
+      'Cette vérification repose sur des indices hors ligne ; elle ne garantit rien.';
 }

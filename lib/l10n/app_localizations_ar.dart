@@ -3842,4 +3842,39 @@ class AppLocalizationsAr extends AppLocalizations {
 
   @override
   String get printSheet => 'ورقة ملصقات للطباعة (PDF)';
+
+  @override
+  String get phishDangerTitle => 'تحذير: قد يكون موقعًا مزيفًا';
+
+  @override
+  String get phishCautionTitle => 'تحقق من الرابط قبل فتحه';
+
+  @override
+  String phishLookalike(String brand) {
+    return 'العنوان يشبه $brand لكنه ليس النطاق الرسمي.';
+  }
+
+  @override
+  String phishBrandInSubdomain(String brand) {
+    return 'وُضع \"$brand\" أمام نطاق آخر؛ والموقع الحقيقي مختلف.';
+  }
+
+  @override
+  String phishBrandInName(String brand) {
+    return 'يحتوي النطاق على \"$brand\" لكنه ليس الموقع الرسمي.';
+  }
+
+  @override
+  String phishShortener(String host) {
+    return 'رابط مختصر ($host): العنوان الحقيقي مخفي.';
+  }
+
+  @override
+  String phishRiskyTld(String tld) {
+    return 'يُستخدم الامتداد \".$tld\" كثيرًا في التصيّد.';
+  }
+
+  @override
+  String get phishDisclaimer =>
+      'يعتمد هذا الفحص على مؤشرات دون اتصال ولا يضمن أمان الموقع.';
 }
