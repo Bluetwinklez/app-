@@ -1396,5 +1396,8 @@
   "reminderWarrantyBody": "The warranty ends today.",
   "templateShareQr": "Share as QR",
   "templateReceived": "Template added: {name}",
-  "templateCodeInvalid": "The template in this QR code could not be read"
+  "templateCodeInvalid": "The template in this QR code could not be read",
+  "madeWithTitle": "Add a \"made with\" note",
+  "madeWithSubtitle": "A short text record is added at the end of written tags so readers discover the app (about 30 bytes).",
+  "madeWithText": "Made with NFC Tag Master"
 }

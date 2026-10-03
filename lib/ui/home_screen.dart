@@ -536,6 +536,16 @@ class _HomeScreenState extends State<HomeScreen>
               onChanged: (v) => _controller.setSoundsEnabled(v),
             ),
             SwitchListTile(
+              secondary: Icon(Icons.campaign_outlined, color: AppColors.accent),
+              title: Text(L10n.current.madeWithTitle),
+              subtitle: Text(L10n.current.madeWithSubtitle),
+              value: _controller.storage.addMadeWith,
+              onChanged: (v) async {
+                await _controller.storage.setAddMadeWith(v);
+                if (mounted) setState(() {});
+              },
+            ),
+            SwitchListTile(
               secondary: Icon(Icons.record_voice_over_outlined, color: AppColors.accent),
               title: Text(L10n.current.speakAfterScanTitle),
               subtitle: Text(L10n.current.speakAfterScanSubtitle),

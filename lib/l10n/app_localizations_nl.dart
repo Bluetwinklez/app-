@@ -4987,4 +4987,14 @@ class AppLocalizationsNl extends AppLocalizations {
   @override
   String get templateCodeInvalid =>
       'Het sjabloon in deze QR-code is onleesbaar';
+
+  @override
+  String get madeWithTitle => '\"Gemaakt met\"-notitie toevoegen';
+
+  @override
+  String get madeWithSubtitle =>
+      'Er komt een korte tekst aan het einde zodat lezers de app ontdekken (ca. 30 bytes).';
+
+  @override
+  String get madeWithText => 'Gemaakt met NFC Tag Master';
 }

@@ -1396,5 +1396,8 @@
   "reminderWarrantyBody": "Гарантія закінчується сьогодні.",
   "templateShareQr": "Поділитися QR-кодом",
   "templateReceived": "Шаблон додано: {name}",
-  "templateCodeInvalid": "Не вдалося прочитати шаблон із QR-коду"
+  "templateCodeInvalid": "Не вдалося прочитати шаблон із QR-коду",
+  "madeWithTitle": "Додавати «зроблено в»",
+  "madeWithSubtitle": "Наприкінці додається короткий текст, щоб інші дізналися про застосунок (≈30 байт).",
+  "madeWithText": "Зроблено в NFC Tag Master"
 }

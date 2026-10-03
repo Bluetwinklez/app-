@@ -8506,6 +8506,24 @@ abstract class AppLocalizations {
   /// In tr, this message translates to:
   /// **'Bu QR kodundaki şablon okunamadı'**
   String get templateCodeInvalid;
+
+  /// No description provided for @madeWithTitle.
+  ///
+  /// In tr, this message translates to:
+  /// **'Etikete \"yapıldı\" notu ekle'**
+  String get madeWithTitle;
+
+  /// No description provided for @madeWithSubtitle.
+  ///
+  /// In tr, this message translates to:
+  /// **'Yazılan etiketin sonuna kısa bir metin kaydı eklenir; okuyanlar uygulamayı tanır (yaklaşık 30 bayt).'**
+  String get madeWithSubtitle;
+
+  /// No description provided for @madeWithText.
+  ///
+  /// In tr, this message translates to:
+  /// **'NFC Etiket Yöneticisi ile yapıldı'**
+  String get madeWithText;
 }
 
 class _AppLocalizationsDelegate

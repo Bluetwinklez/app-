@@ -1396,5 +1396,8 @@
   "reminderWarrantyBody": "La garantie se termine aujourd'hui.",
   "templateShareQr": "Partager en QR",
   "templateReceived": "Modèle ajouté : {name}",
-  "templateCodeInvalid": "Le modèle de ce QR code est illisible"
+  "templateCodeInvalid": "Le modèle de ce QR code est illisible",
+  "madeWithTitle": "Ajouter « créé avec »",
+  "madeWithSubtitle": "Un court texte est ajouté à la fin pour faire découvrir l'app (environ 30 octets).",
+  "madeWithText": "Créé avec NFC Tag Master"
 }

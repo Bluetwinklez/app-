@@ -90,6 +90,10 @@ abstract class AppStorageService {
   bool get firstTagDone;
   Future<void> setFirstTagDone(bool value);
 
+  /// Append a short "made with" text record to written tags.
+  bool get addMadeWith;
+  Future<void> setAddMadeWith(bool value);
+
   /// Compatibility mode: skip read-back verification after writes.
   bool get compatibilityMode;
   Future<void> setCompatibilityMode(bool enabled);
@@ -185,6 +189,14 @@ class InMemoryAppStorageService implements AppStorageService {
 
   @override
   Future<void> setCompatibilityMode(bool enabled) async => _compatibilityMode = enabled;
+
+  bool _addMadeWith = false;
+
+  @override
+  bool get addMadeWith => _addMadeWith;
+
+  @override
+  Future<void> setAddMadeWith(bool value) async => _addMadeWith = value;
 
   bool _firstTagDone = false;
 
@@ -554,6 +566,7 @@ class LocalFileAppStorageService implements AppStorageService {
               : const [];
           _lastBackupAt = DateTime.tryParse(data['lastBackupAt'] as String? ?? '');
           _compatibilityMode = data['compatibilityMode'] as bool? ?? false;
+          _addMadeWith = data['addMadeWith'] as bool? ?? false;
           _firstTagDone = data['firstTagDone'] as bool? ?? false;
           _speakAfterScan = data['speakAfterScan'] as bool? ?? false;
           _textScalePercent = data['textScalePercent'] as int? ?? 100;
@@ -740,6 +753,7 @@ class LocalFileAppStorageService implements AppStorageService {
       'favoritePresets': _favoritePresets,
       if (_lastBackupAt != null) 'lastBackupAt': _lastBackupAt!.toIso8601String(),
       'compatibilityMode': _compatibilityMode,
+      'addMadeWith': _addMadeWith,
       'firstTagDone': _firstTagDone,
       'speakAfterScan': _speakAfterScan,
       'textScalePercent': _textScalePercent,
@@ -822,6 +836,17 @@ class LocalFileAppStorageService implements AppStorageService {
   @override
   Future<void> setCompatibilityMode(bool enabled) async {
     _compatibilityMode = enabled;
+    await _saveSettings();
+  }
+
+  bool _addMadeWith = false;
+
+  @override
+  bool get addMadeWith => _addMadeWith;
+
+  @override
+  Future<void> setAddMadeWith(bool value) async {
+    _addMadeWith = value;
     await _saveSettings();
   }
 

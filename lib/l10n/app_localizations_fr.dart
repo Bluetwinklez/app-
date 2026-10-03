@@ -5023,4 +5023,14 @@ class AppLocalizationsFr extends AppLocalizations {
 
   @override
   String get templateCodeInvalid => 'Le modèle de ce QR code est illisible';
+
+  @override
+  String get madeWithTitle => 'Ajouter « créé avec »';
+
+  @override
+  String get madeWithSubtitle =>
+      'Un court texte est ajouté à la fin pour faire découvrir l\'app (environ 30 octets).';
+
+  @override
+  String get madeWithText => 'Créé avec NFC Tag Master';
 }

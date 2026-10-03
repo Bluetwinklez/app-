@@ -1396,5 +1396,8 @@
   "reminderWarrantyBody": "保修今天到期。",
   "templateShareQr": "以二维码分享",
   "templateReceived": "已添加模板：{name}",
-  "templateCodeInvalid": "无法读取此二维码中的模板"
+  "templateCodeInvalid": "无法读取此二维码中的模板",
+  "madeWithTitle": "添加“制作于”备注",
+  "madeWithSubtitle": "在写入内容末尾添加一段短文字，让读取者认识本应用（约 30 字节）。",
+  "madeWithText": "由 NFC Tag Master 制作"
 }

@@ -4928,4 +4928,14 @@ class AppLocalizationsAr extends AppLocalizations {
 
   @override
   String get templateCodeInvalid => 'تعذرت قراءة القالب من رمز QR هذا';
+
+  @override
+  String get madeWithTitle => 'إضافة ملاحظة \"صُنع بـ\"';
+
+  @override
+  String get madeWithSubtitle =>
+      'يُضاف نص قصير في النهاية ليتعرف القرّاء على التطبيق (نحو 30 بايت).';
+
+  @override
+  String get madeWithText => 'صُنع باستخدام NFC Tag Master';
 }

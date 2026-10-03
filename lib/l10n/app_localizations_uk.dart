@@ -4985,4 +4985,14 @@ class AppLocalizationsUk extends AppLocalizations {
 
   @override
   String get templateCodeInvalid => 'Не вдалося прочитати шаблон із QR-коду';
+
+  @override
+  String get madeWithTitle => 'Додавати «зроблено в»';
+
+  @override
+  String get madeWithSubtitle =>
+      'Наприкінці додається короткий текст, щоб інші дізналися про застосунок (≈30 байт).';
+
+  @override
+  String get madeWithText => 'Зроблено в NFC Tag Master';
 }

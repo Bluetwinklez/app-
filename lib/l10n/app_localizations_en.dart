@@ -4973,4 +4973,14 @@ class AppLocalizationsEn extends AppLocalizations {
   @override
   String get templateCodeInvalid =>
       'The template in this QR code could not be read';
+
+  @override
+  String get madeWithTitle => 'Add a \"made with\" note';
+
+  @override
+  String get madeWithSubtitle =>
+      'A short text record is added at the end of written tags so readers discover the app (about 30 bytes).';
+
+  @override
+  String get madeWithText => 'Made with NFC Tag Master';
 }

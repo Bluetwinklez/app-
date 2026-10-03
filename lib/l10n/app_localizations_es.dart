@@ -5018,4 +5018,14 @@ class AppLocalizationsEs extends AppLocalizations {
 
   @override
   String get templateCodeInvalid => 'No se pudo leer la plantilla de este QR';
+
+  @override
+  String get madeWithTitle => 'Añadir \"hecho con\"';
+
+  @override
+  String get madeWithSubtitle =>
+      'Se añade un texto corto al final para que otros conozcan la app (unos 30 bytes).';
+
+  @override
+  String get madeWithText => 'Hecho con NFC Tag Master';
 }

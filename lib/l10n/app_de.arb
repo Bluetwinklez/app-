@@ -1396,5 +1396,8 @@
   "reminderWarrantyBody": "Die Garantie endet heute.",
   "templateShareQr": "Als QR teilen",
   "templateReceived": "Vorlage hinzugefügt: {name}",
-  "templateCodeInvalid": "Die Vorlage in diesem QR-Code ist unlesbar"
+  "templateCodeInvalid": "Die Vorlage in diesem QR-Code ist unlesbar",
+  "madeWithTitle": "„Erstellt mit\"-Hinweis anfügen",
+  "madeWithSubtitle": "Ein kurzer Textdatensatz am Ende, damit Leser die App entdecken (ca. 30 Byte).",
+  "madeWithText": "Erstellt mit NFC Tag Master"
 }

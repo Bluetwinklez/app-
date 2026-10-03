@@ -1396,5 +1396,8 @@
   "reminderWarrantyBody": "La garantía termina hoy.",
   "templateShareQr": "Compartir como QR",
   "templateReceived": "Plantilla añadida: {name}",
-  "templateCodeInvalid": "No se pudo leer la plantilla de este QR"
+  "templateCodeInvalid": "No se pudo leer la plantilla de este QR",
+  "madeWithTitle": "Añadir \"hecho con\"",
+  "madeWithSubtitle": "Se añade un texto corto al final para que otros conozcan la app (unos 30 bytes).",
+  "madeWithText": "Hecho con NFC Tag Master"
 }

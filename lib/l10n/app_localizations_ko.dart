@@ -4789,4 +4789,13 @@ class AppLocalizationsKo extends AppLocalizations {
 
   @override
   String get templateCodeInvalid => '이 QR 코드의 템플릿을 읽을 수 없습니다';
+
+  @override
+  String get madeWithTitle => '\"제작 앱\" 메모 추가';
+
+  @override
+  String get madeWithSubtitle => '쓴 태그 끝에 짧은 텍스트를 붙여 앱을 알립니다(약 30바이트).';
+
+  @override
+  String get madeWithText => 'NFC Tag Master로 제작';
 }

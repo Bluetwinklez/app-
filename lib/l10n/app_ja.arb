@@ -1396,5 +1396,8 @@
   "reminderWarrantyBody": "本日で保証が終了します。",
   "templateShareQr": "QRで共有",
   "templateReceived": "テンプレートを追加: {name}",
-  "templateCodeInvalid": "このQRコードのテンプレートを読み取れません"
+  "templateCodeInvalid": "このQRコードのテンプレートを読み取れません",
+  "madeWithTitle": "「作成アプリ」メモを追加",
+  "madeWithSubtitle": "書き込み時に末尾へ短いテキストを追加し、アプリを知ってもらいます（約30バイト）。",
+  "madeWithText": "NFC Tag Masterで作成"
 }

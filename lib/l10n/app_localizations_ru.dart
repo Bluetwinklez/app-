@@ -4987,4 +4987,14 @@ class AppLocalizationsRu extends AppLocalizations {
 
   @override
   String get templateCodeInvalid => 'Не удалось прочитать шаблон из QR-кода';
+
+  @override
+  String get madeWithTitle => 'Добавлять «сделано в»';
+
+  @override
+  String get madeWithSubtitle =>
+      'В конец добавляется короткий текст, чтобы другие узнали о приложении (≈30 байт).';
+
+  @override
+  String get madeWithText => 'Сделано в NFC Tag Master';
 }
