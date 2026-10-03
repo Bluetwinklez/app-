@@ -3630,4 +3630,8 @@ class AppLocalizationsDe extends AppLocalizations {
   @override
   String get errorWidgetMessage =>
       'Dieser Bereich konnte nicht angezeigt werden. Gehen Sie zurück und versuchen Sie es erneut.';
+
+  @override
+  String get nfcErrTimeout =>
+      'Zeit abgelaufen, kein Tag erkannt. Halten Sie den Tag an die Oberseite des Telefons und versuchen Sie es erneut.';
 }

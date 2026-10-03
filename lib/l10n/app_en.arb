@@ -1019,5 +1019,6 @@
   "nfcSheetWritten": "Written to the tag!",
   "nfcSheetLocked": "The tag is now permanently locked!",
   "nfcWriteDone": "Written to the tag successfully.",
-  "errorWidgetMessage": "This part could not be shown. Go back and try again."
+  "errorWidgetMessage": "This part could not be shown. Go back and try again.",
+  "nfcErrTimeout": "Time ran out before a tag was found. Hold the tag near the top of the phone and try again."
 }

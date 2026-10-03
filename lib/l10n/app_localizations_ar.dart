@@ -3574,4 +3574,8 @@ class AppLocalizationsAr extends AppLocalizations {
 
   @override
   String get errorWidgetMessage => 'تعذّر عرض هذا الجزء. ارجع وحاول مجددًا.';
+
+  @override
+  String get nfcErrTimeout =>
+      'انتهى الوقت دون اكتشاف وسم. قرّب الوسم من أعلى الهاتف وحاول مجددًا.';
 }

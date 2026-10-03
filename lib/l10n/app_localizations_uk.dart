@@ -3622,4 +3622,8 @@ class AppLocalizationsUk extends AppLocalizations {
   @override
   String get errorWidgetMessage =>
       'Не вдалося показати цей розділ. Поверніться й спробуйте ще раз.';
+
+  @override
+  String get nfcErrTimeout =>
+      'Час вичерпано, мітку не знайдено. Піднесіть її до верхньої частини телефона й повторіть.';
 }

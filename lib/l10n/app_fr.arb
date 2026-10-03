@@ -1019,5 +1019,6 @@
   "nfcSheetWritten": "Écrit sur le tag !",
   "nfcSheetLocked": "Le tag est verrouillé définitivement !",
   "nfcWriteDone": "Écrit sur le tag avec succès.",
-  "errorWidgetMessage": "Cette partie n'a pas pu s'afficher. Revenez en arrière et réessayez."
+  "errorWidgetMessage": "Cette partie n'a pas pu s'afficher. Revenez en arrière et réessayez.",
+  "nfcErrTimeout": "Délai dépassé, aucun tag détecté. Approchez le tag du haut du téléphone et réessayez."
 }

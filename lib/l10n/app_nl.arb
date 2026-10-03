@@ -1019,5 +1019,6 @@
   "nfcSheetWritten": "Naar de tag geschreven!",
   "nfcSheetLocked": "De tag is nu permanent vergrendeld!",
   "nfcWriteDone": "Succesvol naar de tag geschreven.",
-  "errorWidgetMessage": "Dit onderdeel kon niet worden getoond. Ga terug en probeer het opnieuw."
+  "errorWidgetMessage": "Dit onderdeel kon niet worden getoond. Ga terug en probeer het opnieuw.",
+  "nfcErrTimeout": "De tijd is om, geen tag gevonden. Houd de tag bij de bovenkant van de telefoon en probeer opnieuw."
 }

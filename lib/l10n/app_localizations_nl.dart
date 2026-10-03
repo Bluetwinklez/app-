@@ -3623,4 +3623,8 @@ class AppLocalizationsNl extends AppLocalizations {
   @override
   String get errorWidgetMessage =>
       'Dit onderdeel kon niet worden getoond. Ga terug en probeer het opnieuw.';
+
+  @override
+  String get nfcErrTimeout =>
+      'De tijd is om, geen tag gevonden. Houd de tag bij de bovenkant van de telefoon en probeer opnieuw.';
 }

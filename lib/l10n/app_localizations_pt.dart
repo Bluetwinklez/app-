@@ -3633,4 +3633,8 @@ class AppLocalizationsPt extends AppLocalizations {
   @override
   String get errorWidgetMessage =>
       'Não foi possível mostrar esta parte. Volte e tente novamente.';
+
+  @override
+  String get nfcErrTimeout =>
+      'O tempo acabou sem detectar tag. Aproxime-a da parte de cima do telefone e tente de novo.';
 }
