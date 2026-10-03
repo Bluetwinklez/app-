@@ -2885,4 +2885,98 @@ class AppLocalizationsIt extends AppLocalizations {
 
   @override
   String get notSupportedValue => 'Non supportato';
+
+  @override
+  String get nfcUnsupportedDesc => 'NFC non supportato su questo dispositivo';
+
+  @override
+  String get ndefTrailingData => 'Dati extra dopo il messaggio NDEF';
+
+  @override
+  String get ndefMissingEnd => 'Manca la fine del messaggio NDEF';
+
+  @override
+  String vcardPhoneShort(String value) {
+    return 'Tel.: $value';
+  }
+
+  @override
+  String vcardEmailShort(String value) {
+    return 'Email: $value';
+  }
+
+  @override
+  String vcardOrgShort(String value) {
+    return 'Azienda: $value';
+  }
+
+  @override
+  String get pageUidLock => 'UID / Blocco';
+
+  @override
+  String get pageData => 'Dati';
+
+  @override
+  String get pageLock => 'Blocco';
+
+  @override
+  String memoryPageLine(String page) {
+    return 'Pag. $page';
+  }
+
+  @override
+  String get socialWhatsappPhone => 'WhatsApp (telefono)';
+
+  @override
+  String get mapApple => 'Mappe di Apple';
+
+  @override
+  String get mapGoogle => 'Google Maps';
+
+  @override
+  String get whatsappMessageHint => 'Ciao, vorrei delle informazioni';
+
+  @override
+  String get facetimeTargetHint => '+393123456789 o nome@icloud.com';
+
+  @override
+  String get bluetoothMacLabel => 'Indirizzo MAC Bluetooth';
+
+  @override
+  String get webAddressUrlLabel => 'Indirizzo web (URL)';
+
+  @override
+  String get latitudeLabel => 'Latitudine (Lat)';
+
+  @override
+  String get longitudeLabel => 'Longitudine (Lng)';
+
+  @override
+  String get emailAddressLabel => 'Indirizzo email';
+
+  @override
+  String get websiteLabel => 'Sito web';
+
+  @override
+  String get wifiAuthWpa2Home => 'WPA2 Personal (standard casa/ufficio)';
+
+  @override
+  String get wifiAuthMixed => 'WPA/WPA2 Personal (misto)';
+
+  @override
+  String get hostLabel => 'Host:';
+
+  @override
+  String get readOnlyLocked => 'Sola lettura (bloccato)';
+
+  @override
+  String get redoTooltip => 'Ripeti';
+
+  @override
+  String historyFoundCount(String found, String total) {
+    return 'Trovati: $found / $total';
+  }
+
+  @override
+  String get addToWriteListShort => 'Aggiungi all\'elenco';
 }

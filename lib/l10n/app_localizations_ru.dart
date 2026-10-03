@@ -2886,4 +2886,98 @@ class AppLocalizationsRu extends AppLocalizations {
 
   @override
   String get notSupportedValue => 'Не поддерживается';
+
+  @override
+  String get nfcUnsupportedDesc => 'Это устройство не поддерживает NFC';
+
+  @override
+  String get ndefTrailingData => 'Лишние данные после сообщения NDEF';
+
+  @override
+  String get ndefMissingEnd => 'Нет конца сообщения NDEF';
+
+  @override
+  String vcardPhoneShort(String value) {
+    return 'Тел.: $value';
+  }
+
+  @override
+  String vcardEmailShort(String value) {
+    return 'Эл. почта: $value';
+  }
+
+  @override
+  String vcardOrgShort(String value) {
+    return 'Организация: $value';
+  }
+
+  @override
+  String get pageUidLock => 'UID / Блок.';
+
+  @override
+  String get pageData => 'Данные';
+
+  @override
+  String get pageLock => 'Блок.';
+
+  @override
+  String memoryPageLine(String page) {
+    return 'Стр. $page';
+  }
+
+  @override
+  String get socialWhatsappPhone => 'WhatsApp (телефон)';
+
+  @override
+  String get mapApple => 'Apple Карты';
+
+  @override
+  String get mapGoogle => 'Google Карты';
+
+  @override
+  String get whatsappMessageHint => 'Здравствуйте, хочу узнать подробнее';
+
+  @override
+  String get facetimeTargetHint => '+79161234567 или name@icloud.com';
+
+  @override
+  String get bluetoothMacLabel => 'MAC-адрес Bluetooth';
+
+  @override
+  String get webAddressUrlLabel => 'Веб-адрес (URL)';
+
+  @override
+  String get latitudeLabel => 'Широта (Lat)';
+
+  @override
+  String get longitudeLabel => 'Долгота (Lng)';
+
+  @override
+  String get emailAddressLabel => 'Адрес эл. почты';
+
+  @override
+  String get websiteLabel => 'Веб-сайт';
+
+  @override
+  String get wifiAuthWpa2Home => 'WPA2 Personal (стандарт для дома/офиса)';
+
+  @override
+  String get wifiAuthMixed => 'WPA/WPA2 Personal (смешанный)';
+
+  @override
+  String get hostLabel => 'Хост:';
+
+  @override
+  String get readOnlyLocked => 'Только чтение (заблокирована)';
+
+  @override
+  String get redoTooltip => 'Повторить';
+
+  @override
+  String historyFoundCount(String found, String total) {
+    return 'Найдено: $found / $total';
+  }
+
+  @override
+  String get addToWriteListShort => 'В список записи';
 }

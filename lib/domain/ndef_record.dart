@@ -169,11 +169,11 @@ class NdefRecordModel {
       ));
 
       if (me) {
-        if (offset != data.length) throw const FormatException('NDEF sonunda fazladan veri var');
+        if (offset != data.length) throw FormatException(L10n.current.ndefTrailingData);
         return records;
       }
     }
-    if (records.isNotEmpty) throw const FormatException('NDEF mesaj sonu eksik');
+    if (records.isNotEmpty) throw FormatException(L10n.current.ndefMissingEnd);
     return records;
   }
 }
@@ -1081,9 +1081,9 @@ class NdefCodec {
         final name = vcard?['fn'] ?? '${vcard?['firstName'] ?? ''} ${vcard?['lastName'] ?? ''}'.trim();
         final details = <String>[];
         if (name.isNotEmpty) details.add(name);
-        if (vcard?['tel'] != null && vcard!['tel']!.isNotEmpty) details.add('Tel: ${vcard['tel']}');
-        if (vcard?['email'] != null && vcard!['email']!.isNotEmpty) details.add('E-posta: ${vcard['email']}');
-        if (vcard?['org'] != null && vcard!['org']!.isNotEmpty) details.add('Kurum: ${vcard['org']}');
+        if (vcard?['tel'] != null && vcard!['tel']!.isNotEmpty) details.add(L10n.current.vcardPhoneShort(vcard['tel']!));
+        if (vcard?['email'] != null && vcard!['email']!.isNotEmpty) details.add(L10n.current.vcardEmailShort(vcard['email']!));
+        if (vcard?['org'] != null && vcard!['org']!.isNotEmpty) details.add(L10n.current.vcardOrgShort(vcard['org']!));
         return ParsedRecordData(
           type: ParsedRecordType.vcard,
           title: L10n.current.recordTypeVCard,

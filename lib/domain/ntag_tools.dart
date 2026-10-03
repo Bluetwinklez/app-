@@ -85,14 +85,14 @@ class NtagChip {
   /// Short role label for a page, used in the memory viewer.
   String pageLabel(int page) {
     if (page <= 1) return 'UID';
-    if (page == 2) return 'UID / Kilit';
+    if (page == 2) return L10n.current.pageUidLock;
     if (page == 3) return 'CC';
-    if (page >= userStartPage && page <= userEndPage) return 'Veri';
+    if (page >= userStartPage && page <= userEndPage) return L10n.current.pageData;
     if (page == cfg0Page) return 'CFG0';
     if (page == cfg1Page) return 'CFG1';
     if (page == pwdPage) return 'PWD';
     if (page == packPage) return 'PACK';
-    return 'Kilit';
+    return L10n.current.pageLock;
   }
 }
 
@@ -117,7 +117,7 @@ class NtagMemoryDump {
       final hex = chunk.map((b) => b.toRadixString(16).padLeft(2, '0').toUpperCase()).join(' ');
       final ascii = String.fromCharCodes(chunk.map((b) => (b >= 0x20 && b < 0x7F) ? b : 0x2E));
       final label = chip?.pageLabel(page) ?? '';
-      lines.add('Sayfa ${page.toString().padLeft(3, '0')}  $hex  $ascii  $label'.trimRight());
+      lines.add('${L10n.current.memoryPageLine(page.toString().padLeft(3, '0'))}  $hex  $ascii  $label'.trimRight());
     }
     return lines;
   }

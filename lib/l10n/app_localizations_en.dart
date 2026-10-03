@@ -2869,4 +2869,98 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get notSupportedValue => 'Not supported';
+
+  @override
+  String get nfcUnsupportedDesc => 'NFC is not supported on this device';
+
+  @override
+  String get ndefTrailingData => 'Extra data after the NDEF message';
+
+  @override
+  String get ndefMissingEnd => 'NDEF message end is missing';
+
+  @override
+  String vcardPhoneShort(String value) {
+    return 'Phone: $value';
+  }
+
+  @override
+  String vcardEmailShort(String value) {
+    return 'Email: $value';
+  }
+
+  @override
+  String vcardOrgShort(String value) {
+    return 'Company: $value';
+  }
+
+  @override
+  String get pageUidLock => 'UID / Lock';
+
+  @override
+  String get pageData => 'Data';
+
+  @override
+  String get pageLock => 'Lock';
+
+  @override
+  String memoryPageLine(String page) {
+    return 'Page $page';
+  }
+
+  @override
+  String get socialWhatsappPhone => 'WhatsApp (phone)';
+
+  @override
+  String get mapApple => 'Apple Maps';
+
+  @override
+  String get mapGoogle => 'Google Maps';
+
+  @override
+  String get whatsappMessageHint => 'Hi, I would like some information';
+
+  @override
+  String get facetimeTargetHint => '+15551234567 or name@icloud.com';
+
+  @override
+  String get bluetoothMacLabel => 'Bluetooth MAC address';
+
+  @override
+  String get webAddressUrlLabel => 'Web address (URL)';
+
+  @override
+  String get latitudeLabel => 'Latitude (Lat)';
+
+  @override
+  String get longitudeLabel => 'Longitude (Lng)';
+
+  @override
+  String get emailAddressLabel => 'Email address';
+
+  @override
+  String get websiteLabel => 'Website';
+
+  @override
+  String get wifiAuthWpa2Home => 'WPA2 Personal (home/office standard)';
+
+  @override
+  String get wifiAuthMixed => 'WPA/WPA2 Personal (mixed)';
+
+  @override
+  String get hostLabel => 'Host:';
+
+  @override
+  String get readOnlyLocked => 'Read-only (locked)';
+
+  @override
+  String get redoTooltip => 'Redo';
+
+  @override
+  String historyFoundCount(String found, String total) {
+    return 'Found: $found / $total';
+  }
+
+  @override
+  String get addToWriteListShort => 'Add to write list';
 }

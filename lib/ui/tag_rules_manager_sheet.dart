@@ -62,7 +62,7 @@ class _TagRulesManagerSheetState extends State<TagRulesManagerSheet> {
           children: [
             Text(
               'NDEF SHA-256:\n${rule.ndefSha256}',
-              style: const TextStyle(fontSize: 10, fontFamily: 'monospace', color: Colors.blueGrey),
+              style: TextStyle(fontSize: 10, fontFamily: 'monospace', color: AppColors.secondary),
             ),
             const SizedBox(height: 12),
             TextField(
@@ -113,7 +113,7 @@ class _TagRulesManagerSheetState extends State<TagRulesManagerSheet> {
             child: Text(loc.dismiss),
           ),
           ElevatedButton(
-            style: ElevatedButton.styleFrom(backgroundColor: Colors.red),
+            style: ElevatedButton.styleFrom(backgroundColor: AppColors.danger),
             onPressed: () async {
               await widget.storage.deleteTagRule(rule.ndefSha256);
               widget.onRulesChanged();
@@ -140,7 +140,7 @@ class _TagRulesManagerSheetState extends State<TagRulesManagerSheet> {
             child: Text(loc.dismiss),
           ),
           ElevatedButton(
-            style: ElevatedButton.styleFrom(backgroundColor: Colors.red),
+            style: ElevatedButton.styleFrom(backgroundColor: AppColors.danger),
             onPressed: () async {
               await widget.storage.clearTagRules();
               widget.onRulesChanged();
@@ -171,7 +171,7 @@ class _TagRulesManagerSheetState extends State<TagRulesManagerSheet> {
               children: [
                 Row(
                   children: [
-                    const Icon(Icons.rule_folder_outlined, color: AppColors.accent),
+                    Icon(Icons.rule_folder_outlined, color: AppColors.accent),
                     const SizedBox(width: 8),
                     Text(
                       loc.inAppTagRules,
@@ -189,12 +189,12 @@ class _TagRulesManagerSheetState extends State<TagRulesManagerSheet> {
             Container(
               padding: const EdgeInsets.all(8),
               decoration: BoxDecoration(
-                color: Colors.blueGrey.shade50,
+                color: AppColors.neutralSoft,
                 borderRadius: BorderRadius.circular(6),
               ),
               child: Text(
                 loc.tagRulesExplanation,
-                style: const TextStyle(fontSize: 11, color: Colors.blueGrey),
+                style: TextStyle(fontSize: 11, color: AppColors.secondary),
               ),
             ),
             const SizedBox(height: 12),
@@ -208,8 +208,8 @@ class _TagRulesManagerSheetState extends State<TagRulesManagerSheet> {
                 if (_rules.isNotEmpty)
                   TextButton.icon(
                     onPressed: _confirmClearAllRules,
-                    icon: const Icon(Icons.delete_sweep, size: 16, color: Colors.red),
-                    label: Text(loc.clearAllButton, style: const TextStyle(color: Colors.red, fontSize: 12)),
+                    icon: Icon(Icons.delete_sweep, size: 16, color: AppColors.danger),
+                    label: Text(loc.clearAllButton, style: TextStyle(color: AppColors.danger, fontSize: 12)),
                   ),
               ],
             ),
@@ -220,7 +220,7 @@ class _TagRulesManagerSheetState extends State<TagRulesManagerSheet> {
                       child: Text(
                         loc.noTagRulesDefined,
                         textAlign: TextAlign.center,
-                        style: const TextStyle(color: Colors.grey),
+                        style: TextStyle(color: AppColors.secondary),
                       ),
                     )
                   : ListView.builder(
@@ -235,7 +235,7 @@ class _TagRulesManagerSheetState extends State<TagRulesManagerSheet> {
                           shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(8)),
                           child: ListTile(
                             leading: CircleAvatar(
-                              backgroundColor: Colors.amber.shade100,
+                              backgroundColor: AppColors.warningSoft,
                               child: const Icon(Icons.sticky_note_2, color: Colors.brown),
                             ),
                             title: Text(rule.note, style: const TextStyle(fontWeight: FontWeight.bold)),
@@ -251,12 +251,12 @@ class _TagRulesManagerSheetState extends State<TagRulesManagerSheet> {
                               mainAxisSize: MainAxisSize.min,
                               children: [
                                 IconButton(
-                                  icon: const Icon(Icons.edit, size: 20, color: AppColors.accent),
+                                  icon: Icon(Icons.edit, size: 20, color: AppColors.accent),
                                   tooltip: loc.edit,
                                   onPressed: () => _editRule(rule),
                                 ),
                                 IconButton(
-                                  icon: const Icon(Icons.delete_outline, size: 20, color: Colors.red),
+                                  icon: Icon(Icons.delete_outline, size: 20, color: AppColors.danger),
                                   tooltip: loc.delete,
                                   onPressed: () => _deleteRule(rule),
                                 ),

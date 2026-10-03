@@ -605,7 +605,7 @@ class _ComposeRecordSheetState extends State<ComposeRecordSheet> {
               const SizedBox(height: 16),
               Text(
                 loc.quickLinksHeader,
-                style: const TextStyle(fontWeight: FontWeight.bold, color: Colors.black54),
+                style: TextStyle(fontWeight: FontWeight.bold, color: AppColors.secondary),
               ),
               const SizedBox(height: 8),
               Wrap(
@@ -648,7 +648,7 @@ class _ComposeRecordSheetState extends State<ComposeRecordSheet> {
   Widget _buildQuickChip(QuickLinkKind kind, String label, IconData icon) {
     final isSelected = _quickKind == kind;
     return ChoiceChip(
-      avatar: Icon(icon, size: 18, color: isSelected ? Colors.white : Colors.blueGrey),
+      avatar: Icon(icon, size: 18, color: isSelected ? Colors.white : AppColors.secondary),
       label: Text(label),
       selected: isSelected,
       onSelected: (selected) {
@@ -747,7 +747,7 @@ class _ComposeRecordSheetState extends State<ComposeRecordSheet> {
   Widget _quickNote(String text) {
     return Padding(
       padding: const EdgeInsets.only(top: 8),
-      child: Text(text, style: const TextStyle(fontSize: 12, color: Colors.black54)),
+      child: Text(text, style: TextStyle(fontSize: 12, color: AppColors.secondary)),
     );
   }
 
@@ -777,7 +777,7 @@ class _ComposeRecordSheetState extends State<ComposeRecordSheet> {
               ),
               items: [
                 for (final n in SocialNetwork.values)
-                  DropdownMenuItem(value: n, child: Text(n.label)),
+                  DropdownMenuItem(value: n, child: Text(n.displayLabel)),
               ],
               onChanged: (v) => setState(() => _socialNetwork = v ?? _socialNetwork),
             ),
@@ -841,7 +841,7 @@ class _ComposeRecordSheetState extends State<ComposeRecordSheet> {
           children: [
             _quickField(
               label: loc.quickPhoneOrAppleId,
-              hint: '+905551112233 veya ad@icloud.com',
+              hint: L10n.current.facetimeTargetHint,
               keyboardType: TextInputType.emailAddress,
             ),
             _quickNote(kind == QuickLinkKind.facetime
@@ -860,7 +860,7 @@ class _ComposeRecordSheetState extends State<ComposeRecordSheet> {
               ),
               items: [
                 for (final m in MapProvider.values)
-                  DropdownMenuItem(value: m, child: Text(m.label)),
+                  DropdownMenuItem(value: m, child: Text(m.displayLabel)),
               ],
               onChanged: (v) => setState(() => _mapProvider = v ?? _mapProvider),
             ),
@@ -901,7 +901,7 @@ class _ComposeRecordSheetState extends State<ComposeRecordSheet> {
         return Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            _quickField(label: 'Bluetooth MAC Adresi', hint: '00:11:22:AA:BB:CC'),
+            _quickField(label: L10n.current.bluetoothMacLabel, hint: '00:11:22:AA:BB:CC'),
             const SizedBox(height: 10),
             _quickField(
               label: loc.quickDeviceNameOptional,
@@ -918,7 +918,7 @@ class _ComposeRecordSheetState extends State<ComposeRecordSheet> {
   Widget _buildChoiceChip(ParsedRecordType type, String label, IconData icon) {
     final isSelected = _quickKind == null && _selectedType == type;
     return ChoiceChip(
-      avatar: Icon(icon, size: 18, color: isSelected ? Colors.white : Colors.blueGrey),
+      avatar: Icon(icon, size: 18, color: isSelected ? Colors.white : AppColors.secondary),
       label: Text(label),
       selected: isSelected,
       onSelected: (selected) {
@@ -955,7 +955,7 @@ class _ComposeRecordSheetState extends State<ComposeRecordSheet> {
           controller: _urlController,
           keyboardType: TextInputType.url,
           decoration: InputDecoration(
-            labelText: 'Web Adresi (URL)',
+            labelText: L10n.current.webAddressUrlLabel,
             hintText: 'https://example.com',
             errorText: _urlError,
             border: const OutlineInputBorder(),
@@ -1042,7 +1042,7 @@ class _ComposeRecordSheetState extends State<ComposeRecordSheet> {
                 controller: _latController,
                 keyboardType: const TextInputType.numberWithOptions(decimal: true, signed: true),
                 decoration: InputDecoration(
-                  labelText: 'Enlem (Lat)',
+                  labelText: L10n.current.latitudeLabel,
                   hintText: '41.0082',
                   errorText: _latError,
                   border: const OutlineInputBorder(),
@@ -1055,7 +1055,7 @@ class _ComposeRecordSheetState extends State<ComposeRecordSheet> {
                 controller: _lngController,
                 keyboardType: const TextInputType.numberWithOptions(decimal: true, signed: true),
                 decoration: InputDecoration(
-                  labelText: 'Boylam (Lng)',
+                  labelText: L10n.current.longitudeLabel,
                   hintText: '28.9784',
                   errorText: _lngError,
                   border: const OutlineInputBorder(),
@@ -1133,7 +1133,7 @@ class _ComposeRecordSheetState extends State<ComposeRecordSheet> {
               controller: _vcardEmailController,
               keyboardType: TextInputType.emailAddress,
               decoration: InputDecoration(
-                labelText: 'E-posta Adresi',
+                labelText: L10n.current.emailAddressLabel,
                 hintText: 'ahmet@sirket.com',
                 errorText: _vcardEmailError,
                 border: const OutlineInputBorder(),
@@ -1144,7 +1144,7 @@ class _ComposeRecordSheetState extends State<ComposeRecordSheet> {
               controller: _vcardUrlController,
               keyboardType: TextInputType.url,
               decoration: InputDecoration(
-                labelText: 'Web Sitesi',
+                labelText: L10n.current.websiteLabel,
                 hintText: 'https://ahmet.dev',
                 errorText: _vcardUrlError,
                 border: const OutlineInputBorder(),
@@ -1265,7 +1265,7 @@ class _ComposeRecordSheetState extends State<ComposeRecordSheet> {
             ),
             if (_calDateError != null) ...[
               const SizedBox(height: 6),
-              Text(_calDateError!, style: const TextStyle(color: Colors.red, fontSize: 12)),
+              Text(_calDateError!, style: TextStyle(color: AppColors.danger, fontSize: 12)),
             ],
           ],
         );
@@ -1359,17 +1359,17 @@ class _ComposeRecordSheetState extends State<ComposeRecordSheet> {
           children: [
             // Warning Notice regarding Wi-Fi password visibility on tag and platform joining
             Card(
-              color: Colors.amber.shade50,
+              color: AppColors.warningSoft,
               shape: RoundedRectangleBorder(
                 borderRadius: BorderRadius.circular(8),
-                side: BorderSide(color: Colors.amber.shade400),
+                side: BorderSide(color: AppColors.warning),
               ),
               child: Padding(
                 padding: const EdgeInsets.all(12),
                 child: Row(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    const Icon(Icons.warning_amber_rounded, color: Colors.orange, size: 24),
+                    Icon(Icons.warning_amber_rounded, color: AppColors.warning, size: 24),
                     const SizedBox(width: 8),
                     Expanded(
                       child: Column(
@@ -1382,7 +1382,7 @@ class _ComposeRecordSheetState extends State<ComposeRecordSheet> {
                           const SizedBox(height: 4),
                           Text(
                             loc.composeWifiWarningBody,
-                            style: const TextStyle(fontSize: 12, color: Colors.black87),
+                            style: TextStyle(fontSize: 12, color: AppColors.ink),
                           ),
                         ],
                       ),
@@ -1409,8 +1409,8 @@ class _ComposeRecordSheetState extends State<ComposeRecordSheet> {
                 border: const OutlineInputBorder(),
               ),
               items: [
-                const DropdownMenuItem(value: WifiAuthType.wpa2Psk, child: Text('WPA2 Personal (Standart Ev/Ofis)')),
-                const DropdownMenuItem(value: WifiAuthType.wpaWpa2Personal, child: Text('WPA/WPA2 Personal (Karma)')),
+                DropdownMenuItem(value: WifiAuthType.wpa2Psk, child: Text(L10n.current.wifiAuthWpa2Home)),
+                DropdownMenuItem(value: WifiAuthType.wpaWpa2Personal, child: Text(L10n.current.wifiAuthMixed)),
                 const DropdownMenuItem(value: WifiAuthType.wpaPsk, child: Text('WPA Personal')),
                 DropdownMenuItem(value: WifiAuthType.open, child: Text(loc.composeWifiOpenNetwork)),
               ],

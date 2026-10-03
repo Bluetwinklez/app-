@@ -162,7 +162,7 @@ class _HomeScreenState extends State<HomeScreen>
               padding: const EdgeInsets.fromLTRB(16, 8, 16, 8),
               child: Row(
                 children: [
-                  const Icon(Icons.palette_outlined, color: AppColors.accent),
+                  Icon(Icons.palette_outlined, color: AppColors.accent),
                   const SizedBox(width: 10),
                   Text(L10n.current.appearanceTitle,
                       style: const TextStyle(fontSize: 16, fontWeight: FontWeight.bold)),
@@ -187,28 +187,28 @@ class _HomeScreenState extends State<HomeScreen>
             ),
             const Divider(height: 24),
             ListTile(
-              leading: const Icon(Icons.collections_bookmark_outlined, color: AppColors.accent),
+              leading: Icon(Icons.collections_bookmark_outlined, color: AppColors.accent),
               title: Text(L10n.current.tagLibraryTitle),
               subtitle: Text(L10n.current.settingsLibrarySubtitle),
               trailing: const Icon(Icons.chevron_right),
               onTap: _openTagLibrary,
             ),
             ListTile(
-              leading: const Icon(Icons.auto_awesome_rounded, color: AppColors.accent),
+              leading: Icon(Icons.auto_awesome_rounded, color: AppColors.accent),
               title: Text(L10n.current.readyTemplates),
               subtitle: Text(L10n.current.quickGallerySubtitle),
               trailing: const Icon(Icons.chevron_right),
               onTap: _openTemplateGallery,
             ),
             ListTile(
-              leading: const Icon(Icons.mic_none_rounded, color: AppColors.accent),
+              leading: Icon(Icons.mic_none_rounded, color: AppColors.accent),
               title: Text(L10n.current.shortcutsGuideTitle),
               subtitle: Text(L10n.current.shortcutsGuideSubtitle),
               trailing: const Icon(Icons.chevron_right),
               onTap: _openShortcutsGuide,
             ),
             ListTile(
-              leading: const Icon(Icons.school_outlined, color: AppColors.accent),
+              leading: Icon(Icons.school_outlined, color: AppColors.accent),
               title: Text(L10n.current.showOnboardingAgain),
               trailing: const Icon(Icons.chevron_right),
               onTap: () => setState(() => _showOnboarding = true),
@@ -240,7 +240,7 @@ class _HomeScreenState extends State<HomeScreen>
           ...chips,
           if (tag.error == null && match == null)
             ActionChip(
-              avatar: const Icon(Icons.bookmark_add_outlined, size: 16, color: AppColors.accent),
+              avatar: Icon(Icons.bookmark_add_outlined, size: 16, color: AppColors.accent),
               label: Text(L10n.current.saveToLibrary),
               onPressed: () => _openTagLibrary(saveLastScan: tag.records.isNotEmpty),
             ),
@@ -458,7 +458,7 @@ class _HomeScreenState extends State<HomeScreen>
       ScaffoldMessenger.of(context).showSnackBar(
         SnackBar(
           content: Text(loc.noRecordsToCopy),
-          backgroundColor: Colors.orange,
+          backgroundColor: AppColors.warning,
         ),
       );
       return;
@@ -575,7 +575,7 @@ class _HomeScreenState extends State<HomeScreen>
       ScaffoldMessenger.of(context).showSnackBar(
         SnackBar(
           content: Text(loc.noClipboardContent),
-          backgroundColor: Colors.orange,
+          backgroundColor: AppColors.warning,
         ),
       );
       return;
@@ -595,7 +595,7 @@ class _HomeScreenState extends State<HomeScreen>
             children: [
               Row(
                 children: [
-                  const Icon(Icons.paste, color: AppColors.accent),
+                  Icon(Icons.paste, color: AppColors.accent),
                   const SizedBox(width: 8),
                   Text(
                     loc.pasteFromClipboardTitle,
@@ -609,16 +609,16 @@ class _HomeScreenState extends State<HomeScreen>
               const SizedBox(height: 8),
               Text(
                 loc.clipboardDataSummary(clip.recordCount, clip.byteSize, clip.sourceDescription),
-                style: const TextStyle(color: Colors.black87),
+                style: TextStyle(color: AppColors.ink),
               ),
               const SizedBox(height: 4),
               Text(
                 loc.clipboardPastePrompt,
-                style: const TextStyle(color: Colors.black54, fontSize: 13),
+                style: TextStyle(color: AppColors.secondary, fontSize: 13),
               ),
               const SizedBox(height: 16),
               ListTile(
-                leading: const Icon(Icons.find_replace, color: Colors.orange),
+                leading: Icon(Icons.find_replace, color: AppColors.warning),
                 title: Text(loc.pasteOverwriteOption),
                 subtitle: Text(_recordsToWrite.isNotEmpty
                     ? loc.pasteOverwriteSubtitle(_recordsToWrite.length)
@@ -629,7 +629,7 @@ class _HomeScreenState extends State<HomeScreen>
                 },
               ),
               ListTile(
-                leading: const Icon(Icons.add_to_photos, color: AppColors.accent),
+                leading: Icon(Icons.add_to_photos, color: AppColors.accent),
                 title: Text(loc.pasteAppendOption),
                 subtitle: Text(
                     loc.pasteAppendSubtitle),
@@ -676,7 +676,7 @@ class _HomeScreenState extends State<HomeScreen>
             ),
             ElevatedButton(
               style: ElevatedButton.styleFrom(
-                  backgroundColor: Colors.orange.shade800),
+                  backgroundColor: AppColors.warning),
               onPressed: () {
                 Navigator.of(ctx).pop();
                 setState(() {
@@ -720,7 +720,7 @@ class _HomeScreenState extends State<HomeScreen>
       ScaffoldMessenger.of(context).showSnackBar(
         SnackBar(
           content: Text(loc.noContentToCopy),
-          backgroundColor: Colors.orange,
+          backgroundColor: AppColors.warning,
         ),
       );
       return;
@@ -761,7 +761,7 @@ class _HomeScreenState extends State<HomeScreen>
       ScaffoldMessenger.of(context).showSnackBar(
         SnackBar(
           content: Text(loc.noContentToRewrite),
-          backgroundColor: Colors.orange,
+          backgroundColor: AppColors.warning,
         ),
       );
       return;
@@ -786,7 +786,7 @@ class _HomeScreenState extends State<HomeScreen>
       builder: (ctx) => AlertDialog(
         title: Row(
           children: [
-            const Icon(Icons.replay_circle_filled, color: AppColors.accent),
+            Icon(Icons.replay_circle_filled, color: AppColors.accent),
             const SizedBox(width: 8),
             Text(L10n.current.rewriteTagTitle),
           ],
@@ -799,9 +799,9 @@ class _HomeScreenState extends State<HomeScreen>
               Container(
                 padding: const EdgeInsets.all(10),
                 decoration: BoxDecoration(
-                  color: Colors.amber.shade50,
+                  color: AppColors.warningSoft,
                   borderRadius: BorderRadius.circular(8),
-                  border: Border.all(color: Colors.amber.shade300),
+                  border: Border.all(color: AppColors.warning),
                 ),
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
@@ -818,7 +818,7 @@ class _HomeScreenState extends State<HomeScreen>
                       L10n.current.rewriteNotice1 +
                       L10n.current.rewriteNotice2 +
                       L10n.current.rewriteNotice3,
-                      style: const TextStyle(fontSize: 12, color: Colors.black87),
+                      style: TextStyle(fontSize: 12, color: AppColors.ink),
                     ),
                   ],
                 ),
@@ -830,7 +830,7 @@ class _HomeScreenState extends State<HomeScreen>
               const Divider(height: 20),
               Text(
                 L10n.current.rewriteInstruction,
-                style: const TextStyle(fontSize: 13, color: Colors.black87),
+                style: TextStyle(fontSize: 13, color: AppColors.ink),
               ),
             ],
           ),
@@ -897,7 +897,7 @@ class _HomeScreenState extends State<HomeScreen>
           SnackBar(
             content: Text(
                 L10n.current.rewriteFailed(_controller.lastWriteResult?.message ?? L10n.current.error)),
-            backgroundColor: Colors.red,
+            backgroundColor: AppColors.danger,
           ),
         );
       }
@@ -911,7 +911,7 @@ class _HomeScreenState extends State<HomeScreen>
       builder: (ctx) => AlertDialog(
         title: Row(
           children: [
-            const Icon(Icons.check_circle, color: Colors.green),
+            Icon(Icons.check_circle, color: AppColors.success),
             const SizedBox(width: 8),
             Text(L10n.current.writeVerifiedTitle),
           ],
@@ -930,7 +930,7 @@ class _HomeScreenState extends State<HomeScreen>
             const SizedBox(height: 12),
             Text(
               L10n.current.writeVerifiedHint,
-              style: const TextStyle(fontSize: 13, color: Colors.black54),
+              style: TextStyle(fontSize: 13, color: AppColors.secondary),
             ),
           ],
         ),
@@ -982,7 +982,7 @@ class _HomeScreenState extends State<HomeScreen>
         title: Row(
           children: [
             Icon(match ? Icons.verified : Icons.warning,
-                color: match ? Colors.green : Colors.orange),
+                color: match ? AppColors.success : AppColors.warning),
             const SizedBox(width: 8),
             Text(
                 match ? L10n.current.contentMatchesExactly : L10n.current.differenceDetected),
@@ -1006,7 +1006,7 @@ class _HomeScreenState extends State<HomeScreen>
               style: TextStyle(
                 fontSize: 13,
                 fontWeight: FontWeight.w500,
-                color: match ? Colors.green.shade900 : Colors.deepOrange,
+                color: match ? AppColors.success : AppColors.warning,
               ),
             ),
           ],
@@ -1031,7 +1031,7 @@ class _HomeScreenState extends State<HomeScreen>
         SnackBar(
           content: Text(
               L10n.current.batchEmptyComposerError),
-          backgroundColor: Colors.orange,
+          backgroundColor: AppColors.warning,
         ),
       );
       return;
@@ -1044,7 +1044,7 @@ class _HomeScreenState extends State<HomeScreen>
         builder: (ctx, setDlgState) => AlertDialog(
           title: Row(
             children: [
-              const Icon(Icons.dynamic_feed, color: AppColors.accent),
+              Icon(Icons.dynamic_feed, color: AppColors.accent),
               const SizedBox(width: 8),
               Text(L10n.current.batchWriteTitle),
             ],
@@ -1062,25 +1062,25 @@ class _HomeScreenState extends State<HomeScreen>
                 Container(
                   padding: const EdgeInsets.all(10),
                   decoration: BoxDecoration(
-                    color: Colors.blueGrey.shade50,
+                    color: AppColors.neutralSoft,
                     borderRadius: BorderRadius.circular(8),
-                    border: Border.all(color: Colors.blueGrey.shade200),
+                    border: Border.all(color: AppColors.border),
                   ),
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       Text(
                         L10n.current.attention,
-                        style: const TextStyle(
+                        style: TextStyle(
                             fontWeight: FontWeight.bold,
                             fontSize: 12,
-                            color: Colors.blueGrey),
+                            color: AppColors.secondary),
                       ),
                       const SizedBox(height: 4),
                       Text(
                         L10n.current.batchNotice1 +
                         L10n.current.batchNotice2,
-                        style: const TextStyle(fontSize: 12, color: Colors.black87),
+                        style: TextStyle(fontSize: 12, color: AppColors.ink),
                       ),
                     ],
                   ),
@@ -1105,7 +1105,7 @@ class _HomeScreenState extends State<HomeScreen>
                 ),
                 Text(
                   L10n.current.composerRecordsSummary('${_recordsToWrite.length}', '$_stagedBytesTotal'),
-                  style: const TextStyle(fontSize: 12, color: Colors.black54),
+                  style: TextStyle(fontSize: 12, color: AppColors.secondary),
                 ),
               ],
             ),
@@ -1177,7 +1177,7 @@ class _HomeScreenState extends State<HomeScreen>
                     children: [
                       Row(
                         children: [
-                          const Icon(Icons.dynamic_feed, color: AppColors.accent),
+                          Icon(Icons.dynamic_feed, color: AppColors.accent),
                           const SizedBox(width: 8),
                           Text(
                             L10n.current.batchControlPanelTitle,
@@ -1213,7 +1213,7 @@ class _HomeScreenState extends State<HomeScreen>
                   ),
                   Text(
                     L10n.current.batchStats('$successCount', '$failCount', '${_batchTargetCount - _batchCurrentIndex}'),
-                    style: const TextStyle(fontSize: 12, color: Colors.black54),
+                    style: TextStyle(fontSize: 12, color: AppColors.secondary),
                   ),
                   const Divider(height: 20),
                   SizedBox(
@@ -1227,33 +1227,33 @@ class _HomeScreenState extends State<HomeScreen>
                         String statusText;
                         switch (att.status) {
                           case BatchTagStatus.success:
-                            icon = const Icon(Icons.check_circle,
-                                color: Colors.green, size: 20);
-                            textColor = Colors.green.shade800;
+                            icon = Icon(Icons.check_circle,
+                                color: AppColors.success, size: 20);
+                            textColor = AppColors.success;
                             statusText = L10n.current.batchAttemptOk(att.message ?? '');
                             break;
                           case BatchTagStatus.failed:
-                            icon = const Icon(Icons.cancel,
-                                color: Colors.red, size: 20);
-                            textColor = Colors.red.shade800;
+                            icon = Icon(Icons.cancel,
+                                color: AppColors.danger, size: 20);
+                            textColor = AppColors.danger;
                             statusText = L10n.current.batchAttemptFailed(att.message ?? '');
                             break;
                           case BatchTagStatus.writing:
-                            icon = const Icon(Icons.hourglass_top,
-                                color: Colors.orange, size: 20);
-                            textColor = Colors.orange.shade800;
+                            icon = Icon(Icons.hourglass_top,
+                                color: AppColors.warning, size: 20);
+                            textColor = AppColors.warning;
                             statusText = L10n.current.writeHeroWriting;
                             break;
                           case BatchTagStatus.cancelled:
-                            icon = const Icon(Icons.remove_circle_outline,
-                                color: Colors.grey, size: 20);
-                            textColor = Colors.grey;
+                            icon = Icon(Icons.remove_circle_outline,
+                                color: AppColors.secondary, size: 20);
+                            textColor = AppColors.secondary;
                             statusText = L10n.current.statusCancelled;
                             break;
                           case BatchTagStatus.pending:
-                            icon = const Icon(Icons.radio_button_unchecked,
-                                color: Colors.blueGrey, size: 20);
-                            textColor = Colors.black54;
+                            icon = Icon(Icons.radio_button_unchecked,
+                                color: AppColors.secondary, size: 20);
+                            textColor = AppColors.secondary;
                             statusText = 'Bekliyor';
                             break;
                         }
@@ -1384,7 +1384,7 @@ class _HomeScreenState extends State<HomeScreen>
             child: const Text('Devam Et'),
           ),
           ElevatedButton(
-            style: ElevatedButton.styleFrom(backgroundColor: Colors.red),
+            style: ElevatedButton.styleFrom(backgroundColor: AppColors.danger),
             onPressed: () async {
               Navigator.of(ctx).pop();
               Navigator.of(sheetCtx).pop();
@@ -1403,7 +1403,7 @@ class _HomeScreenState extends State<HomeScreen>
                 SnackBar(
                   content: Text(
                       L10n.current.batchCancelledSnack),
-                  backgroundColor: Colors.orange,
+                  backgroundColor: AppColors.warning,
                 ),
               );
             },
@@ -1454,8 +1454,8 @@ class _HomeScreenState extends State<HomeScreen>
                   ? Icons.security
                   : Icons.warning_amber_rounded,
               color: assessment.warnings.isEmpty
-                  ? Colors.green
-                  : Colors.orange.shade800,
+                  ? AppColors.success
+                  : AppColors.warning,
             ),
             const SizedBox(width: 8),
             Expanded(
@@ -1472,7 +1472,7 @@ class _HomeScreenState extends State<HomeScreen>
               Container(
                 padding: const EdgeInsets.all(8),
                 decoration: BoxDecoration(
-                  color: Colors.grey.shade100,
+                  color: AppColors.subtleFill,
                   borderRadius: BorderRadius.circular(8),
                 ),
                 child: SelectableText(
@@ -1484,7 +1484,7 @@ class _HomeScreenState extends State<HomeScreen>
               const SizedBox(height: 12),
               _buildSafetyParam(L10n.current.urlSafetyScheme,
                   assessment.scheme.isEmpty ? '(Eksik)' : assessment.scheme),
-              _buildSafetyParam('Sunucu / Host:',
+              _buildSafetyParam(L10n.current.hostLabel,
                   assessment.host.isEmpty ? L10n.current.unknownParentheses : assessment.host),
               if (assessment.port != null)
                 _buildSafetyParam(
@@ -1510,9 +1510,9 @@ class _HomeScreenState extends State<HomeScreen>
               if (assessment.warnings.isNotEmpty) ...[
                 Text(
                   L10n.current.urlSafetyWarningsHeader,
-                  style: const TextStyle(
+                  style: TextStyle(
                       fontWeight: FontWeight.bold,
-                      color: Colors.deepOrange,
+                      color: AppColors.warning,
                       fontSize: 13),
                 ),
                 const SizedBox(height: 4),
@@ -1537,12 +1537,12 @@ class _HomeScreenState extends State<HomeScreen>
               Container(
                 padding: const EdgeInsets.all(8),
                 decoration: BoxDecoration(
-                  color: Colors.blueGrey.shade50,
+                  color: AppColors.neutralSoft,
                   borderRadius: BorderRadius.circular(6),
                 ),
                 child: Text(
                   L10n.current.urlSafetyDisclaimer,
-                  style: const TextStyle(fontSize: 11, color: Colors.blueGrey),
+                  style: TextStyle(fontSize: 11, color: AppColors.secondary),
                 ),
               ),
             ],
@@ -1566,9 +1566,9 @@ class _HomeScreenState extends State<HomeScreen>
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Text(label,
-              style: const TextStyle(
+              style: TextStyle(
                   fontSize: 12,
-                  color: Colors.black87,
+                  color: AppColors.ink,
                   fontWeight: FontWeight.w500)),
           const SizedBox(width: 4),
           Expanded(
@@ -1578,7 +1578,7 @@ class _HomeScreenState extends State<HomeScreen>
               style: TextStyle(
                 fontSize: 12,
                 fontWeight: FontWeight.bold,
-                color: highlight ? Colors.red.shade800 : Colors.black87,
+                color: highlight ? AppColors.danger : AppColors.ink,
               ),
             ),
           ),
@@ -1611,7 +1611,7 @@ class _HomeScreenState extends State<HomeScreen>
       ScaffoldMessenger.of(context).showSnackBar(
         SnackBar(
           content: Text(L10n.current.templateSaveEmptyError),
-          backgroundColor: Colors.orange,
+          backgroundColor: AppColors.warning,
         ),
       );
       return;
@@ -1673,7 +1673,7 @@ class _HomeScreenState extends State<HomeScreen>
         SnackBar(
           content: Text(
               L10n.current.ruleNoteRequiresNdef),
-          backgroundColor: Colors.orange,
+          backgroundColor: AppColors.warning,
         ),
       );
       return;
@@ -1698,9 +1698,9 @@ class _HomeScreenState extends State<HomeScreen>
               Container(
                 padding: const EdgeInsets.all(8),
                 decoration: BoxDecoration(
-                  color: Colors.amber.shade50,
+                  color: AppColors.warningSoft,
                   borderRadius: BorderRadius.circular(6),
-                  border: Border.all(color: Colors.amber.shade200),
+                  border: Border.all(color: AppColors.warning),
                 ),
                 child: Text(
                   L10n.current.ruleNoteDigestExplanation,
@@ -1710,10 +1710,10 @@ class _HomeScreenState extends State<HomeScreen>
               const SizedBox(height: 10),
               Text(
                 L10n.current.ndefSha256Summary(sha),
-                style: const TextStyle(
+                style: TextStyle(
                     fontSize: 9,
                     fontFamily: 'monospace',
-                    color: Colors.blueGrey),
+                    color: AppColors.secondary),
               ),
               const SizedBox(height: 12),
               TextField(
@@ -1771,7 +1771,7 @@ class _HomeScreenState extends State<HomeScreen>
             child: Text(L10n.current.dismiss),
           ),
           ElevatedButton(
-            style: ElevatedButton.styleFrom(backgroundColor: Colors.red),
+            style: ElevatedButton.styleFrom(backgroundColor: AppColors.danger),
             onPressed: () async {
               await _controller.deleteRuleForRecords(records);
               if (mounted && ctx.mounted) {
@@ -1820,7 +1820,7 @@ class _HomeScreenState extends State<HomeScreen>
         builder: (ctx, setDlgState) => AlertDialog(
           title: Row(
             children: [
-              const Icon(Icons.file_download_outlined, color: AppColors.accent),
+              Icon(Icons.file_download_outlined, color: AppColors.accent),
               const SizedBox(width: 8),
               Text(L10n.current.backupExportTitle),
             ],
@@ -1833,17 +1833,17 @@ class _HomeScreenState extends State<HomeScreen>
                 Container(
                   padding: const EdgeInsets.all(10),
                   decoration: BoxDecoration(
-                    color: Colors.amber.shade50,
+                    color: AppColors.warningSoft,
                     borderRadius: BorderRadius.circular(8),
-                    border: Border.all(color: Colors.amber.shade400),
+                    border: Border.all(color: AppColors.warning),
                   ),
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       Row(
                         children: [
-                          const Icon(Icons.warning_amber_rounded,
-                              color: Colors.orange, size: 20),
+                          Icon(Icons.warning_amber_rounded,
+                              color: AppColors.warning, size: 20),
                           const SizedBox(width: 6),
                           Text(L10n.current.backupExportWarningTitle,
                               style: const TextStyle(
@@ -1855,7 +1855,7 @@ class _HomeScreenState extends State<HomeScreen>
                       const SizedBox(height: 4),
                       Text(
                         L10n.current.backupExportWarningBody,
-                        style: const TextStyle(fontSize: 11, color: Colors.black87),
+                        style: TextStyle(fontSize: 11, color: AppColors.ink),
                       ),
                     ],
                   ),
@@ -1954,7 +1954,7 @@ class _HomeScreenState extends State<HomeScreen>
         ScaffoldMessenger.of(context).showSnackBar(
           SnackBar(
             content: Text(L10n.current.backupExportCancelled),
-            backgroundColor: Colors.blueGrey,
+            backgroundColor: AppColors.secondary,
           ),
         );
       }
@@ -1963,7 +1963,7 @@ class _HomeScreenState extends State<HomeScreen>
       ScaffoldMessenger.of(context).showSnackBar(
         SnackBar(
           content: Text(L10n.current.exportError('$e')),
-          backgroundColor: Colors.red,
+          backgroundColor: AppColors.danger,
         ),
       );
     }
@@ -1975,7 +1975,7 @@ class _HomeScreenState extends State<HomeScreen>
       builder: (ctx) => AlertDialog(
         title: Row(
           children: [
-            const Icon(Icons.file_upload_outlined, color: AppColors.accent),
+            Icon(Icons.file_upload_outlined, color: AppColors.accent),
             const SizedBox(width: 8),
             Text(L10n.current.backupImportTitle),
           ],
@@ -1988,17 +1988,17 @@ class _HomeScreenState extends State<HomeScreen>
               Container(
                 padding: const EdgeInsets.all(10),
                 decoration: BoxDecoration(
-                  color: Colors.amber.shade50,
+                  color: AppColors.warningSoft,
                   borderRadius: BorderRadius.circular(8),
-                  border: Border.all(color: Colors.amber.shade400),
+                  border: Border.all(color: AppColors.warning),
                 ),
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Row(
                       children: [
-                        const Icon(Icons.warning_amber_rounded,
-                            color: Colors.orange, size: 20),
+                        Icon(Icons.warning_amber_rounded,
+                            color: AppColors.warning, size: 20),
                         const SizedBox(width: 6),
                         Text(L10n.current.backupMergeRuleTitle,
                             style: const TextStyle(
@@ -2012,7 +2012,7 @@ class _HomeScreenState extends State<HomeScreen>
                       L10n.current.backupMergeRule1 +
                       L10n.current.backupMergeRule2 +
                       L10n.current.backupMergeRule3,
-                      style: const TextStyle(fontSize: 11, color: Colors.black87),
+                      style: TextStyle(fontSize: 11, color: AppColors.ink),
                     ),
                   ],
                 ),
@@ -2052,7 +2052,7 @@ class _HomeScreenState extends State<HomeScreen>
       ScaffoldMessenger.of(context).showSnackBar(
         SnackBar(
           content: Text(L10n.current.filePickerError('$e')),
-          backgroundColor: Colors.red,
+          backgroundColor: AppColors.danger,
         ),
       );
       return;
@@ -2063,7 +2063,7 @@ class _HomeScreenState extends State<HomeScreen>
       ScaffoldMessenger.of(context).showSnackBar(
         SnackBar(
           content: Text(L10n.current.fileSelectionCancelled),
-          backgroundColor: Colors.blueGrey,
+          backgroundColor: AppColors.secondary,
         ),
       );
       return;
@@ -2083,7 +2083,7 @@ class _HomeScreenState extends State<HomeScreen>
       ScaffoldMessenger.of(context).showSnackBar(
         SnackBar(
           content: Text(L10n.current.fileReadError('$e')),
-          backgroundColor: Colors.red,
+          backgroundColor: AppColors.danger,
         ),
       );
       return;
@@ -2097,7 +2097,7 @@ class _HomeScreenState extends State<HomeScreen>
       ScaffoldMessenger.of(context).showSnackBar(
         SnackBar(
           content: Text(L10n.current.backupValidationError('$e')),
-          backgroundColor: Colors.red,
+          backgroundColor: AppColors.danger,
           duration: const Duration(seconds: 5),
         ),
       );
@@ -2156,7 +2156,7 @@ class _HomeScreenState extends State<HomeScreen>
       ScaffoldMessenger.of(context).showSnackBar(
         SnackBar(
           content: Text(L10n.current.mergeError('$e')),
-          backgroundColor: Colors.red,
+          backgroundColor: AppColors.danger,
         ),
       );
     }
@@ -2186,7 +2186,7 @@ class _HomeScreenState extends State<HomeScreen>
     final destinations = _getDestinations(context);
     final current = destinations[_tabController.index];
     return DecoratedBox(
-      decoration: const BoxDecoration(gradient: AppColors.canvasGradient),
+      decoration: BoxDecoration(gradient: AppColors.canvasGradient),
       child: Scaffold(
         backgroundColor: Colors.transparent,
         body: SafeArea(
@@ -2233,7 +2233,7 @@ class _HomeScreenState extends State<HomeScreen>
                 decoration: BoxDecoration(
                   gradient: AppColors.heroGradient,
                   shape: BoxShape.circle,
-                  border: Border.all(color: Colors.white, width: 3),
+                  border: Border.all(color: AppColors.surface, width: 3),
                   boxShadow: AppColors.softShadow,
                 ),
                 child: const Icon(Icons.nfc_rounded, color: Colors.white, size: 22),
@@ -2245,7 +2245,7 @@ class _HomeScreenState extends State<HomeScreen>
                   children: [
                     Text(
                       _todayLabel(context),
-                      style: const TextStyle(fontSize: 13, color: AppColors.secondary),
+                      style: TextStyle(fontSize: 13, color: AppColors.secondary),
                     ),
                     Text(
                       title,
@@ -2283,14 +2283,14 @@ class _HomeScreenState extends State<HomeScreen>
               child: CircularProgressIndicator(strokeWidth: 2),
             )
           else
-            const Icon(Icons.info_outline_rounded, size: 16, color: AppColors.secondary),
+            Icon(Icons.info_outline_rounded, size: 16, color: AppColors.secondary),
           const SizedBox(width: 8),
           Expanded(
             child: Text(
               _controller.statusMessage,
               maxLines: 2,
               overflow: TextOverflow.ellipsis,
-              style: const TextStyle(fontSize: 13, color: AppColors.secondary),
+              style: TextStyle(fontSize: 13, color: AppColors.secondary),
             ),
           ),
           if (_controller.isBusy)
@@ -2315,9 +2315,9 @@ class _HomeScreenState extends State<HomeScreen>
                 height: 66,
                 padding: const EdgeInsets.symmetric(horizontal: 6),
                 decoration: BoxDecoration(
-                  color: Colors.white.withValues(alpha: 0.92),
+                  color: AppColors.surface.withValues(alpha: 0.92),
                   borderRadius: BorderRadius.circular(33),
-                  border: Border.all(color: Colors.white),
+                  border: Border.all(color: AppColors.surface),
                   boxShadow: AppColors.softShadow,
                 ),
                 child: Row(
@@ -2365,7 +2365,7 @@ class _HomeScreenState extends State<HomeScreen>
               duration: const Duration(milliseconds: 200),
               width: selected ? 5 : 0,
               height: 5,
-              decoration: const BoxDecoration(color: AppColors.ink, shape: BoxShape.circle),
+              decoration: BoxDecoration(color: AppColors.ink, shape: BoxShape.circle),
             ),
           ],
         ),
@@ -2390,7 +2390,7 @@ class _HomeScreenState extends State<HomeScreen>
           decoration: BoxDecoration(
             gradient: AppColors.heroGradient,
             shape: BoxShape.circle,
-            border: Border.all(color: Colors.white, width: 3),
+            border: Border.all(color: AppColors.surface, width: 3),
             boxShadow: [
               BoxShadow(
                 color: AppColors.accent.withValues(alpha: 0.35),
@@ -2423,7 +2423,7 @@ class _HomeScreenState extends State<HomeScreen>
       case NfcAvailability.notSupported:
         color = AppColors.danger;
         label = L10n.current.nfcMissingShort;
-        tooltip = 'Bu cihazda NFC desteklenmiyor';
+        tooltip = L10n.current.nfcUnsupportedDesc;
         break;
     }
 
@@ -2435,7 +2435,7 @@ class _HomeScreenState extends State<HomeScreen>
         child: Container(
           padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 8),
           decoration: BoxDecoration(
-            color: Colors.white,
+            color: AppColors.surface,
             borderRadius: BorderRadius.circular(20),
             boxShadow: AppColors.softShadow,
           ),
@@ -2469,12 +2469,12 @@ class _HomeScreenState extends State<HomeScreen>
       ),
       child: Row(
         children: [
-          const Icon(Icons.inventory_2_outlined, color: AppColors.accent, size: 18),
+          Icon(Icons.inventory_2_outlined, color: AppColors.accent, size: 18),
           const SizedBox(width: 8),
           Expanded(
             child: Text(
               L10n.current.clipboardBannerText('${clip.recordCount}', '${clip.byteSize}', clip.sourceDescription),
-              style: const TextStyle(
+              style: TextStyle(
                   color: AppColors.ink,
                   fontSize: 12,
                   fontWeight: FontWeight.bold),
@@ -2490,12 +2490,12 @@ class _HomeScreenState extends State<HomeScreen>
             onPressed: _pasteFromClipboard,
             child: Text(L10n.current.paste,
                 style:
-                    const TextStyle(color: AppColors.accent, fontWeight: FontWeight.bold)),
+                    TextStyle(color: AppColors.accent, fontWeight: FontWeight.bold)),
           ),
           IconButton(
             padding: EdgeInsets.zero,
             constraints: const BoxConstraints(),
-            icon: const Icon(Icons.close, size: 16, color: Colors.black54),
+            icon: Icon(Icons.close, size: 16, color: AppColors.secondary),
             tooltip: L10n.current.clearClipboard,
             onPressed: () => _controller.clearClipboard(),
           ),
@@ -2534,7 +2534,7 @@ class _HomeScreenState extends State<HomeScreen>
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Text(title, style: const TextStyle(fontWeight: FontWeight.w600)),
-                  Text(subtitle, style: const TextStyle(fontSize: 12, color: AppColors.secondary)),
+                  Text(subtitle, style: TextStyle(fontSize: 12, color: AppColors.secondary)),
                 ],
               ),
             ],
@@ -2618,7 +2618,7 @@ class _HomeScreenState extends State<HomeScreen>
           const SizedBox(height: 16),
           if (tag?.error != null)
             Card(
-              color: Colors.red.shade50,
+              color: AppColors.dangerSoft,
               child: Padding(
                 padding: const EdgeInsets.all(16),
                 child: Text(L10n.current.scanErrorWithMessage(tag!.error ?? '')),
@@ -2627,12 +2627,12 @@ class _HomeScreenState extends State<HomeScreen>
           else if (tag == null)
             Card(
               elevation: 0,
-              color: Colors.white.withValues(alpha: 0.6),
+              color: AppColors.surface.withValues(alpha: 0.6),
               child: Padding(
                 padding: const EdgeInsets.symmetric(vertical: 32, horizontal: 20),
                 child: Column(
                   children: [
-                    const Icon(Icons.contactless_outlined, size: 48, color: AppColors.secondary),
+                    Icon(Icons.contactless_outlined, size: 48, color: AppColors.secondary),
                     const SizedBox(height: 12),
                     Text(
                       L10n.current.noScannedTagYet,
@@ -2643,7 +2643,7 @@ class _HomeScreenState extends State<HomeScreen>
                     Text(
                       L10n.current.tapScanPrompt,
                       textAlign: TextAlign.center,
-                      style: const TextStyle(color: Colors.black54),
+                      style: TextStyle(color: AppColors.secondary),
                     ),
                   ],
                 ),
@@ -2657,7 +2657,7 @@ class _HomeScreenState extends State<HomeScreen>
                 color: AppColors.accentSoft,
                 shape: RoundedRectangleBorder(
                   borderRadius: BorderRadius.circular(12),
-                  side: const BorderSide(color: AppColors.accentBright),
+                  side: BorderSide(color: AppColors.accentBright),
                 ),
                 child: Padding(
                   padding: const EdgeInsets.all(12),
@@ -2666,7 +2666,7 @@ class _HomeScreenState extends State<HomeScreen>
                     children: [
                       Row(
                         children: [
-                          const Icon(Icons.content_copy, color: AppColors.accent),
+                          Icon(Icons.content_copy, color: AppColors.accent),
                           const SizedBox(width: 8),
                           Expanded(
                             child: Column(
@@ -2674,14 +2674,14 @@ class _HomeScreenState extends State<HomeScreen>
                               children: [
                                 Text(
                                   L10n.current.ndefCopyAndRewriteTitle,
-                                  style: const TextStyle(
+                                  style: TextStyle(
                                       fontWeight: FontWeight.bold,
                                       color: AppColors.accent),
                                 ),
                                 Text(
                                   L10n.current.copyContentSummary('${tag.records.length}', '${tag.currentBytesUsed}'),
-                                  style: const TextStyle(
-                                      fontSize: 12, color: Colors.black87),
+                                  style: TextStyle(
+                                      fontSize: 12, color: AppColors.ink),
                                 ),
                               ],
                             ),
@@ -2695,7 +2695,7 @@ class _HomeScreenState extends State<HomeScreen>
                             child: OutlinedButton.icon(
                               style: OutlinedButton.styleFrom(
                                 foregroundColor: AppColors.accent,
-                                side: const BorderSide(color: AppColors.accent),
+                                side: BorderSide(color: AppColors.accent),
                               ),
                               icon: const Icon(Icons.copy, size: 16),
                               label: Text(L10n.current.copyToClipboard,
@@ -2729,14 +2729,14 @@ class _HomeScreenState extends State<HomeScreen>
             if (tag.records.isNotEmpty)
               Card(
                 color: _controller.matchingRuleForLastScan != null
-                    ? Colors.amber.shade50
-                    : Colors.grey.shade50,
+                    ? AppColors.warningSoft
+                    : AppColors.subtleFill,
                 shape: RoundedRectangleBorder(
                   borderRadius: BorderRadius.circular(12),
                   side: BorderSide(
                     color: _controller.matchingRuleForLastScan != null
-                        ? Colors.amber.shade400
-                        : Colors.grey.shade300,
+                        ? AppColors.warning
+                        : AppColors.border,
                   ),
                 ),
                 child: Padding(
@@ -2751,8 +2751,8 @@ class _HomeScreenState extends State<HomeScreen>
                                 ? Icons.sticky_note_2
                                 : Icons.note_add_outlined,
                             color: _controller.matchingRuleForLastScan != null
-                                ? Colors.amber.shade900
-                                : Colors.blueGrey,
+                                ? AppColors.warning
+                                : AppColors.secondary,
                           ),
                           const SizedBox(width: 8),
                           Expanded(
@@ -2765,13 +2765,13 @@ class _HomeScreenState extends State<HomeScreen>
                                 color:
                                     _controller.matchingRuleForLastScan != null
                                         ? Colors.brown.shade900
-                                        : Colors.black87,
+                                        : AppColors.ink,
                               ),
                             ),
                           ),
                           if (_controller.matchingRuleForLastScan != null)
                             IconButton(
-                              icon: const Icon(Icons.edit,
+                              icon: Icon(Icons.edit,
                                   size: 18, color: AppColors.accent),
                               tooltip: L10n.current.editNote,
                               onPressed: () =>
@@ -2779,8 +2779,8 @@ class _HomeScreenState extends State<HomeScreen>
                             ),
                           if (_controller.matchingRuleForLastScan != null)
                             IconButton(
-                              icon: const Icon(Icons.delete_outline,
-                                  size: 18, color: Colors.red),
+                              icon: Icon(Icons.delete_outline,
+                                  size: 18, color: AppColors.danger),
                               tooltip: L10n.current.deleteNote,
                               onPressed: () =>
                                   _confirmDeleteTagRule(tag.records),
@@ -2793,28 +2793,28 @@ class _HomeScreenState extends State<HomeScreen>
                           width: double.infinity,
                           padding: const EdgeInsets.all(10),
                           decoration: BoxDecoration(
-                            color: Colors.white,
+                            color: AppColors.surface,
                             borderRadius: BorderRadius.circular(8),
-                            border: Border.all(color: Colors.amber.shade200),
+                            border: Border.all(color: AppColors.warning),
                           ),
                           child: Text(
                             _controller.matchingRuleForLastScan!.note,
-                            style: const TextStyle(
+                            style: TextStyle(
                                 fontSize: 14,
                                 fontWeight: FontWeight.w600,
-                                color: Colors.black87),
+                                color: AppColors.ink),
                           ),
                         ),
                         const SizedBox(height: 4),
                         Text(
                           L10n.current.tagNoteDigestNotice,
-                          style: const TextStyle(fontSize: 10, color: Colors.black54),
+                          style: TextStyle(fontSize: 10, color: AppColors.secondary),
                         ),
                       ] else ...[
                         const SizedBox(height: 4),
                         Text(
                           L10n.current.addCustomTagNotePrompt,
-                          style: const TextStyle(fontSize: 12, color: Colors.black54),
+                          style: TextStyle(fontSize: 12, color: AppColors.secondary),
                         ),
                         const SizedBox(height: 8),
                         OutlinedButton.icon(
@@ -2850,7 +2850,7 @@ class _HomeScreenState extends State<HomeScreen>
           children: [
             Row(
               children: [
-                const Icon(Icons.tag, color: AppColors.accent),
+                Icon(Icons.tag, color: AppColors.accent),
                 const SizedBox(width: 8),
                 Text(
                   L10n.current.tagInfoTitle,
@@ -2865,18 +2865,18 @@ class _HomeScreenState extends State<HomeScreen>
                       const EdgeInsets.symmetric(horizontal: 8, vertical: 4),
                   decoration: BoxDecoration(
                     color: tag.isWritable
-                        ? Colors.green.shade50
-                        : Colors.red.shade50,
+                        ? AppColors.successSoft
+                        : AppColors.dangerSoft,
                     borderRadius: BorderRadius.circular(8),
                     border: Border.all(
-                        color: tag.isWritable ? Colors.green : Colors.red),
+                        color: tag.isWritable ? AppColors.success : AppColors.danger),
                   ),
                   child: Text(
-                    tag.isWritable ? L10n.current.tagWritable : 'Salt Okunur (Kilitli)',
+                    tag.isWritable ? L10n.current.tagWritable : L10n.current.readOnlyLocked,
                     style: TextStyle(
                       color: tag.isWritable
-                          ? Colors.green.shade800
-                          : Colors.red.shade800,
+                          ? AppColors.success
+                          : AppColors.danger,
                       fontWeight: FontWeight.bold,
                       fontSize: 12,
                     ),
@@ -2899,9 +2899,9 @@ class _HomeScreenState extends State<HomeScreen>
                 child: LinearProgressIndicator(
                   value: (tag.currentBytesUsed / tag.maxByteCapacity)
                       .clamp(0.0, 1.0),
-                  backgroundColor: Colors.grey.shade200,
+                  backgroundColor: AppColors.border,
                   color: tag.currentBytesUsed > tag.maxByteCapacity
-                      ? Colors.red
+                      ? AppColors.danger
                       : AppColors.accent,
                   minHeight: 6,
                 ),
@@ -2914,8 +2914,8 @@ class _HomeScreenState extends State<HomeScreen>
               const SizedBox(height: 8),
               Text(
                 L10n.current.errorWithMessage(tag.error ?? ''),
-                style: const TextStyle(
-                    color: Colors.red, fontWeight: FontWeight.bold),
+                style: TextStyle(
+                    color: AppColors.danger, fontWeight: FontWeight.bold),
               ),
             ],
           ],
@@ -2931,8 +2931,8 @@ class _HomeScreenState extends State<HomeScreen>
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
           Text(label,
-              style: const TextStyle(
-                  color: Colors.black87, fontWeight: FontWeight.w500)),
+              style: TextStyle(
+                  color: AppColors.ink, fontWeight: FontWeight.w500)),
           Text(value, style: const TextStyle(fontWeight: FontWeight.bold)),
         ],
       ),
@@ -2970,10 +2970,10 @@ class _HomeScreenState extends State<HomeScreen>
             ),
             Text(
               maxCapacity > 0 ? L10n.current.bytesOfCapacity('$totalBytes', '$maxCapacity') : L10n.current.bytesValue('$totalBytes'),
-              style: const TextStyle(
+              style: TextStyle(
                   fontSize: 12,
                   fontWeight: FontWeight.w500,
-                  color: Colors.black54),
+                  color: AppColors.secondary),
             ),
           ],
         ),
@@ -3057,7 +3057,7 @@ class _HomeScreenState extends State<HomeScreen>
                     children: [
                       if (urlCandidate != null && urlCandidate.isNotEmpty)
                         IconButton(
-                          icon: const Icon(Icons.shield_outlined,
+                          icon: Icon(Icons.shield_outlined,
                               color: AppColors.accent),
                           tooltip: L10n.current.urlSafetyOfflineAnalysisTitle,
                           onPressed: () => _showUrlSafetyDialog(urlCandidate!),
@@ -3065,7 +3065,7 @@ class _HomeScreenState extends State<HomeScreen>
                       if (QrPreviewDialog.isQrSupported(parsed.type))
                         IconButton(
                           icon:
-                              const Icon(Icons.qr_code_2, color: AppColors.accent),
+                              Icon(Icons.qr_code_2, color: AppColors.accent),
                           tooltip: L10n.current.qrPreviewTooltip,
                           onPressed: () {
                             final qrContent =
@@ -3082,8 +3082,8 @@ class _HomeScreenState extends State<HomeScreen>
                           },
                         ),
                       Text('${rec.payload.length}B',
-                          style: const TextStyle(
-                              fontSize: 12, color: Colors.grey)),
+                          style: TextStyle(
+                              fontSize: 12, color: AppColors.secondary)),
                       IconButton(
                         icon: Icon(
                             isExpanded ? Icons.expand_less : Icons.expand_more),
@@ -3117,16 +3117,16 @@ class _HomeScreenState extends State<HomeScreen>
                     padding: const EdgeInsets.all(12),
                     margin: const EdgeInsets.fromLTRB(12, 0, 12, 12),
                     decoration: BoxDecoration(
-                      color: Colors.grey.shade100,
+                      color: AppColors.subtleFill,
                       borderRadius: BorderRadius.circular(8),
-                      border: Border.all(color: Colors.grey.shade300),
+                      border: Border.all(color: AppColors.border),
                     ),
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
                         Text(
                           L10n.current.ndefRecordInspectorTitle,
-                          style: const TextStyle(
+                          style: TextStyle(
                               fontWeight: FontWeight.bold,
                               fontSize: 13,
                               color: AppColors.accent),
@@ -3142,15 +3142,15 @@ class _HomeScreenState extends State<HomeScreen>
                             L10n.current.bytesValue('${inspection.payloadLength}')),
                         const SizedBox(height: 6),
                         Text(L10n.current.inspectorRawHexPreview,
-                            style: const TextStyle(
+                            style: TextStyle(
                                 fontSize: 11,
                                 fontWeight: FontWeight.bold,
-                                color: Colors.black54)),
+                                color: AppColors.secondary)),
                         Container(
                           width: double.infinity,
                           margin: const EdgeInsets.symmetric(vertical: 4),
                           padding: const EdgeInsets.all(6),
-                          color: Colors.white,
+                          color: AppColors.surface,
                           child: SelectableText(
                             inspection.payloadHexPreview,
                             style: const TextStyle(
@@ -3160,8 +3160,8 @@ class _HomeScreenState extends State<HomeScreen>
                         if (inspection.isPayloadTruncated)
                           Text(
                             L10n.current.payloadTruncatedNote('${inspection.payloadLength}'),
-                            style: const TextStyle(
-                                fontSize: 10, color: Colors.grey),
+                            style: TextStyle(
+                                fontSize: 10, color: AppColors.secondary),
                           ),
                       ],
                     ),
@@ -3181,14 +3181,14 @@ class _HomeScreenState extends State<HomeScreen>
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Text(label,
-              style: const TextStyle(
+              style: TextStyle(
                   fontSize: 11,
                   fontWeight: FontWeight.bold,
-                  color: Colors.black87)),
+                  color: AppColors.ink)),
           const SizedBox(width: 4),
           Expanded(
             child: Text(value,
-                style: const TextStyle(fontSize: 11, color: Colors.black87)),
+                style: TextStyle(fontSize: 11, color: AppColors.ink)),
           ),
         ],
       ),
@@ -3230,18 +3230,18 @@ class _HomeScreenState extends State<HomeScreen>
                         ),
                         IconButton(
                           icon: const Icon(Icons.redo),
-                          tooltip: 'Yinele (Redo)',
+                          tooltip: L10n.current.redoTooltip,
                           onPressed:
                               _composerHistory.canRedo ? _redoComposer : null,
                         ),
                         IconButton(
-                          icon: const Icon(Icons.paste, color: AppColors.accent),
+                          icon: Icon(Icons.paste, color: AppColors.accent),
                           tooltip: L10n.current.pasteFromClipboardAction,
                           onPressed: _pasteFromClipboard,
                         ),
                         PopupMenuButton<String>(
                           tooltip: L10n.current.importAction,
-                          icon: const Icon(Icons.download_rounded, color: AppColors.accent),
+                          icon: Icon(Icons.download_rounded, color: AppColors.accent),
                           shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(16)),
                           onSelected: (value) {
                             switch (value) {
@@ -3292,15 +3292,15 @@ class _HomeScreenState extends State<HomeScreen>
                         ),
                         if (_recordsToWrite.isNotEmpty)
                           IconButton(
-                            icon: const Icon(Icons.bookmark_add,
+                            icon: Icon(Icons.bookmark_add,
                                 color: AppColors.accent),
                             tooltip: L10n.current.saveAsTemplate,
                             onPressed: _promptSaveAsTemplate,
                           ),
                         if (_recordsToWrite.isNotEmpty)
                           IconButton(
-                            icon: const Icon(Icons.delete_sweep_outlined,
-                                color: Colors.red),
+                            icon: Icon(Icons.delete_sweep_outlined,
+                                color: AppColors.danger),
                             tooltip: L10n.current.clearComposer,
                             onPressed: () {
                               setState(() {
@@ -3320,7 +3320,7 @@ class _HomeScreenState extends State<HomeScreen>
                 ),
                 Text(
                   L10n.current.composerTotals('$_stagedBytesTotal', '${_recordsToWrite.length}'),
-                  style: const TextStyle(color: Colors.black54, fontSize: 13),
+                  style: TextStyle(color: AppColors.secondary, fontSize: 13),
                 ),
                 const Divider(),
                 if (_recordsToWrite.isEmpty)
@@ -3332,7 +3332,7 @@ class _HomeScreenState extends State<HomeScreen>
                           Text(
                             L10n.current.composerEmptyDescription,
                             textAlign: TextAlign.center,
-                            style: const TextStyle(color: Colors.grey),
+                            style: TextStyle(color: AppColors.secondary),
                           ),
                           const SizedBox(height: 16),
                           FilledButton.icon(
@@ -3363,7 +3363,7 @@ class _HomeScreenState extends State<HomeScreen>
 
                     return Card(
                       margin: const EdgeInsets.only(bottom: 6),
-                      color: Colors.grey.shade50,
+                      color: AppColors.subtleFill,
                       child: Column(
                         children: [
                           ListTile(
@@ -3387,7 +3387,7 @@ class _HomeScreenState extends State<HomeScreen>
                                         size: 20,
                                         color: index > 0
                                             ? AppColors.accent
-                                            : Colors.grey.shade400,
+                                            : AppColors.secondary,
                                       ),
                                     ),
                                     InkWell(
@@ -3400,7 +3400,7 @@ class _HomeScreenState extends State<HomeScreen>
                                         color:
                                             index < _recordsToWrite.length - 1
                                                 ? AppColors.accent
-                                                : Colors.grey.shade400,
+                                                : AppColors.secondary,
                                       ),
                                     ),
                                   ],
@@ -3416,7 +3416,7 @@ class _HomeScreenState extends State<HomeScreen>
                               mainAxisSize: MainAxisSize.min,
                               children: [
                                 IconButton(
-                                  icon: const Icon(Icons.edit_outlined,
+                                  icon: Icon(Icons.edit_outlined,
                                       size: 18, color: AppColors.accent),
                                   tooltip: L10n.current.editRecordTitle,
                                   onPressed: () => _editComposerRecord(index),
@@ -3424,7 +3424,7 @@ class _HomeScreenState extends State<HomeScreen>
                                 if (urlCandidate != null &&
                                     urlCandidate.isNotEmpty)
                                   IconButton(
-                                    icon: const Icon(Icons.shield_outlined,
+                                    icon: Icon(Icons.shield_outlined,
                                         size: 18, color: AppColors.accent),
                                     tooltip: L10n.current.urlSafetyReview,
                                     onPressed: () =>
@@ -3432,7 +3432,7 @@ class _HomeScreenState extends State<HomeScreen>
                                   ),
                                 if (QrPreviewDialog.isQrSupported(parsed.type))
                                   IconButton(
-                                    icon: const Icon(Icons.qr_code_2,
+                                    icon: Icon(Icons.qr_code_2,
                                         size: 18, color: AppColors.accent),
                                     tooltip: L10n.current.qrPreviewTooltip,
                                     onPressed: () {
@@ -3467,8 +3467,8 @@ class _HomeScreenState extends State<HomeScreen>
                                   },
                                 ),
                                 IconButton(
-                                  icon: const Icon(Icons.delete_outline,
-                                      color: Colors.red, size: 18),
+                                  icon: Icon(Icons.delete_outline,
+                                      color: AppColors.danger, size: 18),
                                   tooltip: L10n.current.delete,
                                   onPressed: () {
                                     setState(() {
@@ -3487,9 +3487,9 @@ class _HomeScreenState extends State<HomeScreen>
                               padding: const EdgeInsets.all(10),
                               margin: const EdgeInsets.fromLTRB(10, 0, 10, 10),
                               decoration: BoxDecoration(
-                                color: Colors.white,
+                                color: AppColors.surface,
                                 borderRadius: BorderRadius.circular(6),
-                                border: Border.all(color: Colors.grey.shade300),
+                                border: Border.all(color: AppColors.border),
                               ),
                               child: Column(
                                 crossAxisAlignment: CrossAxisAlignment.start,
@@ -3552,12 +3552,12 @@ class _HomeScreenState extends State<HomeScreen>
         const SizedBox(height: 12),
         OutlinedButton.icon(
           onPressed: _controller.isBusy ? null : () => _confirmClearTag(),
-          icon: const Icon(Icons.delete_sweep, color: Colors.red),
+          icon: Icon(Icons.delete_sweep, color: AppColors.danger),
           label: Text(L10n.current.clearTagButtonLabel,
-              style: const TextStyle(color: Colors.red)),
+              style: TextStyle(color: AppColors.danger)),
           style: OutlinedButton.styleFrom(
             padding: const EdgeInsets.symmetric(vertical: 14),
-            side: const BorderSide(color: Colors.red),
+            side: BorderSide(color: AppColors.danger),
           ),
         ),
         if (_controller.lastWriteResult != null) ...[
@@ -3587,7 +3587,7 @@ class _HomeScreenState extends State<HomeScreen>
             const SizedBox(height: 8),
             Text(
               L10n.current.confirmWriteMessage2,
-              style: const TextStyle(fontSize: 12, color: Colors.black54),
+              style: TextStyle(fontSize: 12, color: AppColors.secondary),
             ),
           ],
         ),
@@ -3624,8 +3624,8 @@ class _HomeScreenState extends State<HomeScreen>
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              const Icon(Icons.history_toggle_off,
-                  size: 64, color: Colors.grey),
+              Icon(Icons.history_toggle_off,
+                  size: 64, color: AppColors.secondary),
               const SizedBox(height: 16),
               Text(
                 L10n.current.scanHistoryDisabledTitle,
@@ -3635,7 +3635,7 @@ class _HomeScreenState extends State<HomeScreen>
               Text(
                 L10n.current.scanHistoryDisabledDesc,
                 textAlign: TextAlign.center,
-                style: const TextStyle(color: Colors.black54),
+                style: TextStyle(color: AppColors.secondary),
               ),
               const SizedBox(height: 20),
               ElevatedButton.icon(
@@ -3674,7 +3674,7 @@ class _HomeScreenState extends State<HomeScreen>
         // Search bar
         Container(
           padding: const EdgeInsets.fromLTRB(16, 12, 16, 8),
-          color: Colors.white,
+          color: AppColors.surface,
           child: TextField(
             controller: _historySearchController,
             decoration: InputDecoration(
@@ -3697,7 +3697,7 @@ class _HomeScreenState extends State<HomeScreen>
               border:
                   OutlineInputBorder(borderRadius: BorderRadius.circular(10)),
               filled: true,
-              fillColor: Colors.grey.shade100,
+              fillColor: AppColors.subtleFill,
             ),
             onChanged: (val) {
               setState(() {
@@ -3708,23 +3708,23 @@ class _HomeScreenState extends State<HomeScreen>
         ),
         Container(
           padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
-          color: Colors.grey.shade100,
+          color: AppColors.subtleFill,
           child: Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
               Text(
                 query.isEmpty
                     ? L10n.current.savedScansCount('${allHistory.length}')
-                    : 'Bulunan: ${filteredHistory.length} / ${allHistory.length}',
+                    : L10n.current.historyFoundCount('${filteredHistory.length}', '${allHistory.length}'),
                 style: const TextStyle(fontWeight: FontWeight.bold),
               ),
               if (allHistory.isNotEmpty)
                 TextButton.icon(
                   onPressed: _confirmClearHistory,
-                  icon: const Icon(Icons.delete_outline,
-                      size: 18, color: Colors.red),
+                  icon: Icon(Icons.delete_outline,
+                      size: 18, color: AppColors.danger),
                   label: Text(L10n.current.clearAllButton,
-                      style: const TextStyle(color: Colors.red)),
+                      style: TextStyle(color: AppColors.danger)),
                 ),
             ],
           ),
@@ -3734,7 +3734,7 @@ class _HomeScreenState extends State<HomeScreen>
               ? Center(
                   child: Text(
                     L10n.current.noHistoryYet,
-                    style: const TextStyle(color: Colors.grey),
+                    style: TextStyle(color: AppColors.secondary),
                   ),
                 )
               : filteredHistory.isEmpty
@@ -3742,8 +3742,8 @@ class _HomeScreenState extends State<HomeScreen>
                       child: Column(
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: [
-                          const Icon(Icons.search_off,
-                              size: 48, color: Colors.grey),
+                          Icon(Icons.search_off,
+                              size: 48, color: AppColors.secondary),
                           const SizedBox(height: 12),
                           Text(
                             L10n.current.historyNoResults(_historySearchQuery),
@@ -3753,7 +3753,7 @@ class _HomeScreenState extends State<HomeScreen>
                           const SizedBox(height: 4),
                           Text(
                             L10n.current.tryDifferentQuery,
-                            style: const TextStyle(color: Colors.grey, fontSize: 12),
+                            style: TextStyle(color: AppColors.secondary, fontSize: 12),
                           ),
                           const SizedBox(height: 12),
                           OutlinedButton(
@@ -3778,7 +3778,7 @@ class _HomeScreenState extends State<HomeScreen>
                           shape: RoundedRectangleBorder(
                               borderRadius: BorderRadius.circular(12)),
                           child: ExpansionTile(
-                            leading: const CircleAvatar(
+                            leading: CircleAvatar(
                               backgroundColor: AppColors.accentSoft,
                               child:
                                   Icon(Icons.nfc, color: AppColors.accent),
@@ -3793,8 +3793,8 @@ class _HomeScreenState extends State<HomeScreen>
                               style: const TextStyle(fontSize: 12),
                             ),
                             trailing: IconButton(
-                              icon: const Icon(Icons.delete_outline,
-                                  color: Colors.red),
+                              icon: Icon(Icons.delete_outline,
+                                  color: AppColors.danger),
                               tooltip: L10n.current.deleteThisRecord,
                               onPressed: () async {
                                 await _controller.storage
@@ -3854,9 +3854,9 @@ class _HomeScreenState extends State<HomeScreen>
                                               icon: const Icon(
                                                   Icons.content_copy,
                                                   size: 14),
-                                              label: const Text('Besteye Aktar',
+                                              label: Text(L10n.current.addToWriteListShort,
                                                   style:
-                                                      TextStyle(fontSize: 11)),
+                                                      const TextStyle(fontSize: 11)),
                                             ),
                                           ],
                                         ),
@@ -3879,7 +3879,7 @@ class _HomeScreenState extends State<HomeScreen>
                                             if (QrPreviewDialog.isQrSupported(
                                                 p.type))
                                               IconButton(
-                                                icon: const Icon(
+                                                icon: Icon(
                                                     Icons.qr_code_2,
                                                     size: 16,
                                                     color: AppColors.accent),
@@ -3959,7 +3959,7 @@ class _HomeScreenState extends State<HomeScreen>
               children: [
                 Row(
                   children: [
-                    const Icon(Icons.language, color: AppColors.accent),
+                    Icon(Icons.language, color: AppColors.accent),
                     const SizedBox(width: 8),
                     Text(
                       loc.languageTitle,
@@ -3972,7 +3972,7 @@ class _HomeScreenState extends State<HomeScreen>
                   contentPadding: EdgeInsets.zero,
                   title: Text(loc.systemLanguage),
                   trailing: currentLocaleCode == null
-                      ? const Icon(Icons.check, color: AppColors.accent)
+                      ? Icon(Icons.check, color: AppColors.accent)
                       : null,
                   onTap: () async {
                     await _controller.setLocaleCode(null);
@@ -3984,7 +3984,7 @@ class _HomeScreenState extends State<HomeScreen>
                     contentPadding: EdgeInsets.zero,
                     title: Text(name),
                     trailing: currentLocaleCode == code
-                        ? const Icon(Icons.check, color: AppColors.accent)
+                        ? Icon(Icons.check, color: AppColors.accent)
                         : null,
                     onTap: () async {
                       await _controller.setLocaleCode(code);
@@ -4009,7 +4009,7 @@ class _HomeScreenState extends State<HomeScreen>
               children: [
                 Row(
                   children: [
-                    const Icon(Icons.settings, color: AppColors.accent),
+                    Icon(Icons.settings, color: AppColors.accent),
                     const SizedBox(width: 8),
                     Text(
                       loc.appSettings,
@@ -4047,7 +4047,7 @@ class _HomeScreenState extends State<HomeScreen>
                   children: [
                     Row(
                       children: [
-                        const Icon(Icons.bookmark, color: AppColors.accent),
+                        Icon(Icons.bookmark, color: AppColors.accent),
                         const SizedBox(width: 8),
                         Text(
                           L10n.current.writeTemplates,
@@ -4059,16 +4059,16 @@ class _HomeScreenState extends State<HomeScreen>
                     if (templates.isNotEmpty)
                       TextButton.icon(
                         onPressed: _confirmClearTemplates,
-                        icon: const Icon(Icons.delete_outline,
-                            size: 18, color: Colors.red),
+                        icon: Icon(Icons.delete_outline,
+                            size: 18, color: AppColors.danger),
                         label: Text(L10n.current.clearAll,
-                            style: const TextStyle(color: Colors.red)),
+                            style: TextStyle(color: AppColors.danger)),
                       ),
                   ],
                 ),
                 Text(
                   L10n.current.writeTemplatesSubtitle,
-                  style: const TextStyle(fontSize: 12, color: Colors.black54),
+                  style: TextStyle(fontSize: 12, color: AppColors.secondary),
                 ),
                 const Divider(),
                 if (templates.isEmpty)
@@ -4078,7 +4078,7 @@ class _HomeScreenState extends State<HomeScreen>
                       child: Text(
                         L10n.current.noTemplates,
                         textAlign: TextAlign.center,
-                        style: const TextStyle(color: Colors.grey),
+                        style: TextStyle(color: AppColors.secondary),
                       ),
                     ),
                   )
@@ -4086,9 +4086,9 @@ class _HomeScreenState extends State<HomeScreen>
                   ...templates.map((tpl) {
                     return Card(
                       margin: const EdgeInsets.only(bottom: 8),
-                      color: Colors.grey.shade50,
+                      color: AppColors.subtleFill,
                       child: ListTile(
-                        leading: const CircleAvatar(
+                        leading: CircleAvatar(
                           backgroundColor: AppColors.accentSoft,
                           child: Icon(Icons.note_alt_outlined,
                               color: AppColors.accent),
@@ -4104,14 +4104,14 @@ class _HomeScreenState extends State<HomeScreen>
                           mainAxisSize: MainAxisSize.min,
                           children: [
                             IconButton(
-                              icon: const Icon(Icons.file_upload_outlined,
+                              icon: Icon(Icons.file_upload_outlined,
                                   color: AppColors.accent),
-                              tooltip: 'Yazma Bestesine Aktar',
+                              tooltip: L10n.current.addToWriteListShort,
                               onPressed: () => _loadTemplateToComposer(tpl),
                             ),
                             IconButton(
-                              icon: const Icon(Icons.delete_outline,
-                                  color: Colors.red),
+                              icon: Icon(Icons.delete_outline,
+                                  color: AppColors.danger),
                               tooltip: L10n.current.deleteTemplateTooltip,
                               onPressed: () async {
                                 await _controller.storage
@@ -4143,7 +4143,7 @@ class _HomeScreenState extends State<HomeScreen>
                   children: [
                     Row(
                       children: [
-                        const Icon(Icons.rule_folder_outlined, color: AppColors.accent),
+                        Icon(Icons.rule_folder_outlined, color: AppColors.accent),
                         const SizedBox(width: 8),
                         Text(
                           L10n.current.inAppTagRules,
@@ -4167,7 +4167,7 @@ class _HomeScreenState extends State<HomeScreen>
                 const SizedBox(height: 4),
                 Text(
                   L10n.current.tagRulesSubtitle,
-                  style: const TextStyle(fontSize: 12, color: Colors.black54),
+                  style: TextStyle(fontSize: 12, color: AppColors.secondary),
                 ),
               ],
             ),
@@ -4185,7 +4185,7 @@ class _HomeScreenState extends State<HomeScreen>
               children: [
                 Row(
                   children: [
-                    const Icon(Icons.backup_outlined, color: AppColors.accent),
+                    Icon(Icons.backup_outlined, color: AppColors.accent),
                     const SizedBox(width: 8),
                     Text(
                       L10n.current.backupRestoreTitle,
@@ -4197,7 +4197,7 @@ class _HomeScreenState extends State<HomeScreen>
                 const SizedBox(height: 6),
                 Text(
                   L10n.current.backupRestoreSubtitle,
-                  style: const TextStyle(fontSize: 12, color: Colors.black54),
+                  style: TextStyle(fontSize: 12, color: AppColors.secondary),
                 ),
                 const Divider(),
                 Row(
@@ -4244,7 +4244,7 @@ class _HomeScreenState extends State<HomeScreen>
             child: Text(L10n.current.dismiss),
           ),
           ElevatedButton(
-            style: ElevatedButton.styleFrom(backgroundColor: Colors.red),
+            style: ElevatedButton.styleFrom(backgroundColor: AppColors.danger),
             onPressed: () async {
               await _controller.storage.clearHistory();
               if (mounted && ctx.mounted) {
@@ -4272,7 +4272,7 @@ class _HomeScreenState extends State<HomeScreen>
             child: Text(L10n.current.dismiss),
           ),
           ElevatedButton(
-            style: ElevatedButton.styleFrom(backgroundColor: Colors.red),
+            style: ElevatedButton.styleFrom(backgroundColor: AppColors.danger),
             onPressed: () async {
               await _controller.storage.clearTemplates();
               if (mounted && ctx.mounted) {
@@ -4289,10 +4289,10 @@ class _HomeScreenState extends State<HomeScreen>
 
   Widget _buildWriteResultCard(NfcWriteResult result) {
     return Card(
-      color: result.isSuccess ? Colors.green.shade50 : Colors.red.shade50,
+      color: result.isSuccess ? AppColors.successSoft : AppColors.dangerSoft,
       shape: RoundedRectangleBorder(
         borderRadius: BorderRadius.circular(12),
-        side: BorderSide(color: result.isSuccess ? Colors.green : Colors.red),
+        side: BorderSide(color: result.isSuccess ? AppColors.success : AppColors.danger),
       ),
       child: Padding(
         padding: const EdgeInsets.all(16),
@@ -4303,7 +4303,7 @@ class _HomeScreenState extends State<HomeScreen>
               children: [
                 Icon(
                   result.isSuccess ? Icons.check_circle : Icons.error,
-                  color: result.isSuccess ? Colors.green : Colors.red,
+                  color: result.isSuccess ? AppColors.success : AppColors.danger,
                 ),
                 const SizedBox(width: 8),
                 Text(
@@ -4312,8 +4312,8 @@ class _HomeScreenState extends State<HomeScreen>
                     fontWeight: FontWeight.bold,
                     fontSize: 16,
                     color: result.isSuccess
-                        ? Colors.green.shade900
-                        : Colors.red.shade900,
+                        ? AppColors.success
+                        : AppColors.danger,
                   ),
                 ),
               ],
@@ -4347,7 +4347,7 @@ class _HomeScreenState extends State<HomeScreen>
             child: Text(L10n.current.dismiss),
           ),
           ElevatedButton(
-            style: ElevatedButton.styleFrom(backgroundColor: Colors.red),
+            style: ElevatedButton.styleFrom(backgroundColor: AppColors.danger),
             onPressed: () {
               Navigator.of(ctx).pop();
               _controller.clearTag();
@@ -4390,7 +4390,7 @@ class _HomeScreenState extends State<HomeScreen>
             ),
             ElevatedButton(
               style: ElevatedButton.styleFrom(
-                backgroundColor: Colors.deepOrange,
+                backgroundColor: AppColors.warning,
                 foregroundColor: Colors.white,
               ),
               onPressed: understood
