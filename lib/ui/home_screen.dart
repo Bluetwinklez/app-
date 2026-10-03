@@ -1882,6 +1882,7 @@ class _HomeScreenState extends State<HomeScreen>
                 Text(L10n.current.backupTemplatesCount('${templates.length}')),
                 Text(
                     L10n.current.backupRulesCount('${rules.length}')),
+                Text(L10n.current.backupLibraryCount('${_controller.storage.getLibrary().length}')),
                 const SizedBox(height: 8),
                 CheckboxListTile(
                   contentPadding: EdgeInsets.zero,
@@ -1934,7 +1935,8 @@ class _HomeScreenState extends State<HomeScreen>
         templates: templates,
         history: history,
         tagRules: rules,
-        clientAppVersion: '1.0.0+1',
+        tagLibrary: _controller.storage.getLibrary(),
+        clientAppVersion: '1.1.0',
       );
 
       final dateStr = DateTime.now().toIso8601String().substring(0, 10);

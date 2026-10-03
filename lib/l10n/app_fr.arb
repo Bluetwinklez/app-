@@ -840,5 +840,10 @@
   "hapticsToggle": "Vibrations",
   "hapticsToggleSubtitle": "Courte vibration à la fin d'une lecture ou écriture",
   "soundsToggle": "Sons",
-  "soundsToggleSubtitle": "Jouer un court son système"
+  "soundsToggleSubtitle": "Jouer un court son système",
+  "backupLibraryMustBeList": "La bibliothèque doit être une liste.",
+  "backupInvalidLibraryEntry": "Entrée de bibliothèque invalide.",
+  "backupMaxLibraryExceeded": "La bibliothèque peut contenir au plus {max} entrées.",
+  "backupSummaryLibrary": "Bibliothèque : {added} ajoutés",
+  "backupLibraryCount": "• Bibliothèque : {count} (sans photos)"
 }

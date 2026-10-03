@@ -2998,4 +2998,26 @@ class AppLocalizationsDe extends AppLocalizations {
 
   @override
   String get soundsToggleSubtitle => 'Kurzen Systemton beim Ergebnis abspielen';
+
+  @override
+  String get backupLibraryMustBeList =>
+      'Die Tag-Bibliothek muss eine Liste sein.';
+
+  @override
+  String get backupInvalidLibraryEntry => 'Ungültiger Bibliothekseintrag.';
+
+  @override
+  String backupMaxLibraryExceeded(String max) {
+    return 'Die Bibliothek darf höchstens $max Einträge enthalten.';
+  }
+
+  @override
+  String backupSummaryLibrary(String added) {
+    return 'Bibliothek: $added hinzugefügt';
+  }
+
+  @override
+  String backupLibraryCount(String count) {
+    return '• Tag-Bibliothek: $count (ohne Fotos)';
+  }
 }

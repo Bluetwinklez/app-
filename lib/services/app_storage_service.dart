@@ -245,6 +245,15 @@ class InMemoryAppStorageService implements AppStorageService {
       }
     }
 
+    // Tag library: add entries that are not on this device yet
+    int addedLibrary = 0;
+    for (final entry in backup.tagLibrary ?? const <TagLibraryEntry>[]) {
+      if (!_library.any((e) => e.id == entry.id)) {
+        _library.add(entry);
+        addedLibrary++;
+      }
+    }
+
     // 3. Merge history (if present)
     if (backup.history != null && backup.history!.isNotEmpty) {
       if (!_historyEnabled && !enableHistoryIfDisabled) {
@@ -276,6 +285,7 @@ class InMemoryAppStorageService implements AppStorageService {
       historySkippedDueToDisabled: historySkippedDueToDisabled,
       addedRules: addedRules,
       updatedRules: updatedRules,
+      addedLibrary: addedLibrary,
     );
   }
 }
@@ -754,6 +764,26 @@ class LocalFileAppStorageService implements AppStorageService {
       }
     }
 
+    // Tag library: add entries that are not on this device yet
+    int addedLibrary = 0;
+    final libraryBackup = List<TagLibraryEntry>.from(_library);
+    for (final entry in backup.tagLibrary ?? const <TagLibraryEntry>[]) {
+      if (!_library.any((e) => e.id == entry.id)) {
+        _library.add(entry);
+        addedLibrary++;
+      }
+    }
+    if (addedLibrary > 0) {
+      try {
+        await _saveLibrary();
+      } catch (e) {
+        _library
+          ..clear()
+          ..addAll(libraryBackup);
+        rethrow;
+      }
+    }
+
     // 3. History
     if (backup.history != null && backup.history!.isNotEmpty) {
       if (!_isHistoryEnabled && !enableHistoryIfDisabled) {
@@ -788,6 +818,7 @@ class LocalFileAppStorageService implements AppStorageService {
       historySkippedDueToDisabled: historySkippedDueToDisabled,
       addedRules: addedRules,
       updatedRules: updatedRules,
+      addedLibrary: addedLibrary,
     );
   }
 }

@@ -2993,4 +2993,26 @@ class AppLocalizationsNl extends AppLocalizations {
 
   @override
   String get soundsToggleSubtitle => 'Kort systeemgeluid bij het resultaat';
+
+  @override
+  String get backupLibraryMustBeList =>
+      'De tagbibliotheek moet een lijst zijn.';
+
+  @override
+  String get backupInvalidLibraryEntry => 'Ongeldig bibliotheekitem.';
+
+  @override
+  String backupMaxLibraryExceeded(String max) {
+    return 'De bibliotheek mag maximaal $max items bevatten.';
+  }
+
+  @override
+  String backupSummaryLibrary(String added) {
+    return 'Bibliotheek: $added toegevoegd';
+  }
+
+  @override
+  String backupLibraryCount(String count) {
+    return '• Tagbibliotheek: $count (zonder foto\'s)';
+  }
 }

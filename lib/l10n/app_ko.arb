@@ -840,5 +840,10 @@
   "hapticsToggle": "햅틱",
   "hapticsToggleSubtitle": "읽기·쓰기가 끝나면 짧게 진동",
   "soundsToggle": "소리",
-  "soundsToggleSubtitle": "결과 시 짧은 시스템 소리 재생"
+  "soundsToggleSubtitle": "결과 시 짧은 시스템 소리 재생",
+  "backupLibraryMustBeList": "태그 보관함은 목록이어야 합니다.",
+  "backupInvalidLibraryEntry": "잘못된 보관함 항목입니다.",
+  "backupMaxLibraryExceeded": "보관함은 최대 {max}개까지입니다.",
+  "backupSummaryLibrary": "보관함: {added}개 추가",
+  "backupLibraryCount": "• 태그 보관함: {count} (사진 제외)"
 }

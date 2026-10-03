@@ -2997,4 +2997,25 @@ class AppLocalizationsUk extends AppLocalizations {
 
   @override
   String get soundsToggleSubtitle => 'Короткий системний звук при результаті';
+
+  @override
+  String get backupLibraryMustBeList => 'Бібліотека міток має бути списком.';
+
+  @override
+  String get backupInvalidLibraryEntry => 'Недійсний запис бібліотеки.';
+
+  @override
+  String backupMaxLibraryExceeded(String max) {
+    return 'У бібліотеці не більше $max записів.';
+  }
+
+  @override
+  String backupSummaryLibrary(String added) {
+    return 'Бібліотека: додано $added';
+  }
+
+  @override
+  String backupLibraryCount(String count) {
+    return '• Бібліотека: $count (без фото)';
+  }
 }

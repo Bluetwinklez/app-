@@ -2840,4 +2840,25 @@ class AppLocalizationsZh extends AppLocalizations {
 
   @override
   String get soundsToggleSubtitle => '结果时播放短促系统音';
+
+  @override
+  String get backupLibraryMustBeList => '标签库必须是列表。';
+
+  @override
+  String get backupInvalidLibraryEntry => '标签库条目无效。';
+
+  @override
+  String backupMaxLibraryExceeded(String max) {
+    return '标签库最多 $max 条。';
+  }
+
+  @override
+  String backupSummaryLibrary(String added) {
+    return '标签库：新增 $added';
+  }
+
+  @override
+  String backupLibraryCount(String count) {
+    return '• 标签库：$count（不含照片）';
+  }
 }

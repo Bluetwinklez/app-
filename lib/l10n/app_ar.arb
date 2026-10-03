@@ -840,5 +840,10 @@
   "hapticsToggle": "الاهتزاز",
   "hapticsToggleSubtitle": "اهتزاز قصير عند انتهاء القراءة أو الكتابة",
   "soundsToggle": "الأصوات",
-  "soundsToggleSubtitle": "تشغيل صوت نظام قصير عند النتيجة"
+  "soundsToggleSubtitle": "تشغيل صوت نظام قصير عند النتيجة",
+  "backupLibraryMustBeList": "يجب أن تكون مكتبة الوسوم قائمة.",
+  "backupInvalidLibraryEntry": "إدخال مكتبة غير صالح.",
+  "backupMaxLibraryExceeded": "يمكن أن تحتوي المكتبة على {max} إدخال كحد أقصى.",
+  "backupSummaryLibrary": "المكتبة: أضيف {added}",
+  "backupLibraryCount": "• المكتبة: {count} (بدون صور)"
 }

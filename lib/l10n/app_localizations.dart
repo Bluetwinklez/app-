@@ -5169,6 +5169,36 @@ abstract class AppLocalizations {
   /// In tr, this message translates to:
   /// **'Sonuçta kısa bir sistem sesi çal'**
   String get soundsToggleSubtitle;
+
+  /// No description provided for @backupLibraryMustBeList.
+  ///
+  /// In tr, this message translates to:
+  /// **'Etiket kütüphanesi bir liste olmalıdır.'**
+  String get backupLibraryMustBeList;
+
+  /// No description provided for @backupInvalidLibraryEntry.
+  ///
+  /// In tr, this message translates to:
+  /// **'Geçersiz etiket kütüphanesi kaydı.'**
+  String get backupInvalidLibraryEntry;
+
+  /// No description provided for @backupMaxLibraryExceeded.
+  ///
+  /// In tr, this message translates to:
+  /// **'Etiket kütüphanesi en fazla {max} kayıt içerebilir.'**
+  String backupMaxLibraryExceeded(String max);
+
+  /// No description provided for @backupSummaryLibrary.
+  ///
+  /// In tr, this message translates to:
+  /// **'Kütüphane: {added} eklendi'**
+  String backupSummaryLibrary(String added);
+
+  /// No description provided for @backupLibraryCount.
+  ///
+  /// In tr, this message translates to:
+  /// **'• Etiket kütüphanesi: {count} (fotoğraflar hariç)'**
+  String backupLibraryCount(String count);
 }
 
 class _AppLocalizationsDelegate

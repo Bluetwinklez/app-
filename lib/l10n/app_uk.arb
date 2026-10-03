@@ -840,5 +840,10 @@
   "hapticsToggle": "Вібрація",
   "hapticsToggleSubtitle": "Коротка вібрація після зчитування або запису",
   "soundsToggle": "Звуки",
-  "soundsToggleSubtitle": "Короткий системний звук при результаті"
+  "soundsToggleSubtitle": "Короткий системний звук при результаті",
+  "backupLibraryMustBeList": "Бібліотека міток має бути списком.",
+  "backupInvalidLibraryEntry": "Недійсний запис бібліотеки.",
+  "backupMaxLibraryExceeded": "У бібліотеці не більше {max} записів.",
+  "backupSummaryLibrary": "Бібліотека: додано {added}",
+  "backupLibraryCount": "• Бібліотека: {count} (без фото)"
 }
