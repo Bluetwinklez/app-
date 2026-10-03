@@ -889,5 +889,13 @@
   "shareAsFile": "Share as file (.json)",
   "shareAsFileSubtitle": "Records can be written exactly on another device",
   "importFromJsonFile": "From a tag file (.json)",
-  "invalidTagFile": "Invalid tag file."
+  "invalidTagFile": "Invalid tag file.",
+  "continuousScanTitle": "Continuous scan",
+  "continuousScanSubtitle": "Scan tags one after another and share the list as CSV",
+  "continuousScanCount": "{count} tags scanned",
+  "exportCsv": "Share as CSV",
+  "clearList": "Clear list",
+  "csvColumnTime": "Time",
+  "csvColumnRecords": "Records",
+  "csvColumnContent": "Content"
 }

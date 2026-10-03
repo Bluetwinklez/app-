@@ -3027,4 +3027,30 @@ class AppLocalizationsJa extends AppLocalizations {
 
   @override
   String get invalidTagFile => '無効なタグファイルです。';
+
+  @override
+  String get continuousScanTitle => '連続スキャン';
+
+  @override
+  String get continuousScanSubtitle => 'タグを続けて読み取り、リストをCSVで共有';
+
+  @override
+  String continuousScanCount(String count) {
+    return '$count個のタグを読み取り';
+  }
+
+  @override
+  String get exportCsv => 'CSVで共有';
+
+  @override
+  String get clearList => 'リストを消去';
+
+  @override
+  String get csvColumnTime => '時刻';
+
+  @override
+  String get csvColumnRecords => 'レコード';
+
+  @override
+  String get csvColumnContent => '内容';
 }

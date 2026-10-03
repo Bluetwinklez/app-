@@ -889,5 +889,13 @@
   "shareAsFile": "Поділитися файлом (.json)",
   "shareAsFileSubtitle": "Записи можна точно записати на іншому пристрої",
   "importFromJsonFile": "З файлу мітки (.json)",
-  "invalidTagFile": "Недійсний файл мітки."
+  "invalidTagFile": "Недійсний файл мітки.",
+  "continuousScanTitle": "Безперервне сканування",
+  "continuousScanSubtitle": "Зчитуйте мітки поспіль і діліться списком у CSV",
+  "continuousScanCount": "Зчитано міток: {count}",
+  "exportCsv": "Поділитися CSV",
+  "clearList": "Очистити список",
+  "csvColumnTime": "Час",
+  "csvColumnRecords": "Записи",
+  "csvColumnContent": "Вміст"
 }

@@ -3180,4 +3180,31 @@ class AppLocalizationsEs extends AppLocalizations {
 
   @override
   String get invalidTagFile => 'Archivo de etiqueta no válido.';
+
+  @override
+  String get continuousScanTitle => 'Escaneo continuo';
+
+  @override
+  String get continuousScanSubtitle =>
+      'Escanea etiquetas seguidas y comparte la lista en CSV';
+
+  @override
+  String continuousScanCount(String count) {
+    return '$count etiquetas escaneadas';
+  }
+
+  @override
+  String get exportCsv => 'Compartir como CSV';
+
+  @override
+  String get clearList => 'Vaciar lista';
+
+  @override
+  String get csvColumnTime => 'Hora';
+
+  @override
+  String get csvColumnRecords => 'Registros';
+
+  @override
+  String get csvColumnContent => 'Contenido';
 }

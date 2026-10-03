@@ -3000,4 +3000,30 @@ class AppLocalizationsZh extends AppLocalizations {
 
   @override
   String get invalidTagFile => '标签文件无效。';
+
+  @override
+  String get continuousScanTitle => '连续扫描';
+
+  @override
+  String get continuousScanSubtitle => '依次扫描标签，并以 CSV 分享列表';
+
+  @override
+  String continuousScanCount(String count) {
+    return '已扫描 $count 个标签';
+  }
+
+  @override
+  String get exportCsv => '以 CSV 分享';
+
+  @override
+  String get clearList => '清空列表';
+
+  @override
+  String get csvColumnTime => '时间';
+
+  @override
+  String get csvColumnRecords => '记录';
+
+  @override
+  String get csvColumnContent => '内容';
 }

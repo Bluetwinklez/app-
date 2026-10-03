@@ -889,5 +889,13 @@
   "shareAsFile": "ファイルで共有 (.json)",
   "shareAsFileSubtitle": "別の端末でそのまま書き込めます",
   "importFromJsonFile": "タグファイルから (.json)",
-  "invalidTagFile": "無効なタグファイルです。"
+  "invalidTagFile": "無効なタグファイルです。",
+  "continuousScanTitle": "連続スキャン",
+  "continuousScanSubtitle": "タグを続けて読み取り、リストをCSVで共有",
+  "continuousScanCount": "{count}個のタグを読み取り",
+  "exportCsv": "CSVで共有",
+  "clearList": "リストを消去",
+  "csvColumnTime": "時刻",
+  "csvColumnRecords": "レコード",
+  "csvColumnContent": "内容"
 }

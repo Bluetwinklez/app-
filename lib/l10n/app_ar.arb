@@ -889,5 +889,13 @@
   "shareAsFile": "مشاركة كملف (.json)",
   "shareAsFileSubtitle": "يمكن كتابة السجلات كما هي على جهاز آخر",
   "importFromJsonFile": "من ملف وسم (.json)",
-  "invalidTagFile": "ملف وسم غير صالح."
+  "invalidTagFile": "ملف وسم غير صالح.",
+  "continuousScanTitle": "مسح مستمر",
+  "continuousScanSubtitle": "امسح الوسوم تباعًا وشارك القائمة بصيغة CSV",
+  "continuousScanCount": "تم مسح {count} وسم",
+  "exportCsv": "مشاركة بصيغة CSV",
+  "clearList": "مسح القائمة",
+  "csvColumnTime": "الوقت",
+  "csvColumnRecords": "السجلات",
+  "csvColumnContent": "المحتوى"
 }

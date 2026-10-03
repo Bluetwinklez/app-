@@ -889,5 +889,13 @@
   "shareAsFile": "파일로 공유 (.json)",
   "shareAsFileSubtitle": "다른 기기에서 그대로 쓸 수 있습니다",
   "importFromJsonFile": "태그 파일에서 (.json)",
-  "invalidTagFile": "잘못된 태그 파일입니다."
+  "invalidTagFile": "잘못된 태그 파일입니다.",
+  "continuousScanTitle": "연속 스캔",
+  "continuousScanSubtitle": "태그를 연달아 스캔하고 목록을 CSV로 공유",
+  "continuousScanCount": "태그 {count}개 스캔",
+  "exportCsv": "CSV로 공유",
+  "clearList": "목록 지우기",
+  "csvColumnTime": "시간",
+  "csvColumnRecords": "레코드",
+  "csvColumnContent": "내용"
 }

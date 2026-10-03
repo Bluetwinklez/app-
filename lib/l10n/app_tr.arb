@@ -2095,5 +2095,20 @@
   "shareAsFile": "Dosya olarak paylaş (.json)",
   "shareAsFileSubtitle": "Kayıtlar başka bir cihazda aynen yazılabilir",
   "importFromJsonFile": "Etiket dosyasından (.json)",
-  "invalidTagFile": "Geçersiz etiket dosyası."
+  "invalidTagFile": "Geçersiz etiket dosyası.",
+  "continuousScanTitle": "Sürekli tarama",
+  "continuousScanSubtitle": "Etiketleri art arda okutun; liste CSV olarak paylaşılabilir",
+  "continuousScanCount": "{count} etiket okundu",
+  "@continuousScanCount": {
+    "placeholders": {
+      "count": {
+        "type": "String"
+      }
+    }
+  },
+  "exportCsv": "CSV olarak paylaş",
+  "clearList": "Listeyi temizle",
+  "csvColumnTime": "Zaman",
+  "csvColumnRecords": "Kayıt",
+  "csvColumnContent": "İçerik"
 }

@@ -889,5 +889,13 @@
   "shareAsFile": "Partager en fichier (.json)",
   "shareAsFileSubtitle": "Les enregistrements peuvent être réécrits à l'identique",
   "importFromJsonFile": "Depuis un fichier de tag (.json)",
-  "invalidTagFile": "Fichier de tag invalide."
+  "invalidTagFile": "Fichier de tag invalide.",
+  "continuousScanTitle": "Lecture continue",
+  "continuousScanSubtitle": "Scannez les tags à la suite et partagez la liste en CSV",
+  "continuousScanCount": "{count} tags lus",
+  "exportCsv": "Partager en CSV",
+  "clearList": "Vider la liste",
+  "csvColumnTime": "Heure",
+  "csvColumnRecords": "Enregistrements",
+  "csvColumnContent": "Contenu"
 }

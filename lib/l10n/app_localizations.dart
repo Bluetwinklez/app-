@@ -5463,6 +5463,54 @@ abstract class AppLocalizations {
   /// In tr, this message translates to:
   /// **'Geçersiz etiket dosyası.'**
   String get invalidTagFile;
+
+  /// No description provided for @continuousScanTitle.
+  ///
+  /// In tr, this message translates to:
+  /// **'Sürekli tarama'**
+  String get continuousScanTitle;
+
+  /// No description provided for @continuousScanSubtitle.
+  ///
+  /// In tr, this message translates to:
+  /// **'Etiketleri art arda okutun; liste CSV olarak paylaşılabilir'**
+  String get continuousScanSubtitle;
+
+  /// No description provided for @continuousScanCount.
+  ///
+  /// In tr, this message translates to:
+  /// **'{count} etiket okundu'**
+  String continuousScanCount(String count);
+
+  /// No description provided for @exportCsv.
+  ///
+  /// In tr, this message translates to:
+  /// **'CSV olarak paylaş'**
+  String get exportCsv;
+
+  /// No description provided for @clearList.
+  ///
+  /// In tr, this message translates to:
+  /// **'Listeyi temizle'**
+  String get clearList;
+
+  /// No description provided for @csvColumnTime.
+  ///
+  /// In tr, this message translates to:
+  /// **'Zaman'**
+  String get csvColumnTime;
+
+  /// No description provided for @csvColumnRecords.
+  ///
+  /// In tr, this message translates to:
+  /// **'Kayıt'**
+  String get csvColumnRecords;
+
+  /// No description provided for @csvColumnContent.
+  ///
+  /// In tr, this message translates to:
+  /// **'İçerik'**
+  String get csvColumnContent;
 }
 
 class _AppLocalizationsDelegate

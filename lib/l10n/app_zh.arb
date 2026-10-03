@@ -889,5 +889,13 @@
   "shareAsFile": "以文件分享（.json）",
   "shareAsFileSubtitle": "可在其他设备上原样写入",
   "importFromJsonFile": "从标签文件（.json）",
-  "invalidTagFile": "标签文件无效。"
+  "invalidTagFile": "标签文件无效。",
+  "continuousScanTitle": "连续扫描",
+  "continuousScanSubtitle": "依次扫描标签，并以 CSV 分享列表",
+  "continuousScanCount": "已扫描 {count} 个标签",
+  "exportCsv": "以 CSV 分享",
+  "clearList": "清空列表",
+  "csvColumnTime": "时间",
+  "csvColumnRecords": "记录",
+  "csvColumnContent": "内容"
 }
