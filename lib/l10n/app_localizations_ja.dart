@@ -3713,4 +3713,9 @@ class AppLocalizationsJa extends AppLocalizations {
 
   @override
   String get inventoryCardTitle => 'このタグはライブラリにあります';
+
+  @override
+  String scanReportLine(String unique, String dup, String empty) {
+    return '$unique種類 · 再読取 $dup · 空 $empty';
+  }
 }

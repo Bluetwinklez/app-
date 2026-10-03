@@ -3882,4 +3882,9 @@ class AppLocalizationsTr extends AppLocalizations {
 
   @override
   String get inventoryCardTitle => 'Bu etiket kütüphanenizde';
+
+  @override
+  String scanReportLine(String unique, String dup, String empty) {
+    return '$unique farklı etiket · $dup tekrar okunan · $empty boş';
+  }
 }

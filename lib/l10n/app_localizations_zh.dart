@@ -3680,4 +3680,9 @@ class AppLocalizationsZh extends AppLocalizations {
 
   @override
   String get inventoryCardTitle => '此标签在你的标签库中';
+
+  @override
+  String scanReportLine(String unique, String dup, String empty) {
+    return '$unique 个不同标签 · $dup 个重复 · $empty 个空白';
+  }
 }

@@ -3885,4 +3885,9 @@ class AppLocalizationsRu extends AppLocalizations {
 
   @override
   String get inventoryCardTitle => 'Эта метка есть в библиотеке';
+
+  @override
+  String scanReportLine(String unique, String dup, String empty) {
+    return '$unique разных меток · $dup повторно · $empty пустых';
+  }
 }

@@ -1091,5 +1091,6 @@
   "neverSeen": "Non ancora letto",
   "sortLongestUnseen": "Non visti da più tempo",
   "unseen30Days": "Non visto da 30+ giorni",
-  "inventoryCardTitle": "Questo tag è nella tua libreria"
+  "inventoryCardTitle": "Questo tag è nella tua libreria",
+  "scanReportLine": "{unique} tag diversi · {dup} riletti · {empty} vuoti"
 }

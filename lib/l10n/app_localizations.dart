@@ -6675,6 +6675,12 @@ abstract class AppLocalizations {
   /// In tr, this message translates to:
   /// **'Bu etiket kütüphanenizde'**
   String get inventoryCardTitle;
+
+  /// No description provided for @scanReportLine.
+  ///
+  /// In tr, this message translates to:
+  /// **'{unique} farklı etiket · {dup} tekrar okunan · {empty} boş'**
+  String scanReportLine(String unique, String dup, String empty);
 }
 
 class _AppLocalizationsDelegate

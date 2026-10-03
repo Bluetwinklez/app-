@@ -3727,4 +3727,9 @@ class AppLocalizationsKo extends AppLocalizations {
 
   @override
   String get inventoryCardTitle => '이 태그는 보관함에 있습니다';
+
+  @override
+  String scanReportLine(String unique, String dup, String empty) {
+    return '서로 다른 태그 $unique개 · 재스캔 $dup개 · 빈 태그 $empty개';
+  }
 }

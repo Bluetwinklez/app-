@@ -3834,4 +3834,9 @@ class AppLocalizationsAr extends AppLocalizations {
 
   @override
   String get inventoryCardTitle => 'هذا الوسم في مكتبتك';
+
+  @override
+  String scanReportLine(String unique, String dup, String empty) {
+    return '$unique وسوم مختلفة · $dup مكررة · $empty فارغة';
+  }
 }

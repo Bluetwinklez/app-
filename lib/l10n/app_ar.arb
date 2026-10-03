@@ -1091,5 +1091,6 @@
   "neverSeen": "لم يُمسح بعد",
   "sortLongestUnseen": "الأطول دون مسح",
   "unseen30Days": "لم يُرَ منذ 30+ يومًا",
-  "inventoryCardTitle": "هذا الوسم في مكتبتك"
+  "inventoryCardTitle": "هذا الوسم في مكتبتك",
+  "scanReportLine": "{unique} وسوم مختلفة · {dup} مكررة · {empty} فارغة"
 }

@@ -2572,5 +2572,19 @@
   "neverSeen": "Henüz okutulmadı",
   "sortLongestUnseen": "En uzun süredir görülmeyen",
   "unseen30Days": "30+ gündür görülmedi",
-  "inventoryCardTitle": "Bu etiket kütüphanenizde"
+  "inventoryCardTitle": "Bu etiket kütüphanenizde",
+  "scanReportLine": "{unique} farklı etiket · {dup} tekrar okunan · {empty} boş",
+  "@scanReportLine": {
+    "placeholders": {
+      "unique": {
+        "type": "String"
+      },
+      "dup": {
+        "type": "String"
+      },
+      "empty": {
+        "type": "String"
+      }
+    }
+  }
 }
