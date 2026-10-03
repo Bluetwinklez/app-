@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import '../domain/ndef_record.dart';
 import '../domain/nfc_tag_info.dart';
 import '../domain/storage_models.dart';
@@ -43,6 +44,36 @@ class NfcStateController extends ChangeNotifier {
   NfcWriteResult? get lastWriteResult => _lastWriteResult;
   NdefClipboardSnapshot? get clipboardSnapshot => _clipboardSnapshot;
   TagRule? get matchingRuleForLastScan => _matchingRuleForLastScan;
+
+  bool get hapticsEnabled => _storage.hapticsEnabled;
+  bool get soundsEnabled => _storage.soundsEnabled;
+
+  Future<void> setHapticsEnabled(bool enabled) async {
+    await _storage.setHapticsEnabled(enabled);
+    notifyListeners();
+  }
+
+  Future<void> setSoundsEnabled(bool enabled) async {
+    await _storage.setSoundsEnabled(enabled);
+    notifyListeners();
+  }
+
+  /// Short haptic (and optional click) after an NFC operation finishes.
+  void _feedback({required bool success}) {
+    // Best effort: platform feedback is unavailable in tests and on some devices
+    Future<void> ignore(Future<void> Function() call) async {
+      try {
+        await call();
+      } catch (_) {}
+    }
+
+    if (_storage.hapticsEnabled) {
+      ignore(success ? HapticFeedback.mediumImpact : HapticFeedback.heavyImpact);
+    }
+    if (_storage.soundsEnabled) {
+      ignore(() => SystemSound.play(success ? SystemSoundType.click : SystemSoundType.alert));
+    }
+  }
 
   /// Language codes the app ships translations for. Turkish is the source language.
   static const List<String> supportedLanguageCodes = [
@@ -152,9 +183,11 @@ class NfcStateController extends ChangeNotifier {
       _lastScannedTag = info;
       if (info.error != null) {
         _statusMessage = L10n.current.statusScanError(info.error!);
+        _feedback(success: false);
         // Avoid storing scans with errors
       } else {
         _statusMessage = L10n.current.statusScanSuccess(info.identifier);
+        _feedback(success: true);
 
         // Check if there is an in-app tag rule matching exact NDEF bytes SHA-256
         if (info.records.isNotEmpty) {
@@ -240,6 +273,7 @@ class NfcStateController extends ChangeNotifier {
       );
 
       _lastWriteResult = result;
+      _feedback(success: result.isSuccess);
       if (result.isSuccess) {
         _statusMessage = L10n.current.statusWriteSuccess(result.bytesWritten);
       } else {
@@ -283,6 +317,7 @@ class NfcStateController extends ChangeNotifier {
         promptMessage: L10n.current.nfcPromptClear,
       );
       _lastWriteResult = result;
+      _feedback(success: result.isSuccess);
       if (result.isSuccess) {
         _statusMessage = L10n.current.statusClearSuccess;
         _lastScannedTag = null;
@@ -318,6 +353,7 @@ class NfcStateController extends ChangeNotifier {
         promptMessage: L10n.current.nfcPromptLock,
       );
       _lastWriteResult = result;
+      _feedback(success: result.isSuccess);
       _statusMessage = result.isSuccess
           ? L10n.current.statusLockSuccess
           : L10n.current.statusLockFailed(result.message);
@@ -356,12 +392,14 @@ class NfcStateController extends ChangeNotifier {
       sessionOpen = true;
       final result = await task(_service.transceive);
       final message = successMessage(result);
+      _feedback(success: true);
       await _service.endRawSession(successMessage: message);
       sessionOpen = false;
       _statusMessage = message;
       return result;
     } catch (e) {
       final message = e is NtagException || e is NfcOperationException ? e.toString() : L10n.current.statusUnexpectedError(e.toString());
+      _feedback(success: false);
       if (sessionOpen) {
         await _service.endRawSession(errorMessage: message);
       }

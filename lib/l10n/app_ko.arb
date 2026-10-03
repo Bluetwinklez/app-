@@ -836,5 +836,9 @@
   "redoTooltip": "다시 실행",
   "historyFoundCount": "찾음: {found} / {total}",
   "addToWriteListShort": "쓰기 목록에 추가",
-  "mimeTypeHint": "application/json 또는 text/plain"
+  "mimeTypeHint": "application/json 또는 text/plain",
+  "hapticsToggle": "햅틱",
+  "hapticsToggleSubtitle": "읽기·쓰기가 끝나면 짧게 진동",
+  "soundsToggle": "소리",
+  "soundsToggleSubtitle": "결과 시 짧은 시스템 소리 재생"
 }

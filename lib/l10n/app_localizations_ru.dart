@@ -2983,4 +2983,17 @@ class AppLocalizationsRu extends AppLocalizations {
 
   @override
   String get mimeTypeHint => 'application/json или text/plain';
+
+  @override
+  String get hapticsToggle => 'Вибрация';
+
+  @override
+  String get hapticsToggleSubtitle =>
+      'Короткая вибрация после чтения или записи';
+
+  @override
+  String get soundsToggle => 'Звуки';
+
+  @override
+  String get soundsToggleSubtitle => 'Короткий системный звук при результате';
 }

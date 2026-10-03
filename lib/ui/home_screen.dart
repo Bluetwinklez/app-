@@ -186,7 +186,21 @@ class _HomeScreenState extends State<HomeScreen>
                 onSelectionChanged: (value) => _controller.setThemeMode(value.first),
               ),
             ),
-            const Divider(height: 24),
+            const SizedBox(height: 8),
+            SwitchListTile(
+              secondary: Icon(Icons.vibration_rounded, color: AppColors.accent),
+              title: Text(L10n.current.hapticsToggle),
+              subtitle: Text(L10n.current.hapticsToggleSubtitle),
+              value: _controller.hapticsEnabled,
+              onChanged: (v) => _controller.setHapticsEnabled(v),
+            ),
+            SwitchListTile(
+              secondary: Icon(Icons.volume_up_outlined, color: AppColors.accent),
+              title: Text(L10n.current.soundsToggle),
+              subtitle: Text(L10n.current.soundsToggleSubtitle),
+              value: _controller.soundsEnabled,
+              onChanged: (v) => _controller.setSoundsEnabled(v),
+            ),            const Divider(height: 24),
             ListTile(
               leading: Icon(Icons.collections_bookmark_outlined, color: AppColors.accent),
               title: Text(L10n.current.tagLibraryTitle),

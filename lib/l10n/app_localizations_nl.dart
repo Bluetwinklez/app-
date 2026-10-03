@@ -2981,4 +2981,16 @@ class AppLocalizationsNl extends AppLocalizations {
 
   @override
   String get mimeTypeHint => 'application/json of text/plain';
+
+  @override
+  String get hapticsToggle => 'Trillen';
+
+  @override
+  String get hapticsToggleSubtitle => 'Korte trilling na lezen of schrijven';
+
+  @override
+  String get soundsToggle => 'Geluiden';
+
+  @override
+  String get soundsToggleSubtitle => 'Kort systeemgeluid bij het resultaat';
 }

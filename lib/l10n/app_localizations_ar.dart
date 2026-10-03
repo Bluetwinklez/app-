@@ -2945,4 +2945,17 @@ class AppLocalizationsAr extends AppLocalizations {
 
   @override
   String get mimeTypeHint => 'application/json أو text/plain';
+
+  @override
+  String get hapticsToggle => 'الاهتزاز';
+
+  @override
+  String get hapticsToggleSubtitle =>
+      'اهتزاز قصير عند انتهاء القراءة أو الكتابة';
+
+  @override
+  String get soundsToggle => 'الأصوات';
+
+  @override
+  String get soundsToggleSubtitle => 'تشغيل صوت نظام قصير عند النتيجة';
 }

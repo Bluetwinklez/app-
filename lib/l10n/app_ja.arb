@@ -836,5 +836,9 @@
   "redoTooltip": "やり直す",
   "historyFoundCount": "見つかった件数: {found} / {total}",
   "addToWriteListShort": "書き込みリストへ",
-  "mimeTypeHint": "application/json または text/plain"
+  "mimeTypeHint": "application/json または text/plain",
+  "hapticsToggle": "触覚フィードバック",
+  "hapticsToggleSubtitle": "読み取り・書き込み完了時に短く振動",
+  "soundsToggle": "サウンド",
+  "soundsToggleSubtitle": "結果時に短いシステム音を鳴らす"
 }

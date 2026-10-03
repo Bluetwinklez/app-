@@ -836,5 +836,9 @@
   "redoTooltip": "Повторить",
   "historyFoundCount": "Найдено: {found} / {total}",
   "addToWriteListShort": "В список записи",
-  "mimeTypeHint": "application/json или text/plain"
+  "mimeTypeHint": "application/json или text/plain",
+  "hapticsToggle": "Вибрация",
+  "hapticsToggleSubtitle": "Короткая вибрация после чтения или записи",
+  "soundsToggle": "Звуки",
+  "soundsToggleSubtitle": "Короткий системный звук при результате"
 }

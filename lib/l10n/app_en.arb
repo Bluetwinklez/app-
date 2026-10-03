@@ -836,5 +836,9 @@
   "redoTooltip": "Redo",
   "historyFoundCount": "Found: {found} / {total}",
   "addToWriteListShort": "Add to write list",
-  "mimeTypeHint": "application/json or text/plain"
+  "mimeTypeHint": "application/json or text/plain",
+  "hapticsToggle": "Haptics",
+  "hapticsToggleSubtitle": "A short vibration when a scan or write finishes",
+  "soundsToggle": "Sounds",
+  "soundsToggleSubtitle": "Play a short system sound on the result"
 }

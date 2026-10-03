@@ -836,5 +836,9 @@
   "redoTooltip": "إعادة",
   "historyFoundCount": "تم العثور: {found} / {total}",
   "addToWriteListShort": "إضافة إلى القائمة",
-  "mimeTypeHint": "application/json أو text/plain"
+  "mimeTypeHint": "application/json أو text/plain",
+  "hapticsToggle": "الاهتزاز",
+  "hapticsToggleSubtitle": "اهتزاز قصير عند انتهاء القراءة أو الكتابة",
+  "soundsToggle": "الأصوات",
+  "soundsToggleSubtitle": "تشغيل صوت نظام قصير عند النتيجة"
 }

@@ -5145,6 +5145,30 @@ abstract class AppLocalizations {
   /// In tr, this message translates to:
   /// **'application/json veya text/plain'**
   String get mimeTypeHint;
+
+  /// No description provided for @hapticsToggle.
+  ///
+  /// In tr, this message translates to:
+  /// **'Titreşim'**
+  String get hapticsToggle;
+
+  /// No description provided for @hapticsToggleSubtitle.
+  ///
+  /// In tr, this message translates to:
+  /// **'Okuma ve yazma bitince hafif titreşim'**
+  String get hapticsToggleSubtitle;
+
+  /// No description provided for @soundsToggle.
+  ///
+  /// In tr, this message translates to:
+  /// **'Ses'**
+  String get soundsToggle;
+
+  /// No description provided for @soundsToggleSubtitle.
+  ///
+  /// In tr, this message translates to:
+  /// **'Sonuçta kısa bir sistem sesi çal'**
+  String get soundsToggleSubtitle;
 }
 
 class _AppLocalizationsDelegate

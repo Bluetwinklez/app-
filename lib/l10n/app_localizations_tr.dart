@@ -2981,4 +2981,16 @@ class AppLocalizationsTr extends AppLocalizations {
 
   @override
   String get mimeTypeHint => 'application/json veya text/plain';
+
+  @override
+  String get hapticsToggle => 'Titreşim';
+
+  @override
+  String get hapticsToggleSubtitle => 'Okuma ve yazma bitince hafif titreşim';
+
+  @override
+  String get soundsToggle => 'Ses';
+
+  @override
+  String get soundsToggleSubtitle => 'Sonuçta kısa bir sistem sesi çal';
 }
