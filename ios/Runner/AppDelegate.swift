@@ -368,19 +368,29 @@ struct NfcTagMasterShortcuts: AppShortcutsProvider {
 
         let ndefTag: NFCNDEFTag
         let tagIdentifier: Data
+        let family: String
         switch tag {
         case .miFare(let value):
             ndefTag = value
             tagIdentifier = value.identifier
+            switch value.mifareFamily {
+            case .ultralight: family = "MifareUltralight"
+            case .desfire: family = "MifareDesfire"
+            case .plus: family = "MifarePlus"
+            default: family = "NfcA"
+            }
         case .iso15693(let value):
             ndefTag = value
             tagIdentifier = value.identifier
+            family = "NfcV"
         case .iso7816(let value):
             ndefTag = value
             tagIdentifier = value.identifier
+            family = "IsoDep"
         case .feliCa(let value):
             ndefTag = value
             tagIdentifier = value.currentIDm
+            family = "NfcF"
         @unknown default:
             finishWithResult(FlutterError(code: "UNSUPPORTED_TAG", message: "Bu NFC etiket türü desteklenmiyor", details: nil))
             session.invalidate(errorMessage: self.t("unsupportedTag", "Etiket türü desteklenmiyor"))
@@ -408,7 +418,7 @@ struct NfcTagMasterShortcuts: AppShortcutsProvider {
                 self.lock.unlock()
 
                 if op == "scan" {
-                    self.handleTagScan(session: session, tag: ndefTag, identifier: tagIdentifier, status: status, capacity: capacity)
+                    self.handleTagScan(session: session, tag: ndefTag, identifier: tagIdentifier, status: status, capacity: capacity, family: family)
                 } else if op == "write" {
                     self.handleTagWrite(session: session, tag: ndefTag, status: status, capacity: capacity)
                 } else if op == "lock" {
@@ -442,9 +452,9 @@ struct NfcTagMasterShortcuts: AppShortcutsProvider {
         }
     }
 
-    private func handleTagScan(session: NFCTagReaderSession, tag: NFCNDEFTag, identifier: Data, status: NFCNDEFStatus, capacity: Int) {
+    private func handleTagScan(session: NFCTagReaderSession, tag: NFCNDEFTag, identifier: Data, status: NFCNDEFStatus, capacity: Int, family: String) {
         if status == .notSupported {
-            finishWithResult(tagInfo(identifier: identifier, status: status, capacity: capacity, message: nil))
+            finishWithResult(tagInfo(identifier: identifier, status: status, capacity: capacity, message: nil, family: family))
             session.alertMessage = self.t("notNdefRead", "Etiket algılandı; NDEF biçiminde değil.")
             session.invalidate()
             return
@@ -457,7 +467,7 @@ struct NfcTagMasterShortcuts: AppShortcutsProvider {
                 if let nfcError = error as? NFCReaderError,
                    nfcError.code == .ndefReaderSessionErrorZeroLengthMessage {
                     session.alertMessage = self.t("emptyRead", "Boş etiket başarıyla okundu!")
-                    self.finishWithResult(self.tagInfo(identifier: identifier, status: status, capacity: capacity, message: nil))
+                    self.finishWithResult(self.tagInfo(identifier: identifier, status: status, capacity: capacity, message: nil, family: family))
                     session.invalidate()
                     return
                 }
@@ -467,12 +477,12 @@ struct NfcTagMasterShortcuts: AppShortcutsProvider {
             }
 
             session.alertMessage = self.t("readOk", "Etiket başarıyla okundu!")
-            self.finishWithResult(self.tagInfo(identifier: identifier, status: status, capacity: capacity, message: message))
+            self.finishWithResult(self.tagInfo(identifier: identifier, status: status, capacity: capacity, message: message, family: family))
             session.invalidate()
         }
     }
 
-    private func tagInfo(identifier: Data, status: NFCNDEFStatus, capacity: Int, message: NFCNDEFMessage?) -> [String: Any] {
+    private func tagInfo(identifier: Data, status: NFCNDEFStatus, capacity: Int, message: NFCNDEFMessage?, family: String) -> [String: Any] {
         let rawRecords: [[String: Any]] = message?.records.map { record in
             [
                 "tnf": Int(record.typeNameFormat.rawValue),
@@ -483,7 +493,7 @@ struct NfcTagMasterShortcuts: AppShortcutsProvider {
         } ?? []
         return [
                 "identifier": identifier.isEmpty ? "iOS-NFC-Tag" : identifier.map { String(format: "%02X", $0) }.joined(separator: ":"),
-                "standardTechnologies": status == .notSupported ? ["CoreNFC"] : ["CoreNFC", "NDEF"],
+                "standardTechnologies": status == .notSupported ? [family] : [family, "Ndef"],
                 "isNdefSupported": (status != .notSupported),
                 "isWritable": (status == .readWrite),
                 "maxByteCapacity": capacity,
