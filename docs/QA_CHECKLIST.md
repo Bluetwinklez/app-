@@ -44,7 +44,15 @@ Gerçek bir iPhone ve birkaç NFC etiketiyle (ideal: NTAG213, NTAG215/216, bir d
 - [ ] Kısayollar → Otomasyon → NFC ile tarif kurulumu
 - [ ] Safari'de `nfctagmaster://write` açınca Yaz sekmesi
 
-## 8. Genel
-- [ ] Ayarlar → Hakkında: sürüm 1.1.0, yenilikler listesi
+## 8. Widget, Kontrol Merkezi, Apple Watch, iCloud (1.6.0)
+- [ ] Ana ekrana "Hızlı Tarama" (küçük) ve "NFC Kısayolları" (orta) widget'larını ekle → dokununca ilgili ekran açılıyor
+- [ ] Kilit ekranına yuvarlak widget ekle → dokununca tarama başlıyor
+- [ ] Kontrol Merkezi → Denetim ekle → "Etiketi Tara" (iOS 18) → uygulama açılıp tarama başlıyor
+- [ ] Apple Watch: Watch uygulamasından NFC Tag Master'ı yükle; iPhone'da uygulamayı açınca saatte son okumalar ve defterler görünüyor
+- [ ] Saatte bir deftere dokun → iPhone'da defterde "Apple Watch" girişi
+- [ ] Ayarlar → iCloud yedekleme (kart görünüyorsa): Şimdi yedekle → başka cihazda/yeniden kurulumda Geri yükle
+
+## 9. Genel
+- [ ] Ayarlar → Hakkında: sürüm 1.6.0, yenilikler listesi
 - [ ] Büyük yazı boyutu (Ayarlar → Ekran → Metin Boyutu): taşma yok
 - [ ] Uygulama arka plana alınıp geri gelince takılma yok

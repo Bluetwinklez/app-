@@ -1423,5 +1423,6 @@
   "iCloudBackedUp": "Copiado en iCloud",
   "iCloudNoAccount": "Este iPhone no tiene sesión en iCloud. Revisa Ajustes → Cuenta de Apple → iCloud.",
   "iCloudTooLarge": "La copia supera el límite de iCloud (1 MB). Usa una copia en archivo.",
-  "iCloudFailed": "No se pudo guardar la copia en iCloud"
+  "iCloudFailed": "No se pudo guardar la copia en iCloud",
+  "whatsNew160": "• Widgets para la pantalla de inicio y de bloqueo\n• Escanea y escribe con un toque desde el Centro de control (iOS 18)\n• Apple Watch: lecturas recientes y registros con un toque\n• Copia en iCloud (plantillas, reglas, biblioteca)"
 }

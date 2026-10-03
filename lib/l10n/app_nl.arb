@@ -1423,5 +1423,6 @@
   "iCloudBackedUp": "Back-up in iCloud gemaakt",
   "iCloudNoAccount": "Deze iPhone is niet bij iCloud ingelogd. Controleer Instellingen → Apple-account → iCloud.",
   "iCloudTooLarge": "De back-up is groter dan de iCloud-limiet (1 MB). Gebruik een back-up naar bestand.",
-  "iCloudFailed": "Kon de iCloud-back-up niet opslaan"
+  "iCloudFailed": "Kon de iCloud-back-up niet opslaan",
+  "whatsNew160": "• Widgets voor beginscherm en toegangsscherm\n• Scannen en schrijven met één tik vanuit het bedieningspaneel (iOS 18)\n• Apple Watch: recente scans en logboekregels met één tik\n• iCloud-back-up (sjablonen, regels, bibliotheek)"
 }

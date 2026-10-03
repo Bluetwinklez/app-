@@ -8668,6 +8668,12 @@ abstract class AppLocalizations {
   /// In tr, this message translates to:
   /// **'iCloud yedeği kaydedilemedi'**
   String get iCloudFailed;
+
+  /// No description provided for @whatsNew160.
+  ///
+  /// In tr, this message translates to:
+  /// **'• Ana ekran ve kilit ekranı widget\'ları\n• Kontrol Merkezi\'nden tek dokunuşla tara ve yaz (iOS 18)\n• Apple Watch: son okumalar ve tek dokunuşla defter girişi\n• iCloud yedekleme (şablonlar, kurallar, kütüphane)'**
+  String get whatsNew160;
 }
 
 class _AppLocalizationsDelegate

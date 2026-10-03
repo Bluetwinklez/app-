@@ -5080,4 +5080,8 @@ class AppLocalizationsTr extends AppLocalizations {
 
   @override
   String get iCloudFailed => 'iCloud yedeği kaydedilemedi';
+
+  @override
+  String get whatsNew160 =>
+      '• Ana ekran ve kilit ekranı widget\'ları\n• Kontrol Merkezi\'nden tek dokunuşla tara ve yaz (iOS 18)\n• Apple Watch: son okumalar ve tek dokunuşla defter girişi\n• iCloud yedekleme (şablonlar, kurallar, kütüphane)';
 }

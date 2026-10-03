@@ -1,5 +1,18 @@
 # Değişiklik Günlüğü
 
+## 1.6.0
+
+**iPhone ile bütünleşme**
+- Ana ekran widget'ları: Hızlı Tarama (küçük) ve Tara / Yaz / Geçmiş / Araçlar düğmeleri (orta)
+- Kilit ekranı widget'ları (yuvarlak, dikdörtgen, satır içi)
+- Kontrol Merkezi düğmeleri: Etiketi Tara ve Etikete Yaz (iOS 18 ve sonrası)
+- Apple Watch uygulaması: son okumalar ve kayıt defterine tek dokunuşla giriş; girişler iPhone'daki deftere eklenir
+- iCloud yedekleme: şablonlar, kurallar ve etiket kütüphanesi iCloud'a, isteğe bağlı otomatik (imzalama izin verdiğinde)
+
+**Yayın hazırlığı**
+- Gizlilik politikası: iletişim adresi, iCloud, Apple Watch ve adres arama bilgileri
+- 14 dilde mağaza açıklamaları yeni özelliklerle güncellendi; App Store yayın rehberi eklendi
+
 ## 1.5.0
 
 **Yeni kullanıcılar için**
