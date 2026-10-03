@@ -4124,4 +4124,82 @@ class AppLocalizationsTr extends AppLocalizations {
   String whatsNew120(String date, String time, String counter) {
     return '• Kayıt Defteri: yoklama, ilaç ve envanter takibi\n• Güvenlik: Face ID kilidi, şifreli yedek, imzalı etiket, sahte site uyarısı\n• Şablon değişkenleri ($date, $time, $counter) ve kütüphaneden etikete yazma\n• Yeni şablonlar: Akıllı Kart, Kayıp Eşya, Sesli Mesaj\n• QR kodlu yazdırılabilir etiket sayfası (PDF)\n• Basit mod, amiibo bilgisi, bayt düzenleyici, NFC çipleri rehberi\n• Sürükle-bırak sıralama ve Uyumluluk modu';
   }
+
+  @override
+  String get logbookKindTimeClock => 'Giriş / Çıkış (mesai)';
+
+  @override
+  String get logbookCheckIn => 'Giriş';
+
+  @override
+  String get logbookCheckOut => 'Çıkış';
+
+  @override
+  String logbookCheckedIn(String label) {
+    return 'Giriş yapıldı: $label';
+  }
+
+  @override
+  String logbookCheckedOut(String label) {
+    return 'Çıkış yapıldı: $label';
+  }
+
+  @override
+  String logbookPresentNow(String count) {
+    return 'Şu an içeride: $count';
+  }
+
+  @override
+  String logbookWorkedToday(String duration) {
+    return 'Bugün toplam süre: $duration';
+  }
+
+  @override
+  String get logbookWorkedPerPerson => 'Bugünkü süreler';
+
+  @override
+  String durationHm(String h, String m) {
+    return '$h sa $m dk';
+  }
+
+  @override
+  String get csvColumnDirection => 'Yön';
+
+  @override
+  String get libraryCheckEvery => 'Kontrol aralığı';
+
+  @override
+  String get libraryCheckNone => 'Yok';
+
+  @override
+  String libraryCheckDays(String days) {
+    return '$days günde bir';
+  }
+
+  @override
+  String get libraryCheckHint =>
+      'Etiketi bu sürede bir okutmazsanız \"kontrol zamanı\" uyarısı çıkar (yangın tüpü, filtre, bitki sulama…).';
+
+  @override
+  String get libraryCheckDue => 'Kontrol zamanı geldi';
+
+  @override
+  String libraryCheckNext(String date) {
+    return 'Sonraki kontrol: $date';
+  }
+
+  @override
+  String libraryDueFilter(String count) {
+    return 'Kontrol bekleyenler ($count)';
+  }
+
+  @override
+  String libraryCheckRecorded(String date) {
+    return 'Kontrol kaydedildi · sonraki: $date';
+  }
+
+  @override
+  String cloneWarning(String name) {
+    return 'Bu içerik kütüphanenizde \"$name\" adlı etikette farklı bir UID ile kayıtlı. Bu etiket bir kopya olabilir.';
+  }
 }

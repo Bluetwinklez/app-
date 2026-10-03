@@ -4074,4 +4074,82 @@ class AppLocalizationsAr extends AppLocalizations {
   String whatsNew120(String date, String time, String counter) {
     return '• السجل: الحضور والأدوية والجرد\n• الأمان: قفل Face ID، نسخ احتياطية مشفّرة، وسوم موقّعة، تحذير من المواقع المزيفة\n• متغيرات القوالب ($date و$time و$counter) والكتابة من المكتبة\n• قوالب جديدة: بطاقة ذكية، مفقودات، رسالة صوتية\n• ورقة ملصقات للطباعة مع رموز QR ‏(PDF)\n• الوضع البسيط، معلومات amiibo، محرر البايتات، دليل شرائح NFC\n• الترتيب بالسحب ووضع التوافق';
   }
+
+  @override
+  String get logbookKindTimeClock => 'دخول / خروج (الدوام)';
+
+  @override
+  String get logbookCheckIn => 'دخول';
+
+  @override
+  String get logbookCheckOut => 'خروج';
+
+  @override
+  String logbookCheckedIn(String label) {
+    return 'تم الدخول: $label';
+  }
+
+  @override
+  String logbookCheckedOut(String label) {
+    return 'تم الخروج: $label';
+  }
+
+  @override
+  String logbookPresentNow(String count) {
+    return 'بالداخل الآن: $count';
+  }
+
+  @override
+  String logbookWorkedToday(String duration) {
+    return 'المجموع اليوم: $duration';
+  }
+
+  @override
+  String get logbookWorkedPerPerson => 'وقت اليوم';
+
+  @override
+  String durationHm(String h, String m) {
+    return '$h س $m د';
+  }
+
+  @override
+  String get csvColumnDirection => 'الاتجاه';
+
+  @override
+  String get libraryCheckEvery => 'فترة الفحص';
+
+  @override
+  String get libraryCheckNone => 'لا يوجد';
+
+  @override
+  String libraryCheckDays(String days) {
+    return 'كل $days يوم';
+  }
+
+  @override
+  String get libraryCheckHint =>
+      'إذا لم يُمسح الوسم خلال هذه المدة يُعلَّم كمستحق للفحص (طفاية، فلتر، ري النباتات…).';
+
+  @override
+  String get libraryCheckDue => 'حان وقت الفحص';
+
+  @override
+  String libraryCheckNext(String date) {
+    return 'الفحص التالي: $date';
+  }
+
+  @override
+  String libraryDueFilter(String count) {
+    return 'بانتظار الفحص ($count)';
+  }
+
+  @override
+  String libraryCheckRecorded(String date) {
+    return 'تم تسجيل الفحص · التالي: $date';
+  }
+
+  @override
+  String cloneWarning(String name) {
+    return 'هذا المحتوى محفوظ في مكتبتك على \"$name\" بمعرّف UID مختلف. قد يكون هذا الوسم نسخة.';
+  }
 }

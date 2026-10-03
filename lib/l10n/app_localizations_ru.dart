@@ -4128,4 +4128,82 @@ class AppLocalizationsRu extends AppLocalizations {
   String whatsNew120(String date, String time, String counter) {
     return '• Журнал: посещаемость, лекарства и инвентаризация\n• Безопасность: блокировка Face ID, зашифрованные копии, подписанные метки, предупреждение о фальшивых сайтах\n• Переменные шаблонов ($date, $time, $counter) и запись из библиотеки\n• Новые шаблоны: Умная визитка, Потерянная вещь, Голосовое сообщение\n• Лист этикеток с QR-кодами (PDF)\n• Простой режим, сведения об amiibo, редактор байтов, справочник NFC-чипов\n• Сортировка перетаскиванием и режим совместимости';
   }
+
+  @override
+  String get logbookKindTimeClock => 'Приход / уход (учёт времени)';
+
+  @override
+  String get logbookCheckIn => 'Приход';
+
+  @override
+  String get logbookCheckOut => 'Уход';
+
+  @override
+  String logbookCheckedIn(String label) {
+    return 'Приход: $label';
+  }
+
+  @override
+  String logbookCheckedOut(String label) {
+    return 'Уход: $label';
+  }
+
+  @override
+  String logbookPresentNow(String count) {
+    return 'Сейчас на месте: $count';
+  }
+
+  @override
+  String logbookWorkedToday(String duration) {
+    return 'Всего сегодня: $duration';
+  }
+
+  @override
+  String get logbookWorkedPerPerson => 'Время сегодня';
+
+  @override
+  String durationHm(String h, String m) {
+    return '$h ч $m мин';
+  }
+
+  @override
+  String get csvColumnDirection => 'Направление';
+
+  @override
+  String get libraryCheckEvery => 'Интервал проверки';
+
+  @override
+  String get libraryCheckNone => 'Нет';
+
+  @override
+  String libraryCheckDays(String days) {
+    return 'Каждые $days дн.';
+  }
+
+  @override
+  String get libraryCheckHint =>
+      'Если метку не сканировать за это время, она помечается к проверке (огнетушитель, фильтр, полив…).';
+
+  @override
+  String get libraryCheckDue => 'Пора проверить';
+
+  @override
+  String libraryCheckNext(String date) {
+    return 'Следующая проверка: $date';
+  }
+
+  @override
+  String libraryDueFilter(String count) {
+    return 'К проверке ($count)';
+  }
+
+  @override
+  String libraryCheckRecorded(String date) {
+    return 'Проверка отмечена · следующая: $date';
+  }
+
+  @override
+  String cloneWarning(String name) {
+    return 'Это содержимое сохранено в библиотеке на «$name» с другим UID. Метка может быть копией.';
+  }
 }

@@ -91,6 +91,7 @@ class _TagLibraryPageState extends State<TagLibraryPage> {
   TagCategory? _filter;
   String? _labelFilter;
   bool _sortUnseen = false;
+  bool _dueOnly = false;
   Directory? _docsDir;
 
   @override
@@ -131,6 +132,7 @@ class _TagLibraryPageState extends State<TagLibraryPage> {
         .where((e) =>
             (_filter == null || e.category == _filter) &&
             (_labelFilter == null || e.hasLabel(_labelFilter!)) &&
+            (!_dueOnly || e.isCheckDue(DateTime.now())) &&
             e.matches(_query))
         .toList();
     if (_sortUnseen) {
@@ -423,14 +425,25 @@ class _TagLibraryPageState extends State<TagLibraryPage> {
               ),
             ],
             const SizedBox(height: 8),
-            Align(
-              alignment: AlignmentDirectional.centerStart,
-              child: FilterChip(
-                avatar: Icon(Icons.history_toggle_off_rounded, size: 16, color: AppColors.secondary),
-                label: Text(loc.sortLongestUnseen),
-                selected: _sortUnseen,
-                onSelected: (v) => setState(() => _sortUnseen = v),
-              ),
+            Wrap(
+              spacing: 8,
+              runSpacing: 6,
+              children: [
+                FilterChip(
+                  avatar: Icon(Icons.history_toggle_off_rounded, size: 16, color: AppColors.secondary),
+                  label: Text(loc.sortLongestUnseen),
+                  selected: _sortUnseen,
+                  onSelected: (v) => setState(() => _sortUnseen = v),
+                ),
+                if (widget.storage.getLibrary().where((e) => e.isCheckDue(DateTime.now())).length
+                    case final due when due > 0 || _dueOnly)
+                  FilterChip(
+                    avatar: Icon(Icons.build_circle_outlined, size: 16, color: AppColors.warning),
+                    label: Text(loc.libraryDueFilter('$due')),
+                    selected: _dueOnly,
+                    onSelected: (v) => setState(() => _dueOnly = v),
+                  ),
+              ],
             ),
             const SizedBox(height: 12),
             if (entries.isEmpty)
@@ -545,7 +558,8 @@ class _EntryCard extends StatelessWidget {
                   maxLines: 1,
                   overflow: TextOverflow.ellipsis,
                   style: TextStyle(fontSize: 12.5, color: AppColors.secondary),
-                ),                const SizedBox(height: 2),
+                ),
+                const SizedBox(height: 2),
                 Text(
                   entry.lastSeenAt == null
                       ? loc.neverSeen
@@ -560,6 +574,28 @@ class _EntryCard extends StatelessWidget {
                         : AppColors.secondary,
                   ),
                 ),
+                if (entry.nextCheckAt case final next?)
+                  Row(
+                    children: [
+                      Icon(Icons.build_circle_outlined,
+                          size: 14,
+                          color: entry.isCheckDue(DateTime.now()) ? AppColors.danger : AppColors.secondary),
+                      const SizedBox(width: 4),
+                      Expanded(
+                        child: Text(
+                          entry.isCheckDue(DateTime.now())
+                              ? loc.libraryCheckDue
+                              : loc.libraryCheckNext(DateFormat.yMMMd(Localizations.localeOf(context).toLanguageTag())
+                                  .format(next.toLocal())),
+                          style: TextStyle(
+                            fontSize: 12,
+                            fontWeight: entry.isCheckDue(DateTime.now()) ? FontWeight.w700 : FontWeight.normal,
+                            color: entry.isCheckDue(DateTime.now()) ? AppColors.danger : AppColors.secondary,
+                          ),
+                        ),
+                      ),
+                    ],
+                  ),
               ],
             ),
           ),
@@ -611,6 +647,7 @@ class _EntryEditorState extends State<_EntryEditor> {
   bool _saved = false;
   late TagCategory _category = widget.entry.category;
   late String? _photoPath = widget.entry.photoPath;
+  late int? _checkEvery = widget.entry.checkEveryDays;
   String? _error;
 
   @override
@@ -668,6 +705,8 @@ class _EntryEditorState extends State<_EntryEditor> {
       category: _category,
       photoPath: _photoPath,
       clearPhoto: _photoPath == null,
+      checkEveryDays: _checkEvery,
+      clearCheck: _checkEvery == null,
       updatedAt: DateTime.now(),
     ));
   }
@@ -769,6 +808,22 @@ class _EntryEditorState extends State<_EntryEditor> {
               maxLines: 3,
               minLines: 1,
               decoration: InputDecoration(labelText: loc.noteLabel),
+            ),
+            const SizedBox(height: 12),
+            DropdownButtonFormField<int?>(
+              initialValue: _checkEvery,
+              decoration: InputDecoration(
+                labelText: loc.libraryCheckEvery,
+                helperText: loc.libraryCheckHint,
+                helperMaxLines: 3,
+                prefixIcon: const Icon(Icons.build_circle_outlined),
+              ),
+              items: [
+                DropdownMenuItem<int?>(value: null, child: Text(loc.libraryCheckNone)),
+                for (final d in {...TagLibraryEntry.checkIntervals, if (_checkEvery != null) _checkEvery!})
+                  DropdownMenuItem<int?>(value: d, child: Text(loc.libraryCheckDays('$d'))),
+              ],
+              onChanged: (v) => setState(() => _checkEvery = v),
             ),
             const SizedBox(height: 12),
             Text(

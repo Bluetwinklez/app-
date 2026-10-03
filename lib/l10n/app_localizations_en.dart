@@ -4112,4 +4112,82 @@ class AppLocalizationsEn extends AppLocalizations {
   String whatsNew120(String date, String time, String counter) {
     return '• Logbook: attendance, medication and inventory tracking\n• Security: Face ID lock, encrypted backups, signed tags, fake-site warnings\n• Template variables ($date, $time, $counter) and write from the library\n• New templates: Smart Card, Lost & Found, Voice Message\n• Printable label sheet with QR codes (PDF)\n• Simple mode, amiibo info, byte editor, NFC chip guide\n• Drag-and-drop ordering and Compatibility mode';
   }
+
+  @override
+  String get logbookKindTimeClock => 'Check-in / out (time clock)';
+
+  @override
+  String get logbookCheckIn => 'Check-in';
+
+  @override
+  String get logbookCheckOut => 'Check-out';
+
+  @override
+  String logbookCheckedIn(String label) {
+    return 'Checked in: $label';
+  }
+
+  @override
+  String logbookCheckedOut(String label) {
+    return 'Checked out: $label';
+  }
+
+  @override
+  String logbookPresentNow(String count) {
+    return 'Inside now: $count';
+  }
+
+  @override
+  String logbookWorkedToday(String duration) {
+    return 'Total today: $duration';
+  }
+
+  @override
+  String get logbookWorkedPerPerson => 'Time today';
+
+  @override
+  String durationHm(String h, String m) {
+    return '$h h $m min';
+  }
+
+  @override
+  String get csvColumnDirection => 'Direction';
+
+  @override
+  String get libraryCheckEvery => 'Inspection interval';
+
+  @override
+  String get libraryCheckNone => 'None';
+
+  @override
+  String libraryCheckDays(String days) {
+    return 'Every $days days';
+  }
+
+  @override
+  String get libraryCheckHint =>
+      'If the tag is not scanned within this time it is flagged as due (fire extinguisher, filter, watering plants…).';
+
+  @override
+  String get libraryCheckDue => 'Inspection due';
+
+  @override
+  String libraryCheckNext(String date) {
+    return 'Next inspection: $date';
+  }
+
+  @override
+  String libraryDueFilter(String count) {
+    return 'Due for inspection ($count)';
+  }
+
+  @override
+  String libraryCheckRecorded(String date) {
+    return 'Inspection logged · next: $date';
+  }
+
+  @override
+  String cloneWarning(String name) {
+    return 'This content is saved in your library on \"$name\" with a different UID. This tag may be a copy.';
+  }
 }

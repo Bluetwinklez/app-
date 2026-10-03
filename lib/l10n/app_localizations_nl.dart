@@ -4126,4 +4126,82 @@ class AppLocalizationsNl extends AppLocalizations {
   String whatsNew120(String date, String time, String counter) {
     return '• Logboek: aanwezigheid, medicijnen en inventaris\n• Beveiliging: Face ID-vergrendeling, versleutelde back-ups, ondertekende tags, waarschuwing voor nepsites\n• Sjabloonvariabelen ($date, $time, $counter) en schrijven vanuit de bibliotheek\n• Nieuwe sjablonen: Slimme kaart, Gevonden voorwerp, Spraakbericht\n• Afdrukbaar etiketvel met QR-codes (PDF)\n• Eenvoudige modus, amiibo-info, byte-editor, NFC-chipgids\n• Slepen om te ordenen en Compatibiliteitsmodus';
   }
+
+  @override
+  String get logbookKindTimeClock => 'In- / uitchecken (prikklok)';
+
+  @override
+  String get logbookCheckIn => 'Inchecken';
+
+  @override
+  String get logbookCheckOut => 'Uitchecken';
+
+  @override
+  String logbookCheckedIn(String label) {
+    return 'Ingecheckt: $label';
+  }
+
+  @override
+  String logbookCheckedOut(String label) {
+    return 'Uitgecheckt: $label';
+  }
+
+  @override
+  String logbookPresentNow(String count) {
+    return 'Nu binnen: $count';
+  }
+
+  @override
+  String logbookWorkedToday(String duration) {
+    return 'Totaal vandaag: $duration';
+  }
+
+  @override
+  String get logbookWorkedPerPerson => 'Tijd vandaag';
+
+  @override
+  String durationHm(String h, String m) {
+    return '$h u $m min';
+  }
+
+  @override
+  String get csvColumnDirection => 'Richting';
+
+  @override
+  String get libraryCheckEvery => 'Controle-interval';
+
+  @override
+  String get libraryCheckNone => 'Geen';
+
+  @override
+  String libraryCheckDays(String days) {
+    return 'Elke $days dagen';
+  }
+
+  @override
+  String get libraryCheckHint =>
+      'Wordt de tag niet binnen deze tijd gescand, dan staat hij op \"controle nodig\" (brandblusser, filter, planten…).';
+
+  @override
+  String get libraryCheckDue => 'Controle nodig';
+
+  @override
+  String libraryCheckNext(String date) {
+    return 'Volgende controle: $date';
+  }
+
+  @override
+  String libraryDueFilter(String count) {
+    return 'Controle nodig ($count)';
+  }
+
+  @override
+  String libraryCheckRecorded(String date) {
+    return 'Controle vastgelegd · volgende: $date';
+  }
+
+  @override
+  String cloneWarning(String name) {
+    return 'Deze inhoud staat in je bibliotheek op \"$name\" met een andere UID. Deze tag kan een kopie zijn.';
+  }
 }

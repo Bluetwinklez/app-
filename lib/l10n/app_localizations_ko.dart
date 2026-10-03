@@ -3962,4 +3962,82 @@ class AppLocalizationsKo extends AppLocalizations {
   String whatsNew120(String date, String time, String counter) {
     return '• 기록장: 출석, 복약, 재고 관리\n• 보안: Face ID 잠금, 암호화 백업, 서명된 태그, 가짜 사이트 경고\n• 템플릿 변수($date, $time, $counter)와 보관함에서 바로 쓰기\n• 새 템플릿: 스마트 카드, 분실물 태그, 음성 메시지\n• QR 코드 인쇄용 라벨 시트(PDF)\n• 간편 모드, amiibo 정보, 바이트 편집기, NFC 칩 안내\n• 드래그로 순서 변경, 호환성 모드';
   }
+
+  @override
+  String get logbookKindTimeClock => '출근 / 퇴근 (근태)';
+
+  @override
+  String get logbookCheckIn => '출근';
+
+  @override
+  String get logbookCheckOut => '퇴근';
+
+  @override
+  String logbookCheckedIn(String label) {
+    return '출근: $label';
+  }
+
+  @override
+  String logbookCheckedOut(String label) {
+    return '퇴근: $label';
+  }
+
+  @override
+  String logbookPresentNow(String count) {
+    return '현재 재실: $count';
+  }
+
+  @override
+  String logbookWorkedToday(String duration) {
+    return '오늘 합계: $duration';
+  }
+
+  @override
+  String get logbookWorkedPerPerson => '오늘 시간';
+
+  @override
+  String durationHm(String h, String m) {
+    return '$h시간 $m분';
+  }
+
+  @override
+  String get csvColumnDirection => '구분';
+
+  @override
+  String get libraryCheckEvery => '점검 주기';
+
+  @override
+  String get libraryCheckNone => '없음';
+
+  @override
+  String libraryCheckDays(String days) {
+    return '$days일마다';
+  }
+
+  @override
+  String get libraryCheckHint =>
+      '이 기간 안에 스캔하지 않으면 점검 필요로 표시됩니다(소화기, 필터, 물 주기 등).';
+
+  @override
+  String get libraryCheckDue => '점검 필요';
+
+  @override
+  String libraryCheckNext(String date) {
+    return '다음 점검: $date';
+  }
+
+  @override
+  String libraryDueFilter(String count) {
+    return '점검 대기 ($count)';
+  }
+
+  @override
+  String libraryCheckRecorded(String date) {
+    return '점검 기록됨 · 다음: $date';
+  }
+
+  @override
+  String cloneWarning(String name) {
+    return '이 내용은 보관함의 \"$name\"에 다른 UID로 저장되어 있습니다. 이 태그는 복제본일 수 있습니다.';
+  }
 }
