@@ -1101,5 +1101,14 @@
   "phishBrandInName": "Le domaine contient « {brand} » mais n'est pas le site officiel.",
   "phishShortener": "Lien raccourci ({host}) : la vraie adresse est cachée.",
   "phishRiskyTld": "L'extension « .{tld} » est souvent utilisée pour l'hameçonnage.",
-  "phishDisclaimer": "Cette vérification repose sur des indices hors ligne ; elle ne garantit rien."
+  "phishDisclaimer": "Cette vérification repose sur des indices hors ligne ; elle ne garantit rien.",
+  "backupEncrypt": "Protéger par mot de passe",
+  "backupEncryptHint": "La sauvegarde est chiffrée en AES-256. Sans le mot de passe, impossible de l'ouvrir.",
+  "backupPassword": "Mot de passe",
+  "backupPasswordRepeat": "Mot de passe (confirmation)",
+  "backupPasswordTooShort": "Le mot de passe doit contenir au moins {min} caractères.",
+  "backupPasswordMismatch": "Les mots de passe ne correspondent pas.",
+  "backupEncryptedPrompt": "Cette sauvegarde est protégée. Saisissez le mot de passe.",
+  "backupWrongPassword": "Mot de passe incorrect.",
+  "backupDecryptFailed": "Déchiffrement impossible ; le fichier est peut-être abîmé."
 }

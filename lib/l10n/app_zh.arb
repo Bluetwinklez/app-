@@ -1101,5 +1101,14 @@
   "phishBrandInName": "域名包含“{brand}”，但不是官方网站。",
   "phishShortener": "短链接（{host}）：真实地址被隐藏。",
   "phishRiskyTld": "“.{tld}”后缀常被钓鱼网站使用。",
-  "phishDisclaimer": "此检查基于离线线索，不能保证网站安全。"
+  "phishDisclaimer": "此检查基于离线线索，不能保证网站安全。",
+  "backupEncrypt": "用密码保护",
+  "backupEncryptHint": "备份使用 AES-256 加密，忘记密码将无法打开。",
+  "backupPassword": "密码",
+  "backupPasswordRepeat": "确认密码",
+  "backupPasswordTooShort": "密码至少需要 {min} 个字符。",
+  "backupPasswordMismatch": "两次密码不一致。",
+  "backupEncryptedPrompt": "此备份受密码保护，请输入密码。",
+  "backupWrongPassword": "密码错误。",
+  "backupDecryptFailed": "无法解密，文件可能已损坏。"
 }

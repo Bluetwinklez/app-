@@ -3928,4 +3928,35 @@ class AppLocalizationsRu extends AppLocalizations {
   @override
   String get phishDisclaimer =>
       'Проверка офлайн-эвристическая и не гарантирует безопасность.';
+
+  @override
+  String get backupEncrypt => 'Защитить паролем';
+
+  @override
+  String get backupEncryptHint =>
+      'Копия шифруется AES-256. Без пароля её не открыть.';
+
+  @override
+  String get backupPassword => 'Пароль';
+
+  @override
+  String get backupPasswordRepeat => 'Пароль (ещё раз)';
+
+  @override
+  String backupPasswordTooShort(String min) {
+    return 'Пароль должен быть не короче $min символов.';
+  }
+
+  @override
+  String get backupPasswordMismatch => 'Пароли не совпадают.';
+
+  @override
+  String get backupEncryptedPrompt => 'Копия защищена паролем. Введите пароль.';
+
+  @override
+  String get backupWrongPassword => 'Неверный пароль.';
+
+  @override
+  String get backupDecryptFailed =>
+      'Не удалось расшифровать; файл может быть повреждён.';
 }

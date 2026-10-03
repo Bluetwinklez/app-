@@ -2630,5 +2630,21 @@
       }
     }
   },
-  "phishDisclaimer": "Bu kontrol çevrimdışı ipuçlarına dayanır; bir sitenin güvenli olduğunu garanti etmez."
+  "phishDisclaimer": "Bu kontrol çevrimdışı ipuçlarına dayanır; bir sitenin güvenli olduğunu garanti etmez.",
+  "backupEncrypt": "Parolayla şifrele",
+  "backupEncryptHint": "Yedek AES-256 ile şifrelenir. Parolayı unutursanız dosya açılamaz.",
+  "backupPassword": "Parola",
+  "backupPasswordRepeat": "Parola (tekrar)",
+  "backupPasswordTooShort": "Parola en az {min} karakter olmalı.",
+  "@backupPasswordTooShort": {
+    "placeholders": {
+      "min": {
+        "type": "String"
+      }
+    }
+  },
+  "backupPasswordMismatch": "Parolalar eşleşmiyor.",
+  "backupEncryptedPrompt": "Bu yedek parolayla korunuyor. Açmak için parolayı girin.",
+  "backupWrongPassword": "Parola yanlış.",
+  "backupDecryptFailed": "Yedek çözülemedi; dosya bozuk olabilir."
 }

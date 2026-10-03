@@ -1101,5 +1101,14 @@
   "phishBrandInName": "يحتوي النطاق على \"{brand}\" لكنه ليس الموقع الرسمي.",
   "phishShortener": "رابط مختصر ({host}): العنوان الحقيقي مخفي.",
   "phishRiskyTld": "يُستخدم الامتداد \".{tld}\" كثيرًا في التصيّد.",
-  "phishDisclaimer": "يعتمد هذا الفحص على مؤشرات دون اتصال ولا يضمن أمان الموقع."
+  "phishDisclaimer": "يعتمد هذا الفحص على مؤشرات دون اتصال ولا يضمن أمان الموقع.",
+  "backupEncrypt": "حماية بكلمة مرور",
+  "backupEncryptHint": "تُشفّر النسخة بـ AES-256. إذا نسيت كلمة المرور فلن تُفتح.",
+  "backupPassword": "كلمة المرور",
+  "backupPasswordRepeat": "كلمة المرور (مرة أخرى)",
+  "backupPasswordTooShort": "يجب ألا تقل كلمة المرور عن {min} أحرف.",
+  "backupPasswordMismatch": "كلمتا المرور غير متطابقتين.",
+  "backupEncryptedPrompt": "هذه النسخة محمية بكلمة مرور. أدخلها لفتحها.",
+  "backupWrongPassword": "كلمة مرور خاطئة.",
+  "backupDecryptFailed": "تعذّر فك التشفير؛ قد يكون الملف تالفًا."
 }

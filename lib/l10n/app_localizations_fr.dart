@@ -3954,4 +3954,37 @@ class AppLocalizationsFr extends AppLocalizations {
   @override
   String get phishDisclaimer =>
       'Cette vérification repose sur des indices hors ligne ; elle ne garantit rien.';
+
+  @override
+  String get backupEncrypt => 'Protéger par mot de passe';
+
+  @override
+  String get backupEncryptHint =>
+      'La sauvegarde est chiffrée en AES-256. Sans le mot de passe, impossible de l\'ouvrir.';
+
+  @override
+  String get backupPassword => 'Mot de passe';
+
+  @override
+  String get backupPasswordRepeat => 'Mot de passe (confirmation)';
+
+  @override
+  String backupPasswordTooShort(String min) {
+    return 'Le mot de passe doit contenir au moins $min caractères.';
+  }
+
+  @override
+  String get backupPasswordMismatch =>
+      'Les mots de passe ne correspondent pas.';
+
+  @override
+  String get backupEncryptedPrompt =>
+      'Cette sauvegarde est protégée. Saisissez le mot de passe.';
+
+  @override
+  String get backupWrongPassword => 'Mot de passe incorrect.';
+
+  @override
+  String get backupDecryptFailed =>
+      'Déchiffrement impossible ; le fichier est peut-être abîmé.';
 }

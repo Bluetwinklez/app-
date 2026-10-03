@@ -1101,5 +1101,14 @@
   "phishBrandInName": "ドメインに「{brand}」を含みますが公式サイトではありません。",
   "phishShortener": "短縮リンク ({host}): 本当のアドレスが隠れています。",
   "phishRiskyTld": "「.{tld}」はフィッシングでよく使われます。",
-  "phishDisclaimer": "オフラインの手がかりによる確認で、安全を保証するものではありません。"
+  "phishDisclaimer": "オフラインの手がかりによる確認で、安全を保証するものではありません。",
+  "backupEncrypt": "パスワードで保護",
+  "backupEncryptHint": "バックアップはAES-256で暗号化されます。パスワードを忘れると開けません。",
+  "backupPassword": "パスワード",
+  "backupPasswordRepeat": "パスワード (確認)",
+  "backupPasswordTooShort": "パスワードは{min}文字以上にしてください。",
+  "backupPasswordMismatch": "パスワードが一致しません。",
+  "backupEncryptedPrompt": "このバックアップはパスワードで保護されています。",
+  "backupWrongPassword": "パスワードが違います。",
+  "backupDecryptFailed": "復号できませんでした。ファイルが壊れている可能性があります。"
 }

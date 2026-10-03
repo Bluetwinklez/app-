@@ -12,6 +12,7 @@ import '../domain/composer_history.dart';
 import '../controllers/nfc_controller.dart';
 import '../services/nfc_service.dart';
 import '../services/backup_codec.dart';
+import '../services/backup_crypto.dart';
 import 'compose_record_sheet.dart';
 import 'raw_record_editor_dialog.dart';
 import 'qr_preview_dialog.dart';
