@@ -505,7 +505,7 @@ class AppLocalizationsFr extends AppLocalizations {
 
   @override
   String get presetBusinessCardDesc =>
-      'Ajoute votre contact au carnet d\'adresses au toucher.';
+      'Partage votre fiche contact ; Android propose de l\'enregistrer, sur iPhone elle s\'ouvre dans une app NFC.';
 
   @override
   String get presetBusinessCardTitle => 'Carte de visite numérique';
@@ -532,7 +532,7 @@ class AppLocalizationsFr extends AppLocalizations {
 
   @override
   String get presetGuestWifiDesc =>
-      'Permet aux invités de se connecter sans mot de passe.';
+      'Les téléphones Android se connectent d\'un geste ; sur iPhone, une app NFC affiche les infos.';
 
   @override
   String get presetGuestWifiTitle => 'Carte Wi-Fi invité';

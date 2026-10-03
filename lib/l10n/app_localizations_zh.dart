@@ -473,7 +473,8 @@ class AppLocalizationsZh extends AppLocalizations {
   String get presetAppDownloadTitle => '应用推广下载';
 
   @override
-  String get presetBusinessCardDesc => '触碰手机即可将联系人名片存入通讯录。';
+  String get presetBusinessCardDesc =>
+      '分享您的联系人名片；Android 会提示保存，iPhone 需用 NFC 应用打开。';
 
   @override
   String get presetBusinessCardTitle => '电子名片';
@@ -497,7 +498,7 @@ class AppLocalizationsZh extends AppLocalizations {
   String get presetGoogleReviewTitle => 'Google 评价直达';
 
   @override
-  String get presetGuestWifiDesc => '访客无需手动输入繁琐密码即可连入网络。';
+  String get presetGuestWifiDesc => 'Android 手机一碰即连；iPhone 需用 NFC 应用查看信息。';
 
   @override
   String get presetGuestWifiTitle => '访客 Wi-Fi 标签';

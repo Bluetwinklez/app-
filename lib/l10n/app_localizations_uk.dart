@@ -498,7 +498,7 @@ class AppLocalizationsUk extends AppLocalizations {
 
   @override
   String get presetBusinessCardDesc =>
-      'Додає контакт до адресної книги в один дотик.';
+      'Передає вашу візитку; Android запропонує зберегти, на iPhone вона відкриється в NFC-застосунку.';
 
   @override
   String get presetBusinessCardTitle => 'Цифрова візитка';
@@ -525,7 +525,7 @@ class AppLocalizationsUk extends AppLocalizations {
 
   @override
   String get presetGuestWifiDesc =>
-      'Підключення до мережі без введення пароля.';
+      'Android підключається дотиком; на iPhone дані видно в NFC-застосунку.';
 
   @override
   String get presetGuestWifiTitle => 'Гостьовий Wi-Fi';
