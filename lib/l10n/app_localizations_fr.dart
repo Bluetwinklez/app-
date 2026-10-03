@@ -4532,4 +4532,25 @@ class AppLocalizationsFr extends AppLocalizations {
 
   @override
   String get libraryMoreActions => 'Autres actions';
+
+  @override
+  String get appIconTitle => 'Icône de l\'app';
+
+  @override
+  String get appIconFailed => 'Impossible de changer l\'icône';
+
+  @override
+  String get iconBlue => 'Bleu';
+
+  @override
+  String get iconGreen => 'Vert';
+
+  @override
+  String get iconPurple => 'Violet';
+
+  @override
+  String get iconOrange => 'Orange';
+
+  @override
+  String get iconDark => 'Nuit';
 }

@@ -4266,4 +4266,25 @@ class AppLocalizationsZh extends AppLocalizations {
 
   @override
   String get libraryMoreActions => '更多操作';
+
+  @override
+  String get appIconTitle => '应用图标';
+
+  @override
+  String get appIconFailed => '无法更改图标';
+
+  @override
+  String get iconBlue => '蓝色';
+
+  @override
+  String get iconGreen => '绿色';
+
+  @override
+  String get iconPurple => '紫色';
+
+  @override
+  String get iconOrange => '橙色';
+
+  @override
+  String get iconDark => '夜间';
 }

@@ -3111,5 +3111,12 @@
       }
     }
   },
-  "libraryMoreActions": "Diğer işlemler"
+  "libraryMoreActions": "Diğer işlemler",
+  "appIconTitle": "Uygulama simgesi",
+  "appIconFailed": "Simge değiştirilemedi",
+  "iconBlue": "Mavi",
+  "iconGreen": "Yeşil",
+  "iconPurple": "Mor",
+  "iconOrange": "Turuncu",
+  "iconDark": "Gece"
 }

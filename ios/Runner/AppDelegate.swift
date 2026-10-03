@@ -292,6 +292,17 @@ struct NfcTagMasterShortcuts: AppShortcutsProvider {
                         result(ok)
                     }
                 }
+            } else if call.method == "setAppIcon" {
+                guard UIApplication.shared.supportsAlternateIcons else {
+                    result(false)
+                    return
+                }
+                let name = (call.arguments as? [String: Any])?["name"] as? String
+                UIApplication.shared.setAlternateIconName(name) { error in
+                    DispatchQueue.main.async { result(error == nil) }
+                }
+            } else if call.method == "currentAppIcon" {
+                result(UIApplication.shared.alternateIconName)
             } else if call.method == "setPrivacyCover" {
                 self.privacyCoverEnabled = (call.arguments as? [String: Any])?["enabled"] as? Bool ?? false
                 if !self.privacyCoverEnabled { self.removePrivacyCover() }

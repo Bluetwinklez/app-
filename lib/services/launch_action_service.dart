@@ -67,6 +67,20 @@ class LaunchActionService {
     }
   }
 
+  /// Switches the iPhone home screen icon; null restores the default.
+  static Future<bool> setAppIcon(String? name) => _invokeBool('setAppIcon', {'name': name});
+
+  /// Alternate icon in use (null = default or unsupported).
+  static Future<String?> currentAppIcon() async {
+    try {
+      return await _channel.invokeMethod<String>('currentAppIcon');
+    } on MissingPluginException {
+      return null;
+    } on PlatformException {
+      return null;
+    }
+  }
+
   /// Blurs the app in the app switcher (iOS) / hides it in Recents (Android).
   static Future<bool> setPrivacyCover(bool enabled) => _invokeBool('setPrivacyCover', {'enabled': enabled});
 

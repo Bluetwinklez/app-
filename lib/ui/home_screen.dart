@@ -24,6 +24,7 @@ import 'tools_tab.dart';
 import 'simple_mode_screen.dart';
 import 'phishing_banner.dart';
 import 'nfc_chips_page.dart';
+import 'app_icon_picker.dart';
 import '../app_info.dart';
 import 'tap_preview_card.dart';
 import 'onboarding_page.dart';
@@ -379,6 +380,7 @@ class _HomeScreenState extends State<HomeScreen>
               ),
             ),
             const SizedBox(height: 8),
+            if (AppIconPicker.supported) const AppIconPicker(),
             SwitchListTile(
               secondary: Icon(Icons.vibration_rounded, color: AppColors.accent),
               title: Text(L10n.current.hapticsToggle),

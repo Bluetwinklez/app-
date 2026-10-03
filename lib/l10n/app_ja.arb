@@ -1255,5 +1255,12 @@
   "packPreview": "「{name}」：タグ{tags}件、テンプレート{templates}件。読み込みますか？",
   "packImported": "タグ{tags}件とテンプレート{templates}件を追加 · {skipped}件は既存",
   "packInvalid": "このファイルは有効なチームパックではありません（{reason}）",
-  "libraryMoreActions": "その他の操作"
+  "libraryMoreActions": "その他の操作",
+  "appIconTitle": "アプリアイコン",
+  "appIconFailed": "アイコンを変更できませんでした",
+  "iconBlue": "ブルー",
+  "iconGreen": "グリーン",
+  "iconPurple": "パープル",
+  "iconOrange": "オレンジ",
+  "iconDark": "ナイト"
 }

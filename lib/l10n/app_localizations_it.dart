@@ -4499,4 +4499,25 @@ class AppLocalizationsIt extends AppLocalizations {
 
   @override
   String get libraryMoreActions => 'Altre azioni';
+
+  @override
+  String get appIconTitle => 'Icona dell\'app';
+
+  @override
+  String get appIconFailed => 'Impossibile cambiare l\'icona';
+
+  @override
+  String get iconBlue => 'Blu';
+
+  @override
+  String get iconGreen => 'Verde';
+
+  @override
+  String get iconPurple => 'Viola';
+
+  @override
+  String get iconOrange => 'Arancione';
+
+  @override
+  String get iconDark => 'Notte';
 }

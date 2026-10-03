@@ -4499,4 +4499,25 @@ class AppLocalizationsUk extends AppLocalizations {
 
   @override
   String get libraryMoreActions => 'Інші дії';
+
+  @override
+  String get appIconTitle => 'Значок програми';
+
+  @override
+  String get appIconFailed => 'Не вдалося змінити значок';
+
+  @override
+  String get iconBlue => 'Синій';
+
+  @override
+  String get iconGreen => 'Зелений';
+
+  @override
+  String get iconPurple => 'Фіолетовий';
+
+  @override
+  String get iconOrange => 'Помаранчевий';
+
+  @override
+  String get iconDark => 'Ніч';
 }

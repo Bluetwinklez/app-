@@ -1255,5 +1255,12 @@
   "packPreview": "\"{name}\": {tags} وسوم، {templates} قوالب. استيراد؟",
   "packImported": "أُضيفت {tags} وسوم و{templates} قوالب · {skipped} موجودة مسبقًا",
   "packInvalid": "هذا الملف ليس حزمة فريق صالحة ({reason})",
-  "libraryMoreActions": "إجراءات أخرى"
+  "libraryMoreActions": "إجراءات أخرى",
+  "appIconTitle": "أيقونة التطبيق",
+  "appIconFailed": "تعذر تغيير الأيقونة",
+  "iconBlue": "أزرق",
+  "iconGreen": "أخضر",
+  "iconPurple": "بنفسجي",
+  "iconOrange": "برتقالي",
+  "iconDark": "ليلي"
 }

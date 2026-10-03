@@ -1255,5 +1255,12 @@
   "packPreview": "\"{name}\": {tags} tags, {templates} sjablonen. Importeren?",
   "packImported": "{tags} tags en {templates} sjablonen toegevoegd · {skipped} bestonden al",
   "packInvalid": "Dit bestand is geen geldig teampakket ({reason})",
-  "libraryMoreActions": "Meer acties"
+  "libraryMoreActions": "Meer acties",
+  "appIconTitle": "App-icoon",
+  "appIconFailed": "Icoon kon niet worden gewijzigd",
+  "iconBlue": "Blauw",
+  "iconGreen": "Groen",
+  "iconPurple": "Paars",
+  "iconOrange": "Oranje",
+  "iconDark": "Nacht"
 }

@@ -4498,4 +4498,25 @@ class AppLocalizationsTr extends AppLocalizations {
 
   @override
   String get libraryMoreActions => 'Diğer işlemler';
+
+  @override
+  String get appIconTitle => 'Uygulama simgesi';
+
+  @override
+  String get appIconFailed => 'Simge değiştirilemedi';
+
+  @override
+  String get iconBlue => 'Mavi';
+
+  @override
+  String get iconGreen => 'Yeşil';
+
+  @override
+  String get iconPurple => 'Mor';
+
+  @override
+  String get iconOrange => 'Turuncu';
+
+  @override
+  String get iconDark => 'Gece';
 }

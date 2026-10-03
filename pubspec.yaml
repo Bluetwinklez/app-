@@ -33,3 +33,4 @@ flutter:
   generate: true
   assets:
     - assets/fonts/NotoSans-Regular.ttf
+    - assets/app_icons/
