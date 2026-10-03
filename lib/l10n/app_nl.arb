@@ -865,5 +865,18 @@
   "reportNdefUsage": "NDEF-gebruik",
   "reportVerdictWritable": "Tag is klaar om te schrijven",
   "reportVerdictRestricted": "Tag heeft beperkingen",
-  "reportCopied": "Rapport gekopieerd"
+  "reportCopied": "Rapport gekopieerd",
+  "compareTagsTitle": "Twee tags vergelijken",
+  "compareTagsSubtitle": "Controleer of een kopie gelijk is aan het origineel",
+  "compareStepFirst": "Scan eerst de eerste (originele) tag.",
+  "compareStepSecond": "Scan nu de tweede tag.",
+  "compareIdentical": "Inhoud komt overeen",
+  "compareDifferent": "Inhoud verschilt",
+  "compareSameTag": "Dezelfde tag is twee keer gescand.",
+  "compareDifferentTags": "Twee verschillende tags.",
+  "compareRecordSame": "Gelijk",
+  "compareRecordChanged": "Anders",
+  "compareRecordOnlyFirst": "Alleen op A",
+  "compareRecordOnlySecond": "Alleen op B",
+  "compareBothEmpty": "Beide tags zijn leeg."
 }

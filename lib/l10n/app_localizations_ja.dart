@@ -2952,4 +2952,43 @@ class AppLocalizationsJa extends AppLocalizations {
 
   @override
   String get reportCopied => 'レポートをコピーしました';
+
+  @override
+  String get compareTagsTitle => '2つのタグを比較';
+
+  @override
+  String get compareTagsSubtitle => 'コピーが元と一致するか確認';
+
+  @override
+  String get compareStepFirst => 'まず1つ目 (元) のタグを読み取ります。';
+
+  @override
+  String get compareStepSecond => '次に2つ目のタグを読み取ります。';
+
+  @override
+  String get compareIdentical => '内容は一致しています';
+
+  @override
+  String get compareDifferent => '内容が異なります';
+
+  @override
+  String get compareSameTag => '同じタグを2回読み取りました。';
+
+  @override
+  String get compareDifferentTags => '2つの異なるタグです。';
+
+  @override
+  String get compareRecordSame => '同じ';
+
+  @override
+  String get compareRecordChanged => '異なる';
+
+  @override
+  String get compareRecordOnlyFirst => 'Aのみ';
+
+  @override
+  String get compareRecordOnlySecond => 'Bのみ';
+
+  @override
+  String get compareBothEmpty => 'どちらのタグも空です。';
 }

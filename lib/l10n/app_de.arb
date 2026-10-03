@@ -865,5 +865,18 @@
   "reportNdefUsage": "NDEF-Belegung",
   "reportVerdictWritable": "Tag ist bereit zum Schreiben",
   "reportVerdictRestricted": "Tag ist eingeschränkt",
-  "reportCopied": "Bericht kopiert"
+  "reportCopied": "Bericht kopiert",
+  "compareTagsTitle": "Zwei Tags vergleichen",
+  "compareTagsSubtitle": "Prüfen, ob eine Kopie dem Original entspricht",
+  "compareStepFirst": "Scannen Sie zuerst den ersten (originalen) Tag.",
+  "compareStepSecond": "Scannen Sie jetzt den zweiten Tag.",
+  "compareIdentical": "Inhalte stimmen überein",
+  "compareDifferent": "Inhalte unterscheiden sich",
+  "compareSameTag": "Derselbe Tag wurde zweimal gescannt.",
+  "compareDifferentTags": "Zwei verschiedene Tags.",
+  "compareRecordSame": "Gleich",
+  "compareRecordChanged": "Abweichend",
+  "compareRecordOnlyFirst": "Nur auf A",
+  "compareRecordOnlySecond": "Nur auf B",
+  "compareBothEmpty": "Beide Tags sind leer."
 }
