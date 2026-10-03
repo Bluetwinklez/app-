@@ -2858,5 +2858,41 @@
         "type": "String"
       }
     }
+  },
+  "doctorTitle": "NDEF Doktoru",
+  "doctorButton": "Sağlık kontrolü",
+  "doctorTooShort": "Bellek tam okunamadı; etiketi telefona daha uzun süre tutup tekrar deneyin.",
+  "doctorNoCc": "Etiket NDEF için hazırlanmamış (boş). Araçlar → \"NDEF biçimlendir\" ile hazırlayabilir ya da doğrudan yazabilirsiniz.",
+  "doctorVersion": "NDEF sürüm baytı alışılmadık; bazı telefonlar etiketi okumayabilir.",
+  "doctorReadRestricted": "Okuma erişimi kısıtlı olarak işaretli; telefonlar içeriği göstermeyebilir.",
+  "doctorReadOnly": "Etiket salt okunur (kilitli); içerik değiştirilemez.",
+  "doctorNoNdef": "Bellekte NDEF bloğu yok. Etikete yeniden yazmak sorunu giderir.",
+  "doctorEmpty": "Etiket hazır ama içi boş.",
+  "doctorOverflow": "Uzunluk alanı belleğin dışına taşıyor; içerik bozuk. Etikete yeniden yazın.",
+  "doctorExceeds": "Mesaj ({bytes} bayt) etiketin bildirdiği kapasiteden büyük; telefonlar kesik okuyabilir.",
+  "@doctorExceeds": {
+    "placeholders": {
+      "bytes": {
+        "type": "String"
+      }
+    }
+  },
+  "doctorNoTerminator": "Bitiş işareti (FE) yok. Çoğu telefon yine okur; yeniden yazmak düzeltir.",
+  "doctorUnknownTlv": "Bellekte tanınmayan veri bloğu var; telefonlar okurken takılabilir.",
+  "doctorBadRecord": "{n}. kayıt bozuk (başlık veya uzunluk hatalı). Etikete yeniden yazın.",
+  "@doctorBadRecord": {
+    "placeholders": {
+      "n": {
+        "type": "String"
+      }
+    }
+  },
+  "doctorHealthy": "Her şey yolunda: {count} kayıt doğru biçimde yazılmış.",
+  "@doctorHealthy": {
+    "placeholders": {
+      "count": {
+        "type": "String"
+      }
+    }
   }
 }

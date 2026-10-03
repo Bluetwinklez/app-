@@ -1177,5 +1177,20 @@
   "libraryCheckNext": "Próxima verificação: {date}",
   "libraryDueFilter": "Verificações pendentes ({count})",
   "libraryCheckRecorded": "Verificação registrada · próxima: {date}",
-  "cloneWarning": "Este conteúdo está salvo na biblioteca em \"{name}\" com outro UID. Esta tag pode ser uma cópia."
+  "cloneWarning": "Este conteúdo está salvo na biblioteca em \"{name}\" com outro UID. Esta tag pode ser uma cópia.",
+  "doctorTitle": "Doutor NDEF",
+  "doctorButton": "Diagnóstico",
+  "doctorTooShort": "A memória não foi lida por completo; segure a tag por mais tempo e tente de novo.",
+  "doctorNoCc": "A tag não está preparada para NDEF (vazia). Use Ferramentas → \"Formatar NDEF\" ou grave nela.",
+  "doctorVersion": "Byte de versão NDEF incomum; alguns celulares podem não ler a tag.",
+  "doctorReadRestricted": "O acesso de leitura está restrito; os celulares podem não mostrar o conteúdo.",
+  "doctorReadOnly": "A tag é somente leitura (bloqueada); o conteúdo não pode ser alterado.",
+  "doctorNoNdef": "Não há bloco NDEF na memória. Gravar a tag de novo resolve.",
+  "doctorEmpty": "A tag está preparada, mas vazia.",
+  "doctorOverflow": "Um campo de tamanho ultrapassa a memória; conteúdo corrompido. Grave a tag de novo.",
+  "doctorExceeds": "A mensagem ({bytes} bytes) excede a capacidade declarada; pode ser lida cortada.",
+  "doctorNoTerminator": "Falta o marcador de fim (FE). A maioria dos celulares lê mesmo assim; gravar de novo corrige.",
+  "doctorUnknownTlv": "Bloco de dados desconhecido na memória; a leitura pode parar ali.",
+  "doctorBadRecord": "O registro {n} está malformado (cabeçalho ou tamanho). Grave a tag de novo.",
+  "doctorHealthy": "Tudo certo: {count} registro(s) gravado(s) corretamente."
 }

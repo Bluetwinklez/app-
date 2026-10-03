@@ -4024,4 +4024,56 @@ class AppLocalizationsJa extends AppLocalizations {
   String cloneWarning(String name) {
     return 'この内容はライブラリの「$name」に別のUIDで保存されています。このタグはコピーの可能性があります。';
   }
+
+  @override
+  String get doctorTitle => 'NDEFドクター';
+
+  @override
+  String get doctorButton => '診断';
+
+  @override
+  String get doctorTooShort => 'メモリを全部読めませんでした。タグを長めに当てて再試行してください。';
+
+  @override
+  String get doctorNoCc =>
+      'タグはNDEF用に準備されていません（空）。ツール →「NDEFフォーマット」または直接書き込んでください。';
+
+  @override
+  String get doctorVersion => 'NDEFバージョンが通常と異なります。一部の端末で読めない場合があります。';
+
+  @override
+  String get doctorReadRestricted => '読み取りアクセスが制限されています。内容が表示されない場合があります。';
+
+  @override
+  String get doctorReadOnly => 'タグは読み取り専用（ロック済み）で、内容は変更できません。';
+
+  @override
+  String get doctorNoNdef => 'メモリにNDEFブロックがありません。再度書き込むと直ります。';
+
+  @override
+  String get doctorEmpty => 'タグは準備済みですが空です。';
+
+  @override
+  String get doctorOverflow => '長さフィールドがメモリを超えています。内容が壊れているので再度書き込んでください。';
+
+  @override
+  String doctorExceeds(String bytes) {
+    return 'メッセージ（$bytesバイト）が宣言容量を超えています。途中までしか読めない場合があります。';
+  }
+
+  @override
+  String get doctorNoTerminator => '終端マーカー（FE）がありません。多くの端末は読めますが、再書き込みで直ります。';
+
+  @override
+  String get doctorUnknownTlv => 'メモリに不明なデータブロックがあります。読み取りが止まる場合があります。';
+
+  @override
+  String doctorBadRecord(String n) {
+    return 'レコード$nが不正です（ヘッダーまたは長さ）。再度書き込んでください。';
+  }
+
+  @override
+  String doctorHealthy(String count) {
+    return '問題なし：$count件のレコードが正しく書き込まれています。';
+  }
 }

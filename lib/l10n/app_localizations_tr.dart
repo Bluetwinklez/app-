@@ -4202,4 +4202,64 @@ class AppLocalizationsTr extends AppLocalizations {
   String cloneWarning(String name) {
     return 'Bu içerik kütüphanenizde \"$name\" adlı etikette farklı bir UID ile kayıtlı. Bu etiket bir kopya olabilir.';
   }
+
+  @override
+  String get doctorTitle => 'NDEF Doktoru';
+
+  @override
+  String get doctorButton => 'Sağlık kontrolü';
+
+  @override
+  String get doctorTooShort =>
+      'Bellek tam okunamadı; etiketi telefona daha uzun süre tutup tekrar deneyin.';
+
+  @override
+  String get doctorNoCc =>
+      'Etiket NDEF için hazırlanmamış (boş). Araçlar → \"NDEF biçimlendir\" ile hazırlayabilir ya da doğrudan yazabilirsiniz.';
+
+  @override
+  String get doctorVersion =>
+      'NDEF sürüm baytı alışılmadık; bazı telefonlar etiketi okumayabilir.';
+
+  @override
+  String get doctorReadRestricted =>
+      'Okuma erişimi kısıtlı olarak işaretli; telefonlar içeriği göstermeyebilir.';
+
+  @override
+  String get doctorReadOnly =>
+      'Etiket salt okunur (kilitli); içerik değiştirilemez.';
+
+  @override
+  String get doctorNoNdef =>
+      'Bellekte NDEF bloğu yok. Etikete yeniden yazmak sorunu giderir.';
+
+  @override
+  String get doctorEmpty => 'Etiket hazır ama içi boş.';
+
+  @override
+  String get doctorOverflow =>
+      'Uzunluk alanı belleğin dışına taşıyor; içerik bozuk. Etikete yeniden yazın.';
+
+  @override
+  String doctorExceeds(String bytes) {
+    return 'Mesaj ($bytes bayt) etiketin bildirdiği kapasiteden büyük; telefonlar kesik okuyabilir.';
+  }
+
+  @override
+  String get doctorNoTerminator =>
+      'Bitiş işareti (FE) yok. Çoğu telefon yine okur; yeniden yazmak düzeltir.';
+
+  @override
+  String get doctorUnknownTlv =>
+      'Bellekte tanınmayan veri bloğu var; telefonlar okurken takılabilir.';
+
+  @override
+  String doctorBadRecord(String n) {
+    return '$n. kayıt bozuk (başlık veya uzunluk hatalı). Etikete yeniden yazın.';
+  }
+
+  @override
+  String doctorHealthy(String count) {
+    return 'Her şey yolunda: $count kayıt doğru biçimde yazılmış.';
+  }
 }

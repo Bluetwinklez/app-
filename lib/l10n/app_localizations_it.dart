@@ -4204,4 +4204,64 @@ class AppLocalizationsIt extends AppLocalizations {
   String cloneWarning(String name) {
     return 'Questo contenuto è salvato nella libreria su \"$name\" con un altro UID. Questo tag potrebbe essere una copia.';
   }
+
+  @override
+  String get doctorTitle => 'Dottore NDEF';
+
+  @override
+  String get doctorButton => 'Diagnosi';
+
+  @override
+  String get doctorTooShort =>
+      'Memoria letta solo in parte; tieni il tag più a lungo e riprova.';
+
+  @override
+  String get doctorNoCc =>
+      'Il tag non è preparato per NDEF (vuoto). Usa Strumenti → \"Formatta NDEF\" o scrivici direttamente.';
+
+  @override
+  String get doctorVersion =>
+      'Byte di versione NDEF insolito; alcuni telefoni potrebbero non leggere il tag.';
+
+  @override
+  String get doctorReadRestricted =>
+      'L\'accesso in lettura è limitato; i telefoni potrebbero non mostrare il contenuto.';
+
+  @override
+  String get doctorReadOnly =>
+      'Il tag è di sola lettura (bloccato); il contenuto non è modificabile.';
+
+  @override
+  String get doctorNoNdef =>
+      'Nessun blocco NDEF in memoria. Riscrivere il tag risolve il problema.';
+
+  @override
+  String get doctorEmpty => 'Il tag è preparato ma vuoto.';
+
+  @override
+  String get doctorOverflow =>
+      'Un campo di lunghezza supera la memoria; contenuto danneggiato. Riscrivi il tag.';
+
+  @override
+  String doctorExceeds(String bytes) {
+    return 'Il messaggio ($bytes byte) supera la capacità dichiarata; può essere letto troncato.';
+  }
+
+  @override
+  String get doctorNoTerminator =>
+      'Manca il marcatore di fine (FE). La maggior parte dei telefoni legge comunque; riscrivere corregge.';
+
+  @override
+  String get doctorUnknownTlv =>
+      'Blocco di dati sconosciuto in memoria; la lettura può fermarsi lì.';
+
+  @override
+  String doctorBadRecord(String n) {
+    return 'Il record $n è malformato (intestazione o lunghezza). Riscrivi il tag.';
+  }
+
+  @override
+  String doctorHealthy(String count) {
+    return 'Tutto a posto: $count record scritti correttamente.';
+  }
 }
