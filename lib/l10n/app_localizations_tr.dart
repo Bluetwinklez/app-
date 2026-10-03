@@ -3956,4 +3956,24 @@ class AppLocalizationsTr extends AppLocalizations {
 
   @override
   String get backupDecryptFailed => 'Yedek çözülemedi; dosya bozuk olabilir.';
+
+  @override
+  String get appLockTitle => 'Uygulama kilidi';
+
+  @override
+  String get appLockSubtitle =>
+      'Açılışta Face ID, Touch ID veya cihaz parolası iste';
+
+  @override
+  String get appLockUnavailable =>
+      'Bu cihazda ekran kilidi (Face ID / parola) ayarlı değil.';
+
+  @override
+  String get appLockLocked => 'Uygulama kilitli';
+
+  @override
+  String get appLockUnlock => 'Kilidi aç';
+
+  @override
+  String get appLockReason => 'Etiket kütüphanenizi ve geçmişinizi açmak için';
 }

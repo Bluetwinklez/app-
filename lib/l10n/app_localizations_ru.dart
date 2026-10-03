@@ -3959,4 +3959,24 @@ class AppLocalizationsRu extends AppLocalizations {
   @override
   String get backupDecryptFailed =>
       'Не удалось расшифровать; файл может быть повреждён.';
+
+  @override
+  String get appLockTitle => 'Блокировка приложения';
+
+  @override
+  String get appLockSubtitle =>
+      'Запрашивать Face ID, Touch ID или код при открытии';
+
+  @override
+  String get appLockUnavailable =>
+      'На устройстве не настроена блокировка экрана.';
+
+  @override
+  String get appLockLocked => 'Приложение заблокировано';
+
+  @override
+  String get appLockUnlock => 'Разблокировать';
+
+  @override
+  String get appLockReason => 'Чтобы открыть библиотеку меток и историю';
 }

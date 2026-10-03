@@ -82,6 +82,8 @@
 	<string>QR kodlarını taramak ve etiket kütüphanesine fotoğraf eklemek için kamera kullanılır.</string>
 	<key>NSPhotoLibraryUsageDescription</key>
 	<string>Etiket kütüphanesindeki etiketlere fotoğraf eklemek için fotoğraflarınıza erişilir.</string>
+	<key>NSFaceIDUsageDescription</key>
+	<string>Uygulama kilidi açıkken etiket kütüphanenizi korumak için Face ID kullanılır.</string>
 	<key>NFCReaderUsageDescription</key>
 	<string>NFC etiketlerini okumak ve NDEF mesajları yazmak için NFC erişimi gereklidir.</string>
 	<key>com.apple.developer.nfc.readersession.iso7816.select-identifiers</key>

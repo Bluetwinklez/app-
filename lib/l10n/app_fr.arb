@@ -1110,5 +1110,11 @@
   "backupPasswordMismatch": "Les mots de passe ne correspondent pas.",
   "backupEncryptedPrompt": "Cette sauvegarde est protégée. Saisissez le mot de passe.",
   "backupWrongPassword": "Mot de passe incorrect.",
-  "backupDecryptFailed": "Déchiffrement impossible ; le fichier est peut-être abîmé."
+  "backupDecryptFailed": "Déchiffrement impossible ; le fichier est peut-être abîmé.",
+  "appLockTitle": "Verrouillage de l'app",
+  "appLockSubtitle": "Exiger Face ID, Touch ID ou le code à l'ouverture",
+  "appLockUnavailable": "Aucun verrouillage d'écran n'est configuré sur cet appareil.",
+  "appLockLocked": "App verrouillée",
+  "appLockUnlock": "Déverrouiller",
+  "appLockReason": "Pour ouvrir votre bibliothèque et votre historique"
 }

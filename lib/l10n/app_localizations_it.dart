@@ -3957,4 +3957,24 @@ class AppLocalizationsIt extends AppLocalizations {
   @override
   String get backupDecryptFailed =>
       'Impossibile decifrare; il file potrebbe essere danneggiato.';
+
+  @override
+  String get appLockTitle => 'Blocco app';
+
+  @override
+  String get appLockSubtitle =>
+      'Richiedi Face ID, Touch ID o codice all\'apertura';
+
+  @override
+  String get appLockUnavailable =>
+      'Nessun blocco schermo configurato su questo dispositivo.';
+
+  @override
+  String get appLockLocked => 'App bloccata';
+
+  @override
+  String get appLockUnlock => 'Sblocca';
+
+  @override
+  String get appLockReason => 'Per aprire libreria e cronologia';
 }

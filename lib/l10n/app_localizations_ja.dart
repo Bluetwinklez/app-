@@ -3784,4 +3784,22 @@ class AppLocalizationsJa extends AppLocalizations {
 
   @override
   String get backupDecryptFailed => '復号できませんでした。ファイルが壊れている可能性があります。';
+
+  @override
+  String get appLockTitle => 'アプリロック';
+
+  @override
+  String get appLockSubtitle => '起動時にFace ID・Touch ID・パスコードを要求';
+
+  @override
+  String get appLockUnavailable => 'この端末には画面ロックが設定されていません。';
+
+  @override
+  String get appLockLocked => 'アプリはロックされています';
+
+  @override
+  String get appLockUnlock => 'ロック解除';
+
+  @override
+  String get appLockReason => 'タグライブラリと履歴を開くため';
 }

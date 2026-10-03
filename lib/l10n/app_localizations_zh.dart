@@ -3751,4 +3751,22 @@ class AppLocalizationsZh extends AppLocalizations {
 
   @override
   String get backupDecryptFailed => '无法解密，文件可能已损坏。';
+
+  @override
+  String get appLockTitle => '应用锁';
+
+  @override
+  String get appLockSubtitle => '打开时需要面容 ID、触控 ID 或设备密码';
+
+  @override
+  String get appLockUnavailable => '此设备未设置屏幕锁。';
+
+  @override
+  String get appLockLocked => '应用已锁定';
+
+  @override
+  String get appLockUnlock => '解锁';
+
+  @override
+  String get appLockReason => '以打开标签库和历史记录';
 }

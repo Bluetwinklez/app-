@@ -1110,5 +1110,11 @@
   "backupPasswordMismatch": "パスワードが一致しません。",
   "backupEncryptedPrompt": "このバックアップはパスワードで保護されています。",
   "backupWrongPassword": "パスワードが違います。",
-  "backupDecryptFailed": "復号できませんでした。ファイルが壊れている可能性があります。"
+  "backupDecryptFailed": "復号できませんでした。ファイルが壊れている可能性があります。",
+  "appLockTitle": "アプリロック",
+  "appLockSubtitle": "起動時にFace ID・Touch ID・パスコードを要求",
+  "appLockUnavailable": "この端末には画面ロックが設定されていません。",
+  "appLockLocked": "アプリはロックされています",
+  "appLockUnlock": "ロック解除",
+  "appLockReason": "タグライブラリと履歴を開くため"
 }

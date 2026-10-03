@@ -3971,4 +3971,23 @@ class AppLocalizationsPt extends AppLocalizations {
   @override
   String get backupDecryptFailed =>
       'Não foi possível descriptografar; o arquivo pode estar danificado.';
+
+  @override
+  String get appLockTitle => 'Bloqueio do app';
+
+  @override
+  String get appLockSubtitle => 'Exigir Face ID, Touch ID ou senha ao abrir';
+
+  @override
+  String get appLockUnavailable =>
+      'Nenhum bloqueio de tela configurado neste aparelho.';
+
+  @override
+  String get appLockLocked => 'App bloqueado';
+
+  @override
+  String get appLockUnlock => 'Desbloquear';
+
+  @override
+  String get appLockReason => 'Para abrir sua biblioteca e histórico';
 }

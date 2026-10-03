@@ -1110,5 +1110,11 @@
   "backupPasswordMismatch": "The passwords do not match.",
   "backupEncryptedPrompt": "This backup is password protected. Enter the password to open it.",
   "backupWrongPassword": "Wrong password.",
-  "backupDecryptFailed": "The backup could not be decrypted; the file may be damaged."
+  "backupDecryptFailed": "The backup could not be decrypted; the file may be damaged.",
+  "appLockTitle": "App lock",
+  "appLockSubtitle": "Require Face ID, Touch ID or the device passcode to open",
+  "appLockUnavailable": "No screen lock (Face ID / passcode) is set up on this device.",
+  "appLockLocked": "App locked",
+  "appLockUnlock": "Unlock",
+  "appLockReason": "To open your tag library and history"
 }

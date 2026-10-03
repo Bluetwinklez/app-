@@ -2,3 +2,4 @@
 "NSCameraUsageDescription" = "Камера потрібна для сканування QR-кодів і додавання фото до бібліотеки міток.";
 "NSPhotoLibraryUsageDescription" = "Фото використовуються, щоб додавати зображення до міток у бібліотеці.";
 "NFCReaderUsageDescription" = "Доступ до NFC потрібен для читання NFC-міток і запису NDEF-повідомлень.";
+"NSFaceIDUsageDescription" = "Face ID захищає бібліотеку міток, коли ввімкнено блокування застосунку.";

@@ -2,3 +2,4 @@
 "NSCameraUsageDescription" = "تُستخدم الكاميرا لمسح رموز QR وإضافة صور إلى مكتبة الوسوم.";
 "NSPhotoLibraryUsageDescription" = "تُستخدم صورك لإضافة صور إلى الوسوم في مكتبتك.";
 "NFCReaderUsageDescription" = "يلزم الوصول إلى NFC لقراءة وسوم NFC وكتابة رسائل NDEF.";
+"NSFaceIDUsageDescription" = "يحمي Face ID مكتبة الوسوم عند تفعيل قفل التطبيق.";

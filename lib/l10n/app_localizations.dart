@@ -6789,6 +6789,42 @@ abstract class AppLocalizations {
   /// In tr, this message translates to:
   /// **'Yedek çözülemedi; dosya bozuk olabilir.'**
   String get backupDecryptFailed;
+
+  /// No description provided for @appLockTitle.
+  ///
+  /// In tr, this message translates to:
+  /// **'Uygulama kilidi'**
+  String get appLockTitle;
+
+  /// No description provided for @appLockSubtitle.
+  ///
+  /// In tr, this message translates to:
+  /// **'Açılışta Face ID, Touch ID veya cihaz parolası iste'**
+  String get appLockSubtitle;
+
+  /// No description provided for @appLockUnavailable.
+  ///
+  /// In tr, this message translates to:
+  /// **'Bu cihazda ekran kilidi (Face ID / parola) ayarlı değil.'**
+  String get appLockUnavailable;
+
+  /// No description provided for @appLockLocked.
+  ///
+  /// In tr, this message translates to:
+  /// **'Uygulama kilitli'**
+  String get appLockLocked;
+
+  /// No description provided for @appLockUnlock.
+  ///
+  /// In tr, this message translates to:
+  /// **'Kilidi aç'**
+  String get appLockUnlock;
+
+  /// No description provided for @appLockReason.
+  ///
+  /// In tr, this message translates to:
+  /// **'Etiket kütüphanenizi ve geçmişinizi açmak için'**
+  String get appLockReason;
 }
 
 class _AppLocalizationsDelegate

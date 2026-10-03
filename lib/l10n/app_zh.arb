@@ -1110,5 +1110,11 @@
   "backupPasswordMismatch": "两次密码不一致。",
   "backupEncryptedPrompt": "此备份受密码保护，请输入密码。",
   "backupWrongPassword": "密码错误。",
-  "backupDecryptFailed": "无法解密，文件可能已损坏。"
+  "backupDecryptFailed": "无法解密，文件可能已损坏。",
+  "appLockTitle": "应用锁",
+  "appLockSubtitle": "打开时需要面容 ID、触控 ID 或设备密码",
+  "appLockUnavailable": "此设备未设置屏幕锁。",
+  "appLockLocked": "应用已锁定",
+  "appLockUnlock": "解锁",
+  "appLockReason": "以打开标签库和历史记录"
 }

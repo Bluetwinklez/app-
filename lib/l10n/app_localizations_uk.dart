@@ -3959,4 +3959,24 @@ class AppLocalizationsUk extends AppLocalizations {
   @override
   String get backupDecryptFailed =>
       'Не вдалося розшифрувати; файл може бути пошкоджено.';
+
+  @override
+  String get appLockTitle => 'Блокування застосунку';
+
+  @override
+  String get appLockSubtitle =>
+      'Вимагати Face ID, Touch ID або код під час відкриття';
+
+  @override
+  String get appLockUnavailable =>
+      'На пристрої не налаштовано блокування екрана.';
+
+  @override
+  String get appLockLocked => 'Застосунок заблоковано';
+
+  @override
+  String get appLockUnlock => 'Розблокувати';
+
+  @override
+  String get appLockReason => 'Щоб відкрити бібліотеку міток та історію';
 }

@@ -469,6 +469,29 @@ class _HomeScreenState extends State<HomeScreen>
               ),
             ),
             const Divider(height: 24),
+            SwitchListTile.adaptive(
+              secondary: Icon(Icons.lock_outline_rounded, color: AppColors.accent),
+              title: Text(L10n.current.appLockTitle),
+              subtitle: Text(L10n.current.appLockSubtitle),
+              value: _controller.storage.appLockEnabled,
+              onChanged: (on) async {
+                if (on) {
+                  // Prove it works before turning it on.
+                  final ok = await LaunchActionService.authenticate(
+                      reason: L10n.current.appLockReason, title: L10n.current.appTitle);
+                  if (!mounted) return;
+                  if (ok == null) {
+                    ScaffoldMessenger.of(context).showSnackBar(
+                      SnackBar(content: Text(L10n.current.appLockUnavailable)),
+                    );
+                    return;
+                  }
+                  if (ok != true) return;
+                }
+                await _controller.storage.setAppLockEnabled(on);
+                if (mounted) setState(() {});
+              },
+            ),
             ListTile(
               leading: Icon(Icons.info_outline_rounded, color: AppColors.accent),
               title: Text(L10n.current.aboutTitle),

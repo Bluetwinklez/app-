@@ -1110,5 +1110,11 @@
   "backupPasswordMismatch": "كلمتا المرور غير متطابقتين.",
   "backupEncryptedPrompt": "هذه النسخة محمية بكلمة مرور. أدخلها لفتحها.",
   "backupWrongPassword": "كلمة مرور خاطئة.",
-  "backupDecryptFailed": "تعذّر فك التشفير؛ قد يكون الملف تالفًا."
+  "backupDecryptFailed": "تعذّر فك التشفير؛ قد يكون الملف تالفًا.",
+  "appLockTitle": "قفل التطبيق",
+  "appLockSubtitle": "طلب Face ID أو Touch ID أو رمز الجهاز عند الفتح",
+  "appLockUnavailable": "لا يوجد قفل شاشة مُعد على هذا الجهاز.",
+  "appLockLocked": "التطبيق مقفل",
+  "appLockUnlock": "فتح القفل",
+  "appLockReason": "لفتح مكتبة الوسوم والسجل"
 }

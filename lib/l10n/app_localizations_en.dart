@@ -3944,4 +3944,24 @@ class AppLocalizationsEn extends AppLocalizations {
   @override
   String get backupDecryptFailed =>
       'The backup could not be decrypted; the file may be damaged.';
+
+  @override
+  String get appLockTitle => 'App lock';
+
+  @override
+  String get appLockSubtitle =>
+      'Require Face ID, Touch ID or the device passcode to open';
+
+  @override
+  String get appLockUnavailable =>
+      'No screen lock (Face ID / passcode) is set up on this device.';
+
+  @override
+  String get appLockLocked => 'App locked';
+
+  @override
+  String get appLockUnlock => 'Unlock';
+
+  @override
+  String get appLockReason => 'To open your tag library and history';
 }

@@ -2,3 +2,4 @@
 "NSCameraUsageDescription" = "L'appareil photo sert à scanner des QR codes et à ajouter des photos à votre bibliothèque de tags.";
 "NSPhotoLibraryUsageDescription" = "Vos photos servent à illustrer les tags de votre bibliothèque.";
 "NFCReaderUsageDescription" = "L'accès NFC est nécessaire pour lire des tags NFC et écrire des messages NDEF.";
+"NSFaceIDUsageDescription" = "Face ID protège votre bibliothèque de tags quand le verrouillage est activé.";

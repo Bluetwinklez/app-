@@ -3969,4 +3969,25 @@ class AppLocalizationsDe extends AppLocalizations {
   @override
   String get backupDecryptFailed =>
       'Entschlüsselung fehlgeschlagen; die Datei ist evtl. beschädigt.';
+
+  @override
+  String get appLockTitle => 'App-Sperre';
+
+  @override
+  String get appLockSubtitle =>
+      'Face ID, Touch ID oder Gerätecode beim Öffnen verlangen';
+
+  @override
+  String get appLockUnavailable =>
+      'Auf diesem Gerät ist keine Bildschirmsperre eingerichtet.';
+
+  @override
+  String get appLockLocked => 'App gesperrt';
+
+  @override
+  String get appLockUnlock => 'Entsperren';
+
+  @override
+  String get appLockReason =>
+      'Um Ihre Tag-Bibliothek und den Verlauf zu öffnen';
 }

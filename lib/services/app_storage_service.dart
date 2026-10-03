@@ -45,6 +45,10 @@ abstract class AppStorageService {
   int get writeCounter;
   Future<void> setWriteCounter(int value);
 
+  /// Ask for Face ID / Touch ID / device passcode when opening the app.
+  bool get appLockEnabled;
+  Future<void> setAppLockEnabled(bool value);
+
   /// Compatibility mode: skip read-back verification after writes.
   bool get compatibilityMode;
   Future<void> setCompatibilityMode(bool enabled);
@@ -140,6 +144,14 @@ class InMemoryAppStorageService implements AppStorageService {
 
   @override
   Future<void> setCompatibilityMode(bool enabled) async => _compatibilityMode = enabled;
+
+  bool _appLockEnabled = false;
+
+  @override
+  bool get appLockEnabled => _appLockEnabled;
+
+  @override
+  Future<void> setAppLockEnabled(bool value) async => _appLockEnabled = value;
 
   int _writeCounter = 0;
 
@@ -416,6 +428,7 @@ class LocalFileAppStorageService implements AppStorageService {
               : const [];
           _lastBackupAt = DateTime.tryParse(data['lastBackupAt'] as String? ?? '');
           _compatibilityMode = data['compatibilityMode'] as bool? ?? false;
+          _appLockEnabled = data['appLockEnabled'] as bool? ?? false;
           _writeCounter = data['writeCounter'] as int? ?? 0;
         }
       }
@@ -575,6 +588,7 @@ class LocalFileAppStorageService implements AppStorageService {
       'favoritePresets': _favoritePresets,
       if (_lastBackupAt != null) 'lastBackupAt': _lastBackupAt!.toIso8601String(),
       'compatibilityMode': _compatibilityMode,
+      'appLockEnabled': _appLockEnabled,
       'writeCounter': _writeCounter,
     });
     await _atomicWrite(_settingsFile, data);
@@ -646,6 +660,17 @@ class LocalFileAppStorageService implements AppStorageService {
   @override
   Future<void> setCompatibilityMode(bool enabled) async {
     _compatibilityMode = enabled;
+    await _saveSettings();
+  }
+
+  bool _appLockEnabled = false;
+
+  @override
+  bool get appLockEnabled => _appLockEnabled;
+
+  @override
+  Future<void> setAppLockEnabled(bool value) async {
+    _appLockEnabled = value;
     await _saveSettings();
   }
 

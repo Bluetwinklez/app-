@@ -2,3 +2,4 @@
 "NSCameraUsageDescription" = "Камера нужна для сканирования QR-кодов и добавления фото в библиотеку меток.";
 "NSPhotoLibraryUsageDescription" = "Фото используются, чтобы добавлять изображения к меткам в библиотеке.";
 "NFCReaderUsageDescription" = "Доступ к NFC нужен для чтения NFC-меток и записи NDEF-сообщений.";
+"NSFaceIDUsageDescription" = "Face ID защищает библиотеку меток, когда включена блокировка приложения.";

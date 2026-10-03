@@ -3908,4 +3908,23 @@ class AppLocalizationsAr extends AppLocalizations {
 
   @override
   String get backupDecryptFailed => 'تعذّر فك التشفير؛ قد يكون الملف تالفًا.';
+
+  @override
+  String get appLockTitle => 'قفل التطبيق';
+
+  @override
+  String get appLockSubtitle =>
+      'طلب Face ID أو Touch ID أو رمز الجهاز عند الفتح';
+
+  @override
+  String get appLockUnavailable => 'لا يوجد قفل شاشة مُعد على هذا الجهاز.';
+
+  @override
+  String get appLockLocked => 'التطبيق مقفل';
+
+  @override
+  String get appLockUnlock => 'فتح القفل';
+
+  @override
+  String get appLockReason => 'لفتح مكتبة الوسوم والسجل';
 }

@@ -1,5 +1,7 @@
 package com.antigravity.nfc_tag_master
 
+import android.app.Activity
+import android.app.KeyguardManager
 import android.content.Intent
 import android.nfc.NfcAdapter
 import android.nfc.TagLostException
@@ -33,6 +35,21 @@ class MainActivity : FlutterActivity(), NfcAdapter.ReaderCallback {
     private var launchChannel: MethodChannel? = null
     private var pendingLaunchAction: String? = null
 
+    // App lock: device credential confirmation in flight
+    private var pendingAuthResult: MethodChannel.Result? = null
+    private val AUTH_REQUEST_CODE = 4711
+
+    @Deprecated("Deprecated in Java")
+    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
+        if (requestCode == AUTH_REQUEST_CODE) {
+            pendingAuthResult?.success(resultCode == Activity.RESULT_OK)
+            pendingAuthResult = null
+            return
+        }
+        @Suppress("DEPRECATION")
+        super.onActivityResult(requestCode, resultCode, data)
+    }
+
     // Raw command session (NTAG / MIFARE Ultralight tools)
     @Volatile private var rawNfcA: NfcA? = null
 
@@ -49,6 +66,23 @@ class MainActivity : FlutterActivity(), NfcAdapter.ReaderCallback {
                 } else if (call.method == "requestReview") {
                     result.success(openUri("market://details?id=$packageName") ||
                         openUri("https://play.google.com/store/apps/details?id=$packageName"))
+                } else if (call.method == "canAuthenticate") {
+                    val km = getSystemService(KEYGUARD_SERVICE) as KeyguardManager
+                    result.success(km.isDeviceSecure)
+                } else if (call.method == "authenticate") {
+                    val km = getSystemService(KEYGUARD_SERVICE) as KeyguardManager
+                    @Suppress("DEPRECATION")
+                    val intent = if (km.isDeviceSecure)
+                        km.createConfirmDeviceCredentialIntent(call.argument<String>("title"), call.argument<String>("reason"))
+                    else null
+                    if (intent == null) {
+                        result.success(null)
+                    } else {
+                        pendingAuthResult?.success(false)
+                        pendingAuthResult = result
+                        @Suppress("DEPRECATION")
+                        startActivityForResult(intent, AUTH_REQUEST_CODE)
+                    }
                 } else if (call.method == "openUrl") {
                     val url = call.argument<String>("url")
                     result.success(url != null && openUri(url))
