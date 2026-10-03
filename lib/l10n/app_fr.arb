@@ -1271,5 +1271,17 @@
   "mapPositionSaved": "Position : {lat}, {lng}",
   "mapLocationDenied": "Accès à la position refusé. Autorisez-le dans Réglages → Confidentialité → Service de localisation.",
   "mapLocationFailed": "Position indisponible : {error}",
-  "whatsNew140": "• Section Sécurité et confidentialité : bilan, délai de verrouillage, masquage dans le sélecteur, effacement du presse-papiers, tout effacer\n• Clé de signature dans le trousseau ; Face ID pour les actions sensibles\n• Carte des tags et position d'un tag\n• Packs d'équipe : tags et modèles dans un seul fichier\n• Icônes alternatives\n• Réglages et menu de bibliothèque simplifiés"
+  "whatsNew140": "• Section Sécurité et confidentialité : bilan, délai de verrouillage, masquage dans le sélecteur, effacement du presse-papiers, tout effacer\n• Clé de signature dans le trousseau ; Face ID pour les actions sensibles\n• Carte des tags et position d'un tag\n• Packs d'équipe : tags et modèles dans un seul fichier\n• Icônes alternatives\n• Réglages et menu de bibliothèque simplifiés",
+  "ruleAddByScan": "Scanner un tag et ajouter une note",
+  "ruleAddLastScan": "Ajouter une note au dernier tag scanné",
+  "ruleNeedsContent": "Ce tag est vide ; une note nécessite un contenu.",
+  "simpleWrite": "Écrire un tag",
+  "simpleWriteWhat": "Que doit-il contenir ?",
+  "simpleKindText": "Texte",
+  "simpleKindPhone": "Téléphone",
+  "simpleKindLink": "Lien",
+  "simpleWriteNow": "Écrire – approchez le tag",
+  "simpleWritten": "Écrit sur le tag ✓",
+  "simpleSaved": "Mes tags enregistrés",
+  "simpleSavedHint": "Touchez-en un pour l'écrire sur un nouveau tag."
 }

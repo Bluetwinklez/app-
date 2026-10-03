@@ -4555,4 +4555,41 @@ class AppLocalizationsIt extends AppLocalizations {
   @override
   String get whatsNew140 =>
       '• Sezione Sicurezza e privacy: controllo, ritardo del blocco, nascondi nel selettore, svuota appunti, cancella tutto\n• Chiave di firma nel portachiavi; Face ID per le azioni sensibili\n• Mappa dei tag e posizione di un tag\n• Pacchetti team: tag e modelli in un unico file\n• Icone alternative\n• Impostazioni e menu della libreria più ordinati';
+
+  @override
+  String get ruleAddByScan => 'Leggi un tag e aggiungi una nota';
+
+  @override
+  String get ruleAddLastScan => 'Aggiungi nota all\'ultimo tag letto';
+
+  @override
+  String get ruleNeedsContent =>
+      'Questo tag è vuoto; le note richiedono un contenuto.';
+
+  @override
+  String get simpleWrite => 'Scrivi un tag';
+
+  @override
+  String get simpleWriteWhat => 'Cosa deve contenere?';
+
+  @override
+  String get simpleKindText => 'Testo';
+
+  @override
+  String get simpleKindPhone => 'Telefono';
+
+  @override
+  String get simpleKindLink => 'Link';
+
+  @override
+  String get simpleWriteNow => 'Scrivi – avvicina il tag';
+
+  @override
+  String get simpleWritten => 'Scritto sul tag ✓';
+
+  @override
+  String get simpleSaved => 'I miei tag salvati';
+
+  @override
+  String get simpleSavedHint => 'Toccane uno per scriverlo su un nuovo tag.';
 }

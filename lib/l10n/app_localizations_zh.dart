@@ -4319,4 +4319,40 @@ class AppLocalizationsZh extends AppLocalizations {
   @override
   String get whatsNew140 =>
       '• 安全与隐私：安全检查、锁定延迟、在应用切换器中隐藏、清除剪贴板、清除所有数据\n• 签名密钥改存钥匙串；敏感操作需 Face ID\n• 标签地图与保存标签位置\n• 团队包：一个文件分享标签和模板\n• 备用应用图标\n• 更简洁的设置和标签库菜单';
+
+  @override
+  String get ruleAddByScan => '扫描标签并添加备注';
+
+  @override
+  String get ruleAddLastScan => '为最近扫描的标签添加备注';
+
+  @override
+  String get ruleNeedsContent => '此标签为空，只能为有内容的标签添加备注。';
+
+  @override
+  String get simpleWrite => '写入标签';
+
+  @override
+  String get simpleWriteWhat => '要写入什么？';
+
+  @override
+  String get simpleKindText => '文字';
+
+  @override
+  String get simpleKindPhone => '电话';
+
+  @override
+  String get simpleKindLink => '链接';
+
+  @override
+  String get simpleWriteNow => '写入 – 靠近标签';
+
+  @override
+  String get simpleWritten => '已写入标签 ✓';
+
+  @override
+  String get simpleSaved => '我保存的标签';
+
+  @override
+  String get simpleSavedHint => '点按一个即可写入新标签。';
 }

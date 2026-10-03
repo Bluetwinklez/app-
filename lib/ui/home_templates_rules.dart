@@ -214,6 +214,16 @@ extension _TemplatesAndRules on _HomeScreenState {
       onRulesChanged: () {
         if (mounted) _refresh(() {});
       },
+      lastScanRecords: _controller.lastScannedTag?.error == null
+          ? (_controller.lastScannedTag?.records ?? const [])
+          : const [],
+      onScan: () async {
+        await _controller.scanTag();
+        final tag = _controller.lastScannedTag;
+        if (tag == null || tag.error != null || tag.wasCancelled) return null;
+        return tag.records;
+      },
+      onSaveRule: (records, note) => _controller.setRuleForRecords(records, note),
     );
   }
 }

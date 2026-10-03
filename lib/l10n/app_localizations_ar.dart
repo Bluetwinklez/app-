@@ -4502,4 +4502,41 @@ class AppLocalizationsAr extends AppLocalizations {
   @override
   String get whatsNew140 =>
       '• قسم الأمان والخصوصية: فحص الأمان، تأخير القفل، الإخفاء في مبدّل التطبيقات، مسح الحافظة، مسح كل البيانات\n• مفتاح التوقيع الآن في سلسلة المفاتيح؛ الإجراءات الحساسة تطلب Face ID\n• خريطة الوسوم وحفظ موقع الوسم\n• حزم الفريق: الوسوم والقوالب في ملف واحد\n• أيقونات بديلة للتطبيق\n• إعدادات وقائمة مكتبة أبسط';
+
+  @override
+  String get ruleAddByScan => 'امسح وسمًا وأضف ملاحظة';
+
+  @override
+  String get ruleAddLastScan => 'إضافة ملاحظة لآخر وسم ممسوح';
+
+  @override
+  String get ruleNeedsContent =>
+      'هذا الوسم فارغ؛ تُضاف الملاحظات فقط للوسوم التي تحوي محتوى.';
+
+  @override
+  String get simpleWrite => 'اكتب على وسم';
+
+  @override
+  String get simpleWriteWhat => 'ماذا تريد أن تكتب؟';
+
+  @override
+  String get simpleKindText => 'نص';
+
+  @override
+  String get simpleKindPhone => 'هاتف';
+
+  @override
+  String get simpleKindLink => 'رابط';
+
+  @override
+  String get simpleWriteNow => 'اكتب – قرّب الوسم';
+
+  @override
+  String get simpleWritten => 'تمت الكتابة على الوسم ✓';
+
+  @override
+  String get simpleSaved => 'وسومي المحفوظة';
+
+  @override
+  String get simpleSavedHint => 'اضغط على أحدها لكتابته على وسم جديد.';
 }

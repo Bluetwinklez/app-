@@ -1271,5 +1271,17 @@
   "mapPositionSaved": "Locatie: {lat}, {lng}",
   "mapLocationDenied": "Locatietoestemming niet gegeven. Sta het toe via Instellingen → Privacy → Locatievoorzieningen.",
   "mapLocationFailed": "Locatie niet beschikbaar: {error}",
-  "whatsNew140": "• Beveiliging en privacy: check, vergrendelvertraging, verbergen in appkiezer, klembord wissen, alles wissen\n• Ondertekeningssleutel nu in de sleutelhanger; Face ID voor gevoelige acties\n• Tagkaart en locatie van een tag opslaan\n• Teampakketten: tags en sjablonen in één bestand\n• Alternatieve app-iconen\n• Overzichtelijkere instellingen en bibliotheekmenu"
+  "whatsNew140": "• Beveiliging en privacy: check, vergrendelvertraging, verbergen in appkiezer, klembord wissen, alles wissen\n• Ondertekeningssleutel nu in de sleutelhanger; Face ID voor gevoelige acties\n• Tagkaart en locatie van een tag opslaan\n• Teampakketten: tags en sjablonen in één bestand\n• Alternatieve app-iconen\n• Overzichtelijkere instellingen en bibliotheekmenu",
+  "ruleAddByScan": "Tag scannen en notitie toevoegen",
+  "ruleAddLastScan": "Notitie bij laatst gescande tag",
+  "ruleNeedsContent": "Deze tag is leeg; notities kunnen alleen bij tags met inhoud.",
+  "simpleWrite": "Tag schrijven",
+  "simpleWriteWhat": "Wat moet erop?",
+  "simpleKindText": "Tekst",
+  "simpleKindPhone": "Telefoon",
+  "simpleKindLink": "Link",
+  "simpleWriteNow": "Schrijven – houd de tag erbij",
+  "simpleWritten": "Op de tag geschreven ✓",
+  "simpleSaved": "Mijn opgeslagen tags",
+  "simpleSavedHint": "Tik er één aan om hetzelfde op een nieuwe tag te zetten."
 }

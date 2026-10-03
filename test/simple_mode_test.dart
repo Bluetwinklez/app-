@@ -27,4 +27,28 @@ void main() {
     expect(storage.simpleMode, isFalse);
     expect(find.text('Araçlar'), findsWidgets);
   });
+
+  testWidgets('simple mode writes a phone number with big controls', (tester) async {
+    tester.view.physicalSize = const Size(1179, 2556);
+    tester.view.devicePixelRatio = 3;
+    addTearDown(tester.view.reset);
+    final storage = InMemoryAppStorageService();
+    await storage.setOnboardingDone(true);
+    await storage.setLocaleCode('tr');
+    await storage.setSimpleMode(true);
+    final service = MockNfcPlatformService();
+    final controller = NfcStateController(service: service, storage: storage);
+    await controller.init();
+    await tester.pumpWidget(NfcTagMasterApp(controller: controller));
+    await tester.pumpAndSettle();
+
+    await tester.tap(find.text('Etikete Yaz'));
+    await tester.pumpAndSettle();
+    await tester.tap(find.text('Telefon'));
+    await tester.enterText(find.byType(TextField), '+90 555 111 22 33');
+    await tester.tap(find.text('Yaz ve etiketi yaklaştır'));
+    await tester.pumpAndSettle();
+    expect(service.lastWrittenRecords, hasLength(1));
+    expect(find.text('Etikete yazıldı ✓'), findsOneWidget);
+  });
 }

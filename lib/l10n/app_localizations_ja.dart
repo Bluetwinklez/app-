@@ -4359,4 +4359,40 @@ class AppLocalizationsJa extends AppLocalizations {
   @override
   String get whatsNew140 =>
       '• セキュリティとプライバシー：チェック、ロック遅延、切替画面で隠す、クリップボード消去、全データ消去\n• 署名鍵をキーチェーンに保存、重要な操作はFace IDで確認\n• タグマップとタグの位置保存\n• チームパック：タグとテンプレートを1ファイルで共有\n• 代替アプリアイコン\n• 設定とライブラリメニューを整理';
+
+  @override
+  String get ruleAddByScan => 'タグを読み取ってメモを追加';
+
+  @override
+  String get ruleAddLastScan => '最後に読んだタグにメモを追加';
+
+  @override
+  String get ruleNeedsContent => 'このタグは空です。内容のあるタグにのみメモを追加できます。';
+
+  @override
+  String get simpleWrite => 'タグに書く';
+
+  @override
+  String get simpleWriteWhat => '何を書きますか？';
+
+  @override
+  String get simpleKindText => 'テキスト';
+
+  @override
+  String get simpleKindPhone => '電話';
+
+  @override
+  String get simpleKindLink => 'リンク';
+
+  @override
+  String get simpleWriteNow => '書き込む – タグを近づける';
+
+  @override
+  String get simpleWritten => 'タグに書き込みました ✓';
+
+  @override
+  String get simpleSaved => '保存したタグ';
+
+  @override
+  String get simpleSavedHint => 'タップすると同じ内容を新しいタグに書き込みます。';
 }

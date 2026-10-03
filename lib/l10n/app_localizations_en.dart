@@ -4540,4 +4540,41 @@ class AppLocalizationsEn extends AppLocalizations {
   @override
   String get whatsNew140 =>
       '• Security & privacy section: security check, lock delay, hide in app switcher, clipboard clearing, erase all data\n• Signing key now in the Keychain; sensitive actions ask for Face ID\n• Tag map and saving a tag\'s location\n• Team packs: share tags and templates in one file\n• Alternate app icons\n• Tidier settings and library menu';
+
+  @override
+  String get ruleAddByScan => 'Scan a tag and add a note';
+
+  @override
+  String get ruleAddLastScan => 'Add a note to the last scanned tag';
+
+  @override
+  String get ruleNeedsContent =>
+      'This tag is empty; notes can only be added to tags with content.';
+
+  @override
+  String get simpleWrite => 'Write a Tag';
+
+  @override
+  String get simpleWriteWhat => 'What should it hold?';
+
+  @override
+  String get simpleKindText => 'Text';
+
+  @override
+  String get simpleKindPhone => 'Phone';
+
+  @override
+  String get simpleKindLink => 'Link';
+
+  @override
+  String get simpleWriteNow => 'Write – hold the tag near';
+
+  @override
+  String get simpleWritten => 'Written to the tag ✓';
+
+  @override
+  String get simpleSaved => 'My saved tags';
+
+  @override
+  String get simpleSavedHint => 'Tap one to write the same onto a new tag.';
 }

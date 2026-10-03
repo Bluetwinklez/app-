@@ -4554,4 +4554,42 @@ class AppLocalizationsUk extends AppLocalizations {
   @override
   String get whatsNew140 =>
       '• Розділ «Безпека та конфіденційність»: перевірка, затримка блокування, приховування в перемикачі, очищення буфера, стерти все\n• Ключ підпису в Зв\'язці ключів; Face ID для важливих дій\n• Мапа міток і збереження місця мітки\n• Пакети для команди: мітки й шаблони одним файлом\n• Альтернативні значки\n• Охайніші налаштування та меню бібліотеки';
+
+  @override
+  String get ruleAddByScan => 'Сканувати мітку й додати нотатку';
+
+  @override
+  String get ruleAddLastScan => 'Нотатка до останньої мітки';
+
+  @override
+  String get ruleNeedsContent =>
+      'Мітка порожня; нотатку можна додати лише до мітки із вмістом.';
+
+  @override
+  String get simpleWrite => 'Записати мітку';
+
+  @override
+  String get simpleWriteWhat => 'Що записати?';
+
+  @override
+  String get simpleKindText => 'Текст';
+
+  @override
+  String get simpleKindPhone => 'Телефон';
+
+  @override
+  String get simpleKindLink => 'Посилання';
+
+  @override
+  String get simpleWriteNow => 'Записати – піднесіть мітку';
+
+  @override
+  String get simpleWritten => 'Записано на мітку ✓';
+
+  @override
+  String get simpleSaved => 'Мої збережені мітки';
+
+  @override
+  String get simpleSavedHint =>
+      'Торкніться, щоб записати те саме на нову мітку.';
 }

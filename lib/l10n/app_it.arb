@@ -1271,5 +1271,17 @@
   "mapPositionSaved": "Posizione: {lat}, {lng}",
   "mapLocationDenied": "Permesso di localizzazione negato. Puoi consentirlo in Impostazioni → Privacy → Localizzazione.",
   "mapLocationFailed": "Impossibile ottenere la posizione: {error}",
-  "whatsNew140": "• Sezione Sicurezza e privacy: controllo, ritardo del blocco, nascondi nel selettore, svuota appunti, cancella tutto\n• Chiave di firma nel portachiavi; Face ID per le azioni sensibili\n• Mappa dei tag e posizione di un tag\n• Pacchetti team: tag e modelli in un unico file\n• Icone alternative\n• Impostazioni e menu della libreria più ordinati"
+  "whatsNew140": "• Sezione Sicurezza e privacy: controllo, ritardo del blocco, nascondi nel selettore, svuota appunti, cancella tutto\n• Chiave di firma nel portachiavi; Face ID per le azioni sensibili\n• Mappa dei tag e posizione di un tag\n• Pacchetti team: tag e modelli in un unico file\n• Icone alternative\n• Impostazioni e menu della libreria più ordinati",
+  "ruleAddByScan": "Leggi un tag e aggiungi una nota",
+  "ruleAddLastScan": "Aggiungi nota all'ultimo tag letto",
+  "ruleNeedsContent": "Questo tag è vuoto; le note richiedono un contenuto.",
+  "simpleWrite": "Scrivi un tag",
+  "simpleWriteWhat": "Cosa deve contenere?",
+  "simpleKindText": "Testo",
+  "simpleKindPhone": "Telefono",
+  "simpleKindLink": "Link",
+  "simpleWriteNow": "Scrivi – avvicina il tag",
+  "simpleWritten": "Scritto sul tag ✓",
+  "simpleSaved": "I miei tag salvati",
+  "simpleSavedHint": "Toccane uno per scriverlo su un nuovo tag."
 }

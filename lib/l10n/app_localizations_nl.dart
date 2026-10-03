@@ -4555,4 +4555,42 @@ class AppLocalizationsNl extends AppLocalizations {
   @override
   String get whatsNew140 =>
       '• Beveiliging en privacy: check, vergrendelvertraging, verbergen in appkiezer, klembord wissen, alles wissen\n• Ondertekeningssleutel nu in de sleutelhanger; Face ID voor gevoelige acties\n• Tagkaart en locatie van een tag opslaan\n• Teampakketten: tags en sjablonen in één bestand\n• Alternatieve app-iconen\n• Overzichtelijkere instellingen en bibliotheekmenu';
+
+  @override
+  String get ruleAddByScan => 'Tag scannen en notitie toevoegen';
+
+  @override
+  String get ruleAddLastScan => 'Notitie bij laatst gescande tag';
+
+  @override
+  String get ruleNeedsContent =>
+      'Deze tag is leeg; notities kunnen alleen bij tags met inhoud.';
+
+  @override
+  String get simpleWrite => 'Tag schrijven';
+
+  @override
+  String get simpleWriteWhat => 'Wat moet erop?';
+
+  @override
+  String get simpleKindText => 'Tekst';
+
+  @override
+  String get simpleKindPhone => 'Telefoon';
+
+  @override
+  String get simpleKindLink => 'Link';
+
+  @override
+  String get simpleWriteNow => 'Schrijven – houd de tag erbij';
+
+  @override
+  String get simpleWritten => 'Op de tag geschreven ✓';
+
+  @override
+  String get simpleSaved => 'Mijn opgeslagen tags';
+
+  @override
+  String get simpleSavedHint =>
+      'Tik er één aan om hetzelfde op een nieuwe tag te zetten.';
 }
