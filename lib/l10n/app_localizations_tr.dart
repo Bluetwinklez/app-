@@ -3797,4 +3797,72 @@ class AppLocalizationsTr extends AppLocalizations {
   @override
   String get voiceLinkLabel =>
       'Ses dosyası bağlantısı (iCloud, Drive, SoundCloud…)';
+
+  @override
+  String get logbookTitle => 'Kayıt Defteri';
+
+  @override
+  String get logbookSubtitle =>
+      'Yoklama, ilaç ve envanter: her okutma saatiyle kaydedilir';
+
+  @override
+  String get logbookNew => 'Yeni defter';
+
+  @override
+  String get logbookName => 'Defter adı';
+
+  @override
+  String get logbookKindAttendance => 'Yoklama';
+
+  @override
+  String get logbookKindMedication => 'İlaç takibi';
+
+  @override
+  String get logbookKindInventory => 'Envanter sayımı';
+
+  @override
+  String get logbookKindCustom => 'Diğer';
+
+  @override
+  String get logbookEmpty =>
+      'Henüz defter yok. Örneğin \"Sınıf 3A yoklama\" ya da \"Akşam ilacı\" adıyla bir defter açın.';
+
+  @override
+  String get logbookScanButton => 'Okut ve kaydet';
+
+  @override
+  String logbookEntryAdded(String label) {
+    return 'Kaydedildi: $label';
+  }
+
+  @override
+  String get logbookNoEntries => 'Bu defterde henüz kayıt yok.';
+
+  @override
+  String logbookToday(String count, String tags) {
+    return 'Bugün: $count kayıt · $tags farklı etiket';
+  }
+
+  @override
+  String logbookMedTaken(String time) {
+    return 'Bugün alındı ✓ (son: $time)';
+  }
+
+  @override
+  String get logbookMedNotTaken => 'Bugün henüz alınmadı';
+
+  @override
+  String logbookInventorySummary(String count) {
+    return '$count farklı etiket sayıldı';
+  }
+
+  @override
+  String logbookDeleteConfirm(String name) {
+    return '\"$name\" defteri ve tüm kayıtları silinsin mi?';
+  }
+
+  @override
+  String logbookEntries(String count) {
+    return '$count kayıt';
+  }
 }

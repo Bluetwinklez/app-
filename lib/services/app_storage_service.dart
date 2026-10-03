@@ -4,6 +4,7 @@ import 'package:flutter/foundation.dart';
 import '../domain/storage_models.dart';
 import '../domain/tag_rule.dart';
 import '../domain/tag_library.dart';
+import '../domain/logbook.dart';
 import 'backup_codec.dart';
 
 /// Abstract storage service for app settings, scan history, write templates, and tag rules.
@@ -71,6 +72,11 @@ abstract class AppStorageService {
   List<TagLibraryEntry> getLibrary();
   Future<void> saveLibraryEntry(TagLibraryEntry entry);
   Future<void> deleteLibraryEntry(String id);
+
+  // Logbooks (attendance, medication, inventory…)
+  List<LogBook> getLogBooks();
+  Future<void> saveLogBook(LogBook book);
+  Future<void> deleteLogBook(String id);
 
   // Backup & Merge Import
   /// Merges imported templates, rules, and optional history.
@@ -155,6 +161,24 @@ class InMemoryAppStorageService implements AppStorageService {
       _library.insert(0, entry);
     }
   }
+
+  final List<LogBook> _logBooks = [];
+
+  @override
+  List<LogBook> getLogBooks() => List.unmodifiable(_logBooks);
+
+  @override
+  Future<void> saveLogBook(LogBook book) async {
+    final i = _logBooks.indexWhere((b) => b.id == book.id);
+    if (i >= 0) {
+      _logBooks[i] = book;
+    } else {
+      _logBooks.insert(0, book);
+    }
+  }
+
+  @override
+  Future<void> deleteLogBook(String id) async => _logBooks.removeWhere((b) => b.id == id);
 
   @override
   Future<void> deleteLibraryEntry(String id) async {
@@ -364,6 +388,8 @@ class LocalFileAppStorageService implements AppStorageService {
       File('$baseDirectoryPath/nfc_write_templates.json');
   File get _tagRulesFile => File('$baseDirectoryPath/nfc_tag_rules.json');
   File get _libraryFile => File('$baseDirectoryPath/nfc_tag_library.json');
+  File get _logBooksFile => File('$baseDirectoryPath/nfc_logbooks.json');
+  final List<LogBook> _logBooks = [];
 
   @override
   Future<void> init() async {
@@ -463,6 +489,23 @@ class LocalFileAppStorageService implements AppStorageService {
       }
     } catch (e) {
       debugPrint('LocalFileAppStorageService error loading tag library: $e');
+    }
+
+    // Load Logbooks
+    try {
+      if (await _logBooksFile.exists()) {
+        final content = await _logBooksFile.readAsString();
+        if (content.trim().isNotEmpty) {
+          _logBooks
+            ..clear()
+            ..addAll([
+              for (final item in jsonDecode(content) as List<dynamic>)
+                LogBook.fromJsonMap(Map<String, dynamic>.from(item as Map)),
+            ]);
+        }
+      }
+    } catch (e) {
+      debugPrint('LocalFileAppStorageService error loading logbooks: $e');
     }
   }
 
@@ -761,6 +804,46 @@ class LocalFileAppStorageService implements AppStorageService {
       _library.insert(index, removed);
       rethrow;
     }
+  }
+
+  @override
+  List<LogBook> getLogBooks() => List.unmodifiable(_logBooks);
+
+  @override
+  Future<void> saveLogBook(LogBook book) async {
+    final before = List<LogBook>.from(_logBooks);
+    final i = _logBooks.indexWhere((b) => b.id == book.id);
+    if (i >= 0) {
+      _logBooks[i] = book;
+    } else {
+      _logBooks.insert(0, book);
+    }
+    try {
+      await _saveLogBooks();
+    } catch (e) {
+      _logBooks
+        ..clear()
+        ..addAll(before);
+      rethrow;
+    }
+  }
+
+  @override
+  Future<void> deleteLogBook(String id) async {
+    final before = List<LogBook>.from(_logBooks);
+    _logBooks.removeWhere((b) => b.id == id);
+    try {
+      await _saveLogBooks();
+    } catch (e) {
+      _logBooks
+        ..clear()
+        ..addAll(before);
+      rethrow;
+    }
+  }
+
+  Future<void> _saveLogBooks() async {
+    await _atomicWrite(_logBooksFile, jsonEncode(_logBooks.map((b) => b.toJsonMap()).toList()));
   }
 
   Future<void> _saveLibrary() async {
