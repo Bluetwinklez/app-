@@ -6303,6 +6303,156 @@ abstract class AppLocalizations {
   /// In tr, this message translates to:
   /// **'İpucu: Paylaş menüsünde \"Dosyalara Kaydet\" → iCloud Drive seçerek yedeği iCloud\'a saklayabilirsiniz.'**
   String get backupICloudTip;
+
+  /// No description provided for @dragToReorder.
+  ///
+  /// In tr, this message translates to:
+  /// **'Sıralamak için sürükleyin'**
+  String get dragToReorder;
+
+  /// No description provided for @modeTitle.
+  ///
+  /// In tr, this message translates to:
+  /// **'Mod'**
+  String get modeTitle;
+
+  /// No description provided for @modeNormal.
+  ///
+  /// In tr, this message translates to:
+  /// **'Normal'**
+  String get modeNormal;
+
+  /// No description provided for @modeCompat.
+  ///
+  /// In tr, this message translates to:
+  /// **'Uyumluluk'**
+  String get modeCompat;
+
+  /// No description provided for @modeNormalDesc.
+  ///
+  /// In tr, this message translates to:
+  /// **'Normal: Tüm özellikler açık; yazılan her etiket geri okunup doğrulanır.'**
+  String get modeNormalDesc;
+
+  /// No description provided for @modeCompatDesc.
+  ///
+  /// In tr, this message translates to:
+  /// **'Uyumluluk: Yazdıktan sonra geri okuma yapılmaz. Bazı eski ya da sorunlu etiketlerde yazma daha güvenilir olur.'**
+  String get modeCompatDesc;
+
+  /// No description provided for @rateApp.
+  ///
+  /// In tr, this message translates to:
+  /// **'Uygulamayı değerlendirin'**
+  String get rateApp;
+
+  /// No description provided for @rateAppUnavailable.
+  ///
+  /// In tr, this message translates to:
+  /// **'Değerlendirme penceresi şu an açılamadı (TestFlight\'ta gösterilmez).'**
+  String get rateAppUnavailable;
+
+  /// No description provided for @chipsTitle.
+  ///
+  /// In tr, this message translates to:
+  /// **'NFC çipleri'**
+  String get chipsTitle;
+
+  /// No description provided for @chipsSubtitle.
+  ///
+  /// In tr, this message translates to:
+  /// **'Hangi etiketi almalı? Kapasite ve telefon desteği'**
+  String get chipsSubtitle;
+
+  /// No description provided for @chipsIntro.
+  ///
+  /// In tr, this message translates to:
+  /// **'Kullanılabilir bayt, etikete yazılabilecek NDEF içeriğinin üst sınırıdır. Yeni başlayanlar için NTAG215 iyi bir seçimdir.'**
+  String get chipsIntro;
+
+  /// No description provided for @chipsUsable.
+  ///
+  /// In tr, this message translates to:
+  /// **'Kullanılabilir: {bytes} bayt'**
+  String chipsUsable(String bytes);
+
+  /// No description provided for @chipsReadWrite.
+  ///
+  /// In tr, this message translates to:
+  /// **'Okuma ve yazma'**
+  String get chipsReadWrite;
+
+  /// No description provided for @chipsReadOnlyNdef.
+  ///
+  /// In tr, this message translates to:
+  /// **'Yalnızca NDEF ise'**
+  String get chipsReadOnlyNdef;
+
+  /// No description provided for @chipsNotSupported.
+  ///
+  /// In tr, this message translates to:
+  /// **'Desteklenmez'**
+  String get chipsNotSupported;
+
+  /// No description provided for @chipsNxpOnly.
+  ///
+  /// In tr, this message translates to:
+  /// **'Yalnızca NXP çipli telefonlar'**
+  String get chipsNxpOnly;
+
+  /// No description provided for @chipUseSmall.
+  ///
+  /// In tr, this message translates to:
+  /// **'Tek bağlantı, kısa metin, Wi-Fi; en ucuzu'**
+  String get chipUseSmall;
+
+  /// No description provided for @chipUseMedium.
+  ///
+  /// In tr, this message translates to:
+  /// **'Kartvizit, birden çok kayıt; amiibo figürleri'**
+  String get chipUseMedium;
+
+  /// No description provided for @chipUseLarge.
+  ///
+  /// In tr, this message translates to:
+  /// **'Uzun içerik, ayrıntılı kartvizit'**
+  String get chipUseLarge;
+
+  /// No description provided for @chipUseSecure.
+  ///
+  /// In tr, this message translates to:
+  /// **'Sahteciliğe karşı güvenli doğrulama (ürün, bilet)'**
+  String get chipUseSecure;
+
+  /// No description provided for @chipUseTicket.
+  ///
+  /// In tr, this message translates to:
+  /// **'Toplu taşıma ve etkinlik biletleri'**
+  String get chipUseTicket;
+
+  /// No description provided for @chipUseAccess.
+  ///
+  /// In tr, this message translates to:
+  /// **'Kapı / turnike kartları, otel kartları'**
+  String get chipUseAccess;
+
+  /// No description provided for @chipUseIndustrial.
+  ///
+  /// In tr, this message translates to:
+  /// **'Kütüphane, depo ve endüstriyel etiketler; uzun okuma mesafesi'**
+  String get chipUseIndustrial;
+
+  /// No description provided for @chipUseJapan.
+  ///
+  /// In tr, this message translates to:
+  /// **'Japonya\'da yaygın (ulaşım, ödeme)'**
+  String get chipUseJapan;
+
+  /// No description provided for @chipUseLegacy.
+  ///
+  /// In tr, this message translates to:
+  /// **'Eski tip; yeni projeler için önerilmez'**
+  String get chipUseLegacy;
 }
 
 class _AppLocalizationsDelegate
