@@ -3884,4 +3884,9 @@ class AppLocalizationsUk extends AppLocalizations {
 
   @override
   String get inventoryCardTitle => 'Ця мітка є в бібліотеці';
+
+  @override
+  String scanReportLine(String unique, String dup, String empty) {
+    return '$unique різних міток · $dup повторно · $empty порожніх';
+  }
 }

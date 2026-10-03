@@ -1091,5 +1091,6 @@
   "neverSeen": "尚未扫描",
   "sortLongestUnseen": "最久未见",
   "unseen30Days": "30 天以上未见",
-  "inventoryCardTitle": "此标签在你的标签库中"
+  "inventoryCardTitle": "此标签在你的标签库中",
+  "scanReportLine": "{unique} 个不同标签 · {dup} 个重复 · {empty} 个空白"
 }

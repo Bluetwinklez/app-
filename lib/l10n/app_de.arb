@@ -1091,5 +1091,6 @@
   "neverSeen": "Noch nicht gescannt",
   "sortLongestUnseen": "Am längsten nicht gesehen",
   "unseen30Days": "Seit 30+ Tagen nicht gesehen",
-  "inventoryCardTitle": "Dieser Tag ist in Ihrer Bibliothek"
+  "inventoryCardTitle": "Dieser Tag ist in Ihrer Bibliothek",
+  "scanReportLine": "{unique} verschiedene Tags · {dup} doppelt · {empty} leer"
 }

@@ -1091,5 +1091,6 @@
   "neverSeen": "Ще не сканувалася",
   "sortLongestUnseen": "Найдовше не бачили",
   "unseen30Days": "Не бачили 30+ днів",
-  "inventoryCardTitle": "Ця мітка є в бібліотеці"
+  "inventoryCardTitle": "Ця мітка є в бібліотеці",
+  "scanReportLine": "{unique} різних міток · {dup} повторно · {empty} порожніх"
 }

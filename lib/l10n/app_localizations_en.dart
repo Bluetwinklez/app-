@@ -3869,4 +3869,9 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get inventoryCardTitle => 'This tag is in your library';
+
+  @override
+  String scanReportLine(String unique, String dup, String empty) {
+    return '$unique different tags · $dup read again · $empty empty';
+  }
 }

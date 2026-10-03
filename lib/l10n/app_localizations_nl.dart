@@ -3885,4 +3885,9 @@ class AppLocalizationsNl extends AppLocalizations {
 
   @override
   String get inventoryCardTitle => 'Deze tag staat in je bibliotheek';
+
+  @override
+  String scanReportLine(String unique, String dup, String empty) {
+    return '$unique verschillende tags · $dup opnieuw gelezen · $empty leeg';
+  }
 }

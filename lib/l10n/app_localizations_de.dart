@@ -3894,4 +3894,9 @@ class AppLocalizationsDe extends AppLocalizations {
 
   @override
   String get inventoryCardTitle => 'Dieser Tag ist in Ihrer Bibliothek';
+
+  @override
+  String scanReportLine(String unique, String dup, String empty) {
+    return '$unique verschiedene Tags · $dup doppelt · $empty leer';
+  }
 }

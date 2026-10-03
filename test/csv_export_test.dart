@@ -20,4 +20,17 @@ void main() {
     expect(lines[0], 'Zaman,UID,Kayıt,İçerik');
     expect(lines[1], '2026-10-03 09:30:00,04:A1,1,https://a.com');
   });
+
+  test('scan report counts unique, repeated and empty tags', () {
+    final t = DateTime(2026);
+    final r = ScanReport.of([
+      ScanLogEntry(t, 'A', const []),
+      ScanLogEntry(t, 'B', [NdefCodec.encodeText('x')]),
+      ScanLogEntry(t, 'A', const []),
+    ]);
+    expect(r.total, 3);
+    expect(r.unique, 2);
+    expect(r.duplicates, 1);
+    expect(r.empty, 1);
+  });
 }
