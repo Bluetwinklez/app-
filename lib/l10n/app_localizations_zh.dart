@@ -2861,4 +2861,12 @@ class AppLocalizationsZh extends AppLocalizations {
   String backupLibraryCount(String count) {
     return '• 标签库：$count（不含照片）';
   }
+
+  @override
+  String lastTagCapacityFit(String bytes, String max) {
+    return '上个标签：$bytes / $max B';
+  }
+
+  @override
+  String get contentTooLargeForChips => '内容超出常见标签容量；请缩短文本或使用短链接。';
 }

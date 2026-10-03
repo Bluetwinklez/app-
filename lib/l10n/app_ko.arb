@@ -845,5 +845,7 @@
   "backupInvalidLibraryEntry": "잘못된 보관함 항목입니다.",
   "backupMaxLibraryExceeded": "보관함은 최대 {max}개까지입니다.",
   "backupSummaryLibrary": "보관함: {added}개 추가",
-  "backupLibraryCount": "• 태그 보관함: {count} (사진 제외)"
+  "backupLibraryCount": "• 태그 보관함: {count} (사진 제외)",
+  "lastTagCapacityFit": "마지막 태그: {bytes} / {max} B",
+  "contentTooLargeForChips": "일반 태그에 담기에 너무 큽니다. 텍스트를 줄이거나 짧은 링크를 쓰세요."
 }

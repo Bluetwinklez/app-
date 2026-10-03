@@ -845,5 +845,7 @@
   "backupInvalidLibraryEntry": "Недопустимая запись библиотеки.",
   "backupMaxLibraryExceeded": "В библиотеке не более {max} записей.",
   "backupSummaryLibrary": "Библиотека: добавлено {added}",
-  "backupLibraryCount": "• Библиотека: {count} (без фото)"
+  "backupLibraryCount": "• Библиотека: {count} (без фото)",
+  "lastTagCapacityFit": "Посл. метка: {bytes} / {max} Б",
+  "contentTooLargeForChips": "Слишком много для обычных меток: сократите текст или используйте короткую ссылку."
 }
