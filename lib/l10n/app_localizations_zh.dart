@@ -3597,4 +3597,70 @@ class AppLocalizationsZh extends AppLocalizations {
 
   @override
   String get voiceLinkLabel => '音频链接（iCloud、Drive、SoundCloud…）';
+
+  @override
+  String get logbookTitle => '记录簿';
+
+  @override
+  String get logbookSubtitle => '考勤、服药、盘点：每次触碰都记录时间';
+
+  @override
+  String get logbookNew => '新建记录簿';
+
+  @override
+  String get logbookName => '记录簿名称';
+
+  @override
+  String get logbookKindAttendance => '考勤';
+
+  @override
+  String get logbookKindMedication => '服药';
+
+  @override
+  String get logbookKindInventory => '库存盘点';
+
+  @override
+  String get logbookKindCustom => '其他';
+
+  @override
+  String get logbookEmpty => '还没有记录簿。可以新建“3A 班考勤”或“晚间服药”。';
+
+  @override
+  String get logbookScanButton => '扫描并记录';
+
+  @override
+  String logbookEntryAdded(String label) {
+    return '已记录：$label';
+  }
+
+  @override
+  String get logbookNoEntries => '暂无记录。';
+
+  @override
+  String logbookToday(String count, String tags) {
+    return '今天：$count 条 · $tags 个不同标签';
+  }
+
+  @override
+  String logbookMedTaken(String time) {
+    return '今天已服用 ✓（最近：$time）';
+  }
+
+  @override
+  String get logbookMedNotTaken => '今天尚未服用';
+
+  @override
+  String logbookInventorySummary(String count) {
+    return '已盘点 $count 个不同标签';
+  }
+
+  @override
+  String logbookDeleteConfirm(String name) {
+    return '删除记录簿“$name”及其所有记录？';
+  }
+
+  @override
+  String logbookEntries(String count) {
+    return '$count 条';
+  }
 }

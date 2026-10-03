@@ -3800,4 +3800,72 @@ class AppLocalizationsNl extends AppLocalizations {
 
   @override
   String get voiceLinkLabel => 'Audiolink (iCloud, Drive, SoundCloud…)';
+
+  @override
+  String get logbookTitle => 'Logboek';
+
+  @override
+  String get logbookSubtitle =>
+      'Aanwezigheid, medicijnen, inventaris: elke scan met tijd';
+
+  @override
+  String get logbookNew => 'Nieuw logboek';
+
+  @override
+  String get logbookName => 'Naam logboek';
+
+  @override
+  String get logbookKindAttendance => 'Aanwezigheid';
+
+  @override
+  String get logbookKindMedication => 'Medicijnen';
+
+  @override
+  String get logbookKindInventory => 'Inventaris';
+
+  @override
+  String get logbookKindCustom => 'Overig';
+
+  @override
+  String get logbookEmpty =>
+      'Nog geen logboeken. Maak er een, bv. \"Aanwezigheid 3A\" of \"Avondpil\".';
+
+  @override
+  String get logbookScanButton => 'Scannen en vastleggen';
+
+  @override
+  String logbookEntryAdded(String label) {
+    return 'Vastgelegd: $label';
+  }
+
+  @override
+  String get logbookNoEntries => 'Nog geen vermeldingen.';
+
+  @override
+  String logbookToday(String count, String tags) {
+    return 'Vandaag: $count vermeldingen · $tags verschillende tags';
+  }
+
+  @override
+  String logbookMedTaken(String time) {
+    return 'Vandaag ingenomen ✓ (laatst: $time)';
+  }
+
+  @override
+  String get logbookMedNotTaken => 'Vandaag nog niet ingenomen';
+
+  @override
+  String logbookInventorySummary(String count) {
+    return '$count verschillende tags geteld';
+  }
+
+  @override
+  String logbookDeleteConfirm(String name) {
+    return 'Logboek \"$name\" en alle vermeldingen verwijderen?';
+  }
+
+  @override
+  String logbookEntries(String count) {
+    return '$count vermeldingen';
+  }
 }

@@ -3809,4 +3809,72 @@ class AppLocalizationsDe extends AppLocalizations {
 
   @override
   String get voiceLinkLabel => 'Audio-Link (iCloud, Drive, SoundCloud…)';
+
+  @override
+  String get logbookTitle => 'Logbuch';
+
+  @override
+  String get logbookSubtitle =>
+      'Anwesenheit, Medikamente, Inventur: jeder Scan mit Uhrzeit';
+
+  @override
+  String get logbookNew => 'Neues Logbuch';
+
+  @override
+  String get logbookName => 'Name des Logbuchs';
+
+  @override
+  String get logbookKindAttendance => 'Anwesenheit';
+
+  @override
+  String get logbookKindMedication => 'Medikamente';
+
+  @override
+  String get logbookKindInventory => 'Inventur';
+
+  @override
+  String get logbookKindCustom => 'Sonstiges';
+
+  @override
+  String get logbookEmpty =>
+      'Noch keine Logbücher. Legen Sie z. B. „Klasse 3A“ oder „Abendtablette“ an.';
+
+  @override
+  String get logbookScanButton => 'Scannen und erfassen';
+
+  @override
+  String logbookEntryAdded(String label) {
+    return 'Erfasst: $label';
+  }
+
+  @override
+  String get logbookNoEntries => 'Noch keine Einträge.';
+
+  @override
+  String logbookToday(String count, String tags) {
+    return 'Heute: $count Einträge · $tags verschiedene Tags';
+  }
+
+  @override
+  String logbookMedTaken(String time) {
+    return 'Heute genommen ✓ (zuletzt: $time)';
+  }
+
+  @override
+  String get logbookMedNotTaken => 'Heute noch nicht genommen';
+
+  @override
+  String logbookInventorySummary(String count) {
+    return '$count verschiedene Tags gezählt';
+  }
+
+  @override
+  String logbookDeleteConfirm(String name) {
+    return 'Logbuch „$name“ mit allen Einträgen löschen?';
+  }
+
+  @override
+  String logbookEntries(String count) {
+    return '$count Einträge';
+  }
 }

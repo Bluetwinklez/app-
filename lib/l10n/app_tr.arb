@@ -2497,5 +2497,68 @@
   },
   "presetVoiceTitle": "Sesli Mesaj",
   "presetVoiceDesc": "Hediye ya da kutu üzerine: dokununca sesli notunuz veya şarkınız açılır.",
-  "voiceLinkLabel": "Ses dosyası bağlantısı (iCloud, Drive, SoundCloud…)"
+  "voiceLinkLabel": "Ses dosyası bağlantısı (iCloud, Drive, SoundCloud…)",
+  "logbookTitle": "Kayıt Defteri",
+  "logbookSubtitle": "Yoklama, ilaç ve envanter: her okutma saatiyle kaydedilir",
+  "logbookNew": "Yeni defter",
+  "logbookName": "Defter adı",
+  "logbookKindAttendance": "Yoklama",
+  "logbookKindMedication": "İlaç takibi",
+  "logbookKindInventory": "Envanter sayımı",
+  "logbookKindCustom": "Diğer",
+  "logbookEmpty": "Henüz defter yok. Örneğin \"Sınıf 3A yoklama\" ya da \"Akşam ilacı\" adıyla bir defter açın.",
+  "logbookScanButton": "Okut ve kaydet",
+  "logbookEntryAdded": "Kaydedildi: {label}",
+  "@logbookEntryAdded": {
+    "placeholders": {
+      "label": {
+        "type": "String"
+      }
+    }
+  },
+  "logbookNoEntries": "Bu defterde henüz kayıt yok.",
+  "logbookToday": "Bugün: {count} kayıt · {tags} farklı etiket",
+  "@logbookToday": {
+    "placeholders": {
+      "count": {
+        "type": "String"
+      },
+      "tags": {
+        "type": "String"
+      }
+    }
+  },
+  "logbookMedTaken": "Bugün alındı ✓ (son: {time})",
+  "@logbookMedTaken": {
+    "placeholders": {
+      "time": {
+        "type": "String"
+      }
+    }
+  },
+  "logbookMedNotTaken": "Bugün henüz alınmadı",
+  "logbookInventorySummary": "{count} farklı etiket sayıldı",
+  "@logbookInventorySummary": {
+    "placeholders": {
+      "count": {
+        "type": "String"
+      }
+    }
+  },
+  "logbookDeleteConfirm": "\"{name}\" defteri ve tüm kayıtları silinsin mi?",
+  "@logbookDeleteConfirm": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
+  "logbookEntries": "{count} kayıt",
+  "@logbookEntries": {
+    "placeholders": {
+      "count": {
+        "type": "String"
+      }
+    }
+  }
 }
