@@ -3459,4 +3459,18 @@ class AppLocalizationsAr extends AppLocalizations {
 
   @override
   String get recipeKitchenActions => 'المطبخ: مؤقت 10 دقائق · فتح قائمة التسوق';
+
+  @override
+  String get libraryLabelsField => 'التسميات / المجلدات (مفصولة بفواصل)';
+
+  @override
+  String get libraryLabelsHint => 'المكتب، الطابق 2';
+
+  @override
+  String librarySaveFailed(String error) {
+    return 'تعذّر الحفظ: $error';
+  }
+
+  @override
+  String get csvColumnLabels => 'التسميات';
 }

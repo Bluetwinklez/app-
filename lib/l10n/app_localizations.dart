@@ -6033,6 +6033,30 @@ abstract class AppLocalizations {
   /// In tr, this message translates to:
   /// **'Mutfak: 10 dk zamanlayıcı · alışveriş listesini aç'**
   String get recipeKitchenActions;
+
+  /// No description provided for @libraryLabelsField.
+  ///
+  /// In tr, this message translates to:
+  /// **'Etiketler / klasörler (virgülle ayırın)'**
+  String get libraryLabelsField;
+
+  /// No description provided for @libraryLabelsHint.
+  ///
+  /// In tr, this message translates to:
+  /// **'ofis, 2. kat'**
+  String get libraryLabelsHint;
+
+  /// No description provided for @librarySaveFailed.
+  ///
+  /// In tr, this message translates to:
+  /// **'Kaydedilemedi: {error}'**
+  String librarySaveFailed(String error);
+
+  /// No description provided for @csvColumnLabels.
+  ///
+  /// In tr, this message translates to:
+  /// **'Etiketler'**
+  String get csvColumnLabels;
 }
 
 class _AppLocalizationsDelegate

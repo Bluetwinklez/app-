@@ -3525,4 +3525,18 @@ class AppLocalizationsEs extends AppLocalizations {
   @override
   String get recipeKitchenActions =>
       'Cocina: temporizador 10 min · abrir la lista de la compra';
+
+  @override
+  String get libraryLabelsField => 'Etiquetas / carpetas (separadas por comas)';
+
+  @override
+  String get libraryLabelsHint => 'oficina, planta 2';
+
+  @override
+  String librarySaveFailed(String error) {
+    return 'No se pudo guardar: $error';
+  }
+
+  @override
+  String get csvColumnLabels => 'Etiquetas';
 }

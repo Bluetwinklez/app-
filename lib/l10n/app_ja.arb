@@ -984,5 +984,9 @@
   "recipeGymTitle": "ワークアウト",
   "recipeGymActions": "ジムバッグ: ワークアウト開始 · プレイリスト · おやすみモード",
   "recipeKitchenTitle": "キッチンタイマー",
-  "recipeKitchenActions": "キッチン: 10分タイマー · 買い物リストを開く"
+  "recipeKitchenActions": "キッチン: 10分タイマー · 買い物リストを開く",
+  "libraryLabelsField": "ラベル / フォルダ (カンマ区切り)",
+  "libraryLabelsHint": "オフィス, 2階",
+  "librarySaveFailed": "保存できませんでした: {error}",
+  "csvColumnLabels": "ラベル"
 }
