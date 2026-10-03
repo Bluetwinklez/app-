@@ -3859,4 +3859,69 @@ class AppLocalizationsKo extends AppLocalizations {
   @override
   String get sigReplaceKeyConfirm =>
       '현재 키를 바꿀까요? 이전 키로 서명한 태그는 \"다른 키\"로 표시됩니다.';
+
+  @override
+  String get amiiboTitle => 'amiibo 정보';
+
+  @override
+  String get amiiboSubtitle => '피규어/카드 ID와 시리즈(읽기 전용)';
+
+  @override
+  String get amiiboPrompt => 'amiibo 피규어나 카드를 대세요';
+
+  @override
+  String amiiboNotNtag215(String chip) {
+    return 'amiibo가 아닙니다($chip). amiibo는 NTAG215를 씁니다.';
+  }
+
+  @override
+  String get amiiboNotFound => 'NTAG215를 읽었지만 amiibo 데이터가 없습니다.';
+
+  @override
+  String amiiboSeries(String series) {
+    return '시리즈: $series';
+  }
+
+  @override
+  String amiiboType(String type) {
+    return '유형: $type';
+  }
+
+  @override
+  String get amiiboFigure => '피규어';
+
+  @override
+  String get amiiboCard => '카드';
+
+  @override
+  String get amiiboYarn => '털실';
+
+  @override
+  String get amiiboLookup => '이름 온라인 검색(amiiboapi.com)';
+
+  @override
+  String memoryEditPage(String page) {
+    return '$page 페이지 편집(16진 4바이트)';
+  }
+
+  @override
+  String get memoryEditHint => '사용자 페이지를 눌러 편집하세요.';
+
+  @override
+  String memoryEditPrompt(String page) {
+    return '$page 페이지를 쓰려면 같은 태그를 대세요';
+  }
+
+  @override
+  String memoryPageWritten(String page) {
+    return '$page 페이지를 썼습니다.';
+  }
+
+  @override
+  String get memoryUidMismatch => '다른 태그가 감지되어 쓰지 않았습니다.';
+
+  @override
+  String memoryReadSpeed(String ms, String rate) {
+    return '읽기 시간: ${ms}ms ($rate바이트/초)';
+  }
 }

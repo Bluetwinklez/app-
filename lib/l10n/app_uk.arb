@@ -1129,5 +1129,22 @@
   "sigValid": "Підпис дійсний",
   "sigInvalid": "Підпис недійсний: вміст змінено",
   "sigOtherKey": "Підписано іншим ключем",
-  "sigReplaceKeyConfirm": "Замінити поточний ключ? Мітки зі старим підписом показуватимуться як «інший ключ»."
+  "sigReplaceKeyConfirm": "Замінити поточний ключ? Мітки зі старим підписом показуватимуться як «інший ключ».",
+  "amiiboTitle": "Відомості про amiibo",
+  "amiiboSubtitle": "ID і серія фігурки/картки (лише читання)",
+  "amiiboPrompt": "Піднесіть фігурку чи картку amiibo",
+  "amiiboNotNtag215": "Це не amiibo ({chip}); amiibo використовують NTAG215.",
+  "amiiboNotFound": "NTAG215 прочитано, але даних amiibo немає.",
+  "amiiboSeries": "Серія: {series}",
+  "amiiboType": "Тип: {type}",
+  "amiiboFigure": "Фігурка",
+  "amiiboCard": "Картка",
+  "amiiboYarn": "Пряжа",
+  "amiiboLookup": "Знайти назву онлайн (amiiboapi.com)",
+  "memoryEditPage": "Редагувати сторінку {page} (4 байти hex)",
+  "memoryEditHint": "Торкніться сторінки користувача, щоб змінити.",
+  "memoryEditPrompt": "Піднесіть ту саму мітку для запису сторінки {page}",
+  "memoryPageWritten": "Сторінку {page} записано.",
+  "memoryUidMismatch": "Виявлено іншу мітку; нічого не записано.",
+  "memoryReadSpeed": "Час читання: {ms} мс ({rate} байт/с)"
 }

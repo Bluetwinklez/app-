@@ -4022,4 +4022,71 @@ class AppLocalizationsRu extends AppLocalizations {
   @override
   String get sigReplaceKeyConfirm =>
       'Заменить текущий ключ? Метки со старой подписью будут «подписаны другим ключом».';
+
+  @override
+  String get amiiboTitle => 'Сведения об amiibo';
+
+  @override
+  String get amiiboSubtitle => 'ID и серия фигурки/карты (только чтение)';
+
+  @override
+  String get amiiboPrompt => 'Поднесите фигурку или карту amiibo';
+
+  @override
+  String amiiboNotNtag215(String chip) {
+    return 'Это не amiibo ($chip); amiibo используют NTAG215.';
+  }
+
+  @override
+  String get amiiboNotFound => 'NTAG215 прочитан, но данных amiibo нет.';
+
+  @override
+  String amiiboSeries(String series) {
+    return 'Серия: $series';
+  }
+
+  @override
+  String amiiboType(String type) {
+    return 'Тип: $type';
+  }
+
+  @override
+  String get amiiboFigure => 'Фигурка';
+
+  @override
+  String get amiiboCard => 'Карта';
+
+  @override
+  String get amiiboYarn => 'Пряжа';
+
+  @override
+  String get amiiboLookup => 'Найти название онлайн (amiiboapi.com)';
+
+  @override
+  String memoryEditPage(String page) {
+    return 'Изменить страницу $page (4 байта hex)';
+  }
+
+  @override
+  String get memoryEditHint =>
+      'Нажмите на пользовательскую страницу, чтобы изменить.';
+
+  @override
+  String memoryEditPrompt(String page) {
+    return 'Поднесите ту же метку для записи страницы $page';
+  }
+
+  @override
+  String memoryPageWritten(String page) {
+    return 'Страница $page записана.';
+  }
+
+  @override
+  String get memoryUidMismatch =>
+      'Обнаружена другая метка; ничего не записано.';
+
+  @override
+  String memoryReadSpeed(String ms, String rate) {
+    return 'Время чтения: $ms мс ($rate байт/с)';
+  }
 }
