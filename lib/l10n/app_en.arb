@@ -1192,5 +1192,12 @@
   "doctorNoTerminator": "The end marker (FE) is missing. Most phones still read it; writing again fixes it.",
   "doctorUnknownTlv": "Unrecognised data block in memory; phones may stop reading there.",
   "doctorBadRecord": "Record {n} is malformed (bad header or length). Write the tag again.",
-  "doctorHealthy": "All good: {count} record(s) correctly written."
+  "doctorHealthy": "All good: {count} record(s) correctly written.",
+  "libraryImportTitle": "Import from spreadsheet",
+  "libraryImportHint": "Copy rows from Excel, Numbers or Google Sheets and paste them here. Columns: name, content (link or text), location, labels, note, UID. With a header row, columns are matched by name.",
+  "libraryImportPreview": "{count} tags will be added",
+  "libraryImportSkipped": "{dupes} rows skipped (UID already saved), {invalid} rows skipped (no name)",
+  "libraryImportPaste": "Paste from clipboard",
+  "libraryImportAdd": "Add",
+  "libraryImportDone": "{count} tags added to the library"
 }

@@ -4042,4 +4042,32 @@ class AppLocalizationsZh extends AppLocalizations {
   String doctorHealthy(String count) {
     return '一切正常：$count 条记录写入正确。';
   }
+
+  @override
+  String get libraryImportTitle => '从表格导入';
+
+  @override
+  String get libraryImportHint =>
+      '从 Excel、Numbers 或 Google 表格复制行并粘贴到此处。列：名称、内容（链接或文本）、位置、标签、备注、UID。如有标题行，将按列名匹配。';
+
+  @override
+  String libraryImportPreview(String count) {
+    return '将添加 $count 个标签';
+  }
+
+  @override
+  String libraryImportSkipped(String dupes, String invalid) {
+    return '跳过 $dupes 行（UID 已存在），$invalid 行（无名称）';
+  }
+
+  @override
+  String get libraryImportPaste => '从剪贴板粘贴';
+
+  @override
+  String get libraryImportAdd => '添加';
+
+  @override
+  String libraryImportDone(String count) {
+    return '已向标签库添加 $count 个标签';
+  }
 }

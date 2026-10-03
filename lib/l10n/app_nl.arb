@@ -1192,5 +1192,12 @@
   "doctorNoTerminator": "De eindmarkering (FE) ontbreekt. De meeste telefoons lezen het toch; opnieuw schrijven lost het op.",
   "doctorUnknownTlv": "Onbekend datablok in het geheugen; lezen kan daar stoppen.",
   "doctorBadRecord": "Record {n} is misvormd (kop of lengte). Schrijf de tag opnieuw.",
-  "doctorHealthy": "Alles in orde: {count} record(s) correct geschreven."
+  "doctorHealthy": "Alles in orde: {count} record(s) correct geschreven.",
+  "libraryImportTitle": "Importeren uit spreadsheet",
+  "libraryImportHint": "Kopieer rijen uit Excel, Numbers of Google Spreadsheets en plak ze hier. Kolommen: naam, inhoud (link of tekst), locatie, labels, notitie, UID. Met een kopregel worden kolommen op naam gekoppeld.",
+  "libraryImportPreview": "{count} tags worden toegevoegd",
+  "libraryImportSkipped": "{dupes} rijen overgeslagen (UID al opgeslagen), {invalid} zonder naam",
+  "libraryImportPaste": "Plakken van klembord",
+  "libraryImportAdd": "Toevoegen",
+  "libraryImportDone": "{count} tags toegevoegd aan de bibliotheek"
 }

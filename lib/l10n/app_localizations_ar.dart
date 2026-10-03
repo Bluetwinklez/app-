@@ -4212,4 +4212,32 @@ class AppLocalizationsAr extends AppLocalizations {
   String doctorHealthy(String count) {
     return 'كل شيء سليم: $count سجل مكتوب بشكل صحيح.';
   }
+
+  @override
+  String get libraryImportTitle => 'استيراد من جدول';
+
+  @override
+  String get libraryImportHint =>
+      'انسخ صفوفًا من Excel أو Numbers أو جداول Google والصقها هنا. الأعمدة: الاسم، المحتوى (رابط أو نص)، الموقع، التصنيفات، ملاحظة، UID. مع صف عناوين تُطابق الأعمدة بالاسم.';
+
+  @override
+  String libraryImportPreview(String count) {
+    return 'ستُضاف $count وسوم';
+  }
+
+  @override
+  String libraryImportSkipped(String dupes, String invalid) {
+    return 'تخطي $dupes صفوف (UID محفوظ مسبقًا) و$invalid بلا اسم';
+  }
+
+  @override
+  String get libraryImportPaste => 'لصق من الحافظة';
+
+  @override
+  String get libraryImportAdd => 'إضافة';
+
+  @override
+  String libraryImportDone(String count) {
+    return 'تمت إضافة $count وسوم إلى المكتبة';
+  }
 }

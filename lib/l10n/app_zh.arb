@@ -1192,5 +1192,12 @@
   "doctorNoTerminator": "缺少结束标记 (FE)。多数手机仍可读取；重新写入可修复。",
   "doctorUnknownTlv": "内存中有无法识别的数据块，读取可能在此中断。",
   "doctorBadRecord": "第 {n} 条记录格式错误（头部或长度）。请重新写入。",
-  "doctorHealthy": "一切正常：{count} 条记录写入正确。"
+  "doctorHealthy": "一切正常：{count} 条记录写入正确。",
+  "libraryImportTitle": "从表格导入",
+  "libraryImportHint": "从 Excel、Numbers 或 Google 表格复制行并粘贴到此处。列：名称、内容（链接或文本）、位置、标签、备注、UID。如有标题行，将按列名匹配。",
+  "libraryImportPreview": "将添加 {count} 个标签",
+  "libraryImportSkipped": "跳过 {dupes} 行（UID 已存在），{invalid} 行（无名称）",
+  "libraryImportPaste": "从剪贴板粘贴",
+  "libraryImportAdd": "添加",
+  "libraryImportDone": "已向标签库添加 {count} 个标签"
 }

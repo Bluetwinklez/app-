@@ -8,6 +8,7 @@ import 'package:intl/intl.dart';
 import 'package:path_provider/path_provider.dart';
 import 'package:share_plus/share_plus.dart';
 import '../domain/csv_export.dart';
+import '../domain/library_import.dart';
 import '../domain/ndef_record.dart';
 import '../domain/tag_library.dart';
 import '../l10n/app_localizations.dart';
@@ -145,6 +146,88 @@ class _TagLibraryPageState extends State<TagLibraryPage> {
       });
     }
     return list;
+  }
+
+  Future<void> _importCsv() async {
+    final loc = AppLocalizations.of(context) ?? L10n.current;
+    final text = TextEditingController();
+    LibraryImportResult preview() => LibraryCsvImporter.parse(
+          text.text,
+          existing: widget.storage.getLibrary(),
+          headerAliases: {
+            loc.name: LibraryColumn.name,
+            loc.csvColumnContent: LibraryColumn.content,
+            loc.locationLabel: LibraryColumn.location,
+            loc.csvColumnLabels: LibraryColumn.labels,
+            loc.noteLabel: LibraryColumn.note,
+            loc.categoryLabel: LibraryColumn.category,
+          },
+        );
+    final result = await showDialog<LibraryImportResult>(
+      context: context,
+      builder: (ctx) => StatefulBuilder(
+        builder: (ctx, setDlg) {
+          final r = preview();
+          return AlertDialog(
+            title: Text(loc.libraryImportTitle),
+            content: SingleChildScrollView(
+              child: Column(
+                mainAxisSize: MainAxisSize.min,
+                crossAxisAlignment: CrossAxisAlignment.stretch,
+                children: [
+                  Text(loc.libraryImportHint, style: TextStyle(fontSize: 13, color: AppColors.secondary, height: 1.35)),
+                  const SizedBox(height: 10),
+                  TextField(
+                    controller: text,
+                    minLines: 4,
+                    maxLines: 8,
+                    style: const TextStyle(fontFamily: 'monospace', fontSize: 12.5),
+                    onChanged: (_) => setDlg(() {}),
+                  ),
+                  Align(
+                    alignment: AlignmentDirectional.centerStart,
+                    child: TextButton.icon(
+                      icon: const Icon(Icons.content_paste_rounded, size: 18),
+                      label: Text(loc.libraryImportPaste),
+                      onPressed: () async {
+                        final data = await Clipboard.getData(Clipboard.kTextPlain);
+                        if (data?.text != null) setDlg(() => text.text = data!.text!);
+                      },
+                    ),
+                  ),
+                  if (text.text.trim().isNotEmpty) ...[
+                    Text(loc.libraryImportPreview('${r.entries.length}'),
+                        style: TextStyle(fontWeight: FontWeight.w600, color: AppColors.accent)),
+                    if (r.duplicates > 0 || r.invalidRows.isNotEmpty)
+                      Text(loc.libraryImportSkipped('${r.duplicates}', '${r.invalidRows.length}'),
+                          style: TextStyle(fontSize: 12.5, color: AppColors.warning)),
+                  ],
+                ],
+              ),
+            ),
+            actions: [
+              TextButton(onPressed: () => Navigator.of(ctx).pop(), child: Text(loc.cancel)),
+              ElevatedButton(
+                onPressed: r.entries.isEmpty ? null : () => Navigator.of(ctx).pop(r),
+                child: Text(loc.libraryImportAdd),
+              ),
+            ],
+          );
+        },
+      ),
+    );
+    text.dispose();
+    if (result == null) return;
+    // New entries go on top; save in reverse so the sheet order is kept.
+    for (final e in result.entries.reversed) {
+      await widget.storage.saveLibraryEntry(e);
+    }
+    if (!mounted) return;
+    setState(() {});
+    ScaffoldMessenger.of(context).showSnackBar(SnackBar(
+      content: Text(loc.libraryImportDone('${result.entries.length}')),
+      backgroundColor: AppColors.success,
+    ));
   }
 
   Future<void> _exportCsv() async {
@@ -339,6 +422,11 @@ class _TagLibraryPageState extends State<TagLibraryPage> {
         appBar: AppBar(
           title: Text(loc.tagLibraryTitle),
           actions: [
+            IconButton(
+              tooltip: loc.libraryImportTitle,
+              icon: const Icon(Icons.table_view_outlined),
+              onPressed: _importCsv,
+            ),
             if (widget.storage.getLibrary().isNotEmpty)
               IconButton(
                 tooltip: loc.printSheet,

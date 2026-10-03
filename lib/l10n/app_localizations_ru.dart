@@ -4266,4 +4266,32 @@ class AppLocalizationsRu extends AppLocalizations {
   String doctorHealthy(String count) {
     return 'Всё в порядке: $count записей записано верно.';
   }
+
+  @override
+  String get libraryImportTitle => 'Импорт из таблицы';
+
+  @override
+  String get libraryImportHint =>
+      'Скопируйте строки из Excel, Numbers или Google Таблиц и вставьте сюда. Столбцы: название, содержимое (ссылка или текст), место, ярлыки, заметка, UID. При наличии заголовка столбцы сопоставляются по имени.';
+
+  @override
+  String libraryImportPreview(String count) {
+    return 'Будет добавлено меток: $count';
+  }
+
+  @override
+  String libraryImportSkipped(String dupes, String invalid) {
+    return 'Пропущено строк: $dupes (UID уже есть), $invalid (без названия)';
+  }
+
+  @override
+  String get libraryImportPaste => 'Вставить из буфера';
+
+  @override
+  String get libraryImportAdd => 'Добавить';
+
+  @override
+  String libraryImportDone(String count) {
+    return 'В библиотеку добавлено меток: $count';
+  }
 }

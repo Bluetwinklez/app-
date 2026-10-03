@@ -4076,4 +4076,32 @@ class AppLocalizationsJa extends AppLocalizations {
   String doctorHealthy(String count) {
     return '問題なし：$count件のレコードが正しく書き込まれています。';
   }
+
+  @override
+  String get libraryImportTitle => '表から読み込む';
+
+  @override
+  String get libraryImportHint =>
+      'Excel、Numbers、Googleスプレッドシートから行をコピーして貼り付けてください。列：名前、内容（リンクまたはテキスト）、場所、ラベル、メモ、UID。見出し行があれば列名で対応付けます。';
+
+  @override
+  String libraryImportPreview(String count) {
+    return '$count件のタグを追加します';
+  }
+
+  @override
+  String libraryImportSkipped(String dupes, String invalid) {
+    return '$dupes行はUID登録済み、$invalid行は名前なしのためスキップ';
+  }
+
+  @override
+  String get libraryImportPaste => 'クリップボードから貼り付け';
+
+  @override
+  String get libraryImportAdd => '追加';
+
+  @override
+  String libraryImportDone(String count) {
+    return '$count件のタグをライブラリに追加しました';
+  }
 }
