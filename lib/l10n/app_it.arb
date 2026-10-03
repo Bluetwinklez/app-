@@ -1289,5 +1289,18 @@
   "textSizeTitle": "Dimensione testo",
   "speakTag": "Leggi ad alta voce",
   "speakAfterScanTitle": "Leggi ad alta voce dopo la lettura",
-  "speakAfterScanSubtitle": "Il contenuto viene letto; utile per ipovedenti e modalità semplice"
+  "speakAfterScanSubtitle": "Il contenuto viene letto; utile per ipovedenti e modalità semplice",
+  "logbookKindHabit": "Abitudine (serie)",
+  "logbookKindChores": "Tabella compiti bambini",
+  "logbookKindFeeding": "Pappa animale",
+  "logbookKindVisitors": "Registro visitatori",
+  "habitStreak": "🔥 Serie di {current} giorni · record {best}",
+  "habitDoneToday": "Fatto oggi ✓",
+  "habitNotToday": "Non ancora oggi — non rompere la serie!",
+  "choresStars": "⭐ {count} compiti fatti oggi",
+  "feedingLast": "Ultimo pasto {ago} fa ({time})",
+  "feedingNever": "Nessun pasto registrato",
+  "visitorsToday": "{count} visitatori oggi",
+  "visitorNamePrompt": "Nome del visitatore",
+  "visitorNameHint": "Nome, azienda (facoltativo)"
 }

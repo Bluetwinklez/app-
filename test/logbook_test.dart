@@ -74,4 +74,25 @@ void main() {
     expect(book.workedOn(d)['A']!.worked, const Duration(hours: 2));
     expect(book.workedOn(d.add(const Duration(days: 1)))['A']!.worked, const Duration(hours: 6));
   });
+
+  test('habit streak counts consecutive days and keeps today open', () {
+    final today = DateTime(2026, 5, 10, 20);
+    var book = LogBook(id: 'h', name: 'Su', kind: LogBookKind.habit, createdAt: today);
+    for (final d in [1, 2, 3, 6, 7, 8, 9]) {
+      book = book.add(e(DateTime(2026, 5, d, 9), 'A'));
+    }
+    // Not yet done today: yesterday's run still counts.
+    expect(book.streak(today: today), (current: 4, best: 4));
+    book = book.add(e(DateTime(2026, 5, 10, 8), 'A'));
+    expect(book.streak(today: today), (current: 5, best: 5));
+    expect(book.streak(today: DateTime(2026, 5, 12)).current, 0);
+    expect(LogBook(id: 'x', name: 'x', kind: LogBookKind.habit, createdAt: today).streak(), (current: 0, best: 0));
+  });
+
+  test('notes are kept and survive JSON', () {
+    final entry = LogEntry(time: day, uid: 'A', label: 'Kart 1', note: 'Ayşe Y.');
+    expect(LogEntry.fromJsonMap(entry.toJsonMap()).note, 'Ayşe Y.');
+    final clock = LogBook(id: 't', name: 't', kind: LogBookKind.timeClock, createdAt: day).add(entry);
+    expect(clock.entries.single.note, 'Ayşe Y.');
+  });
 }

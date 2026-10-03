@@ -1289,5 +1289,18 @@
   "textSizeTitle": "Розмір тексту",
   "speakTag": "Прочитати вголос",
   "speakAfterScanTitle": "Читати вголос після сканування",
-  "speakAfterScanSubtitle": "Вміст озвучується; зручно при слабкому зорі та в простому режимі"
+  "speakAfterScanSubtitle": "Вміст озвучується; зручно при слабкому зорі та в простому режимі",
+  "logbookKindHabit": "Звичка (серія)",
+  "logbookKindChores": "Таблиця справ для дітей",
+  "logbookKindFeeding": "Годування улюбленця",
+  "logbookKindVisitors": "Журнал відвідувачів",
+  "habitStreak": "🔥 Серія {current} дн. · рекорд {best}",
+  "habitDoneToday": "Сьогодні виконано ✓",
+  "habitNotToday": "Сьогодні ще ні — не переривайте серію!",
+  "choresStars": "⭐ Сьогодні виконано справ: {count}",
+  "feedingLast": "Останнє годування {ago} тому ({time})",
+  "feedingNever": "Годувань ще немає",
+  "visitorsToday": "Відвідувачів сьогодні: {count}",
+  "visitorNamePrompt": "Ім'я відвідувача",
+  "visitorNameHint": "Ім'я, компанія (необов'язково)"
 }

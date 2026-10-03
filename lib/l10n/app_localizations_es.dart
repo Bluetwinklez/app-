@@ -4642,4 +4642,51 @@ class AppLocalizationsEs extends AppLocalizations {
   @override
   String get speakAfterScanSubtitle =>
       'Se lee el contenido; útil para baja visión y modo simple';
+
+  @override
+  String get logbookKindHabit => 'Hábito (racha)';
+
+  @override
+  String get logbookKindChores => 'Tabla de tareas infantil';
+
+  @override
+  String get logbookKindFeeding => 'Alimentar mascota';
+
+  @override
+  String get logbookKindVisitors => 'Registro de visitas';
+
+  @override
+  String habitStreak(String current, String best) {
+    return '🔥 Racha de $current días · mejor $best';
+  }
+
+  @override
+  String get habitDoneToday => 'Hecho hoy ✓';
+
+  @override
+  String get habitNotToday => 'Aún no hoy — ¡mantén la racha!';
+
+  @override
+  String choresStars(String count) {
+    return '⭐ $count tareas hechas hoy';
+  }
+
+  @override
+  String feedingLast(String ago, String time) {
+    return 'Última comida hace $ago ($time)';
+  }
+
+  @override
+  String get feedingNever => 'Aún no hay comidas';
+
+  @override
+  String visitorsToday(String count) {
+    return '$count visitas hoy';
+  }
+
+  @override
+  String get visitorNamePrompt => 'Nombre del visitante';
+
+  @override
+  String get visitorNameHint => 'Nombre, empresa (opcional)';
 }

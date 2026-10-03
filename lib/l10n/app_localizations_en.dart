@@ -4596,4 +4596,51 @@ class AppLocalizationsEn extends AppLocalizations {
   @override
   String get speakAfterScanSubtitle =>
       'The tag content is spoken; helpful for low vision and simple mode';
+
+  @override
+  String get logbookKindHabit => 'Habit (streak)';
+
+  @override
+  String get logbookKindChores => 'Kids\' chore chart';
+
+  @override
+  String get logbookKindFeeding => 'Pet feeding';
+
+  @override
+  String get logbookKindVisitors => 'Visitor log';
+
+  @override
+  String habitStreak(String current, String best) {
+    return '🔥 $current-day streak · best $best';
+  }
+
+  @override
+  String get habitDoneToday => 'Done today ✓';
+
+  @override
+  String get habitNotToday => 'Not done today yet — keep the streak!';
+
+  @override
+  String choresStars(String count) {
+    return '⭐ $count chores done today';
+  }
+
+  @override
+  String feedingLast(String ago, String time) {
+    return 'Last fed $ago ago ($time)';
+  }
+
+  @override
+  String get feedingNever => 'No feeding logged yet';
+
+  @override
+  String visitorsToday(String count) {
+    return '$count visitors today';
+  }
+
+  @override
+  String get visitorNamePrompt => 'Visitor name';
+
+  @override
+  String get visitorNameHint => 'Name, company (optional)';
 }
