@@ -182,12 +182,6 @@ abstract class AppLocalizations {
   /// **'Android Paket Adı'**
   String get appPackageName;
 
-  /// No description provided for @appSettings.
-  ///
-  /// In tr, this message translates to:
-  /// **'Uygulama Ayarları'**
-  String get appSettings;
-
   /// No description provided for @appTitle.
   ///
   /// In tr, this message translates to:
@@ -7473,6 +7467,127 @@ abstract class AppLocalizations {
   /// In tr, this message translates to:
   /// **'• Giriş/Çıkış (mesai) defteri: kim içeride, bugün kaç saat\n• Kütüphane etiketi okutulunca deftere otomatik kayıt\n• Bakım/kontrol hatırlatıcısı ve \"kontrol bekleyenler\" filtresi\n• Kopya etiket uyarısı\n• NDEF Doktoru: bozuk etiketleri teşhis eder\n• Excel/Numbers\'tan kütüphaneye toplu ekleme\n• Yeni şablonlar: Hediye mesajı, Bitki bakımı, Çocuk bilekliği, Kullanım talimatı'**
   String get whatsNew130;
+
+  /// No description provided for @securityTitle.
+  ///
+  /// In tr, this message translates to:
+  /// **'Güvenlik ve gizlilik'**
+  String get securityTitle;
+
+  /// No description provided for @lockAfterTitle.
+  ///
+  /// In tr, this message translates to:
+  /// **'Yeniden kilitleme'**
+  String get lockAfterTitle;
+
+  /// No description provided for @lockImmediately.
+  ///
+  /// In tr, this message translates to:
+  /// **'Hemen'**
+  String get lockImmediately;
+
+  /// No description provided for @lockAfterSecondsLabel.
+  ///
+  /// In tr, this message translates to:
+  /// **'{n} sn'**
+  String lockAfterSecondsLabel(String n);
+
+  /// No description provided for @lockAfterMinutesLabel.
+  ///
+  /// In tr, this message translates to:
+  /// **'{n} dk'**
+  String lockAfterMinutesLabel(String n);
+
+  /// No description provided for @hideInSwitcherTitle.
+  ///
+  /// In tr, this message translates to:
+  /// **'Uygulama değiştiricide gizle'**
+  String get hideInSwitcherTitle;
+
+  /// No description provided for @hideInSwitcherSubtitle.
+  ///
+  /// In tr, this message translates to:
+  /// **'Arka plandayken ekran bulanıklaşır. Android\'de ekran görüntüsü de engellenir.'**
+  String get hideInSwitcherSubtitle;
+
+  /// No description provided for @clearClipboardTitle.
+  ///
+  /// In tr, this message translates to:
+  /// **'Panoyu otomatik temizle'**
+  String get clearClipboardTitle;
+
+  /// No description provided for @clearClipboardSubtitle.
+  ///
+  /// In tr, this message translates to:
+  /// **'Kopyalanan anahtar gibi hassas bilgiler 60 saniye sonra panodan silinir.'**
+  String get clearClipboardSubtitle;
+
+  /// No description provided for @securityConfirmReason.
+  ///
+  /// In tr, this message translates to:
+  /// **'Devam etmek için kimliğinizi doğrulayın'**
+  String get securityConfirmReason;
+
+  /// No description provided for @securityCopiedClears.
+  ///
+  /// In tr, this message translates to:
+  /// **'Kopyalandı · 60 sn sonra panodan silinecek'**
+  String get securityCopiedClears;
+
+  /// No description provided for @wipeTitle.
+  ///
+  /// In tr, this message translates to:
+  /// **'Tüm verileri sil'**
+  String get wipeTitle;
+
+  /// No description provided for @wipeSubtitle.
+  ///
+  /// In tr, this message translates to:
+  /// **'Geçmiş, kütüphane, fotoğraflar, defterler, şablonlar, imza anahtarı ve ayarlar'**
+  String get wipeSubtitle;
+
+  /// No description provided for @wipeConfirm.
+  ///
+  /// In tr, this message translates to:
+  /// **'Tüm veriler bu cihazdan kalıcı olarak silinsin mi? Bu işlem geri alınamaz; önce yedek almanızı öneririz.'**
+  String get wipeConfirm;
+
+  /// No description provided for @wipeDone.
+  ///
+  /// In tr, this message translates to:
+  /// **'Tüm veriler silindi'**
+  String get wipeDone;
+
+  /// No description provided for @dataSummary.
+  ///
+  /// In tr, this message translates to:
+  /// **'{history} geçmiş · {library} kütüphane · {books} defter · {templates} şablon'**
+  String dataSummary(
+      String history, String library, String books, String templates);
+
+  /// No description provided for @secCheckTitle.
+  ///
+  /// In tr, this message translates to:
+  /// **'Güvenlik kontrolü'**
+  String get secCheckTitle;
+
+  /// No description provided for @secCheckScore.
+  ///
+  /// In tr, this message translates to:
+  /// **'{ok}/{total} önerilen ayar açık'**
+  String secCheckScore(String ok, String total);
+
+  /// No description provided for @secCheckBackup.
+  ///
+  /// In tr, this message translates to:
+  /// **'Son 30 günde yedek alındı'**
+  String get secCheckBackup;
+
+  /// No description provided for @secCheckEncryptedNote.
+  ///
+  /// In tr, this message translates to:
+  /// **'Yedeklerde Wi-Fi şifreleri olabilir; dışa aktarırken parola koruması önerilir.'**
+  String get secCheckEncryptedNote;
 }
 
 class _AppLocalizationsDelegate

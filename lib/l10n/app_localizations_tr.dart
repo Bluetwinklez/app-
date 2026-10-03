@@ -42,9 +42,6 @@ class AppLocalizationsTr extends AppLocalizations {
   String get appPackageName => 'Android Paket Adı';
 
   @override
-  String get appSettings => 'Uygulama Ayarları';
-
-  @override
   String get appTitle => 'NFC Etiket Yöneticisi';
 
   @override
@@ -4379,4 +4376,79 @@ class AppLocalizationsTr extends AppLocalizations {
   @override
   String get whatsNew130 =>
       '• Giriş/Çıkış (mesai) defteri: kim içeride, bugün kaç saat\n• Kütüphane etiketi okutulunca deftere otomatik kayıt\n• Bakım/kontrol hatırlatıcısı ve \"kontrol bekleyenler\" filtresi\n• Kopya etiket uyarısı\n• NDEF Doktoru: bozuk etiketleri teşhis eder\n• Excel/Numbers\'tan kütüphaneye toplu ekleme\n• Yeni şablonlar: Hediye mesajı, Bitki bakımı, Çocuk bilekliği, Kullanım talimatı';
+
+  @override
+  String get securityTitle => 'Güvenlik ve gizlilik';
+
+  @override
+  String get lockAfterTitle => 'Yeniden kilitleme';
+
+  @override
+  String get lockImmediately => 'Hemen';
+
+  @override
+  String lockAfterSecondsLabel(String n) {
+    return '$n sn';
+  }
+
+  @override
+  String lockAfterMinutesLabel(String n) {
+    return '$n dk';
+  }
+
+  @override
+  String get hideInSwitcherTitle => 'Uygulama değiştiricide gizle';
+
+  @override
+  String get hideInSwitcherSubtitle =>
+      'Arka plandayken ekran bulanıklaşır. Android\'de ekran görüntüsü de engellenir.';
+
+  @override
+  String get clearClipboardTitle => 'Panoyu otomatik temizle';
+
+  @override
+  String get clearClipboardSubtitle =>
+      'Kopyalanan anahtar gibi hassas bilgiler 60 saniye sonra panodan silinir.';
+
+  @override
+  String get securityConfirmReason => 'Devam etmek için kimliğinizi doğrulayın';
+
+  @override
+  String get securityCopiedClears =>
+      'Kopyalandı · 60 sn sonra panodan silinecek';
+
+  @override
+  String get wipeTitle => 'Tüm verileri sil';
+
+  @override
+  String get wipeSubtitle =>
+      'Geçmiş, kütüphane, fotoğraflar, defterler, şablonlar, imza anahtarı ve ayarlar';
+
+  @override
+  String get wipeConfirm =>
+      'Tüm veriler bu cihazdan kalıcı olarak silinsin mi? Bu işlem geri alınamaz; önce yedek almanızı öneririz.';
+
+  @override
+  String get wipeDone => 'Tüm veriler silindi';
+
+  @override
+  String dataSummary(
+      String history, String library, String books, String templates) {
+    return '$history geçmiş · $library kütüphane · $books defter · $templates şablon';
+  }
+
+  @override
+  String get secCheckTitle => 'Güvenlik kontrolü';
+
+  @override
+  String secCheckScore(String ok, String total) {
+    return '$ok/$total önerilen ayar açık';
+  }
+
+  @override
+  String get secCheckBackup => 'Son 30 günde yedek alındı';
+
+  @override
+  String get secCheckEncryptedNote =>
+      'Yedeklerde Wi-Fi şifreleri olabilir; dışa aktarırken parola koruması önerilir.';
 }

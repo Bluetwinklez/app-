@@ -61,6 +61,18 @@ abstract class AppStorageService {
   bool get simpleMode;
   Future<void> setSimpleMode(bool value);
 
+  /// Seconds in the background before the app lock asks again (0 = immediately).
+  int get lockAfterSeconds;
+  Future<void> setLockAfterSeconds(int value);
+
+  /// Cover the screen in the app switcher while the app is in the background.
+  bool get hideInSwitcher;
+  Future<void> setHideInSwitcher(bool value);
+
+  /// Clear sensitive values (keys, dumps) from the clipboard 60 s after copying.
+  bool get clearClipboardAfterCopy;
+  Future<void> setClearClipboardAfterCopy(bool value);
+
   /// Compatibility mode: skip read-back verification after writes.
   bool get compatibilityMode;
   Future<void> setCompatibilityMode(bool enabled);
@@ -156,6 +168,30 @@ class InMemoryAppStorageService implements AppStorageService {
 
   @override
   Future<void> setCompatibilityMode(bool enabled) async => _compatibilityMode = enabled;
+
+  bool _clearClipboardAfterCopy = true;
+
+  @override
+  bool get clearClipboardAfterCopy => _clearClipboardAfterCopy;
+
+  @override
+  Future<void> setClearClipboardAfterCopy(bool value) async => _clearClipboardAfterCopy = value;
+
+  bool _hideInSwitcher = true;
+
+  @override
+  bool get hideInSwitcher => _hideInSwitcher;
+
+  @override
+  Future<void> setHideInSwitcher(bool value) async => _hideInSwitcher = value;
+
+  int _lockAfterSeconds = 60;
+
+  @override
+  int get lockAfterSeconds => _lockAfterSeconds;
+
+  @override
+  Future<void> setLockAfterSeconds(int value) async => _lockAfterSeconds = value;
 
   bool _simpleMode = false;
 
@@ -464,6 +500,9 @@ class LocalFileAppStorageService implements AppStorageService {
               : const [];
           _lastBackupAt = DateTime.tryParse(data['lastBackupAt'] as String? ?? '');
           _compatibilityMode = data['compatibilityMode'] as bool? ?? false;
+          _clearClipboardAfterCopy = data['clearClipboardAfterCopy'] as bool? ?? true;
+          _hideInSwitcher = data['hideInSwitcher'] as bool? ?? true;
+          _lockAfterSeconds = data['lockAfterSeconds'] as int? ?? 60;
           _simpleMode = data['simpleMode'] as bool? ?? false;
           _signOnWrite = data['signOnWrite'] as bool? ?? false;
           _signingKey = data['signingKey'] as String?;
@@ -627,6 +666,9 @@ class LocalFileAppStorageService implements AppStorageService {
       'favoritePresets': _favoritePresets,
       if (_lastBackupAt != null) 'lastBackupAt': _lastBackupAt!.toIso8601String(),
       'compatibilityMode': _compatibilityMode,
+      'clearClipboardAfterCopy': _clearClipboardAfterCopy,
+      'hideInSwitcher': _hideInSwitcher,
+      'lockAfterSeconds': _lockAfterSeconds,
       'simpleMode': _simpleMode,
       'signOnWrite': _signOnWrite,
       'signingKey': _signingKey,
@@ -702,6 +744,39 @@ class LocalFileAppStorageService implements AppStorageService {
   @override
   Future<void> setCompatibilityMode(bool enabled) async {
     _compatibilityMode = enabled;
+    await _saveSettings();
+  }
+
+  bool _clearClipboardAfterCopy = true;
+
+  @override
+  bool get clearClipboardAfterCopy => _clearClipboardAfterCopy;
+
+  @override
+  Future<void> setClearClipboardAfterCopy(bool value) async {
+    _clearClipboardAfterCopy = value;
+    await _saveSettings();
+  }
+
+  bool _hideInSwitcher = true;
+
+  @override
+  bool get hideInSwitcher => _hideInSwitcher;
+
+  @override
+  Future<void> setHideInSwitcher(bool value) async {
+    _hideInSwitcher = value;
+    await _saveSettings();
+  }
+
+  int _lockAfterSeconds = 60;
+
+  @override
+  int get lockAfterSeconds => _lockAfterSeconds;
+
+  @override
+  Future<void> setLockAfterSeconds(int value) async {
+    _lockAfterSeconds = value;
     await _saveSettings();
   }
 

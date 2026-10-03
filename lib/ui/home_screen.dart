@@ -1,8 +1,10 @@
 import 'dart:convert';
+import 'dart:io';
 import 'dart:math';
 import 'package:file_selector/file_selector.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:path_provider/path_provider.dart';
 import 'package:share_plus/share_plus.dart';
 import '../domain/ndef_record.dart';
 import '../domain/nfc_tag_info.dart';
@@ -29,6 +31,7 @@ import 'template_gallery_page.dart';
 import 'tag_library_page.dart';
 import 'shortcuts_guide_sheet.dart';
 import '../services/launch_action_service.dart';
+import '../services/security_service.dart';
 import '../domain/tag_identity.dart';
 import '../domain/capacity.dart';
 import '../domain/csv_export.dart';
@@ -387,7 +390,8 @@ class _HomeScreenState extends State<HomeScreen>
               subtitle: Text(L10n.current.soundsToggleSubtitle),
               value: _controller.soundsEnabled,
               onChanged: (v) => _controller.setSoundsEnabled(v),
-            ),            const Divider(height: 24),
+            ),
+            const Divider(height: 24),
             ListTile(
               leading: Icon(Icons.collections_bookmark_outlined, color: AppColors.accent),
               title: Text(L10n.current.tagLibraryTitle),
@@ -478,29 +482,6 @@ class _HomeScreenState extends State<HomeScreen>
               value: _controller.storage.simpleMode,
               onChanged: (on) async {
                 await _controller.storage.setSimpleMode(on);
-                if (mounted) setState(() {});
-              },
-            ),
-            SwitchListTile.adaptive(
-              secondary: Icon(Icons.lock_outline_rounded, color: AppColors.accent),
-              title: Text(L10n.current.appLockTitle),
-              subtitle: Text(L10n.current.appLockSubtitle),
-              value: _controller.storage.appLockEnabled,
-              onChanged: (on) async {
-                if (on) {
-                  // Prove it works before turning it on.
-                  final ok = await LaunchActionService.authenticate(
-                      reason: L10n.current.appLockReason, title: L10n.current.appTitle);
-                  if (!mounted) return;
-                  if (ok == null) {
-                    ScaffoldMessenger.of(context).showSnackBar(
-                      SnackBar(content: Text(L10n.current.appLockUnavailable)),
-                    );
-                    return;
-                  }
-                  if (ok != true) return;
-                }
-                await _controller.storage.setAppLockEnabled(on);
                 if (mounted) setState(() {});
               },
             ),

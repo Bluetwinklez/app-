@@ -42,9 +42,6 @@ class AppLocalizationsEn extends AppLocalizations {
   String get appPackageName => 'Android Package Name';
 
   @override
-  String get appSettings => 'App Settings';
-
-  @override
   String get appTitle => 'NFC Tag Master';
 
   @override
@@ -4367,4 +4364,78 @@ class AppLocalizationsEn extends AppLocalizations {
   @override
   String get whatsNew130 =>
       '• Check-in/out (time clock) logbook: who is inside, hours today\n• Library tags can log to a logbook automatically when scanned\n• Inspection reminders and a \"due\" filter\n• Copied tag warning\n• NDEF Doctor: diagnoses broken tags\n• Bulk add to the library from Excel/Numbers\n• New templates: Gift message, Plant care, Child wristband, How-to card';
+
+  @override
+  String get securityTitle => 'Security & privacy';
+
+  @override
+  String get lockAfterTitle => 'Lock again after';
+
+  @override
+  String get lockImmediately => 'Immediately';
+
+  @override
+  String lockAfterSecondsLabel(String n) {
+    return '$n s';
+  }
+
+  @override
+  String lockAfterMinutesLabel(String n) {
+    return '$n min';
+  }
+
+  @override
+  String get hideInSwitcherTitle => 'Hide in app switcher';
+
+  @override
+  String get hideInSwitcherSubtitle =>
+      'The screen is blurred in the background. On Android, screenshots are blocked too.';
+
+  @override
+  String get clearClipboardTitle => 'Auto-clear clipboard';
+
+  @override
+  String get clearClipboardSubtitle =>
+      'Sensitive values such as copied keys are removed from the clipboard after 60 seconds.';
+
+  @override
+  String get securityConfirmReason => 'Confirm it\'s you to continue';
+
+  @override
+  String get securityCopiedClears => 'Copied · will be cleared in 60 s';
+
+  @override
+  String get wipeTitle => 'Erase all data';
+
+  @override
+  String get wipeSubtitle =>
+      'History, library, photos, logbooks, templates, signing key and settings';
+
+  @override
+  String get wipeConfirm =>
+      'Permanently erase all data from this device? This cannot be undone; we recommend making a backup first.';
+
+  @override
+  String get wipeDone => 'All data erased';
+
+  @override
+  String dataSummary(
+      String history, String library, String books, String templates) {
+    return '$history history · $library library · $books logbooks · $templates templates';
+  }
+
+  @override
+  String get secCheckTitle => 'Security check';
+
+  @override
+  String secCheckScore(String ok, String total) {
+    return '$ok/$total recommended settings on';
+  }
+
+  @override
+  String get secCheckBackup => 'Backed up in the last 30 days';
+
+  @override
+  String get secCheckEncryptedNote =>
+      'Backups can contain Wi-Fi passwords; password protection is recommended when exporting.';
 }

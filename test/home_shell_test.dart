@@ -75,7 +75,8 @@ void main() {
 
     await tester.tap(find.text('Ayarlar').last);
     await tester.pumpAndSettle();
-    await tester.drag(find.byType(Scrollable).last, const Offset(0, -500));
+    expect(find.text('Güvenlik ve gizlilik'), findsOneWidget);
+    await tester.scrollUntilVisible(find.text('Koyu'), 300, scrollable: find.byType(Scrollable).last);
     await tester.pumpAndSettle();
     expect(find.text('Görünüm'), findsOneWidget);
 
