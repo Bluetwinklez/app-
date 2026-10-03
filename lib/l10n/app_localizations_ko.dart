@@ -3226,4 +3226,95 @@ class AppLocalizationsKo extends AppLocalizations {
   @override
   String get tapIosRequirement =>
       'iPhone XS 이상은 잠금 해제 상태이고 카메라/지갑이 열려 있지 않을 때 백그라운드로 읽습니다.';
+
+  @override
+  String get galleryCatBusiness => '비즈니스';
+
+  @override
+  String get galleryCatSocial => '소셜';
+
+  @override
+  String get galleryCatHome => '홈';
+
+  @override
+  String get galleryCatPersonal => '개인';
+
+  @override
+  String get galleryCatAutomation => '자동화';
+
+  @override
+  String get galleryFavorites => '즐겨찾기';
+
+  @override
+  String get gallerySearchHint => '템플릿 검색...';
+
+  @override
+  String get galleryNoResults => '일치하는 템플릿이 없습니다.';
+
+  @override
+  String get galleryAddFavorite => '즐겨찾기에 추가';
+
+  @override
+  String get galleryRemoveFavorite => '즐겨찾기에서 제거';
+
+  @override
+  String get presetEventTitle => '이벤트 초대';
+
+  @override
+  String get presetEventDesc =>
+      '일정을 iCalendar 형식으로 씁니다. Android는 캘린더에 추가할 수 있습니다.';
+
+  @override
+  String get eventNameLabel => '이벤트 이름';
+
+  @override
+  String get eventDateLabel => '날짜 (YYYY-MM-DD)';
+
+  @override
+  String get eventTimeLabel => '시간 (HH:MM)';
+
+  @override
+  String get eventDateTimeInvalid => '날짜나 시간이 올바르지 않습니다. 예: 2026-12-31, 19:00';
+
+  @override
+  String get presetLuggageTitle => '수하물 태그';
+
+  @override
+  String get presetLuggageDesc => '분실 시 습득자가 쉽게 연락할 수 있습니다.';
+
+  @override
+  String luggageMessage(String name, String contact) {
+    return '이 수하물은 $name의 것입니다. 발견하시면 연락 주세요: $contact';
+  }
+
+  @override
+  String get presetPlaylistTitle => '플레이리스트';
+
+  @override
+  String get presetPlaylistDesc => 'Spotify, Apple Music, YouTube 플레이리스트를 엽니다.';
+
+  @override
+  String get playlistLinkLabel => '플레이리스트 링크';
+
+  @override
+  String get presetEmailMeTitle => '이메일 보내기';
+
+  @override
+  String get presetEmailMeDesc => '제목이 채워진 새 이메일을 엽니다.';
+
+  @override
+  String get presetCallMeTitle => '전화하기';
+
+  @override
+  String get presetCallMeDesc => '태그한 휴대폰이 내 번호로 전화합니다.';
+
+  @override
+  String get presetRunShortcutTitle => '단축어 실행';
+
+  @override
+  String get presetRunShortcutDesc =>
+      '지정한 iPhone 단축어 실행: 조명 켜기, 음악 재생, 집중 모드 변경...';
+
+  @override
+  String get shortcutNameLabel => '단축어 이름';
 }

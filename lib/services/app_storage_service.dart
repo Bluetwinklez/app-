@@ -32,6 +32,10 @@ abstract class AppStorageService {
   bool get soundsEnabled;
   Future<void> setSoundsEnabled(bool enabled);
 
+  /// Gallery preset ids the user starred, most recent first.
+  List<String> get favoritePresets;
+  Future<void> setFavoritePresets(List<String> ids);
+
   // Scan History
   List<ScanHistoryEntry> getHistory();
   Future<void> addHistoryEntry(ScanHistoryEntry entry);
@@ -93,6 +97,15 @@ class InMemoryAppStorageService implements AppStorageService {
 
   @override
   Future<void> setSoundsEnabled(bool enabled) async => _soundsEnabled = enabled;
+
+  List<String> _favoritePresets = const [];
+
+  @override
+  List<String> get favoritePresets => _favoritePresets;
+
+  @override
+  Future<void> setFavoritePresets(List<String> ids) async =>
+      _favoritePresets = List.unmodifiable(ids);
 
   @override
   List<TagLibraryEntry> getLibrary() => List.unmodifiable(_library);
@@ -335,6 +348,10 @@ class LocalFileAppStorageService implements AppStorageService {
           _onboardingDone = data['onboardingDone'] as bool? ?? false;
           _hapticsEnabled = data['hapticsEnabled'] as bool? ?? true;
           _soundsEnabled = data['soundsEnabled'] as bool? ?? false;
+          final favs = data['favoritePresets'];
+          _favoritePresets = favs is List
+              ? List.unmodifiable(favs.whereType<String>().take(100))
+              : const [];
         }
       }
     } catch (e) {
@@ -473,6 +490,7 @@ class LocalFileAppStorageService implements AppStorageService {
       'onboardingDone': _onboardingDone,
       'hapticsEnabled': _hapticsEnabled,
       'soundsEnabled': _soundsEnabled,
+      'favoritePresets': _favoritePresets,
     });
     await _atomicWrite(_settingsFile, data);
   }
@@ -510,6 +528,17 @@ class LocalFileAppStorageService implements AppStorageService {
   @override
   Future<void> setHapticsEnabled(bool enabled) async {
     _hapticsEnabled = enabled;
+    await _saveSettings();
+  }
+
+  List<String> _favoritePresets = const [];
+
+  @override
+  List<String> get favoritePresets => _favoritePresets;
+
+  @override
+  Future<void> setFavoritePresets(List<String> ids) async {
+    _favoritePresets = List.unmodifiable(ids);
     await _saveSettings();
   }
 

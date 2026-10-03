@@ -3314,4 +3314,98 @@ class AppLocalizationsAr extends AppLocalizations {
   @override
   String get tapIosRequirement =>
       'يقرأ iPhone XS والأحدث في الخلفية عند فتح القفل وعدم فتح الكاميرا/المحفظة.';
+
+  @override
+  String get galleryCatBusiness => 'الأعمال';
+
+  @override
+  String get galleryCatSocial => 'اجتماعي';
+
+  @override
+  String get galleryCatHome => 'المنزل';
+
+  @override
+  String get galleryCatPersonal => 'شخصي';
+
+  @override
+  String get galleryCatAutomation => 'الأتمتة';
+
+  @override
+  String get galleryFavorites => 'المفضلة';
+
+  @override
+  String get gallerySearchHint => 'ابحث في القوالب...';
+
+  @override
+  String get galleryNoResults => 'لا توجد قوالب مطابقة.';
+
+  @override
+  String get galleryAddFavorite => 'إضافة إلى المفضلة';
+
+  @override
+  String get galleryRemoveFavorite => 'إزالة من المفضلة';
+
+  @override
+  String get presetEventTitle => 'دعوة لحدث';
+
+  @override
+  String get presetEventDesc =>
+      'يكتب الحدث بتنسيق iCalendar؛ ويمكن لـ Android إضافته إلى التقويم.';
+
+  @override
+  String get eventNameLabel => 'اسم الحدث';
+
+  @override
+  String get eventDateLabel => 'التاريخ (YYYY-MM-DD)';
+
+  @override
+  String get eventTimeLabel => 'الوقت (HH:MM)';
+
+  @override
+  String get eventDateTimeInvalid =>
+      'تاريخ أو وقت غير صالح. مثال: 2026-12-31 و 19:00';
+
+  @override
+  String get presetLuggageTitle => 'بطاقة الأمتعة';
+
+  @override
+  String get presetLuggageDesc =>
+      'إذا ضاعت، يمكن لمن يجدها التواصل معك بسهولة.';
+
+  @override
+  String luggageMessage(String name, String contact) {
+    return 'هذه الأمتعة تخص $name. إذا وجدتها فيرجى التواصل: $contact';
+  }
+
+  @override
+  String get presetPlaylistTitle => 'قائمة تشغيل';
+
+  @override
+  String get presetPlaylistDesc =>
+      'يفتح قائمة تشغيل Spotify أو Apple Music أو YouTube.';
+
+  @override
+  String get playlistLinkLabel => 'رابط قائمة التشغيل';
+
+  @override
+  String get presetEmailMeTitle => 'راسلني';
+
+  @override
+  String get presetEmailMeDesc => 'يفتح رسالة بريد جديدة إليك بموضوع جاهز.';
+
+  @override
+  String get presetCallMeTitle => 'اتصل بي';
+
+  @override
+  String get presetCallMeDesc => 'يتصل الهاتف برقمك.';
+
+  @override
+  String get presetRunShortcutTitle => 'تشغيل اختصار';
+
+  @override
+  String get presetRunShortcutDesc =>
+      'يشغّل اختصار iPhone الذي تسمّيه: تشغيل الأضواء، الموسيقى، تغيير التركيز...';
+
+  @override
+  String get shortcutNameLabel => 'اسم الاختصار';
 }

@@ -3356,4 +3356,99 @@ class AppLocalizationsIt extends AppLocalizations {
   @override
   String get tapIosRequirement =>
       'iPhone XS e successivi leggono in background se sbloccati e con Fotocamera/Wallet chiusi.';
+
+  @override
+  String get galleryCatBusiness => 'Lavoro';
+
+  @override
+  String get galleryCatSocial => 'Social';
+
+  @override
+  String get galleryCatHome => 'Casa';
+
+  @override
+  String get galleryCatPersonal => 'Personale';
+
+  @override
+  String get galleryCatAutomation => 'Automazione';
+
+  @override
+  String get galleryFavorites => 'Preferiti';
+
+  @override
+  String get gallerySearchHint => 'Cerca modelli...';
+
+  @override
+  String get galleryNoResults => 'Nessun modello corrispondente.';
+
+  @override
+  String get galleryAddFavorite => 'Aggiungi ai preferiti';
+
+  @override
+  String get galleryRemoveFavorite => 'Rimuovi dai preferiti';
+
+  @override
+  String get presetEventTitle => 'Invito a evento';
+
+  @override
+  String get presetEventDesc =>
+      'Scrive l\'evento in formato iCalendar; Android può aggiungerlo al calendario.';
+
+  @override
+  String get eventNameLabel => 'Nome dell\'evento';
+
+  @override
+  String get eventDateLabel => 'Data (AAAA-MM-GG)';
+
+  @override
+  String get eventTimeLabel => 'Ora (HH:MM)';
+
+  @override
+  String get eventDateTimeInvalid =>
+      'Data o ora non valida. Esempio: 2026-12-31 e 19:00';
+
+  @override
+  String get presetLuggageTitle => 'Etichetta bagaglio';
+
+  @override
+  String get presetLuggageDesc =>
+      'Se si perde, chi lo trova può contattarti facilmente.';
+
+  @override
+  String luggageMessage(String name, String contact) {
+    return 'Questo bagaglio appartiene a $name. Se lo trovi, contatta: $contact';
+  }
+
+  @override
+  String get presetPlaylistTitle => 'Playlist';
+
+  @override
+  String get presetPlaylistDesc =>
+      'Apre una playlist Spotify, Apple Music o YouTube.';
+
+  @override
+  String get playlistLinkLabel => 'Link della playlist';
+
+  @override
+  String get presetEmailMeTitle => 'Scrivimi';
+
+  @override
+  String get presetEmailMeDesc =>
+      'Apre una nuova email a te con l\'oggetto pronto.';
+
+  @override
+  String get presetCallMeTitle => 'Chiamami';
+
+  @override
+  String get presetCallMeDesc => 'Il telefono chiama il tuo numero.';
+
+  @override
+  String get presetRunShortcutTitle => 'Esegui comando rapido';
+
+  @override
+  String get presetRunShortcutDesc =>
+      'Esegue il comando rapido indicato: luci, musica, modalità Full immersion...';
+
+  @override
+  String get shortcutNameLabel => 'Nome del comando';
 }

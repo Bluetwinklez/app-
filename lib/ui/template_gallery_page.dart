@@ -3,21 +3,26 @@ import '../domain/ndef_record.dart';
 import '../domain/quick_links.dart';
 import '../domain/template_gallery.dart';
 import '../l10n/app_localizations.dart';
+import '../services/app_storage_service.dart';
 import 'app_theme.dart';
 
 /// Grid of ready-made use cases; picking one asks for a few fields and hands
 /// the resulting records back through [onRecordsCreated].
-class TemplateGalleryPage extends StatelessWidget {
+class TemplateGalleryPage extends StatefulWidget {
   final void Function(List<NdefRecordModel> records, String title) onRecordsCreated;
+  final AppStorageService? storage;
 
-  const TemplateGalleryPage({super.key, required this.onRecordsCreated});
+  const TemplateGalleryPage({super.key, required this.onRecordsCreated, this.storage});
 
   static Future<void> open(
     BuildContext context, {
     required void Function(List<NdefRecordModel> records, String title) onRecordsCreated,
+    AppStorageService? storage,
   }) {
     return Navigator.of(context).push(
-      MaterialPageRoute(builder: (_) => TemplateGalleryPage(onRecordsCreated: onRecordsCreated)),
+      MaterialPageRoute(
+        builder: (_) => TemplateGalleryPage(onRecordsCreated: onRecordsCreated, storage: storage),
+      ),
     );
   }
 
@@ -47,36 +52,163 @@ class TemplateGalleryPage extends StatelessWidget {
         return Icons.language_rounded;
       case 'bolt':
         return Icons.bolt_rounded;
+      case 'phone':
+        return Icons.call_outlined;
+      case 'mail':
+        return Icons.mail_outline_rounded;
+      case 'event':
+        return Icons.event_outlined;
+      case 'music':
+        return Icons.queue_music_rounded;
+      case 'luggage':
+        return Icons.luggage_outlined;
+      case 'home':
+        return Icons.home_outlined;
       default:
         return Icons.nfc_rounded;
     }
   }
 
+  static String categoryLabel(AppLocalizations loc, GalleryCategory c) {
+    switch (c) {
+      case GalleryCategory.business:
+        return loc.galleryCatBusiness;
+      case GalleryCategory.social:
+        return loc.galleryCatSocial;
+      case GalleryCategory.home:
+        return loc.galleryCatHome;
+      case GalleryCategory.personal:
+        return loc.galleryCatPersonal;
+      case GalleryCategory.automation:
+        return loc.galleryCatAutomation;
+    }
+  }
+
+  @override
+  State<TemplateGalleryPage> createState() => _TemplateGalleryPageState();
+}
+
+class _TemplateGalleryPageState extends State<TemplateGalleryPage> {
+  final _search = TextEditingController();
+  GalleryCategory? _category;
+  bool _favoritesOnly = false;
+  late List<String> _favorites = List.of(widget.storage?.favoritePresets ?? const <String>[]);
+
+  @override
+  void dispose() {
+    _search.dispose();
+    super.dispose();
+  }
+
+  Future<void> _toggleFavorite(GalleryPreset preset) async {
+    setState(() {
+      if (!_favorites.remove(preset.id)) _favorites = [preset.id, ..._favorites];
+    });
+    await widget.storage?.setFavoritePresets(_favorites);
+  }
+
   @override
   Widget build(BuildContext context) {
+    final loc = AppLocalizations.of(context)!;
+    final items = TemplateGallery.filter(
+      query: _search.text,
+      category: _category,
+      favoritesOnly: _favoritesOnly,
+      favorites: _favorites,
+    );
+    Widget chip(String label, bool selected, VoidCallback onTap, {IconData? icon}) => Padding(
+          padding: const EdgeInsets.only(right: 8),
+          child: ChoiceChip(
+            avatar: icon == null ? null : Icon(icon, size: 16),
+            label: Text(label),
+            selected: selected,
+            onSelected: (_) => onTap(),
+          ),
+        );
+
     return DecoratedBox(
       decoration: BoxDecoration(gradient: AppColors.canvasGradient),
       child: Scaffold(
         backgroundColor: Colors.transparent,
-        appBar: AppBar(title: Text(AppLocalizations.of(context)!.readyTemplates)),
-        body: LayoutBuilder(
-          builder: (context, constraints) {
-            final columns = constraints.maxWidth > 600 ? 3 : 2;
-            return GridView.builder(
-              padding: const EdgeInsets.fromLTRB(16, 4, 16, 24),
-              gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-                crossAxisCount: columns,
-                mainAxisSpacing: 12,
-                crossAxisSpacing: 12,
-                mainAxisExtent: 172,
+        appBar: AppBar(title: Text(loc.readyTemplates)),
+        body: Column(
+          children: [
+            Padding(
+              padding: const EdgeInsets.fromLTRB(16, 4, 16, 8),
+              child: TextField(
+                controller: _search,
+                onChanged: (_) => setState(() {}),
+                textInputAction: TextInputAction.search,
+                decoration: InputDecoration(
+                  hintText: loc.gallerySearchHint,
+                  prefixIcon: const Icon(Icons.search),
+                  suffixIcon: _search.text.isEmpty
+                      ? null
+                      : IconButton(
+                          tooltip: loc.clearSearch,
+                          icon: const Icon(Icons.close),
+                          onPressed: () => setState(_search.clear),
+                        ),
+                ),
               ),
-              itemCount: TemplateGallery.presets.length,
-              itemBuilder: (context, i) => _PresetCard(
-                preset: TemplateGallery.presets[i],
-                onTap: () => _openPreset(context, TemplateGallery.presets[i]),
+            ),
+            SizedBox(
+              height: 44,
+              child: ListView(
+                scrollDirection: Axis.horizontal,
+                padding: const EdgeInsets.symmetric(horizontal: 16),
+                children: [
+                  chip(loc.all, _category == null && !_favoritesOnly, () => setState(() {
+                        _category = null;
+                        _favoritesOnly = false;
+                      })),
+                  if (widget.storage != null)
+                    chip(loc.galleryFavorites, _favoritesOnly, () => setState(() {
+                          _favoritesOnly = !_favoritesOnly;
+                          _category = null;
+                        }), icon: Icons.star_rounded),
+                  for (final c in GalleryCategory.values)
+                    chip(TemplateGalleryPage.categoryLabel(loc, c), _category == c, () => setState(() {
+                          _category = _category == c ? null : c;
+                          _favoritesOnly = false;
+                        })),
+                ],
               ),
-            );
-          },
+            ),
+            Expanded(
+              child: items.isEmpty
+                  ? Center(
+                      child: Padding(
+                        padding: const EdgeInsets.all(24),
+                        child: Text(loc.galleryNoResults,
+                            textAlign: TextAlign.center,
+                            style: TextStyle(color: AppColors.secondary)),
+                      ),
+                    )
+                  : LayoutBuilder(
+                      builder: (context, constraints) {
+                        final columns = constraints.maxWidth > 600 ? 3 : 2;
+                        return GridView.builder(
+                          padding: const EdgeInsets.fromLTRB(16, 8, 16, 24),
+                          gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                            crossAxisCount: columns,
+                            mainAxisSpacing: 12,
+                            crossAxisSpacing: 12,
+                            mainAxisExtent: 172,
+                          ),
+                          itemCount: items.length,
+                          itemBuilder: (context, i) => _PresetCard(
+                            preset: items[i],
+                            favorite: _favorites.contains(items[i].id),
+                            onToggleFavorite:
+                                widget.storage == null ? null : () => _toggleFavorite(items[i]),
+                            onTap: () => _openPreset(context, items[i]),
+                          ),
+                        );
+                      },
+                    ),
+            ),
+          ],
         ),
       ),
     );
@@ -89,7 +221,7 @@ class TemplateGalleryPage extends StatelessWidget {
       builder: (_) => _PresetForm(preset: preset),
     );
     if (records == null || records.isEmpty || !context.mounted) return;
-    onRecordsCreated(records, preset.title);
+    widget.onRecordsCreated(records, preset.title);
     Navigator.of(context).pop();
   }
 }
@@ -97,25 +229,49 @@ class TemplateGalleryPage extends StatelessWidget {
 class _PresetCard extends StatelessWidget {
   final GalleryPreset preset;
   final VoidCallback onTap;
+  final bool favorite;
+  final VoidCallback? onToggleFavorite;
 
-  const _PresetCard({required this.preset, required this.onTap});
+  const _PresetCard({
+    required this.preset,
+    required this.onTap,
+    this.favorite = false,
+    this.onToggleFavorite,
+  });
 
   @override
   Widget build(BuildContext context) {
+    final loc = AppLocalizations.of(context)!;
     return SoftCard(
       onTap: onTap,
       padding: const EdgeInsets.all(14),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          Container(
-            width: 42,
-            height: 42,
-            decoration: BoxDecoration(
-              gradient: AppColors.heroGradient,
-              borderRadius: BorderRadius.circular(13),
-            ),
-            child: Icon(TemplateGalleryPage.iconFor(preset.icon), color: Colors.white, size: 22),
+          Row(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Container(
+                width: 42,
+                height: 42,
+                decoration: BoxDecoration(
+                  gradient: AppColors.heroGradient,
+                  borderRadius: BorderRadius.circular(13),
+                ),
+                child: Icon(TemplateGalleryPage.iconFor(preset.icon), color: Colors.white, size: 22),
+              ),
+              const Spacer(),
+              if (onToggleFavorite != null)
+                IconButton(
+                  visualDensity: VisualDensity.compact,
+                  tooltip: favorite ? loc.galleryRemoveFavorite : loc.galleryAddFavorite,
+                  onPressed: onToggleFavorite,
+                  icon: Icon(
+                    favorite ? Icons.star_rounded : Icons.star_outline_rounded,
+                    color: favorite ? AppColors.warning : AppColors.secondary,
+                  ),
+                ),
+            ],
           ),
           const SizedBox(height: 12),
           Text(

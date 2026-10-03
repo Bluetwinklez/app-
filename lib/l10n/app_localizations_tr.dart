@@ -3354,4 +3354,97 @@ class AppLocalizationsTr extends AppLocalizations {
   @override
   String get tapIosRequirement =>
       'iPhone XS ve sonrası, ekran kilidi açıkken ve kamera/Cüzdan açık değilken arka planda okur.';
+
+  @override
+  String get galleryCatBusiness => 'İş';
+
+  @override
+  String get galleryCatSocial => 'Sosyal';
+
+  @override
+  String get galleryCatHome => 'Ev';
+
+  @override
+  String get galleryCatPersonal => 'Kişisel';
+
+  @override
+  String get galleryCatAutomation => 'Otomasyon';
+
+  @override
+  String get galleryFavorites => 'Favoriler';
+
+  @override
+  String get gallerySearchHint => 'Şablon ara...';
+
+  @override
+  String get galleryNoResults => 'Eşleşen şablon yok.';
+
+  @override
+  String get galleryAddFavorite => 'Favorilere ekle';
+
+  @override
+  String get galleryRemoveFavorite => 'Favorilerden çıkar';
+
+  @override
+  String get presetEventTitle => 'Etkinlik Daveti';
+
+  @override
+  String get presetEventDesc =>
+      'Etkinliği takvim (iCalendar) biçiminde yazar; Android takvime ekleyebilir.';
+
+  @override
+  String get eventNameLabel => 'Etkinlik adı';
+
+  @override
+  String get eventDateLabel => 'Tarih (YYYY-AA-GG)';
+
+  @override
+  String get eventTimeLabel => 'Saat (SS:DD)';
+
+  @override
+  String get eventDateTimeInvalid =>
+      'Tarih ya da saat geçersiz. Örnek: 2026-12-31 ve 19:00';
+
+  @override
+  String get presetLuggageTitle => 'Bavul Etiketi';
+
+  @override
+  String get presetLuggageDesc => 'Kaybolursa bulan kişi size kolayca ulaşsın.';
+
+  @override
+  String luggageMessage(String name, String contact) {
+    return 'Bu bavul $name kişisine aittir. Bulursanız lütfen ulaşın: $contact';
+  }
+
+  @override
+  String get presetPlaylistTitle => 'Çalma Listesi';
+
+  @override
+  String get presetPlaylistDesc =>
+      'Spotify, Apple Music ya da YouTube listesini açar.';
+
+  @override
+  String get playlistLinkLabel => 'Çalma listesi bağlantısı';
+
+  @override
+  String get presetEmailMeTitle => 'Bana E-posta Gönder';
+
+  @override
+  String get presetEmailMeDesc => 'Hazır konuyla size yeni bir e-posta açar.';
+
+  @override
+  String get presetCallMeTitle => 'Beni Ara';
+
+  @override
+  String get presetCallMeDesc => 'Dokunan telefon numaranızı arar.';
+
+  @override
+  String get presetRunShortcutTitle => 'Kısayol Çalıştır';
+
+  @override
+  String get presetRunShortcutDesc =>
+      'iPhone\'da adını verdiğiniz Kısayolu çalıştırır: ışıkları aç, müzik başlat, odak modunu değiştir...';
+
+  @override
+  String get shortcutNameLabel => 'Kısayol adı';
 }

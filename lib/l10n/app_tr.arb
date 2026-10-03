@@ -2271,5 +2271,44 @@
       }
     }
   },
-  "tapIosRequirement": "iPhone XS ve sonrası, ekran kilidi açıkken ve kamera/Cüzdan açık değilken arka planda okur."
+  "tapIosRequirement": "iPhone XS ve sonrası, ekran kilidi açıkken ve kamera/Cüzdan açık değilken arka planda okur.",
+  "galleryCatBusiness": "İş",
+  "galleryCatSocial": "Sosyal",
+  "galleryCatHome": "Ev",
+  "galleryCatPersonal": "Kişisel",
+  "galleryCatAutomation": "Otomasyon",
+  "galleryFavorites": "Favoriler",
+  "gallerySearchHint": "Şablon ara...",
+  "galleryNoResults": "Eşleşen şablon yok.",
+  "galleryAddFavorite": "Favorilere ekle",
+  "galleryRemoveFavorite": "Favorilerden çıkar",
+  "presetEventTitle": "Etkinlik Daveti",
+  "presetEventDesc": "Etkinliği takvim (iCalendar) biçiminde yazar; Android takvime ekleyebilir.",
+  "eventNameLabel": "Etkinlik adı",
+  "eventDateLabel": "Tarih (YYYY-AA-GG)",
+  "eventTimeLabel": "Saat (SS:DD)",
+  "eventDateTimeInvalid": "Tarih ya da saat geçersiz. Örnek: 2026-12-31 ve 19:00",
+  "presetLuggageTitle": "Bavul Etiketi",
+  "presetLuggageDesc": "Kaybolursa bulan kişi size kolayca ulaşsın.",
+  "luggageMessage": "Bu bavul {name} kişisine aittir. Bulursanız lütfen ulaşın: {contact}",
+  "@luggageMessage": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      },
+      "contact": {
+        "type": "String"
+      }
+    }
+  },
+  "presetPlaylistTitle": "Çalma Listesi",
+  "presetPlaylistDesc": "Spotify, Apple Music ya da YouTube listesini açar.",
+  "playlistLinkLabel": "Çalma listesi bağlantısı",
+  "presetEmailMeTitle": "Bana E-posta Gönder",
+  "presetEmailMeDesc": "Hazır konuyla size yeni bir e-posta açar.",
+  "presetCallMeTitle": "Beni Ara",
+  "presetCallMeDesc": "Dokunan telefon numaranızı arar.",
+  "presetRunShortcutTitle": "Kısayol Çalıştır",
+  "presetRunShortcutDesc": "iPhone'da adını verdiğiniz Kısayolu çalıştırır: ışıkları aç, müzik başlat, odak modunu değiştir...",
+  "shortcutNameLabel": "Kısayol adı"
 }

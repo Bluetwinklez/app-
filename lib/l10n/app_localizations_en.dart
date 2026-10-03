@@ -3339,4 +3339,99 @@ class AppLocalizationsEn extends AppLocalizations {
   @override
   String get tapIosRequirement =>
       'iPhone XS and later read in the background while unlocked and when Camera/Wallet are not open.';
+
+  @override
+  String get galleryCatBusiness => 'Business';
+
+  @override
+  String get galleryCatSocial => 'Social';
+
+  @override
+  String get galleryCatHome => 'Home';
+
+  @override
+  String get galleryCatPersonal => 'Personal';
+
+  @override
+  String get galleryCatAutomation => 'Automation';
+
+  @override
+  String get galleryFavorites => 'Favourites';
+
+  @override
+  String get gallerySearchHint => 'Search templates...';
+
+  @override
+  String get galleryNoResults => 'No matching templates.';
+
+  @override
+  String get galleryAddFavorite => 'Add to favourites';
+
+  @override
+  String get galleryRemoveFavorite => 'Remove from favourites';
+
+  @override
+  String get presetEventTitle => 'Event Invite';
+
+  @override
+  String get presetEventDesc =>
+      'Writes the event as iCalendar; Android can add it to the calendar.';
+
+  @override
+  String get eventNameLabel => 'Event name';
+
+  @override
+  String get eventDateLabel => 'Date (YYYY-MM-DD)';
+
+  @override
+  String get eventTimeLabel => 'Time (HH:MM)';
+
+  @override
+  String get eventDateTimeInvalid =>
+      'Invalid date or time. Example: 2026-12-31 and 19:00';
+
+  @override
+  String get presetLuggageTitle => 'Luggage Tag';
+
+  @override
+  String get presetLuggageDesc =>
+      'If it gets lost, the finder can reach you easily.';
+
+  @override
+  String luggageMessage(String name, String contact) {
+    return 'This luggage belongs to $name. If found, please contact: $contact';
+  }
+
+  @override
+  String get presetPlaylistTitle => 'Playlist';
+
+  @override
+  String get presetPlaylistDesc =>
+      'Opens a Spotify, Apple Music or YouTube playlist.';
+
+  @override
+  String get playlistLinkLabel => 'Playlist link';
+
+  @override
+  String get presetEmailMeTitle => 'Email Me';
+
+  @override
+  String get presetEmailMeDesc =>
+      'Opens a new email to you with a ready subject.';
+
+  @override
+  String get presetCallMeTitle => 'Call Me';
+
+  @override
+  String get presetCallMeDesc => 'The tapping phone calls your number.';
+
+  @override
+  String get presetRunShortcutTitle => 'Run a Shortcut';
+
+  @override
+  String get presetRunShortcutDesc =>
+      'Runs the iPhone Shortcut you name: lights on, start music, change Focus...';
+
+  @override
+  String get shortcutNameLabel => 'Shortcut name';
 }
