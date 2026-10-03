@@ -3539,4 +3539,19 @@ class AppLocalizationsFr extends AppLocalizations {
 
   @override
   String get csvColumnLabels => 'Libellés';
+
+  @override
+  String get firstNameLabel => 'Prénom';
+
+  @override
+  String get lastNameLabel => 'Nom';
+
+  @override
+  String get wifiPasswordMinHint => 'Au moins 8 caractères';
+
+  @override
+  String get emailExampleHint => 'nom@exemple.fr';
+
+  @override
+  String get wifiSsidExampleHint => 'Maison_WiFi_5G';
 }

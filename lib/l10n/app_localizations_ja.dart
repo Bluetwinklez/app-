@@ -3367,4 +3367,19 @@ class AppLocalizationsJa extends AppLocalizations {
 
   @override
   String get csvColumnLabels => 'ラベル';
+
+  @override
+  String get firstNameLabel => '名';
+
+  @override
+  String get lastNameLabel => '姓';
+
+  @override
+  String get wifiPasswordMinHint => '8文字以上';
+
+  @override
+  String get emailExampleHint => 'name@example.com';
+
+  @override
+  String get wifiSsidExampleHint => 'Home_WiFi_5G';
 }
