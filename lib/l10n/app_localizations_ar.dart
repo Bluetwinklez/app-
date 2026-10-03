@@ -3114,4 +3114,10 @@ class AppLocalizationsAr extends AppLocalizations {
 
   @override
   String get shareAsFileSubtitle => 'يمكن كتابة السجلات كما هي على جهاز آخر';
+
+  @override
+  String get importFromJsonFile => 'من ملف وسم (.json)';
+
+  @override
+  String get invalidTagFile => 'ملف وسم غير صالح.';
 }

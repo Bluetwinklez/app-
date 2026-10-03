@@ -887,5 +887,7 @@
   "shareTag": "공유",
   "shareAsText": "텍스트로 공유",
   "shareAsFile": "파일로 공유 (.json)",
-  "shareAsFileSubtitle": "다른 기기에서 그대로 쓸 수 있습니다"
+  "shareAsFileSubtitle": "다른 기기에서 그대로 쓸 수 있습니다",
+  "importFromJsonFile": "태그 파일에서 (.json)",
+  "invalidTagFile": "잘못된 태그 파일입니다."
 }

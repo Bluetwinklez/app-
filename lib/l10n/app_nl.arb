@@ -887,5 +887,7 @@
   "shareTag": "Delen",
   "shareAsText": "Delen als tekst",
   "shareAsFile": "Delen als bestand (.json)",
-  "shareAsFileSubtitle": "Records kunnen exact op een ander apparaat worden geschreven"
+  "shareAsFileSubtitle": "Records kunnen exact op een ander apparaat worden geschreven",
+  "importFromJsonFile": "Uit tagbestand (.json)",
+  "invalidTagFile": "Ongeldig tagbestand."
 }

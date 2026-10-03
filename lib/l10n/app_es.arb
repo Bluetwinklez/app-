@@ -887,5 +887,7 @@
   "shareTag": "Compartir",
   "shareAsText": "Compartir como texto",
   "shareAsFile": "Compartir como archivo (.json)",
-  "shareAsFileSubtitle": "Los registros se pueden escribir igual en otro dispositivo"
+  "shareAsFileSubtitle": "Los registros se pueden escribir igual en otro dispositivo",
+  "importFromJsonFile": "Desde un archivo de etiqueta (.json)",
+  "invalidTagFile": "Archivo de etiqueta no válido."
 }

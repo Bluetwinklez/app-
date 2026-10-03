@@ -887,5 +887,7 @@
   "shareTag": "Share",
   "shareAsText": "Share as text",
   "shareAsFile": "Share as file (.json)",
-  "shareAsFileSubtitle": "Records can be written exactly on another device"
+  "shareAsFileSubtitle": "Records can be written exactly on another device",
+  "importFromJsonFile": "From a tag file (.json)",
+  "invalidTagFile": "Invalid tag file."
 }

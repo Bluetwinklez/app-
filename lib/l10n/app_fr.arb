@@ -887,5 +887,7 @@
   "shareTag": "Partager",
   "shareAsText": "Partager en texte",
   "shareAsFile": "Partager en fichier (.json)",
-  "shareAsFileSubtitle": "Les enregistrements peuvent être réécrits à l'identique"
+  "shareAsFileSubtitle": "Les enregistrements peuvent être réécrits à l'identique",
+  "importFromJsonFile": "Depuis un fichier de tag (.json)",
+  "invalidTagFile": "Fichier de tag invalide."
 }

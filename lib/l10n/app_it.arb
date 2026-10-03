@@ -887,5 +887,7 @@
   "shareTag": "Condividi",
   "shareAsText": "Condividi come testo",
   "shareAsFile": "Condividi come file (.json)",
-  "shareAsFileSubtitle": "I record possono essere riscritti identici su un altro dispositivo"
+  "shareAsFileSubtitle": "I record possono essere riscritti identici su un altro dispositivo",
+  "importFromJsonFile": "Da un file tag (.json)",
+  "invalidTagFile": "File tag non valido."
 }

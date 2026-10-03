@@ -3173,4 +3173,10 @@ class AppLocalizationsFr extends AppLocalizations {
   @override
   String get shareAsFileSubtitle =>
       'Les enregistrements peuvent être réécrits à l\'identique';
+
+  @override
+  String get importFromJsonFile => 'Depuis un fichier de tag (.json)';
+
+  @override
+  String get invalidTagFile => 'Fichier de tag invalide.';
 }

@@ -3154,4 +3154,10 @@ class AppLocalizationsRu extends AppLocalizations {
   @override
   String get shareAsFileSubtitle =>
       'Записи можно точно записать на другом устройстве';
+
+  @override
+  String get importFromJsonFile => 'Из файла метки (.json)';
+
+  @override
+  String get invalidTagFile => 'Недопустимый файл метки.';
 }

@@ -613,6 +613,37 @@ class _HomeScreenState extends State<HomeScreen>
     _appendImportedRecords([QrRecordImporter.fromQr(value)], loc.sourceQr);
   }
 
+  Future<void> _importFromJsonFile() async {
+    XFile? file;
+    try {
+      file = await openFile();
+    } catch (e) {
+      if (!mounted) return;
+      ScaffoldMessenger.of(context).showSnackBar(
+        SnackBar(content: Text(L10n.current.filePickerError('$e')), backgroundColor: AppColors.danger),
+      );
+      return;
+    }
+    if (file == null || !mounted) return;
+    try {
+      final bytes = await file.readAsBytes();
+      if (bytes.length > 512 * 1024) throw const FormatException('size');
+      final data = jsonDecode(utf8.decode(bytes));
+      final raw = data is Map ? data['records'] : data;
+      if (raw is! List || raw.isEmpty || raw.length > 100) throw const FormatException('records');
+      final records = [
+        for (final r in raw) NdefRecordModel.fromJsonMap(Map<String, dynamic>.from(r as Map)),
+      ];
+      if (!mounted) return;
+      _appendImportedRecords(records, file.name);
+    } catch (_) {
+      if (!mounted) return;
+      ScaffoldMessenger.of(context).showSnackBar(
+        SnackBar(content: Text(L10n.current.invalidTagFile), backgroundColor: AppColors.danger),
+      );
+    }
+  }
+
   Future<void> _importFromCsv() async {
     final loc = AppLocalizations.of(context) ?? L10n.current;
     XFile? file;
@@ -3357,9 +3388,19 @@ class _HomeScreenState extends State<HomeScreen>
                               case 'gallery':
                                 _openTemplateGallery();
                                 break;
+                              case 'json':
+                                _importFromJsonFile();
+                                break;
                             }
                           },
                           itemBuilder: (_) => [
+                            PopupMenuItem(
+                              value: 'json',
+                              child: ListTile(
+                                leading: const Icon(Icons.data_object_rounded),
+                                title: Text(L10n.current.importFromJsonFile),
+                              ),
+                            ),
                             PopupMenuItem(
                               value: 'gallery',
                               child: ListTile(

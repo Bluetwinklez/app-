@@ -3030,4 +3030,10 @@ class AppLocalizationsKo extends AppLocalizations {
 
   @override
   String get shareAsFileSubtitle => '다른 기기에서 그대로 쓸 수 있습니다';
+
+  @override
+  String get importFromJsonFile => '태그 파일에서 (.json)';
+
+  @override
+  String get invalidTagFile => '잘못된 태그 파일입니다.';
 }

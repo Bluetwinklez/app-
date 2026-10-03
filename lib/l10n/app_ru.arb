@@ -887,5 +887,7 @@
   "shareTag": "Поделиться",
   "shareAsText": "Поделиться текстом",
   "shareAsFile": "Поделиться файлом (.json)",
-  "shareAsFileSubtitle": "Записи можно точно записать на другом устройстве"
+  "shareAsFileSubtitle": "Записи можно точно записать на другом устройстве",
+  "importFromJsonFile": "Из файла метки (.json)",
+  "invalidTagFile": "Недопустимый файл метки."
 }

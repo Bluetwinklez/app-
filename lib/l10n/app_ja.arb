@@ -887,5 +887,7 @@
   "shareTag": "共有",
   "shareAsText": "テキストで共有",
   "shareAsFile": "ファイルで共有 (.json)",
-  "shareAsFileSubtitle": "別の端末でそのまま書き込めます"
+  "shareAsFileSubtitle": "別の端末でそのまま書き込めます",
+  "importFromJsonFile": "タグファイルから (.json)",
+  "invalidTagFile": "無効なタグファイルです。"
 }

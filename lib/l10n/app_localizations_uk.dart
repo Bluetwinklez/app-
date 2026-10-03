@@ -3155,4 +3155,10 @@ class AppLocalizationsUk extends AppLocalizations {
   @override
   String get shareAsFileSubtitle =>
       'Записи можна точно записати на іншому пристрої';
+
+  @override
+  String get importFromJsonFile => 'З файлу мітки (.json)';
+
+  @override
+  String get invalidTagFile => 'Недійсний файл мітки.';
 }
