@@ -3151,4 +3151,17 @@ class AppLocalizationsPt extends AppLocalizations {
 
   @override
   String get blankTagAction => 'Preparar e gravar';
+
+  @override
+  String get shareTag => 'Compartilhar';
+
+  @override
+  String get shareAsText => 'Compartilhar como texto';
+
+  @override
+  String get shareAsFile => 'Compartilhar como arquivo (.json)';
+
+  @override
+  String get shareAsFileSubtitle =>
+      'Os registros podem ser gravados iguais em outro aparelho';
 }

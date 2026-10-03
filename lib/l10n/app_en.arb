@@ -883,5 +883,9 @@
   "verifyFailedAfterWrite": "Written data could not be verified; hold the tag longer.",
   "blankTagTitle": "Tag is not ready yet",
   "blankTagBody": "This tag is new and not formatted for NDEF. The app can prepare it and write your content in one tap (NTAG and MIFARE Ultralight).",
-  "blankTagAction": "Prepare and write"
+  "blankTagAction": "Prepare and write",
+  "shareTag": "Share",
+  "shareAsText": "Share as text",
+  "shareAsFile": "Share as file (.json)",
+  "shareAsFileSubtitle": "Records can be written exactly on another device"
 }

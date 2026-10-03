@@ -883,5 +883,9 @@
   "verifyFailedAfterWrite": "Geschriebene Daten nicht bestätigt; Tag länger halten.",
   "blankTagTitle": "Tag ist noch nicht bereit",
   "blankTagBody": "Dieser Tag ist neu und nicht für NDEF formatiert. Die App kann ihn vorbereiten und den Inhalt mit einem Antippen schreiben (NTAG und MIFARE Ultralight).",
-  "blankTagAction": "Vorbereiten und schreiben"
+  "blankTagAction": "Vorbereiten und schreiben",
+  "shareTag": "Teilen",
+  "shareAsText": "Als Text teilen",
+  "shareAsFile": "Als Datei teilen (.json)",
+  "shareAsFileSubtitle": "Einträge lassen sich auf einem anderen Gerät exakt schreiben"
 }

@@ -3161,4 +3161,17 @@ class AppLocalizationsEs extends AppLocalizations {
 
   @override
   String get blankTagAction => 'Preparar y escribir';
+
+  @override
+  String get shareTag => 'Compartir';
+
+  @override
+  String get shareAsText => 'Compartir como texto';
+
+  @override
+  String get shareAsFile => 'Compartir como archivo (.json)';
+
+  @override
+  String get shareAsFileSubtitle =>
+      'Los registros se pueden escribir igual en otro dispositivo';
 }

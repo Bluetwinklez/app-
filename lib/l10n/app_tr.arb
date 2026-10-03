@@ -2089,5 +2089,9 @@
   "verifyFailedAfterWrite": "Yazılan veri doğrulanamadı; etiketi daha uzun süre yakın tutun.",
   "blankTagTitle": "Etiket henüz hazır değil",
   "blankTagBody": "Bu etiket yeni ve NDEF için biçimlendirilmemiş. Uygulama etiketi hazırlayıp içeriği tek dokunuşta yazabilir (NTAG ve MIFARE Ultralight).",
-  "blankTagAction": "Hazırla ve yaz"
+  "blankTagAction": "Hazırla ve yaz",
+  "shareTag": "Paylaş",
+  "shareAsText": "Metin olarak paylaş",
+  "shareAsFile": "Dosya olarak paylaş (.json)",
+  "shareAsFileSubtitle": "Kayıtlar başka bir cihazda aynen yazılabilir"
 }

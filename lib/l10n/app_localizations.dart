@@ -5427,6 +5427,30 @@ abstract class AppLocalizations {
   /// In tr, this message translates to:
   /// **'Hazırla ve yaz'**
   String get blankTagAction;
+
+  /// No description provided for @shareTag.
+  ///
+  /// In tr, this message translates to:
+  /// **'Paylaş'**
+  String get shareTag;
+
+  /// No description provided for @shareAsText.
+  ///
+  /// In tr, this message translates to:
+  /// **'Metin olarak paylaş'**
+  String get shareAsText;
+
+  /// No description provided for @shareAsFile.
+  ///
+  /// In tr, this message translates to:
+  /// **'Dosya olarak paylaş (.json)'**
+  String get shareAsFile;
+
+  /// No description provided for @shareAsFileSubtitle.
+  ///
+  /// In tr, this message translates to:
+  /// **'Kayıtlar başka bir cihazda aynen yazılabilir'**
+  String get shareAsFileSubtitle;
 }
 
 class _AppLocalizationsDelegate

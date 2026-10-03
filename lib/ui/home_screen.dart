@@ -284,6 +284,12 @@ class _HomeScreenState extends State<HomeScreen>
         crossAxisAlignment: WrapCrossAlignment.center,
         children: [
           ...chips,
+          if (tag.error == null && tag.records.isNotEmpty)
+            ActionChip(
+              avatar: Icon(Icons.ios_share_rounded, size: 16, color: AppColors.accent),
+              label: Text(L10n.current.shareTag),
+              onPressed: () => _shareScannedTag(tag),
+            ),
           if (tag.error == null && match == null)
             ActionChip(
               avatar: Icon(Icons.bookmark_add_outlined, size: 16, color: AppColors.accent),
@@ -293,6 +299,52 @@ class _HomeScreenState extends State<HomeScreen>
         ],
       ),
     );
+  }
+
+  Future<void> _shareScannedTag(NfcTagInfo tag) async {
+    final choice = await showModalBottomSheet<String>(
+      context: context,
+      builder: (ctx) => SafeArea(
+        child: Column(
+          mainAxisSize: MainAxisSize.min,
+          children: [
+            ListTile(
+              leading: const Icon(Icons.notes_rounded),
+              title: Text(L10n.current.shareAsText),
+              onTap: () => Navigator.of(ctx).pop('text'),
+            ),
+            ListTile(
+              leading: const Icon(Icons.data_object_rounded),
+              title: Text(L10n.current.shareAsFile),
+              subtitle: Text(L10n.current.shareAsFileSubtitle),
+              onTap: () => Navigator.of(ctx).pop('json'),
+            ),
+          ],
+        ),
+      ),
+    );
+    if (choice == null || !mounted) return;
+    final lines = <String>[
+      '${L10n.current.serialUidLabel} ${tag.identifier}',
+      for (final r in tag.records) () {
+        final p = NdefCodec.parseRecord(r);
+        return '• ${p.title}: ${p.content}';
+      }(),
+    ];
+    if (choice == 'text') {
+      await SharePlus.instance.share(ShareParams(text: lines.join('\n')));
+      return;
+    }
+    final json = const JsonEncoder.withIndent('  ').convert({
+      'app': 'nfc_tag_master',
+      'uid': tag.identifier,
+      'records': tag.records.map((r) => r.toJsonMap()).toList(),
+    });
+    final name = 'nfc_tag_${tag.identifier.replaceAll(':', '')}.json';
+    await SharePlus.instance.share(ShareParams(
+      files: [XFile.fromData(Uint8List.fromList(utf8.encode(json)), mimeType: 'application/json', name: name)],
+      fileNameOverrides: [name],
+    ));
   }
 
   Widget _infoChip(IconData icon, String label, Color color) {

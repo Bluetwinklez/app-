@@ -3141,4 +3141,17 @@ class AppLocalizationsRu extends AppLocalizations {
 
   @override
   String get blankTagAction => 'Подготовить и записать';
+
+  @override
+  String get shareTag => 'Поделиться';
+
+  @override
+  String get shareAsText => 'Поделиться текстом';
+
+  @override
+  String get shareAsFile => 'Поделиться файлом (.json)';
+
+  @override
+  String get shareAsFileSubtitle =>
+      'Записи можно точно записать на другом устройстве';
 }

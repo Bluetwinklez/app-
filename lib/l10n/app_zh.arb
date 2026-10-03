@@ -883,5 +883,9 @@
   "verifyFailedAfterWrite": "无法验证写入数据；请将标签保持更久。",
   "blankTagTitle": "标签尚未准备好",
   "blankTagBody": "此标签为新标签，尚未格式化为 NDEF。应用可一次性完成准备并写入内容（NTAG 和 MIFARE Ultralight）。",
-  "blankTagAction": "准备并写入"
+  "blankTagAction": "准备并写入",
+  "shareTag": "分享",
+  "shareAsText": "以文本分享",
+  "shareAsFile": "以文件分享（.json）",
+  "shareAsFileSubtitle": "可在其他设备上原样写入"
 }
