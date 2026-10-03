@@ -340,6 +340,10 @@ class NfcStateController extends ChangeNotifier {
       records = TemplateVariables.apply(records, now: DateTime.now(), counterValue: nextCounter);
     }
 
+    if (_storage.addMadeWith && records.isNotEmpty) {
+      records = [...records, NdefCodec.encodeText(L10n.current.madeWithText)];
+    }
+
     final signingKey = _storage.signingKey;
     if (_storage.signOnWrite && signingKey != null) {
       records = TagSignature.sign(records, base64Decode(signingKey));

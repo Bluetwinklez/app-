@@ -1,6 +1,7 @@
 import 'package:flutter_test/flutter_test.dart';
 import 'package:nfc_tag_master/controllers/nfc_controller.dart';
 import 'package:nfc_tag_master/domain/logbook.dart';
+import 'package:nfc_tag_master/domain/ndef_record.dart';
 import 'package:nfc_tag_master/domain/tag_library.dart';
 import 'package:nfc_tag_master/services/app_storage_service.dart';
 import 'phase2_storage_and_history_test.dart' show MockNfcPlatformService;
@@ -43,5 +44,19 @@ void main() {
     final e = TagLibraryEntry(id: '1', name: 'x', autoLogBookId: 'b', createdAt: now, updatedAt: now);
     expect(TagLibraryEntry.fromJsonMap(e.toJsonMap()).autoLogBookId, 'b');
     expect(e.copyWith(clearAutoLog: true).autoLogBookId, isNull);
+  });
+
+  test('"made with" note is appended only when enabled', () async {
+    final storage = InMemoryAppStorageService();
+    final service = MockNfcPlatformService();
+    final controller = NfcStateController(service: service, storage: storage);
+    await controller.init();
+    final records = [NdefCodec.encodeUri('https://example.com')];
+    await controller.writeRecords(records);
+    expect(service.lastWrittenRecords, hasLength(1));
+    await storage.setAddMadeWith(true);
+    await controller.writeRecords(records);
+    expect(service.lastWrittenRecords, hasLength(2));
+    expect(storage.firstTagDone, isTrue);
   });
 }

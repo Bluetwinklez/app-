@@ -4773,4 +4773,13 @@ class AppLocalizationsJa extends AppLocalizations {
 
   @override
   String get templateCodeInvalid => 'このQRコードのテンプレートを読み取れません';
+
+  @override
+  String get madeWithTitle => '「作成アプリ」メモを追加';
+
+  @override
+  String get madeWithSubtitle => '書き込み時に末尾へ短いテキストを追加し、アプリを知ってもらいます（約30バイト）。';
+
+  @override
+  String get madeWithText => 'NFC Tag Masterで作成';
 }

@@ -4986,4 +4986,14 @@ class AppLocalizationsTr extends AppLocalizations {
 
   @override
   String get templateCodeInvalid => 'Bu QR kodundaki şablon okunamadı';
+
+  @override
+  String get madeWithTitle => 'Etikete \"yapıldı\" notu ekle';
+
+  @override
+  String get madeWithSubtitle =>
+      'Yazılan etiketin sonuna kısa bir metin kaydı eklenir; okuyanlar uygulamayı tanır (yaklaşık 30 bayt).';
+
+  @override
+  String get madeWithText => 'NFC Etiket Yöneticisi ile yapıldı';
 }

@@ -1396,5 +1396,8 @@
   "reminderWarrantyBody": "ينتهي الضمان اليوم.",
   "templateShareQr": "مشاركة كرمز QR",
   "templateReceived": "أُضيف القالب: {name}",
-  "templateCodeInvalid": "تعذرت قراءة القالب من رمز QR هذا"
+  "templateCodeInvalid": "تعذرت قراءة القالب من رمز QR هذا",
+  "madeWithTitle": "إضافة ملاحظة \"صُنع بـ\"",
+  "madeWithSubtitle": "يُضاف نص قصير في النهاية ليتعرف القرّاء على التطبيق (نحو 30 بايت).",
+  "madeWithText": "صُنع باستخدام NFC Tag Master"
 }

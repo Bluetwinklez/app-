@@ -1396,5 +1396,8 @@
   "reminderWarrantyBody": "De garantie loopt vandaag af.",
   "templateShareQr": "Delen als QR",
   "templateReceived": "Sjabloon toegevoegd: {name}",
-  "templateCodeInvalid": "Het sjabloon in deze QR-code is onleesbaar"
+  "templateCodeInvalid": "Het sjabloon in deze QR-code is onleesbaar",
+  "madeWithTitle": "\"Gemaakt met\"-notitie toevoegen",
+  "madeWithSubtitle": "Er komt een korte tekst aan het einde zodat lezers de app ontdekken (ca. 30 bytes).",
+  "madeWithText": "Gemaakt met NFC Tag Master"
 }

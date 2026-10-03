@@ -4733,4 +4733,13 @@ class AppLocalizationsZh extends AppLocalizations {
 
   @override
   String get templateCodeInvalid => '无法读取此二维码中的模板';
+
+  @override
+  String get madeWithTitle => '添加“制作于”备注';
+
+  @override
+  String get madeWithSubtitle => '在写入内容末尾添加一段短文字，让读取者认识本应用（约 30 字节）。';
+
+  @override
+  String get madeWithText => '由 NFC Tag Master 制作';
 }
