@@ -5000,4 +5000,14 @@ class AppLocalizationsDe extends AppLocalizations {
   @override
   String get templateCodeInvalid =>
       'Die Vorlage in diesem QR-Code ist unlesbar';
+
+  @override
+  String get madeWithTitle => '„Erstellt mit\"-Hinweis anfügen';
+
+  @override
+  String get madeWithSubtitle =>
+      'Ein kurzer Textdatensatz am Ende, damit Leser die App entdecken (ca. 30 Byte).';
+
+  @override
+  String get madeWithText => 'Erstellt mit NFC Tag Master';
 }

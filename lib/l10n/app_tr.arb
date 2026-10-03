@@ -3411,5 +3411,8 @@
       }
     }
   },
-  "templateCodeInvalid": "Bu QR kodundaki şablon okunamadı"
+  "templateCodeInvalid": "Bu QR kodundaki şablon okunamadı",
+  "madeWithTitle": "Etikete \"yapıldı\" notu ekle",
+  "madeWithSubtitle": "Yazılan etiketin sonuna kısa bir metin kaydı eklenir; okuyanlar uygulamayı tanır (yaklaşık 30 bayt).",
+  "madeWithText": "NFC Etiket Yöneticisi ile yapıldı"
 }

@@ -1396,5 +1396,8 @@
   "reminderWarrantyBody": "보증이 오늘 만료됩니다.",
   "templateShareQr": "QR로 공유",
   "templateReceived": "템플릿 추가됨: {name}",
-  "templateCodeInvalid": "이 QR 코드의 템플릿을 읽을 수 없습니다"
+  "templateCodeInvalid": "이 QR 코드의 템플릿을 읽을 수 없습니다",
+  "madeWithTitle": "\"제작 앱\" 메모 추가",
+  "madeWithSubtitle": "쓴 태그 끝에 짧은 텍스트를 붙여 앱을 알립니다(약 30바이트).",
+  "madeWithText": "NFC Tag Master로 제작"
 }
