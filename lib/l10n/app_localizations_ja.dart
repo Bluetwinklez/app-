@@ -478,7 +478,8 @@ class AppLocalizationsJa extends AppLocalizations {
   String get presetAppDownloadTitle => 'アプリのダウンロード';
 
   @override
-  String get presetBusinessCardDesc => 'スマホをタッチすると連絡先がアドレス帳に追加されます。';
+  String get presetBusinessCardDesc =>
+      '連絡先カードを共有。Androidは保存を提案し、iPhoneではNFCアプリで開きます。';
 
   @override
   String get presetBusinessCardTitle => 'デジタル名刺';
@@ -502,7 +503,7 @@ class AppLocalizationsJa extends AppLocalizations {
   String get presetGoogleReviewTitle => 'Google口コミ案内';
 
   @override
-  String get presetGuestWifiDesc => 'パスワード入力不要でWi-Fiにすぐ接続できます。';
+  String get presetGuestWifiDesc => 'Androidはタッチで接続、iPhoneではNFCアプリで情報を表示します。';
 
   @override
   String get presetGuestWifiTitle => '来客用Wi-Fiカード';

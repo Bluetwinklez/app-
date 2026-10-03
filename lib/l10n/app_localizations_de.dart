@@ -506,7 +506,7 @@ class AppLocalizationsDe extends AppLocalizations {
 
   @override
   String get presetBusinessCardDesc =>
-      'Fügt Ihre Kontaktdaten beim Antippen zum Adressbuch hinzu.';
+      'Teilt Ihre Kontaktkarte; Android bietet das Speichern an, auf dem iPhone öffnet sie eine NFC-App.';
 
   @override
   String get presetBusinessCardTitle => 'Digitale Visitenkarte';
@@ -533,7 +533,7 @@ class AppLocalizationsDe extends AppLocalizations {
 
   @override
   String get presetGuestWifiDesc =>
-      'Gäste verbinden sich ohne Passworteingabe.';
+      'Android-Geräte verbinden sich per Antippen; auf dem iPhone zeigt eine NFC-App die Daten.';
 
   @override
   String get presetGuestWifiTitle => 'Gäste-WLAN-Karte';

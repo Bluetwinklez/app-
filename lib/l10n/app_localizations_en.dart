@@ -498,7 +498,7 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get presetBusinessCardDesc =>
-      'Adds your contact card to the address book when tapped.';
+      'Shares your contact card; Android offers to save it, on iPhone it opens in an NFC app.';
 
   @override
   String get presetBusinessCardTitle => 'Digital Business Card';
@@ -525,7 +525,7 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get presetGuestWifiDesc =>
-      'Guests connect to the network without typing a password.';
+      'Android phones join the network with a tap; on iPhone the details are shown in an NFC app.';
 
   @override
   String get presetGuestWifiTitle => 'Guest Wi-Fi Card';

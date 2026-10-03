@@ -494,7 +494,7 @@ class AppLocalizationsAr extends AppLocalizations {
 
   @override
   String get presetBusinessCardDesc =>
-      'تضيف جهة اتصالك لدفتر العناوين بمجرد اللمس.';
+      'يشارك بطاقة الاتصال؛ يعرض Android حفظها، وعلى iPhone تُفتح عبر تطبيق NFC.';
 
   @override
   String get presetBusinessCardTitle => 'بطاقة عمل رقمية';
@@ -521,7 +521,7 @@ class AppLocalizationsAr extends AppLocalizations {
 
   @override
   String get presetGuestWifiDesc =>
-      'يتصل الضيوف بالشبكة دون كتابة كلمة المرور.';
+      'تتصل هواتف Android بالشبكة بلمسة؛ وعلى iPhone تظهر البيانات عبر تطبيق NFC.';
 
   @override
   String get presetGuestWifiTitle => 'بطاقة Wi-Fi للضيوف';

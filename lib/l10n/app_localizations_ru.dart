@@ -501,7 +501,7 @@ class AppLocalizationsRu extends AppLocalizations {
 
   @override
   String get presetBusinessCardDesc =>
-      'Добавляет контакт в телефонную книгу в одно касание.';
+      'Передаёт вашу визитку; Android предложит сохранить, на iPhone она откроется в NFC-приложении.';
 
   @override
   String get presetBusinessCardTitle => 'Электронная визитка';
@@ -529,7 +529,7 @@ class AppLocalizationsRu extends AppLocalizations {
 
   @override
   String get presetGuestWifiDesc =>
-      'Подключение к сети без ручного ввода пароля.';
+      'Android подключается к сети касанием; на iPhone данные видны в NFC-приложении.';
 
   @override
   String get presetGuestWifiTitle => 'Гостевой Wi-Fi';

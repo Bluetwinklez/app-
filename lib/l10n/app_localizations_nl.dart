@@ -499,7 +499,7 @@ class AppLocalizationsNl extends AppLocalizations {
 
   @override
   String get presetBusinessCardDesc =>
-      'Voegt contactgegevens toe aan het adresboek bij aanraking.';
+      'Deelt je contactkaart; Android biedt opslaan aan, op iPhone opent een NFC-app hem.';
 
   @override
   String get presetBusinessCardTitle => 'Digitaal visitekaartje';
@@ -527,7 +527,7 @@ class AppLocalizationsNl extends AppLocalizations {
 
   @override
   String get presetGuestWifiDesc =>
-      'Gasten verbinden direct zonder het wachtwoord te typen.';
+      'Android-telefoons verbinden met één tik; op iPhone toont een NFC-app de gegevens.';
 
   @override
   String get presetGuestWifiTitle => 'Gasten-wifi kaart';
