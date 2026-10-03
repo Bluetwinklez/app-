@@ -31,6 +31,7 @@ import urllib.request
 import jwt  # PyJWT
 
 API = "https://api.appstoreconnect.apple.com/v1"
+OPTIONAL = {"ICLOUD"}
 
 
 def targets(main_id):
@@ -76,7 +77,7 @@ class Api:
             self.key, algorithm="ES256",
             headers={"kid": self.key_id, "typ": "JWT"})
 
-    def call(self, method, path, body=None, query=None):
+    def call(self, method, path, body=None, query=None, allow_forbidden=False):
         url = API + path
         if query:
             url += "?" + urllib.parse.urlencode(query)
@@ -91,6 +92,9 @@ class Api:
                 return json.loads(raw) if raw else {}
         except urllib.error.HTTPError as e:
             detail = e.read().decode(errors="replace")
+            if e.code == 403 and allow_forbidden:
+                print(f"::warning::{method} {path} is not allowed for this API key")
+                return None
             raise SystemExit(
                 f"::error::App Store Connect {method} {path} failed "
                 f"({e.code}): {detail}")
@@ -122,8 +126,9 @@ def ensure_bundle(api, target, dry):
 
 
 def ensure_capabilities(api, bundle_id, target, dry):
+    """Enables what it can; returns the capabilities that are on."""
     if not target["capabilities"]:
-        return
+        return set()
     present = set()
     if bundle_id:
         res = api.call("GET", f"/bundleIds/{bundle_id}/bundleIdCapabilities")
@@ -139,12 +144,20 @@ def ensure_capabilities(api, bundle_id, target, dry):
         attributes = {"capabilityType": cap}
         if settings:
             attributes["settings"] = settings
-        api.call("POST", "/bundleIdCapabilities", {"data": {
+        # Optional capabilities (iCloud) need an Admin key; without one the
+        # app is built without them.
+        res = api.call("POST", "/bundleIdCapabilities", {"data": {
             "type": "bundleIdCapabilities",
             "attributes": attributes,
             "relationships": {"bundleId": {"data": {
-                "type": "bundleIds", "id": bundle_id}}}}})
+                "type": "bundleIds", "id": bundle_id}}}}},
+            allow_forbidden=(cap in OPTIONAL))
+        if res is None:
+            print(f"  {cap} left off")
+            continue
+        present.add(cap)
         print(f"  enabled {cap}")
+    return present
 
 
 def find_certificate(api, serial):
@@ -205,18 +218,20 @@ def main():
     cert_id = None if dry else find_certificate(api, env["CERT_SERIAL"])
     for target in targets(env["IOS_BUNDLE_ID"]):
         bundle_id = ensure_bundle(api, target, dry)
-        ensure_capabilities(api, bundle_id, target, dry)
+        enabled = ensure_capabilities(api, bundle_id, target, dry)
         if dry:
             continue
         content = recreate_profile(api, bundle_id, cert_id, target, dirs)
         ents = entitlements_of(content)
-        for cap, _ in target["capabilities"]:
-            if cap == "NFC_TAG_READING" and \
-                    "com.apple.developer.nfc.readersession.formats" not in ents:
-                raise SystemExit("::error::App profile lacks NFC tag reading")
-            if cap == "ICLOUD" and \
-                    "com.apple.developer.ubiquity-kvstore-identifier" not in ents:
-                raise SystemExit("::error::App profile lacks iCloud storage")
+        if "NFC_TAG_READING" in enabled and \
+                "com.apple.developer.nfc.readersession.formats" not in ents:
+            raise SystemExit("::error::App profile lacks NFC tag reading")
+        if target["identifier"] == env["IOS_BUNDLE_ID"]:
+            icloud = "com.apple.developer.ubiquity-kvstore-identifier" in ents
+            print(f"iCloud backup {'on' if icloud else 'off'}")
+            if env.get("GITHUB_ENV"):
+                with open(env["GITHUB_ENV"], "a", encoding="utf-8") as f:
+                    f.write(f"ICLOUD_ENABLED={1 if icloud else 0}\n")
     print("Signing setup complete")
 
 

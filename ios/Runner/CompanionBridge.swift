@@ -34,6 +34,9 @@ final class CompanionBridge: NSObject, WCSessionDelegate {
     func handle(_ call: FlutterMethodCall, result: @escaping FlutterResult) -> Bool {
         let args = call.arguments as? [String: Any]
         switch call.method {
+        case "iCloudSupported":
+            // Set by the release build when the profile carries iCloud.
+            result(Bundle.main.object(forInfoDictionaryKey: "NfcICloudBackup") as? Bool == true)
         case "iCloudAvailable":
             result(FileManager.default.ubiquityIdentityToken != nil)
         case "iCloudSave":
