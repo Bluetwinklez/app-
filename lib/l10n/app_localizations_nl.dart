@@ -2733,4 +2733,155 @@ class AppLocalizationsNl extends AppLocalizations {
   String lockTagWarningFull(String more) {
     return 'Een vergrendelde tag wordt alleen-lezen: de inhoud kan NOOIT meer worden gewijzigd of gewist en de vergrendeling is DEFINITIEF. $more';
   }
+
+  @override
+  String messageSizeBytes(String bytes) {
+    return 'Berichtgrootte: $bytes bytes';
+  }
+
+  @override
+  String bytesShort(String bytes) {
+    return 'Bytes: $bytes B';
+  }
+
+  @override
+  String bytesValue(String bytes) {
+    return '$bytes bytes';
+  }
+
+  @override
+  String bytesOfCapacity(String bytes, String max) {
+    return '$bytes / $max bytes';
+  }
+
+  @override
+  String get valueNone => 'Geen';
+
+  @override
+  String get valueYesIp => 'Ja (IP-adres)';
+
+  @override
+  String get nfcMissingShort => 'Geen NFC';
+
+  @override
+  String get clearClipboard => 'Klembord wissen';
+
+  @override
+  String get statLibrary => 'Bibliotheek';
+
+  @override
+  String get scanTagTitle => 'Tag scannen';
+
+  @override
+  String get readingInProgress => 'Lezen...';
+
+  @override
+  String get rawMemorySubtitle => 'Ruw geheugen';
+
+  @override
+  String get copyToClipboard => 'Naar klembord kopiëren';
+
+  @override
+  String get serialUidLabel => 'Serienr. (UID):';
+
+  @override
+  String get totalCapacityLabel => 'Totale capaciteit:';
+
+  @override
+  String get technologiesLabel => 'Technologieën:';
+
+  @override
+  String get idLabel => 'Identificatie (ID):';
+
+  @override
+  String get undoTooltip => 'Ongedaan maken';
+
+  @override
+  String get clearComposer => 'Lijst wissen';
+
+  @override
+  String composerTotalSize(String bytes) {
+    return 'Totale grootte: $bytes bytes';
+  }
+
+  @override
+  String get yesClear => 'Ja, wissen';
+
+  @override
+  String get ssidTooLong => 'SSID mag maximaal 32 bytes zijn.';
+
+  @override
+  String get locationPlace => 'Locatie';
+
+  @override
+  String get targetWebUrl => 'Doel-URL *';
+
+  @override
+  String get languageCodeLabel => 'Taalcode (ISO 639-1) *';
+
+  @override
+  String get utf8Text => 'UTF-8-tekst';
+
+  @override
+  String recordDebugSummary(String tnf, String bytes) {
+    return 'TNF: $tnf, grootte: $bytes bytes';
+  }
+
+  @override
+  String get quickGallerySubtitle => 'Klaar met één tik';
+
+  @override
+  String get quickLibraryTitle => 'Mijn tags';
+
+  @override
+  String get quickLibrarySubtitle => 'Opgeslagen tags';
+
+  @override
+  String get saveToLibrary => 'Opslaan in bibliotheek';
+
+  @override
+  String libraryMatch(String name) {
+    return 'In bibliotheek: $name';
+  }
+
+  @override
+  String tagChipLabel(String chip) {
+    return 'Chip: $chip';
+  }
+
+  @override
+  String tagManufacturerLabel(String name) {
+    return 'Fabrikant: $name';
+  }
+
+  @override
+  String get settingsLibrarySubtitle =>
+      'Je tags met namen, notities en foto\'s';
+
+  @override
+  String get showOnboardingAgain => 'Introductie opnieuw tonen';
+
+  @override
+  String get importFromGallery => 'Toevoegen uit sjablonen';
+
+  @override
+  String get appearanceTitle => 'Weergave';
+
+  @override
+  String get themeSystem => 'Systeem';
+
+  @override
+  String get themeLight => 'Licht';
+
+  @override
+  String get themeDark => 'Donker';
+
+  @override
+  String get valuePresentRisky => 'Aanwezig (mogelijk riskant)';
+
+  @override
+  String get supportedValue => 'Ondersteund';
+
+  @override
+  String get notSupportedValue => 'Niet ondersteund';
 }

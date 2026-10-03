@@ -2607,4 +2607,154 @@ class AppLocalizationsJa extends AppLocalizations {
   String lockTagWarningFull(String more) {
     return 'ロックしたタグは読み取り専用になり、内容の変更・消去やロック解除は二度とできません。$more';
   }
+
+  @override
+  String messageSizeBytes(String bytes) {
+    return 'メッセージサイズ: $bytesバイト';
+  }
+
+  @override
+  String bytesShort(String bytes) {
+    return 'バイト: $bytes B';
+  }
+
+  @override
+  String bytesValue(String bytes) {
+    return '$bytesバイト';
+  }
+
+  @override
+  String bytesOfCapacity(String bytes, String max) {
+    return '$bytes / $maxバイト';
+  }
+
+  @override
+  String get valueNone => 'なし';
+
+  @override
+  String get valueYesIp => 'はい (IPアドレス)';
+
+  @override
+  String get nfcMissingShort => 'NFCなし';
+
+  @override
+  String get clearClipboard => 'クリップボードを消去';
+
+  @override
+  String get statLibrary => 'ライブラリ';
+
+  @override
+  String get scanTagTitle => 'タグをスキャン';
+
+  @override
+  String get readingInProgress => '読み取り中...';
+
+  @override
+  String get rawMemorySubtitle => '生メモリ';
+
+  @override
+  String get copyToClipboard => 'クリップボードにコピー';
+
+  @override
+  String get serialUidLabel => 'シリアル (UID):';
+
+  @override
+  String get totalCapacityLabel => '総容量:';
+
+  @override
+  String get technologiesLabel => '技術:';
+
+  @override
+  String get idLabel => '識別子 (ID):';
+
+  @override
+  String get undoTooltip => '元に戻す';
+
+  @override
+  String get clearComposer => 'リストを消去';
+
+  @override
+  String composerTotalSize(String bytes) {
+    return '合計サイズ: $bytesバイト';
+  }
+
+  @override
+  String get yesClear => 'はい、消去';
+
+  @override
+  String get ssidTooLong => 'SSIDは最大32バイトです。';
+
+  @override
+  String get locationPlace => '場所';
+
+  @override
+  String get targetWebUrl => 'リンク先URL *';
+
+  @override
+  String get languageCodeLabel => '言語コード (ISO 639-1) *';
+
+  @override
+  String get utf8Text => 'UTF-8テキスト';
+
+  @override
+  String recordDebugSummary(String tnf, String bytes) {
+    return 'TNF: $tnf, サイズ: $bytesバイト';
+  }
+
+  @override
+  String get quickGallerySubtitle => 'ワンタップで完成';
+
+  @override
+  String get quickLibraryTitle => 'マイタグ';
+
+  @override
+  String get quickLibrarySubtitle => '保存したタグ';
+
+  @override
+  String get saveToLibrary => 'ライブラリに保存';
+
+  @override
+  String libraryMatch(String name) {
+    return 'ライブラリ内: $name';
+  }
+
+  @override
+  String tagChipLabel(String chip) {
+    return 'チップ: $chip';
+  }
+
+  @override
+  String tagManufacturerLabel(String name) {
+    return 'メーカー: $name';
+  }
+
+  @override
+  String get settingsLibrarySubtitle => '名前・メモ・写真付きのタグ';
+
+  @override
+  String get showOnboardingAgain => '紹介をもう一度表示';
+
+  @override
+  String get importFromGallery => 'テンプレートから追加';
+
+  @override
+  String get appearanceTitle => '外観';
+
+  @override
+  String get themeSystem => 'システム';
+
+  @override
+  String get themeLight => 'ライト';
+
+  @override
+  String get themeDark => 'ダーク';
+
+  @override
+  String get valuePresentRisky => 'あり (危険な可能性)';
+
+  @override
+  String get supportedValue => '対応';
+
+  @override
+  String get notSupportedValue => '非対応';
 }

@@ -43,14 +43,14 @@ class NtagChip {
   static const ntag216 = NtagChip(
       name: 'NTAG216', totalPages: 231, userStartPage: 4, userEndPage: 225, cfg0Page: 227, ccSizeByte: 0x6D);
   static const ultralightEv1Small = NtagChip(
-      name: 'MIFARE Ultralight EV1 (48 bayt)',
+      name: 'MIFARE Ultralight EV1 (48 B)',
       totalPages: 20,
       userStartPage: 4,
       userEndPage: 15,
       cfg0Page: 16,
       ccSizeByte: 0x06);
   static const ultralightEv1Large = NtagChip(
-      name: 'MIFARE Ultralight EV1 (128 bayt)',
+      name: 'MIFARE Ultralight EV1 (128 B)',
       totalPages: 41,
       userStartPage: 4,
       userEndPage: 35,

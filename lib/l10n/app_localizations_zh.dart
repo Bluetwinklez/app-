@@ -2581,4 +2581,154 @@ class AppLocalizationsZh extends AppLocalizations {
   String lockTagWarningFull(String more) {
     return '锁定后标签将变为只读：内容永远无法修改或擦除，锁定也无法解除。$more';
   }
+
+  @override
+  String messageSizeBytes(String bytes) {
+    return '消息大小：$bytes 字节';
+  }
+
+  @override
+  String bytesShort(String bytes) {
+    return '字节：$bytes B';
+  }
+
+  @override
+  String bytesValue(String bytes) {
+    return '$bytes 字节';
+  }
+
+  @override
+  String bytesOfCapacity(String bytes, String max) {
+    return '$bytes / $max 字节';
+  }
+
+  @override
+  String get valueNone => '无';
+
+  @override
+  String get valueYesIp => '是（IP 地址）';
+
+  @override
+  String get nfcMissingShort => '无 NFC';
+
+  @override
+  String get clearClipboard => '清空剪贴板';
+
+  @override
+  String get statLibrary => '标签库';
+
+  @override
+  String get scanTagTitle => '扫描标签';
+
+  @override
+  String get readingInProgress => '正在读取...';
+
+  @override
+  String get rawMemorySubtitle => '原始内存';
+
+  @override
+  String get copyToClipboard => '复制到剪贴板';
+
+  @override
+  String get serialUidLabel => '序列号（UID）：';
+
+  @override
+  String get totalCapacityLabel => '总容量：';
+
+  @override
+  String get technologiesLabel => '技术：';
+
+  @override
+  String get idLabel => '标识（ID）：';
+
+  @override
+  String get undoTooltip => '撤销';
+
+  @override
+  String get clearComposer => '清空列表';
+
+  @override
+  String composerTotalSize(String bytes) {
+    return '总大小：$bytes 字节';
+  }
+
+  @override
+  String get yesClear => '是的，清除';
+
+  @override
+  String get ssidTooLong => 'SSID 最多 32 字节。';
+
+  @override
+  String get locationPlace => '地点';
+
+  @override
+  String get targetWebUrl => '目标网址 *';
+
+  @override
+  String get languageCodeLabel => '语言代码（ISO 639-1）*';
+
+  @override
+  String get utf8Text => 'UTF-8 文本';
+
+  @override
+  String recordDebugSummary(String tnf, String bytes) {
+    return 'TNF：$tnf，大小：$bytes 字节';
+  }
+
+  @override
+  String get quickGallerySubtitle => '一键即用';
+
+  @override
+  String get quickLibraryTitle => '我的标签';
+
+  @override
+  String get quickLibrarySubtitle => '已保存标签';
+
+  @override
+  String get saveToLibrary => '保存到标签库';
+
+  @override
+  String libraryMatch(String name) {
+    return '标签库中：$name';
+  }
+
+  @override
+  String tagChipLabel(String chip) {
+    return '芯片：$chip';
+  }
+
+  @override
+  String tagManufacturerLabel(String name) {
+    return '制造商：$name';
+  }
+
+  @override
+  String get settingsLibrarySubtitle => '带名称、备注和照片的标签';
+
+  @override
+  String get showOnboardingAgain => '再次显示介绍';
+
+  @override
+  String get importFromGallery => '从现成模板添加';
+
+  @override
+  String get appearanceTitle => '外观';
+
+  @override
+  String get themeSystem => '跟随系统';
+
+  @override
+  String get themeLight => '浅色';
+
+  @override
+  String get themeDark => '深色';
+
+  @override
+  String get valuePresentRisky => '存在（可能有风险）';
+
+  @override
+  String get supportedValue => '支持';
+
+  @override
+  String get notSupportedValue => '不支持';
 }

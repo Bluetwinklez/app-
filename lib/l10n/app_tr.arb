@@ -1814,5 +1814,118 @@
         "type": "String"
       }
     }
-  }
+  },
+  "messageSizeBytes": "Mesaj boyutu: {bytes} bayt",
+  "@messageSizeBytes": {
+    "placeholders": {
+      "bytes": {
+        "type": "String"
+      }
+    }
+  },
+  "bytesShort": "Bayt: {bytes} B",
+  "@bytesShort": {
+    "placeholders": {
+      "bytes": {
+        "type": "String"
+      }
+    }
+  },
+  "bytesValue": "{bytes} bayt",
+  "@bytesValue": {
+    "placeholders": {
+      "bytes": {
+        "type": "String"
+      }
+    }
+  },
+  "bytesOfCapacity": "{bytes} / {max} bayt",
+  "@bytesOfCapacity": {
+    "placeholders": {
+      "bytes": {
+        "type": "String"
+      },
+      "max": {
+        "type": "String"
+      }
+    }
+  },
+  "valueNone": "Yok",
+  "valueYesIp": "Evet (IP adresi)",
+  "nfcMissingShort": "NFC Yok",
+  "clearClipboard": "Panoyu temizle",
+  "statLibrary": "Kütüphane",
+  "scanTagTitle": "Etiketi Tara",
+  "readingInProgress": "Okunuyor...",
+  "rawMemorySubtitle": "Ham bellek",
+  "copyToClipboard": "Panoya kopyala",
+  "serialUidLabel": "Seri No (UID):",
+  "totalCapacityLabel": "Toplam kapasite:",
+  "technologiesLabel": "Teknolojiler:",
+  "idLabel": "Kimlik (ID):",
+  "undoTooltip": "Geri al",
+  "clearComposer": "Listeyi temizle",
+  "composerTotalSize": "Toplam boyut: {bytes} bayt",
+  "@composerTotalSize": {
+    "placeholders": {
+      "bytes": {
+        "type": "String"
+      }
+    }
+  },
+  "yesClear": "Evet, temizle",
+  "ssidTooLong": "SSID en fazla 32 bayt olabilir.",
+  "locationPlace": "Konum / Yer",
+  "targetWebUrl": "Hedef web URL *",
+  "languageCodeLabel": "Dil kodu (ISO 639-1) *",
+  "utf8Text": "UTF-8 metin",
+  "recordDebugSummary": "TNF: {tnf}, boyut: {bytes} bayt",
+  "@recordDebugSummary": {
+    "placeholders": {
+      "tnf": {
+        "type": "String"
+      },
+      "bytes": {
+        "type": "String"
+      }
+    }
+  },
+  "quickGallerySubtitle": "Tek dokunuşla hazır",
+  "quickLibraryTitle": "Kütüphanem",
+  "quickLibrarySubtitle": "Kayıtlı etiketler",
+  "saveToLibrary": "Kütüphaneye kaydet",
+  "libraryMatch": "Kütüphanede: {name}",
+  "@libraryMatch": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
+  "tagChipLabel": "Çip: {chip}",
+  "@tagChipLabel": {
+    "placeholders": {
+      "chip": {
+        "type": "String"
+      }
+    }
+  },
+  "tagManufacturerLabel": "Üretici: {name}",
+  "@tagManufacturerLabel": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
+  "settingsLibrarySubtitle": "İsim, not ve fotoğrafla kayıtlı etiketleriniz",
+  "showOnboardingAgain": "Tanıtım rehberini tekrar göster",
+  "importFromGallery": "Hazır şablonlardan ekle",
+  "appearanceTitle": "Görünüm",
+  "themeSystem": "Sistem",
+  "themeLight": "Açık",
+  "themeDark": "Koyu",
+  "valuePresentRisky": "Var (riskli olabilir)",
+  "supportedValue": "Destekleniyor",
+  "notSupportedValue": "Desteklenmiyor"
 }
