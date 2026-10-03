@@ -1177,5 +1177,20 @@
   "libraryCheckNext": "Next inspection: {date}",
   "libraryDueFilter": "Due for inspection ({count})",
   "libraryCheckRecorded": "Inspection logged · next: {date}",
-  "cloneWarning": "This content is saved in your library on \"{name}\" with a different UID. This tag may be a copy."
+  "cloneWarning": "This content is saved in your library on \"{name}\" with a different UID. This tag may be a copy.",
+  "doctorTitle": "NDEF Doctor",
+  "doctorButton": "Health check",
+  "doctorTooShort": "Memory was not fully read; hold the tag longer and try again.",
+  "doctorNoCc": "The tag is not prepared for NDEF (blank). Use Tools → \"Format NDEF\" or simply write to it.",
+  "doctorVersion": "Unusual NDEF version byte; some phones may not read the tag.",
+  "doctorReadRestricted": "Read access is marked restricted; phones may not show the content.",
+  "doctorReadOnly": "The tag is read-only (locked); its content cannot be changed.",
+  "doctorNoNdef": "No NDEF block in memory. Writing to the tag again fixes this.",
+  "doctorEmpty": "The tag is prepared but empty.",
+  "doctorOverflow": "A length field runs past the memory; the content is corrupt. Write the tag again.",
+  "doctorExceeds": "The message ({bytes} bytes) is larger than the capacity the tag declares; phones may read it truncated.",
+  "doctorNoTerminator": "The end marker (FE) is missing. Most phones still read it; writing again fixes it.",
+  "doctorUnknownTlv": "Unrecognised data block in memory; phones may stop reading there.",
+  "doctorBadRecord": "Record {n} is malformed (bad header or length). Write the tag again.",
+  "doctorHealthy": "All good: {count} record(s) correctly written."
 }

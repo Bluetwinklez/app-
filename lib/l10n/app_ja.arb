@@ -1177,5 +1177,20 @@
   "libraryCheckNext": "次回点検: {date}",
   "libraryDueFilter": "点検待ち ({count})",
   "libraryCheckRecorded": "点検を記録 · 次回: {date}",
-  "cloneWarning": "この内容はライブラリの「{name}」に別のUIDで保存されています。このタグはコピーの可能性があります。"
+  "cloneWarning": "この内容はライブラリの「{name}」に別のUIDで保存されています。このタグはコピーの可能性があります。",
+  "doctorTitle": "NDEFドクター",
+  "doctorButton": "診断",
+  "doctorTooShort": "メモリを全部読めませんでした。タグを長めに当てて再試行してください。",
+  "doctorNoCc": "タグはNDEF用に準備されていません（空）。ツール →「NDEFフォーマット」または直接書き込んでください。",
+  "doctorVersion": "NDEFバージョンが通常と異なります。一部の端末で読めない場合があります。",
+  "doctorReadRestricted": "読み取りアクセスが制限されています。内容が表示されない場合があります。",
+  "doctorReadOnly": "タグは読み取り専用（ロック済み）で、内容は変更できません。",
+  "doctorNoNdef": "メモリにNDEFブロックがありません。再度書き込むと直ります。",
+  "doctorEmpty": "タグは準備済みですが空です。",
+  "doctorOverflow": "長さフィールドがメモリを超えています。内容が壊れているので再度書き込んでください。",
+  "doctorExceeds": "メッセージ（{bytes}バイト）が宣言容量を超えています。途中までしか読めない場合があります。",
+  "doctorNoTerminator": "終端マーカー（FE）がありません。多くの端末は読めますが、再書き込みで直ります。",
+  "doctorUnknownTlv": "メモリに不明なデータブロックがあります。読み取りが止まる場合があります。",
+  "doctorBadRecord": "レコード{n}が不正です（ヘッダーまたは長さ）。再度書き込んでください。",
+  "doctorHealthy": "問題なし：{count}件のレコードが正しく書き込まれています。"
 }

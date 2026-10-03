@@ -1177,5 +1177,20 @@
   "libraryCheckNext": "Próxima revisión: {date}",
   "libraryDueFilter": "Pendientes de revisión ({count})",
   "libraryCheckRecorded": "Revisión registrada · próxima: {date}",
-  "cloneWarning": "Este contenido está guardado en tu biblioteca en \"{name}\" con otro UID. Esta etiqueta puede ser una copia."
+  "cloneWarning": "Este contenido está guardado en tu biblioteca en \"{name}\" con otro UID. Esta etiqueta puede ser una copia.",
+  "doctorTitle": "Doctor NDEF",
+  "doctorButton": "Diagnóstico",
+  "doctorTooShort": "La memoria no se leyó completa; mantén la etiqueta más tiempo e inténtalo de nuevo.",
+  "doctorNoCc": "La etiqueta no está preparada para NDEF (vacía). Usa Herramientas → \"Formatear NDEF\" o escribe en ella.",
+  "doctorVersion": "Byte de versión NDEF inusual; algunos teléfonos podrían no leer la etiqueta.",
+  "doctorReadRestricted": "El acceso de lectura está restringido; los teléfonos podrían no mostrar el contenido.",
+  "doctorReadOnly": "La etiqueta es de solo lectura (bloqueada); no se puede cambiar.",
+  "doctorNoNdef": "No hay bloque NDEF en la memoria. Volver a escribir la etiqueta lo soluciona.",
+  "doctorEmpty": "La etiqueta está preparada pero vacía.",
+  "doctorOverflow": "Un campo de longitud excede la memoria; contenido dañado. Vuelve a escribir la etiqueta.",
+  "doctorExceeds": "El mensaje ({bytes} bytes) supera la capacidad declarada; puede leerse cortado.",
+  "doctorNoTerminator": "Falta el marcador de fin (FE). La mayoría de teléfonos lo leen igual; reescribir lo corrige.",
+  "doctorUnknownTlv": "Bloque de datos desconocido en memoria; la lectura puede detenerse ahí.",
+  "doctorBadRecord": "El registro {n} está mal formado (cabecera o longitud). Vuelve a escribir la etiqueta.",
+  "doctorHealthy": "Todo bien: {count} registro(s) escrito(s) correctamente."
 }

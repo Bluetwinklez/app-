@@ -3991,4 +3991,55 @@ class AppLocalizationsZh extends AppLocalizations {
   String cloneWarning(String name) {
     return '此内容已保存在标签库的“$name”中，但 UID 不同。此标签可能是复制品。';
   }
+
+  @override
+  String get doctorTitle => 'NDEF 诊断';
+
+  @override
+  String get doctorButton => '诊断';
+
+  @override
+  String get doctorTooShort => '未能完整读取内存；请将标签多停留一会再试。';
+
+  @override
+  String get doctorNoCc => '标签尚未为 NDEF 准备（空白）。使用 工具 →“NDEF 格式化”或直接写入。';
+
+  @override
+  String get doctorVersion => 'NDEF 版本字节异常；部分手机可能无法读取。';
+
+  @override
+  String get doctorReadRestricted => '读取权限受限；手机可能不显示内容。';
+
+  @override
+  String get doctorReadOnly => '标签为只读（已锁定），无法更改内容。';
+
+  @override
+  String get doctorNoNdef => '内存中没有 NDEF 块。重新写入标签即可修复。';
+
+  @override
+  String get doctorEmpty => '标签已准备好，但为空。';
+
+  @override
+  String get doctorOverflow => '长度字段超出内存范围，内容已损坏。请重新写入。';
+
+  @override
+  String doctorExceeds(String bytes) {
+    return '消息（$bytes 字节）超过标签声明的容量，可能被截断读取。';
+  }
+
+  @override
+  String get doctorNoTerminator => '缺少结束标记 (FE)。多数手机仍可读取；重新写入可修复。';
+
+  @override
+  String get doctorUnknownTlv => '内存中有无法识别的数据块，读取可能在此中断。';
+
+  @override
+  String doctorBadRecord(String n) {
+    return '第 $n 条记录格式错误（头部或长度）。请重新写入。';
+  }
+
+  @override
+  String doctorHealthy(String count) {
+    return '一切正常：$count 条记录写入正确。';
+  }
 }

@@ -1177,5 +1177,20 @@
   "libraryCheckNext": "Prossimo controllo: {date}",
   "libraryDueFilter": "Da controllare ({count})",
   "libraryCheckRecorded": "Controllo registrato · prossimo: {date}",
-  "cloneWarning": "Questo contenuto è salvato nella libreria su \"{name}\" con un altro UID. Questo tag potrebbe essere una copia."
+  "cloneWarning": "Questo contenuto è salvato nella libreria su \"{name}\" con un altro UID. Questo tag potrebbe essere una copia.",
+  "doctorTitle": "Dottore NDEF",
+  "doctorButton": "Diagnosi",
+  "doctorTooShort": "Memoria letta solo in parte; tieni il tag più a lungo e riprova.",
+  "doctorNoCc": "Il tag non è preparato per NDEF (vuoto). Usa Strumenti → \"Formatta NDEF\" o scrivici direttamente.",
+  "doctorVersion": "Byte di versione NDEF insolito; alcuni telefoni potrebbero non leggere il tag.",
+  "doctorReadRestricted": "L'accesso in lettura è limitato; i telefoni potrebbero non mostrare il contenuto.",
+  "doctorReadOnly": "Il tag è di sola lettura (bloccato); il contenuto non è modificabile.",
+  "doctorNoNdef": "Nessun blocco NDEF in memoria. Riscrivere il tag risolve il problema.",
+  "doctorEmpty": "Il tag è preparato ma vuoto.",
+  "doctorOverflow": "Un campo di lunghezza supera la memoria; contenuto danneggiato. Riscrivi il tag.",
+  "doctorExceeds": "Il messaggio ({bytes} byte) supera la capacità dichiarata; può essere letto troncato.",
+  "doctorNoTerminator": "Manca il marcatore di fine (FE). La maggior parte dei telefoni legge comunque; riscrivere corregge.",
+  "doctorUnknownTlv": "Blocco di dati sconosciuto in memoria; la lettura può fermarsi lì.",
+  "doctorBadRecord": "Il record {n} è malformato (intestazione o lunghezza). Riscrivi il tag.",
+  "doctorHealthy": "Tutto a posto: {count} record scritti correttamente."
 }
