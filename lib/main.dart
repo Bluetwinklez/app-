@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:path_provider/path_provider.dart';
 import 'controllers/nfc_controller.dart';
 import 'services/app_storage_service.dart';
+import 'services/secret_store.dart';
 import 'services/nfc_service.dart';
 import 'ui/home_screen.dart';
 import 'ui/app_lock_gate.dart';
@@ -21,7 +22,7 @@ void main() async {
   try {
     final Directory docDir = await getApplicationDocumentsDirectory();
     final storageDir = '${docDir.path}/nfc_tag_master_data';
-    storage = LocalFileAppStorageService(baseDirectoryPath: storageDir);
+    storage = LocalFileAppStorageService(baseDirectoryPath: storageDir, secrets: KeychainSecretStore());
     await storage.init();
   } catch (e) {
     debugPrint('Fallback to InMemoryAppStorageService: $e');
