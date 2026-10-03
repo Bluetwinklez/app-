@@ -897,5 +897,7 @@
   "clearList": "リストを消去",
   "csvColumnTime": "時刻",
   "csvColumnRecords": "レコード",
-  "csvColumnContent": "内容"
+  "csvColumnContent": "内容",
+  "csvColumnCapacity": "容量 (B)",
+  "csvColumnUsed": "使用 (B)"
 }

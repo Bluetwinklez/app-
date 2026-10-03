@@ -1,3 +1,7 @@
+import '../domain/csv_export.dart';
+import 'package:share_plus/share_plus.dart';
+import 'dart:typed_data';
+import 'dart:convert';
 import 'dart:io';
 import 'package:flutter/material.dart';
 import '../l10n/app_localizations.dart';
@@ -114,14 +118,39 @@ class _TagLibraryPageState extends State<TagLibraryPage> {
 
   List<TagLibraryEntry> get _visible => widget.storage
       .getLibrary()
-      .where((e) => (_filter == null || e.category == _filter) && e.matches(_query))
+      .where((e) =>
+          (_filter == null || e.category == _filter) && e.matches(_query))
       .toList();
+
+  Future<void> _exportCsv() async {
+    final loc = AppLocalizations.of(context) ?? L10n.current;
+    final csv = CsvExport.library(widget.storage.getLibrary(), header: [
+      loc.name,
+      loc.categoryLabel,
+      loc.locationLabel,
+      loc.noteLabel,
+      'UID',
+      loc.csvColumnContent,
+      loc.csvColumnTime,
+    ]);
+    final name =
+        'nfc_library_${DateTime.now().toIso8601String().substring(0, 10)}.csv';
+    await SharePlus.instance.share(ShareParams(
+      files: [
+        XFile.fromData(Uint8List.fromList(utf8.encode(csv)),
+            mimeType: 'text/csv', name: name)
+      ],
+      fileNameOverrides: [name],
+    ));
+  }
 
   Future<void> _addEntry() async {
     final loc = AppLocalizations.of(context) ?? L10n.current;
     final sources = <_LibrarySource, List<NdefRecordModel>>{
-      if (widget.lastScanRecords.isNotEmpty) _LibrarySource.lastScan: widget.lastScanRecords,
-      if (widget.composerRecords.isNotEmpty) _LibrarySource.composer: widget.composerRecords,
+      if (widget.lastScanRecords.isNotEmpty)
+        _LibrarySource.lastScan: widget.lastScanRecords,
+      if (widget.composerRecords.isNotEmpty)
+        _LibrarySource.composer: widget.composerRecords,
       _LibrarySource.empty: const [],
     };
     _LibrarySource? chosen = sources.keys.first;
@@ -135,13 +164,16 @@ class _TagLibraryPageState extends State<TagLibraryPage> {
               Padding(
                 padding: const EdgeInsets.fromLTRB(20, 0, 20, 8),
                 child: Text(loc.sourceSelectPrompt,
-                    style: const TextStyle(fontSize: 17, fontWeight: FontWeight.w700)),
+                    style: const TextStyle(
+                        fontSize: 17, fontWeight: FontWeight.w700)),
               ),
               for (final entry in sources.entries)
                 ListTile(
                   leading: const Icon(Icons.nfc_rounded),
                   title: Text(_sourceLabel(entry.key, loc)),
-                  subtitle: entry.value.isEmpty ? null : Text(loc.ndefRecordsCount(entry.value.length)),
+                  subtitle: entry.value.isEmpty
+                      ? null
+                      : Text(loc.ndefRecordsCount(entry.value.length)),
                   onTap: () => Navigator.of(ctx).pop(entry.key),
                 ),
               const SizedBox(height: 8),
@@ -168,7 +200,8 @@ class _TagLibraryPageState extends State<TagLibraryPage> {
     final result = await showModalBottomSheet<TagLibraryEntry>(
       context: context,
       isScrollControlled: true,
-      builder: (_) => _EntryEditor(entry: entry, docsDir: _docsDir, isNew: isNew),
+      builder: (_) =>
+          _EntryEditor(entry: entry, docsDir: _docsDir, isNew: isNew),
     );
     if (result == null) return;
     try {
@@ -176,7 +209,9 @@ class _TagLibraryPageState extends State<TagLibraryPage> {
     } catch (e) {
       if (mounted) {
         ScaffoldMessenger.of(context).showSnackBar(
-          SnackBar(content: Text('Kaydedilemedi: $e'), backgroundColor: AppColors.danger),
+          SnackBar(
+              content: Text('Kaydedilemedi: $e'),
+              backgroundColor: AppColors.danger),
         );
       }
     }
@@ -191,7 +226,9 @@ class _TagLibraryPageState extends State<TagLibraryPage> {
         title: Text(loc.tagLibraryDeleteTitle),
         content: Text(loc.tagLibraryDeleteConfirm(entry.name)),
         actions: [
-          TextButton(onPressed: () => Navigator.of(ctx).pop(false), child: Text(loc.dismiss)),
+          TextButton(
+              onPressed: () => Navigator.of(ctx).pop(false),
+              child: Text(loc.dismiss)),
           ElevatedButton(
             style: ElevatedButton.styleFrom(backgroundColor: AppColors.danger),
             onPressed: () => Navigator.of(ctx).pop(true),
@@ -217,7 +254,17 @@ class _TagLibraryPageState extends State<TagLibraryPage> {
       decoration: BoxDecoration(gradient: AppColors.canvasGradient),
       child: Scaffold(
         backgroundColor: Colors.transparent,
-        appBar: AppBar(title: Text(loc.tagLibraryTitle)),
+        appBar: AppBar(
+          title: Text(loc.tagLibraryTitle),
+          actions: [
+            if (widget.storage.getLibrary().isNotEmpty)
+              IconButton(
+                tooltip: loc.exportCsv,
+                icon: const Icon(Icons.ios_share_rounded),
+                onPressed: _exportCsv,
+              ),
+          ],
+        ),
         floatingActionButton: FloatingActionButton.extended(
           onPressed: _addEntry,
           backgroundColor: AppColors.accent,
@@ -252,11 +299,15 @@ class _TagLibraryPageState extends State<TagLibraryPage> {
                     Padding(
                       padding: const EdgeInsetsDirectional.only(end: 8),
                       child: ChoiceChip(
-                        avatar: Icon(tagCategoryIcon(c), size: 16,
-                            color: _filter == c ? Colors.white : AppColors.secondary),
+                        avatar: Icon(tagCategoryIcon(c),
+                            size: 16,
+                            color: _filter == c
+                                ? Colors.white
+                                : AppColors.secondary),
                         label: Text(tagCategoryLabel(c, loc)),
                         selected: _filter == c,
-                        onSelected: (_) => setState(() => _filter = _filter == c ? null : c),
+                        onSelected: (_) =>
+                            setState(() => _filter = _filter == c ? null : c),
                       ),
                     ),
                 ],
@@ -268,7 +319,8 @@ class _TagLibraryPageState extends State<TagLibraryPage> {
                 padding: const EdgeInsets.symmetric(vertical: 48),
                 child: Column(
                   children: [
-                    Icon(Icons.collections_bookmark_outlined, size: 48, color: AppColors.secondary),
+                    Icon(Icons.collections_bookmark_outlined,
+                        size: 48, color: AppColors.secondary),
                     const SizedBox(height: 12),
                     Text(
                       widget.storage.getLibrary().isEmpty
@@ -339,7 +391,8 @@ class _EntryCard extends StatelessWidget {
                   ? Image.file(photo!, fit: BoxFit.cover)
                   : Container(
                       color: AppColors.accentSoft,
-                      child: Icon(tagCategoryIcon(entry.category), color: AppColors.accent),
+                      child: Icon(tagCategoryIcon(entry.category),
+                          color: AppColors.accent),
                     ),
             ),
           ),
@@ -348,7 +401,9 @@ class _EntryCard extends StatelessWidget {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                Text(entry.name, style: const TextStyle(fontSize: 16, fontWeight: FontWeight.w600)),
+                Text(entry.name,
+                    style: const TextStyle(
+                        fontSize: 16, fontWeight: FontWeight.w600)),
                 const SizedBox(height: 2),
                 Text(
                   [
@@ -393,7 +448,8 @@ class _EntryEditor extends StatefulWidget {
   final Directory? docsDir;
   final bool isNew;
 
-  const _EntryEditor({required this.entry, required this.docsDir, required this.isNew});
+  const _EntryEditor(
+      {required this.entry, required this.docsDir, required this.isNew});
 
   @override
   State<_EntryEditor> createState() => _EntryEditorState();
@@ -419,11 +475,13 @@ class _EntryEditorState extends State<_EntryEditor> {
     final docs = widget.docsDir;
     if (docs == null) return;
     try {
-      final picked = await ImagePicker().pickImage(source: source, maxWidth: 1200, imageQuality: 80);
+      final picked = await ImagePicker()
+          .pickImage(source: source, maxWidth: 1200, imageQuality: 80);
       if (picked == null) return;
       final dir = Directory('${docs.path}/tag_photos');
       if (!await dir.exists()) await dir.create(recursive: true);
-      final relative = 'tag_photos/${widget.entry.id}_${DateTime.now().millisecondsSinceEpoch}.jpg';
+      final relative =
+          'tag_photos/${widget.entry.id}_${DateTime.now().millisecondsSinceEpoch}.jpg';
       await File(picked.path).copy('${docs.path}/$relative');
       setState(() => _photoPath = relative);
     } catch (e) {
@@ -455,14 +513,20 @@ class _EntryEditorState extends State<_EntryEditor> {
   Widget build(BuildContext context) {
     final loc = AppLocalizations.of(context) ?? L10n.current;
     final docs = widget.docsDir;
-    final photo = _photoPath != null && docs != null ? File('${docs.path}/$_photoPath') : null;
+    final photo = _photoPath != null && docs != null
+        ? File('${docs.path}/$_photoPath')
+        : null;
     return Padding(
-      padding: EdgeInsets.fromLTRB(20, 0, 20, MediaQuery.of(context).viewInsets.bottom + 20),
+      padding: EdgeInsets.fromLTRB(
+          20, 0, 20, MediaQuery.of(context).viewInsets.bottom + 20),
       child: SingleChildScrollView(
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.stretch,
           children: [
-            Text(widget.isNew ? loc.tagLibraryAddToLibrary : loc.tagLibraryEditTag,
+            Text(
+                widget.isNew
+                    ? loc.tagLibraryAddToLibrary
+                    : loc.tagLibraryEditTag,
                 style: Theme.of(context).textTheme.titleLarge),
             const SizedBox(height: 14),
             Center(
@@ -475,7 +539,8 @@ class _EntryEditorState extends State<_EntryEditor> {
                       ? Image.file(photo, fit: BoxFit.cover)
                       : Container(
                           color: AppColors.accentSoft,
-                          child: Icon(tagCategoryIcon(_category), size: 44, color: AppColors.accent),
+                          child: Icon(tagCategoryIcon(_category),
+                              size: 44, color: AppColors.accent),
                         ),
                 ),
               ),
@@ -505,7 +570,8 @@ class _EntryEditorState extends State<_EntryEditor> {
             const SizedBox(height: 8),
             TextField(
               controller: _name,
-              decoration: InputDecoration(labelText: loc.name, hintText: loc.tagLibraryNameHint),
+              decoration: InputDecoration(
+                  labelText: loc.name, hintText: loc.tagLibraryNameHint),
             ),
             const SizedBox(height: 12),
             DropdownButtonFormField<TagCategory>(
@@ -513,14 +579,17 @@ class _EntryEditorState extends State<_EntryEditor> {
               decoration: InputDecoration(labelText: loc.categoryLabel),
               items: [
                 for (final c in TagCategory.values)
-                  DropdownMenuItem(value: c, child: Text(tagCategoryLabel(c, loc))),
+                  DropdownMenuItem(
+                      value: c, child: Text(tagCategoryLabel(c, loc))),
               ],
               onChanged: (v) => setState(() => _category = v ?? _category),
             ),
             const SizedBox(height: 12),
             TextField(
               controller: _location,
-              decoration: InputDecoration(labelText: loc.locationLabel, hintText: loc.tagLibraryLocationHint),
+              decoration: InputDecoration(
+                  labelText: loc.locationLabel,
+                  hintText: loc.tagLibraryLocationHint),
             ),
             const SizedBox(height: 12),
             TextField(

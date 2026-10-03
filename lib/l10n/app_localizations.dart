@@ -5511,6 +5511,18 @@ abstract class AppLocalizations {
   /// In tr, this message translates to:
   /// **'İçerik'**
   String get csvColumnContent;
+
+  /// No description provided for @csvColumnCapacity.
+  ///
+  /// In tr, this message translates to:
+  /// **'Kapasite (B)'**
+  String get csvColumnCapacity;
+
+  /// No description provided for @csvColumnUsed.
+  ///
+  /// In tr, this message translates to:
+  /// **'Kullanılan (B)'**
+  String get csvColumnUsed;
 }
 
 class _AppLocalizationsDelegate

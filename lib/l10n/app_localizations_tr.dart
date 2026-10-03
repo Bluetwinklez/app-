@@ -3185,4 +3185,10 @@ class AppLocalizationsTr extends AppLocalizations {
 
   @override
   String get csvColumnContent => 'İçerik';
+
+  @override
+  String get csvColumnCapacity => 'Kapasite (B)';
+
+  @override
+  String get csvColumnUsed => 'Kullanılan (B)';
 }

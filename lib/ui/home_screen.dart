@@ -138,6 +138,14 @@ class _HomeScreenState extends State<HomeScreen>
     if (mounted) setState(() => _continuousScan = false);
   }
 
+  Future<void> _shareCsv(String csv, String baseName) async {
+    final name = '${baseName}_${DateTime.now().toIso8601String().substring(0, 10)}.csv';
+    await SharePlus.instance.share(ShareParams(
+      files: [XFile.fromData(Uint8List.fromList(utf8.encode(csv)), mimeType: 'text/csv', name: name)],
+      fileNameOverrides: [name],
+    ));
+  }
+
   Future<void> _exportScanLog() async {
     final csv = CsvExport.scans(_scanLog, header: [
       L10n.current.csvColumnTime,
@@ -3994,6 +4002,21 @@ class _HomeScreenState extends State<HomeScreen>
                     : L10n.current.historyFoundCount('${filteredHistory.length}', '${allHistory.length}'),
                 style: const TextStyle(fontWeight: FontWeight.bold),
               ),
+              if (allHistory.isNotEmpty)
+                IconButton(
+                  tooltip: L10n.current.exportCsv,
+                  icon: Icon(Icons.ios_share_rounded, size: 20, color: AppColors.accent),
+                  onPressed: () => _shareCsv(
+                    CsvExport.history(filteredHistory, header: [
+                      L10n.current.csvColumnTime,
+                      'UID',
+                      L10n.current.csvColumnCapacity,
+                      L10n.current.csvColumnUsed,
+                      L10n.current.csvColumnContent,
+                    ]),
+                    'nfc_history',
+                  ),
+                ),
               if (allHistory.isNotEmpty)
                 TextButton.icon(
                   onPressed: _confirmClearHistory,

@@ -3147,4 +3147,10 @@ class AppLocalizationsAr extends AppLocalizations {
 
   @override
   String get csvColumnContent => 'المحتوى';
+
+  @override
+  String get csvColumnCapacity => 'السعة (ب)';
+
+  @override
+  String get csvColumnUsed => 'المستخدم (ب)';
 }

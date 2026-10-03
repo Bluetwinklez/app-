@@ -897,5 +897,7 @@
   "clearList": "Очистить список",
   "csvColumnTime": "Время",
   "csvColumnRecords": "Записи",
-  "csvColumnContent": "Содержимое"
+  "csvColumnContent": "Содержимое",
+  "csvColumnCapacity": "Ёмкость (Б)",
+  "csvColumnUsed": "Занято (Б)"
 }

@@ -897,5 +897,7 @@
   "clearList": "목록 지우기",
   "csvColumnTime": "시간",
   "csvColumnRecords": "레코드",
-  "csvColumnContent": "내용"
+  "csvColumnContent": "내용",
+  "csvColumnCapacity": "용량 (B)",
+  "csvColumnUsed": "사용 (B)"
 }

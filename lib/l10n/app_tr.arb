@@ -2110,5 +2110,7 @@
   "clearList": "Listeyi temizle",
   "csvColumnTime": "Zaman",
   "csvColumnRecords": "Kayıt",
-  "csvColumnContent": "İçerik"
+  "csvColumnContent": "İçerik",
+  "csvColumnCapacity": "Kapasite (B)",
+  "csvColumnUsed": "Kullanılan (B)"
 }

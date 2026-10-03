@@ -897,5 +897,7 @@
   "clearList": "清空列表",
   "csvColumnTime": "时间",
   "csvColumnRecords": "记录",
-  "csvColumnContent": "内容"
+  "csvColumnContent": "内容",
+  "csvColumnCapacity": "容量（B）",
+  "csvColumnUsed": "已用（B）"
 }

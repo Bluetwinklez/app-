@@ -3187,4 +3187,10 @@ class AppLocalizationsRu extends AppLocalizations {
 
   @override
   String get csvColumnContent => 'Содержимое';
+
+  @override
+  String get csvColumnCapacity => 'Ёмкость (Б)';
+
+  @override
+  String get csvColumnUsed => 'Занято (Б)';
 }
