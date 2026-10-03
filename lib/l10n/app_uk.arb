@@ -1146,5 +1146,16 @@
   "memoryEditPrompt": "Піднесіть ту саму мітку для запису сторінки {page}",
   "memoryPageWritten": "Сторінку {page} записано.",
   "memoryUidMismatch": "Виявлено іншу мітку; нічого не записано.",
-  "memoryReadSpeed": "Час читання: {ms} мс ({rate} байт/с)"
+  "memoryReadSpeed": "Час читання: {ms} мс ({rate} байт/с)",
+  "simpleModeTitle": "Простий режим",
+  "simpleModeSubtitle": "Великі кнопки; читання одним дотиком для дітей і літніх",
+  "simpleScan": "Прочитати мітку",
+  "simpleHint": "Піднесіть мітку до верхньої частини телефона.",
+  "simpleCall": "Зателефонувати",
+  "simpleMessage": "Надіслати повідомлення",
+  "simpleOpen": "Відкрити",
+  "simpleEmail": "Написати лист",
+  "simpleMap": "Відкрити на мапі",
+  "simpleExit": "Утримуйте, щоб повернутися до звичайного вигляду",
+  "simpleNothing": "На цій мітці нічого показати."
 }

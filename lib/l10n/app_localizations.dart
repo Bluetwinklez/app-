@@ -7005,6 +7005,72 @@ abstract class AppLocalizations {
   /// In tr, this message translates to:
   /// **'Okuma süresi: {ms} ms ({rate} bayt/sn)'**
   String memoryReadSpeed(String ms, String rate);
+
+  /// No description provided for @simpleModeTitle.
+  ///
+  /// In tr, this message translates to:
+  /// **'Basit mod'**
+  String get simpleModeTitle;
+
+  /// No description provided for @simpleModeSubtitle.
+  ///
+  /// In tr, this message translates to:
+  /// **'Büyük düğmeler; çocuklar ve yaşlılar için tek dokunuşla okuma'**
+  String get simpleModeSubtitle;
+
+  /// No description provided for @simpleScan.
+  ///
+  /// In tr, this message translates to:
+  /// **'Etiketi Okut'**
+  String get simpleScan;
+
+  /// No description provided for @simpleHint.
+  ///
+  /// In tr, this message translates to:
+  /// **'Etiketi telefonun üst kısmına yaklaştırın.'**
+  String get simpleHint;
+
+  /// No description provided for @simpleCall.
+  ///
+  /// In tr, this message translates to:
+  /// **'Ara'**
+  String get simpleCall;
+
+  /// No description provided for @simpleMessage.
+  ///
+  /// In tr, this message translates to:
+  /// **'Mesaj gönder'**
+  String get simpleMessage;
+
+  /// No description provided for @simpleOpen.
+  ///
+  /// In tr, this message translates to:
+  /// **'Aç'**
+  String get simpleOpen;
+
+  /// No description provided for @simpleEmail.
+  ///
+  /// In tr, this message translates to:
+  /// **'E-posta yaz'**
+  String get simpleEmail;
+
+  /// No description provided for @simpleMap.
+  ///
+  /// In tr, this message translates to:
+  /// **'Haritada aç'**
+  String get simpleMap;
+
+  /// No description provided for @simpleExit.
+  ///
+  /// In tr, this message translates to:
+  /// **'Normal görünüme dönmek için basılı tutun'**
+  String get simpleExit;
+
+  /// No description provided for @simpleNothing.
+  ///
+  /// In tr, this message translates to:
+  /// **'Bu etikette gösterilecek bir şey yok.'**
+  String get simpleNothing;
 }
 
 class _AppLocalizationsDelegate

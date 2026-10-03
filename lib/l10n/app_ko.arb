@@ -1146,5 +1146,16 @@
   "memoryEditPrompt": "{page} 페이지를 쓰려면 같은 태그를 대세요",
   "memoryPageWritten": "{page} 페이지를 썼습니다.",
   "memoryUidMismatch": "다른 태그가 감지되어 쓰지 않았습니다.",
-  "memoryReadSpeed": "읽기 시간: {ms}ms ({rate}바이트/초)"
+  "memoryReadSpeed": "읽기 시간: {ms}ms ({rate}바이트/초)",
+  "simpleModeTitle": "간편 모드",
+  "simpleModeSubtitle": "큰 버튼, 아이와 어르신도 한 번에 읽기",
+  "simpleScan": "태그 읽기",
+  "simpleHint": "태그를 휴대폰 위쪽에 대세요.",
+  "simpleCall": "전화",
+  "simpleMessage": "메시지 보내기",
+  "simpleOpen": "열기",
+  "simpleEmail": "이메일 쓰기",
+  "simpleMap": "지도에서 열기",
+  "simpleExit": "길게 눌러 일반 화면으로 돌아가기",
+  "simpleNothing": "이 태그에는 표시할 내용이 없습니다."
 }

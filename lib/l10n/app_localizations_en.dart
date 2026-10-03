@@ -4073,4 +4073,38 @@ class AppLocalizationsEn extends AppLocalizations {
   String memoryReadSpeed(String ms, String rate) {
     return 'Read time: $ms ms ($rate bytes/s)';
   }
+
+  @override
+  String get simpleModeTitle => 'Simple mode';
+
+  @override
+  String get simpleModeSubtitle =>
+      'Big buttons; one-tap reading for kids and older people';
+
+  @override
+  String get simpleScan => 'Read Tag';
+
+  @override
+  String get simpleHint => 'Hold the tag near the top of the phone.';
+
+  @override
+  String get simpleCall => 'Call';
+
+  @override
+  String get simpleMessage => 'Send message';
+
+  @override
+  String get simpleOpen => 'Open';
+
+  @override
+  String get simpleEmail => 'Write email';
+
+  @override
+  String get simpleMap => 'Open in Maps';
+
+  @override
+  String get simpleExit => 'Press and hold to return to the normal view';
+
+  @override
+  String get simpleNothing => 'There is nothing to show on this tag.';
 }

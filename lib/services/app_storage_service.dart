@@ -57,6 +57,10 @@ abstract class AppStorageService {
   bool get signOnWrite;
   Future<void> setSignOnWrite(bool value);
 
+  /// Big-button simplified home screen.
+  bool get simpleMode;
+  Future<void> setSimpleMode(bool value);
+
   /// Compatibility mode: skip read-back verification after writes.
   bool get compatibilityMode;
   Future<void> setCompatibilityMode(bool enabled);
@@ -152,6 +156,14 @@ class InMemoryAppStorageService implements AppStorageService {
 
   @override
   Future<void> setCompatibilityMode(bool enabled) async => _compatibilityMode = enabled;
+
+  bool _simpleMode = false;
+
+  @override
+  bool get simpleMode => _simpleMode;
+
+  @override
+  Future<void> setSimpleMode(bool value) async => _simpleMode = value;
 
   bool _signOnWrite = false;
 
@@ -452,6 +464,7 @@ class LocalFileAppStorageService implements AppStorageService {
               : const [];
           _lastBackupAt = DateTime.tryParse(data['lastBackupAt'] as String? ?? '');
           _compatibilityMode = data['compatibilityMode'] as bool? ?? false;
+          _simpleMode = data['simpleMode'] as bool? ?? false;
           _signOnWrite = data['signOnWrite'] as bool? ?? false;
           _signingKey = data['signingKey'] as String?;
           _appLockEnabled = data['appLockEnabled'] as bool? ?? false;
@@ -614,6 +627,7 @@ class LocalFileAppStorageService implements AppStorageService {
       'favoritePresets': _favoritePresets,
       if (_lastBackupAt != null) 'lastBackupAt': _lastBackupAt!.toIso8601String(),
       'compatibilityMode': _compatibilityMode,
+      'simpleMode': _simpleMode,
       'signOnWrite': _signOnWrite,
       'signingKey': _signingKey,
       'appLockEnabled': _appLockEnabled,
@@ -688,6 +702,17 @@ class LocalFileAppStorageService implements AppStorageService {
   @override
   Future<void> setCompatibilityMode(bool enabled) async {
     _compatibilityMode = enabled;
+    await _saveSettings();
+  }
+
+  bool _simpleMode = false;
+
+  @override
+  bool get simpleMode => _simpleMode;
+
+  @override
+  Future<void> setSimpleMode(bool value) async {
+    _simpleMode = value;
     await _saveSettings();
   }
 
