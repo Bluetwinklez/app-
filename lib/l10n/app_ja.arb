@@ -1399,5 +1399,13 @@
   "templateCodeInvalid": "このQRコードのテンプレートを読み取れません",
   "madeWithTitle": "「作成アプリ」メモを追加",
   "madeWithSubtitle": "書き込み時に末尾へ短いテキストを追加し、アプリを知ってもらいます（約30バイト）。",
-  "madeWithText": "NFC Tag Masterで作成"
+  "madeWithText": "NFC Tag Masterで作成",
+  "recipeMorningTitle": "おはよう",
+  "recipeMorningActions": "枕元：アラーム停止・天気を読み上げ・朝のプレイリスト",
+  "recipeLeaveTitle": "外出",
+  "recipeLeaveActions": "ドア：照明オフ・サーモスタットを下げる・到着予定を共有",
+  "recipeFocusTitle": "勉強・集中",
+  "recipeFocusActions": "デスク：集中モード・25分タイマー・静かな音楽",
+  "recipeTravelTitle": "旅行",
+  "recipeTravelActions": "スーツケース：搭乗券・空港への経路・「出発しました」メッセージ"
 }

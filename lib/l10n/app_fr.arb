@@ -1399,5 +1399,13 @@
   "templateCodeInvalid": "Le modèle de ce QR code est illisible",
   "madeWithTitle": "Ajouter « créé avec »",
   "madeWithSubtitle": "Un court texte est ajouté à la fin pour faire découvrir l'app (environ 30 octets).",
-  "madeWithText": "Créé avec NFC Tag Master"
+  "madeWithText": "Créé avec NFC Tag Master",
+  "recipeMorningTitle": "Bonjour",
+  "recipeMorningActions": "Chevet : arrêter l'alarme · météo · playlist du matin",
+  "recipeLeaveTitle": "Je pars",
+  "recipeLeaveActions": "Porte : éteindre · baisser le thermostat · partager l'heure d'arrivée",
+  "recipeFocusTitle": "Étude / Concentration",
+  "recipeFocusActions": "Bureau : Concentration · minuteur 25 min · musique calme",
+  "recipeTravelTitle": "Voyage",
+  "recipeTravelActions": "Valise : carte d'embarquement · itinéraire aéroport · message « en route »"
 }

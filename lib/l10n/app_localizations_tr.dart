@@ -4996,4 +4996,32 @@ class AppLocalizationsTr extends AppLocalizations {
 
   @override
   String get madeWithText => 'NFC Etiket Yöneticisi ile yapıldı';
+
+  @override
+  String get recipeMorningTitle => 'Günaydın';
+
+  @override
+  String get recipeMorningActions =>
+      'Komodin: alarmı kapat · hava durumunu söyle · sabah çalma listesini aç';
+
+  @override
+  String get recipeLeaveTitle => 'Evden Çıkış';
+
+  @override
+  String get recipeLeaveActions =>
+      'Kapı: ışıkları kapat · termostatı düşür · eve varış süresini paylaş';
+
+  @override
+  String get recipeFocusTitle => 'Ders / Odak';
+
+  @override
+  String get recipeFocusActions =>
+      'Masa: Odak modunu aç · 25 dk zamanlayıcı · sessiz müzik';
+
+  @override
+  String get recipeTravelTitle => 'Seyahat';
+
+  @override
+  String get recipeTravelActions =>
+      'Bavul: biniş kartını aç · havalimanına yol tarifi · \"yola çıktım\" mesajı';
 }

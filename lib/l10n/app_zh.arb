@@ -1399,5 +1399,13 @@
   "templateCodeInvalid": "无法读取此二维码中的模板",
   "madeWithTitle": "添加“制作于”备注",
   "madeWithSubtitle": "在写入内容末尾添加一段短文字，让读取者认识本应用（约 30 字节）。",
-  "madeWithText": "由 NFC Tag Master 制作"
+  "madeWithText": "由 NFC Tag Master 制作",
+  "recipeMorningTitle": "早安",
+  "recipeMorningActions": "床头：关闹钟 · 播报天气 · 播放早晨歌单",
+  "recipeLeaveTitle": "出门",
+  "recipeLeaveActions": "门口：关灯 · 调低温度 · 分享到达时间",
+  "recipeFocusTitle": "学习 / 专注",
+  "recipeFocusActions": "书桌：专注模式 · 25 分钟计时 · 轻音乐",
+  "recipeTravelTitle": "旅行",
+  "recipeTravelActions": "行李箱：打开登机牌 · 去机场的路线 · 发送“我出发了”"
 }

@@ -3414,5 +3414,13 @@
   "templateCodeInvalid": "Bu QR kodundaki şablon okunamadı",
   "madeWithTitle": "Etikete \"yapıldı\" notu ekle",
   "madeWithSubtitle": "Yazılan etiketin sonuna kısa bir metin kaydı eklenir; okuyanlar uygulamayı tanır (yaklaşık 30 bayt).",
-  "madeWithText": "NFC Etiket Yöneticisi ile yapıldı"
+  "madeWithText": "NFC Etiket Yöneticisi ile yapıldı",
+  "recipeMorningTitle": "Günaydın",
+  "recipeMorningActions": "Komodin: alarmı kapat · hava durumunu söyle · sabah çalma listesini aç",
+  "recipeLeaveTitle": "Evden Çıkış",
+  "recipeLeaveActions": "Kapı: ışıkları kapat · termostatı düşür · eve varış süresini paylaş",
+  "recipeFocusTitle": "Ders / Odak",
+  "recipeFocusActions": "Masa: Odak modunu aç · 25 dk zamanlayıcı · sessiz müzik",
+  "recipeTravelTitle": "Seyahat",
+  "recipeTravelActions": "Bavul: biniş kartını aç · havalimanına yol tarifi · \"yola çıktım\" mesajı"
 }

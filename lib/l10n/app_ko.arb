@@ -1399,5 +1399,13 @@
   "templateCodeInvalid": "이 QR 코드의 템플릿을 읽을 수 없습니다",
   "madeWithTitle": "\"제작 앱\" 메모 추가",
   "madeWithSubtitle": "쓴 태그 끝에 짧은 텍스트를 붙여 앱을 알립니다(약 30바이트).",
-  "madeWithText": "NFC Tag Master로 제작"
+  "madeWithText": "NFC Tag Master로 제작",
+  "recipeMorningTitle": "좋은 아침",
+  "recipeMorningActions": "침대 옆: 알람 끄기 · 날씨 읽기 · 아침 플레이리스트",
+  "recipeLeaveTitle": "외출",
+  "recipeLeaveActions": "문: 조명 끄기 · 온도 낮추기 · 도착 예정 공유",
+  "recipeFocusTitle": "공부 / 집중",
+  "recipeFocusActions": "책상: 집중 모드 · 25분 타이머 · 잔잔한 음악",
+  "recipeTravelTitle": "여행",
+  "recipeTravelActions": "캐리어: 탑승권 열기 · 공항 길찾기 · \"출발했어\" 메시지"
 }
