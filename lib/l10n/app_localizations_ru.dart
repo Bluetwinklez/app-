@@ -3647,4 +3647,20 @@ class AppLocalizationsRu extends AppLocalizations {
   @override
   String get whatsNew110 =>
       '• 14 языков, тёмная тема и новый дизайн\n• Шаблоны с категориями, поиском и избранным\n• Пакетная запись: серийные номера, CSV и клонирование\n• Предпросмотр «Что будет при касании?» и предупреждения о ёмкости\n• Библиотека меток с фото, заметками и метками\n• Отчёт, сравнение, непрерывное сканирование и экспорт CSV\n• Siri, Команды и готовые рецепты автоматизации';
+
+  @override
+  String lastBackupAt(String date) {
+    return 'Последняя копия: $date';
+  }
+
+  @override
+  String get noBackupYet => 'Резервных копий пока нет.';
+
+  @override
+  String get backupStale =>
+      'Последней копии больше 30 дней; стоит сделать новую.';
+
+  @override
+  String get backupICloudTip =>
+      'Совет: в меню «Поделиться» выберите «Сохранить в Файлы» → iCloud Drive.';
 }

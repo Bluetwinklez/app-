@@ -3453,4 +3453,18 @@ class AppLocalizationsZh extends AppLocalizations {
   @override
   String get whatsNew110 =>
       '• 14 种语言、深色模式和全新设计\n• 带分类、搜索和收藏的现成模板\n• 批量写入：序列号、CSV 和标签克隆\n• “触碰时会发生什么？”预览与容量提醒\n• 带照片、备注和标签的标签库\n• 标签报告、对比、连续扫描和 CSV 导出\n• Siri、快捷指令和现成自动化方案';
+
+  @override
+  String lastBackupAt(String date) {
+    return '上次备份：$date';
+  }
+
+  @override
+  String get noBackupYet => '尚未备份。';
+
+  @override
+  String get backupStale => '上次备份已超过 30 天，建议重新备份。';
+
+  @override
+  String get backupICloudTip => '提示：在共享菜单中选择“存储到文件”→ iCloud 云盘即可保存到 iCloud。';
 }

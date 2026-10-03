@@ -3640,4 +3640,20 @@ class AppLocalizationsTr extends AppLocalizations {
   @override
   String get whatsNew110 =>
       '• 14 dil, koyu mod ve yeni tasarım\n• Hazır şablonlar: kategoriler, arama ve favoriler\n• Toplu yazma: seri numara, CSV ve etiket kopyalama\n• \"Dokununca ne olur?\" önizlemesi ve kapasite uyarıları\n• Etiket kütüphanesi: fotoğraf, not ve etiketler\n• Etiket raporu, karşılaştırma, sürekli tarama ve CSV dışa aktarma\n• Siri, Kısayollar ve hazır otomasyon tarifleri';
+
+  @override
+  String lastBackupAt(String date) {
+    return 'Son yedek: $date';
+  }
+
+  @override
+  String get noBackupYet => 'Henüz yedek alınmadı.';
+
+  @override
+  String get backupStale =>
+      'Son yedek 30 günden eski; yeni bir yedek almanız önerilir.';
+
+  @override
+  String get backupICloudTip =>
+      'İpucu: Paylaş menüsünde \"Dosyalara Kaydet\" → iCloud Drive seçerek yedeği iCloud\'a saklayabilirsiniz.';
 }

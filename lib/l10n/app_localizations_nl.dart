@@ -3646,4 +3646,20 @@ class AppLocalizationsNl extends AppLocalizations {
   @override
   String get whatsNew110 =>
       '• 14 talen, donkere modus en nieuw ontwerp\n• Sjablonen met categorieën, zoeken en favorieten\n• Batchgewijs schrijven met serienummers, CSV en klonen\n• Voorbeeld \"Wat gebeurt er bij tikken?\" en capaciteitswaarschuwingen\n• Tagbibliotheek met foto\'s, notities en labels\n• Tagrapport, vergelijken, continu scannen en CSV-export\n• Siri, Opdrachten en automatiseringsrecepten';
+
+  @override
+  String lastBackupAt(String date) {
+    return 'Laatste back-up: $date';
+  }
+
+  @override
+  String get noBackupYet => 'Nog geen back-up.';
+
+  @override
+  String get backupStale =>
+      'Je laatste back-up is ouder dan 30 dagen; maak een nieuwe.';
+
+  @override
+  String get backupICloudTip =>
+      'Tip: kies in het deelmenu \"Bewaar in Bestanden\" → iCloud Drive.';
 }

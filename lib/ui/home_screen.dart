@@ -2453,6 +2453,38 @@ class _HomeScreenState extends State<HomeScreen>
     );
   }
 
+  Widget _buildLastBackupInfo() {
+    final storage = _controller.storage;
+    final last = storage.lastBackupAt;
+    final hasData = storage.getLibrary().isNotEmpty || storage.getTemplates().isNotEmpty;
+    final stale = hasData &&
+        (last == null || DateTime.now().difference(last) > const Duration(days: 30));
+    final localeName = Localizations.localeOf(context).toLanguageTag();
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        Text(
+          last == null
+              ? L10n.current.noBackupYet
+              : L10n.current.lastBackupAt(DateFormat.yMMMd(localeName).add_Hm().format(last)),
+          style: TextStyle(fontSize: 12.5, fontWeight: FontWeight.w600, color: AppColors.ink),
+        ),
+        if (stale && last != null)
+          Padding(
+            padding: const EdgeInsets.only(top: 4),
+            child: Text(L10n.current.backupStale,
+                style: TextStyle(fontSize: 12, color: AppColors.warning)),
+          ),
+        if (Theme.of(context).platform == TargetPlatform.iOS)
+          Padding(
+            padding: const EdgeInsets.only(top: 4),
+            child: Text(L10n.current.backupICloudTip,
+                style: TextStyle(fontSize: 12, color: AppColors.secondary)),
+          ),
+      ],
+    );
+  }
+
   Future<void> _executeExportBackup({required bool includeHistory}) async {
     try {
       final templates = _controller.storage.getTemplates();
@@ -2464,7 +2496,7 @@ class _HomeScreenState extends State<HomeScreen>
         history: history,
         tagRules: rules,
         tagLibrary: _controller.storage.getLibrary(),
-        clientAppVersion: '1.1.0',
+        clientAppVersion: AppInfo.version,
       );
 
       final dateStr = DateTime.now().toIso8601String().substring(0, 10);
@@ -2486,8 +2518,12 @@ class _HomeScreenState extends State<HomeScreen>
         ),
       );
 
+      if (result.status == ShareResultStatus.success) {
+        await _controller.storage.setLastBackupAt(DateTime.now());
+      }
       if (!mounted) return;
       if (result.status == ShareResultStatus.success) {
+        setState(() {});
         ScaffoldMessenger.of(context).showSnackBar(
           SnackBar(
             content:
@@ -4793,10 +4829,12 @@ class _HomeScreenState extends State<HomeScreen>
                   children: [
                     Icon(Icons.backup_outlined, color: AppColors.accent),
                     const SizedBox(width: 8),
-                    Text(
-                      L10n.current.backupRestoreTitle,
-                      style:
-                          const TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
+                    Expanded(
+                      child: Text(
+                        L10n.current.backupRestoreTitle,
+                        style:
+                            const TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
+                      ),
                     ),
                   ],
                 ),
@@ -4805,6 +4843,8 @@ class _HomeScreenState extends State<HomeScreen>
                   L10n.current.backupRestoreSubtitle,
                   style: TextStyle(fontSize: 12, color: AppColors.secondary),
                 ),
+                const SizedBox(height: 8),
+                _buildLastBackupInfo(),
                 const Divider(),
                 Row(
                   children: [

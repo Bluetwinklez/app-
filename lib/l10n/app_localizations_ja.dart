@@ -3483,4 +3483,19 @@ class AppLocalizationsJa extends AppLocalizations {
   @override
   String get whatsNew110 =>
       '• 14言語、ダークモード、新デザイン\n• カテゴリ・検索・お気に入り付きテンプレート\n• 連番・CSV・タグ複製による一括書き込み\n• 「かざすとどうなる？」プレビューと容量警告\n• 写真・メモ・ラベル付きタグライブラリ\n• タグレポート、比較、連続スキャン、CSV書き出し\n• Siri、ショートカット、オートメーションのレシピ';
+
+  @override
+  String lastBackupAt(String date) {
+    return '前回のバックアップ: $date';
+  }
+
+  @override
+  String get noBackupYet => 'まだバックアップがありません。';
+
+  @override
+  String get backupStale => '前回のバックアップから30日以上経っています。新しく作成しましょう。';
+
+  @override
+  String get backupICloudTip =>
+      'ヒント: 共有メニューで「\"ファイル\"に保存」→ iCloud Driveを選ぶとiCloudに保管できます。';
 }

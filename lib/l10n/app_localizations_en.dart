@@ -3630,4 +3630,20 @@ class AppLocalizationsEn extends AppLocalizations {
   @override
   String get whatsNew110 =>
       '• 14 languages, dark mode and a new design\n• Ready-made templates with categories, search and favourites\n• Batch writing with serial numbers, CSV and tag cloning\n• \"What happens on tap?\" preview and capacity warnings\n• Tag library with photos, notes and labels\n• Tag report, compare, continuous scan and CSV export\n• Siri, Shortcuts and ready-made automation recipes';
+
+  @override
+  String lastBackupAt(String date) {
+    return 'Last backup: $date';
+  }
+
+  @override
+  String get noBackupYet => 'No backup yet.';
+
+  @override
+  String get backupStale =>
+      'Your last backup is over 30 days old; consider making a new one.';
+
+  @override
+  String get backupICloudTip =>
+      'Tip: choose \"Save to Files\" → iCloud Drive in the share sheet to keep the backup in iCloud.';
 }
