@@ -62,6 +62,10 @@ def targets(main_id):
     ]
 
 
+class Forbidden(Exception):
+    """The API key may not change signing settings (needs the Admin role)."""
+
+
 class Api:
     def __init__(self, key_id, issuer, key_path):
         self.key_id = key_id
@@ -92,9 +96,11 @@ class Api:
                 return json.loads(raw) if raw else {}
         except urllib.error.HTTPError as e:
             detail = e.read().decode(errors="replace")
-            if e.code == 403 and allow_forbidden:
+            if e.code == 403:
                 print(f"::warning::{method} {path} is not allowed for this API key")
-                return None
+                if allow_forbidden:
+                    return None
+                raise Forbidden(path)
             raise SystemExit(
                 f"::error::App Store Connect {method} {path} failed "
                 f"({e.code}): {detail}")
@@ -209,7 +215,25 @@ def entitlements_of(profile_bytes):
     return plistlib.loads(out).get("Entitlements", {})
 
 
+def report(mode):
+    """Tells the workflow which signing path to take."""
+    print(f"Signing mode: {mode}")
+    if os.environ.get("GITHUB_ENV"):
+        with open(os.environ["GITHUB_ENV"], "a", encoding="utf-8") as f:
+            f.write(f"SIGNING_MODE={mode}\n")
+
+
 def main():
+    try:
+        provision()
+        report("api")
+    except Forbidden:
+        # Only the CI's own "NFCTM CI" profiles are ever deleted; the
+        # developer's profiles are left alone.
+        report("legacy")
+
+
+def provision():
     env = os.environ
     dry = env.get("DRY_RUN") == "1"
     api = Api(env["ASC_API_KEY_ID"], env["ASC_API_ISSUER_ID"],
