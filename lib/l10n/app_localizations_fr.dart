@@ -5117,4 +5117,8 @@ class AppLocalizationsFr extends AppLocalizations {
 
   @override
   String get iCloudFailed => 'Impossible d\'enregistrer la sauvegarde iCloud';
+
+  @override
+  String get whatsNew160 =>
+      '• Widgets pour l\'écran d\'accueil et l\'écran verrouillé\n• Scanner et écrire d\'un geste depuis le Centre de contrôle (iOS 18)\n• Apple Watch : lectures récentes et entrées de registre en un geste\n• Sauvegarde iCloud (modèles, règles, bibliothèque)';
 }

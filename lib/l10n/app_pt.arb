@@ -1423,5 +1423,6 @@
   "iCloudBackedUp": "Backup feito no iCloud",
   "iCloudNoAccount": "Este iPhone não está conectado ao iCloud. Verifique Ajustes → Conta Apple → iCloud.",
   "iCloudTooLarge": "O backup excede o limite do iCloud (1 MB). Use um backup em arquivo.",
-  "iCloudFailed": "Não foi possível salvar o backup no iCloud"
+  "iCloudFailed": "Não foi possível salvar o backup no iCloud",
+  "whatsNew160": "• Widgets para a Tela de Início e a Tela Bloqueada\n• Leia e grave com um toque na Central de Controle (iOS 18)\n• Apple Watch: leituras recentes e registros com um toque\n• Backup no iCloud (modelos, regras, biblioteca)"
 }

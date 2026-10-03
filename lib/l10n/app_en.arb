@@ -1423,5 +1423,6 @@
   "iCloudBackedUp": "Backed up to iCloud",
   "iCloudNoAccount": "This iPhone is not signed in to iCloud. Check Settings → Apple Account → iCloud.",
   "iCloudTooLarge": "The backup is over the iCloud limit (1 MB). Use a file backup instead.",
-  "iCloudFailed": "Could not save the iCloud backup"
+  "iCloudFailed": "Could not save the iCloud backup",
+  "whatsNew160": "• Home Screen and Lock Screen widgets\n• Scan and write with one tap from Control Center (iOS 18)\n• Apple Watch: recent scans and one-tap logbook entries\n• iCloud backup (templates, rules, library)"
 }
