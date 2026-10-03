@@ -4605,4 +4605,85 @@ class AppLocalizationsJa extends AppLocalizations {
 
   @override
   String get iconRainbow => 'レインボー';
+
+  @override
+  String get catWebText => 'Webとテキスト';
+
+  @override
+  String get catContact => '連絡先とビジネス';
+
+  @override
+  String get catNetwork => 'ネットワークと位置';
+
+  @override
+  String get catSocial => 'SNS';
+
+  @override
+  String get catEmpty => '空';
+
+  @override
+  String get analyticsTitle => 'タグ統計';
+
+  @override
+  String get analyticsSubtitle => '読み取りの推移とよく読むタグ';
+
+  @override
+  String get analyticsTotal => '合計読み取り';
+
+  @override
+  String get analyticsUnique => 'タグの種類';
+
+  @override
+  String get analyticsLast14 => '過去14日間';
+
+  @override
+  String get analyticsTop => 'よく読み取ったタグ';
+
+  @override
+  String get analyticsByType => '内容の種類';
+
+  @override
+  String get analyticsEmpty => '設定で履歴をオンにして、いくつかタグを読み取ってください。';
+
+  @override
+  String analyticsTimes(String count) {
+    return '$count回';
+  }
+
+  @override
+  String get codeScannerTitle => 'コードスキャナー';
+
+  @override
+  String get codeScannerSubtitle => 'QRとバーコードを読み取り、書き込み・保存・共有';
+
+  @override
+  String codeResultTitle(String format) {
+    return '読み取ったコード（$format）';
+  }
+
+  @override
+  String get codeSearchWeb => 'ウェブで検索';
+
+  @override
+  String get codeToTag => 'タグに書き込む';
+
+  @override
+  String get codeSaveLibrary => 'ライブラリに保存';
+
+  @override
+  String get mergeTitle => 'レコードを結合';
+
+  @override
+  String get mergeSubtitle => 'ライブラリ・テンプレート・直近の読み取りから選んで1枚に';
+
+  @override
+  String mergeButton(String count) {
+    return '結合（$count）';
+  }
+
+  @override
+  String get mergeEmpty => '結合するものがありません。先にタグやテンプレートを保存してください。';
+
+  @override
+  String get mergeLastScan => '最後に読んだタグ';
 }

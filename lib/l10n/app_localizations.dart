@@ -8212,6 +8212,156 @@ abstract class AppLocalizations {
   /// In tr, this message translates to:
   /// **'Gökkuşağı'**
   String get iconRainbow;
+
+  /// No description provided for @catWebText.
+  ///
+  /// In tr, this message translates to:
+  /// **'Web ve metin'**
+  String get catWebText;
+
+  /// No description provided for @catContact.
+  ///
+  /// In tr, this message translates to:
+  /// **'İletişim ve iş'**
+  String get catContact;
+
+  /// No description provided for @catNetwork.
+  ///
+  /// In tr, this message translates to:
+  /// **'Ağ ve konum'**
+  String get catNetwork;
+
+  /// No description provided for @catSocial.
+  ///
+  /// In tr, this message translates to:
+  /// **'Sosyal medya'**
+  String get catSocial;
+
+  /// No description provided for @catEmpty.
+  ///
+  /// In tr, this message translates to:
+  /// **'Boş'**
+  String get catEmpty;
+
+  /// No description provided for @analyticsTitle.
+  ///
+  /// In tr, this message translates to:
+  /// **'Etiket istatistikleri'**
+  String get analyticsTitle;
+
+  /// No description provided for @analyticsSubtitle.
+  ///
+  /// In tr, this message translates to:
+  /// **'Tarama eğilimleri ve en çok okunan etiketler'**
+  String get analyticsSubtitle;
+
+  /// No description provided for @analyticsTotal.
+  ///
+  /// In tr, this message translates to:
+  /// **'Toplam okuma'**
+  String get analyticsTotal;
+
+  /// No description provided for @analyticsUnique.
+  ///
+  /// In tr, this message translates to:
+  /// **'Farklı etiket'**
+  String get analyticsUnique;
+
+  /// No description provided for @analyticsLast14.
+  ///
+  /// In tr, this message translates to:
+  /// **'Son 14 gün'**
+  String get analyticsLast14;
+
+  /// No description provided for @analyticsTop.
+  ///
+  /// In tr, this message translates to:
+  /// **'En çok okunanlar'**
+  String get analyticsTop;
+
+  /// No description provided for @analyticsByType.
+  ///
+  /// In tr, this message translates to:
+  /// **'İçerik türleri'**
+  String get analyticsByType;
+
+  /// No description provided for @analyticsEmpty.
+  ///
+  /// In tr, this message translates to:
+  /// **'İstatistikler için Ayarlar\'dan tarama geçmişini açın ve birkaç etiket okutun.'**
+  String get analyticsEmpty;
+
+  /// No description provided for @analyticsTimes.
+  ///
+  /// In tr, this message translates to:
+  /// **'{count} kez'**
+  String analyticsTimes(String count);
+
+  /// No description provided for @codeScannerTitle.
+  ///
+  /// In tr, this message translates to:
+  /// **'Kod tarayıcı'**
+  String get codeScannerTitle;
+
+  /// No description provided for @codeScannerSubtitle.
+  ///
+  /// In tr, this message translates to:
+  /// **'QR ve barkodları tara; etikete yaz, kaydet veya paylaş'**
+  String get codeScannerSubtitle;
+
+  /// No description provided for @codeResultTitle.
+  ///
+  /// In tr, this message translates to:
+  /// **'Okunan kod ({format})'**
+  String codeResultTitle(String format);
+
+  /// No description provided for @codeSearchWeb.
+  ///
+  /// In tr, this message translates to:
+  /// **'Web\'de ara'**
+  String get codeSearchWeb;
+
+  /// No description provided for @codeToTag.
+  ///
+  /// In tr, this message translates to:
+  /// **'Etikete yaz'**
+  String get codeToTag;
+
+  /// No description provided for @codeSaveLibrary.
+  ///
+  /// In tr, this message translates to:
+  /// **'Kütüphaneye kaydet'**
+  String get codeSaveLibrary;
+
+  /// No description provided for @mergeTitle.
+  ///
+  /// In tr, this message translates to:
+  /// **'Kayıtları birleştir'**
+  String get mergeTitle;
+
+  /// No description provided for @mergeSubtitle.
+  ///
+  /// In tr, this message translates to:
+  /// **'Kütüphane, şablon ve son okunan etiketten seçip tek etikette birleştir'**
+  String get mergeSubtitle;
+
+  /// No description provided for @mergeButton.
+  ///
+  /// In tr, this message translates to:
+  /// **'Birleştir ({count})'**
+  String mergeButton(String count);
+
+  /// No description provided for @mergeEmpty.
+  ///
+  /// In tr, this message translates to:
+  /// **'Birleştirilecek kayıt yok. Önce kütüphaneye etiket ya da şablon kaydedin.'**
+  String get mergeEmpty;
+
+  /// No description provided for @mergeLastScan.
+  ///
+  /// In tr, this message translates to:
+  /// **'Son okunan etiket'**
+  String get mergeLastScan;
 }
 
 class _AppLocalizationsDelegate

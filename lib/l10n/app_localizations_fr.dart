@@ -4851,4 +4851,89 @@ class AppLocalizationsFr extends AppLocalizations {
 
   @override
   String get iconRainbow => 'Arc-en-ciel';
+
+  @override
+  String get catWebText => 'Web et texte';
+
+  @override
+  String get catContact => 'Contact et pro';
+
+  @override
+  String get catNetwork => 'Réseau et lieu';
+
+  @override
+  String get catSocial => 'Réseaux sociaux';
+
+  @override
+  String get catEmpty => 'Vide';
+
+  @override
+  String get analyticsTitle => 'Statistiques';
+
+  @override
+  String get analyticsSubtitle => 'Tendances et tags les plus lus';
+
+  @override
+  String get analyticsTotal => 'Lectures au total';
+
+  @override
+  String get analyticsUnique => 'Tags différents';
+
+  @override
+  String get analyticsLast14 => '14 derniers jours';
+
+  @override
+  String get analyticsTop => 'Les plus scannés';
+
+  @override
+  String get analyticsByType => 'Types de contenu';
+
+  @override
+  String get analyticsEmpty =>
+      'Activez l\'historique dans Réglages et scannez quelques tags.';
+
+  @override
+  String analyticsTimes(String count) {
+    return '$count×';
+  }
+
+  @override
+  String get codeScannerTitle => 'Lecteur de codes';
+
+  @override
+  String get codeScannerSubtitle =>
+      'Scannez QR et codes-barres ; écrire, enregistrer, partager';
+
+  @override
+  String codeResultTitle(String format) {
+    return 'Code scanné ($format)';
+  }
+
+  @override
+  String get codeSearchWeb => 'Rechercher sur le web';
+
+  @override
+  String get codeToTag => 'Écrire sur un tag';
+
+  @override
+  String get codeSaveLibrary => 'Enregistrer dans la bibliothèque';
+
+  @override
+  String get mergeTitle => 'Fusionner des enregistrements';
+
+  @override
+  String get mergeSubtitle =>
+      'Choisissez dans la bibliothèque, les modèles et le dernier scan pour un seul tag';
+
+  @override
+  String mergeButton(String count) {
+    return 'Fusionner ($count)';
+  }
+
+  @override
+  String get mergeEmpty =>
+      'Rien à fusionner. Enregistrez d\'abord des tags ou modèles.';
+
+  @override
+  String get mergeLastScan => 'Dernier tag scanné';
 }

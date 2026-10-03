@@ -5,7 +5,10 @@ import 'app_theme.dart';
 
 /// Full-screen camera that returns the first QR code's text.
 class QrScanPage extends StatefulWidget {
-  const QrScanPage({super.key});
+  /// Also read barcodes (EAN, UPC, Code 128…), not only QR codes.
+  final bool allFormats;
+
+  const QrScanPage({super.key, this.allFormats = false});
 
   static Future<String?> scan(BuildContext context) {
     return Navigator.of(context).push<String>(
@@ -13,13 +16,23 @@ class QrScanPage extends StatefulWidget {
     );
   }
 
+  /// Any QR code or barcode: returns (value, format name).
+  static Future<(String, String)?> scanCode(BuildContext context) async {
+    final raw = await Navigator.of(context).push<String>(
+      MaterialPageRoute(builder: (_) => const QrScanPage(allFormats: true), fullscreenDialog: true),
+    );
+    if (raw == null) return null;
+    final i = raw.indexOf('\u0000');
+    return i < 0 ? (raw, 'QR') : (raw.substring(i + 1), raw.substring(0, i));
+  }
+
   @override
   State<QrScanPage> createState() => _QrScanPageState();
 }
 
 class _QrScanPageState extends State<QrScanPage> {
-  final MobileScannerController _scanner = MobileScannerController(
-    formats: const [BarcodeFormat.qrCode],
+  late final MobileScannerController _scanner = MobileScannerController(
+    formats: widget.allFormats ? const [BarcodeFormat.all] : const [BarcodeFormat.qrCode],
   );
   bool _done = false;
 
@@ -35,11 +48,26 @@ class _QrScanPageState extends State<QrScanPage> {
       final value = barcode.rawValue;
       if (value != null && value.trim().isNotEmpty) {
         _done = true;
-        Navigator.of(context).pop(value);
+        // scanCode() splits "<format>\0<value>"; scan() wants the bare value.
+        Navigator.of(context).pop(widget.allFormats ? '${_formatName(barcode.format)}\u0000$value' : value);
         return;
       }
     }
   }
+
+  static String _formatName(BarcodeFormat f) => switch (f) {
+        BarcodeFormat.qrCode => 'QR',
+        BarcodeFormat.ean13 => 'EAN-13',
+        BarcodeFormat.ean8 => 'EAN-8',
+        BarcodeFormat.upcA => 'UPC-A',
+        BarcodeFormat.upcE => 'UPC-E',
+        BarcodeFormat.code128 => 'Code 128',
+        BarcodeFormat.code39 => 'Code 39',
+        BarcodeFormat.dataMatrix => 'Data Matrix',
+        BarcodeFormat.pdf417 => 'PDF417',
+        BarcodeFormat.aztec => 'Aztec',
+        _ => f.name.toUpperCase(),
+      };
 
   @override
   Widget build(BuildContext context) {

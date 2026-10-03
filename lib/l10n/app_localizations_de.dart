@@ -4827,4 +4827,89 @@ class AppLocalizationsDe extends AppLocalizations {
 
   @override
   String get iconRainbow => 'Regenbogen';
+
+  @override
+  String get catWebText => 'Web & Text';
+
+  @override
+  String get catContact => 'Kontakt & Business';
+
+  @override
+  String get catNetwork => 'Netzwerk & Ort';
+
+  @override
+  String get catSocial => 'Soziale Medien';
+
+  @override
+  String get catEmpty => 'Leer';
+
+  @override
+  String get analyticsTitle => 'Tag-Statistik';
+
+  @override
+  String get analyticsSubtitle => 'Scan-Verlauf und meistgelesene Tags';
+
+  @override
+  String get analyticsTotal => 'Scans gesamt';
+
+  @override
+  String get analyticsUnique => 'Verschiedene Tags';
+
+  @override
+  String get analyticsLast14 => 'Letzte 14 Tage';
+
+  @override
+  String get analyticsTop => 'Am häufigsten gescannt';
+
+  @override
+  String get analyticsByType => 'Inhaltstypen';
+
+  @override
+  String get analyticsEmpty =>
+      'Scanverlauf in den Einstellungen aktivieren und einige Tags scannen.';
+
+  @override
+  String analyticsTimes(String count) {
+    return '$count×';
+  }
+
+  @override
+  String get codeScannerTitle => 'Code-Scanner';
+
+  @override
+  String get codeScannerSubtitle =>
+      'QR-Codes und Barcodes scannen; schreiben, speichern, teilen';
+
+  @override
+  String codeResultTitle(String format) {
+    return 'Gescannter Code ($format)';
+  }
+
+  @override
+  String get codeSearchWeb => 'Im Web suchen';
+
+  @override
+  String get codeToTag => 'Auf Tag schreiben';
+
+  @override
+  String get codeSaveLibrary => 'In Bibliothek speichern';
+
+  @override
+  String get mergeTitle => 'Datensätze zusammenführen';
+
+  @override
+  String get mergeSubtitle =>
+      'Datensätze aus Bibliothek, Vorlagen und letztem Scan auf einem Tag';
+
+  @override
+  String mergeButton(String count) {
+    return 'Zusammenführen ($count)';
+  }
+
+  @override
+  String get mergeEmpty =>
+      'Noch nichts zum Zusammenführen. Zuerst Tags oder Vorlagen speichern.';
+
+  @override
+  String get mergeLastScan => 'Zuletzt gescannter Tag';
 }

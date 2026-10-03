@@ -42,6 +42,9 @@ import '../domain/tag_identity.dart';
 import '../domain/capacity.dart';
 import '../domain/csv_export.dart';
 import '../domain/tag_library.dart';
+import '../domain/content_category.dart';
+import 'analytics_page.dart';
+import 'merge_records_page.dart';
 import '../domain/team_pack.dart';
 import '../util/text_search.dart';
 import 'dart:async';
@@ -104,6 +107,7 @@ class _HomeScreenState extends State<HomeScreen>
   final TextEditingController _historySearchController =
       TextEditingController();
   String _historySearchQuery = '';
+  ContentCategory? _historyCategory;
 
   // Continuous scanning (inventory)
   bool _continuousScan = false;
@@ -1152,6 +1156,8 @@ class _HomeScreenState extends State<HomeScreen>
                       onClearTag: _confirmClearTag,
                       onLockTag: _confirmLockTag,
                       onCloneTag: _cloneTagWizard,
+                      onScanCode: _scanCode,
+                      onMergeRecords: _mergeRecords,
                     ),
                     _buildHistoryTab(),
                     _buildTemplatesAndSettingsTab(),

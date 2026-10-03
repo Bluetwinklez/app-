@@ -4758,4 +4758,87 @@ class AppLocalizationsAr extends AppLocalizations {
 
   @override
   String get iconRainbow => 'قوس قزح';
+
+  @override
+  String get catWebText => 'الويب والنص';
+
+  @override
+  String get catContact => 'الاتصال والأعمال';
+
+  @override
+  String get catNetwork => 'الشبكة والموقع';
+
+  @override
+  String get catSocial => 'وسائل التواصل';
+
+  @override
+  String get catEmpty => 'فارغ';
+
+  @override
+  String get analyticsTitle => 'إحصاءات الوسوم';
+
+  @override
+  String get analyticsSubtitle => 'اتجاهات المسح والوسوم الأكثر قراءة';
+
+  @override
+  String get analyticsTotal => 'إجمالي المسح';
+
+  @override
+  String get analyticsUnique => 'وسوم مختلفة';
+
+  @override
+  String get analyticsLast14 => 'آخر 14 يومًا';
+
+  @override
+  String get analyticsTop => 'الأكثر مسحًا';
+
+  @override
+  String get analyticsByType => 'أنواع المحتوى';
+
+  @override
+  String get analyticsEmpty => 'فعّل سجل المسح من الإعدادات وامسح بعض الوسوم.';
+
+  @override
+  String analyticsTimes(String count) {
+    return '$count×';
+  }
+
+  @override
+  String get codeScannerTitle => 'ماسح الرموز';
+
+  @override
+  String get codeScannerSubtitle =>
+      'امسح رموز QR والباركود؛ اكتب أو احفظ أو شارك';
+
+  @override
+  String codeResultTitle(String format) {
+    return 'الرمز الممسوح ($format)';
+  }
+
+  @override
+  String get codeSearchWeb => 'ابحث في الويب';
+
+  @override
+  String get codeToTag => 'اكتب على وسم';
+
+  @override
+  String get codeSaveLibrary => 'حفظ في المكتبة';
+
+  @override
+  String get mergeTitle => 'دمج السجلات';
+
+  @override
+  String get mergeSubtitle =>
+      'اختر سجلات من المكتبة والقوالب وآخر مسح لوسم واحد';
+
+  @override
+  String mergeButton(String count) {
+    return 'دمج ($count)';
+  }
+
+  @override
+  String get mergeEmpty => 'لا يوجد ما يُدمج. احفظ وسومًا أو قوالب أولًا.';
+
+  @override
+  String get mergeLastScan => 'آخر وسم ممسوح';
 }

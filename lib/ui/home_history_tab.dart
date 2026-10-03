@@ -49,6 +49,7 @@ extension _HistoryTab on _HomeScreenState {
     final query = TextSearch.fold(_historySearchQuery.trim());
 
     final filteredHistory = allHistory.where((entry) {
+      if (_historyCategory != null && ContentCategories.of(entry.records) != _historyCategory) return false;
       if (query.isEmpty) return true;
       // Search in UID / identifier
       if (TextSearch.fold(entry.identifier).contains(query)) return true;
@@ -101,17 +102,52 @@ extension _HistoryTab on _HomeScreenState {
           ),
         ),
         Container(
+          color: AppColors.surface,
+          height: 46,
+          child: ListView(
+            scrollDirection: Axis.horizontal,
+            padding: const EdgeInsets.fromLTRB(16, 4, 16, 6),
+            children: [
+              Padding(
+                padding: const EdgeInsetsDirectional.only(end: 8),
+                child: ChoiceChip(
+                  label: Text(L10n.current.all),
+                  selected: _historyCategory == null,
+                  onSelected: (_) => _refresh(() => _historyCategory = null),
+                ),
+              ),
+              for (final c in ContentCategory.values)
+                if (allHistory.any((e) => ContentCategories.of(e.records) == c))
+                  Padding(
+                    padding: const EdgeInsetsDirectional.only(end: 8),
+                    child: ChoiceChip(
+                      avatar: Icon(contentCategoryIcon(c), size: 16),
+                      label: Text(contentCategoryLabel(c, L10n.current)),
+                      selected: _historyCategory == c,
+                      onSelected: (_) => _refresh(() => _historyCategory = _historyCategory == c ? null : c),
+                    ),
+                  ),
+            ],
+          ),
+        ),
+        Container(
           padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
           color: AppColors.subtleFill,
           child: Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
               Text(
-                query.isEmpty
+                query.isEmpty && _historyCategory == null
                     ? L10n.current.savedScansCount('${allHistory.length}')
                     : L10n.current.historyFoundCount('${filteredHistory.length}', '${allHistory.length}'),
                 style: const TextStyle(fontWeight: FontWeight.bold),
               ),
+              if (allHistory.isNotEmpty)
+                IconButton(
+                  tooltip: L10n.current.analyticsTitle,
+                  icon: Icon(Icons.insights_rounded, size: 20, color: AppColors.accent),
+                  onPressed: () => AnalyticsPage.open(context, _controller.storage),
+                ),
               if (allHistory.isNotEmpty)
                 IconButton(
                   tooltip: L10n.current.exportCsv,
