@@ -1116,5 +1116,18 @@
   "appLockUnavailable": "Nessun blocco schermo configurato su questo dispositivo.",
   "appLockLocked": "App bloccata",
   "appLockUnlock": "Sblocca",
-  "appLockReason": "Per aprire libreria e cronologia"
+  "appLockReason": "Per aprire libreria e cronologia",
+  "sigTitle": "Tag firmati",
+  "sigSubtitle": "Scopri se qualcuno modifica il contenuto",
+  "sigExplain": "Ai tag scritti si aggiunge un record di firma creato con la tua chiave segreta. Letti con questa app, ogni modifica viene segnalata. Puoi condividere la chiave con il team; senza di essa nessuno può falsificare la firma. Non impedisce la lettura.",
+  "sigCreateKey": "Crea chiave",
+  "sigCopyKey": "Copia chiave (condividi)",
+  "sigImportKey": "Incolla chiave",
+  "sigImportInvalid": "Gli appunti non contengono una chiave valida.",
+  "sigKeyReady": "Chiave pronta ({id})",
+  "sigSignOnWrite": "Firma i tag che scrivo",
+  "sigValid": "Firma valida",
+  "sigInvalid": "Firma non valida: contenuto modificato",
+  "sigOtherKey": "Firmato con un'altra chiave",
+  "sigReplaceKeyConfirm": "Sostituire la chiave attuale? I tag firmati con la vecchia risulteranno \"altra chiave\"."
 }

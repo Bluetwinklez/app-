@@ -1116,5 +1116,18 @@
   "appLockUnavailable": "Er is geen schermvergrendeling ingesteld.",
   "appLockLocked": "App vergrendeld",
   "appLockUnlock": "Ontgrendelen",
-  "appLockReason": "Om je tagbibliotheek en geschiedenis te openen"
+  "appLockReason": "Om je tagbibliotheek en geschiedenis te openen",
+  "sigTitle": "Ondertekende tags",
+  "sigSubtitle": "Merk het als iemand de inhoud wijzigt",
+  "sigExplain": "Tags die je schrijft krijgen een handtekeningrecord met je geheime sleutel. Bij lezen met deze app wordt elke wijziging gemeld. Deel de sleutel met je team; zonder sleutel is de handtekening niet te vervalsen. Lezen blijft mogelijk.",
+  "sigCreateKey": "Sleutel maken",
+  "sigCopyKey": "Sleutel kopiëren (delen)",
+  "sigImportKey": "Sleutel plakken",
+  "sigImportInvalid": "Het klembord bevat geen geldige sleutel.",
+  "sigKeyReady": "Sleutel klaar ({id})",
+  "sigSignOnWrite": "Tags die ik schrijf ondertekenen",
+  "sigValid": "Handtekening geldig",
+  "sigInvalid": "Handtekening ongeldig: inhoud gewijzigd",
+  "sigOtherKey": "Ondertekend met een andere sleutel",
+  "sigReplaceKeyConfirm": "Huidige sleutel vervangen? Tags met de oude sleutel tonen dan \"andere sleutel\"."
 }

@@ -3990,4 +3990,48 @@ class AppLocalizationsDe extends AppLocalizations {
   @override
   String get appLockReason =>
       'Um Ihre Tag-Bibliothek und den Verlauf zu öffnen';
+
+  @override
+  String get sigTitle => 'Signierte Tags';
+
+  @override
+  String get sigSubtitle => 'Erkennen, wenn jemand den Inhalt ändert';
+
+  @override
+  String get sigExplain =>
+      'Ihre Tags erhalten einen Signatur-Eintrag mit Ihrem geheimen Schlüssel. Beim Lesen mit dieser App wird jede Änderung erkannt. Teilen Sie den Schlüssel mit Ihrem Team; ohne ihn lässt sich die Signatur nicht fälschen. Lesen bleibt für alle möglich.';
+
+  @override
+  String get sigCreateKey => 'Schlüssel erstellen';
+
+  @override
+  String get sigCopyKey => 'Schlüssel kopieren (mit Team teilen)';
+
+  @override
+  String get sigImportKey => 'Schlüssel einfügen';
+
+  @override
+  String get sigImportInvalid =>
+      'Die Zwischenablage enthält keinen gültigen Schlüssel.';
+
+  @override
+  String sigKeyReady(String id) {
+    return 'Schlüssel bereit ($id)';
+  }
+
+  @override
+  String get sigSignOnWrite => 'Geschriebene Tags signieren';
+
+  @override
+  String get sigValid => 'Signatur gültig';
+
+  @override
+  String get sigInvalid => 'Signatur ungültig: Inhalt geändert';
+
+  @override
+  String get sigOtherKey => 'Mit einem anderen Schlüssel signiert';
+
+  @override
+  String get sigReplaceKeyConfirm =>
+      'Aktuellen Schlüssel ersetzen? Mit dem alten signierte Tags gelten dann als „anderer Schlüssel“.';
 }

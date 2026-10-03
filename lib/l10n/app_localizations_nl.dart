@@ -3979,4 +3979,47 @@ class AppLocalizationsNl extends AppLocalizations {
 
   @override
   String get appLockReason => 'Om je tagbibliotheek en geschiedenis te openen';
+
+  @override
+  String get sigTitle => 'Ondertekende tags';
+
+  @override
+  String get sigSubtitle => 'Merk het als iemand de inhoud wijzigt';
+
+  @override
+  String get sigExplain =>
+      'Tags die je schrijft krijgen een handtekeningrecord met je geheime sleutel. Bij lezen met deze app wordt elke wijziging gemeld. Deel de sleutel met je team; zonder sleutel is de handtekening niet te vervalsen. Lezen blijft mogelijk.';
+
+  @override
+  String get sigCreateKey => 'Sleutel maken';
+
+  @override
+  String get sigCopyKey => 'Sleutel kopiëren (delen)';
+
+  @override
+  String get sigImportKey => 'Sleutel plakken';
+
+  @override
+  String get sigImportInvalid => 'Het klembord bevat geen geldige sleutel.';
+
+  @override
+  String sigKeyReady(String id) {
+    return 'Sleutel klaar ($id)';
+  }
+
+  @override
+  String get sigSignOnWrite => 'Tags die ik schrijf ondertekenen';
+
+  @override
+  String get sigValid => 'Handtekening geldig';
+
+  @override
+  String get sigInvalid => 'Handtekening ongeldig: inhoud gewijzigd';
+
+  @override
+  String get sigOtherKey => 'Ondertekend met een andere sleutel';
+
+  @override
+  String get sigReplaceKeyConfirm =>
+      'Huidige sleutel vervangen? Tags met de oude sleutel tonen dan \"andere sleutel\".';
 }

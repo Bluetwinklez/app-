@@ -41,6 +41,7 @@ import '../l10n/l10n.dart';
 import '../domain/csv_records.dart';
 import '../domain/serial_plan.dart';
 import '../domain/template_variables.dart';
+import '../domain/tag_signature.dart';
 
 part 'home_clipboard_flows.dart';
 part 'home_batch_flow.dart';
@@ -565,6 +566,14 @@ class _HomeScreenState extends State<HomeScreen>
     final chips = <Widget>[
       if (match != null)
         _infoChip(Icons.collections_bookmark_outlined, L10n.current.libraryMatch(match.name), AppColors.success),
+      ...switch (TagSignature.verify(
+          tag.records,
+          _controller.storage.signingKey == null ? null : base64Decode(_controller.storage.signingKey!))) {
+        SignatureStatus.none => const <Widget>[],
+        SignatureStatus.valid => [_infoChip(Icons.verified_rounded, L10n.current.sigValid, AppColors.success)],
+        SignatureStatus.invalid => [_infoChip(Icons.gpp_bad_rounded, L10n.current.sigInvalid, AppColors.danger)],
+        SignatureStatus.otherKey => [_infoChip(Icons.key_off_rounded, L10n.current.sigOtherKey, AppColors.warning)],
+      },
       if (identity.chipGuess != null)
         _infoChip(Icons.memory_rounded, L10n.current.tagChipLabel(identity.chipGuess!), AppColors.accent),
       if (identity.manufacturer != null)

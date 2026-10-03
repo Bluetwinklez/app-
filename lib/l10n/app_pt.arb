@@ -1116,5 +1116,18 @@
   "appLockUnavailable": "Nenhum bloqueio de tela configurado neste aparelho.",
   "appLockLocked": "App bloqueado",
   "appLockUnlock": "Desbloquear",
-  "appLockReason": "Para abrir sua biblioteca e histórico"
+  "appLockReason": "Para abrir sua biblioteca e histórico",
+  "sigTitle": "Tags assinadas",
+  "sigSubtitle": "Saiba se alguém alterar o conteúdo",
+  "sigExplain": "Um registro de assinatura feito com sua chave secreta é adicionado às tags. Lidas com este app, qualquer alteração é sinalizada. Compartilhe a chave com a equipe; sem ela ninguém falsifica a assinatura. Não impede a leitura.",
+  "sigCreateKey": "Criar chave",
+  "sigCopyKey": "Copiar chave (compartilhar)",
+  "sigImportKey": "Colar chave",
+  "sigImportInvalid": "A área de transferência não tem uma chave válida.",
+  "sigKeyReady": "Chave pronta ({id})",
+  "sigSignOnWrite": "Assinar as tags que gravo",
+  "sigValid": "Assinatura válida",
+  "sigInvalid": "Assinatura inválida: conteúdo alterado",
+  "sigOtherKey": "Assinada com outra chave",
+  "sigReplaceKeyConfirm": "Substituir a chave atual? Tags assinadas com a antiga aparecerão como \"outra chave\"."
 }

@@ -49,6 +49,14 @@ abstract class AppStorageService {
   bool get appLockEnabled;
   Future<void> setAppLockEnabled(bool value);
 
+  /// Base64 HMAC key for signed tags (null until created).
+  String? get signingKey;
+  Future<void> setSigningKey(String? value);
+
+  /// Append a signature record to every written tag.
+  bool get signOnWrite;
+  Future<void> setSignOnWrite(bool value);
+
   /// Compatibility mode: skip read-back verification after writes.
   bool get compatibilityMode;
   Future<void> setCompatibilityMode(bool enabled);
@@ -144,6 +152,22 @@ class InMemoryAppStorageService implements AppStorageService {
 
   @override
   Future<void> setCompatibilityMode(bool enabled) async => _compatibilityMode = enabled;
+
+  bool _signOnWrite = false;
+
+  @override
+  bool get signOnWrite => _signOnWrite;
+
+  @override
+  Future<void> setSignOnWrite(bool value) async => _signOnWrite = value;
+
+  String? _signingKey;
+
+  @override
+  String? get signingKey => _signingKey;
+
+  @override
+  Future<void> setSigningKey(String? value) async => _signingKey = value;
 
   bool _appLockEnabled = false;
 
@@ -428,6 +452,8 @@ class LocalFileAppStorageService implements AppStorageService {
               : const [];
           _lastBackupAt = DateTime.tryParse(data['lastBackupAt'] as String? ?? '');
           _compatibilityMode = data['compatibilityMode'] as bool? ?? false;
+          _signOnWrite = data['signOnWrite'] as bool? ?? false;
+          _signingKey = data['signingKey'] as String?;
           _appLockEnabled = data['appLockEnabled'] as bool? ?? false;
           _writeCounter = data['writeCounter'] as int? ?? 0;
         }
@@ -588,6 +614,8 @@ class LocalFileAppStorageService implements AppStorageService {
       'favoritePresets': _favoritePresets,
       if (_lastBackupAt != null) 'lastBackupAt': _lastBackupAt!.toIso8601String(),
       'compatibilityMode': _compatibilityMode,
+      'signOnWrite': _signOnWrite,
+      'signingKey': _signingKey,
       'appLockEnabled': _appLockEnabled,
       'writeCounter': _writeCounter,
     });
@@ -660,6 +688,28 @@ class LocalFileAppStorageService implements AppStorageService {
   @override
   Future<void> setCompatibilityMode(bool enabled) async {
     _compatibilityMode = enabled;
+    await _saveSettings();
+  }
+
+  bool _signOnWrite = false;
+
+  @override
+  bool get signOnWrite => _signOnWrite;
+
+  @override
+  Future<void> setSignOnWrite(bool value) async {
+    _signOnWrite = value;
+    await _saveSettings();
+  }
+
+  String? _signingKey;
+
+  @override
+  String? get signingKey => _signingKey;
+
+  @override
+  Future<void> setSigningKey(String? value) async {
+    _signingKey = value;
     await _saveSettings();
   }
 

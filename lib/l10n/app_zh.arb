@@ -1116,5 +1116,18 @@
   "appLockUnavailable": "此设备未设置屏幕锁。",
   "appLockLocked": "应用已锁定",
   "appLockUnlock": "解锁",
-  "appLockReason": "以打开标签库和历史记录"
+  "appLockReason": "以打开标签库和历史记录",
+  "sigTitle": "签名标签",
+  "sigSubtitle": "有人改动内容时能察觉",
+  "sigExplain": "写入的标签会附加用你的密钥生成的签名记录。用本应用读取时，任何改动都会被发现。可与同事共享密钥；没有密钥就无法伪造签名。不会阻止他人读取。",
+  "sigCreateKey": "创建密钥",
+  "sigCopyKey": "复制密钥（共享）",
+  "sigImportKey": "粘贴密钥",
+  "sigImportInvalid": "剪贴板中没有有效密钥。",
+  "sigKeyReady": "密钥已就绪（{id}）",
+  "sigSignOnWrite": "签名我写入的标签",
+  "sigValid": "签名有效",
+  "sigInvalid": "签名无效：内容已被改动",
+  "sigOtherKey": "由其他密钥签名",
+  "sigReplaceKeyConfirm": "替换当前密钥？用旧密钥签名的标签将显示为“其他密钥”。"
 }
