@@ -1302,5 +1302,13 @@
   "feedingNever": "Noch keine Fütterung erfasst",
   "visitorsToday": "{count} Besucher heute",
   "visitorNamePrompt": "Name des Besuchers",
-  "visitorNameHint": "Name, Firma (optional)"
+  "visitorNameHint": "Name, Firma (optional)",
+  "reminderBody": "Tag scannen nicht vergessen 📲",
+  "reminderInspectionTitle": "Prüfung fällig: {name}",
+  "reminderInspectionBody": "Nach der Prüfung den Tag scannen.",
+  "reminderTitle": "Tägliche Erinnerung",
+  "reminderOff": "Aus",
+  "reminderAt": "Täglich um {time}",
+  "reminderDenied": "Mitteilungen nicht erlaubt. In den Einstellungen erlauben.",
+  "inspectionRemindersNote": "Fällige Tags melden sich am Fälligkeitstag um 10:00 (falls erlaubt)."
 }

@@ -4476,4 +4476,32 @@ class AppLocalizationsKo extends AppLocalizations {
 
   @override
   String get visitorNameHint => '이름, 회사(선택)';
+
+  @override
+  String get reminderBody => '태그 스캔을 잊지 마세요 📲';
+
+  @override
+  String reminderInspectionTitle(String name) {
+    return '점검 시기: $name';
+  }
+
+  @override
+  String get reminderInspectionBody => '점검 후 태그를 스캔하세요.';
+
+  @override
+  String get reminderTitle => '매일 알림';
+
+  @override
+  String get reminderOff => '끔';
+
+  @override
+  String reminderAt(String time) {
+    return '매일 $time';
+  }
+
+  @override
+  String get reminderDenied => '알림이 허용되지 않았습니다. 설정에서 허용하세요.';
+
+  @override
+  String get inspectionRemindersNote => '점검일 10:00에 알림이 옵니다(허용한 경우).';
 }

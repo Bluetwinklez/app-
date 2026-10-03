@@ -1302,5 +1302,13 @@
   "feedingNever": "Aucun repas enregistré",
   "visitorsToday": "{count} visiteurs aujourd'hui",
   "visitorNamePrompt": "Nom du visiteur",
-  "visitorNameHint": "Nom, société (facultatif)"
+  "visitorNameHint": "Nom, société (facultatif)",
+  "reminderBody": "N'oubliez pas de scanner le tag 📲",
+  "reminderInspectionTitle": "Contrôle à faire : {name}",
+  "reminderInspectionBody": "Scannez le tag après le contrôle.",
+  "reminderTitle": "Rappel quotidien",
+  "reminderOff": "Désactivé",
+  "reminderAt": "Tous les jours à {time}",
+  "reminderDenied": "Notifications non autorisées. Autorisez-les dans Réglages.",
+  "inspectionRemindersNote": "Les tags à contrôler vous notifient à 10 h le jour prévu (si autorisé)."
 }

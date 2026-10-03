@@ -5,6 +5,7 @@ import 'package:path_provider/path_provider.dart';
 import 'controllers/nfc_controller.dart';
 import 'services/app_storage_service.dart';
 import 'services/secret_store.dart';
+import 'services/notification_service.dart';
 import 'services/nfc_service.dart';
 import 'ui/home_screen.dart';
 import 'ui/app_lock_gate.dart';
@@ -29,6 +30,9 @@ void main() async {
     storage = InMemoryAppStorageService();
     await storage.init();
   }
+
+  await NotificationService.init();
+  NotificationService.sync(storage);
 
   final controller = NfcStateController(
     service: MethodChannelNfcService(),

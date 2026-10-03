@@ -1302,5 +1302,13 @@
   "feedingNever": "لا يوجد إطعام مسجل بعد",
   "visitorsToday": "{count} زائر اليوم",
   "visitorNamePrompt": "اسم الزائر",
-  "visitorNameHint": "الاسم، الشركة (اختياري)"
+  "visitorNameHint": "الاسم، الشركة (اختياري)",
+  "reminderBody": "لا تنسَ مسح الوسم 📲",
+  "reminderInspectionTitle": "حان وقت الفحص: {name}",
+  "reminderInspectionBody": "امسح الوسم بعد فحصه.",
+  "reminderTitle": "تذكير يومي",
+  "reminderOff": "متوقف",
+  "reminderAt": "كل يوم الساعة {time}",
+  "reminderDenied": "الإشعارات غير مسموح بها. يمكنك السماح بها من الإعدادات.",
+  "inspectionRemindersNote": "تنبّهك الوسوم المستحقة للفحص الساعة 10:00 في يوم الاستحقاق (إن سُمح)."
 }

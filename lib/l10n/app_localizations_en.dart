@@ -4643,4 +4643,34 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get visitorNameHint => 'Name, company (optional)';
+
+  @override
+  String get reminderBody => 'Don\'t forget to scan the tag 📲';
+
+  @override
+  String reminderInspectionTitle(String name) {
+    return 'Inspection due: $name';
+  }
+
+  @override
+  String get reminderInspectionBody => 'Scan the tag after checking it.';
+
+  @override
+  String get reminderTitle => 'Daily reminder';
+
+  @override
+  String get reminderOff => 'Off';
+
+  @override
+  String reminderAt(String time) {
+    return 'Every day at $time';
+  }
+
+  @override
+  String get reminderDenied =>
+      'Notifications are not allowed. You can allow them in Settings.';
+
+  @override
+  String get inspectionRemindersNote =>
+      'Tags due for inspection notify you at 10:00 on the due day (if allowed).';
 }

@@ -1302,5 +1302,13 @@
   "feedingNever": "まだ記録がありません",
   "visitorsToday": "今日の来訪者 {count}人",
   "visitorNamePrompt": "来訪者名",
-  "visitorNameHint": "氏名・会社（任意）"
+  "visitorNameHint": "氏名・会社（任意）",
+  "reminderBody": "タグの読み取りを忘れずに 📲",
+  "reminderInspectionTitle": "点検時期: {name}",
+  "reminderInspectionBody": "点検後にタグを読み取ってください。",
+  "reminderTitle": "毎日のリマインダー",
+  "reminderOff": "オフ",
+  "reminderAt": "毎日 {time}",
+  "reminderDenied": "通知が許可されていません。設定で許可できます。",
+  "inspectionRemindersNote": "点検日の10:00に通知します（許可した場合）。"
 }

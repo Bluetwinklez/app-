@@ -4656,4 +4656,34 @@ class AppLocalizationsTr extends AppLocalizations {
 
   @override
   String get visitorNameHint => 'Ad Soyad, firma (isteğe bağlı)';
+
+  @override
+  String get reminderBody => 'Etiketi okutmayı unutma 📲';
+
+  @override
+  String reminderInspectionTitle(String name) {
+    return 'Kontrol zamanı: $name';
+  }
+
+  @override
+  String get reminderInspectionBody => 'Kontrol ettikten sonra etiketi okutun.';
+
+  @override
+  String get reminderTitle => 'Günlük hatırlatma';
+
+  @override
+  String get reminderOff => 'Kapalı';
+
+  @override
+  String reminderAt(String time) {
+    return 'Her gün $time';
+  }
+
+  @override
+  String get reminderDenied =>
+      'Bildirim izni verilmedi. Ayarlar\'dan izin verebilirsiniz.';
+
+  @override
+  String get inspectionRemindersNote =>
+      'Kontrol tarihi gelen etiketler için saat 10:00\'da bildirim gelir (izin verdiyseniz).';
 }

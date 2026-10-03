@@ -4689,4 +4689,34 @@ class AppLocalizationsEs extends AppLocalizations {
 
   @override
   String get visitorNameHint => 'Nombre, empresa (opcional)';
+
+  @override
+  String get reminderBody => 'No olvides escanear la etiqueta 📲';
+
+  @override
+  String reminderInspectionTitle(String name) {
+    return 'Revisión pendiente: $name';
+  }
+
+  @override
+  String get reminderInspectionBody => 'Escanea la etiqueta tras revisarla.';
+
+  @override
+  String get reminderTitle => 'Recordatorio diario';
+
+  @override
+  String get reminderOff => 'Desactivado';
+
+  @override
+  String reminderAt(String time) {
+    return 'Todos los días a las $time';
+  }
+
+  @override
+  String get reminderDenied =>
+      'Notificaciones no permitidas. Puedes permitirlas en Ajustes.';
+
+  @override
+  String get inspectionRemindersNote =>
+      'Las etiquetas pendientes avisan a las 10:00 del día previsto (si se permite).';
 }

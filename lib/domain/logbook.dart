@@ -50,20 +50,26 @@ class LogBook {
   /// Newest first.
   final List<LogEntry> entries;
 
+  /// Daily reminder time as minutes after midnight; null = no reminder.
+  final int? reminderMinutes;
+
   const LogBook({
     required this.id,
     required this.name,
     required this.kind,
     required this.createdAt,
     this.entries = const [],
+    this.reminderMinutes,
   });
 
-  LogBook copyWith({String? name, List<LogEntry>? entries}) => LogBook(
+  LogBook copyWith({String? name, List<LogEntry>? entries, int? reminderMinutes, bool clearReminder = false}) =>
+      LogBook(
         id: id,
         name: name ?? this.name,
         kind: kind,
         createdAt: createdAt,
         entries: entries ?? this.entries,
+        reminderMinutes: clearReminder ? null : (reminderMinutes ?? this.reminderMinutes),
       );
 
   /// Adds [entry] on top, dropping the oldest beyond [maxEntries]. In a time
@@ -187,6 +193,7 @@ class LogBook {
         'kind': kind.name,
         'createdAt': createdAt.toIso8601String(),
         'entries': entries.map((e) => e.toJsonMap()).toList(),
+        if (reminderMinutes != null) 'reminder': reminderMinutes,
       };
 
   factory LogBook.fromJsonMap(Map<String, dynamic> m) => LogBook(
@@ -198,5 +205,6 @@ class LogBook {
           for (final e in (m['entries'] as List<dynamic>? ?? const []))
             LogEntry.fromJsonMap(Map<String, dynamic>.from(e as Map)),
         ],
+        reminderMinutes: (m['reminder'] as num?)?.toInt(),
       );
 }

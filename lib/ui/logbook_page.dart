@@ -12,6 +12,7 @@ import '../domain/ndef_record.dart';
 import '../domain/nfc_tag_info.dart';
 import '../l10n/app_localizations.dart';
 import '../l10n/l10n.dart';
+import '../services/notification_service.dart';
 import 'app_theme.dart';
 
 String logBookKindLabel(LogBookKind kind, AppLocalizations loc) => switch (kind) {
@@ -263,6 +264,51 @@ class _LogBookDetailPageState extends State<LogBookDetailPage> {
     ));
   }
 
+  Future<void> _setReminder(LogBook book) async {
+    final loc = AppLocalizations.of(context) ?? L10n.current;
+    final current = book.reminderMinutes;
+    final choice = await showModalBottomSheet<int>(
+      context: context,
+      builder: (ctx) => SafeArea(
+        child: Column(
+          mainAxisSize: MainAxisSize.min,
+          children: [
+            ListTile(
+              leading: const Icon(Icons.notifications_off_outlined),
+              title: Text(loc.reminderOff),
+              trailing: current == null ? Icon(Icons.check, color: AppColors.accent) : null,
+              onTap: () => Navigator.of(ctx).pop(-1),
+            ),
+            ListTile(
+              leading: const Icon(Icons.schedule_rounded),
+              title: Text(current == null
+                  ? loc.reminderTitle
+                  : loc.reminderAt(TimeOfDay(hour: current ~/ 60, minute: current % 60).format(ctx))),
+              trailing: current != null ? Icon(Icons.check, color: AppColors.accent) : null,
+              onTap: () async {
+                final t = await showTimePicker(
+                  context: ctx,
+                  initialTime: current == null
+                      ? const TimeOfDay(hour: 9, minute: 0)
+                      : TimeOfDay(hour: current ~/ 60, minute: current % 60),
+                );
+                if (ctx.mounted) Navigator.of(ctx).pop(t == null ? null : t.hour * 60 + t.minute);
+              },
+            ),
+          ],
+        ),
+      ),
+    );
+    if (choice == null || !mounted) return;
+    if (choice >= 0 && !await NotificationService.requestPermission() && mounted) {
+      ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Text(loc.reminderDenied)));
+    }
+    await widget.controller.storage.saveLogBook(
+        choice < 0 ? book.copyWith(clearReminder: true) : book.copyWith(reminderMinutes: choice));
+    await NotificationService.sync(widget.controller.storage);
+    if (mounted) setState(() {});
+  }
+
   Future<void> _delete(LogBook book) async {
     final loc = AppLocalizations.of(context) ?? L10n.current;
     final ok = await showDialog<bool>(
@@ -281,6 +327,7 @@ class _LogBookDetailPageState extends State<LogBookDetailPage> {
     );
     if (ok != true) return;
     await widget.controller.storage.deleteLogBook(book.id);
+    NotificationService.sync(widget.controller.storage);
     if (mounted) Navigator.of(context).pop();
   }
 
@@ -415,6 +462,13 @@ class _LogBookDetailPageState extends State<LogBookDetailPage> {
         appBar: AppBar(
           title: Text(book.name),
           actions: [
+            IconButton(
+              tooltip: loc.reminderTitle,
+              icon: Icon(book.reminderMinutes == null
+                  ? Icons.notifications_none_rounded
+                  : Icons.notifications_active_rounded),
+              onPressed: () => _setReminder(book),
+            ),
             if (book.entries.isNotEmpty)
               IconButton(
                 tooltip: loc.exportCsv,

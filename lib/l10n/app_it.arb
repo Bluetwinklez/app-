@@ -1302,5 +1302,13 @@
   "feedingNever": "Nessun pasto registrato",
   "visitorsToday": "{count} visitatori oggi",
   "visitorNamePrompt": "Nome del visitatore",
-  "visitorNameHint": "Nome, azienda (facoltativo)"
+  "visitorNameHint": "Nome, azienda (facoltativo)",
+  "reminderBody": "Non dimenticare di leggere il tag 📲",
+  "reminderInspectionTitle": "Controllo da fare: {name}",
+  "reminderInspectionBody": "Leggi il tag dopo il controllo.",
+  "reminderTitle": "Promemoria giornaliero",
+  "reminderOff": "Disattivato",
+  "reminderAt": "Ogni giorno alle {time}",
+  "reminderDenied": "Notifiche non consentite. Puoi abilitarle in Impostazioni.",
+  "inspectionRemindersNote": "I tag da controllare avvisano alle 10:00 del giorno previsto (se consentito)."
 }

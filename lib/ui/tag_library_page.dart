@@ -14,6 +14,7 @@ import '../domain/library_import.dart';
 import '../domain/team_pack.dart';
 import '../services/backup_crypto.dart';
 import 'password_prompt.dart';
+import '../services/notification_service.dart';
 import 'tag_map_page.dart';
 import '../domain/logbook.dart';
 import '../domain/ndef_record.dart';
@@ -468,8 +469,14 @@ class _TagLibraryPageState extends State<TagLibraryPage> {
           _EntryEditor(entry: entry, docsDir: _docsDir, isNew: isNew, logBooks: widget.storage.getLogBooks()),
     );
     if (result == null) return;
+    if (result.checkEveryDays != null && entry.checkEveryDays == null) {
+      await NotificationService.requestPermission();
+    }
     try {
       await widget.storage.saveLibraryEntry(result);
+      if (result.checkEveryDays != entry.checkEveryDays || result.checkEveryDays != null) {
+        NotificationService.sync(widget.storage);
+      }
       // The editor copies a new photo; drop the one it replaced.
       final old = entry.photoPath;
       if (old != null && old != result.photoPath && _docsDir != null) {
@@ -1157,6 +1164,12 @@ class _EntryEditorState extends State<_EntryEditor> {
               ],
               onChanged: (v) => setState(() => _checkEvery = v),
             ),
+            if (_checkEvery != null)
+              Padding(
+                padding: const EdgeInsets.only(top: 4),
+                child: Text(loc.inspectionRemindersNote,
+                    style: TextStyle(fontSize: 12, color: AppColors.secondary)),
+              ),
             if (widget.logBooks.isNotEmpty) ...[
               const SizedBox(height: 12),
               DropdownButtonFormField<String?>(

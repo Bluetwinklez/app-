@@ -4658,4 +4658,34 @@ class AppLocalizationsUk extends AppLocalizations {
 
   @override
   String get visitorNameHint => 'Ім\'я, компанія (необов\'язково)';
+
+  @override
+  String get reminderBody => 'Не забудьте відсканувати мітку 📲';
+
+  @override
+  String reminderInspectionTitle(String name) {
+    return 'Час перевірити: $name';
+  }
+
+  @override
+  String get reminderInspectionBody => 'Після перевірки відскануйте мітку.';
+
+  @override
+  String get reminderTitle => 'Щоденне нагадування';
+
+  @override
+  String get reminderOff => 'Вимк.';
+
+  @override
+  String reminderAt(String time) {
+    return 'Щодня о $time';
+  }
+
+  @override
+  String get reminderDenied =>
+      'Сповіщення не дозволено. Дозвольте їх у Параметрах.';
+
+  @override
+  String get inspectionRemindersNote =>
+      'Мітки до перевірки нагадають о 10:00 у потрібний день (якщо дозволено).';
 }

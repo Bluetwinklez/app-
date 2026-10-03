@@ -1302,5 +1302,13 @@
   "feedingNever": "Годувань ще немає",
   "visitorsToday": "Відвідувачів сьогодні: {count}",
   "visitorNamePrompt": "Ім'я відвідувача",
-  "visitorNameHint": "Ім'я, компанія (необов'язково)"
+  "visitorNameHint": "Ім'я, компанія (необов'язково)",
+  "reminderBody": "Не забудьте відсканувати мітку 📲",
+  "reminderInspectionTitle": "Час перевірити: {name}",
+  "reminderInspectionBody": "Після перевірки відскануйте мітку.",
+  "reminderTitle": "Щоденне нагадування",
+  "reminderOff": "Вимк.",
+  "reminderAt": "Щодня о {time}",
+  "reminderDenied": "Сповіщення не дозволено. Дозвольте їх у Параметрах.",
+  "inspectionRemindersNote": "Мітки до перевірки нагадають о 10:00 у потрібний день (якщо дозволено)."
 }

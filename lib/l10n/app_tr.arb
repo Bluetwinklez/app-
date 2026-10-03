@@ -3209,5 +3209,27 @@
     }
   },
   "visitorNamePrompt": "Ziyaretçi adı",
-  "visitorNameHint": "Ad Soyad, firma (isteğe bağlı)"
+  "visitorNameHint": "Ad Soyad, firma (isteğe bağlı)",
+  "reminderBody": "Etiketi okutmayı unutma 📲",
+  "reminderInspectionTitle": "Kontrol zamanı: {name}",
+  "@reminderInspectionTitle": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
+  "reminderInspectionBody": "Kontrol ettikten sonra etiketi okutun.",
+  "reminderTitle": "Günlük hatırlatma",
+  "reminderOff": "Kapalı",
+  "reminderAt": "Her gün {time}",
+  "@reminderAt": {
+    "placeholders": {
+      "time": {
+        "type": "String"
+      }
+    }
+  },
+  "reminderDenied": "Bildirim izni verilmedi. Ayarlar'dan izin verebilirsiniz.",
+  "inspectionRemindersNote": "Kontrol tarihi gelen etiketler için saat 10:00'da bildirim gelir (izin verdiyseniz)."
 }
