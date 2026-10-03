@@ -12,6 +12,8 @@
 - QR ve barkod tarayıcı: etikete yaz, kütüphaneye kaydet, kopyala, paylaş, web'de ara
 - Kayıtları birleştir: kütüphane, şablon ve son okunan etiketten sıra seçerek tek etikete
 - Yazma ekranında gruplu kayıt türleri, adresle ve mevcut konumla konum kaydı
+- Fotoğraftan metin (OCR, iPhone): belge veya kartvizitteki yazıyı etikete yaz
+- Geçmişe etiket ekleme ve etikete göre filtreleme
 
 **Kayıt Defteri ve hatırlatmalar**
 - Alışkanlık serisi, çocuk görev tablosu, evcil hayvan besleme, ziyaretçi defteri (ad sorar)
