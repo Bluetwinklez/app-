@@ -3083,4 +3083,23 @@ class AppLocalizationsAr extends AppLocalizations {
 
   @override
   String get compareBothEmpty => 'الوسمان فارغان.';
+
+  @override
+  String capacityExceededShort(String needed, String max) {
+    return 'المحتوى كبير جدًا: $needed / $max بايت';
+  }
+
+  @override
+  String get verifyFailedAfterWrite =>
+      'تعذّر التحقق من البيانات؛ أبقِ الوسم مدة أطول.';
+
+  @override
+  String get blankTagTitle => 'الوسم غير جاهز بعد';
+
+  @override
+  String get blankTagBody =>
+      'هذا الوسم جديد وغير مهيأ لـ NDEF. يمكن للتطبيق تجهيزه وكتابة المحتوى بلمسة واحدة (NTAG وMIFARE Ultralight).';
+
+  @override
+  String get blankTagAction => 'جهّز واكتب';
 }

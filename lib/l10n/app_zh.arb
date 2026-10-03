@@ -878,5 +878,10 @@
   "compareRecordChanged": "不同",
   "compareRecordOnlyFirst": "仅在 A",
   "compareRecordOnlySecond": "仅在 B",
-  "compareBothEmpty": "两个标签都为空。"
+  "compareBothEmpty": "两个标签都为空。",
+  "capacityExceededShort": "内容过大：{needed} / {max} 字节",
+  "verifyFailedAfterWrite": "无法验证写入数据；请将标签保持更久。",
+  "blankTagTitle": "标签尚未准备好",
+  "blankTagBody": "此标签为新标签，尚未格式化为 NDEF。应用可一次性完成准备并写入内容（NTAG 和 MIFARE Ultralight）。",
+  "blankTagAction": "准备并写入"
 }

@@ -878,5 +878,10 @@
   "compareRecordChanged": "Different",
   "compareRecordOnlyFirst": "Only on A",
   "compareRecordOnlySecond": "Only on B",
-  "compareBothEmpty": "Both tags are empty."
+  "compareBothEmpty": "Both tags are empty.",
+  "capacityExceededShort": "Content too large: {needed} / {max} bytes",
+  "verifyFailedAfterWrite": "Written data could not be verified; hold the tag longer.",
+  "blankTagTitle": "Tag is not ready yet",
+  "blankTagBody": "This tag is new and not formatted for NDEF. The app can prepare it and write your content in one tap (NTAG and MIFARE Ultralight).",
+  "blankTagAction": "Prepare and write"
 }

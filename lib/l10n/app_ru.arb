@@ -878,5 +878,10 @@
   "compareRecordChanged": "Отличается",
   "compareRecordOnlyFirst": "Только на A",
   "compareRecordOnlySecond": "Только на B",
-  "compareBothEmpty": "Обе метки пусты."
+  "compareBothEmpty": "Обе метки пусты.",
+  "capacityExceededShort": "Слишком много данных: {needed} / {max} байт",
+  "verifyFailedAfterWrite": "Данные не подтверждены — держите метку дольше.",
+  "blankTagTitle": "Метка ещё не подготовлена",
+  "blankTagBody": "Метка новая и не отформатирована под NDEF. Приложение может подготовить её и записать данные одним касанием (NTAG и MIFARE Ultralight).",
+  "blankTagAction": "Подготовить и записать"
 }
