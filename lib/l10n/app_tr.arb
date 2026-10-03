@@ -2766,5 +2766,97 @@
         "type": "String"
       }
     }
+  },
+  "logbookKindTimeClock": "Giriş / Çıkış (mesai)",
+  "logbookCheckIn": "Giriş",
+  "logbookCheckOut": "Çıkış",
+  "logbookCheckedIn": "Giriş yapıldı: {label}",
+  "@logbookCheckedIn": {
+    "placeholders": {
+      "label": {
+        "type": "String"
+      }
+    }
+  },
+  "logbookCheckedOut": "Çıkış yapıldı: {label}",
+  "@logbookCheckedOut": {
+    "placeholders": {
+      "label": {
+        "type": "String"
+      }
+    }
+  },
+  "logbookPresentNow": "Şu an içeride: {count}",
+  "@logbookPresentNow": {
+    "placeholders": {
+      "count": {
+        "type": "String"
+      }
+    }
+  },
+  "logbookWorkedToday": "Bugün toplam süre: {duration}",
+  "@logbookWorkedToday": {
+    "placeholders": {
+      "duration": {
+        "type": "String"
+      }
+    }
+  },
+  "logbookWorkedPerPerson": "Bugünkü süreler",
+  "durationHm": "{h} sa {m} dk",
+  "@durationHm": {
+    "placeholders": {
+      "h": {
+        "type": "String"
+      },
+      "m": {
+        "type": "String"
+      }
+    }
+  },
+  "csvColumnDirection": "Yön",
+  "libraryCheckEvery": "Kontrol aralığı",
+  "libraryCheckNone": "Yok",
+  "libraryCheckDays": "{days} günde bir",
+  "@libraryCheckDays": {
+    "placeholders": {
+      "days": {
+        "type": "String"
+      }
+    }
+  },
+  "libraryCheckHint": "Etiketi bu sürede bir okutmazsanız \"kontrol zamanı\" uyarısı çıkar (yangın tüpü, filtre, bitki sulama…).",
+  "libraryCheckDue": "Kontrol zamanı geldi",
+  "libraryCheckNext": "Sonraki kontrol: {date}",
+  "@libraryCheckNext": {
+    "placeholders": {
+      "date": {
+        "type": "String"
+      }
+    }
+  },
+  "libraryDueFilter": "Kontrol bekleyenler ({count})",
+  "@libraryDueFilter": {
+    "placeholders": {
+      "count": {
+        "type": "String"
+      }
+    }
+  },
+  "libraryCheckRecorded": "Kontrol kaydedildi · sonraki: {date}",
+  "@libraryCheckRecorded": {
+    "placeholders": {
+      "date": {
+        "type": "String"
+      }
+    }
+  },
+  "cloneWarning": "Bu içerik kütüphanenizde \"{name}\" adlı etikette farklı bir UID ile kayıtlı. Bu etiket bir kopya olabilir.",
+  "@cloneWarning": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
   }
 }

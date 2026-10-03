@@ -44,4 +44,34 @@ void main() {
     await s2.deleteLogBook('9');
     expect(s2.getLogBooks(), isEmpty);
   });
+
+  test('time clock alternates in/out per tag and sums worked time', () {
+    final d = DateTime(2026, 5, 4);
+    var book = LogBook(id: 't', name: 'Mesai', kind: LogBookKind.timeClock, createdAt: d);
+    book = book
+        .add(e(d.add(const Duration(hours: 9)), 'A', 'Ali'))
+        .add(e(d.add(const Duration(hours: 9, minutes: 30)), 'B', 'Ayşe'))
+        .add(e(d.add(const Duration(hours: 12)), 'A', 'Ali'))
+        .add(e(d.add(const Duration(hours: 13)), 'A', 'Ali'));
+    expect(book.entries.map((x) => x.checkIn), [true, false, true, true]);
+    expect(book.isInside('A'), isTrue);
+    expect(book.presentNow().map((x) => x.uid), ['A', 'B']);
+
+    final now = d.add(const Duration(hours: 15));
+    final worked = book.workedOn(d, now: now);
+    expect(worked['A']!.worked, const Duration(hours: 5));
+    expect(worked['B']!.worked, const Duration(hours: 5, minutes: 30));
+    expect(book.totalWorkedOn(d, now: now), const Duration(hours: 10, minutes: 30));
+
+    final back = LogBook.fromJsonMap(book.toJsonMap());
+    expect(back.entries.map((x) => x.checkIn), [true, false, true, true]);
+  });
+
+  test('time clock clips a night shift to the day asked', () {
+    final d = DateTime(2026, 5, 4);
+    var book = LogBook(id: 't', name: 'Gece', kind: LogBookKind.timeClock, createdAt: d);
+    book = book.add(e(d.add(const Duration(hours: 22)), 'A')).add(e(d.add(const Duration(hours: 30)), 'A'));
+    expect(book.workedOn(d)['A']!.worked, const Duration(hours: 2));
+    expect(book.workedOn(d.add(const Duration(days: 1)))['A']!.worked, const Duration(hours: 6));
+  });
 }

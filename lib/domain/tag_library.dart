@@ -1,3 +1,5 @@
+import 'dart:convert';
+
 import 'ndef_record.dart';
 import '../util/text_search.dart';
 
@@ -29,6 +31,12 @@ class TagLibraryEntry {
   /// Last time this tag was scanned (matched by UID); null if never.
   final DateTime? lastSeenAt;
 
+  /// Maintenance / inspection interval: the tag should be scanned at least
+  /// every this many days (fire extinguisher, filter, plant…). Null = none.
+  final int? checkEveryDays;
+
+  static const List<int> checkIntervals = [1, 7, 14, 30, 90, 180, 365];
+
   const TagLibraryEntry({
     required this.id,
     required this.name,
@@ -42,7 +50,23 @@ class TagLibraryEntry {
     required this.createdAt,
     required this.updatedAt,
     this.lastSeenAt,
+    this.checkEveryDays,
   });
+
+  /// Has an interval and was not scanned within it (counting from creation
+  /// when never scanned).
+  bool isCheckDue(DateTime now) {
+    final days = checkEveryDays;
+    if (days == null || days <= 0) return false;
+    return !now.isBefore(nextCheckAt!);
+  }
+
+  /// When the next inspection scan is due; null without an interval.
+  DateTime? get nextCheckAt {
+    final days = checkEveryDays;
+    if (days == null || days <= 0) return null;
+    return (lastSeenAt ?? createdAt).add(Duration(days: days));
+  }
 
   /// Not scanned for at least [days] days (or never).
   bool unseenFor(int days, DateTime now) =>
@@ -60,6 +84,8 @@ class TagLibraryEntry {
     List<NdefRecordModel>? records,
     DateTime? updatedAt,
     DateTime? lastSeenAt,
+    int? checkEveryDays,
+    bool clearCheck = false,
   }) {
     return TagLibraryEntry(
       id: id,
@@ -74,6 +100,7 @@ class TagLibraryEntry {
       createdAt: createdAt,
       updatedAt: updatedAt ?? this.updatedAt,
       lastSeenAt: lastSeenAt ?? this.lastSeenAt,
+      checkEveryDays: clearCheck ? null : (checkEveryDays ?? this.checkEveryDays),
     );
   }
 
@@ -125,6 +152,28 @@ class TagLibraryEntry {
     return labels.any((l) => TextSearch.fold(l) == key);
   }
 
+  /// Clone check for a scan: a saved tag with the same content but a
+  /// different UID, when the scanned UID itself is not in the library.
+  /// Returns null when nothing looks copied.
+  static TagLibraryEntry? cloneSuspect(
+      Iterable<TagLibraryEntry> entries, String uid, List<NdefRecordModel> records) {
+    if (uid.isEmpty || records.isEmpty) return null;
+    final key = uid.toUpperCase();
+    final content = _contentKey(records);
+    TagLibraryEntry? suspect;
+    for (final e in entries) {
+      final other = e.uid?.toUpperCase() ?? '';
+      if (other == key) return null;
+      if (suspect == null && other.isNotEmpty && e.records.isNotEmpty && _contentKey(e.records) == content) {
+        suspect = e;
+      }
+    }
+    return suspect;
+  }
+
+  static String _contentKey(List<NdefRecordModel> records) =>
+      jsonEncode([for (final r in records) r.toJsonMap()]);
+
   /// Kept for callers; see [TextSearch.fold].
   static String foldForSearch(String value) => TextSearch.fold(value);
 
@@ -141,6 +190,7 @@ class TagLibraryEntry {
         'createdAt': createdAt.toIso8601String(),
         'updatedAt': updatedAt.toIso8601String(),
         if (lastSeenAt != null) 'lastSeenAt': lastSeenAt!.toIso8601String(),
+        if (checkEveryDays != null) 'checkEveryDays': checkEveryDays,
       };
 
   factory TagLibraryEntry.fromJsonMap(Map<String, dynamic> map) {
@@ -164,6 +214,7 @@ class TagLibraryEntry {
       createdAt: created,
       updatedAt: DateTime.tryParse(map['updatedAt'] as String? ?? '') ?? created,
       lastSeenAt: DateTime.tryParse(map['lastSeenAt'] as String? ?? ''),
+      checkEveryDays: (map['checkEveryDays'] as num?)?.toInt(),
     );
   }
 }

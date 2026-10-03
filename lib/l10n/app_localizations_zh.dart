@@ -3914,4 +3914,81 @@ class AppLocalizationsZh extends AppLocalizations {
   String whatsNew120(String date, String time, String counter) {
     return '• 记录簿：考勤、服药与库存\n• 安全：面容 ID 锁、加密备份、签名标签、仿冒网站警告\n• 模板变量（$date、$time、$counter）及从标签库写入\n• 新模板：智能名片、失物招领、语音留言\n• 带二维码的可打印标签页（PDF）\n• 简易模式、amiibo 信息、字节编辑器、NFC 芯片指南\n• 拖动排序与兼容模式';
   }
+
+  @override
+  String get logbookKindTimeClock => '签到 / 签退（考勤）';
+
+  @override
+  String get logbookCheckIn => '签到';
+
+  @override
+  String get logbookCheckOut => '签退';
+
+  @override
+  String logbookCheckedIn(String label) {
+    return '已签到：$label';
+  }
+
+  @override
+  String logbookCheckedOut(String label) {
+    return '已签退：$label';
+  }
+
+  @override
+  String logbookPresentNow(String count) {
+    return '当前在场：$count';
+  }
+
+  @override
+  String logbookWorkedToday(String duration) {
+    return '今日合计：$duration';
+  }
+
+  @override
+  String get logbookWorkedPerPerson => '今日时长';
+
+  @override
+  String durationHm(String h, String m) {
+    return '$h 小时 $m 分';
+  }
+
+  @override
+  String get csvColumnDirection => '方向';
+
+  @override
+  String get libraryCheckEvery => '检查间隔';
+
+  @override
+  String get libraryCheckNone => '无';
+
+  @override
+  String libraryCheckDays(String days) {
+    return '每 $days 天';
+  }
+
+  @override
+  String get libraryCheckHint => '若在此期间内未扫描，标签将标记为待检查（灭火器、滤芯、浇花等）。';
+
+  @override
+  String get libraryCheckDue => '需要检查';
+
+  @override
+  String libraryCheckNext(String date) {
+    return '下次检查：$date';
+  }
+
+  @override
+  String libraryDueFilter(String count) {
+    return '待检查（$count）';
+  }
+
+  @override
+  String libraryCheckRecorded(String date) {
+    return '已记录检查 · 下次：$date';
+  }
+
+  @override
+  String cloneWarning(String name) {
+    return '此内容已保存在标签库的“$name”中，但 UID 不同。此标签可能是复制品。';
+  }
 }

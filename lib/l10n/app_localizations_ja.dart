@@ -3947,4 +3947,81 @@ class AppLocalizationsJa extends AppLocalizations {
   String whatsNew120(String date, String time, String counter) {
     return '• 記録帳: 出欠・服薬・在庫の記録\n• セキュリティ: Face IDロック、暗号化バックアップ、署名付きタグ、偽サイト警告\n• テンプレート変数 ($date, $time, $counter) とライブラリからの書き込み\n• 新テンプレート: スマートカード、落とし物タグ、ボイスメッセージ\n• QRコード付き印刷用ラベルシート (PDF)\n• シンプルモード、amiibo情報、バイトエディター、NFCチップガイド\n• ドラッグで並べ替え、互換性モード';
   }
+
+  @override
+  String get logbookKindTimeClock => '出勤 / 退勤（タイムカード）';
+
+  @override
+  String get logbookCheckIn => '出勤';
+
+  @override
+  String get logbookCheckOut => '退勤';
+
+  @override
+  String logbookCheckedIn(String label) {
+    return '出勤: $label';
+  }
+
+  @override
+  String logbookCheckedOut(String label) {
+    return '退勤: $label';
+  }
+
+  @override
+  String logbookPresentNow(String count) {
+    return '現在在室: $count';
+  }
+
+  @override
+  String logbookWorkedToday(String duration) {
+    return '今日の合計: $duration';
+  }
+
+  @override
+  String get logbookWorkedPerPerson => '今日の時間';
+
+  @override
+  String durationHm(String h, String m) {
+    return '$h時間$m分';
+  }
+
+  @override
+  String get csvColumnDirection => '区分';
+
+  @override
+  String get libraryCheckEvery => '点検間隔';
+
+  @override
+  String get libraryCheckNone => 'なし';
+
+  @override
+  String libraryCheckDays(String days) {
+    return '$days日ごと';
+  }
+
+  @override
+  String get libraryCheckHint => 'この期間内に読み取らないと点検時期として表示されます（消火器、フィルター、水やりなど）。';
+
+  @override
+  String get libraryCheckDue => '点検時期です';
+
+  @override
+  String libraryCheckNext(String date) {
+    return '次回点検: $date';
+  }
+
+  @override
+  String libraryDueFilter(String count) {
+    return '点検待ち ($count)';
+  }
+
+  @override
+  String libraryCheckRecorded(String date) {
+    return '点検を記録 · 次回: $date';
+  }
+
+  @override
+  String cloneWarning(String name) {
+    return 'この内容はライブラリの「$name」に別のUIDで保存されています。このタグはコピーの可能性があります。';
+  }
 }

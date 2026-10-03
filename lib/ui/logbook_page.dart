@@ -18,6 +18,7 @@ String logBookKindLabel(LogBookKind kind, AppLocalizations loc) => switch (kind)
       LogBookKind.attendance => loc.logbookKindAttendance,
       LogBookKind.medication => loc.logbookKindMedication,
       LogBookKind.inventory => loc.logbookKindInventory,
+      LogBookKind.timeClock => loc.logbookKindTimeClock,
       LogBookKind.custom => loc.logbookKindCustom,
     };
 
@@ -25,6 +26,7 @@ IconData logBookKindIcon(LogBookKind kind) => switch (kind) {
       LogBookKind.attendance => Icons.how_to_reg_outlined,
       LogBookKind.medication => Icons.medication_outlined,
       LogBookKind.inventory => Icons.inventory_2_outlined,
+      LogBookKind.timeClock => Icons.punch_clock_outlined,
       LogBookKind.custom => Icons.event_note_outlined,
     };
 
@@ -212,12 +214,17 @@ class _LogBookDetailPageState extends State<LogBookDetailPage> {
       ));
       return;
     }
-    final entry = LogEntry(time: DateTime.now(), uid: tag.identifier, label: _labelFor(tag));
-    await widget.controller.storage.saveLogBook(book.add(entry));
+    final updated = book.add(LogEntry(time: DateTime.now(), uid: tag.identifier, label: _labelFor(tag)));
+    final entry = updated.entries.first;
+    await widget.controller.storage.saveLogBook(updated);
     if (!mounted) return;
     setState(() {});
     ScaffoldMessenger.of(context).showSnackBar(SnackBar(
-      content: Text(loc.logbookEntryAdded(entry.label)),
+      content: Text(switch (entry.checkIn) {
+        true => loc.logbookCheckedIn(entry.label),
+        false => loc.logbookCheckedOut(entry.label),
+        null => loc.logbookEntryAdded(entry.label),
+      }),
       backgroundColor: AppColors.success,
     ));
   }
@@ -245,11 +252,17 @@ class _LogBookDetailPageState extends State<LogBookDetailPage> {
 
   Future<void> _export(LogBook book) async {
     final loc = AppLocalizations.of(context) ?? L10n.current;
+    final clock = book.kind == LogBookKind.timeClock;
     final csv = CsvExport.build(
-      [loc.csvColumnTime, loc.name, 'UID'],
+      [loc.csvColumnTime, loc.name, 'UID', if (clock) loc.csvColumnDirection],
       [
         for (final e in book.entries)
-          [DateFormat('yyyy-MM-dd HH:mm:ss').format(e.time.toLocal()), e.label, e.uid],
+          [
+            DateFormat('yyyy-MM-dd HH:mm:ss').format(e.time.toLocal()),
+            e.label,
+            e.uid,
+            if (clock) e.checkIn == false ? loc.logbookCheckOut : loc.logbookCheckIn,
+          ],
       ],
     );
     final safe = book.name.replaceAll(RegExp(r'[^\w\-]+'), '_');
@@ -260,7 +273,61 @@ class _LogBookDetailPageState extends State<LogBookDetailPage> {
     ));
   }
 
+  String _duration(Duration d, AppLocalizations loc) =>
+      loc.durationHm('${d.inHours}', '${d.inMinutes.remainder(60)}');
+
+  Widget _clockSummary(LogBook book, AppLocalizations loc) {
+    final today = DateTime.now();
+    final worked = book.workedOn(today).values.toList()
+      ..sort((a, b) => b.worked.compareTo(a.worked));
+    return SoftCard(
+      padding: const EdgeInsets.all(14),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Row(
+            children: [
+              Icon(Icons.people_alt_outlined, color: AppColors.success),
+              const SizedBox(width: 10),
+              Expanded(
+                child: Text(loc.logbookPresentNow('${book.presentNow().length}'),
+                    style: TextStyle(fontWeight: FontWeight.w600, color: AppColors.success)),
+              ),
+            ],
+          ),
+          const SizedBox(height: 6),
+          Row(
+            children: [
+              Icon(Icons.timer_outlined, color: AppColors.accent),
+              const SizedBox(width: 10),
+              Expanded(
+                child: Text(loc.logbookWorkedToday(_duration(book.totalWorkedOn(today), loc)),
+                    style: TextStyle(fontWeight: FontWeight.w600, color: AppColors.accent)),
+              ),
+            ],
+          ),
+          if (worked.isNotEmpty) ...[
+            const SizedBox(height: 10),
+            Text(loc.logbookWorkedPerPerson,
+                style: TextStyle(fontSize: 12.5, color: AppColors.secondary, fontWeight: FontWeight.w600)),
+            for (final w in worked)
+              Padding(
+                padding: const EdgeInsets.only(top: 4),
+                child: Row(
+                  children: [
+                    Expanded(child: Text(w.label, maxLines: 1, overflow: TextOverflow.ellipsis)),
+                    Text(_duration(w.worked, loc), style: const TextStyle(fontWeight: FontWeight.w600)),
+                  ],
+                ),
+              ),
+          ],
+        ],
+      ),
+    );
+  }
+
   Widget _summary(LogBook book, AppLocalizations loc) {
+    if (book.kind == LogBookKind.timeClock) return _clockSummary(book, loc);
     final today = DateTime.now();
     final time = DateFormat.Hm(Localizations.localeOf(context).toLanguageTag());
     final (IconData icon, Color color, String text) = switch (book.kind) {
@@ -354,9 +421,19 @@ class _LogBookDetailPageState extends State<LogBookDetailPage> {
                   },
                   child: ListTile(
                     contentPadding: EdgeInsets.zero,
-                    leading: Icon(logBookKindIcon(book.kind), color: AppColors.secondary),
+                    leading: switch (shown[i].checkIn) {
+                      true => Icon(Icons.login_rounded, color: AppColors.success),
+                      false => Icon(Icons.logout_rounded, color: AppColors.warning),
+                      null => Icon(logBookKindIcon(book.kind), color: AppColors.secondary),
+                    },
                     title: Text(shown[i].label, maxLines: 2, overflow: TextOverflow.ellipsis),
-                    subtitle: Text('${fmt.format(shown[i].time.toLocal())} · ${shown[i].uid}',
+                    subtitle: Text(
+                        [
+                          if (shown[i].checkIn != null)
+                            shown[i].checkIn! ? loc.logbookCheckIn : loc.logbookCheckOut,
+                          fmt.format(shown[i].time.toLocal()),
+                          shown[i].uid,
+                        ].join(' · '),
                         style: TextStyle(fontSize: 12, color: AppColors.secondary)),
                   ),
                 ),

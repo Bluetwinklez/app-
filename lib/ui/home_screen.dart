@@ -581,6 +581,12 @@ class _HomeScreenState extends State<HomeScreen>
     final chips = <Widget>[
       if (match != null)
         _infoChip(Icons.collections_bookmark_outlined, L10n.current.libraryMatch(match.name), AppColors.success),
+      if (match?.nextCheckAt case final next? when tag.error == null)
+        _infoChip(
+            Icons.build_circle_outlined,
+            L10n.current.libraryCheckRecorded(
+                DateFormat.yMMMd(Localizations.localeOf(context).toLanguageTag()).format(next.toLocal())),
+            AppColors.success),
       ...switch (TagSignature.verify(
           tag.records,
           _controller.storage.signingKey == null ? null : base64Decode(_controller.storage.signingKey!))) {
@@ -653,6 +659,26 @@ class _HomeScreenState extends State<HomeScreen>
       ),
       if (inventory != null) inventory,
       if (tag.error == null) ...[
+        if (match == null)
+          if (TagLibraryEntry.cloneSuspect(_controller.storage.getLibrary(), tag.identifier, tag.records)
+              case final original?)
+            Container(
+              width: double.infinity,
+              margin: const EdgeInsets.only(top: 8),
+              padding: const EdgeInsets.all(12),
+              decoration: BoxDecoration(
+                color: AppColors.warning.withValues(alpha: 0.12),
+                borderRadius: BorderRadius.circular(12),
+              ),
+              child: Row(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Icon(Icons.content_copy_rounded, size: 18, color: AppColors.warning),
+                  const SizedBox(width: 8),
+                  Expanded(child: Text(L10n.current.cloneWarning(original.name), style: const TextStyle(height: 1.35))),
+                ],
+              ),
+            ),
         if (PhishingBanner.forRecords(tag.records) case final banner?) banner,
       ],
         ],

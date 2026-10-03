@@ -4155,4 +4155,82 @@ class AppLocalizationsEs extends AppLocalizations {
   String whatsNew120(String date, String time, String counter) {
     return '• Registro: asistencia, medicación e inventario\n• Seguridad: bloqueo Face ID, copias cifradas, etiquetas firmadas, aviso de sitios falsos\n• Variables de plantilla ($date, $time, $counter) y escritura desde la biblioteca\n• Nuevas plantillas: Tarjeta inteligente, Objeto perdido, Mensaje de voz\n• Hoja de etiquetas imprimible con QR (PDF)\n• Modo sencillo, info amiibo, editor de bytes, guía de chips NFC\n• Ordenar arrastrando y modo Compatibilidad';
   }
+
+  @override
+  String get logbookKindTimeClock => 'Entrada / salida (fichaje)';
+
+  @override
+  String get logbookCheckIn => 'Entrada';
+
+  @override
+  String get logbookCheckOut => 'Salida';
+
+  @override
+  String logbookCheckedIn(String label) {
+    return 'Entrada: $label';
+  }
+
+  @override
+  String logbookCheckedOut(String label) {
+    return 'Salida: $label';
+  }
+
+  @override
+  String logbookPresentNow(String count) {
+    return 'Dentro ahora: $count';
+  }
+
+  @override
+  String logbookWorkedToday(String duration) {
+    return 'Total hoy: $duration';
+  }
+
+  @override
+  String get logbookWorkedPerPerson => 'Tiempo de hoy';
+
+  @override
+  String durationHm(String h, String m) {
+    return '$h h $m min';
+  }
+
+  @override
+  String get csvColumnDirection => 'Sentido';
+
+  @override
+  String get libraryCheckEvery => 'Intervalo de revisión';
+
+  @override
+  String get libraryCheckNone => 'Ninguno';
+
+  @override
+  String libraryCheckDays(String days) {
+    return 'Cada $days días';
+  }
+
+  @override
+  String get libraryCheckHint =>
+      'Si no escaneas la etiqueta en este tiempo, se marca como pendiente (extintor, filtro, regar plantas…).';
+
+  @override
+  String get libraryCheckDue => 'Revisión pendiente';
+
+  @override
+  String libraryCheckNext(String date) {
+    return 'Próxima revisión: $date';
+  }
+
+  @override
+  String libraryDueFilter(String count) {
+    return 'Pendientes de revisión ($count)';
+  }
+
+  @override
+  String libraryCheckRecorded(String date) {
+    return 'Revisión registrada · próxima: $date';
+  }
+
+  @override
+  String cloneWarning(String name) {
+    return 'Este contenido está guardado en tu biblioteca en \"$name\" con otro UID. Esta etiqueta puede ser una copia.';
+  }
 }
