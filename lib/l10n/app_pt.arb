@@ -1220,5 +1220,8 @@
   "presetManualDesc": "Aparelho de academia, cafeteira, aluguel: instruções curtas e link de vídeo ou manual.",
   "manualItem": "Aparelho / item",
   "manualSteps": "Instruções curtas",
-  "manualLink": "Link de vídeo / manual (opcional)"
+  "manualLink": "Link de vídeo / manual (opcional)",
+  "libraryAutoLog": "Registrar em um caderno ao ler",
+  "libraryAutoLogHint": "Ao ler esta tag pela tela principal, uma entrada é adicionada ao caderno escolhido (ex.: tag da porta → ponto).",
+  "autoLogged": "Registrado em \"{book}\""
 }

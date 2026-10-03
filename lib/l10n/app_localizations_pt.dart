@@ -4377,4 +4377,16 @@ class AppLocalizationsPt extends AppLocalizations {
 
   @override
   String get manualLink => 'Link de vídeo / manual (opcional)';
+
+  @override
+  String get libraryAutoLog => 'Registrar em um caderno ao ler';
+
+  @override
+  String get libraryAutoLogHint =>
+      'Ao ler esta tag pela tela principal, uma entrada é adicionada ao caderno escolhido (ex.: tag da porta → ponto).';
+
+  @override
+  String autoLogged(String book) {
+    return 'Registrado em \"$book\"';
+  }
 }

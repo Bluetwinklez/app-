@@ -1220,5 +1220,8 @@
   "presetManualDesc": "Appareil de sport, machine à café, location : consignes courtes et lien vidéo ou notice.",
   "manualItem": "Appareil / objet",
   "manualSteps": "Consignes courtes",
-  "manualLink": "Lien vidéo / notice (facultatif)"
+  "manualLink": "Lien vidéo / notice (facultatif)",
+  "libraryAutoLog": "Consigner dans un registre au scan",
+  "libraryAutoLogHint": "Scanner ce tag depuis l'écran principal ajoute automatiquement une entrée au registre choisi (ex. tag de porte → pointage).",
+  "autoLogged": "Consigné dans « {book} »"
 }

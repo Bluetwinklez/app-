@@ -4365,4 +4365,16 @@ class AppLocalizationsIt extends AppLocalizations {
 
   @override
   String get manualLink => 'Link video / manuale (facoltativo)';
+
+  @override
+  String get libraryAutoLog => 'Registra in un registro alla lettura';
+
+  @override
+  String get libraryAutoLogHint =>
+      'Leggendo questo tag dalla schermata principale si aggiunge una voce al registro scelto (es. tag della porta → presenze).';
+
+  @override
+  String autoLogged(String book) {
+    return 'Registrato in \"$book\"';
+  }
 }

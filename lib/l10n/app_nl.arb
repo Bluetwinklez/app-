@@ -1220,5 +1220,8 @@
   "presetManualDesc": "Fitnesstoestel, koffiezetapparaat, vakantiewoning: korte uitleg plus video- of handleidinglink.",
   "manualItem": "Apparaat / voorwerp",
   "manualSteps": "Korte uitleg",
-  "manualLink": "Video-/handleidinglink (optioneel)"
+  "manualLink": "Video-/handleidinglink (optioneel)",
+  "libraryAutoLog": "Bij scannen in logboek zetten",
+  "libraryAutoLogHint": "Scan je deze tag vanaf het hoofdscherm, dan komt er automatisch een regel in het gekozen logboek (bijv. deurtag → in/uitchecken).",
+  "autoLogged": "Gelogd in \"{book}\""
 }
