@@ -3122,4 +3122,23 @@ class AppLocalizationsRu extends AppLocalizations {
 
   @override
   String get compareBothEmpty => 'Обе метки пусты.';
+
+  @override
+  String capacityExceededShort(String needed, String max) {
+    return 'Слишком много данных: $needed / $max байт';
+  }
+
+  @override
+  String get verifyFailedAfterWrite =>
+      'Данные не подтверждены — держите метку дольше.';
+
+  @override
+  String get blankTagTitle => 'Метка ещё не подготовлена';
+
+  @override
+  String get blankTagBody =>
+      'Метка новая и не отформатирована под NDEF. Приложение может подготовить её и записать данные одним касанием (NTAG и MIFARE Ultralight).';
+
+  @override
+  String get blankTagAction => 'Подготовить и записать';
 }

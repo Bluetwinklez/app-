@@ -2991,4 +2991,22 @@ class AppLocalizationsJa extends AppLocalizations {
 
   @override
   String get compareBothEmpty => 'どちらのタグも空です。';
+
+  @override
+  String capacityExceededShort(String needed, String max) {
+    return '内容が大きすぎます: $needed / $maxバイト';
+  }
+
+  @override
+  String get verifyFailedAfterWrite => '書き込みを検証できません。タグを長めにかざしてください。';
+
+  @override
+  String get blankTagTitle => 'タグはまだ準備できていません';
+
+  @override
+  String get blankTagBody =>
+      'このタグは新品でNDEF未フォーマットです。アプリで準備して内容を1回のタッチで書き込めます (NTAG・MIFARE Ultralight)。';
+
+  @override
+  String get blankTagAction => '準備して書き込む';
 }

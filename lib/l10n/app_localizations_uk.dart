@@ -3123,4 +3123,23 @@ class AppLocalizationsUk extends AppLocalizations {
 
   @override
   String get compareBothEmpty => 'Обидві мітки порожні.';
+
+  @override
+  String capacityExceededShort(String needed, String max) {
+    return 'Забагато даних: $needed / $max байт';
+  }
+
+  @override
+  String get verifyFailedAfterWrite =>
+      'Дані не підтверджено — тримайте мітку довше.';
+
+  @override
+  String get blankTagTitle => 'Мітка ще не підготовлена';
+
+  @override
+  String get blankTagBody =>
+      'Мітка нова й не відформатована під NDEF. Застосунок може підготувати її й записати дані одним дотиком (NTAG і MIFARE Ultralight).';
+
+  @override
+  String get blankTagAction => 'Підготувати й записати';
 }

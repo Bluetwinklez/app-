@@ -3000,4 +3000,22 @@ class AppLocalizationsKo extends AppLocalizations {
 
   @override
   String get compareBothEmpty => '두 태그 모두 비어 있습니다.';
+
+  @override
+  String capacityExceededShort(String needed, String max) {
+    return '내용이 너무 큽니다: $needed / $max바이트';
+  }
+
+  @override
+  String get verifyFailedAfterWrite => '쓴 데이터를 확인하지 못했습니다. 태그를 더 오래 대세요.';
+
+  @override
+  String get blankTagTitle => '태그가 아직 준비되지 않았습니다';
+
+  @override
+  String get blankTagBody =>
+      '새 태그라 NDEF 포맷이 되어 있지 않습니다. 앱에서 한 번에 준비하고 내용을 쓸 수 있습니다 (NTAG, MIFARE Ultralight).';
+
+  @override
+  String get blankTagAction => '준비 후 쓰기';
 }

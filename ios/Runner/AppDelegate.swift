@@ -451,7 +451,8 @@ struct NfcTagMasterShortcuts: AppShortcutsProvider {
     private func handleTagWrite(session: NFCTagReaderSession, tag: NFCNDEFTag, status: NFCNDEFStatus, capacity: Int) {
         guard status == .readWrite else {
             let message = status == .notSupported ? "Etiket NDEF biçiminde değil; iPhone bu etikete NDEF yazamıyor" : "Etiket salt okunur, yazılamaz"
-            self.finishWithResult(FlutterError(code: "TAG_NOT_WRITABLE", message: message, details: nil))
+            let code = status == .notSupported ? "NOT_NDEF_FORMATTED" : "TAG_NOT_WRITABLE"
+            self.finishWithResult(FlutterError(code: code, message: message, details: nil))
             session.invalidate(errorMessage: message)
             return
         }

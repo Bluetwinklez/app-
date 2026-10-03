@@ -878,5 +878,10 @@
   "compareRecordChanged": "異なる",
   "compareRecordOnlyFirst": "Aのみ",
   "compareRecordOnlySecond": "Bのみ",
-  "compareBothEmpty": "どちらのタグも空です。"
+  "compareBothEmpty": "どちらのタグも空です。",
+  "capacityExceededShort": "内容が大きすぎます: {needed} / {max}バイト",
+  "verifyFailedAfterWrite": "書き込みを検証できません。タグを長めにかざしてください。",
+  "blankTagTitle": "タグはまだ準備できていません",
+  "blankTagBody": "このタグは新品でNDEF未フォーマットです。アプリで準備して内容を1回のタッチで書き込めます (NTAG・MIFARE Ultralight)。",
+  "blankTagAction": "準備して書き込む"
 }

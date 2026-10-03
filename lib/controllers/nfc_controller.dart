@@ -368,6 +368,25 @@ class NfcStateController extends ChangeNotifier {
     }
   }
 
+  /// Prepares a blank NTAG / Ultralight tag and writes [records] in one tap.
+  Future<bool> formatAndWriteRecords(List<NdefRecordModel> records) async {
+    final message = encodeNdefMessage(records);
+    final chip = await runRawTask<NtagChip>(
+      promptMessage: L10n.current.nfcPromptWrite,
+      busyMessage: L10n.current.statusWriting,
+      task: (t) => NtagTools.formatAndWriteNdef(t, message),
+      successMessage: (_) => L10n.current.statusWriteSuccess(message.length),
+    );
+    _lastWriteResult = NfcWriteResult(
+      isSuccess: chip != null,
+      message: _statusMessage ?? '',
+      bytesWritten: chip != null ? message.length : 0,
+      verificationPassed: chip != null,
+    );
+    notifyListeners();
+    return chip != null;
+  }
+
   /// Runs [task] against a tag held in a raw command session (NTAG tools).
   /// Returns null and sets [statusMessage] when anything fails.
   Future<T?> runRawTask<T>({

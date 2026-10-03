@@ -878,5 +878,10 @@
   "compareRecordChanged": "Anders",
   "compareRecordOnlyFirst": "Alleen op A",
   "compareRecordOnlySecond": "Alleen op B",
-  "compareBothEmpty": "Beide tags zijn leeg."
+  "compareBothEmpty": "Beide tags zijn leeg.",
+  "capacityExceededShort": "Inhoud te groot: {needed} / {max} bytes",
+  "verifyFailedAfterWrite": "Geschreven data niet bevestigd; houd de tag langer vast.",
+  "blankTagTitle": "Tag is nog niet klaar",
+  "blankTagBody": "Deze tag is nieuw en niet geformatteerd voor NDEF. De app kan hem voorbereiden en de inhoud in één keer schrijven (NTAG en MIFARE Ultralight).",
+  "blankTagAction": "Voorbereiden en schrijven"
 }

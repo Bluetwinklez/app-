@@ -878,5 +878,10 @@
   "compareRecordChanged": "Diferente",
   "compareRecordOnlyFirst": "Só na A",
   "compareRecordOnlySecond": "Só na B",
-  "compareBothEmpty": "As duas tags estão vazias."
+  "compareBothEmpty": "As duas tags estão vazias.",
+  "capacityExceededShort": "Conteúdo grande demais: {needed} / {max} bytes",
+  "verifyFailedAfterWrite": "Não foi possível verificar; segure a tag por mais tempo.",
+  "blankTagTitle": "A tag ainda não está pronta",
+  "blankTagBody": "Esta tag é nova e não está formatada para NDEF. O app pode prepará-la e gravar o conteúdo com um toque (NTAG e MIFARE Ultralight).",
+  "blankTagAction": "Preparar e gravar"
 }

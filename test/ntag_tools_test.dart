@@ -135,6 +135,31 @@ void main() {
     });
   });
 
+  group('Smart write', () {
+    test('TLV uses short and long length forms and pads to pages', () {
+      expect(NtagTools.ndefTlvPages(Uint8List.fromList([1, 2, 3])), [0x03, 3, 1, 2, 3, 0xFE, 0, 0]);
+      final long = NtagTools.ndefTlvPages(Uint8List(300));
+      expect(long.sublist(0, 4), [0x03, 0xFF, 0x01, 0x2C]);
+      expect(long.length % 4, 0);
+    });
+
+    test('formats a blank tag and writes the message in one session', () async {
+      final tag = FakeNtag213();
+      final message = Uint8List.fromList([0xD1, 0x01, 0x04, 0x55, 0x04, 0x61, 0x2E, 0x63, 0x6F]);
+      await NtagTools.formatAndWriteNdef(tag.transceive, message);
+      expect(tag.page(3), [0xE1, 0x10, 0x12, 0x00]);
+      expect(tag.page(4), [0x03, 9, 0xD1, 0x01]);
+      final dump = await NtagTools.readMemory(tag.transceive);
+      expect(dump.bytes.sublist(16 + 2, 16 + 2 + 9), message);
+    });
+
+    test('rejects messages larger than the chip', () async {
+      final tag = FakeNtag213();
+      expect(() => NtagTools.formatAndWriteNdef(tag.transceive, Uint8List(200)),
+          throwsA(isA<NtagException>()));
+    });
+  });
+
   group('TagHealth', () {
     test('blank NTAG213 is writable and unprotected', () async {
       final tag = FakeNtag213();

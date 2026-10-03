@@ -878,5 +878,10 @@
   "compareRecordChanged": "مختلف",
   "compareRecordOnlyFirst": "في A فقط",
   "compareRecordOnlySecond": "في B فقط",
-  "compareBothEmpty": "الوسمان فارغان."
+  "compareBothEmpty": "الوسمان فارغان.",
+  "capacityExceededShort": "المحتوى كبير جدًا: {needed} / {max} بايت",
+  "verifyFailedAfterWrite": "تعذّر التحقق من البيانات؛ أبقِ الوسم مدة أطول.",
+  "blankTagTitle": "الوسم غير جاهز بعد",
+  "blankTagBody": "هذا الوسم جديد وغير مهيأ لـ NDEF. يمكن للتطبيق تجهيزه وكتابة المحتوى بلمسة واحدة (NTAG وMIFARE Ultralight).",
+  "blankTagAction": "جهّز واكتب"
 }

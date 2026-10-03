@@ -3121,4 +3121,23 @@ class AppLocalizationsIt extends AppLocalizations {
 
   @override
   String get compareBothEmpty => 'Entrambi i tag sono vuoti.';
+
+  @override
+  String capacityExceededShort(String needed, String max) {
+    return 'Contenuto troppo grande: $needed / $max byte';
+  }
+
+  @override
+  String get verifyFailedAfterWrite =>
+      'Dati scritti non verificati; tieni il tag più a lungo.';
+
+  @override
+  String get blankTagTitle => 'Il tag non è ancora pronto';
+
+  @override
+  String get blankTagBody =>
+      'Questo tag è nuovo e non formattato NDEF. L\'app può prepararlo e scrivere il contenuto con un solo tocco (NTAG e MIFARE Ultralight).';
+
+  @override
+  String get blankTagAction => 'Prepara e scrivi';
 }

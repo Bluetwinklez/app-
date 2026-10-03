@@ -3120,4 +3120,23 @@ class AppLocalizationsTr extends AppLocalizations {
 
   @override
   String get compareBothEmpty => 'İki etiket de boş.';
+
+  @override
+  String capacityExceededShort(String needed, String max) {
+    return 'İçerik çok büyük: $needed / $max bayt';
+  }
+
+  @override
+  String get verifyFailedAfterWrite =>
+      'Yazılan veri doğrulanamadı; etiketi daha uzun süre yakın tutun.';
+
+  @override
+  String get blankTagTitle => 'Etiket henüz hazır değil';
+
+  @override
+  String get blankTagBody =>
+      'Bu etiket yeni ve NDEF için biçimlendirilmemiş. Uygulama etiketi hazırlayıp içeriği tek dokunuşta yazabilir (NTAG ve MIFARE Ultralight).';
+
+  @override
+  String get blankTagAction => 'Hazırla ve yaz';
 }

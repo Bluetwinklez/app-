@@ -140,6 +140,7 @@ class MethodChannelNfcService implements NfcPlatformService {
       return NfcWriteResult(
         isSuccess: false,
         message: e.message ?? L10n.current.writeFailed,
+        errorCode: e.code,
       );
     } catch (e) {
       return NfcWriteResult(

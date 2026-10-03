@@ -349,6 +349,50 @@ class NtagTools {
     return chip;
   }
 
+  /// Builds the NDEF TLV (03 len msg FE) padded to whole pages.
+  static Uint8List ndefTlvPages(Uint8List message) {
+    final b = BytesBuilder();
+    b.addByte(0x03);
+    if (message.length < 0xFF) {
+      b.addByte(message.length);
+    } else {
+      b
+        ..addByte(0xFF)
+        ..addByte((message.length >> 8) & 0xFF)
+        ..addByte(message.length & 0xFF);
+    }
+    b
+      ..add(message)
+      ..addByte(0xFE);
+    while (b.length % 4 != 0) {
+      b.addByte(0x00);
+    }
+    return b.toBytes();
+  }
+
+  /// Prepares a blank tag (capability container) and writes [message] as an
+  /// NDEF TLV in the same session, then reads it back to verify.
+  static Future<NtagChip> formatAndWriteNdef(RawTransceive transceive, Uint8List message) async {
+    final chip = await formatNdef(transceive);
+    final tlv = ndefTlvPages(message);
+    if (tlv.length > chip.userBytes) {
+      throw NtagException(L10n.current.capacityExceededShort('${tlv.length}', '${chip.userBytes}'));
+    }
+    final pages = tlv.length ~/ 4;
+    for (int i = 0; i < pages; i++) {
+      await writePage(transceive, chip.userStartPage + i, tlv.sublist(i * 4, i * 4 + 4));
+    }
+    for (int i = 0; i < pages; i += 4) {
+      final chunk = await readPages(transceive, chip.userStartPage + i);
+      for (int j = 0; j < 16 && (i * 4 + j) < tlv.length; j++) {
+        if (chunk[j] != tlv[i * 4 + j]) {
+          throw NtagException(L10n.current.verifyFailedAfterWrite);
+        }
+      }
+    }
+    return chip;
+  }
+
   /// Writes the user memory pages from a full memory dump (.bin). UID, lock,
   /// CC and configuration pages are never written.
   static Future<int> writeDump(RawTransceive transceive, Uint8List dump) async {

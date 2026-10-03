@@ -2964,4 +2964,22 @@ class AppLocalizationsZh extends AppLocalizations {
 
   @override
   String get compareBothEmpty => '两个标签都为空。';
+
+  @override
+  String capacityExceededShort(String needed, String max) {
+    return '内容过大：$needed / $max 字节';
+  }
+
+  @override
+  String get verifyFailedAfterWrite => '无法验证写入数据；请将标签保持更久。';
+
+  @override
+  String get blankTagTitle => '标签尚未准备好';
+
+  @override
+  String get blankTagBody =>
+      '此标签为新标签，尚未格式化为 NDEF。应用可一次性完成准备并写入内容（NTAG 和 MIFARE Ultralight）。';
+
+  @override
+  String get blankTagAction => '准备并写入';
 }
