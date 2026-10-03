@@ -40,9 +40,6 @@ class AppLocalizationsJa extends AppLocalizations {
   String get appPackageName => 'Androidパッケージ名';
 
   @override
-  String get appSettings => 'アプリ設定';
-
-  @override
   String get appTitle => 'NFC Tag Master';
 
   @override
@@ -4189,4 +4186,75 @@ class AppLocalizationsJa extends AppLocalizations {
   @override
   String get whatsNew130 =>
       '• 出退勤（タイムカード）記録帳：在室者と今日の時間\n• ライブラリのタグを読むと記録帳へ自動記録\n• 点検リマインダーと「点検待ち」フィルター\n• コピーされたタグの警告\n• NDEFドクター：壊れたタグを診断\n• Excel/Numbersからライブラリへ一括追加\n• 新テンプレート：ギフトメッセージ、植物のお世話、子ども用リストバンド、使い方カード';
+
+  @override
+  String get securityTitle => 'セキュリティとプライバシー';
+
+  @override
+  String get lockAfterTitle => '再ロックまで';
+
+  @override
+  String get lockImmediately => 'すぐに';
+
+  @override
+  String lockAfterSecondsLabel(String n) {
+    return '$n秒';
+  }
+
+  @override
+  String lockAfterMinutesLabel(String n) {
+    return '$n分';
+  }
+
+  @override
+  String get hideInSwitcherTitle => 'アプリ切替画面で隠す';
+
+  @override
+  String get hideInSwitcherSubtitle =>
+      'バックグラウンドでは画面をぼかします。Androidではスクリーンショットも禁止されます。';
+
+  @override
+  String get clearClipboardTitle => 'クリップボードを自動消去';
+
+  @override
+  String get clearClipboardSubtitle => 'コピーした鍵などの機密情報は60秒後に消去されます。';
+
+  @override
+  String get securityConfirmReason => '続行するには本人確認してください';
+
+  @override
+  String get securityCopiedClears => 'コピーしました · 60秒後に消去';
+
+  @override
+  String get wipeTitle => 'すべてのデータを消去';
+
+  @override
+  String get wipeSubtitle => '履歴、ライブラリ、写真、記録帳、テンプレート、署名鍵、設定';
+
+  @override
+  String get wipeConfirm => 'この端末からすべてのデータを完全に消去しますか？元に戻せません。先にバックアップをおすすめします。';
+
+  @override
+  String get wipeDone => 'すべてのデータを消去しました';
+
+  @override
+  String dataSummary(
+      String history, String library, String books, String templates) {
+    return '履歴$history · ライブラリ$library · 記録帳$books · テンプレート$templates';
+  }
+
+  @override
+  String get secCheckTitle => 'セキュリティチェック';
+
+  @override
+  String secCheckScore(String ok, String total) {
+    return '推奨設定 $ok/$total がオン';
+  }
+
+  @override
+  String get secCheckBackup => '30日以内にバックアップ済み';
+
+  @override
+  String get secCheckEncryptedNote =>
+      'バックアップにはWi-Fiパスワードが含まれる場合があります。パスワード保護をおすすめします。';
 }

@@ -6,7 +6,10 @@ extension _BackupActions on _HomeScreenState {
   // JSON Backup: Export & Import with Sensitive Data Warnings
   // -------------------------------------------------------------
 
-  void _promptExportBackup() {
+  Future<void> _promptExportBackup() async {
+    final allowed = await SecurityService.confirmSensitive(_controller.storage,
+        reason: L10n.current.securityConfirmReason, title: L10n.current.exportBackup);
+    if (!allowed || !mounted) return;
     final templates = _controller.storage.getTemplates();
     final history = _controller.storage.getHistory();
     final rules = _controller.storage.getTagRules();

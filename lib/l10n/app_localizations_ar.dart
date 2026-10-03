@@ -42,9 +42,6 @@ class AppLocalizationsAr extends AppLocalizations {
   String get appPackageName => 'اسم حزمة Android';
 
   @override
-  String get appSettings => 'إعدادات التطبيق';
-
-  @override
   String get appTitle => 'NFC Tag Master';
 
   @override
@@ -4329,4 +4326,78 @@ class AppLocalizationsAr extends AppLocalizations {
   @override
   String get whatsNew130 =>
       '• دفتر الدخول/الخروج (الدوام): من بالداخل وساعات اليوم\n• يمكن لوسوم المكتبة التسجيل تلقائيًا في دفتر عند المسح\n• تذكيرات الفحص وفلتر \"بانتظار الفحص\"\n• تحذير الوسم المنسوخ\n• طبيب NDEF: يشخّص الوسوم التالفة\n• إضافة جماعية إلى المكتبة من Excel/Numbers\n• قوالب جديدة: رسالة هدية، العناية بالنبات، سوار الطفل، بطاقة إرشادات';
+
+  @override
+  String get securityTitle => 'الأمان والخصوصية';
+
+  @override
+  String get lockAfterTitle => 'إعادة القفل بعد';
+
+  @override
+  String get lockImmediately => 'فورًا';
+
+  @override
+  String lockAfterSecondsLabel(String n) {
+    return '$n ث';
+  }
+
+  @override
+  String lockAfterMinutesLabel(String n) {
+    return '$n د';
+  }
+
+  @override
+  String get hideInSwitcherTitle => 'إخفاء في مبدّل التطبيقات';
+
+  @override
+  String get hideInSwitcherSubtitle =>
+      'تُموَّه الشاشة في الخلفية. وعلى Android تُمنع لقطات الشاشة أيضًا.';
+
+  @override
+  String get clearClipboardTitle => 'مسح الحافظة تلقائيًا';
+
+  @override
+  String get clearClipboardSubtitle =>
+      'تُحذف القيم الحساسة مثل المفاتيح المنسوخة من الحافظة بعد 60 ثانية.';
+
+  @override
+  String get securityConfirmReason => 'أكّد هويتك للمتابعة';
+
+  @override
+  String get securityCopiedClears => 'تم النسخ · سيُمسح بعد 60 ث';
+
+  @override
+  String get wipeTitle => 'مسح كل البيانات';
+
+  @override
+  String get wipeSubtitle =>
+      'السجل والمكتبة والصور والدفاتر والقوالب ومفتاح التوقيع والإعدادات';
+
+  @override
+  String get wipeConfirm =>
+      'مسح كل البيانات نهائيًا من هذا الجهاز؟ لا يمكن التراجع؛ ننصح بأخذ نسخة احتياطية أولًا.';
+
+  @override
+  String get wipeDone => 'تم مسح كل البيانات';
+
+  @override
+  String dataSummary(
+      String history, String library, String books, String templates) {
+    return '$history السجل · $library المكتبة · $books الدفاتر · $templates القوالب';
+  }
+
+  @override
+  String get secCheckTitle => 'فحص الأمان';
+
+  @override
+  String secCheckScore(String ok, String total) {
+    return '$ok/$total من الإعدادات الموصى بها مفعّلة';
+  }
+
+  @override
+  String get secCheckBackup => 'نسخة احتياطية خلال آخر 30 يومًا';
+
+  @override
+  String get secCheckEncryptedNote =>
+      'قد تحتوي النسخ الاحتياطية على كلمات مرور Wi-Fi؛ يُنصح بحمايتها بكلمة مرور.';
 }

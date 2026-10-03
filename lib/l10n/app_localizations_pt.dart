@@ -42,9 +42,6 @@ class AppLocalizationsPt extends AppLocalizations {
   String get appPackageName => 'Nome do pacote Android';
 
   @override
-  String get appSettings => 'Definições da aplicação';
-
-  @override
   String get appTitle => 'NFC Tag Master';
 
   @override
@@ -4393,4 +4390,78 @@ class AppLocalizationsPt extends AppLocalizations {
   @override
   String get whatsNew130 =>
       '• Caderno de entrada/saída (ponto): quem está, horas de hoje\n• Tags da biblioteca podem registrar sozinhas ao serem lidas\n• Lembretes de verificação e filtro \"pendentes\"\n• Aviso de tag copiada\n• Doutor NDEF: diagnostica tags com defeito\n• Inclusão em massa na biblioteca a partir do Excel/Numbers\n• Novos modelos: Mensagem de presente, Cuidado da planta, Pulseira infantil, Instruções';
+
+  @override
+  String get securityTitle => 'Segurança e privacidade';
+
+  @override
+  String get lockAfterTitle => 'Bloquear de novo após';
+
+  @override
+  String get lockImmediately => 'Imediatamente';
+
+  @override
+  String lockAfterSecondsLabel(String n) {
+    return '$n s';
+  }
+
+  @override
+  String lockAfterMinutesLabel(String n) {
+    return '$n min';
+  }
+
+  @override
+  String get hideInSwitcherTitle => 'Ocultar no seletor de apps';
+
+  @override
+  String get hideInSwitcherSubtitle =>
+      'A tela fica desfocada em segundo plano. No Android, capturas também são bloqueadas.';
+
+  @override
+  String get clearClipboardTitle => 'Limpar a área de transferência';
+
+  @override
+  String get clearClipboardSubtitle =>
+      'Dados sensíveis, como chaves copiadas, são apagados após 60 segundos.';
+
+  @override
+  String get securityConfirmReason => 'Confirme sua identidade para continuar';
+
+  @override
+  String get securityCopiedClears => 'Copiado · será apagado em 60 s';
+
+  @override
+  String get wipeTitle => 'Apagar todos os dados';
+
+  @override
+  String get wipeSubtitle =>
+      'Histórico, biblioteca, fotos, cadernos, modelos, chave de assinatura e ajustes';
+
+  @override
+  String get wipeConfirm =>
+      'Apagar permanentemente todos os dados deste aparelho? Não pode ser desfeito; faça um backup antes.';
+
+  @override
+  String get wipeDone => 'Todos os dados apagados';
+
+  @override
+  String dataSummary(
+      String history, String library, String books, String templates) {
+    return '$history histórico · $library biblioteca · $books cadernos · $templates modelos';
+  }
+
+  @override
+  String get secCheckTitle => 'Verificação de segurança';
+
+  @override
+  String secCheckScore(String ok, String total) {
+    return '$ok/$total ajustes recomendados ativos';
+  }
+
+  @override
+  String get secCheckBackup => 'Backup nos últimos 30 dias';
+
+  @override
+  String get secCheckEncryptedNote =>
+      'Backups podem conter senhas de Wi-Fi; recomenda-se proteção por senha.';
 }

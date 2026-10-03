@@ -42,4 +42,31 @@ void main() {
     await tester.pumpAndSettle();
     expect(find.text('SECRET'), findsOneWidget);
   });
+
+  testWidgets('relocks after the configured background delay', (tester) async {
+    final storage = InMemoryAppStorageService();
+    await storage.setAppLockEnabled(true);
+    await storage.setLockAfterSeconds(0);
+    var calls = 0;
+    tester.binding.defaultBinaryMessenger.setMockMethodCallHandler(channel, (call) async {
+      if (call.method == 'authenticate') {
+        calls++;
+        return true;
+      }
+      return null;
+    });
+    addTearDown(() => tester.binding.defaultBinaryMessenger.setMockMethodCallHandler(channel, null));
+
+    await pump(tester, storage);
+    expect(find.text('SECRET'), findsOneWidget);
+    tester.binding.handleAppLifecycleStateChanged(AppLifecycleState.inactive);
+    tester.binding.handleAppLifecycleStateChanged(AppLifecycleState.hidden);
+    tester.binding.handleAppLifecycleStateChanged(AppLifecycleState.paused);
+    tester.binding.handleAppLifecycleStateChanged(AppLifecycleState.hidden);
+    tester.binding.handleAppLifecycleStateChanged(AppLifecycleState.inactive);
+    tester.binding.handleAppLifecycleStateChanged(AppLifecycleState.resumed);
+    await tester.pumpAndSettle();
+    expect(calls, 2, reason: 'asked again on return');
+    expect(find.text('SECRET'), findsOneWidget);
+  });
 }

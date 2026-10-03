@@ -12,6 +12,7 @@ import android.nfc.tech.NfcA
 import android.nfc.tech.NdefFormatable
 import android.nfc.NdefMessage
 import android.nfc.NdefRecord
+import android.view.WindowManager
 import io.flutter.embedding.android.FlutterActivity
 import io.flutter.embedding.engine.FlutterEngine
 import io.flutter.plugin.common.MethodChannel
@@ -87,6 +88,14 @@ class MainActivity : FlutterActivity(), NfcAdapter.ReaderCallback {
                 } else if (call.method == "openUrl") {
                     val url = call.argument<String>("url")
                     result.success(url != null && openUri(url))
+                } else if (call.method == "setPrivacyCover") {
+                    // Hides the app content in Recents (and blocks screenshots).
+                    if (call.argument<Boolean>("enabled") == true) {
+                        window.addFlags(WindowManager.LayoutParams.FLAG_SECURE)
+                    } else {
+                        window.clearFlags(WindowManager.LayoutParams.FLAG_SECURE)
+                    }
+                    result.success(true)
                 } else {
                     result.notImplemented()
                 }

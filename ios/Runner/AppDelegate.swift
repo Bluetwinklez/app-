@@ -77,6 +77,9 @@ struct NfcTagMasterShortcuts: AppShortcutsProvider {
     // Action requested by a URL (nfctagmaster://scan) or a Siri shortcut,
     // waiting for Flutter to pick it up
     private var launchChannel: FlutterMethodChannel?
+    private var privacyCoverEnabled = false
+    private var authenticating = false
+    private var privacyCover: UIView?
     private var pendingLaunchAction: String?
 
     // Texts for the system NFC sheet in the app's chosen language, sent by
@@ -282,9 +285,17 @@ struct NfcTagMasterShortcuts: AppShortcutsProvider {
                     result(nil)
                     return
                 }
+                self.authenticating = true
                 context.evaluatePolicy(.deviceOwnerAuthentication, localizedReason: reason) { ok, _ in
-                    DispatchQueue.main.async { result(ok) }
+                    DispatchQueue.main.async {
+                        self.authenticating = false
+                        result(ok)
+                    }
                 }
+            } else if call.method == "setPrivacyCover" {
+                self.privacyCoverEnabled = (call.arguments as? [String: Any])?["enabled"] as? Bool ?? false
+                if !self.privacyCoverEnabled { self.removePrivacyCover() }
+                result(true)
             } else if call.method == "openUrl" {
                 guard let text = (call.arguments as? [String: Any])?["url"] as? String,
                       let url = URL(string: text) else {
@@ -302,6 +313,16 @@ struct NfcTagMasterShortcuts: AppShortcutsProvider {
             if let action = note.object as? String {
                 self?.queueLaunchAction(action)
             }
+        }
+
+        NotificationCenter.default.addObserver(forName: UIApplication.willResignActiveNotification, object: nil, queue: .main) { [weak self] _ in
+            self?.showPrivacyCover()
+        }
+        NotificationCenter.default.addObserver(forName: UIApplication.didEnterBackgroundNotification, object: nil, queue: .main) { [weak self] _ in
+            self?.showPrivacyCover(force: true)
+        }
+        NotificationCenter.default.addObserver(forName: UIApplication.didBecomeActiveNotification, object: nil, queue: .main) { [weak self] _ in
+            self?.removePrivacyCover()
         }
 
         if let url = launchOptions?[.url] as? URL {
@@ -330,6 +351,26 @@ struct NfcTagMasterShortcuts: AppShortcutsProvider {
         guard ["scan", "write", "tools", "history", "settings"].contains(action) else { return false }
         queueLaunchAction(action)
         return true
+    }
+
+    /// Blurs the app in the app switcher. The NFC sheet and Face ID prompt also
+    /// make the app inactive, so those only cover once it really backgrounds.
+    private func showPrivacyCover(force: Bool = false) {
+        guard privacyCoverEnabled, privacyCover == nil else { return }
+        if !force && (nfcSession != nil || authenticating) { return }
+        let window = self.window ?? UIApplication.shared.connectedScenes
+            .compactMap { ($0 as? UIWindowScene)?.windows.first(where: { $0.isKeyWindow }) }.first
+        guard let window = window else { return }
+        let cover = UIVisualEffectView(effect: UIBlurEffect(style: .systemMaterial))
+        cover.frame = window.bounds
+        cover.autoresizingMask = [.flexibleWidth, .flexibleHeight]
+        window.addSubview(cover)
+        privacyCover = cover
+    }
+
+    private func removePrivacyCover() {
+        privacyCover?.removeFromSuperview()
+        privacyCover = nil
     }
 
     private func queueLaunchAction(_ action: String) {

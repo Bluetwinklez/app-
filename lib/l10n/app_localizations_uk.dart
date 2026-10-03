@@ -42,9 +42,6 @@ class AppLocalizationsUk extends AppLocalizations {
   String get appPackageName => 'Назва пакета Android';
 
   @override
-  String get appSettings => 'Налаштування програми';
-
-  @override
   String get appTitle => 'NFC Tag Master';
 
   @override
@@ -4381,4 +4378,78 @@ class AppLocalizationsUk extends AppLocalizations {
   @override
   String get whatsNew130 =>
       '• Журнал приходу/виходу: хто на місці, години за сьогодні\n• Мітки з бібліотеки можуть самі записуватися в журнал під час сканування\n• Нагадування про перевірку та фільтр «до перевірки»\n• Попередження про скопійовану мітку\n• NDEF-лікар: діагностика пошкоджених міток\n• Масове додавання до бібліотеки з Excel/Numbers\n• Нові шаблони: Подарункове послання, Догляд за рослиною, Дитячий браслет, Інструкція';
+
+  @override
+  String get securityTitle => 'Безпека та конфіденційність';
+
+  @override
+  String get lockAfterTitle => 'Блокувати знову через';
+
+  @override
+  String get lockImmediately => 'Одразу';
+
+  @override
+  String lockAfterSecondsLabel(String n) {
+    return '$n с';
+  }
+
+  @override
+  String lockAfterMinutesLabel(String n) {
+    return '$n хв';
+  }
+
+  @override
+  String get hideInSwitcherTitle => 'Приховувати в перемикачі програм';
+
+  @override
+  String get hideInSwitcherSubtitle =>
+      'У фоні екран розмивається. На Android також блокуються знімки екрана.';
+
+  @override
+  String get clearClipboardTitle => 'Автоочищення буфера';
+
+  @override
+  String get clearClipboardSubtitle =>
+      'Чутливі дані, як-от скопійовані ключі, видаляються через 60 секунд.';
+
+  @override
+  String get securityConfirmReason => 'Підтвердьте особу, щоб продовжити';
+
+  @override
+  String get securityCopiedClears => 'Скопійовано · видалиться через 60 с';
+
+  @override
+  String get wipeTitle => 'Стерти всі дані';
+
+  @override
+  String get wipeSubtitle =>
+      'Історія, бібліотека, фото, журнали, шаблони, ключ підпису й налаштування';
+
+  @override
+  String get wipeConfirm =>
+      'Остаточно стерти всі дані з пристрою? Скасувати не можна; спершу зробіть резервну копію.';
+
+  @override
+  String get wipeDone => 'Усі дані стерто';
+
+  @override
+  String dataSummary(
+      String history, String library, String books, String templates) {
+    return '$history історія · $library бібліотека · $books журнали · $templates шаблони';
+  }
+
+  @override
+  String get secCheckTitle => 'Перевірка безпеки';
+
+  @override
+  String secCheckScore(String ok, String total) {
+    return 'Увімкнено рекомендованих: $ok/$total';
+  }
+
+  @override
+  String get secCheckBackup => 'Резервна копія за останні 30 днів';
+
+  @override
+  String get secCheckEncryptedNote =>
+      'Резервні копії можуть містити паролі Wi-Fi; радимо захищати їх паролем.';
 }

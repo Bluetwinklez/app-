@@ -42,9 +42,6 @@ class AppLocalizationsFr extends AppLocalizations {
   String get appPackageName => 'Nom de package Android';
 
   @override
-  String get appSettings => 'Paramètres de l\'application';
-
-  @override
   String get appTitle => 'NFC Tag Master';
 
   @override
@@ -4413,4 +4410,78 @@ class AppLocalizationsFr extends AppLocalizations {
   @override
   String get whatsNew130 =>
       '• Registre entrée/sortie (pointage) : qui est présent, heures du jour\n• Les tags de la bibliothèque peuvent s\'enregistrer automatiquement au scan\n• Rappels de contrôle et filtre « à contrôler »\n• Alerte de tag copié\n• Docteur NDEF : diagnostique les tags défectueux\n• Ajout en masse à la bibliothèque depuis Excel/Numbers\n• Nouveaux modèles : Message cadeau, Entretien de plante, Bracelet enfant, Mode d\'emploi';
+
+  @override
+  String get securityTitle => 'Sécurité et confidentialité';
+
+  @override
+  String get lockAfterTitle => 'Reverrouiller après';
+
+  @override
+  String get lockImmediately => 'Immédiatement';
+
+  @override
+  String lockAfterSecondsLabel(String n) {
+    return '$n s';
+  }
+
+  @override
+  String lockAfterMinutesLabel(String n) {
+    return '$n min';
+  }
+
+  @override
+  String get hideInSwitcherTitle => 'Masquer dans le sélecteur d\'apps';
+
+  @override
+  String get hideInSwitcherSubtitle =>
+      'L\'écran est flouté en arrière-plan. Sur Android, les captures sont aussi bloquées.';
+
+  @override
+  String get clearClipboardTitle => 'Vider le presse-papiers automatiquement';
+
+  @override
+  String get clearClipboardSubtitle =>
+      'Les valeurs sensibles comme les clés copiées sont effacées après 60 secondes.';
+
+  @override
+  String get securityConfirmReason => 'Confirmez votre identité pour continuer';
+
+  @override
+  String get securityCopiedClears => 'Copié · effacé dans 60 s';
+
+  @override
+  String get wipeTitle => 'Effacer toutes les données';
+
+  @override
+  String get wipeSubtitle =>
+      'Historique, bibliothèque, photos, registres, modèles, clé de signature et réglages';
+
+  @override
+  String get wipeConfirm =>
+      'Effacer définitivement toutes les données de cet appareil ? Action irréversible ; faites d\'abord une sauvegarde.';
+
+  @override
+  String get wipeDone => 'Toutes les données effacées';
+
+  @override
+  String dataSummary(
+      String history, String library, String books, String templates) {
+    return '$history historique · $library bibliothèque · $books registres · $templates modèles';
+  }
+
+  @override
+  String get secCheckTitle => 'Bilan de sécurité';
+
+  @override
+  String secCheckScore(String ok, String total) {
+    return '$ok/$total réglages recommandés actifs';
+  }
+
+  @override
+  String get secCheckBackup => 'Sauvegarde de moins de 30 jours';
+
+  @override
+  String get secCheckEncryptedNote =>
+      'Les sauvegardes peuvent contenir des mots de passe Wi-Fi ; protégez-les par mot de passe.';
 }

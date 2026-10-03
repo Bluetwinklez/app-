@@ -42,9 +42,6 @@ class AppLocalizationsNl extends AppLocalizations {
   String get appPackageName => 'Android pakketnaam';
 
   @override
-  String get appSettings => 'App-instellingen';
-
-  @override
   String get appTitle => 'NFC Tag Master';
 
   @override
@@ -4381,4 +4378,79 @@ class AppLocalizationsNl extends AppLocalizations {
   @override
   String get whatsNew130 =>
       '• In-/uitcheck-logboek (prikklok): wie is er, uren vandaag\n• Bibliotheektags kunnen bij scannen automatisch in een logboek komen\n• Controleherinneringen en filter \"controle nodig\"\n• Waarschuwing voor gekopieerde tags\n• NDEF-dokter: stelt kapotte tags vast\n• Bulk toevoegen aan de bibliotheek vanuit Excel/Numbers\n• Nieuwe sjablonen: Cadeaubericht, Plantverzorging, Kinderbandje, Instructiekaart';
+
+  @override
+  String get securityTitle => 'Beveiliging en privacy';
+
+  @override
+  String get lockAfterTitle => 'Opnieuw vergrendelen na';
+
+  @override
+  String get lockImmediately => 'Direct';
+
+  @override
+  String lockAfterSecondsLabel(String n) {
+    return '$n s';
+  }
+
+  @override
+  String lockAfterMinutesLabel(String n) {
+    return '$n min';
+  }
+
+  @override
+  String get hideInSwitcherTitle => 'Verbergen in appkiezer';
+
+  @override
+  String get hideInSwitcherSubtitle =>
+      'Op de achtergrond wordt het scherm wazig. Op Android worden ook screenshots geblokkeerd.';
+
+  @override
+  String get clearClipboardTitle => 'Klembord automatisch wissen';
+
+  @override
+  String get clearClipboardSubtitle =>
+      'Gevoelige gegevens zoals gekopieerde sleutels worden na 60 seconden gewist.';
+
+  @override
+  String get securityConfirmReason =>
+      'Bevestig dat jij het bent om door te gaan';
+
+  @override
+  String get securityCopiedClears => 'Gekopieerd · wordt over 60 s gewist';
+
+  @override
+  String get wipeTitle => 'Alle gegevens wissen';
+
+  @override
+  String get wipeSubtitle =>
+      'Geschiedenis, bibliotheek, foto\'s, logboeken, sjablonen, ondertekeningssleutel en instellingen';
+
+  @override
+  String get wipeConfirm =>
+      'Alle gegevens definitief van dit apparaat wissen? Dit kan niet ongedaan worden; maak eerst een back-up.';
+
+  @override
+  String get wipeDone => 'Alle gegevens gewist';
+
+  @override
+  String dataSummary(
+      String history, String library, String books, String templates) {
+    return '$history geschiedenis · $library bibliotheek · $books logboeken · $templates sjablonen';
+  }
+
+  @override
+  String get secCheckTitle => 'Beveiligingscheck';
+
+  @override
+  String secCheckScore(String ok, String total) {
+    return '$ok/$total aanbevolen instellingen aan';
+  }
+
+  @override
+  String get secCheckBackup => 'Back-up in de laatste 30 dagen';
+
+  @override
+  String get secCheckEncryptedNote =>
+      'Back-ups kunnen wifi-wachtwoorden bevatten; beveiliging met wachtwoord wordt aangeraden.';
 }

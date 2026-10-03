@@ -42,9 +42,6 @@ class AppLocalizationsEs extends AppLocalizations {
   String get appPackageName => 'Nombre de paquete Android';
 
   @override
-  String get appSettings => 'Ajustes de la aplicación';
-
-  @override
   String get appTitle => 'NFC Tag Master';
 
   @override
@@ -4410,4 +4407,78 @@ class AppLocalizationsEs extends AppLocalizations {
   @override
   String get whatsNew130 =>
       '• Cuaderno de entrada/salida (fichaje): quién está, horas de hoy\n• Las etiquetas de la biblioteca pueden registrarse solas al escanear\n• Recordatorios de revisión y filtro \"pendientes\"\n• Aviso de etiqueta copiada\n• Doctor NDEF: diagnostica etiquetas dañadas\n• Alta masiva en la biblioteca desde Excel/Numbers\n• Nuevas plantillas: Mensaje de regalo, Cuidado de planta, Pulsera infantil, Instrucciones';
+
+  @override
+  String get securityTitle => 'Seguridad y privacidad';
+
+  @override
+  String get lockAfterTitle => 'Volver a bloquear tras';
+
+  @override
+  String get lockImmediately => 'Inmediatamente';
+
+  @override
+  String lockAfterSecondsLabel(String n) {
+    return '$n s';
+  }
+
+  @override
+  String lockAfterMinutesLabel(String n) {
+    return '$n min';
+  }
+
+  @override
+  String get hideInSwitcherTitle => 'Ocultar en el selector de apps';
+
+  @override
+  String get hideInSwitcherSubtitle =>
+      'La pantalla se difumina en segundo plano. En Android también se bloquean las capturas.';
+
+  @override
+  String get clearClipboardTitle => 'Borrar el portapapeles automáticamente';
+
+  @override
+  String get clearClipboardSubtitle =>
+      'Los datos sensibles, como claves copiadas, se borran tras 60 segundos.';
+
+  @override
+  String get securityConfirmReason => 'Confirma tu identidad para continuar';
+
+  @override
+  String get securityCopiedClears => 'Copiado · se borrará en 60 s';
+
+  @override
+  String get wipeTitle => 'Borrar todos los datos';
+
+  @override
+  String get wipeSubtitle =>
+      'Historial, biblioteca, fotos, cuadernos, plantillas, clave de firma y ajustes';
+
+  @override
+  String get wipeConfirm =>
+      '¿Borrar permanentemente todos los datos de este dispositivo? No se puede deshacer; haz antes una copia.';
+
+  @override
+  String get wipeDone => 'Datos borrados';
+
+  @override
+  String dataSummary(
+      String history, String library, String books, String templates) {
+    return '$history historial · $library biblioteca · $books cuadernos · $templates plantillas';
+  }
+
+  @override
+  String get secCheckTitle => 'Revisión de seguridad';
+
+  @override
+  String secCheckScore(String ok, String total) {
+    return '$ok/$total ajustes recomendados activos';
+  }
+
+  @override
+  String get secCheckBackup => 'Copia en los últimos 30 días';
+
+  @override
+  String get secCheckEncryptedNote =>
+      'Las copias pueden incluir contraseñas Wi-Fi; se recomienda protegerlas con contraseña.';
 }

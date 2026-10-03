@@ -40,9 +40,6 @@ class AppLocalizationsZh extends AppLocalizations {
   String get appPackageName => 'Android 软件包名';
 
   @override
-  String get appSettings => '应用设置';
-
-  @override
   String get appTitle => 'NFC Tag Master';
 
   @override
@@ -4154,4 +4151,73 @@ class AppLocalizationsZh extends AppLocalizations {
   @override
   String get whatsNew130 =>
       '• 签到/签退（考勤）记录本：谁在场、今日时长\n• 扫描标签库中的标签可自动记入记录本\n• 检查提醒和“待检查”筛选\n• 复制标签警告\n• NDEF 诊断：诊断损坏的标签\n• 从 Excel/Numbers 批量添加到标签库\n• 新模板：礼物留言、植物养护、儿童手环、使用说明卡';
+
+  @override
+  String get securityTitle => '安全与隐私';
+
+  @override
+  String get lockAfterTitle => '再次锁定';
+
+  @override
+  String get lockImmediately => '立即';
+
+  @override
+  String lockAfterSecondsLabel(String n) {
+    return '$n 秒';
+  }
+
+  @override
+  String lockAfterMinutesLabel(String n) {
+    return '$n 分钟';
+  }
+
+  @override
+  String get hideInSwitcherTitle => '在应用切换器中隐藏';
+
+  @override
+  String get hideInSwitcherSubtitle => '后台时屏幕会模糊。在 Android 上还会禁止截屏。';
+
+  @override
+  String get clearClipboardTitle => '自动清除剪贴板';
+
+  @override
+  String get clearClipboardSubtitle => '复制的密钥等敏感信息会在 60 秒后从剪贴板清除。';
+
+  @override
+  String get securityConfirmReason => '请验证身份以继续';
+
+  @override
+  String get securityCopiedClears => '已复制 · 60 秒后清除';
+
+  @override
+  String get wipeTitle => '清除所有数据';
+
+  @override
+  String get wipeSubtitle => '历史、标签库、照片、记录本、模板、签名密钥和设置';
+
+  @override
+  String get wipeConfirm => '要从此设备永久清除所有数据吗？此操作无法撤销，建议先备份。';
+
+  @override
+  String get wipeDone => '已清除所有数据';
+
+  @override
+  String dataSummary(
+      String history, String library, String books, String templates) {
+    return '历史 $history · 标签库 $library · 记录本 $books · 模板 $templates';
+  }
+
+  @override
+  String get secCheckTitle => '安全检查';
+
+  @override
+  String secCheckScore(String ok, String total) {
+    return '已开启 $ok/$total 项推荐设置';
+  }
+
+  @override
+  String get secCheckBackup => '30 天内已备份';
+
+  @override
+  String get secCheckEncryptedNote => '备份可能包含 Wi-Fi 密码，建议导出时设置密码保护。';
 }

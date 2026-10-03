@@ -42,9 +42,6 @@ class AppLocalizationsRu extends AppLocalizations {
   String get appPackageName => 'Имя пакета Android';
 
   @override
-  String get appSettings => 'Настройки приложения';
-
-  @override
   String get appTitle => 'NFC Tag Master';
 
   @override
@@ -4383,4 +4380,78 @@ class AppLocalizationsRu extends AppLocalizations {
   @override
   String get whatsNew130 =>
       '• Журнал прихода/ухода: кто на месте, часы за сегодня\n• Метки из библиотеки могут сами записываться в журнал при сканировании\n• Напоминания о проверке и фильтр «к проверке»\n• Предупреждение о скопированной метке\n• NDEF-доктор: диагностика повреждённых меток\n• Массовое добавление в библиотеку из Excel/Numbers\n• Новые шаблоны: Подарочное послание, Уход за растением, Детский браслет, Инструкция';
+
+  @override
+  String get securityTitle => 'Безопасность и конфиденциальность';
+
+  @override
+  String get lockAfterTitle => 'Блокировать снова через';
+
+  @override
+  String get lockImmediately => 'Сразу';
+
+  @override
+  String lockAfterSecondsLabel(String n) {
+    return '$n с';
+  }
+
+  @override
+  String lockAfterMinutesLabel(String n) {
+    return '$n мин';
+  }
+
+  @override
+  String get hideInSwitcherTitle => 'Скрывать в переключателе приложений';
+
+  @override
+  String get hideInSwitcherSubtitle =>
+      'В фоне экран размывается. На Android также блокируются скриншоты.';
+
+  @override
+  String get clearClipboardTitle => 'Автоочистка буфера обмена';
+
+  @override
+  String get clearClipboardSubtitle =>
+      'Секретные данные, например скопированные ключи, удаляются через 60 секунд.';
+
+  @override
+  String get securityConfirmReason => 'Подтвердите личность, чтобы продолжить';
+
+  @override
+  String get securityCopiedClears => 'Скопировано · удалится через 60 с';
+
+  @override
+  String get wipeTitle => 'Стереть все данные';
+
+  @override
+  String get wipeSubtitle =>
+      'История, библиотека, фото, журналы, шаблоны, ключ подписи и настройки';
+
+  @override
+  String get wipeConfirm =>
+      'Безвозвратно стереть все данные с устройства? Отменить нельзя; сначала сделайте резервную копию.';
+
+  @override
+  String get wipeDone => 'Все данные стёрты';
+
+  @override
+  String dataSummary(
+      String history, String library, String books, String templates) {
+    return '$history история · $library библиотека · $books журналы · $templates шаблоны';
+  }
+
+  @override
+  String get secCheckTitle => 'Проверка безопасности';
+
+  @override
+  String secCheckScore(String ok, String total) {
+    return 'Включено рекомендованных: $ok/$total';
+  }
+
+  @override
+  String get secCheckBackup => 'Резервная копия за последние 30 дней';
+
+  @override
+  String get secCheckEncryptedNote =>
+      'Резервные копии могут содержать пароли Wi-Fi; защитите их паролем.';
 }

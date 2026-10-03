@@ -42,9 +42,6 @@ class AppLocalizationsIt extends AppLocalizations {
   String get appPackageName => 'Nome pacchetto Android';
 
   @override
-  String get appSettings => 'Impostazioni app';
-
-  @override
   String get appTitle => 'NFC Tag Master';
 
   @override
@@ -4381,4 +4378,78 @@ class AppLocalizationsIt extends AppLocalizations {
   @override
   String get whatsNew130 =>
       '• Registro entrata/uscita (presenze): chi è presente, ore di oggi\n• I tag della libreria possono registrarsi da soli alla lettura\n• Promemoria di controllo e filtro \"da controllare\"\n• Avviso di tag copiato\n• Dottore NDEF: diagnostica i tag danneggiati\n• Aggiunta in blocco alla libreria da Excel/Numbers\n• Nuovi modelli: Messaggio regalo, Cura pianta, Braccialetto bambini, Istruzioni';
+
+  @override
+  String get securityTitle => 'Sicurezza e privacy';
+
+  @override
+  String get lockAfterTitle => 'Blocca di nuovo dopo';
+
+  @override
+  String get lockImmediately => 'Subito';
+
+  @override
+  String lockAfterSecondsLabel(String n) {
+    return '$n s';
+  }
+
+  @override
+  String lockAfterMinutesLabel(String n) {
+    return '$n min';
+  }
+
+  @override
+  String get hideInSwitcherTitle => 'Nascondi nel selettore app';
+
+  @override
+  String get hideInSwitcherSubtitle =>
+      'In background lo schermo viene sfocato. Su Android sono bloccati anche gli screenshot.';
+
+  @override
+  String get clearClipboardTitle => 'Svuota automaticamente gli appunti';
+
+  @override
+  String get clearClipboardSubtitle =>
+      'I dati sensibili come le chiavi copiate vengono rimossi dopo 60 secondi.';
+
+  @override
+  String get securityConfirmReason => 'Conferma la tua identità per continuare';
+
+  @override
+  String get securityCopiedClears => 'Copiato · verrà cancellato tra 60 s';
+
+  @override
+  String get wipeTitle => 'Cancella tutti i dati';
+
+  @override
+  String get wipeSubtitle =>
+      'Cronologia, libreria, foto, registri, modelli, chiave di firma e impostazioni';
+
+  @override
+  String get wipeConfirm =>
+      'Cancellare definitivamente tutti i dati da questo dispositivo? Operazione irreversibile; fai prima un backup.';
+
+  @override
+  String get wipeDone => 'Tutti i dati cancellati';
+
+  @override
+  String dataSummary(
+      String history, String library, String books, String templates) {
+    return '$history cronologia · $library libreria · $books registri · $templates modelli';
+  }
+
+  @override
+  String get secCheckTitle => 'Controllo sicurezza';
+
+  @override
+  String secCheckScore(String ok, String total) {
+    return '$ok/$total impostazioni consigliate attive';
+  }
+
+  @override
+  String get secCheckBackup => 'Backup negli ultimi 30 giorni';
+
+  @override
+  String get secCheckEncryptedNote =>
+      'I backup possono contenere password Wi-Fi; si consiglia di proteggerli con password.';
 }

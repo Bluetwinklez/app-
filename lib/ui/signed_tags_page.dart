@@ -6,6 +6,7 @@ import 'package:flutter/services.dart';
 import '../domain/tag_signature.dart';
 import '../l10n/app_localizations.dart';
 import '../l10n/l10n.dart';
+import '../services/security_service.dart';
 import '../services/app_storage_service.dart';
 import 'app_theme.dart';
 
@@ -109,9 +110,17 @@ class _SignedTagsPageState extends State<SignedTagsPage> {
                     ListTile(
                       leading: Icon(Icons.copy_rounded, color: AppColors.accent),
                       title: Text(loc.sigCopyKey),
-                      onTap: () {
-                        Clipboard.setData(ClipboardData(text: TagSignature.exportKey(key)));
-                        ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Text(loc.linkCopied)));
+                      onTap: () async {
+                        final allowed = await SecurityService.confirmSensitive(widget.storage,
+                            reason: loc.securityConfirmReason, title: loc.sigCopyKey);
+                        if (!allowed) return;
+                        await SecurityService.copySensitive(widget.storage, TagSignature.exportKey(key));
+                        if (!context.mounted) return;
+                        ScaffoldMessenger.of(context).showSnackBar(SnackBar(
+                          content: Text(widget.storage.clearClipboardAfterCopy
+                              ? loc.securityCopiedClears
+                              : loc.linkCopied),
+                        ));
                       },
                     ),
                   ListTile(

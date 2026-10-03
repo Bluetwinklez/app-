@@ -42,9 +42,6 @@ class AppLocalizationsDe extends AppLocalizations {
   String get appPackageName => 'Android-Paketname';
 
   @override
-  String get appSettings => 'App-Einstellungen';
-
-  @override
   String get appTitle => 'NFC Tag Master';
 
   @override
@@ -4394,4 +4391,79 @@ class AppLocalizationsDe extends AppLocalizations {
   @override
   String get whatsNew130 =>
       '• Kommen/Gehen-Logbuch: wer ist da, Stunden heute\n• Bibliotheks-Tags schreiben beim Scannen automatisch ins Logbuch\n• Prüferinnerungen und Filter „fällig\"\n• Warnung vor kopierten Tags\n• NDEF-Doktor: erkennt defekte Tags\n• Massenimport in die Bibliothek aus Excel/Numbers\n• Neue Vorlagen: Geschenknachricht, Pflanzenpflege, Kinderarmband, Anleitungskarte';
+
+  @override
+  String get securityTitle => 'Sicherheit & Datenschutz';
+
+  @override
+  String get lockAfterTitle => 'Erneut sperren nach';
+
+  @override
+  String get lockImmediately => 'Sofort';
+
+  @override
+  String lockAfterSecondsLabel(String n) {
+    return '$n s';
+  }
+
+  @override
+  String lockAfterMinutesLabel(String n) {
+    return '$n Min.';
+  }
+
+  @override
+  String get hideInSwitcherTitle => 'Im App-Umschalter ausblenden';
+
+  @override
+  String get hideInSwitcherSubtitle =>
+      'Im Hintergrund wird der Bildschirm unscharf. Unter Android sind auch Screenshots gesperrt.';
+
+  @override
+  String get clearClipboardTitle => 'Zwischenablage automatisch leeren';
+
+  @override
+  String get clearClipboardSubtitle =>
+      'Sensible Werte wie kopierte Schlüssel werden nach 60 Sekunden entfernt.';
+
+  @override
+  String get securityConfirmReason =>
+      'Zum Fortfahren bestätigen Sie Ihre Identität';
+
+  @override
+  String get securityCopiedClears => 'Kopiert · wird in 60 s gelöscht';
+
+  @override
+  String get wipeTitle => 'Alle Daten löschen';
+
+  @override
+  String get wipeSubtitle =>
+      'Verlauf, Bibliothek, Fotos, Logbücher, Vorlagen, Signaturschlüssel und Einstellungen';
+
+  @override
+  String get wipeConfirm =>
+      'Alle Daten dauerhaft von diesem Gerät löschen? Das lässt sich nicht rückgängig machen; erstellen Sie vorher ein Backup.';
+
+  @override
+  String get wipeDone => 'Alle Daten gelöscht';
+
+  @override
+  String dataSummary(
+      String history, String library, String books, String templates) {
+    return '$history Verlauf · $library Bibliothek · $books Logbücher · $templates Vorlagen';
+  }
+
+  @override
+  String get secCheckTitle => 'Sicherheitscheck';
+
+  @override
+  String secCheckScore(String ok, String total) {
+    return '$ok/$total empfohlene Einstellungen aktiv';
+  }
+
+  @override
+  String get secCheckBackup => 'In den letzten 30 Tagen gesichert';
+
+  @override
+  String get secCheckEncryptedNote =>
+      'Backups können WLAN-Passwörter enthalten; beim Export wird ein Passwortschutz empfohlen.';
 }
