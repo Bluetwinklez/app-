@@ -3800,4 +3800,72 @@ class AppLocalizationsRu extends AppLocalizations {
 
   @override
   String get voiceLinkLabel => 'Ссылка на аудио (iCloud, Drive, SoundCloud…)';
+
+  @override
+  String get logbookTitle => 'Журнал';
+
+  @override
+  String get logbookSubtitle =>
+      'Посещаемость, лекарства, инвентарь: каждое касание со временем';
+
+  @override
+  String get logbookNew => 'Новый журнал';
+
+  @override
+  String get logbookName => 'Название журнала';
+
+  @override
+  String get logbookKindAttendance => 'Посещаемость';
+
+  @override
+  String get logbookKindMedication => 'Лекарства';
+
+  @override
+  String get logbookKindInventory => 'Инвентаризация';
+
+  @override
+  String get logbookKindCustom => 'Другое';
+
+  @override
+  String get logbookEmpty =>
+      'Журналов пока нет. Создайте, например, «Посещаемость 3А» или «Вечерние таблетки».';
+
+  @override
+  String get logbookScanButton => 'Сканировать и записать';
+
+  @override
+  String logbookEntryAdded(String label) {
+    return 'Записано: $label';
+  }
+
+  @override
+  String get logbookNoEntries => 'Записей пока нет.';
+
+  @override
+  String logbookToday(String count, String tags) {
+    return 'Сегодня: $count записей · $tags разных меток';
+  }
+
+  @override
+  String logbookMedTaken(String time) {
+    return 'Принято сегодня ✓ (последний раз: $time)';
+  }
+
+  @override
+  String get logbookMedNotTaken => 'Сегодня ещё не принято';
+
+  @override
+  String logbookInventorySummary(String count) {
+    return 'Учтено разных меток: $count';
+  }
+
+  @override
+  String logbookDeleteConfirm(String name) {
+    return 'Удалить журнал «$name» со всеми записями?';
+  }
+
+  @override
+  String logbookEntries(String count) {
+    return 'Записей: $count';
+  }
 }

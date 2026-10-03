@@ -6537,6 +6537,114 @@ abstract class AppLocalizations {
   /// In tr, this message translates to:
   /// **'Ses dosyası bağlantısı (iCloud, Drive, SoundCloud…)'**
   String get voiceLinkLabel;
+
+  /// No description provided for @logbookTitle.
+  ///
+  /// In tr, this message translates to:
+  /// **'Kayıt Defteri'**
+  String get logbookTitle;
+
+  /// No description provided for @logbookSubtitle.
+  ///
+  /// In tr, this message translates to:
+  /// **'Yoklama, ilaç ve envanter: her okutma saatiyle kaydedilir'**
+  String get logbookSubtitle;
+
+  /// No description provided for @logbookNew.
+  ///
+  /// In tr, this message translates to:
+  /// **'Yeni defter'**
+  String get logbookNew;
+
+  /// No description provided for @logbookName.
+  ///
+  /// In tr, this message translates to:
+  /// **'Defter adı'**
+  String get logbookName;
+
+  /// No description provided for @logbookKindAttendance.
+  ///
+  /// In tr, this message translates to:
+  /// **'Yoklama'**
+  String get logbookKindAttendance;
+
+  /// No description provided for @logbookKindMedication.
+  ///
+  /// In tr, this message translates to:
+  /// **'İlaç takibi'**
+  String get logbookKindMedication;
+
+  /// No description provided for @logbookKindInventory.
+  ///
+  /// In tr, this message translates to:
+  /// **'Envanter sayımı'**
+  String get logbookKindInventory;
+
+  /// No description provided for @logbookKindCustom.
+  ///
+  /// In tr, this message translates to:
+  /// **'Diğer'**
+  String get logbookKindCustom;
+
+  /// No description provided for @logbookEmpty.
+  ///
+  /// In tr, this message translates to:
+  /// **'Henüz defter yok. Örneğin \"Sınıf 3A yoklama\" ya da \"Akşam ilacı\" adıyla bir defter açın.'**
+  String get logbookEmpty;
+
+  /// No description provided for @logbookScanButton.
+  ///
+  /// In tr, this message translates to:
+  /// **'Okut ve kaydet'**
+  String get logbookScanButton;
+
+  /// No description provided for @logbookEntryAdded.
+  ///
+  /// In tr, this message translates to:
+  /// **'Kaydedildi: {label}'**
+  String logbookEntryAdded(String label);
+
+  /// No description provided for @logbookNoEntries.
+  ///
+  /// In tr, this message translates to:
+  /// **'Bu defterde henüz kayıt yok.'**
+  String get logbookNoEntries;
+
+  /// No description provided for @logbookToday.
+  ///
+  /// In tr, this message translates to:
+  /// **'Bugün: {count} kayıt · {tags} farklı etiket'**
+  String logbookToday(String count, String tags);
+
+  /// No description provided for @logbookMedTaken.
+  ///
+  /// In tr, this message translates to:
+  /// **'Bugün alındı ✓ (son: {time})'**
+  String logbookMedTaken(String time);
+
+  /// No description provided for @logbookMedNotTaken.
+  ///
+  /// In tr, this message translates to:
+  /// **'Bugün henüz alınmadı'**
+  String get logbookMedNotTaken;
+
+  /// No description provided for @logbookInventorySummary.
+  ///
+  /// In tr, this message translates to:
+  /// **'{count} farklı etiket sayıldı'**
+  String logbookInventorySummary(String count);
+
+  /// No description provided for @logbookDeleteConfirm.
+  ///
+  /// In tr, this message translates to:
+  /// **'\"{name}\" defteri ve tüm kayıtları silinsin mi?'**
+  String logbookDeleteConfirm(String name);
+
+  /// No description provided for @logbookEntries.
+  ///
+  /// In tr, this message translates to:
+  /// **'{count} kayıt'**
+  String logbookEntries(String count);
 }
 
 class _AppLocalizationsDelegate

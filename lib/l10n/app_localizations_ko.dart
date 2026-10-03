@@ -3643,4 +3643,71 @@ class AppLocalizationsKo extends AppLocalizations {
 
   @override
   String get voiceLinkLabel => '오디오 링크(iCloud, Drive, SoundCloud…)';
+
+  @override
+  String get logbookTitle => '기록장';
+
+  @override
+  String get logbookSubtitle => '출석, 복약, 재고: 태그할 때마다 시간 기록';
+
+  @override
+  String get logbookNew => '새 기록장';
+
+  @override
+  String get logbookName => '기록장 이름';
+
+  @override
+  String get logbookKindAttendance => '출석';
+
+  @override
+  String get logbookKindMedication => '복약';
+
+  @override
+  String get logbookKindInventory => '재고 조사';
+
+  @override
+  String get logbookKindCustom => '기타';
+
+  @override
+  String get logbookEmpty =>
+      '아직 기록장이 없습니다. \"3A반 출석\"이나 \"저녁 약\" 같은 기록장을 만들어 보세요.';
+
+  @override
+  String get logbookScanButton => '스캔하고 기록';
+
+  @override
+  String logbookEntryAdded(String label) {
+    return '기록됨: $label';
+  }
+
+  @override
+  String get logbookNoEntries => '아직 기록이 없습니다.';
+
+  @override
+  String logbookToday(String count, String tags) {
+    return '오늘: $count건 · 태그 $tags개';
+  }
+
+  @override
+  String logbookMedTaken(String time) {
+    return '오늘 복용함 ✓ (마지막: $time)';
+  }
+
+  @override
+  String get logbookMedNotTaken => '오늘 아직 복용하지 않음';
+
+  @override
+  String logbookInventorySummary(String count) {
+    return '서로 다른 태그 $count개 확인';
+  }
+
+  @override
+  String logbookDeleteConfirm(String name) {
+    return '\"$name\" 기록장과 모든 기록을 삭제할까요?';
+  }
+
+  @override
+  String logbookEntries(String count) {
+    return '$count건';
+  }
 }

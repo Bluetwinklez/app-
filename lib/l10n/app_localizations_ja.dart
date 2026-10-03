@@ -3630,4 +3630,70 @@ class AppLocalizationsJa extends AppLocalizations {
 
   @override
   String get voiceLinkLabel => '音声リンク (iCloud、Drive、SoundCloud…)';
+
+  @override
+  String get logbookTitle => '記録帳';
+
+  @override
+  String get logbookSubtitle => '出欠・服薬・在庫: タッチごとに時刻を記録';
+
+  @override
+  String get logbookNew => '新しい記録帳';
+
+  @override
+  String get logbookName => '記録帳の名前';
+
+  @override
+  String get logbookKindAttendance => '出欠';
+
+  @override
+  String get logbookKindMedication => '服薬';
+
+  @override
+  String get logbookKindInventory => '在庫確認';
+
+  @override
+  String get logbookKindCustom => 'その他';
+
+  @override
+  String get logbookEmpty => '記録帳はまだありません。「3年A組出欠」「夜の薬」などを作成しましょう。';
+
+  @override
+  String get logbookScanButton => '読み取って記録';
+
+  @override
+  String logbookEntryAdded(String label) {
+    return '記録しました: $label';
+  }
+
+  @override
+  String get logbookNoEntries => 'まだ記録がありません。';
+
+  @override
+  String logbookToday(String count, String tags) {
+    return '今日: $count件 · $tags種類のタグ';
+  }
+
+  @override
+  String logbookMedTaken(String time) {
+    return '今日は服用済み ✓ (最終: $time)';
+  }
+
+  @override
+  String get logbookMedNotTaken => '今日はまだ服用していません';
+
+  @override
+  String logbookInventorySummary(String count) {
+    return '$count種類のタグを確認';
+  }
+
+  @override
+  String logbookDeleteConfirm(String name) {
+    return '記録帳「$name」とすべての記録を削除しますか？';
+  }
+
+  @override
+  String logbookEntries(String count) {
+    return '$count件';
+  }
 }

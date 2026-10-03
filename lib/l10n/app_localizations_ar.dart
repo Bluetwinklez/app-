@@ -3750,4 +3750,71 @@ class AppLocalizationsAr extends AppLocalizations {
 
   @override
   String get voiceLinkLabel => 'رابط الصوت (iCloud وDrive وSoundCloud…)';
+
+  @override
+  String get logbookTitle => 'السجل';
+
+  @override
+  String get logbookSubtitle => 'الحضور والأدوية والجرد: كل لمسة تُحفظ بوقتها';
+
+  @override
+  String get logbookNew => 'سجل جديد';
+
+  @override
+  String get logbookName => 'اسم السجل';
+
+  @override
+  String get logbookKindAttendance => 'الحضور';
+
+  @override
+  String get logbookKindMedication => 'الأدوية';
+
+  @override
+  String get logbookKindInventory => 'الجرد';
+
+  @override
+  String get logbookKindCustom => 'أخرى';
+
+  @override
+  String get logbookEmpty =>
+      'لا توجد سجلات بعد. أنشئ سجلًا مثل \"حضور الصف 3أ\" أو \"دواء المساء\".';
+
+  @override
+  String get logbookScanButton => 'امسح وسجّل';
+
+  @override
+  String logbookEntryAdded(String label) {
+    return 'تم التسجيل: $label';
+  }
+
+  @override
+  String get logbookNoEntries => 'لا توجد إدخالات بعد.';
+
+  @override
+  String logbookToday(String count, String tags) {
+    return 'اليوم: $count إدخال · $tags وسوم مختلفة';
+  }
+
+  @override
+  String logbookMedTaken(String time) {
+    return 'تم تناوله اليوم ✓ (آخر مرة: $time)';
+  }
+
+  @override
+  String get logbookMedNotTaken => 'لم يُتناول اليوم بعد';
+
+  @override
+  String logbookInventorySummary(String count) {
+    return 'تم عدّ $count وسومًا مختلفة';
+  }
+
+  @override
+  String logbookDeleteConfirm(String name) {
+    return 'حذف السجل \"$name\" وكل إدخالاته؟';
+  }
+
+  @override
+  String logbookEntries(String count) {
+    return '$count إدخال';
+  }
 }

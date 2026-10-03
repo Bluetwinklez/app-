@@ -11,6 +11,7 @@ import '../domain/tag_compare.dart';
 import '../domain/nfc_tag_info.dart';
 import '../domain/ndef_record.dart';
 import 'app_theme.dart';
+import 'logbook_page.dart';
 
 /// "Araçlar" screen: chip-level tools for NTAG / MIFARE Ultralight tags.
 class ToolsTab extends StatelessWidget {
@@ -57,6 +58,13 @@ class ToolsTab extends StatelessWidget {
             subtitle: loc.cloneTagSubtitle,
             onTap: _idle ? onCloneTag : null,
           ),
+        ToolTile(
+          icon: Icons.event_note_outlined,
+          title: loc.logbookTitle,
+          subtitle: loc.logbookSubtitle,
+          color: AppColors.success,
+          onTap: () => LogBooksPage.open(context, controller),
+        ),
         SectionHeader(title: loc.toolsMemorySection),
         ToolTile(
           icon: Icons.health_and_safety_outlined,
