@@ -1,4 +1,5 @@
 import 'ndef_record.dart';
+import '../util/text_search.dart';
 
 /// Category shown as a chip on a saved tag.
 enum TagCategory { home, work, car, personal, business, other }
@@ -71,11 +72,8 @@ class TagLibraryEntry {
     return false;
   }
 
-  /// Lowercases and treats Turkish I/ı/İ/i as the same letter, so "KAPI"
-  /// finds "kapı" and "istanbul" finds "İstanbul".
-  static String foldForSearch(String value) {
-    return value.replaceAll('İ', 'i').replaceAll('I', 'i').toLowerCase().replaceAll('ı', 'i').replaceAll('i̇', 'i');
-  }
+  /// Kept for callers; see [TextSearch.fold].
+  static String foldForSearch(String value) => TextSearch.fold(value);
 
   Map<String, dynamic> toJsonMap() => {
         'id': id,
