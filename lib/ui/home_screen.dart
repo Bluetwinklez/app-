@@ -580,11 +580,11 @@ class _HomeScreenState extends State<HomeScreen>
       context: context,
       barrierDismissible: false,
       builder: (ctx) => AlertDialog(
-        title: const Row(
+        title: Row(
           children: [
-            Icon(Icons.replay_circle_filled, color: AppColors.accent),
-            SizedBox(width: 8),
-            Text('Etiketi Yeniden Yaz'),
+            const Icon(Icons.replay_circle_filled, color: AppColors.accent),
+            const SizedBox(width: 8),
+            Text(L10n.current.rewriteTagTitle),
           ],
         ),
         content: SingleChildScrollView(
@@ -599,34 +599,34 @@ class _HomeScreenState extends State<HomeScreen>
                   borderRadius: BorderRadius.circular(8),
                   border: Border.all(color: Colors.amber.shade300),
                 ),
-                child: const Column(
+                child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Text(
-                      'ÖNEMLİ BİLGİLENDİRME:',
-                      style: TextStyle(
+                      L10n.current.importantNotice,
+                      style: const TextStyle(
                           fontWeight: FontWeight.bold,
                           color: Colors.brown,
                           fontSize: 13),
                     ),
-                    SizedBox(height: 4),
+                    const SizedBox(height: 4),
                     Text(
-                      '• Bu işlem hedef etiketin mevcut NDEF içeriğini TAMAMEN DEĞİŞTİRİR (üzerine yazar), sonuna eklemez.\n'
-                      '• Hedef etiketin yazılabilir (kilitsiz) bir NDEF etiketi olması şarttır.\n'
-                      '• İşlem önceki etikete sessizce yazmaz; yeni bir NFC dokunuşu beklenir.',
-                      style: TextStyle(fontSize: 12, color: Colors.black87),
+                      L10n.current.rewriteNotice1 +
+                      L10n.current.rewriteNotice2 +
+                      L10n.current.rewriteNotice3,
+                      style: const TextStyle(fontSize: 12, color: Colors.black87),
                     ),
                   ],
                 ),
               ),
               const SizedBox(height: 12),
-              Text('Kaynak UID: ${_rewriteSourceUid ?? "Bilinmiyor"}'),
-              Text('Yazılacak Kayıt Sayısı: ${records.length}'),
+              Text(L10n.current.rewriteSourceUid(_rewriteSourceUid ?? L10n.current.unknown)),
+              Text(L10n.current.recordsToWriteCount('${records.length}')),
               Text('Mesaj Boyutu: $byteSize Bayt'),
               const Divider(height: 20),
-              const Text(
-                'Hedef etiketi hazırlayın ve "Dokun ve Yaz" butonuna bastıktan sonra etiketi telefonun arkasına yaklaştırın.',
-                style: TextStyle(fontSize: 13, color: Colors.black87),
+              Text(
+                L10n.current.rewriteInstruction,
+                style: const TextStyle(fontSize: 13, color: Colors.black87),
               ),
             ],
           ),
@@ -640,11 +640,11 @@ class _HomeScreenState extends State<HomeScreen>
                 _rewriteSourceUid = null;
               });
             },
-            child: const Text('İptal'),
+            child: Text(L10n.current.cancel),
           ),
           TextButton.icon(
             icon: const Icon(Icons.edit_outlined),
-            label: const Text('Düzenle'),
+            label: Text(L10n.current.edit),
             onPressed: () {
               Navigator.of(ctx).pop();
               setState(() {
@@ -664,7 +664,7 @@ class _HomeScreenState extends State<HomeScreen>
               backgroundColor: AppColors.accent,
               foregroundColor: Colors.white,
             ),
-            label: const Text('Dokun ve Yaz'),
+            label: Text(L10n.current.tapAndWrite),
             onPressed: () async {
               Navigator.of(ctx).pop();
               await _executeRewrite();
@@ -682,7 +682,7 @@ class _HomeScreenState extends State<HomeScreen>
     final success = await _controller.writeRecords(
       records,
       promptMessage:
-          'Hedef etiketi cihazınıza yaklaştırın (İçerik tamamen yenilenecektir)',
+          L10n.current.rewritePromptMessage,
     );
 
     if (mounted) {
@@ -692,7 +692,7 @@ class _HomeScreenState extends State<HomeScreen>
         ScaffoldMessenger.of(context).showSnackBar(
           SnackBar(
             content: Text(
-                'Yeniden yazma başarısız: ${_controller.lastWriteResult?.message ?? "Hata"}'),
+                L10n.current.rewriteFailed(_controller.lastWriteResult?.message ?? L10n.current.error)),
             backgroundColor: Colors.red,
           ),
         );
@@ -705,41 +705,41 @@ class _HomeScreenState extends State<HomeScreen>
     showDialog(
       context: context,
       builder: (ctx) => AlertDialog(
-        title: const Row(
+        title: Row(
           children: [
-            Icon(Icons.check_circle, color: Colors.green),
-            SizedBox(width: 8),
-            Text('Yazma Doğrulandı'),
+            const Icon(Icons.check_circle, color: Colors.green),
+            const SizedBox(width: 8),
+            Text(L10n.current.writeVerifiedTitle),
           ],
         ),
         content: Column(
           mainAxisSize: MainAxisSize.min,
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            const Text(
-              'NDEF içeriği hedef etikete başarıyla yazıldı ve doğrulandı.',
-              style: TextStyle(fontWeight: FontWeight.bold),
+            Text(
+              L10n.current.writeVerifiedDesc,
+              style: const TextStyle(fontWeight: FontWeight.bold),
             ),
             const SizedBox(height: 8),
-            Text('Yazılan Kayıt Sayısı: ${writtenRecords.length}'),
+            Text(L10n.current.writtenRecordsCount('${writtenRecords.length}')),
             Text('Bayt: ${encodeNdefMessage(writtenRecords).length} B'),
             const SizedBox(height: 12),
-            const Text(
-              'Yazılan veriyi doğrulamak veya karşılaştırmak için sonraki taramayı başlatabilirsiniz.',
-              style: TextStyle(fontSize: 13, color: Colors.black54),
+            Text(
+              L10n.current.writeVerifiedHint,
+              style: const TextStyle(fontSize: 13, color: Colors.black54),
             ),
           ],
         ),
         actions: [
           TextButton(
             onPressed: () => Navigator.of(ctx).pop(),
-            child: const Text('Kapat'),
+            child: Text(L10n.current.close),
           ),
           ElevatedButton.icon(
             style: ElevatedButton.styleFrom(
                 backgroundColor: AppColors.accent, foregroundColor: Colors.white),
             icon: const Icon(Icons.document_scanner),
-            label: const Text('Şimdi Tara ve Karşılaştır'),
+            label: Text(L10n.current.scanAndCompareNow),
             onPressed: () async {
               Navigator.of(ctx).pop();
               _tabController.animateTo(0);
@@ -781,24 +781,24 @@ class _HomeScreenState extends State<HomeScreen>
                 color: match ? Colors.green : Colors.orange),
             const SizedBox(width: 8),
             Text(
-                match ? 'İçerik Birebir Eşleşiyor' : 'Farklılık Tespit Edildi'),
+                match ? L10n.current.contentMatchesExactly : L10n.current.differenceDetected),
           ],
         ),
         content: Column(
           mainAxisSize: MainAxisSize.min,
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            Text('Taranan Etiket UID: ${scannedTag.identifier}'),
+            Text(L10n.current.scannedTagUid(scannedTag.identifier)),
             const Divider(height: 16),
             Text(
-                'Yazılan Veri: ${written.length} kayıt (${writtenBytes.length} Bayt)'),
+                L10n.current.writtenDataSummary('${written.length}', '${writtenBytes.length}')),
             Text(
-                'Taranan Veri: ${scanned.length} kayıt (${scannedBytes.length} Bayt)'),
+                L10n.current.scannedDataSummary('${scanned.length}', '${scannedBytes.length}')),
             const SizedBox(height: 8),
             Text(
               match
-                  ? 'Hedef etiketteki NDEF mesajı ile yazılan kaynak NDEF mesajı bayt bayt tamamen aynıdır.'
-                  : 'Hedef etiketten okunan veriler ile yazılmak istenen veri arasında farklılık var. Etiketin kilitli veya farklı bir etiket olup olmadığını kontrol ediniz.',
+                  ? L10n.current.compareMatchDesc
+                  : L10n.current.compareDiffDesc,
               style: TextStyle(
                 fontSize: 13,
                 fontWeight: FontWeight.w500,
@@ -810,7 +810,7 @@ class _HomeScreenState extends State<HomeScreen>
         actions: [
           ElevatedButton(
             onPressed: () => Navigator.of(ctx).pop(),
-            child: const Text('Tamam'),
+            child: Text(L10n.current.ok),
           ),
         ],
       ),
@@ -824,9 +824,9 @@ class _HomeScreenState extends State<HomeScreen>
   void _openBatchWriteModal() {
     if (_recordsToWrite.isEmpty) {
       ScaffoldMessenger.of(context).showSnackBar(
-        const SnackBar(
+        SnackBar(
           content: Text(
-              'Toplu yazım başlatmak için önce beste sekmesine en az bir kayıt ekleyiniz.'),
+              L10n.current.batchEmptyComposerError),
           backgroundColor: Colors.orange,
         ),
       );
@@ -838,11 +838,11 @@ class _HomeScreenState extends State<HomeScreen>
       context: context,
       builder: (ctx) => StatefulBuilder(
         builder: (ctx, setDlgState) => AlertDialog(
-          title: const Row(
+          title: Row(
             children: [
-              Icon(Icons.dynamic_feed, color: AppColors.accent),
-              SizedBox(width: 8),
-              Text('Toplu Etiket Yazımı (Batch)'),
+              const Icon(Icons.dynamic_feed, color: AppColors.accent),
+              const SizedBox(width: 8),
+              Text(L10n.current.batchWriteTitle),
             ],
           ),
           content: SingleChildScrollView(
@@ -850,9 +850,9 @@ class _HomeScreenState extends State<HomeScreen>
               crossAxisAlignment: CrossAxisAlignment.start,
               mainAxisSize: MainAxisSize.min,
               children: [
-                const Text(
-                  'Aynı NDEF içeriğini birden fazla etikete sırayla yazabilirsiniz.',
-                  style: TextStyle(fontSize: 13),
+                Text(
+                  L10n.current.batchWriteSubtitle,
+                  style: const TextStyle(fontSize: 13),
                 ),
                 const SizedBox(height: 12),
                 Container(
@@ -862,28 +862,28 @@ class _HomeScreenState extends State<HomeScreen>
                     borderRadius: BorderRadius.circular(8),
                     border: Border.all(color: Colors.blueGrey.shade200),
                   ),
-                  child: const Column(
+                  child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       Text(
-                        'DİKKAT:',
-                        style: TextStyle(
+                        L10n.current.attention,
+                        style: const TextStyle(
                             fontWeight: FontWeight.bold,
                             fontSize: 12,
                             color: Colors.blueGrey),
                       ),
-                      SizedBox(height: 4),
+                      const SizedBox(height: 4),
                       Text(
-                        '• Yanlışlıkla aynı etikete iki kez yazılmasını engellemek için her yazım kullanıcı tarafından açıkça "Sıradakini Yaz" butonu ile başlatılır.\n'
-                        '• Otomatik arka arkaya tarama yapılmaz; her etiket fiziksel olarak değiştirilmelidir.',
-                        style: TextStyle(fontSize: 12, color: Colors.black87),
+                        L10n.current.batchNotice1 +
+                        L10n.current.batchNotice2,
+                        style: const TextStyle(fontSize: 12, color: Colors.black87),
                       ),
                     ],
                   ),
                 ),
                 const SizedBox(height: 16),
                 Text(
-                  'Hedef Etiket Sayısı: $chosenCount',
+                  L10n.current.batchTargetCount('$chosenCount'),
                   style: const TextStyle(
                       fontWeight: FontWeight.bold, fontSize: 16),
                 ),
@@ -900,7 +900,7 @@ class _HomeScreenState extends State<HomeScreen>
                   },
                 ),
                 Text(
-                  'Bestedeki Kayıtlar: ${_recordsToWrite.length} adet ($_stagedBytesTotal Bayt)',
+                  L10n.current.composerRecordsSummary('${_recordsToWrite.length}', '$_stagedBytesTotal'),
                   style: const TextStyle(fontSize: 12, color: Colors.black54),
                 ),
               ],
@@ -909,7 +909,7 @@ class _HomeScreenState extends State<HomeScreen>
           actions: [
             TextButton(
               onPressed: () => Navigator.of(ctx).pop(),
-              child: const Text('Vazgeç'),
+              child: Text(L10n.current.dismiss),
             ),
             ElevatedButton(
               style: ElevatedButton.styleFrom(
@@ -918,7 +918,7 @@ class _HomeScreenState extends State<HomeScreen>
                 Navigator.of(ctx).pop();
                 _initBatchWrite(chosenCount);
               },
-              child: const Text('Toplu Yazımı Başlat'),
+              child: Text(L10n.current.batchStartButton),
             ),
           ],
         ),
@@ -976,7 +976,7 @@ class _HomeScreenState extends State<HomeScreen>
                           const Icon(Icons.dynamic_feed, color: AppColors.accent),
                           const SizedBox(width: 8),
                           Text(
-                            'Toplu Yazım Kontrol Paneli',
+                            L10n.current.batchControlPanelTitle,
                             style: Theme.of(context)
                                 .textTheme
                                 .titleMedium
@@ -986,7 +986,7 @@ class _HomeScreenState extends State<HomeScreen>
                       ),
                       IconButton(
                         icon: const Icon(Icons.close),
-                        tooltip: 'İptal Et / Kapat',
+                        tooltip: L10n.current.batchCancelOrClose,
                         onPressed: () => _confirmCancelBatch(sheetCtx),
                       ),
                     ],
@@ -1002,13 +1002,13 @@ class _HomeScreenState extends State<HomeScreen>
                   const SizedBox(height: 8),
                   Text(
                     isCompleted
-                        ? 'Tüm etiket denemeleri tamamlandı!'
-                        : 'Sıradaki: Etiket #$currentAttemptNum / $_batchTargetCount',
+                        ? L10n.current.batchAllCompleted
+                        : L10n.current.batchNext('$currentAttemptNum', '$_batchTargetCount'),
                     style: const TextStyle(
                         fontWeight: FontWeight.bold, fontSize: 14),
                   ),
                   Text(
-                    'Başarılı: $successCount | Hatalı: $failCount | Kalan: ${_batchTargetCount - _batchCurrentIndex}',
+                    L10n.current.batchStats('$successCount', '$failCount', '${_batchTargetCount - _batchCurrentIndex}'),
                     style: const TextStyle(fontSize: 12, color: Colors.black54),
                   ),
                   const Divider(height: 20),
@@ -1026,25 +1026,25 @@ class _HomeScreenState extends State<HomeScreen>
                             icon = const Icon(Icons.check_circle,
                                 color: Colors.green, size: 20);
                             textColor = Colors.green.shade800;
-                            statusText = 'Başarılı (${att.message ?? ""})';
+                            statusText = L10n.current.batchAttemptOk(att.message ?? '');
                             break;
                           case BatchTagStatus.failed:
                             icon = const Icon(Icons.cancel,
                                 color: Colors.red, size: 20);
                             textColor = Colors.red.shade800;
-                            statusText = 'Başarısız: ${att.message ?? ""}';
+                            statusText = L10n.current.batchAttemptFailed(att.message ?? '');
                             break;
                           case BatchTagStatus.writing:
                             icon = const Icon(Icons.hourglass_top,
                                 color: Colors.orange, size: 20);
                             textColor = Colors.orange.shade800;
-                            statusText = 'Yazılıyor...';
+                            statusText = L10n.current.writeHeroWriting;
                             break;
                           case BatchTagStatus.cancelled:
                             icon = const Icon(Icons.remove_circle_outline,
                                 color: Colors.grey, size: 20);
                             textColor = Colors.grey;
-                            statusText = 'İptal Edildi';
+                            statusText = L10n.current.statusCancelled;
                             break;
                           case BatchTagStatus.pending:
                             icon = const Icon(Icons.radio_button_unchecked,
@@ -1060,7 +1060,7 @@ class _HomeScreenState extends State<HomeScreen>
                             children: [
                               icon,
                               const SizedBox(width: 8),
-                              Text('Etiket #${idx + 1}: ',
+                              Text(L10n.current.batchAttemptLabel('${idx + 1}'),
                                   style: const TextStyle(
                                       fontWeight: FontWeight.bold)),
                               Expanded(
@@ -1091,8 +1091,8 @@ class _HomeScreenState extends State<HomeScreen>
                             icon: const Icon(Icons.nfc),
                             label: Text(
                               _controller.isBusy
-                                  ? 'Etiket Bekleniyor...'
-                                  : 'Etiket #$currentAttemptNum İçin Dokun ve Yaz',
+                                  ? L10n.current.waitingForTag
+                                  : L10n.current.batchTapToWrite('$currentAttemptNum'),
                             ),
                             onPressed: _controller.isBusy
                                 ? null
@@ -1119,7 +1119,7 @@ class _HomeScreenState extends State<HomeScreen>
                                 _batchActive = false;
                               });
                             },
-                            child: const Text('Toplu Yazımı Bitir'),
+                            child: Text(L10n.current.batchFinishButton),
                           ),
                         ),
                       ],
@@ -1147,13 +1147,13 @@ class _HomeScreenState extends State<HomeScreen>
     final success = await _controller.writeRecords(
       _recordsToWrite,
       promptMessage:
-          'Toplu Yazım: #$currentNum / $_batchTargetCount etiketi cihaza yaklaştırın',
+          L10n.current.batchPrompt('$currentNum', '$_batchTargetCount'),
     );
     if (!_batchActive || !mounted) return;
 
     final msg = success
-        ? '${_recordsToWrite.length} kayıt yazıldı ve doğrulandı'
-        : (_controller.lastWriteResult?.message ?? 'Yazma hatası');
+        ? L10n.current.batchWrittenVerified('${_recordsToWrite.length}')
+        : (_controller.lastWriteResult?.message ?? L10n.current.writeError);
 
     setSheetState(() {
       _batchAttempts[index] = _batchAttempts[index].copyWith(
@@ -1170,9 +1170,9 @@ class _HomeScreenState extends State<HomeScreen>
     showDialog(
       context: context,
       builder: (ctx) => AlertDialog(
-        title: const Text('Toplu Yazımı İptal Et'),
-        content: const Text(
-          'Toplu yazım oturumu sonlandırılsın mı? Şimdiye kadar yazılmış olan etiketlerdeki veriler korunur; kalan etiketler yazılmaz.',
+        title: Text(L10n.current.batchConfirmCancelTitle),
+        content: Text(
+          L10n.current.batchConfirmCancelMessage,
         ),
         actions: [
           TextButton(
@@ -1188,7 +1188,7 @@ class _HomeScreenState extends State<HomeScreen>
                 for (int i = _batchCurrentIndex; i < _batchTargetCount; i++) {
                   _batchAttempts[i] = _batchAttempts[i].copyWith(
                     status: BatchTagStatus.cancelled,
-                    message: 'İptal edildi',
+                    message: L10n.current.cancelled,
                   );
                 }
                 _batchActive = false;
@@ -1196,15 +1196,15 @@ class _HomeScreenState extends State<HomeScreen>
               await _controller.cancelSession();
               if (!mounted) return;
               ScaffoldMessenger.of(context).showSnackBar(
-                const SnackBar(
+                SnackBar(
                   content: Text(
-                      'Toplu yazım işlemi iptal edildi. Besteniz korundu.'),
+                      L10n.current.batchCancelledSnack),
                   backgroundColor: Colors.orange,
                 ),
               );
             },
-            child: const Text('İptal Et ve Kapat',
-                style: TextStyle(color: Colors.white)),
+            child: Text(L10n.current.cancelAndClose,
+                style: const TextStyle(color: Colors.white)),
           ),
         ],
       ),
@@ -1254,9 +1254,9 @@ class _HomeScreenState extends State<HomeScreen>
                   : Colors.orange.shade800,
             ),
             const SizedBox(width: 8),
-            const Expanded(
-              child: Text('Çevrimdışı URL İncelemesi',
-                  style: TextStyle(fontSize: 16)),
+            Expanded(
+              child: Text(L10n.current.urlSafetyOfflineAnalysisTitle,
+                  style: const TextStyle(fontSize: 16)),
             ),
           ],
         ),
@@ -1278,35 +1278,35 @@ class _HomeScreenState extends State<HomeScreen>
                 ),
               ),
               const SizedBox(height: 12),
-              _buildSafetyParam('Şema (Protokol):',
+              _buildSafetyParam(L10n.current.urlSafetyScheme,
                   assessment.scheme.isEmpty ? '(Eksik)' : assessment.scheme),
               _buildSafetyParam('Sunucu / Host:',
-                  assessment.host.isEmpty ? '(Bilinmiyor)' : assessment.host),
+                  assessment.host.isEmpty ? L10n.current.unknownParentheses : assessment.host),
               if (assessment.port != null)
                 _buildSafetyParam(
-                    'Bağlantı Noktası (Port):', assessment.port.toString()),
+                    L10n.current.urlSafetyPort, assessment.port.toString()),
               _buildSafetyParam(
-                'Kullanıcı Bilgisi (UserInfo):',
+                L10n.current.urlSafetyUserInfoLabel,
                 assessment.hasUserInfo ? 'Mevcut (Riskli olabilir)' : 'Yok',
                 highlight: assessment.hasUserInfo,
               ),
               _buildSafetyParam(
-                'Doğrudan IP Adresi (IP Literal):',
+                L10n.current.urlSafetyIpLiteral,
                 assessment.isIpLiteral
                     ? 'Evet (IP adresi)'
-                    : 'Hayır (Alan adı)',
+                    : L10n.current.urlSafetyDomain,
                 highlight: assessment.isIpLiteral,
               ),
               _buildSafetyParam(
-                'Uluslararası / Punycode (xn--):',
-                assessment.isPunycode ? 'Evet (Homoglif şüphesi)' : 'Hayır',
+                L10n.current.urlSafetyPunycodeLabel,
+                assessment.isPunycode ? L10n.current.urlSafetyHomoglyphRisk : L10n.current.no,
                 highlight: assessment.isPunycode,
               ),
               const Divider(height: 20),
               if (assessment.warnings.isNotEmpty) ...[
-                const Text(
-                  'Güvenlik / Dikkat Uyarıları:',
-                  style: TextStyle(
+                Text(
+                  L10n.current.urlSafetyWarningsHeader,
+                  style: const TextStyle(
                       fontWeight: FontWeight.bold,
                       color: Colors.deepOrange,
                       fontSize: 13),
@@ -1336,9 +1336,9 @@ class _HomeScreenState extends State<HomeScreen>
                   color: Colors.blueGrey.shade50,
                   borderRadius: BorderRadius.circular(6),
                 ),
-                child: const Text(
-                  'NOT: Bu analiz tamamen yerel/çevrimdışı kurallarla yapılmıştır. Ağ üzerinden zararlı yazılım veya antivirüs kontrolü iddiasında bulunmaz. URL otomatik olarak açılmaz.',
-                  style: TextStyle(fontSize: 11, color: Colors.blueGrey),
+                child: Text(
+                  L10n.current.urlSafetyDisclaimer,
+                  style: const TextStyle(fontSize: 11, color: Colors.blueGrey),
                 ),
               ),
             ],
@@ -1347,7 +1347,7 @@ class _HomeScreenState extends State<HomeScreen>
         actions: [
           TextButton(
             onPressed: () => Navigator.of(ctx).pop(),
-            child: const Text('Kapat'),
+            child: Text(L10n.current.close),
           ),
         ],
       ),
@@ -1396,7 +1396,7 @@ class _HomeScreenState extends State<HomeScreen>
     ScaffoldMessenger.of(context).showSnackBar(
       SnackBar(
         content: Text(
-            '"${template.name}" şablonundaki kayıtlar yazma bestesine aktarıldı.'),
+            L10n.current.templateLoaded(template.name)),
         backgroundColor: AppColors.accent,
       ),
     );
@@ -1405,8 +1405,8 @@ class _HomeScreenState extends State<HomeScreen>
   void _promptSaveAsTemplate() {
     if (_recordsToWrite.isEmpty) {
       ScaffoldMessenger.of(context).showSnackBar(
-        const SnackBar(
-          content: Text('Şablon olarak kaydetmek için önce kayıt ekleyiniz.'),
+        SnackBar(
+          content: Text(L10n.current.templateSaveEmptyError),
           backgroundColor: Colors.orange,
         ),
       );
@@ -1414,24 +1414,24 @@ class _HomeScreenState extends State<HomeScreen>
     }
 
     final nameController = TextEditingController(
-        text: 'Şablon ${_controller.storage.getTemplates().length + 1}');
+        text: L10n.current.templateDefaultName('${_controller.storage.getTemplates().length + 1}'));
     showDialog(
       context: context,
       builder: (ctx) => AlertDialog(
-        title: const Text('Şablon Olarak Kaydet'),
+        title: Text(L10n.current.saveAsTemplate),
         content: TextField(
           controller: nameController,
           autofocus: true,
-          decoration: const InputDecoration(
-            labelText: 'Şablon Adı',
-            hintText: 'Örn: Şirket Web Sitesi & İletişim',
-            border: OutlineInputBorder(),
+          decoration: InputDecoration(
+            labelText: L10n.current.templateNameHint,
+            hintText: L10n.current.templateNameSample,
+            border: const OutlineInputBorder(),
           ),
         ),
         actions: [
           TextButton(
             onPressed: () => Navigator.of(ctx).pop(),
-            child: const Text('Vazgeç'),
+            child: Text(L10n.current.dismiss),
           ),
           ElevatedButton(
             onPressed: () async {
@@ -1449,10 +1449,10 @@ class _HomeScreenState extends State<HomeScreen>
               Navigator.of(ctx).pop();
               setState(() {});
               ScaffoldMessenger.of(context).showSnackBar(
-                const SnackBar(content: Text('Şablon kaydedildi.')),
+                SnackBar(content: Text(L10n.current.templateSavedSnack)),
               );
             },
-            child: const Text('Kaydet'),
+            child: Text(L10n.current.save),
           ),
         ],
       ),
@@ -1466,9 +1466,9 @@ class _HomeScreenState extends State<HomeScreen>
   void _showAddOrEditTagRuleDialog(List<NdefRecordModel> records) {
     if (records.isEmpty) {
       ScaffoldMessenger.of(context).showSnackBar(
-        const SnackBar(
+        SnackBar(
           content: Text(
-              'Not eklemek için etikette en az bir NDEF kaydı bulunmalıdır.'),
+              L10n.current.ruleNoteRequiresNdef),
           backgroundColor: Colors.orange,
         ),
       );
@@ -1484,8 +1484,8 @@ class _HomeScreenState extends State<HomeScreen>
       context: context,
       builder: (ctx) => AlertDialog(
         title: Text(existingRule != null
-            ? 'Etiket Notunu Düzenle'
-            : 'Etikete Özel Not Ekle'),
+            ? L10n.current.ruleNoteDialogTitle
+            : L10n.current.ruleNoteAddTitle),
         content: SingleChildScrollView(
           child: Column(
             mainAxisSize: MainAxisSize.min,
@@ -1498,14 +1498,14 @@ class _HomeScreenState extends State<HomeScreen>
                   borderRadius: BorderRadius.circular(6),
                   border: Border.all(color: Colors.amber.shade200),
                 ),
-                child: const Text(
-                  'Bu not, etiketin NDEF içerik SHA-256 özetine bağlanır. Etiket tekrar tarandığında sadece bu açıklama gösterilir; harici eylem başlatmaz veya sistem ayarlarını değiştirmez.',
-                  style: TextStyle(fontSize: 11, color: Colors.brown),
+                child: Text(
+                  L10n.current.ruleNoteDigestExplanation,
+                  style: const TextStyle(fontSize: 11, color: Colors.brown),
                 ),
               ),
               const SizedBox(height: 10),
               Text(
-                'NDEF İçerik Özeti (SHA-256):\n$sha',
+                L10n.current.ndefSha256Summary(sha),
                 style: const TextStyle(
                     fontSize: 9,
                     fontFamily: 'monospace',
@@ -1516,10 +1516,10 @@ class _HomeScreenState extends State<HomeScreen>
                 controller: noteController,
                 autofocus: true,
                 maxLines: 3,
-                decoration: const InputDecoration(
-                  labelText: 'Uygulama İçi Not / Açıklama',
-                  hintText: 'Örn: Toplantı Odası Bilgisi veya Depo Rafı #12',
-                  border: OutlineInputBorder(),
+                decoration: InputDecoration(
+                  labelText: L10n.current.ruleNoteLabel,
+                  hintText: L10n.current.tagNoteInputHint,
+                  border: const OutlineInputBorder(),
                 ),
               ),
             ],
@@ -1528,7 +1528,7 @@ class _HomeScreenState extends State<HomeScreen>
         actions: [
           TextButton(
             onPressed: () => Navigator.of(ctx).pop(),
-            child: const Text('Vazgeç'),
+            child: Text(L10n.current.dismiss),
           ),
           ElevatedButton(
             onPressed: () async {
@@ -1539,15 +1539,15 @@ class _HomeScreenState extends State<HomeScreen>
                   setState(() {});
                   Navigator.of(ctx).pop();
                   ScaffoldMessenger.of(context).showSnackBar(
-                    const SnackBar(
-                      content: Text('Etiket notu kaydedildi.'),
+                    SnackBar(
+                      content: Text(L10n.current.ruleNoteSavedSnack),
                       backgroundColor: AppColors.accent,
                     ),
                   );
                 }
               }
             },
-            child: const Text('Kaydet'),
+            child: Text(L10n.current.save),
           ),
         ],
       ),
@@ -1558,13 +1558,13 @@ class _HomeScreenState extends State<HomeScreen>
     showDialog(
       context: context,
       builder: (ctx) => AlertDialog(
-        title: const Text('Etiket Notunu Sil'),
-        content: const Text(
-            'Bu etikete ait kayıtlı uygulama içi not silinecektir. Devam edilsin mi?'),
+        title: Text(L10n.current.tagNoteDeleteTitle),
+        content: Text(
+            L10n.current.ruleNoteDeleteConfirm),
         actions: [
           TextButton(
             onPressed: () => Navigator.of(ctx).pop(),
-            child: const Text('Vazgeç'),
+            child: Text(L10n.current.dismiss),
           ),
           ElevatedButton(
             style: ElevatedButton.styleFrom(backgroundColor: Colors.red),
@@ -1574,14 +1574,14 @@ class _HomeScreenState extends State<HomeScreen>
                 setState(() {});
                 Navigator.of(ctx).pop();
                 ScaffoldMessenger.of(context).showSnackBar(
-                  const SnackBar(
-                    content: Text('Etiket notu silindi.'),
+                  SnackBar(
+                    content: Text(L10n.current.ruleNoteDeletedSnack),
                     backgroundColor: AppColors.accent,
                   ),
                 );
               }
             },
-            child: const Text('Sil', style: TextStyle(color: Colors.white)),
+            child: Text(L10n.current.delete, style: const TextStyle(color: Colors.white)),
           ),
         ],
       ),
@@ -1614,11 +1614,11 @@ class _HomeScreenState extends State<HomeScreen>
       context: context,
       builder: (ctx) => StatefulBuilder(
         builder: (ctx, setDlgState) => AlertDialog(
-          title: const Row(
+          title: Row(
             children: [
-              Icon(Icons.file_download_outlined, color: AppColors.accent),
-              SizedBox(width: 8),
-              Text('Yedek Dışa Aktar'),
+              const Icon(Icons.file_download_outlined, color: AppColors.accent),
+              const SizedBox(width: 8),
+              Text(L10n.current.backupExportTitle),
             ],
           ),
           content: SingleChildScrollView(
@@ -1633,45 +1633,45 @@ class _HomeScreenState extends State<HomeScreen>
                     borderRadius: BorderRadius.circular(8),
                     border: Border.all(color: Colors.amber.shade400),
                   ),
-                  child: const Column(
+                  child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       Row(
                         children: [
-                          Icon(Icons.warning_amber_rounded,
+                          const Icon(Icons.warning_amber_rounded,
                               color: Colors.orange, size: 20),
-                          SizedBox(width: 6),
-                          Text('GİZLİLİK VE GÜVENLİK UYARISI',
-                              style: TextStyle(
+                          const SizedBox(width: 6),
+                          Text(L10n.current.backupExportWarningTitle,
+                              style: const TextStyle(
                                   fontWeight: FontWeight.bold,
                                   fontSize: 12,
                                   color: Colors.brown)),
                         ],
                       ),
-                      SizedBox(height: 4),
+                      const SizedBox(height: 4),
                       Text(
-                        'Dışa aktarılan yedek dosyası (JSON) düz metin biçimindedir. Kayıtlarınız içerisinde Wi-Fi parolaları, iletişim (vCard) veya e-posta gibi hassas veriler bulunabilir. Dosyayı güvenli bir konumda saklayınız ve üçüncü şahıslarla paylaşırken dikkatli olunuz.',
-                        style: TextStyle(fontSize: 11, color: Colors.black87),
+                        L10n.current.backupExportWarningBody,
+                        style: const TextStyle(fontSize: 11, color: Colors.black87),
                       ),
                     ],
                   ),
                 ),
                 const SizedBox(height: 12),
-                const Text('Dahil Edilecek Öğeler:',
+                Text(L10n.current.backupIncludedItems,
                     style:
-                        TextStyle(fontWeight: FontWeight.bold, fontSize: 13)),
-                Text('• Şablonlar: ${templates.length} adet'),
+                        const TextStyle(fontWeight: FontWeight.bold, fontSize: 13)),
+                Text(L10n.current.backupTemplatesCount('${templates.length}')),
                 Text(
-                    '• Uygulama İçi Etiket Notları/Kuralları: ${rules.length} adet'),
+                    L10n.current.backupRulesCount('${rules.length}')),
                 const SizedBox(height: 8),
                 CheckboxListTile(
                   contentPadding: EdgeInsets.zero,
                   dense: true,
-                  title: const Text('Tarama Geçmişini Dahil Et (İsteğe Bağlı)'),
+                  title: Text(L10n.current.backupIncludeHistoryOptional),
                   subtitle: Text(
                     isHistoryEnabled
-                        ? '${history.length} adet geçmiş kaydı'
-                        : 'Tarama geçmişi bu cihazda kapalıdır',
+                        ? L10n.current.backupHistoryCount('${history.length}')
+                        : L10n.current.backupHistoryDisabled,
                     style: const TextStyle(fontSize: 11),
                   ),
                   value: includeHistory,
@@ -1689,11 +1689,11 @@ class _HomeScreenState extends State<HomeScreen>
           actions: [
             TextButton(
               onPressed: () => Navigator.of(ctx).pop(),
-              child: const Text('Vazgeç'),
+              child: Text(L10n.current.dismiss),
             ),
             ElevatedButton.icon(
               icon: const Icon(Icons.share),
-              label: const Text('Dışa Aktar ve Paylaş'),
+              label: Text(L10n.current.backupExportAndShare),
               onPressed: () async {
                 Navigator.of(ctx).pop();
                 await _executeExportBackup(includeHistory: includeHistory);
@@ -1732,24 +1732,24 @@ class _HomeScreenState extends State<HomeScreen>
         ShareParams(
           files: [xfile],
           fileNameOverrides: [fileName],
-          subject: 'NFC Etiket Yöneticisi Yedek Dosyası',
-          text: 'NFC Etiket Yöneticisi şablon ve veri yedeği (JSON)',
+          subject: L10n.current.backupFileNameLabel,
+          text: L10n.current.backupFileShareSubject,
         ),
       );
 
       if (!mounted) return;
       if (result.status == ShareResultStatus.success) {
         ScaffoldMessenger.of(context).showSnackBar(
-          const SnackBar(
+          SnackBar(
             content:
-                Text('Yedek dosyası başarıyla dışa aktarıldı ve paylaşıldı.'),
+                Text(L10n.current.backupExportSuccessSnack),
             backgroundColor: AppColors.accent,
           ),
         );
       } else if (result.status == ShareResultStatus.dismissed) {
         ScaffoldMessenger.of(context).showSnackBar(
-          const SnackBar(
-            content: Text('Dışa aktarma paylaşımı iptal edildi.'),
+          SnackBar(
+            content: Text(L10n.current.backupExportCancelled),
             backgroundColor: Colors.blueGrey,
           ),
         );
@@ -1758,7 +1758,7 @@ class _HomeScreenState extends State<HomeScreen>
       if (!mounted) return;
       ScaffoldMessenger.of(context).showSnackBar(
         SnackBar(
-          content: Text('Dışa aktarma hatası: $e'),
+          content: Text(L10n.current.exportError('$e')),
           backgroundColor: Colors.red,
         ),
       );
@@ -1769,11 +1769,11 @@ class _HomeScreenState extends State<HomeScreen>
     showDialog(
       context: context,
       builder: (ctx) => AlertDialog(
-        title: const Row(
+        title: Row(
           children: [
-            Icon(Icons.file_upload_outlined, color: AppColors.accent),
-            SizedBox(width: 8),
-            Text('Yedek İçe Aktar'),
+            const Icon(Icons.file_upload_outlined, color: AppColors.accent),
+            const SizedBox(width: 8),
+            Text(L10n.current.backupImportTitle),
           ],
         ),
         content: SingleChildScrollView(
@@ -1788,35 +1788,35 @@ class _HomeScreenState extends State<HomeScreen>
                   borderRadius: BorderRadius.circular(8),
                   border: Border.all(color: Colors.amber.shade400),
                 ),
-                child: const Column(
+                child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Row(
                       children: [
-                        Icon(Icons.warning_amber_rounded,
+                        const Icon(Icons.warning_amber_rounded,
                             color: Colors.orange, size: 20),
-                        SizedBox(width: 6),
-                        Text('GÜVENLİK VE BİRLEŞTİRME KURALI',
-                            style: TextStyle(
+                        const SizedBox(width: 6),
+                        Text(L10n.current.backupMergeRuleTitle,
+                            style: const TextStyle(
                                 fontWeight: FontWeight.bold,
                                 fontSize: 12,
                                 color: Colors.brown)),
                       ],
                     ),
-                    SizedBox(height: 4),
+                    const SizedBox(height: 4),
                     Text(
-                      '• İçe aktarma BİRLEŞTİRME (merge) mantığıyla çalışır; mevcut kayıtlarınız ASLA silinmez.\n'
-                      '• Yedek dosyasında Wi-Fi parolaları veya kişisel veriler bulunabilir; yalnızca güvendiğiniz kaynaklardan gelen yedekleri yükleyiniz.\n'
-                      '• Dosya boyutu sınırı: 2 MiB. Veriler yüklenmeden önce katı şema ve Base64 doğrulamasına tabi tutulur.',
-                      style: TextStyle(fontSize: 11, color: Colors.black87),
+                      L10n.current.backupMergeRule1 +
+                      L10n.current.backupMergeRule2 +
+                      L10n.current.backupMergeRule3,
+                      style: const TextStyle(fontSize: 11, color: Colors.black87),
                     ),
                   ],
                 ),
               ),
               const SizedBox(height: 12),
-              const Text(
-                'Birleştirmek istediğiniz geçerli bir .json yedek dosyasını seçiniz.',
-                style: TextStyle(fontSize: 13),
+              Text(
+                L10n.current.backupSelectFilePrompt,
+                style: const TextStyle(fontSize: 13),
               ),
             ],
           ),
@@ -1824,11 +1824,11 @@ class _HomeScreenState extends State<HomeScreen>
         actions: [
           TextButton(
             onPressed: () => Navigator.of(ctx).pop(),
-            child: const Text('Vazgeç'),
+            child: Text(L10n.current.dismiss),
           ),
           ElevatedButton.icon(
             icon: const Icon(Icons.folder_open),
-            label: const Text('Dosya Seç'),
+            label: Text(L10n.current.selectFileButton),
             onPressed: () async {
               Navigator.of(ctx).pop();
               await _executeImportBackup();
@@ -1847,7 +1847,7 @@ class _HomeScreenState extends State<HomeScreen>
       if (!mounted) return;
       ScaffoldMessenger.of(context).showSnackBar(
         SnackBar(
-          content: Text('Dosya seçici açılamadı: $e'),
+          content: Text(L10n.current.filePickerError('$e')),
           backgroundColor: Colors.red,
         ),
       );
@@ -1857,8 +1857,8 @@ class _HomeScreenState extends State<HomeScreen>
     if (file == null) {
       if (!mounted) return;
       ScaffoldMessenger.of(context).showSnackBar(
-        const SnackBar(
-          content: Text('Dosya seçimi iptal edildi.'),
+        SnackBar(
+          content: Text(L10n.current.fileSelectionCancelled),
           backgroundColor: Colors.blueGrey,
         ),
       );
@@ -1869,8 +1869,8 @@ class _HomeScreenState extends State<HomeScreen>
     try {
       final bytes = await file.readAsBytes();
       if (bytes.length > BackupCodec.maxByteSize) {
-        throw const BackupValidationException(
-          'Seçilen dosya izin verilen 2 MiB sınırını aşıyor.',
+        throw BackupValidationException(
+          L10n.current.backupFileExceedsLimit,
         );
       }
       content = utf8.decode(bytes);
@@ -1878,7 +1878,7 @@ class _HomeScreenState extends State<HomeScreen>
       if (!mounted) return;
       ScaffoldMessenger.of(context).showSnackBar(
         SnackBar(
-          content: Text('Dosya okuma hatası: $e'),
+          content: Text(L10n.current.fileReadError('$e')),
           backgroundColor: Colors.red,
         ),
       );
@@ -1892,7 +1892,7 @@ class _HomeScreenState extends State<HomeScreen>
       if (!mounted) return;
       ScaffoldMessenger.of(context).showSnackBar(
         SnackBar(
-          content: Text('Yedek doğrulama hatası: $e'),
+          content: Text(L10n.current.backupValidationError('$e')),
           backgroundColor: Colors.red,
           duration: const Duration(seconds: 5),
         ),
@@ -1910,20 +1910,19 @@ class _HomeScreenState extends State<HomeScreen>
         context: context,
         barrierDismissible: false,
         builder: (ctx) => AlertDialog(
-          title: const Text('Tarama Geçmişi Algılandı'),
+          title: Text(L10n.current.backupHistoryDetectedTitle),
           content: Text(
-            'Yedek dosyasında ${payload.history!.length} adet tarama geçmişi kaydı bulunuyor, ancak bu cihazda tarama geçmişi özelliği kapalıdır.\n\n'
-            'Geçmişi de içe aktarıp tarama geçmişini etkinleştirmek istiyor musunuz? Yoksa geçmiş kayıtları atlanıp yalnızca şablonlar ve etiket notları mı içe aktarılsın?',
+            L10n.current.backupHistoryDetected('${payload.history!.length}', L10n.current.backupHistoryDetectedPrompt),
           ),
           actions: [
             TextButton(
               onPressed: () => Navigator.of(ctx).pop(false),
               child:
-                  const Text('Geçmişi Atla (Yalnızca Şablon ve Notları Yükle)'),
+                  Text(L10n.current.backupSkipHistoryOption),
             ),
             ElevatedButton(
               onPressed: () => Navigator.of(ctx).pop(true),
-              child: const Text('Geçmişi Etkinleştir ve Yükle'),
+              child: Text(L10n.current.backupEnableHistoryOption),
             ),
           ],
         ),
@@ -1943,7 +1942,7 @@ class _HomeScreenState extends State<HomeScreen>
       setState(() {});
       ScaffoldMessenger.of(context).showSnackBar(
         SnackBar(
-          content: Text('İçe Aktarma Başarılı:\n${result.toSummaryMessage()}'),
+          content: Text(L10n.current.importSucceeded(result.toSummaryMessage())),
           backgroundColor: AppColors.accent,
           duration: const Duration(seconds: 5),
         ),
@@ -1952,7 +1951,7 @@ class _HomeScreenState extends State<HomeScreen>
       if (!mounted) return;
       ScaffoldMessenger.of(context).showSnackBar(
         SnackBar(
-          content: Text('Birleştirme hatası: $e'),
+          content: Text(L10n.current.mergeError('$e')),
           backgroundColor: Colors.red,
         ),
       );
@@ -2206,13 +2205,13 @@ class _HomeScreenState extends State<HomeScreen>
     switch (_controller.availability) {
       case NfcAvailability.available:
         color = AppColors.success;
-        label = 'NFC Hazır';
-        tooltip = 'NFC donanımı aktif ve kullanıma hazır';
+        label = L10n.current.nfcReadyStatus;
+        tooltip = L10n.current.nfcReadyDesc;
         break;
       case NfcAvailability.disabled:
         color = AppColors.warning;
-        label = 'NFC Kapalı';
-        tooltip = 'NFC kapalı. Lütfen cihaz ayarlarından açın.';
+        label = L10n.current.nfcDisabledStatus;
+        tooltip = L10n.current.nfcDisabledDesc;
         break;
       case NfcAvailability.notSupported:
         color = AppColors.danger;
@@ -2267,7 +2266,7 @@ class _HomeScreenState extends State<HomeScreen>
           const SizedBox(width: 8),
           Expanded(
             child: Text(
-              'NDEF Panosu: ${clip.recordCount} kayıt (${clip.byteSize} B) - ${clip.sourceDescription}',
+              L10n.current.clipboardBannerText('${clip.recordCount}', '${clip.byteSize}', clip.sourceDescription),
               style: const TextStyle(
                   color: AppColors.ink,
                   fontSize: 12,
@@ -2282,9 +2281,9 @@ class _HomeScreenState extends State<HomeScreen>
               tapTargetSize: MaterialTapTargetSize.shrinkWrap,
             ),
             onPressed: _pasteFromClipboard,
-            child: const Text('Yapıştır',
+            child: Text(L10n.current.paste,
                 style:
-                    TextStyle(color: AppColors.accent, fontWeight: FontWeight.bold)),
+                    const TextStyle(color: AppColors.accent, fontWeight: FontWeight.bold)),
           ),
           IconButton(
             padding: EdgeInsets.zero,
@@ -2350,7 +2349,7 @@ class _HomeScreenState extends State<HomeScreen>
             children: [
               Expanded(
                 child: StatTile(
-                  label: 'Geçmiş',
+                  label: L10n.current.navHistory,
                   value: '${_controller.storage.getHistory().length}',
                   icon: Icons.history_rounded,
                 ),
@@ -2358,7 +2357,7 @@ class _HomeScreenState extends State<HomeScreen>
               const SizedBox(width: 10),
               Expanded(
                 child: StatTile(
-                  label: 'Şablon',
+                  label: L10n.current.template,
                   value: '${_controller.storage.getTemplates().length}',
                   icon: Icons.bookmark_border_rounded,
                 ),
@@ -2375,12 +2374,12 @@ class _HomeScreenState extends State<HomeScreen>
           ),
           const SizedBox(height: 16),
           HeroActionCard(
-            eyebrow: 'NFC Tarayıcı',
+            eyebrow: L10n.current.nfcScannerTitle,
             title: 'Etiketi Tara',
             subtitle: tag == null
-                ? 'Etiketi telefonun üst kısmına yaklaştırın; içerik, kapasite ve seri numarası anında görünür.'
-                : 'Son etiket: ${tag.identifier}',
-            buttonLabel: _controller.isBusy ? 'Okunuyor...' : 'Taramayı Başlat',
+                ? L10n.current.heroScanSubtitle
+                : L10n.current.lastTagLabel(tag.identifier),
+            buttonLabel: _controller.isBusy ? 'Okunuyor...' : L10n.current.readHeroButton,
             icon: Icons.sensors_rounded,
             busy: _controller.isBusy,
             onPressed: _controller.isBusy ? null : () => _controller.scanTag(),
@@ -2393,10 +2392,10 @@ class _HomeScreenState extends State<HomeScreen>
               child: Row(
                 crossAxisAlignment: CrossAxisAlignment.stretch,
                 children: [
-                _buildQuickAction(Icons.edit_note_rounded, 'Etikete Yaz', 'Kayıt oluştur', 1),
-                _buildQuickAction(Icons.layers_outlined, 'Belleği Oku', 'Ham bellek', 2),
-                _buildQuickAction(Icons.key_outlined, 'Şifre', 'Koru / kaldır', 2),
-                  _buildQuickAction(Icons.history_rounded, 'Geçmiş', 'Önceki taramalar', 3),
+                _buildQuickAction(Icons.edit_note_rounded, L10n.current.writeHeroTitle, L10n.current.composeRecord, 1),
+                _buildQuickAction(Icons.layers_outlined, L10n.current.readMemoryTitle, 'Ham bellek', 2),
+                _buildQuickAction(Icons.key_outlined, L10n.current.passwordLabel, L10n.current.protectOrRemove, 2),
+                  _buildQuickAction(Icons.history_rounded, L10n.current.navHistory, L10n.current.previousScans, 3),
                 ],
               ),
             ),
@@ -2407,29 +2406,29 @@ class _HomeScreenState extends State<HomeScreen>
               color: Colors.red.shade50,
               child: Padding(
                 padding: const EdgeInsets.all(16),
-                child: Text('Tarama hatası: ${tag!.error}'),
+                child: Text(L10n.current.scanErrorWithMessage(tag!.error ?? '')),
               ),
             )
           else if (tag == null)
             Card(
               elevation: 0,
               color: Colors.white.withValues(alpha: 0.6),
-              child: const Padding(
-                padding: EdgeInsets.symmetric(vertical: 32, horizontal: 20),
+              child: Padding(
+                padding: const EdgeInsets.symmetric(vertical: 32, horizontal: 20),
                 child: Column(
                   children: [
-                    Icon(Icons.contactless_outlined, size: 48, color: AppColors.secondary),
-                    SizedBox(height: 12),
+                    const Icon(Icons.contactless_outlined, size: 48, color: AppColors.secondary),
+                    const SizedBox(height: 12),
                     Text(
-                      'Henüz taranmış bir NFC etiketi yok',
+                      L10n.current.noScannedTagYet,
                       style:
-                          TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
+                          const TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
                     ),
-                    SizedBox(height: 6),
+                    const SizedBox(height: 6),
                     Text(
-                      '"Taramayı Başlat" butonuna dokunun ve etiketi telefona yaklaştırın.',
+                      L10n.current.tapScanPrompt,
                       textAlign: TextAlign.center,
-                      style: TextStyle(color: Colors.black54),
+                      style: const TextStyle(color: Colors.black54),
                     ),
                   ],
                 ),
@@ -2458,14 +2457,14 @@ class _HomeScreenState extends State<HomeScreen>
                             child: Column(
                               crossAxisAlignment: CrossAxisAlignment.start,
                               children: [
-                                const Text(
-                                  'NDEF İçerik Kopyalama ve Yeniden Yazım',
-                                  style: TextStyle(
+                                Text(
+                                  L10n.current.ndefCopyAndRewriteTitle,
+                                  style: const TextStyle(
                                       fontWeight: FontWeight.bold,
                                       color: AppColors.accent),
                                 ),
                                 Text(
-                                  '${tag.records.length} kayıt (${tag.currentBytesUsed} Bayt) - Yalnızca NDEF verisi işlenir, UID kopyalanmaz.',
+                                  L10n.current.copyContentSummary('${tag.records.length}', '${tag.currentBytesUsed}'),
                                   style: const TextStyle(
                                       fontSize: 12, color: Colors.black87),
                                 ),
@@ -2487,7 +2486,7 @@ class _HomeScreenState extends State<HomeScreen>
                               label: const Text('Panoya Kopyala',
                                   style: TextStyle(fontSize: 12)),
                               onPressed: () => _copyToClipboard(tag.records,
-                                  source: 'Etiket ${tag.identifier}'),
+                                  source: L10n.current.tagSourceLabel(tag.identifier)),
                             ),
                           ),
                           const SizedBox(width: 8),
@@ -2498,8 +2497,8 @@ class _HomeScreenState extends State<HomeScreen>
                                 foregroundColor: Colors.white,
                               ),
                               icon: const Icon(Icons.replay, size: 16),
-                              label: const Text('Yeniden Yaz',
-                                  style: TextStyle(fontSize: 12)),
+                              label: Text(L10n.current.rewriteTag,
+                                  style: const TextStyle(fontSize: 12)),
                               onPressed: () => _startRewriteFlow(
                                   tag.records, tag.identifier),
                             ),
@@ -2544,8 +2543,8 @@ class _HomeScreenState extends State<HomeScreen>
                           Expanded(
                             child: Text(
                               _controller.matchingRuleForLastScan != null
-                                  ? 'Kayıtlı Etiket Notu (Uygulama İçi Kural)'
-                                  : 'Etiket Notu / Kuralı',
+                                  ? L10n.current.savedTagNoteHeader
+                                  : L10n.current.tagNoteOrRule,
                               style: TextStyle(
                                 fontWeight: FontWeight.bold,
                                 color:
@@ -2559,7 +2558,7 @@ class _HomeScreenState extends State<HomeScreen>
                             IconButton(
                               icon: const Icon(Icons.edit,
                                   size: 18, color: AppColors.accent),
-                              tooltip: 'Notu Düzenle',
+                              tooltip: L10n.current.editNote,
                               onPressed: () =>
                                   _showAddOrEditTagRuleDialog(tag.records),
                             ),
@@ -2567,7 +2566,7 @@ class _HomeScreenState extends State<HomeScreen>
                             IconButton(
                               icon: const Icon(Icons.delete_outline,
                                   size: 18, color: Colors.red),
-                              tooltip: 'Notu Sil',
+                              tooltip: L10n.current.deleteNote,
                               onPressed: () =>
                                   _confirmDeleteTagRule(tag.records),
                             ),
@@ -2592,22 +2591,22 @@ class _HomeScreenState extends State<HomeScreen>
                           ),
                         ),
                         const SizedBox(height: 4),
-                        const Text(
-                          'Bu not tam NDEF baytlarının SHA-256 özetiyle eşleştirilmiştir. Harici işlem başlatmaz.',
-                          style: TextStyle(fontSize: 10, color: Colors.black54),
+                        Text(
+                          L10n.current.tagNoteDigestNotice,
+                          style: const TextStyle(fontSize: 10, color: Colors.black54),
                         ),
                       ] else ...[
                         const SizedBox(height: 4),
-                        const Text(
-                          'Bu NDEF içeriğine özel yerel bir not veya açıklama ekleyebilirsiniz.',
-                          style: TextStyle(fontSize: 12, color: Colors.black54),
+                        Text(
+                          L10n.current.addCustomTagNotePrompt,
+                          style: const TextStyle(fontSize: 12, color: Colors.black54),
                         ),
                         const SizedBox(height: 8),
                         OutlinedButton.icon(
                           icon:
                               const Icon(Icons.add_comment_outlined, size: 16),
-                          label: const Text('Bu Etikete Not Ekle',
-                              style: TextStyle(fontSize: 12)),
+                          label: Text(L10n.current.addNoteToThisTag,
+                              style: const TextStyle(fontSize: 12)),
                           onPressed: () =>
                               _showAddOrEditTagRuleDialog(tag.records),
                         ),
@@ -2639,7 +2638,7 @@ class _HomeScreenState extends State<HomeScreen>
                 const Icon(Icons.tag, color: AppColors.accent),
                 const SizedBox(width: 8),
                 Text(
-                  'Etiket Bilgileri',
+                  L10n.current.tagInfoTitle,
                   style: Theme.of(context)
                       .textTheme
                       .titleMedium
@@ -2658,7 +2657,7 @@ class _HomeScreenState extends State<HomeScreen>
                         color: tag.isWritable ? Colors.green : Colors.red),
                   ),
                   child: Text(
-                    tag.isWritable ? 'Yazılabilir' : 'Salt Okunur (Kilitli)',
+                    tag.isWritable ? L10n.current.tagWritable : 'Salt Okunur (Kilitli)',
                     style: TextStyle(
                       color: tag.isWritable
                           ? Colors.green.shade800
@@ -2672,11 +2671,11 @@ class _HomeScreenState extends State<HomeScreen>
             ),
             const Divider(height: 20),
             _buildMetaRow('Seri No (UID):', tag.identifier),
-            _buildMetaRow('NDEF Desteği:',
+            _buildMetaRow(L10n.current.ndefSupport,
                 tag.isNdefSupported ? 'Destekleniyor' : 'Desteklenmiyor'),
             _buildMetaRow('Toplam Kapasite:', '${tag.maxByteCapacity} Bayt'),
-            _buildMetaRow('Kullanılan Alan:', '${tag.currentBytesUsed} Bayt'),
-            _buildMetaRow('Boş Alan:', '${tag.availableBytes} Bayt'),
+            _buildMetaRow(L10n.current.usedSpace, '${tag.currentBytesUsed} Bayt'),
+            _buildMetaRow(L10n.current.freeSpace, '${tag.availableBytes} Bayt'),
             if (tag.maxByteCapacity > 0) ...[
               const SizedBox(height: 6),
               ClipRRect(
@@ -2698,7 +2697,7 @@ class _HomeScreenState extends State<HomeScreen>
             if (tag.error != null) ...[
               const SizedBox(height: 8),
               Text(
-                'Hata: ${tag.error}',
+                L10n.current.errorWithMessage(tag.error ?? ''),
                 style: const TextStyle(
                     color: Colors.red, fontWeight: FontWeight.bold),
               ),
@@ -2731,10 +2730,10 @@ class _HomeScreenState extends State<HomeScreen>
   Widget _buildRecordsList(List<NdefRecordModel> records,
       {required bool isReadTab, int maxCapacity = 0}) {
     if (records.isEmpty) {
-      return const Card(
+      return Card(
         child: Padding(
-          padding: EdgeInsets.all(16.0),
-          child: Text('Etikette kayıtlı NDEF mesajı bulunamadı.'),
+          padding: const EdgeInsets.all(16.0),
+          child: Text(L10n.current.noNdefMessageOnTag),
         ),
       );
     }
@@ -2749,8 +2748,8 @@ class _HomeScreenState extends State<HomeScreen>
           children: [
             Text(
               isReadTab
-                  ? 'Okunan NDEF Kayıtları (${records.length})'
-                  : 'Bestelenen NDEF Kayıtları (${records.length})',
+                  ? L10n.current.readRecordsHeader('${records.length}')
+                  : L10n.current.composedRecordsHeader('${records.length}'),
               style: const TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
             ),
             Text(
@@ -2844,14 +2843,14 @@ class _HomeScreenState extends State<HomeScreen>
                         IconButton(
                           icon: const Icon(Icons.shield_outlined,
                               color: AppColors.accent),
-                          tooltip: 'Çevrimdışı URL İncelemesi',
+                          tooltip: L10n.current.urlSafetyOfflineAnalysisTitle,
                           onPressed: () => _showUrlSafetyDialog(urlCandidate!),
                         ),
                       if (QrPreviewDialog.isQrSupported(parsed.type))
                         IconButton(
                           icon:
                               const Icon(Icons.qr_code_2, color: AppColors.accent),
-                          tooltip: 'QR Kod Önizleme',
+                          tooltip: L10n.current.qrPreviewTooltip,
                           onPressed: () {
                             final qrContent =
                                 parsed.type == ParsedRecordType.url
@@ -2873,8 +2872,8 @@ class _HomeScreenState extends State<HomeScreen>
                         icon: Icon(
                             isExpanded ? Icons.expand_less : Icons.expand_more),
                         tooltip: isExpanded
-                            ? 'Ayrıntıları Gizle'
-                            : 'Kayıt Denetçisi (Gelişmiş)',
+                            ? L10n.current.hideDetails
+                            : L10n.current.advancedRecordInspector,
                         onPressed: () {
                           setState(() {
                             if (isReadTab) {
@@ -2909,9 +2908,9 @@ class _HomeScreenState extends State<HomeScreen>
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
-                        const Text(
-                          'Gelişmiş Kayıt Denetçisi (NDEF Record Inspector)',
-                          style: TextStyle(
+                        Text(
+                          L10n.current.ndefRecordInspectorTitle,
+                          style: const TextStyle(
                               fontWeight: FontWeight.bold,
                               fontSize: 13,
                               color: AppColors.accent),
@@ -2919,15 +2918,15 @@ class _HomeScreenState extends State<HomeScreen>
                         const Divider(height: 12),
                         _buildInspectorRow(
                             'TNF (Type Name Format):', inspection.tnfName),
-                        _buildInspectorRow('Tür (Type):',
+                        _buildInspectorRow(L10n.current.inspectorType,
                             '${inspection.typeText} [Hex: ${inspection.typeHex}]'),
                         _buildInspectorRow('Kimlik (ID):',
                             '${inspection.idText} [Hex: ${inspection.idHex}]'),
-                        _buildInspectorRow('Yük Uzunluğu (Payload):',
+                        _buildInspectorRow(L10n.current.inspectorPayloadLength,
                             '${inspection.payloadLength} Bayt'),
                         const SizedBox(height: 6),
-                        const Text('Ham Hex Önizleme (Sınırlandırılmış):',
-                            style: TextStyle(
+                        Text(L10n.current.inspectorRawHexPreview,
+                            style: const TextStyle(
                                 fontSize: 11,
                                 fontWeight: FontWeight.bold,
                                 color: Colors.black54)),
@@ -2944,7 +2943,7 @@ class _HomeScreenState extends State<HomeScreen>
                         ),
                         if (inspection.isPayloadTruncated)
                           Text(
-                            'Not: Yük ${inspection.payloadLength} bayt olduğu için ilk 64 baytı gösterilmektedir.',
+                            L10n.current.payloadTruncatedNote('${inspection.payloadLength}'),
                             style: const TextStyle(
                                 fontSize: 10, color: Colors.grey),
                           ),
@@ -2999,10 +2998,10 @@ class _HomeScreenState extends State<HomeScreen>
                   alignment: WrapAlignment.spaceBetween,
                   crossAxisAlignment: WrapCrossAlignment.center,
                   children: [
-                    const Text(
-                      'Yazılacak NDEF Kayıtları',
+                    Text(
+                      L10n.current.ndefRecordsToWriteTitle,
                       style:
-                          TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
+                          const TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
                     ),
                     Wrap(
                       spacing: 4,
@@ -3021,11 +3020,11 @@ class _HomeScreenState extends State<HomeScreen>
                         ),
                         IconButton(
                           icon: const Icon(Icons.paste, color: AppColors.accent),
-                          tooltip: 'Panodan Yapıştır (Değiştir / Ekle)',
+                          tooltip: L10n.current.pasteFromClipboardAction,
                           onPressed: _pasteFromClipboard,
                         ),
                         PopupMenuButton<String>(
-                          tooltip: 'İçe Aktar',
+                          tooltip: L10n.current.importAction,
                           icon: const Icon(Icons.download_rounded, color: AppColors.accent),
                           shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(16)),
                           onSelected: (value) {
@@ -3041,26 +3040,26 @@ class _HomeScreenState extends State<HomeScreen>
                                 break;
                             }
                           },
-                          itemBuilder: (_) => const [
+                          itemBuilder: (_) => [
                             PopupMenuItem(
                               value: 'tag',
                               child: ListTile(
-                                leading: Icon(Icons.nfc_rounded),
-                                title: Text('NFC etiketten içe aktar'),
+                                leading: const Icon(Icons.nfc_rounded),
+                                title: Text(L10n.current.importFromTagAction),
                               ),
                             ),
                             PopupMenuItem(
                               value: 'qr',
                               child: ListTile(
-                                leading: Icon(Icons.qr_code_scanner_rounded),
-                                title: Text('QR koddan içe aktar'),
+                                leading: const Icon(Icons.qr_code_scanner_rounded),
+                                title: Text(L10n.current.importFromQrAction),
                               ),
                             ),
                             PopupMenuItem(
                               value: 'csv',
                               child: ListTile(
-                                leading: Icon(Icons.table_chart_outlined),
-                                title: Text('CSV dosyasından içe aktar'),
+                                leading: const Icon(Icons.table_chart_outlined),
+                                title: Text(L10n.current.importFromCsvAction),
                               ),
                             ),
                           ],
@@ -3069,7 +3068,7 @@ class _HomeScreenState extends State<HomeScreen>
                           IconButton(
                             icon: const Icon(Icons.bookmark_add,
                                 color: AppColors.accent),
-                            tooltip: 'Şablon Olarak Kaydet',
+                            tooltip: L10n.current.saveAsTemplate,
                             onPressed: _promptSaveAsTemplate,
                           ),
                         if (_recordsToWrite.isNotEmpty)
@@ -3087,14 +3086,14 @@ class _HomeScreenState extends State<HomeScreen>
                         TextButton.icon(
                           onPressed: _openComposeSheet,
                           icon: const Icon(Icons.add),
-                          label: const Text('Kayıt Ekle'),
+                          label: Text(L10n.current.addRecord),
                         ),
                       ],
                     ),
                   ],
                 ),
                 Text(
-                  'Toplam Boyut: $_stagedBytesTotal Bayt | Kayıt Sayısı: ${_recordsToWrite.length}',
+                  L10n.current.composerTotals('$_stagedBytesTotal', '${_recordsToWrite.length}'),
                   style: const TextStyle(color: Colors.black54, fontSize: 13),
                 ),
                 const Divider(),
@@ -3104,16 +3103,16 @@ class _HomeScreenState extends State<HomeScreen>
                     child: Center(
                       child: Column(
                         children: [
-                          const Text(
-                            'Etikete metin, web adresi, Wi-Fi, telefon, e-posta, kişi kartı ve daha fazlasını yazabilirsiniz.',
+                          Text(
+                            L10n.current.composerEmptyDescription,
                             textAlign: TextAlign.center,
-                            style: TextStyle(color: Colors.grey),
+                            style: const TextStyle(color: Colors.grey),
                           ),
                           const SizedBox(height: 16),
                           FilledButton.icon(
                             onPressed: _openComposeSheet,
                             icon: const Icon(Icons.add),
-                            label: const Text('Kayıt Ekle'),
+                            label: Text(L10n.current.addRecord),
                           ),
                         ],
                       ),
@@ -3193,7 +3192,7 @@ class _HomeScreenState extends State<HomeScreen>
                                 IconButton(
                                   icon: const Icon(Icons.edit_outlined,
                                       size: 18, color: AppColors.accent),
-                                  tooltip: 'Kaydı Düzenle',
+                                  tooltip: L10n.current.editRecordTitle,
                                   onPressed: () => _editComposerRecord(index),
                                 ),
                                 if (urlCandidate != null &&
@@ -3201,7 +3200,7 @@ class _HomeScreenState extends State<HomeScreen>
                                   IconButton(
                                     icon: const Icon(Icons.shield_outlined,
                                         size: 18, color: AppColors.accent),
-                                    tooltip: 'URL İncelemesi',
+                                    tooltip: L10n.current.urlSafetyReview,
                                     onPressed: () =>
                                         _showUrlSafetyDialog(urlCandidate!),
                                   ),
@@ -3209,7 +3208,7 @@ class _HomeScreenState extends State<HomeScreen>
                                   IconButton(
                                     icon: const Icon(Icons.qr_code_2,
                                         size: 18, color: AppColors.accent),
-                                    tooltip: 'QR Kod Önizleme',
+                                    tooltip: L10n.current.qrPreviewTooltip,
                                     onPressed: () {
                                       final qrContent = parsed.type ==
                                               ParsedRecordType.url
@@ -3230,7 +3229,7 @@ class _HomeScreenState extends State<HomeScreen>
                                           ? Icons.expand_less
                                           : Icons.expand_more,
                                       size: 18),
-                                  tooltip: 'Denetçi',
+                                  tooltip: L10n.current.inspector,
                                   onPressed: () {
                                     setState(() {
                                       if (isExpanded) {
@@ -3244,7 +3243,7 @@ class _HomeScreenState extends State<HomeScreen>
                                 IconButton(
                                   icon: const Icon(Icons.delete_outline,
                                       color: Colors.red, size: 18),
-                                  tooltip: 'Sil',
+                                  tooltip: L10n.current.delete,
                                   onPressed: () {
                                     setState(() {
                                       _composerHistory.push(_recordsToWrite);
@@ -3272,8 +3271,8 @@ class _HomeScreenState extends State<HomeScreen>
                                   _buildInspectorRow(
                                       'TNF:', inspection.tnfName),
                                   _buildInspectorRow(
-                                      'Tür:', inspection.typeText),
-                                  _buildInspectorRow('Yük:',
+                                      L10n.current.typeLabel, inspection.typeText),
+                                  _buildInspectorRow(L10n.current.payloadLabel,
                                       '${inspection.payloadLength} Bayt'),
                                   const SizedBox(height: 4),
                                   SelectableText(
@@ -3299,8 +3298,8 @@ class _HomeScreenState extends State<HomeScreen>
               : () => _confirmAndWriteSingleTag(),
           icon: const Icon(Icons.save),
           label: Text(_recordsToWrite.isEmpty
-              ? 'Etikete Yaz ve Doğrula'
-              : 'Etikete Yaz ve Doğrula ($_stagedBytesTotal Bayt)'),
+              ? L10n.current.writeAndVerify
+              : L10n.current.writeAndVerifyWithSize('$_stagedBytesTotal')),
           style: ElevatedButton.styleFrom(
             padding: const EdgeInsets.symmetric(vertical: 16),
             backgroundColor: AppColors.accent,
@@ -3315,7 +3314,7 @@ class _HomeScreenState extends State<HomeScreen>
               ? null
               : _openBatchWriteModal,
           icon: const Icon(Icons.dynamic_feed),
-          label: const Text('Toplu Etiket Yazımı (2..100 Etiket)'),
+          label: Text(L10n.current.batchWriteButtonLabel),
           style: ElevatedButton.styleFrom(
             padding: const EdgeInsets.symmetric(vertical: 14),
             backgroundColor: AppColors.accent,
@@ -3328,8 +3327,8 @@ class _HomeScreenState extends State<HomeScreen>
         OutlinedButton.icon(
           onPressed: _controller.isBusy ? null : () => _confirmClearTag(),
           icon: const Icon(Icons.delete_sweep, color: Colors.red),
-          label: const Text('Etiketi Sıfırla (İçeriği Temizle)',
-              style: TextStyle(color: Colors.red)),
+          label: Text(L10n.current.clearTagButtonLabel,
+              style: const TextStyle(color: Colors.red)),
           style: OutlinedButton.styleFrom(
             padding: const EdgeInsets.symmetric(vertical: 14),
             side: const BorderSide(color: Colors.red),
@@ -3347,29 +3346,29 @@ class _HomeScreenState extends State<HomeScreen>
     showDialog(
       context: context,
       builder: (ctx) => AlertDialog(
-        title: const Text('Etikete Yazmayı Onayla'),
+        title: Text(L10n.current.confirmWriteTitle),
         content: Column(
           mainAxisSize: MainAxisSize.min,
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            const Text(
-              'Bu işlem hedef etiketin mevcut NDEF içeriğini tamamen DEĞİŞTİRİR (üzerine yazar).',
-              style: TextStyle(fontWeight: FontWeight.bold),
+            Text(
+              L10n.current.confirmWriteMessage1,
+              style: const TextStyle(fontWeight: FontWeight.bold),
             ),
             const SizedBox(height: 8),
-            Text('Yazılacak Kayıt Sayısı: ${_recordsToWrite.length}'),
+            Text(L10n.current.recordsToWriteCount('${_recordsToWrite.length}')),
             Text('Toplam Boyut: $_stagedBytesTotal Bayt'),
             const SizedBox(height: 8),
-            const Text(
-              'Hedef etiketin yazılabilir (kilitsiz) olduğundan emin olun. Yazdıktan sonra etiket içeriği otomatik olarak doğrulanacaktır.',
-              style: TextStyle(fontSize: 12, color: Colors.black54),
+            Text(
+              L10n.current.confirmWriteMessage2,
+              style: const TextStyle(fontSize: 12, color: Colors.black54),
             ),
           ],
         ),
         actions: [
           TextButton(
             onPressed: () => Navigator.of(ctx).pop(),
-            child: const Text('Vazgeç'),
+            child: Text(L10n.current.dismiss),
           ),
           ElevatedButton(
             style: ElevatedButton.styleFrom(backgroundColor: AppColors.accent),
@@ -3378,7 +3377,7 @@ class _HomeScreenState extends State<HomeScreen>
               _controller.writeRecords(_recordsToWrite);
             },
             child:
-                const Text('Evet, Yaz', style: TextStyle(color: Colors.white)),
+                Text(L10n.current.yesWrite, style: const TextStyle(color: Colors.white)),
           ),
         ],
       ),
@@ -3402,15 +3401,15 @@ class _HomeScreenState extends State<HomeScreen>
               const Icon(Icons.history_toggle_off,
                   size: 64, color: Colors.grey),
               const SizedBox(height: 16),
-              const Text(
-                'Tarama Geçmişi Kapalı',
-                style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+              Text(
+                L10n.current.scanHistoryDisabledTitle,
+                style: const TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
               ),
               const SizedBox(height: 8),
-              const Text(
-                'Gizlilik nedeniyle tarama geçmişi varsayılan olarak kaydedilmez. Geçmişi tutmak için ayarlar sekmesinden etkinleştirebilirsiniz.',
+              Text(
+                L10n.current.scanHistoryDisabledDesc,
                 textAlign: TextAlign.center,
-                style: TextStyle(color: Colors.black54),
+                style: const TextStyle(color: Colors.black54),
               ),
               const SizedBox(height: 20),
               ElevatedButton.icon(
@@ -3419,7 +3418,7 @@ class _HomeScreenState extends State<HomeScreen>
                   setState(() {});
                 },
                 icon: const Icon(Icons.check),
-                label: const Text('Geçmişi Etkinleştir'),
+                label: Text(L10n.current.enableHistory),
               ),
             ],
           ),
@@ -3454,7 +3453,7 @@ class _HomeScreenState extends State<HomeScreen>
             controller: _historySearchController,
             decoration: InputDecoration(
               hintText:
-                  'UID, metin veya tür ile ara (Örn: URL, Wi-Fi, 04A1...)',
+                  L10n.current.historySearchHint,
               prefixIcon: const Icon(Icons.search, size: 20),
               suffixIcon: _historySearchQuery.isNotEmpty
                   ? IconButton(
@@ -3489,7 +3488,7 @@ class _HomeScreenState extends State<HomeScreen>
             children: [
               Text(
                 query.isEmpty
-                    ? 'Kayıtlı Taramalar: ${allHistory.length}'
+                    ? L10n.current.savedScansCount('${allHistory.length}')
                     : 'Bulunan: ${filteredHistory.length} / ${allHistory.length}',
                 style: const TextStyle(fontWeight: FontWeight.bold),
               ),
@@ -3498,18 +3497,18 @@ class _HomeScreenState extends State<HomeScreen>
                   onPressed: _confirmClearHistory,
                   icon: const Icon(Icons.delete_outline,
                       size: 18, color: Colors.red),
-                  label: const Text('Tümünü Temizle',
-                      style: TextStyle(color: Colors.red)),
+                  label: Text(L10n.current.clearAllButton,
+                      style: const TextStyle(color: Colors.red)),
                 ),
             ],
           ),
         ),
         Expanded(
           child: allHistory.isEmpty
-              ? const Center(
+              ? Center(
                   child: Text(
-                    'Henüz kayıtlı tarama geçmişi bulunmuyor.',
-                    style: TextStyle(color: Colors.grey),
+                    L10n.current.noHistoryYet,
+                    style: const TextStyle(color: Colors.grey),
                   ),
                 )
               : filteredHistory.isEmpty
@@ -3521,14 +3520,14 @@ class _HomeScreenState extends State<HomeScreen>
                               size: 48, color: Colors.grey),
                           const SizedBox(height: 12),
                           Text(
-                            '"$_historySearchQuery" için sonuç bulunamadı.',
+                            L10n.current.historyNoResults(_historySearchQuery),
                             style: const TextStyle(
                                 fontWeight: FontWeight.bold, fontSize: 14),
                           ),
                           const SizedBox(height: 4),
-                          const Text(
-                            'Farklı bir UID, metin içeriği veya kayıt türü deneyiniz.',
-                            style: TextStyle(color: Colors.grey, fontSize: 12),
+                          Text(
+                            L10n.current.tryDifferentQuery,
+                            style: const TextStyle(color: Colors.grey, fontSize: 12),
                           ),
                           const SizedBox(height: 12),
                           OutlinedButton(
@@ -3538,7 +3537,7 @@ class _HomeScreenState extends State<HomeScreen>
                                 _historySearchQuery = '';
                               });
                             },
-                            child: const Text('Aramayı Temizle'),
+                            child: Text(L10n.current.clearSearch),
                           ),
                         ],
                       ),
@@ -3564,13 +3563,13 @@ class _HomeScreenState extends State<HomeScreen>
                                   const TextStyle(fontWeight: FontWeight.bold),
                             ),
                             subtitle: Text(
-                              '${item.timestamp.toLocal().toString().substring(0, 16)} | ${item.records.length} Kayıt',
+                              L10n.current.historyItemMeta(item.timestamp.toLocal().toString().substring(0, 16), '${item.records.length}'),
                               style: const TextStyle(fontSize: 12),
                             ),
                             trailing: IconButton(
                               icon: const Icon(Icons.delete_outline,
                                   color: Colors.red),
-                              tooltip: 'Bu kaydı sil',
+                              tooltip: L10n.current.deleteThisRecord,
                               onPressed: () async {
                                 await _controller.storage
                                     .deleteHistoryEntry(item.id);
@@ -3588,7 +3587,7 @@ class _HomeScreenState extends State<HomeScreen>
                                           MainAxisAlignment.spaceBetween,
                                       children: [
                                         Text(
-                                            'Kapasite: ${item.maxByteCapacity}B | Kullanılan: ${item.currentBytesUsed}B'),
+                                            L10n.current.historyCapacity('${item.maxByteCapacity}', '${item.currentBytesUsed}')),
                                         Wrap(
                                           spacing: 4,
                                           children: [
@@ -3604,7 +3603,7 @@ class _HomeScreenState extends State<HomeScreen>
                                               onPressed: () => _copyToClipboard(
                                                 item.records,
                                                 source:
-                                                    'Geçmiş UID ${item.identifier}',
+                                                    L10n.current.historySourceLabel(item.identifier),
                                               ),
                                               icon: const Icon(Icons.copy,
                                                   size: 14),
@@ -3658,7 +3657,7 @@ class _HomeScreenState extends State<HomeScreen>
                                                     Icons.qr_code_2,
                                                     size: 16,
                                                     color: AppColors.accent),
-                                                tooltip: 'QR Önizleme',
+                                                tooltip: L10n.current.qrPreview,
                                                 padding: EdgeInsets.zero,
                                                 constraints:
                                                     const BoxConstraints(),
@@ -3703,11 +3702,11 @@ class _HomeScreenState extends State<HomeScreen>
     final isHistoryEnabled = _controller.storage.isHistoryEnabled;
 
     final loc = AppLocalizations.of(context) ?? L10n.current;
-    const languages = [
-      ('tr', 'Türkçe'),
+    final languages = [
+      ('tr', L10n.current.langTr),
       ('en', 'English'),
       ('de', 'Deutsch'),
-      ('fr', 'Français'),
+      ('fr', L10n.current.langFr),
       ('es', 'Español'),
       ('it', 'Italiano'),
       ('pt', 'Português'),
@@ -3818,13 +3817,13 @@ class _HomeScreenState extends State<HomeScreen>
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
-                    const Row(
+                    Row(
                       children: [
-                        Icon(Icons.bookmark, color: AppColors.accent),
-                        SizedBox(width: 8),
+                        const Icon(Icons.bookmark, color: AppColors.accent),
+                        const SizedBox(width: 8),
                         Text(
-                          'Yazma Şablonları',
-                          style: TextStyle(
+                          L10n.current.writeTemplates,
+                          style: const TextStyle(
                               fontSize: 16, fontWeight: FontWeight.bold),
                         ),
                       ],
@@ -3834,24 +3833,24 @@ class _HomeScreenState extends State<HomeScreen>
                         onPressed: _confirmClearTemplates,
                         icon: const Icon(Icons.delete_outline,
                             size: 18, color: Colors.red),
-                        label: const Text('Tümünü Sil',
-                            style: TextStyle(color: Colors.red)),
+                        label: Text(L10n.current.clearAll,
+                            style: const TextStyle(color: Colors.red)),
                       ),
                   ],
                 ),
-                const Text(
-                  'Sık kullandığınız NDEF içeriklerini şablon olarak kaydedip dilediğiniz zaman etiketlere tek dokunuşla yazabilirsiniz.',
-                  style: TextStyle(fontSize: 12, color: Colors.black54),
+                Text(
+                  L10n.current.writeTemplatesSubtitle,
+                  style: const TextStyle(fontSize: 12, color: Colors.black54),
                 ),
                 const Divider(),
                 if (templates.isEmpty)
-                  const Padding(
-                    padding: EdgeInsets.symmetric(vertical: 20),
+                  Padding(
+                    padding: const EdgeInsets.symmetric(vertical: 20),
                     child: Center(
                       child: Text(
-                        'Henüz kayıtlı bir yazma şablonu yok.\n"Etiket Yaz" sekmesinden kayıt oluşturup şablon olarak kaydedebilirsiniz.',
+                        L10n.current.noTemplates,
                         textAlign: TextAlign.center,
-                        style: TextStyle(color: Colors.grey),
+                        style: const TextStyle(color: Colors.grey),
                       ),
                     ),
                   )
@@ -3870,7 +3869,7 @@ class _HomeScreenState extends State<HomeScreen>
                             style:
                                 const TextStyle(fontWeight: FontWeight.bold)),
                         subtitle: Text(
-                          '${tpl.records.length} Kayıt | ${tpl.createdAt.toLocal().toString().substring(0, 10)}',
+                          L10n.current.templateMeta('${tpl.records.length}', tpl.createdAt.toLocal().toString().substring(0, 10)),
                           style: const TextStyle(fontSize: 12),
                         ),
                         trailing: Row(
@@ -3885,7 +3884,7 @@ class _HomeScreenState extends State<HomeScreen>
                             IconButton(
                               icon: const Icon(Icons.delete_outline,
                                   color: Colors.red),
-                              tooltip: 'Şablonu Sil',
+                              tooltip: L10n.current.deleteTemplateTooltip,
                               onPressed: () async {
                                 await _controller.storage
                                     .deleteTemplate(tpl.id);
@@ -3914,13 +3913,13 @@ class _HomeScreenState extends State<HomeScreen>
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
-                    const Row(
+                    Row(
                       children: [
-                        Icon(Icons.rule_folder_outlined, color: AppColors.accent),
-                        SizedBox(width: 8),
+                        const Icon(Icons.rule_folder_outlined, color: AppColors.accent),
+                        const SizedBox(width: 8),
                         Text(
-                          'Uygulama İçi Etiket Kuralları',
-                          style: TextStyle(
+                          L10n.current.inAppTagRules,
+                          style: const TextStyle(
                               fontSize: 16, fontWeight: FontWeight.bold),
                         ),
                       ],
@@ -3928,19 +3927,19 @@ class _HomeScreenState extends State<HomeScreen>
                     TextButton.icon(
                       onPressed: _openTagRulesManager,
                       icon: const Icon(Icons.tune, size: 18),
-                      label: const Text('Yönet'),
+                      label: Text(L10n.current.manage),
                     ),
                   ],
                 ),
                 Text(
-                  'Kayıtlı Kural / Not Sayısı: ${_controller.storage.getTagRules().length}',
+                  L10n.current.rulesCountLabel('${_controller.storage.getTagRules().length}'),
                   style: const TextStyle(
                       fontSize: 13, fontWeight: FontWeight.w500),
                 ),
                 const SizedBox(height: 4),
-                const Text(
-                  'NDEF içerik baytlarının SHA-256 özetine göre eşleşen etiketlerde yalnızca kaydedilen not gösterilir. Harici işlem başlatmaz.',
-                  style: TextStyle(fontSize: 12, color: Colors.black54),
+                Text(
+                  L10n.current.tagRulesSubtitle,
+                  style: const TextStyle(fontSize: 12, color: Colors.black54),
                 ),
               ],
             ),
@@ -3956,21 +3955,21 @@ class _HomeScreenState extends State<HomeScreen>
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                const Row(
+                Row(
                   children: [
-                    Icon(Icons.backup_outlined, color: AppColors.accent),
-                    SizedBox(width: 8),
+                    const Icon(Icons.backup_outlined, color: AppColors.accent),
+                    const SizedBox(width: 8),
                     Text(
-                      'Yedekleme ve Geri Yükleme (JSON)',
+                      L10n.current.backupRestoreTitle,
                       style:
-                          TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
+                          const TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
                     ),
                   ],
                 ),
                 const SizedBox(height: 6),
-                const Text(
-                  'Şablonlarınızı, uygulama içi etiket notlarınızı ve isteğe bağlı tarama geçmişinizi sürüm kontrollü JSON formatında yedekleyin veya mevcut verilerinizle birleştirin.',
-                  style: TextStyle(fontSize: 12, color: Colors.black54),
+                Text(
+                  L10n.current.backupRestoreSubtitle,
+                  style: const TextStyle(fontSize: 12, color: Colors.black54),
                 ),
                 const Divider(),
                 Row(
@@ -3978,7 +3977,7 @@ class _HomeScreenState extends State<HomeScreen>
                     Expanded(
                       child: OutlinedButton.icon(
                         icon: const Icon(Icons.file_download_outlined),
-                        label: const Text('Dışa Aktar'),
+                        label: Text(L10n.current.exportBackup),
                         onPressed: _promptExportBackup,
                       ),
                     ),
@@ -3986,7 +3985,7 @@ class _HomeScreenState extends State<HomeScreen>
                     Expanded(
                       child: ElevatedButton.icon(
                         icon: const Icon(Icons.file_upload_outlined),
-                        label: const Text('İçe Aktar (Birleştir)'),
+                        label: Text(L10n.current.importBackup),
                         style: ElevatedButton.styleFrom(
                           backgroundColor: AppColors.accent,
                           foregroundColor: Colors.white,
@@ -4008,13 +4007,13 @@ class _HomeScreenState extends State<HomeScreen>
     showDialog(
       context: context,
       builder: (ctx) => AlertDialog(
-        title: const Text('Tarama Geçmişini Temizle'),
-        content: const Text(
-            'Cihazda kayıtlı tüm tarama geçmişi silinecektir. Onaylıyor musunuz?'),
+        title: Text(L10n.current.confirmClearHistoryTitle),
+        content: Text(
+            L10n.current.confirmClearHistoryContent),
         actions: [
           TextButton(
             onPressed: () => Navigator.of(ctx).pop(),
-            child: const Text('Vazgeç'),
+            child: Text(L10n.current.dismiss),
           ),
           ElevatedButton(
             style: ElevatedButton.styleFrom(backgroundColor: Colors.red),
@@ -4025,7 +4024,7 @@ class _HomeScreenState extends State<HomeScreen>
                 Navigator.of(ctx).pop();
               }
             },
-            child: const Text('Sil'),
+            child: Text(L10n.current.delete),
           ),
         ],
       ),
@@ -4036,13 +4035,13 @@ class _HomeScreenState extends State<HomeScreen>
     showDialog(
       context: context,
       builder: (ctx) => AlertDialog(
-        title: const Text('Şablonları Temizle'),
-        content: const Text(
-            'Kayıtlı tüm yazma şablonları silinecektir. Onaylıyor musunuz?'),
+        title: Text(L10n.current.confirmClearTemplatesTitle),
+        content: Text(
+            L10n.current.confirmClearTemplatesContent),
         actions: [
           TextButton(
             onPressed: () => Navigator.of(ctx).pop(),
-            child: const Text('Vazgeç'),
+            child: Text(L10n.current.dismiss),
           ),
           ElevatedButton(
             style: ElevatedButton.styleFrom(backgroundColor: Colors.red),
@@ -4053,7 +4052,7 @@ class _HomeScreenState extends State<HomeScreen>
                 Navigator.of(ctx).pop();
               }
             },
-            child: const Text('Sil'),
+            child: Text(L10n.current.delete),
           ),
         ],
       ),
@@ -4080,7 +4079,7 @@ class _HomeScreenState extends State<HomeScreen>
                 ),
                 const SizedBox(width: 8),
                 Text(
-                  result.isSuccess ? 'İşlem Başarılı' : 'İşlem Başarısız',
+                  result.isSuccess ? L10n.current.writeResultSuccess : L10n.current.writeResultFailed,
                   style: TextStyle(
                     fontWeight: FontWeight.bold,
                     fontSize: 16,
@@ -4096,7 +4095,7 @@ class _HomeScreenState extends State<HomeScreen>
             if (result.isSuccess && result.bytesWritten > 0) ...[
               const SizedBox(height: 4),
               Text(
-                'Yazılan Bayt: ${result.bytesWritten} | Doğrulama: ${result.verificationPassed ? "Geçti" : "Kontrol edilmedi"}',
+                L10n.current.writeResultDetails('${result.bytesWritten}', result.verificationPassed ? L10n.current.verificationPassed : L10n.current.verificationNotChecked),
                 style: const TextStyle(fontWeight: FontWeight.w500),
               ),
             ],
@@ -4110,14 +4109,14 @@ class _HomeScreenState extends State<HomeScreen>
     showDialog(
       context: context,
       builder: (ctx) => AlertDialog(
-        title: const Text('Etiket İçeriğini Sıfırla'),
-        content: const Text(
-          'Bu işlem etiket üzerindeki tüm NDEF kayıtlarını silecek ve boş bir kayıt yazacaktır. Devam etmek istiyor musunuz?',
+        title: Text(L10n.current.clearConfirmTitle),
+        content: Text(
+          L10n.current.clearConfirmMessage,
         ),
         actions: [
           TextButton(
             onPressed: () => Navigator.of(ctx).pop(),
-            child: const Text('Vazgeç'),
+            child: Text(L10n.current.dismiss),
           ),
           ElevatedButton(
             style: ElevatedButton.styleFrom(backgroundColor: Colors.red),
@@ -4138,21 +4137,20 @@ class _HomeScreenState extends State<HomeScreen>
       context: context,
       builder: (ctx) => StatefulBuilder(
         builder: (ctx, setDialogState) => AlertDialog(
-          title: const Text('Etiketi Kalıcı Olarak Kilitle'),
+          title: Text(L10n.current.lockTagConfirmTitle),
           content: Column(
             mainAxisSize: MainAxisSize.min,
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              const Text(
-                'Kilitlenen etiket salt okunur olur: içeriği bir daha DEĞİŞTİRİLEMEZ, silinemez ve kilit KALDIRILAMAZ. '
-                'Önce doğru içeriği yazdığınızdan emin olun.',
+              Text(
+                L10n.current.lockTagWarningFull(L10n.current.lockTagWarning2),
               ),
               const SizedBox(height: 12),
               CheckboxListTile(
                 contentPadding: EdgeInsets.zero,
                 value: understood,
                 onChanged: (v) => setDialogState(() => understood = v ?? false),
-                title: const Text('Bu işlemin geri alınamayacağını anlıyorum'),
+                title: Text(L10n.current.lockAcknowledge),
                 controlAffinity: ListTileControlAffinity.leading,
               ),
             ],
@@ -4160,7 +4158,7 @@ class _HomeScreenState extends State<HomeScreen>
           actions: [
             TextButton(
               onPressed: () => Navigator.of(ctx).pop(),
-              child: const Text('Vazgeç'),
+              child: Text(L10n.current.dismiss),
             ),
             ElevatedButton(
               style: ElevatedButton.styleFrom(
