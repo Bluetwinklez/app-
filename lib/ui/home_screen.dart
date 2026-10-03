@@ -130,6 +130,7 @@ class _HomeScreenState extends State<HomeScreen>
   Timer? _watchTimer;
   String? _lastWatchJson;
   DateTime? _iCloudSavedAt;
+  bool _iCloudSupported = false;
   bool _showOnboarding = false;
 
   @override

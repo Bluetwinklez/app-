@@ -13,8 +13,12 @@ extension _CompanionActions on _HomeScreenState {
       if (signal == 'iCloudBackupChanged') _loadICloudDate();
     });
     _takeWatchEvents();
-    _loadICloudDate();
     _scheduleWatchSync();
+    CompanionService.iCloudSupported().then((supported) {
+      if (!supported || !mounted) return;
+      _refresh(() => _iCloudSupported = true);
+      _loadICloudDate();
+    });
   }
 
   Future<void> _loadICloudDate() async {
@@ -61,7 +65,7 @@ extension _CompanionActions on _HomeScreenState {
 
   /// Automatic backup when the app goes to the background.
   Future<void> _autoICloudBackup() async {
-    if (!_companionSupported || !_controller.storage.iCloudBackupEnabled) return;
+    if (!_iCloudSupported || !_controller.storage.iCloudBackupEnabled) return;
     try {
       await CompanionService.iCloudSave(_iCloudBackupJson());
       _iCloudSavedAt = DateTime.now();

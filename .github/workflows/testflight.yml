@@ -97,6 +97,17 @@ jobs:
           python3 tool/asc_provision.py
           rm -f "$key"
 
+      # iCloud backup ships only when the profile allows it (enabling the
+      # capability needs an Admin API key); otherwise the app hides it.
+      - name: Match iCloud entitlement to the profile
+        run: |
+          set -euo pipefail
+          if [[ "${ICLOUD_ENABLED:-0}" == "1" ]]; then
+            /usr/libexec/PlistBuddy -c "Add :NfcICloudBackup bool true" ios/Runner/Info.plist
+          else
+            /usr/libexec/PlistBuddy -c "Delete :com.apple.developer.ubiquity-kvstore-identifier" ios/Runner/Runner.entitlements
+          fi
+
       - name: Archive and export signed IPA
         env:
           IOS_BUNDLE_ID: ${{ secrets.IOS_BUNDLE_ID }}
