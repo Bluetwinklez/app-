@@ -2894,5 +2894,36 @@
         "type": "String"
       }
     }
+  },
+  "libraryImportTitle": "Tablodan içe aktar",
+  "libraryImportHint": "Excel, Numbers veya Google E-Tablolar'dan satırları kopyalayıp buraya yapıştırın. Sütunlar: ad, içerik (bağlantı ya da metin), konum, etiketler, not, UID. Başlık satırı varsa sütunlar adına göre eşleşir.",
+  "libraryImportPreview": "{count} etiket eklenecek",
+  "@libraryImportPreview": {
+    "placeholders": {
+      "count": {
+        "type": "String"
+      }
+    }
+  },
+  "libraryImportSkipped": "{dupes} satır zaten kayıtlı UID nedeniyle, {invalid} satır adı olmadığı için atlanacak",
+  "@libraryImportSkipped": {
+    "placeholders": {
+      "dupes": {
+        "type": "String"
+      },
+      "invalid": {
+        "type": "String"
+      }
+    }
+  },
+  "libraryImportPaste": "Panodan yapıştır",
+  "libraryImportAdd": "Ekle",
+  "libraryImportDone": "{count} etiket kütüphaneye eklendi",
+  "@libraryImportDone": {
+    "placeholders": {
+      "count": {
+        "type": "String"
+      }
+    }
   }
 }

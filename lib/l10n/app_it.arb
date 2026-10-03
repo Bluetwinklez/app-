@@ -1192,5 +1192,12 @@
   "doctorNoTerminator": "Manca il marcatore di fine (FE). La maggior parte dei telefoni legge comunque; riscrivere corregge.",
   "doctorUnknownTlv": "Blocco di dati sconosciuto in memoria; la lettura può fermarsi lì.",
   "doctorBadRecord": "Il record {n} è malformato (intestazione o lunghezza). Riscrivi il tag.",
-  "doctorHealthy": "Tutto a posto: {count} record scritti correttamente."
+  "doctorHealthy": "Tutto a posto: {count} record scritti correttamente.",
+  "libraryImportTitle": "Importa da foglio di calcolo",
+  "libraryImportHint": "Copia righe da Excel, Numbers o Fogli Google e incollale qui. Colonne: nome, contenuto (link o testo), posizione, etichette, nota, UID. Con una riga di intestazione le colonne sono abbinate per nome.",
+  "libraryImportPreview": "Verranno aggiunti {count} tag",
+  "libraryImportSkipped": "{dupes} righe saltate (UID già salvato), {invalid} senza nome",
+  "libraryImportPaste": "Incolla dagli appunti",
+  "libraryImportAdd": "Aggiungi",
+  "libraryImportDone": "{count} tag aggiunti alla libreria"
 }

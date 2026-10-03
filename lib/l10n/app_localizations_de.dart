@@ -4277,4 +4277,32 @@ class AppLocalizationsDe extends AppLocalizations {
   String doctorHealthy(String count) {
     return 'Alles in Ordnung: $count Datensätze korrekt geschrieben.';
   }
+
+  @override
+  String get libraryImportTitle => 'Aus Tabelle importieren';
+
+  @override
+  String get libraryImportHint =>
+      'Zeilen aus Excel, Numbers oder Google Tabellen kopieren und hier einfügen. Spalten: Name, Inhalt (Link oder Text), Ort, Labels, Notiz, UID. Mit Kopfzeile werden Spalten nach Namen zugeordnet.';
+
+  @override
+  String libraryImportPreview(String count) {
+    return '$count Tags werden hinzugefügt';
+  }
+
+  @override
+  String libraryImportSkipped(String dupes, String invalid) {
+    return '$dupes Zeilen übersprungen (UID schon gespeichert), $invalid ohne Namen';
+  }
+
+  @override
+  String get libraryImportPaste => 'Aus Zwischenablage einfügen';
+
+  @override
+  String get libraryImportAdd => 'Hinzufügen';
+
+  @override
+  String libraryImportDone(String count) {
+    return '$count Tags zur Bibliothek hinzugefügt';
+  }
 }

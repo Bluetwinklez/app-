@@ -4264,4 +4264,32 @@ class AppLocalizationsIt extends AppLocalizations {
   String doctorHealthy(String count) {
     return 'Tutto a posto: $count record scritti correttamente.';
   }
+
+  @override
+  String get libraryImportTitle => 'Importa da foglio di calcolo';
+
+  @override
+  String get libraryImportHint =>
+      'Copia righe da Excel, Numbers o Fogli Google e incollale qui. Colonne: nome, contenuto (link o testo), posizione, etichette, nota, UID. Con una riga di intestazione le colonne sono abbinate per nome.';
+
+  @override
+  String libraryImportPreview(String count) {
+    return 'Verranno aggiunti $count tag';
+  }
+
+  @override
+  String libraryImportSkipped(String dupes, String invalid) {
+    return '$dupes righe saltate (UID già salvato), $invalid senza nome';
+  }
+
+  @override
+  String get libraryImportPaste => 'Incolla dagli appunti';
+
+  @override
+  String get libraryImportAdd => 'Aggiungi';
+
+  @override
+  String libraryImportDone(String count) {
+    return '$count tag aggiunti alla libreria';
+  }
 }

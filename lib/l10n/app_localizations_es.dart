@@ -4293,4 +4293,32 @@ class AppLocalizationsEs extends AppLocalizations {
   String doctorHealthy(String count) {
     return 'Todo bien: $count registro(s) escrito(s) correctamente.';
   }
+
+  @override
+  String get libraryImportTitle => 'Importar desde hoja de cálculo';
+
+  @override
+  String get libraryImportHint =>
+      'Copia filas de Excel, Numbers o Google Sheets y pégalas aquí. Columnas: nombre, contenido (enlace o texto), ubicación, etiquetas, nota, UID. Con fila de encabezado, las columnas se asignan por nombre.';
+
+  @override
+  String libraryImportPreview(String count) {
+    return 'Se añadirán $count etiquetas';
+  }
+
+  @override
+  String libraryImportSkipped(String dupes, String invalid) {
+    return '$dupes filas omitidas (UID ya guardado), $invalid sin nombre';
+  }
+
+  @override
+  String get libraryImportPaste => 'Pegar del portapapeles';
+
+  @override
+  String get libraryImportAdd => 'Añadir';
+
+  @override
+  String libraryImportDone(String count) {
+    return '$count etiquetas añadidas a la biblioteca';
+  }
 }

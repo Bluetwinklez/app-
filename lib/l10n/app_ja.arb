@@ -1192,5 +1192,12 @@
   "doctorNoTerminator": "終端マーカー（FE）がありません。多くの端末は読めますが、再書き込みで直ります。",
   "doctorUnknownTlv": "メモリに不明なデータブロックがあります。読み取りが止まる場合があります。",
   "doctorBadRecord": "レコード{n}が不正です（ヘッダーまたは長さ）。再度書き込んでください。",
-  "doctorHealthy": "問題なし：{count}件のレコードが正しく書き込まれています。"
+  "doctorHealthy": "問題なし：{count}件のレコードが正しく書き込まれています。",
+  "libraryImportTitle": "表から読み込む",
+  "libraryImportHint": "Excel、Numbers、Googleスプレッドシートから行をコピーして貼り付けてください。列：名前、内容（リンクまたはテキスト）、場所、ラベル、メモ、UID。見出し行があれば列名で対応付けます。",
+  "libraryImportPreview": "{count}件のタグを追加します",
+  "libraryImportSkipped": "{dupes}行はUID登録済み、{invalid}行は名前なしのためスキップ",
+  "libraryImportPaste": "クリップボードから貼り付け",
+  "libraryImportAdd": "追加",
+  "libraryImportDone": "{count}件のタグをライブラリに追加しました"
 }

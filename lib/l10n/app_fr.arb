@@ -1192,5 +1192,12 @@
   "doctorNoTerminator": "Le marqueur de fin (FE) manque. La plupart des téléphones lisent quand même ; réécrire corrige.",
   "doctorUnknownTlv": "Bloc de données inconnu en mémoire ; la lecture peut s'arrêter là.",
   "doctorBadRecord": "L'enregistrement {n} est malformé (en-tête ou longueur). Réécrivez le tag.",
-  "doctorHealthy": "Tout va bien : {count} enregistrement(s) correctement écrit(s)."
+  "doctorHealthy": "Tout va bien : {count} enregistrement(s) correctement écrit(s).",
+  "libraryImportTitle": "Importer depuis un tableur",
+  "libraryImportHint": "Copiez des lignes depuis Excel, Numbers ou Google Sheets et collez-les ici. Colonnes : nom, contenu (lien ou texte), lieu, étiquettes, note, UID. Avec une ligne d'en-tête, les colonnes sont associées par nom.",
+  "libraryImportPreview": "{count} tags seront ajoutés",
+  "libraryImportSkipped": "{dupes} lignes ignorées (UID déjà enregistré), {invalid} sans nom",
+  "libraryImportPaste": "Coller depuis le presse-papiers",
+  "libraryImportAdd": "Ajouter",
+  "libraryImportDone": "{count} tags ajoutés à la bibliothèque"
 }

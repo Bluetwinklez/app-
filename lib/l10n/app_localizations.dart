@@ -7281,6 +7281,48 @@ abstract class AppLocalizations {
   /// In tr, this message translates to:
   /// **'Her şey yolunda: {count} kayıt doğru biçimde yazılmış.'**
   String doctorHealthy(String count);
+
+  /// No description provided for @libraryImportTitle.
+  ///
+  /// In tr, this message translates to:
+  /// **'Tablodan içe aktar'**
+  String get libraryImportTitle;
+
+  /// No description provided for @libraryImportHint.
+  ///
+  /// In tr, this message translates to:
+  /// **'Excel, Numbers veya Google E-Tablolar\'dan satırları kopyalayıp buraya yapıştırın. Sütunlar: ad, içerik (bağlantı ya da metin), konum, etiketler, not, UID. Başlık satırı varsa sütunlar adına göre eşleşir.'**
+  String get libraryImportHint;
+
+  /// No description provided for @libraryImportPreview.
+  ///
+  /// In tr, this message translates to:
+  /// **'{count} etiket eklenecek'**
+  String libraryImportPreview(String count);
+
+  /// No description provided for @libraryImportSkipped.
+  ///
+  /// In tr, this message translates to:
+  /// **'{dupes} satır zaten kayıtlı UID nedeniyle, {invalid} satır adı olmadığı için atlanacak'**
+  String libraryImportSkipped(String dupes, String invalid);
+
+  /// No description provided for @libraryImportPaste.
+  ///
+  /// In tr, this message translates to:
+  /// **'Panodan yapıştır'**
+  String get libraryImportPaste;
+
+  /// No description provided for @libraryImportAdd.
+  ///
+  /// In tr, this message translates to:
+  /// **'Ekle'**
+  String get libraryImportAdd;
+
+  /// No description provided for @libraryImportDone.
+  ///
+  /// In tr, this message translates to:
+  /// **'{count} etiket kütüphaneye eklendi'**
+  String libraryImportDone(String count);
 }
 
 class _AppLocalizationsDelegate

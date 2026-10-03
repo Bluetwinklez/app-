@@ -1192,5 +1192,12 @@
   "doctorNoTerminator": "علامة النهاية (FE) مفقودة. معظم الهواتف تقرؤه رغم ذلك؛ إعادة الكتابة تصلحه.",
   "doctorUnknownTlv": "كتلة بيانات غير معروفة في الذاكرة؛ قد تتوقف القراءة عندها.",
   "doctorBadRecord": "السجل {n} تالف (رأس أو طول خاطئ). أعد الكتابة على الوسم.",
-  "doctorHealthy": "كل شيء سليم: {count} سجل مكتوب بشكل صحيح."
+  "doctorHealthy": "كل شيء سليم: {count} سجل مكتوب بشكل صحيح.",
+  "libraryImportTitle": "استيراد من جدول",
+  "libraryImportHint": "انسخ صفوفًا من Excel أو Numbers أو جداول Google والصقها هنا. الأعمدة: الاسم، المحتوى (رابط أو نص)، الموقع، التصنيفات، ملاحظة، UID. مع صف عناوين تُطابق الأعمدة بالاسم.",
+  "libraryImportPreview": "ستُضاف {count} وسوم",
+  "libraryImportSkipped": "تخطي {dupes} صفوف (UID محفوظ مسبقًا) و{invalid} بلا اسم",
+  "libraryImportPaste": "لصق من الحافظة",
+  "libraryImportAdd": "إضافة",
+  "libraryImportDone": "تمت إضافة {count} وسوم إلى المكتبة"
 }
