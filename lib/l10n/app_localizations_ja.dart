@@ -4304,4 +4304,25 @@ class AppLocalizationsJa extends AppLocalizations {
 
   @override
   String get libraryMoreActions => 'その他の操作';
+
+  @override
+  String get appIconTitle => 'アプリアイコン';
+
+  @override
+  String get appIconFailed => 'アイコンを変更できませんでした';
+
+  @override
+  String get iconBlue => 'ブルー';
+
+  @override
+  String get iconGreen => 'グリーン';
+
+  @override
+  String get iconPurple => 'パープル';
+
+  @override
+  String get iconOrange => 'オレンジ';
+
+  @override
+  String get iconDark => 'ナイト';
 }

@@ -4447,4 +4447,25 @@ class AppLocalizationsAr extends AppLocalizations {
 
   @override
   String get libraryMoreActions => 'إجراءات أخرى';
+
+  @override
+  String get appIconTitle => 'أيقونة التطبيق';
+
+  @override
+  String get appIconFailed => 'تعذر تغيير الأيقونة';
+
+  @override
+  String get iconBlue => 'أزرق';
+
+  @override
+  String get iconGreen => 'أخضر';
+
+  @override
+  String get iconPurple => 'بنفسجي';
+
+  @override
+  String get iconOrange => 'برتقالي';
+
+  @override
+  String get iconDark => 'ليلي';
 }

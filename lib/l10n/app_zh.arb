@@ -1255,5 +1255,12 @@
   "packPreview": "“{name}”：{tags} 个标签，{templates} 个模板。要导入吗？",
   "packImported": "已添加 {tags} 个标签和 {templates} 个模板 · {skipped} 个已存在",
   "packInvalid": "此文件不是有效的团队包（{reason}）",
-  "libraryMoreActions": "更多操作"
+  "libraryMoreActions": "更多操作",
+  "appIconTitle": "应用图标",
+  "appIconFailed": "无法更改图标",
+  "iconBlue": "蓝色",
+  "iconGreen": "绿色",
+  "iconPurple": "紫色",
+  "iconOrange": "橙色",
+  "iconDark": "夜间"
 }

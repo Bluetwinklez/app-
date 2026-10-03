@@ -1255,5 +1255,12 @@
   "packPreview": "\"{name}\": {tags} tags, {templates} modelos. Importar?",
   "packImported": "{tags} tags e {templates} modelos adicionados · {skipped} já existiam",
   "packInvalid": "Este arquivo não é um pacote de equipe válido ({reason})",
-  "libraryMoreActions": "Mais ações"
+  "libraryMoreActions": "Mais ações",
+  "appIconTitle": "Ícone do app",
+  "appIconFailed": "Não foi possível alterar o ícone",
+  "iconBlue": "Azul",
+  "iconGreen": "Verde",
+  "iconPurple": "Roxo",
+  "iconOrange": "Laranja",
+  "iconDark": "Noite"
 }

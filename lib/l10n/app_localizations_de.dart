@@ -4513,4 +4513,25 @@ class AppLocalizationsDe extends AppLocalizations {
 
   @override
   String get libraryMoreActions => 'Weitere Aktionen';
+
+  @override
+  String get appIconTitle => 'App-Symbol';
+
+  @override
+  String get appIconFailed => 'Symbol konnte nicht geändert werden';
+
+  @override
+  String get iconBlue => 'Blau';
+
+  @override
+  String get iconGreen => 'Grün';
+
+  @override
+  String get iconPurple => 'Lila';
+
+  @override
+  String get iconOrange => 'Orange';
+
+  @override
+  String get iconDark => 'Nacht';
 }

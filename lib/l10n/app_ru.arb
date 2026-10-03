@@ -1255,5 +1255,12 @@
   "packPreview": "«{name}»: меток {tags}, шаблонов {templates}. Импортировать?",
   "packImported": "Добавлено меток: {tags}, шаблонов: {templates} · уже были: {skipped}",
   "packInvalid": "Файл не является пакетом команды ({reason})",
-  "libraryMoreActions": "Другие действия"
+  "libraryMoreActions": "Другие действия",
+  "appIconTitle": "Значок приложения",
+  "appIconFailed": "Не удалось сменить значок",
+  "iconBlue": "Синий",
+  "iconGreen": "Зелёный",
+  "iconPurple": "Фиолетовый",
+  "iconOrange": "Оранжевый",
+  "iconDark": "Ночь"
 }
