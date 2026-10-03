@@ -1286,5 +1286,8 @@
   "simpleSavedHint": "Нажмите, чтобы записать то же на новую метку.",
   "accentColorTitle": "Акцентный цвет",
   "colorPink": "Розовый",
-  "textSizeTitle": "Размер текста"
+  "textSizeTitle": "Размер текста",
+  "speakTag": "Прочитать вслух",
+  "speakAfterScanTitle": "Читать вслух после сканирования",
+  "speakAfterScanSubtitle": "Содержимое озвучивается; удобно при слабом зрении и в простом режиме"
 }

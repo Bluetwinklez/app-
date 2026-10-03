@@ -1286,5 +1286,8 @@
   "simpleSavedHint": "Toca una para escribir lo mismo en otra etiqueta.",
   "accentColorTitle": "Color de acento",
   "colorPink": "Rosa",
-  "textSizeTitle": "Tamaño del texto"
+  "textSizeTitle": "Tamaño del texto",
+  "speakTag": "Leer en voz alta",
+  "speakAfterScanTitle": "Leer en voz alta al escanear",
+  "speakAfterScanSubtitle": "Se lee el contenido; útil para baja visión y modo simple"
 }

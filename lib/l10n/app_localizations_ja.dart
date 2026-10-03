@@ -4404,4 +4404,13 @@ class AppLocalizationsJa extends AppLocalizations {
 
   @override
   String get textSizeTitle => '文字サイズ';
+
+  @override
+  String get speakTag => '読み上げ';
+
+  @override
+  String get speakAfterScanTitle => '読み取り後に読み上げ';
+
+  @override
+  String get speakAfterScanSubtitle => '内容を音声で読み上げます。弱視の方やシンプルモードに便利';
 }

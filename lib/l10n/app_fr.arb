@@ -1286,5 +1286,8 @@
   "simpleSavedHint": "Touchez-en un pour l'écrire sur un nouveau tag.",
   "accentColorTitle": "Couleur d'accent",
   "colorPink": "Rose",
-  "textSizeTitle": "Taille du texte"
+  "textSizeTitle": "Taille du texte",
+  "speakTag": "Lire à voix haute",
+  "speakAfterScanTitle": "Lire à voix haute après le scan",
+  "speakAfterScanSubtitle": "Le contenu est lu ; utile en cas de malvoyance et en mode simple"
 }

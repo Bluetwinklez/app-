@@ -1286,5 +1286,8 @@
   "simpleSavedHint": "하나를 누르면 같은 내용을 새 태그에 씁니다.",
   "accentColorTitle": "강조 색상",
   "colorPink": "분홍",
-  "textSizeTitle": "글자 크기"
+  "textSizeTitle": "글자 크기",
+  "speakTag": "소리내어 읽기",
+  "speakAfterScanTitle": "스캔 후 소리내어 읽기",
+  "speakAfterScanSubtitle": "내용을 읽어 줍니다. 저시력 사용자와 간단 모드에 유용"
 }

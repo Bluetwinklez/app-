@@ -1286,5 +1286,8 @@
   "simpleSavedHint": "Tik er één aan om hetzelfde op een nieuwe tag te zetten.",
   "accentColorTitle": "Accentkleur",
   "colorPink": "Roze",
-  "textSizeTitle": "Tekstgrootte"
+  "textSizeTitle": "Tekstgrootte",
+  "speakTag": "Voorlezen",
+  "speakAfterScanTitle": "Na scannen voorlezen",
+  "speakAfterScanSubtitle": "De inhoud wordt voorgelezen; handig bij slechtziendheid en eenvoudige modus"
 }

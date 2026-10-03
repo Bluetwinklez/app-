@@ -34,6 +34,7 @@ import 'password_prompt.dart';
 import 'shortcuts_guide_sheet.dart';
 import '../services/launch_action_service.dart';
 import '../services/security_service.dart';
+import '../services/speech_service.dart';
 import '../domain/tag_identity.dart';
 import '../domain/capacity.dart';
 import '../domain/csv_export.dart';
@@ -449,6 +450,16 @@ class _HomeScreenState extends State<HomeScreen>
               value: _controller.soundsEnabled,
               onChanged: (v) => _controller.setSoundsEnabled(v),
             ),
+            SwitchListTile(
+              secondary: Icon(Icons.record_voice_over_outlined, color: AppColors.accent),
+              title: Text(L10n.current.speakAfterScanTitle),
+              subtitle: Text(L10n.current.speakAfterScanSubtitle),
+              value: _controller.storage.speakAfterScan,
+              onChanged: (v) async {
+                await _controller.storage.setSpeakAfterScan(v);
+                if (mounted) setState(() {});
+              },
+            ),
             const Divider(height: 24),
             ListTile(
               leading: Icon(Icons.collections_bookmark_outlined, color: AppColors.accent),
@@ -706,6 +717,13 @@ class _HomeScreenState extends State<HomeScreen>
               avatar: Icon(Icons.ios_share_rounded, size: 16, color: AppColors.accent),
               label: Text(L10n.current.shareTag),
               onPressed: () => _shareScannedTag(tag),
+            ),
+          if (tag.error == null && tag.records.isNotEmpty)
+            ActionChip(
+              avatar: Icon(Icons.volume_up_rounded, size: 16, color: AppColors.accent),
+              label: Text(L10n.current.speakTag),
+              onPressed: () => SpeechService.speak(SpeechService.describe(tag.records),
+                  languageCode: Localizations.localeOf(context).languageCode),
             ),
           if (tag.error == null && match == null)
             ActionChip(

@@ -4364,4 +4364,13 @@ class AppLocalizationsZh extends AppLocalizations {
 
   @override
   String get textSizeTitle => '文字大小';
+
+  @override
+  String get speakTag => '朗读';
+
+  @override
+  String get speakAfterScanTitle => '扫描后朗读';
+
+  @override
+  String get speakAfterScanSubtitle => '朗读标签内容，适合视力不佳者和简易模式';
 }

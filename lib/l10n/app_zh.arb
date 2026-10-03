@@ -1286,5 +1286,8 @@
   "simpleSavedHint": "点按一个即可写入新标签。",
   "accentColorTitle": "强调色",
   "colorPink": "粉色",
-  "textSizeTitle": "文字大小"
+  "textSizeTitle": "文字大小",
+  "speakTag": "朗读",
+  "speakAfterScanTitle": "扫描后朗读",
+  "speakAfterScanSubtitle": "朗读标签内容，适合视力不佳者和简易模式"
 }
