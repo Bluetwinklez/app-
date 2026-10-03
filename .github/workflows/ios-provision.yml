@@ -1,0 +1,64 @@
+name: iOS signing setup
+
+# Creates (or, in dry-run mode, only reports) the bundle IDs, capabilities
+# and App Store profiles every iOS target needs, using the App Store Connect
+# API key. Nothing is built or uploaded.
+on:
+  workflow_dispatch:
+    inputs:
+      dry_run:
+        description: 'Only report, change nothing'
+        type: boolean
+        default: true
+  push:
+    paths:
+      - 'tool/asc_provision.py'
+      - '.github/workflows/ios-provision.yml'
+
+permissions:
+  contents: read
+
+jobs:
+  provision:
+    runs-on: macos-26
+    timeout-minutes: 15
+    env:
+      # Pushes only ever report; changes need a manual run.
+      DRY_RUN: ${{ (github.event_name == 'push' || inputs.dry_run) && '1' || '0' }}
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Install API client
+        run: python3 -m pip install --break-system-packages --quiet pyjwt cryptography
+
+      - name: Read distribution certificate serial
+        if: env.DRY_RUN == '0'
+        env:
+          IOS_APPSTORE_P12_BASE64: ${{ secrets.IOS_APPSTORE_P12_BASE64 }}
+          IOS_APPSTORE_P12_PASSWORD: ${{ secrets.IOS_APPSTORE_P12_PASSWORD }}
+        run: |
+          set -euo pipefail
+          printf '%s' "$IOS_APPSTORE_P12_BASE64" | base64 -D > "$RUNNER_TEMP/signing.p12"
+          keychain="$RUNNER_TEMP/probe.keychain-db"
+          security create-keychain -p probe "$keychain"
+          security unlock-keychain -p probe "$keychain"
+          security import "$RUNNER_TEMP/signing.p12" -P "$IOS_APPSTORE_P12_PASSWORD" -A -t cert -f pkcs12 -k "$keychain"
+          serial="$(security find-certificate -a -c 'Apple Distribution' -p "$keychain" | openssl x509 -noout -serial | cut -d= -f2)"
+          echo "CERT_SERIAL=$serial" >> "$GITHUB_ENV"
+          security delete-keychain "$keychain"
+          rm -f "$RUNNER_TEMP/signing.p12"
+
+      - name: Set up bundle IDs and profiles
+        env:
+          ASC_API_KEY_ID: ${{ secrets.ASC_API_KEY_ID }}
+          ASC_API_ISSUER_ID: ${{ secrets.ASC_API_ISSUER_ID }}
+          ASC_API_PRIVATE_KEY_BASE64: ${{ secrets.ASC_API_PRIVATE_KEY_BASE64 }}
+          IOS_BUNDLE_ID: ${{ secrets.IOS_BUNDLE_ID }}
+        run: |
+          set -euo pipefail
+          key="$RUNNER_TEMP/asc_key.p8"
+          printf '%s' "$ASC_API_PRIVATE_KEY_BASE64" | base64 -D > "$key"
+          export ASC_API_PRIVATE_KEY_PATH="$key"
+          export PROFILE_DIR="$RUNNER_TEMP/profiles"
+          python3 tool/asc_provision.py
+          rm -f "$key"
