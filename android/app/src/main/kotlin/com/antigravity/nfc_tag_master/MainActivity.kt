@@ -85,7 +85,7 @@ class MainActivity : FlutterActivity(), NfcAdapter.ReaderCallback {
                                 val response = nfcA.transceive(command)
                                 postSuccess(result, response)
                             } catch (e: Exception) {
-                                postError(result, "TRANSCEIVE_FAILED", "Komut başarısız: ${e.message}", null)
+                                postError(result, "TRANSCEIVE_FAILED", e.message ?: "", null)
                             }
                         }
                     }
@@ -364,7 +364,7 @@ class MainActivity : FlutterActivity(), NfcAdapter.ReaderCallback {
             postSuccess(result, map)
         } catch (e: Exception) {
             try { ndef?.close() } catch (_: Exception) {}
-            postError(result, "READ_FAILED", "Etiket okuma başarısız: ${e.message}", null)
+            postError(result, "READ_FAILED", e.message ?: "", null)
         }
     }
 
@@ -375,7 +375,7 @@ class MainActivity : FlutterActivity(), NfcAdapter.ReaderCallback {
         result: MethodChannel.Result
     ) {
         if (recordsData == null) {
-            postError(result, "WRITE_ERROR", "Yazılacak veri bulunamadı", null)
+            postError(result, "NO_DATA", "Yazılacak veri bulunamadı", null)
             return
         }
 
@@ -410,7 +410,7 @@ class MainActivity : FlutterActivity(), NfcAdapter.ReaderCallback {
                         result,
                         "CAPACITY_EXCEEDED",
                         "Etiket kapasitesi yetersiz! Gerekli: $messageLength Bayt, Kapasite: $max Bayt",
-                        null
+                        mapOf("required" to messageLength, "capacity" to max)
                     )
                     return
                 }
@@ -494,7 +494,7 @@ class MainActivity : FlutterActivity(), NfcAdapter.ReaderCallback {
         } catch (e: Exception) {
             try { ndef?.close() } catch (_: Exception) {}
             try { formatable?.close() } catch (_: Exception) {}
-            postError(result, "WRITE_EXCEPTION", "Yazma sırasında hata oluştu: ${e.message}", null)
+            postError(result, "WRITE_EXCEPTION", e.message ?: "", null)
         }
     }
 
@@ -510,7 +510,7 @@ class MainActivity : FlutterActivity(), NfcAdapter.ReaderCallback {
             postSuccess(result, mapOf("identifier" to bytesToHex(tag.id)))
         } catch (e: Exception) {
             try { nfcA.close() } catch (_: Exception) {}
-            postError(result, "CONNECT_FAILED", "Etikete bağlanılamadı: ${e.message}", null)
+            postError(result, "CONNECT_FAILED", e.message ?: "", null)
         }
     }
 
@@ -531,7 +531,7 @@ class MainActivity : FlutterActivity(), NfcAdapter.ReaderCallback {
                 return
             }
             if (!ndef.makeReadOnly()) {
-                postError(result, "LOCK_FAILED", "Etiket kilitlenemedi", null)
+                postError(result, "LOCK_FAILED", null, null)
                 return
             }
             postSuccess(
@@ -542,7 +542,7 @@ class MainActivity : FlutterActivity(), NfcAdapter.ReaderCallback {
                 )
             )
         } catch (e: Exception) {
-            postError(result, "LOCK_FAILED", "Kilitleme sırasında hata oluştu: ${e.message}", null)
+            postError(result, "LOCK_FAILED", e.message ?: "", null)
         } finally {
             try { ndef.close() } catch (_: Exception) {}
         }

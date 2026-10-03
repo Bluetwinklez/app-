@@ -3554,4 +3554,93 @@ class AppLocalizationsEs extends AppLocalizations {
 
   @override
   String get wifiSsidExampleHint => 'Casa_WiFi_5G';
+
+  @override
+  String get nfcErrUnavailable =>
+      'El NFC no está disponible o está desactivado en este dispositivo.';
+
+  @override
+  String get nfcErrBusy =>
+      'Hay otra operación NFC en curso; espera a que termine.';
+
+  @override
+  String get nfcErrCancelled => 'La operación se canceló.';
+
+  @override
+  String get nfcErrAppPaused =>
+      'La operación se canceló porque la app pasó a segundo plano.';
+
+  @override
+  String get nfcErrUnsupportedTag => 'Este tipo de etiqueta no es compatible.';
+
+  @override
+  String get nfcErrNtagOnly =>
+      'Esta herramienta solo funciona con etiquetas NTAG / MIFARE Ultralight.';
+
+  @override
+  String get nfcErrNotNdefRead =>
+      'Etiqueta detectada, pero no tiene formato NDEF.';
+
+  @override
+  String get nfcErrNotNdefWrite =>
+      'La etiqueta no tiene formato NDEF; este teléfono no puede escribir NDEF directamente.';
+
+  @override
+  String get nfcErrReadOnly => 'La etiqueta es de solo lectura (bloqueada).';
+
+  @override
+  String get nfcErrNoData => 'No hay datos para escribir.';
+
+  @override
+  String nfcErrCapacity(String required, String max) {
+    return 'Espacio insuficiente: se necesitan $required bytes y hay $max.';
+  }
+
+  @override
+  String get nfcErrCapacityShort => 'Espacio insuficiente en la etiqueta.';
+
+  @override
+  String get nfcErrVerify =>
+      'Falló la verificación: los datos leídos no coinciden.';
+
+  @override
+  String get nfcErrConnectionLost =>
+      'Se perdió la conexión con la etiqueta; mantenla quieta e inténtalo de nuevo.';
+
+  @override
+  String get nfcErrAlreadyLocked =>
+      'La etiqueta ya está bloqueada (solo lectura).';
+
+  @override
+  String get nfcErrLockNotNdef =>
+      'La etiqueta no tiene formato NDEF; escribe un registro antes de bloquearla.';
+
+  @override
+  String get nfcErrLockNotSupported =>
+      'Este tipo de etiqueta no admite bloqueo.';
+
+  @override
+  String get nfcSheetConnected => 'Etiqueta conectada, procesando...';
+
+  @override
+  String get nfcSheetReadOk => '¡Etiqueta leída!';
+
+  @override
+  String get nfcSheetEmptyRead => '¡Etiqueta vacía leída!';
+
+  @override
+  String get nfcSheetMultipleTags =>
+      'Se detectó más de una etiqueta. Acerca solo una.';
+
+  @override
+  String get nfcSheetWriteVerified => '¡Escrito y verificado!';
+
+  @override
+  String get nfcSheetWritten => '¡Escrito en la etiqueta!';
+
+  @override
+  String get nfcSheetLocked => '¡La etiqueta quedó bloqueada para siempre!';
+
+  @override
+  String get nfcWriteDone => 'Escrito en la etiqueta correctamente.';
 }

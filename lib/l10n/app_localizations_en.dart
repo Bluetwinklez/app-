@@ -3515,4 +3515,92 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get wifiSsidExampleHint => 'Home_WiFi_5G';
+
+  @override
+  String get nfcErrUnavailable =>
+      'NFC is not available or is turned off on this device.';
+
+  @override
+  String get nfcErrBusy =>
+      'Another NFC operation is in progress; wait for it to finish.';
+
+  @override
+  String get nfcErrCancelled => 'The operation was cancelled.';
+
+  @override
+  String get nfcErrAppPaused =>
+      'The operation was cancelled because the app went to the background.';
+
+  @override
+  String get nfcErrUnsupportedTag => 'This tag type is not supported.';
+
+  @override
+  String get nfcErrNtagOnly =>
+      'This tool only works with NTAG / MIFARE Ultralight tags.';
+
+  @override
+  String get nfcErrNotNdefRead => 'Tag detected, but it is not NDEF formatted.';
+
+  @override
+  String get nfcErrNotNdefWrite =>
+      'The tag is not NDEF formatted; this phone cannot write NDEF to it directly.';
+
+  @override
+  String get nfcErrReadOnly =>
+      'The tag is read-only (locked) and cannot be written.';
+
+  @override
+  String get nfcErrNoData => 'There is no data to write.';
+
+  @override
+  String nfcErrCapacity(String required, String max) {
+    return 'Not enough space on the tag: $required bytes needed, $max bytes available.';
+  }
+
+  @override
+  String get nfcErrCapacityShort => 'Not enough space on the tag.';
+
+  @override
+  String get nfcErrVerify =>
+      'Verification failed: the data read back does not match what was written.';
+
+  @override
+  String get nfcErrConnectionLost =>
+      'Lost the connection to the tag; hold it still and try again.';
+
+  @override
+  String get nfcErrAlreadyLocked => 'The tag is already locked (read-only).';
+
+  @override
+  String get nfcErrLockNotNdef =>
+      'The tag is not NDEF formatted; write a record before locking it.';
+
+  @override
+  String get nfcErrLockNotSupported =>
+      'This tag type does not support locking.';
+
+  @override
+  String get nfcSheetConnected => 'Tag connected, working...';
+
+  @override
+  String get nfcSheetReadOk => 'Tag read!';
+
+  @override
+  String get nfcSheetEmptyRead => 'Empty tag read!';
+
+  @override
+  String get nfcSheetMultipleTags =>
+      'More than one tag detected. Hold only one tag near the phone.';
+
+  @override
+  String get nfcSheetWriteVerified => 'Written and verified!';
+
+  @override
+  String get nfcSheetWritten => 'Written to the tag!';
+
+  @override
+  String get nfcSheetLocked => 'The tag is now permanently locked!';
+
+  @override
+  String get nfcWriteDone => 'Written to the tag successfully.';
 }

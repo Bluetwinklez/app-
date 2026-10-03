@@ -3533,4 +3533,90 @@ class AppLocalizationsNl extends AppLocalizations {
 
   @override
   String get wifiSsidExampleHint => 'Thuis_WiFi_5G';
+
+  @override
+  String get nfcErrUnavailable =>
+      'NFC is niet beschikbaar of staat uit op dit apparaat.';
+
+  @override
+  String get nfcErrBusy => 'Er loopt al een NFC-actie; wacht tot die klaar is.';
+
+  @override
+  String get nfcErrCancelled => 'De actie is geannuleerd.';
+
+  @override
+  String get nfcErrAppPaused =>
+      'De actie is geannuleerd omdat de app naar de achtergrond ging.';
+
+  @override
+  String get nfcErrUnsupportedTag => 'Dit tagtype wordt niet ondersteund.';
+
+  @override
+  String get nfcErrNtagOnly =>
+      'Deze tool werkt alleen met NTAG / MIFARE Ultralight-tags.';
+
+  @override
+  String get nfcErrNotNdefRead => 'Tag gevonden, maar niet in NDEF-formaat.';
+
+  @override
+  String get nfcErrNotNdefWrite =>
+      'De tag is niet NDEF-geformatteerd; deze telefoon kan er niet direct NDEF naar schrijven.';
+
+  @override
+  String get nfcErrReadOnly => 'De tag is alleen-lezen (vergrendeld).';
+
+  @override
+  String get nfcErrNoData => 'Er zijn geen gegevens om te schrijven.';
+
+  @override
+  String nfcErrCapacity(String required, String max) {
+    return 'Te weinig ruimte: $required bytes nodig, $max beschikbaar.';
+  }
+
+  @override
+  String get nfcErrCapacityShort => 'Te weinig ruimte op de tag.';
+
+  @override
+  String get nfcErrVerify =>
+      'Verificatie mislukt: teruggelezen gegevens komen niet overeen.';
+
+  @override
+  String get nfcErrConnectionLost =>
+      'Verbinding met de tag verbroken; houd hem stil en probeer opnieuw.';
+
+  @override
+  String get nfcErrAlreadyLocked => 'De tag is al vergrendeld (alleen-lezen).';
+
+  @override
+  String get nfcErrLockNotNdef =>
+      'De tag is niet NDEF-geformatteerd; schrijf eerst een record.';
+
+  @override
+  String get nfcErrLockNotSupported =>
+      'Dit tagtype kan niet worden vergrendeld.';
+
+  @override
+  String get nfcSheetConnected => 'Tag verbonden, bezig...';
+
+  @override
+  String get nfcSheetReadOk => 'Tag gelezen!';
+
+  @override
+  String get nfcSheetEmptyRead => 'Lege tag gelezen!';
+
+  @override
+  String get nfcSheetMultipleTags =>
+      'Meer dan één tag gevonden. Houd er maar één bij de telefoon.';
+
+  @override
+  String get nfcSheetWriteVerified => 'Geschreven en geverifieerd!';
+
+  @override
+  String get nfcSheetWritten => 'Naar de tag geschreven!';
+
+  @override
+  String get nfcSheetLocked => 'De tag is nu permanent vergrendeld!';
+
+  @override
+  String get nfcWriteDone => 'Succesvol naar de tag geschreven.';
 }
