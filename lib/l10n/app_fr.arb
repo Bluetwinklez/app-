@@ -1223,5 +1223,6 @@
   "manualLink": "Lien vidéo / notice (facultatif)",
   "libraryAutoLog": "Consigner dans un registre au scan",
   "libraryAutoLogHint": "Scanner ce tag depuis l'écran principal ajoute automatiquement une entrée au registre choisi (ex. tag de porte → pointage).",
-  "autoLogged": "Consigné dans « {book} »"
+  "autoLogged": "Consigné dans « {book} »",
+  "whatsNew130": "• Registre entrée/sortie (pointage) : qui est présent, heures du jour\n• Les tags de la bibliothèque peuvent s'enregistrer automatiquement au scan\n• Rappels de contrôle et filtre « à contrôler »\n• Alerte de tag copié\n• Docteur NDEF : diagnostique les tags défectueux\n• Ajout en masse à la bibliothèque depuis Excel/Numbers\n• Nouveaux modèles : Message cadeau, Entretien de plante, Bracelet enfant, Mode d'emploi"
 }

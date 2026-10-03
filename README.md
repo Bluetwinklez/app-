@@ -2,7 +2,7 @@
 
 iPhone ve Android için NFC etiketlerini okuma, yazma ve yönetme uygulaması. Flutter ile yazıldı; NFC erişimi platform kanalları üzerinden doğrudan Core NFC (iOS) ve `android.nfc` (Android) ile yapılır.
 
-- **Sürüm:** 1.2.0 — değişiklikler için [CHANGELOG.md](CHANGELOG.md)
+- **Sürüm:** 1.3.0 — değişiklikler için [CHANGELOG.md](CHANGELOG.md)
 - **Gereksinimler:** iOS 16+ (iPhone 8 ve sonrası), Android 7.0+ (NFC donanımı)
 - **Diller:** Türkçe, English, Deutsch, Français, Español, Italiano, Português, Русский, العربية, 日本語, 简体中文, 한국어, Nederlands, Українська
 - **Gizlilik:** Hesap, sunucu, reklam veya takip yok — [docs/PRIVACY.md](docs/PRIVACY.md)
@@ -17,7 +17,7 @@ iPhone ve Android için NFC etiketlerini okuma, yazma ve yönetme uygulaması. F
 
 **Yazma**
 - Kayıt türleri: metin, URL, e-posta, telefon, SMS, konum, vCard, takvim, Smart Poster, Wi-Fi (WSC), özel MIME, Bluetooth, uygulama kayıtları ve hazır sosyal/harita bağlantıları
-- 18 hazır şablon (kategoriler, arama, favoriler)
+- 25 hazır şablon (kategoriler, arama, favoriler)
 - "Dokununca ne olur?" önizlemesi: iPhone ve Android'in etikete ne yapacağı
 - Çip bazında kapasite uyarısı; boş (NDEF olmayan) NTAG etiketlere akıllı yazma
 - Doğrulamalı yazma (geri okuyup bayt bayt karşılaştırma), geri al/yinele
@@ -41,6 +41,11 @@ iPhone ve Android için NFC etiketlerini okuma, yazma ve yönetme uygulaması. F
 - İmzalı etiketler (HMAC-SHA256) ve çevrimdışı sahte site uyarıları
 - Şablon değişkenleri `{date}` `{time}` `{counter}`, Akıllı Kart / Kayıp Eşya / Sesli Mesaj şablonları
 - Basit mod, amiibo bilgisi, bellek sayfası düzenleyici, NFC çipleri rehberi, Uyumluluk modu
+
+**1.3.0**
+- Giriş/Çıkış (mesai) defteri ve okutunca deftere otomatik kayıt
+- Kontrol aralığı / bakım hatırlatıcısı, tablodan toplu içe aktarma
+- Kopya etiket uyarısı, NDEF Doktoru
 
 **Görünüm**
 - Açık/koyu tema, tanıtım rehberi, titreşim ve ses ayarları

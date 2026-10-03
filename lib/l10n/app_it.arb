@@ -1223,5 +1223,6 @@
   "manualLink": "Link video / manuale (facoltativo)",
   "libraryAutoLog": "Registra in un registro alla lettura",
   "libraryAutoLogHint": "Leggendo questo tag dalla schermata principale si aggiunge una voce al registro scelto (es. tag della porta → presenze).",
-  "autoLogged": "Registrato in \"{book}\""
+  "autoLogged": "Registrato in \"{book}\"",
+  "whatsNew130": "• Registro entrata/uscita (presenze): chi è presente, ore di oggi\n• I tag della libreria possono registrarsi da soli alla lettura\n• Promemoria di controllo e filtro \"da controllare\"\n• Avviso di tag copiato\n• Dottore NDEF: diagnostica i tag danneggiati\n• Aggiunta in blocco alla libreria da Excel/Numbers\n• Nuovi modelli: Messaggio regalo, Cura pianta, Braccialetto bambini, Istruzioni"
 }

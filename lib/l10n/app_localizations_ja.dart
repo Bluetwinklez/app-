@@ -4185,4 +4185,8 @@ class AppLocalizationsJa extends AppLocalizations {
   String autoLogged(String book) {
     return '「$book」に記録しました';
   }
+
+  @override
+  String get whatsNew130 =>
+      '• 出退勤（タイムカード）記録帳：在室者と今日の時間\n• ライブラリのタグを読むと記録帳へ自動記録\n• 点検リマインダーと「点検待ち」フィルター\n• コピーされたタグの警告\n• NDEFドクター：壊れたタグを診断\n• Excel/Numbersからライブラリへ一括追加\n• 新テンプレート：ギフトメッセージ、植物のお世話、子ども用リストバンド、使い方カード';
 }

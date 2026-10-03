@@ -4375,4 +4375,8 @@ class AppLocalizationsTr extends AppLocalizations {
   String autoLogged(String book) {
     return '\"$book\" defterine kaydedildi';
   }
+
+  @override
+  String get whatsNew130 =>
+      '• Giriş/Çıkış (mesai) defteri: kim içeride, bugün kaç saat\n• Kütüphane etiketi okutulunca deftere otomatik kayıt\n• Bakım/kontrol hatırlatıcısı ve \"kontrol bekleyenler\" filtresi\n• Kopya etiket uyarısı\n• NDEF Doktoru: bozuk etiketleri teşhis eder\n• Excel/Numbers\'tan kütüphaneye toplu ekleme\n• Yeni şablonlar: Hediye mesajı, Bitki bakımı, Çocuk bilekliği, Kullanım talimatı';
 }

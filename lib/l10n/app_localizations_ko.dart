@@ -4202,4 +4202,8 @@ class AppLocalizationsKo extends AppLocalizations {
   String autoLogged(String book) {
     return '\"$book\"에 기록됨';
   }
+
+  @override
+  String get whatsNew130 =>
+      '• 출근/퇴근(근태) 기록부: 재실자와 오늘 근무 시간\n• 보관함 태그를 스캔하면 기록부에 자동 기록\n• 점검 알림과 \"점검 대기\" 필터\n• 복제 태그 경고\n• NDEF 진단: 손상된 태그 진단\n• Excel/Numbers에서 보관함으로 일괄 추가\n• 새 템플릿: 선물 메시지, 식물 관리, 어린이 팔찌, 사용법 카드';
 }

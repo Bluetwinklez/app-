@@ -7467,6 +7467,12 @@ abstract class AppLocalizations {
   /// In tr, this message translates to:
   /// **'\"{book}\" defterine kaydedildi'**
   String autoLogged(String book);
+
+  /// No description provided for @whatsNew130.
+  ///
+  /// In tr, this message translates to:
+  /// **'• Giriş/Çıkış (mesai) defteri: kim içeride, bugün kaç saat\n• Kütüphane etiketi okutulunca deftere otomatik kayıt\n• Bakım/kontrol hatırlatıcısı ve \"kontrol bekleyenler\" filtresi\n• Kopya etiket uyarısı\n• NDEF Doktoru: bozuk etiketleri teşhis eder\n• Excel/Numbers\'tan kütüphaneye toplu ekleme\n• Yeni şablonlar: Hediye mesajı, Bitki bakımı, Çocuk bilekliği, Kullanım talimatı'**
+  String get whatsNew130;
 }
 
 class _AppLocalizationsDelegate

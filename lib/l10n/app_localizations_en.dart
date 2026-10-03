@@ -4363,4 +4363,8 @@ class AppLocalizationsEn extends AppLocalizations {
   String autoLogged(String book) {
     return 'Logged to \"$book\"';
   }
+
+  @override
+  String get whatsNew130 =>
+      '• Check-in/out (time clock) logbook: who is inside, hours today\n• Library tags can log to a logbook automatically when scanned\n• Inspection reminders and a \"due\" filter\n• Copied tag warning\n• NDEF Doctor: diagnoses broken tags\n• Bulk add to the library from Excel/Numbers\n• New templates: Gift message, Plant care, Child wristband, How-to card';
 }

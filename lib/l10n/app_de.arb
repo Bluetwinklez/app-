@@ -1223,5 +1223,6 @@
   "manualLink": "Video-/Handbuchlink (optional)",
   "libraryAutoLog": "Beim Scannen ins Logbuch",
   "libraryAutoLogHint": "Wird dieser Tag im Hauptbildschirm gescannt, entsteht automatisch ein Eintrag im gewählten Logbuch (z. B. Türtag → Kommen/Gehen).",
-  "autoLogged": "Ins Logbuch „{book}\" eingetragen"
+  "autoLogged": "Ins Logbuch „{book}\" eingetragen",
+  "whatsNew130": "• Kommen/Gehen-Logbuch: wer ist da, Stunden heute\n• Bibliotheks-Tags schreiben beim Scannen automatisch ins Logbuch\n• Prüferinnerungen und Filter „fällig\"\n• Warnung vor kopierten Tags\n• NDEF-Doktor: erkennt defekte Tags\n• Massenimport in die Bibliothek aus Excel/Numbers\n• Neue Vorlagen: Geschenknachricht, Pflanzenpflege, Kinderarmband, Anleitungskarte"
 }

@@ -1223,5 +1223,6 @@
   "manualLink": "Enlace a vídeo / manual (opcional)",
   "libraryAutoLog": "Registrar en un cuaderno al escanear",
   "libraryAutoLogHint": "Al escanear esta etiqueta desde la pantalla principal se añade una entrada al cuaderno elegido (p. ej. etiqueta de la puerta → fichaje).",
-  "autoLogged": "Registrado en \"{book}\""
+  "autoLogged": "Registrado en \"{book}\"",
+  "whatsNew130": "• Cuaderno de entrada/salida (fichaje): quién está, horas de hoy\n• Las etiquetas de la biblioteca pueden registrarse solas al escanear\n• Recordatorios de revisión y filtro \"pendientes\"\n• Aviso de etiqueta copiada\n• Doctor NDEF: diagnostica etiquetas dañadas\n• Alta masiva en la biblioteca desde Excel/Numbers\n• Nuevas plantillas: Mensaje de regalo, Cuidado de planta, Pulsera infantil, Instrucciones"
 }

@@ -1223,5 +1223,6 @@
   "manualLink": "Video / manual link (optional)",
   "libraryAutoLog": "Log to a logbook when scanned",
   "libraryAutoLogHint": "Scanning this tag from the main screen automatically adds an entry to the chosen logbook (e.g. door tag → time clock in/out).",
-  "autoLogged": "Logged to \"{book}\""
+  "autoLogged": "Logged to \"{book}\"",
+  "whatsNew130": "• Check-in/out (time clock) logbook: who is inside, hours today\n• Library tags can log to a logbook automatically when scanned\n• Inspection reminders and a \"due\" filter\n• Copied tag warning\n• NDEF Doctor: diagnoses broken tags\n• Bulk add to the library from Excel/Numbers\n• New templates: Gift message, Plant care, Child wristband, How-to card"
 }
