@@ -5,6 +5,7 @@ import 'package:flutter_test/flutter_test.dart';
 import 'package:nfc_tag_master/domain/logbook.dart';
 import 'package:nfc_tag_master/domain/tag_library.dart';
 import 'package:nfc_tag_master/services/app_storage_service.dart';
+import 'package:nfc_tag_master/services/secret_store.dart';
 import 'package:nfc_tag_master/services/security_service.dart';
 
 void main() {
@@ -64,5 +65,28 @@ void main() {
     expect(b.hideInSwitcher, isFalse);
     expect(b.clearClipboardAfterCopy, isFalse);
     expect(b.lockAfterSeconds, 300);
+  });
+
+  test('signing key lives in the secret store and an old file key is migrated', () async {
+    final dir = await Directory.systemTemp.createTemp('keys');
+    addTearDown(() => dir.delete(recursive: true));
+    // Older version: key in the settings file.
+    final old = LocalFileAppStorageService(baseDirectoryPath: dir.path);
+    await old.init();
+    await old.setSigningKey('c2VjcmV0');
+    expect(File('${dir.path}/nfc_app_settings.json').readAsStringSync(), contains('c2VjcmV0'));
+
+    final secrets = MemorySecretStore();
+    final s = LocalFileAppStorageService(baseDirectoryPath: dir.path, secrets: secrets);
+    await s.init();
+    expect(s.signingKey, 'c2VjcmV0');
+    expect(secrets.values[LocalFileAppStorageService.signingKeySecret], 'c2VjcmV0');
+    expect(File('${dir.path}/nfc_app_settings.json').readAsStringSync(), isNot(contains('c2VjcmV0')));
+
+    await s.setSigningKey(null);
+    expect(secrets.values, isEmpty);
+    final again = LocalFileAppStorageService(baseDirectoryPath: dir.path, secrets: secrets);
+    await again.init();
+    expect(again.signingKey, isNull);
   });
 }
