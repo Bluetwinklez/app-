@@ -983,7 +983,7 @@ abstract class AppLocalizations {
   /// No description provided for @presetBusinessCardDesc.
   ///
   /// In tr, this message translates to:
-  /// **'Telefona dokununca kişi kartınız rehbere eklenir.'**
+  /// **'Kişi kartınızı paylaşır; Android rehbere eklemeyi önerir, iPhone\'da NFC uygulamasıyla açılır.'**
   String get presetBusinessCardDesc;
 
   /// No description provided for @presetBusinessCardTitle.
@@ -1031,7 +1031,7 @@ abstract class AppLocalizations {
   /// No description provided for @presetGuestWifiDesc.
   ///
   /// In tr, this message translates to:
-  /// **'Misafirler şifre yazmadan ağa bağlanır.'**
+  /// **'Android telefonlar dokununca ağa bağlanır; iPhone\'da bilgiler bir NFC uygulamasıyla görülür.'**
   String get presetGuestWifiDesc;
 
   /// No description provided for @presetGuestWifiTitle.

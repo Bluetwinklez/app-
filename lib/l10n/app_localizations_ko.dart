@@ -478,7 +478,8 @@ class AppLocalizationsKo extends AppLocalizations {
   String get presetAppDownloadTitle => '앱 다운로드 안내';
 
   @override
-  String get presetBusinessCardDesc => '휴대폰을 대면 연락처가 주소록에 바로 추가됩니다.';
+  String get presetBusinessCardDesc =>
+      '연락처 카드를 공유합니다. Android는 저장을 제안하고, iPhone은 NFC 앱에서 엽니다.';
 
   @override
   String get presetBusinessCardTitle => '디지털 명함';
@@ -502,7 +503,8 @@ class AppLocalizationsKo extends AppLocalizations {
   String get presetGoogleReviewTitle => 'Google 리뷰 안내';
 
   @override
-  String get presetGuestWifiDesc => '비밀번호 입력 없이 간편하게 Wi-Fi에 접속합니다.';
+  String get presetGuestWifiDesc =>
+      'Android는 태그만으로 연결되고, iPhone은 NFC 앱에서 정보를 봅니다.';
 
   @override
   String get presetGuestWifiTitle => '게스트용 Wi-Fi 카드';

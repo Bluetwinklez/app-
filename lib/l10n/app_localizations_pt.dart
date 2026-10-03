@@ -502,7 +502,7 @@ class AppLocalizationsPt extends AppLocalizations {
 
   @override
   String get presetBusinessCardDesc =>
-      'Adiciona o contacto à lista telefónica ao tocar.';
+      'Compartilha seu cartão de contato; o Android oferece salvar e no iPhone abre num app NFC.';
 
   @override
   String get presetBusinessCardTitle => 'Cartão de visita digital';
@@ -529,7 +529,7 @@ class AppLocalizationsPt extends AppLocalizations {
 
   @override
   String get presetGuestWifiDesc =>
-      'Permite ligar à rede sem ter de digitar a senha.';
+      'Celulares Android conectam com um toque; no iPhone os dados aparecem num app NFC.';
 
   @override
   String get presetGuestWifiTitle => 'Cartão Wi-Fi de convidados';

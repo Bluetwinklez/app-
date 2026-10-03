@@ -505,7 +505,7 @@ class AppLocalizationsTr extends AppLocalizations {
 
   @override
   String get presetBusinessCardDesc =>
-      'Telefona dokununca kişi kartınız rehbere eklenir.';
+      'Kişi kartınızı paylaşır; Android rehbere eklemeyi önerir, iPhone\'da NFC uygulamasıyla açılır.';
 
   @override
   String get presetBusinessCardTitle => 'Dijital Kartvizit';
@@ -531,7 +531,8 @@ class AppLocalizationsTr extends AppLocalizations {
   String get presetGoogleReviewTitle => 'Google Harita / Yorum';
 
   @override
-  String get presetGuestWifiDesc => 'Misafirler şifre yazmadan ağa bağlanır.';
+  String get presetGuestWifiDesc =>
+      'Android telefonlar dokununca ağa bağlanır; iPhone\'da bilgiler bir NFC uygulamasıyla görülür.';
 
   @override
   String get presetGuestWifiTitle => 'Misafir Wi-Fi Kartı';

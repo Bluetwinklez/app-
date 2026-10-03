@@ -501,7 +501,7 @@ class AppLocalizationsIt extends AppLocalizations {
 
   @override
   String get presetBusinessCardDesc =>
-      'Aggiunge il tuo contatto alla rubrica al tocco.';
+      'Condivide il tuo contatto; Android propone di salvarlo, su iPhone si apre con un\'app NFC.';
 
   @override
   String get presetBusinessCardTitle => 'Biglietto da visita digitale';
@@ -527,7 +527,7 @@ class AppLocalizationsIt extends AppLocalizations {
 
   @override
   String get presetGuestWifiDesc =>
-      'Permette agli ospiti di collegarsi senza password.';
+      'I telefoni Android si connettono con un tocco; su iPhone i dati si vedono con un\'app NFC.';
 
   @override
   String get presetGuestWifiTitle => 'Scheda Wi-Fi ospiti';
