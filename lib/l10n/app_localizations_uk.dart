@@ -3761,4 +3761,42 @@ class AppLocalizationsUk extends AppLocalizations {
   String libraryWritePrompt(String name) {
     return 'Піднесіть мітку, щоб записати «$name»';
   }
+
+  @override
+  String get presetSmartCardTitle => 'Розумна візитка';
+
+  @override
+  String get presetSmartCardDesc =>
+      'Сайт, візитка й Wi-Fi на одній мітці. Телефон спершу відкриє сайт.';
+
+  @override
+  String get presetLostItemTitle => 'Загублена річ';
+
+  @override
+  String get presetLostItemDesc =>
+      'Той, хто знайде, відкриє готове SMS для вас.';
+
+  @override
+  String get lostItemNameLabel => 'Річ (напр. ключі, гаманець)';
+
+  @override
+  String lostItemSms(String item) {
+    return 'Вітаю, я знайшов вашу річ: $item.';
+  }
+
+  @override
+  String lostItemText(String item, String name) {
+    return 'Ця річ ($item) належить: $name. Будь ласка, зв\'яжіться.';
+  }
+
+  @override
+  String get presetVoiceTitle => 'Голосове повідомлення';
+
+  @override
+  String get presetVoiceDesc =>
+      'На подарунку чи коробці: дотик увімкне голосову нотатку або пісню.';
+
+  @override
+  String get voiceLinkLabel =>
+      'Посилання на аудіо (iCloud, Drive, SoundCloud…)';
 }

@@ -3763,4 +3763,41 @@ class AppLocalizationsNl extends AppLocalizations {
   String libraryWritePrompt(String name) {
     return 'Houd een tag in de buurt om \"$name\" te schrijven';
   }
+
+  @override
+  String get presetSmartCardTitle => 'Slimme kaart';
+
+  @override
+  String get presetSmartCardDesc =>
+      'Website, contactkaart en optioneel wifi op één tag. Telefoons openen eerst de website.';
+
+  @override
+  String get presetLostItemTitle => 'Gevonden voorwerp';
+
+  @override
+  String get presetLostItemDesc =>
+      'De vinder opent met één tik een kant-en-klare sms aan jou.';
+
+  @override
+  String get lostItemNameLabel => 'Voorwerp (bv. sleutels)';
+
+  @override
+  String lostItemSms(String item) {
+    return 'Hallo, ik heb je $item gevonden.';
+  }
+
+  @override
+  String lostItemText(String item, String name) {
+    return 'Dit $item is van $name. Gevonden? Neem contact op.';
+  }
+
+  @override
+  String get presetVoiceTitle => 'Spraakbericht';
+
+  @override
+  String get presetVoiceDesc =>
+      'Op een cadeau of doos: één tik speelt je spraakmemo of lied.';
+
+  @override
+  String get voiceLinkLabel => 'Audiolink (iCloud, Drive, SoundCloud…)';
 }

@@ -3608,4 +3608,39 @@ class AppLocalizationsKo extends AppLocalizations {
   String libraryWritePrompt(String name) {
     return '\"$name\"을(를) 쓰려면 태그를 대세요';
   }
+
+  @override
+  String get presetSmartCardTitle => '스마트 카드';
+
+  @override
+  String get presetSmartCardDesc =>
+      '태그 하나에 웹사이트, 명함, Wi-Fi(선택). 휴대폰은 먼저 웹사이트를 엽니다.';
+
+  @override
+  String get presetLostItemTitle => '분실물 태그';
+
+  @override
+  String get presetLostItemDesc => '습득자가 태그하면 내게 보낼 SMS가 준비됩니다.';
+
+  @override
+  String get lostItemNameLabel => '물건(예: 열쇠, 지갑)';
+
+  @override
+  String lostItemSms(String item) {
+    return '안녕하세요, $item을(를) 찾았습니다.';
+  }
+
+  @override
+  String lostItemText(String item, String name) {
+    return '이 $item은(는) $name의 것입니다. 찾으시면 연락 주세요.';
+  }
+
+  @override
+  String get presetVoiceTitle => '음성 메시지';
+
+  @override
+  String get presetVoiceDesc => '선물이나 상자에: 태그하면 음성 메모나 노래가 재생됩니다.';
+
+  @override
+  String get voiceLinkLabel => '오디오 링크(iCloud, Drive, SoundCloud…)';
 }

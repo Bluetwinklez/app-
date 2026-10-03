@@ -2470,5 +2470,32 @@
         "type": "String"
       }
     }
-  }
+  },
+  "presetSmartCardTitle": "Akıllı Kart",
+  "presetSmartCardDesc": "Tek etikette web siteniz, kartvizitiniz ve isteğe bağlı Wi-Fi. Telefon önce siteyi açar.",
+  "presetLostItemTitle": "Kayıp Eşya",
+  "presetLostItemDesc": "Bulan kişi dokununca size hazır bir SMS taslağı açılır.",
+  "lostItemNameLabel": "Eşya (ör. Anahtar, Cüzdan)",
+  "lostItemSms": "Merhaba, {item} eşyanızı buldum.",
+  "@lostItemSms": {
+    "placeholders": {
+      "item": {
+        "type": "String"
+      }
+    }
+  },
+  "lostItemText": "Bu {item} {name} kişisine aittir. Bulduysanız lütfen haber verin.",
+  "@lostItemText": {
+    "placeholders": {
+      "item": {
+        "type": "String"
+      },
+      "name": {
+        "type": "String"
+      }
+    }
+  },
+  "presetVoiceTitle": "Sesli Mesaj",
+  "presetVoiceDesc": "Hediye ya da kutu üzerine: dokununca sesli notunuz veya şarkınız açılır.",
+  "voiceLinkLabel": "Ses dosyası bağlantısı (iCloud, Drive, SoundCloud…)"
 }

@@ -1058,5 +1058,15 @@
   "templateVarsHint": "Suggerimento: {date}, {time} o {counter} in un testo o link vengono compilati in scrittura.",
   "templateVarsPreview": "In scrittura: {date} · {time} · contatore {counter}",
   "libraryWriteToTag": "Scrivi su un tag",
-  "libraryWritePrompt": "Avvicina un tag per scrivere \"{name}\""
+  "libraryWritePrompt": "Avvicina un tag per scrivere \"{name}\"",
+  "presetSmartCardTitle": "Smart card",
+  "presetSmartCardDesc": "Sito, contatto e Wi-Fi opzionale in un tag. Il telefono apre prima il sito.",
+  "presetLostItemTitle": "Oggetto smarrito",
+  "presetLostItemDesc": "Chi lo trova apre un SMS pronto per te.",
+  "lostItemNameLabel": "Oggetto (es. chiavi, portafoglio)",
+  "lostItemSms": "Ciao, ho trovato il tuo {item}.",
+  "lostItemText": "Questo {item} appartiene a {name}. Se lo trovi, contattami.",
+  "presetVoiceTitle": "Messaggio vocale",
+  "presetVoiceDesc": "Su un regalo o una scatola: un tocco riproduce la tua nota vocale o canzone.",
+  "voiceLinkLabel": "Link audio (iCloud, Drive, SoundCloud…)"
 }

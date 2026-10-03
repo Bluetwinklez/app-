@@ -1058,5 +1058,15 @@
   "templateVarsHint": "提示：在文本或链接中写入 {date}、{time}、{counter}，写入时会自动填充。",
   "templateVarsPreview": "写入时：{date} · {time} · 计数 {counter}",
   "libraryWriteToTag": "写入标签",
-  "libraryWritePrompt": "靠近标签以写入“{name}”"
+  "libraryWritePrompt": "靠近标签以写入“{name}”",
+  "presetSmartCardTitle": "智能名片",
+  "presetSmartCardDesc": "一个标签同时包含网站、名片和可选 Wi-Fi，手机会先打开网站。",
+  "presetLostItemTitle": "失物招领",
+  "presetLostItemDesc": "拾到的人触碰即可打开发给您的短信草稿。",
+  "lostItemNameLabel": "物品（如钥匙、钱包）",
+  "lostItemSms": "你好，我捡到了你的{item}。",
+  "lostItemText": "此{item}属于{name}，如拾到请联系。",
+  "presetVoiceTitle": "语音留言",
+  "presetVoiceDesc": "贴在礼物或盒子上：一碰即播放语音或歌曲。",
+  "voiceLinkLabel": "音频链接（iCloud、Drive、SoundCloud…）"
 }

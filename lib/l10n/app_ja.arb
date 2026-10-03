@@ -1058,5 +1058,15 @@
   "templateVarsHint": "ヒント: テキストやリンクに{date}・{time}・{counter}を入れると書き込み時に自動入力されます。",
   "templateVarsPreview": "書き込み時: {date} · {time} · カウンター {counter}",
   "libraryWriteToTag": "タグに書き込む",
-  "libraryWritePrompt": "「{name}」を書き込むタグをかざしてください"
+  "libraryWritePrompt": "「{name}」を書き込むタグをかざしてください",
+  "presetSmartCardTitle": "スマートカード",
+  "presetSmartCardDesc": "1枚のタグにWebサイト・名刺・Wi-Fi (任意)。スマホはまずサイトを開きます。",
+  "presetLostItemTitle": "落とし物タグ",
+  "presetLostItemDesc": "拾った人がかざすと、あなた宛てのSMSが用意されます。",
+  "lostItemNameLabel": "品物 (例: 鍵、財布)",
+  "lostItemSms": "こんにちは。あなたの{item}を拾いました。",
+  "lostItemText": "この{item}は{name}のものです。見つけたらご連絡ください。",
+  "presetVoiceTitle": "ボイスメッセージ",
+  "presetVoiceDesc": "プレゼントや箱に。かざすとボイスメモや曲が再生されます。",
+  "voiceLinkLabel": "音声リンク (iCloud、Drive、SoundCloud…)"
 }

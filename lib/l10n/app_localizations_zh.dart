@@ -3563,4 +3563,38 @@ class AppLocalizationsZh extends AppLocalizations {
   String libraryWritePrompt(String name) {
     return '靠近标签以写入“$name”';
   }
+
+  @override
+  String get presetSmartCardTitle => '智能名片';
+
+  @override
+  String get presetSmartCardDesc => '一个标签同时包含网站、名片和可选 Wi-Fi，手机会先打开网站。';
+
+  @override
+  String get presetLostItemTitle => '失物招领';
+
+  @override
+  String get presetLostItemDesc => '拾到的人触碰即可打开发给您的短信草稿。';
+
+  @override
+  String get lostItemNameLabel => '物品（如钥匙、钱包）';
+
+  @override
+  String lostItemSms(String item) {
+    return '你好，我捡到了你的$item。';
+  }
+
+  @override
+  String lostItemText(String item, String name) {
+    return '此$item属于$name，如拾到请联系。';
+  }
+
+  @override
+  String get presetVoiceTitle => '语音留言';
+
+  @override
+  String get presetVoiceDesc => '贴在礼物或盒子上：一碰即播放语音或歌曲。';
+
+  @override
+  String get voiceLinkLabel => '音频链接（iCloud、Drive、SoundCloud…）';
 }

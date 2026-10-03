@@ -1058,5 +1058,15 @@
   "templateVarsHint": "Tip: put {date}, {time} or {counter} in a text or link and it is filled in when writing.",
   "templateVarsPreview": "When written: {date} · {time} · counter {counter}",
   "libraryWriteToTag": "Write to a tag",
-  "libraryWritePrompt": "Hold a tag near to write \"{name}\""
+  "libraryWritePrompt": "Hold a tag near to write \"{name}\"",
+  "presetSmartCardTitle": "Smart Card",
+  "presetSmartCardDesc": "Your website, contact card and optional Wi-Fi on one tag. Phones open the website first.",
+  "presetLostItemTitle": "Lost & Found",
+  "presetLostItemDesc": "When someone finds it and taps, a ready SMS to you opens.",
+  "lostItemNameLabel": "Item (e.g. Keys, Wallet)",
+  "lostItemSms": "Hi, I found your {item}.",
+  "lostItemText": "This {item} belongs to {name}. If you found it, please get in touch.",
+  "presetVoiceTitle": "Voice Message",
+  "presetVoiceDesc": "On a gift or box: a tap plays your voice note or song.",
+  "voiceLinkLabel": "Audio link (iCloud, Drive, SoundCloud…)"
 }

@@ -64,6 +64,10 @@ class TemplateGalleryPage extends StatefulWidget {
         return Icons.luggage_outlined;
       case 'home':
         return Icons.home_outlined;
+      case 'search':
+        return Icons.travel_explore_rounded;
+      case 'mic':
+        return Icons.mic_none_rounded;
       default:
         return Icons.nfc_rounded;
     }

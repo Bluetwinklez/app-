@@ -1058,5 +1058,15 @@
   "templateVarsHint": "Tipp: {date}, {time} oder {counter} in Text oder Link werden beim Schreiben ausgefüllt.",
   "templateVarsPreview": "Beim Schreiben: {date} · {time} · Zähler {counter}",
   "libraryWriteToTag": "Auf Tag schreiben",
-  "libraryWritePrompt": "Tag annähern, um „{name}“ zu schreiben"
+  "libraryWritePrompt": "Tag annähern, um „{name}“ zu schreiben",
+  "presetSmartCardTitle": "Smart Card",
+  "presetSmartCardDesc": "Website, Kontaktkarte und optional WLAN auf einem Tag. Telefone öffnen zuerst die Website.",
+  "presetLostItemTitle": "Fundsache",
+  "presetLostItemDesc": "Der Finder bekommt beim Antippen eine fertige SMS an Sie.",
+  "lostItemNameLabel": "Gegenstand (z. B. Schlüssel)",
+  "lostItemSms": "Hallo, ich habe Ihr(e) {item} gefunden.",
+  "lostItemText": "Dieses {item} gehört {name}. Bitte melden Sie sich, wenn Sie es gefunden haben.",
+  "presetVoiceTitle": "Sprachnachricht",
+  "presetVoiceDesc": "Auf Geschenk oder Box: Antippen spielt Ihre Sprachnotiz oder Ihr Lied.",
+  "voiceLinkLabel": "Audio-Link (iCloud, Drive, SoundCloud…)"
 }

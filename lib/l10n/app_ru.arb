@@ -1058,5 +1058,15 @@
   "templateVarsHint": "Совет: {date}, {time} или {counter} в тексте или ссылке заполняются при записи.",
   "templateVarsPreview": "При записи: {date} · {time} · счётчик {counter}",
   "libraryWriteToTag": "Записать на метку",
-  "libraryWritePrompt": "Поднесите метку, чтобы записать «{name}»"
+  "libraryWritePrompt": "Поднесите метку, чтобы записать «{name}»",
+  "presetSmartCardTitle": "Умная визитка",
+  "presetSmartCardDesc": "Сайт, визитка и Wi-Fi на одной метке. Телефон сначала откроет сайт.",
+  "presetLostItemTitle": "Потерянная вещь",
+  "presetLostItemDesc": "Нашедший откроет готовое SMS для вас.",
+  "lostItemNameLabel": "Вещь (напр. ключи, кошелёк)",
+  "lostItemSms": "Здравствуйте, я нашёл вашу вещь: {item}.",
+  "lostItemText": "Эта вещь ({item}) принадлежит: {name}. Пожалуйста, свяжитесь.",
+  "presetVoiceTitle": "Голосовое сообщение",
+  "presetVoiceDesc": "На подарке или коробке: касание включит голосовую заметку или песню.",
+  "voiceLinkLabel": "Ссылка на аудио (iCloud, Drive, SoundCloud…)"
 }
