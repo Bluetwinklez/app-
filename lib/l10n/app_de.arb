@@ -1255,5 +1255,12 @@
   "packPreview": "„{name}\": {tags} Tags, {templates} Vorlagen. Importieren?",
   "packImported": "{tags} Tags und {templates} Vorlagen hinzugefügt · {skipped} schon vorhanden",
   "packInvalid": "Diese Datei ist kein gültiges Team-Paket ({reason})",
-  "libraryMoreActions": "Weitere Aktionen"
+  "libraryMoreActions": "Weitere Aktionen",
+  "appIconTitle": "App-Symbol",
+  "appIconFailed": "Symbol konnte nicht geändert werden",
+  "iconBlue": "Blau",
+  "iconGreen": "Grün",
+  "iconPurple": "Lila",
+  "iconOrange": "Orange",
+  "iconDark": "Nacht"
 }

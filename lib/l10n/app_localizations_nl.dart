@@ -4500,4 +4500,25 @@ class AppLocalizationsNl extends AppLocalizations {
 
   @override
   String get libraryMoreActions => 'Meer acties';
+
+  @override
+  String get appIconTitle => 'App-icoon';
+
+  @override
+  String get appIconFailed => 'Icoon kon niet worden gewijzigd';
+
+  @override
+  String get iconBlue => 'Blauw';
+
+  @override
+  String get iconGreen => 'Groen';
+
+  @override
+  String get iconPurple => 'Paars';
+
+  @override
+  String get iconOrange => 'Oranje';
+
+  @override
+  String get iconDark => 'Nacht';
 }

@@ -1255,5 +1255,12 @@
   "packPreview": "\"{name}\": {tags} etiquetas, {templates} plantillas. ¿Importar?",
   "packImported": "Se añadieron {tags} etiquetas y {templates} plantillas · {skipped} ya existían",
   "packInvalid": "Este archivo no es un paquete de equipo válido ({reason})",
-  "libraryMoreActions": "Más acciones"
+  "libraryMoreActions": "Más acciones",
+  "appIconTitle": "Icono de la app",
+  "appIconFailed": "No se pudo cambiar el icono",
+  "iconBlue": "Azul",
+  "iconGreen": "Verde",
+  "iconPurple": "Morado",
+  "iconOrange": "Naranja",
+  "iconDark": "Noche"
 }

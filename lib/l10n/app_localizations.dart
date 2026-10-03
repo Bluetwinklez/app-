@@ -7660,6 +7660,48 @@ abstract class AppLocalizations {
   /// In tr, this message translates to:
   /// **'Diğer işlemler'**
   String get libraryMoreActions;
+
+  /// No description provided for @appIconTitle.
+  ///
+  /// In tr, this message translates to:
+  /// **'Uygulama simgesi'**
+  String get appIconTitle;
+
+  /// No description provided for @appIconFailed.
+  ///
+  /// In tr, this message translates to:
+  /// **'Simge değiştirilemedi'**
+  String get appIconFailed;
+
+  /// No description provided for @iconBlue.
+  ///
+  /// In tr, this message translates to:
+  /// **'Mavi'**
+  String get iconBlue;
+
+  /// No description provided for @iconGreen.
+  ///
+  /// In tr, this message translates to:
+  /// **'Yeşil'**
+  String get iconGreen;
+
+  /// No description provided for @iconPurple.
+  ///
+  /// In tr, this message translates to:
+  /// **'Mor'**
+  String get iconPurple;
+
+  /// No description provided for @iconOrange.
+  ///
+  /// In tr, this message translates to:
+  /// **'Turuncu'**
+  String get iconOrange;
+
+  /// No description provided for @iconDark.
+  ///
+  /// In tr, this message translates to:
+  /// **'Gece'**
+  String get iconDark;
 }
 
 class _AppLocalizationsDelegate

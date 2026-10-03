@@ -1255,5 +1255,12 @@
   "packPreview": "\"{name}\": {tags} tags, {templates} templates. Import?",
   "packImported": "Added {tags} tags and {templates} templates · {skipped} already existed",
   "packInvalid": "This file is not a valid team pack ({reason})",
-  "libraryMoreActions": "More actions"
+  "libraryMoreActions": "More actions",
+  "appIconTitle": "App icon",
+  "appIconFailed": "Could not change the icon",
+  "iconBlue": "Blue",
+  "iconGreen": "Green",
+  "iconPurple": "Purple",
+  "iconOrange": "Orange",
+  "iconDark": "Night"
 }

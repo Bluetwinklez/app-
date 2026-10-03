@@ -1255,5 +1255,12 @@
   "packPreview": "«{name}»: міток {tags}, шаблонів {templates}. Імпортувати?",
   "packImported": "Додано міток: {tags}, шаблонів: {templates} · уже були: {skipped}",
   "packInvalid": "Файл не є дійсним пакетом команди ({reason})",
-  "libraryMoreActions": "Інші дії"
+  "libraryMoreActions": "Інші дії",
+  "appIconTitle": "Значок програми",
+  "appIconFailed": "Не вдалося змінити значок",
+  "iconBlue": "Синій",
+  "iconGreen": "Зелений",
+  "iconPurple": "Фіолетовий",
+  "iconOrange": "Помаранчевий",
+  "iconDark": "Ніч"
 }

@@ -4501,4 +4501,25 @@ class AppLocalizationsRu extends AppLocalizations {
 
   @override
   String get libraryMoreActions => 'Другие действия';
+
+  @override
+  String get appIconTitle => 'Значок приложения';
+
+  @override
+  String get appIconFailed => 'Не удалось сменить значок';
+
+  @override
+  String get iconBlue => 'Синий';
+
+  @override
+  String get iconGreen => 'Зелёный';
+
+  @override
+  String get iconPurple => 'Фиолетовый';
+
+  @override
+  String get iconOrange => 'Оранжевый';
+
+  @override
+  String get iconDark => 'Ночь';
 }

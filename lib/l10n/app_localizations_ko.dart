@@ -4321,4 +4321,25 @@ class AppLocalizationsKo extends AppLocalizations {
 
   @override
   String get libraryMoreActions => '기타 작업';
+
+  @override
+  String get appIconTitle => '앱 아이콘';
+
+  @override
+  String get appIconFailed => '아이콘을 바꿀 수 없습니다';
+
+  @override
+  String get iconBlue => '파랑';
+
+  @override
+  String get iconGreen => '초록';
+
+  @override
+  String get iconPurple => '보라';
+
+  @override
+  String get iconOrange => '주황';
+
+  @override
+  String get iconDark => '나이트';
 }
