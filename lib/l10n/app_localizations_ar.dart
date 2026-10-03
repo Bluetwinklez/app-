@@ -4558,4 +4558,51 @@ class AppLocalizationsAr extends AppLocalizations {
   @override
   String get speakAfterScanSubtitle =>
       'يُقرأ المحتوى بصوت عالٍ؛ مفيد لضعاف البصر والوضع البسيط';
+
+  @override
+  String get logbookKindHabit => 'عادة (سلسلة)';
+
+  @override
+  String get logbookKindChores => 'جدول مهام الأطفال';
+
+  @override
+  String get logbookKindFeeding => 'إطعام الحيوان الأليف';
+
+  @override
+  String get logbookKindVisitors => 'سجل الزوار';
+
+  @override
+  String habitStreak(String current, String best) {
+    return '🔥 سلسلة $current يوم · الأفضل $best';
+  }
+
+  @override
+  String get habitDoneToday => 'تم اليوم ✓';
+
+  @override
+  String get habitNotToday => 'لم يُنجز اليوم بعد — حافظ على السلسلة!';
+
+  @override
+  String choresStars(String count) {
+    return '⭐ أُنجزت $count مهام اليوم';
+  }
+
+  @override
+  String feedingLast(String ago, String time) {
+    return 'آخر إطعام قبل $ago ($time)';
+  }
+
+  @override
+  String get feedingNever => 'لا يوجد إطعام مسجل بعد';
+
+  @override
+  String visitorsToday(String count) {
+    return '$count زائر اليوم';
+  }
+
+  @override
+  String get visitorNamePrompt => 'اسم الزائر';
+
+  @override
+  String get visitorNameHint => 'الاسم، الشركة (اختياري)';
 }

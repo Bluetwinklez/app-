@@ -1289,5 +1289,18 @@
   "textSizeTitle": "Text size",
   "speakTag": "Read aloud",
   "speakAfterScanTitle": "Read aloud after scanning",
-  "speakAfterScanSubtitle": "The tag content is spoken; helpful for low vision and simple mode"
+  "speakAfterScanSubtitle": "The tag content is spoken; helpful for low vision and simple mode",
+  "logbookKindHabit": "Habit (streak)",
+  "logbookKindChores": "Kids' chore chart",
+  "logbookKindFeeding": "Pet feeding",
+  "logbookKindVisitors": "Visitor log",
+  "habitStreak": "🔥 {current}-day streak · best {best}",
+  "habitDoneToday": "Done today ✓",
+  "habitNotToday": "Not done today yet — keep the streak!",
+  "choresStars": "⭐ {count} chores done today",
+  "feedingLast": "Last fed {ago} ago ({time})",
+  "feedingNever": "No feeding logged yet",
+  "visitorsToday": "{count} visitors today",
+  "visitorNamePrompt": "Visitor name",
+  "visitorNameHint": "Name, company (optional)"
 }

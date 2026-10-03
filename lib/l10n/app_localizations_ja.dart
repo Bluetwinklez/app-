@@ -4413,4 +4413,51 @@ class AppLocalizationsJa extends AppLocalizations {
 
   @override
   String get speakAfterScanSubtitle => '内容を音声で読み上げます。弱視の方やシンプルモードに便利';
+
+  @override
+  String get logbookKindHabit => '習慣（連続記録）';
+
+  @override
+  String get logbookKindChores => '子どものお手伝い表';
+
+  @override
+  String get logbookKindFeeding => 'ペットのごはん';
+
+  @override
+  String get logbookKindVisitors => '来訪者記録';
+
+  @override
+  String habitStreak(String current, String best) {
+    return '🔥 $current日連続 · 最長$best日';
+  }
+
+  @override
+  String get habitDoneToday => '今日は完了 ✓';
+
+  @override
+  String get habitNotToday => '今日はまだです — 記録を続けよう！';
+
+  @override
+  String choresStars(String count) {
+    return '⭐ 今日のお手伝い $count件';
+  }
+
+  @override
+  String feedingLast(String ago, String time) {
+    return '最後のごはん: $ago前（$time）';
+  }
+
+  @override
+  String get feedingNever => 'まだ記録がありません';
+
+  @override
+  String visitorsToday(String count) {
+    return '今日の来訪者 $count人';
+  }
+
+  @override
+  String get visitorNamePrompt => '来訪者名';
+
+  @override
+  String get visitorNameHint => '氏名・会社（任意）';
 }

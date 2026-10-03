@@ -1289,5 +1289,18 @@
   "textSizeTitle": "文字大小",
   "speakTag": "朗读",
   "speakAfterScanTitle": "扫描后朗读",
-  "speakAfterScanSubtitle": "朗读标签内容，适合视力不佳者和简易模式"
+  "speakAfterScanSubtitle": "朗读标签内容，适合视力不佳者和简易模式",
+  "logbookKindHabit": "习惯（连续）",
+  "logbookKindChores": "儿童任务表",
+  "logbookKindFeeding": "宠物喂食",
+  "logbookKindVisitors": "访客登记",
+  "habitStreak": "🔥 连续 {current} 天 · 最长 {best} 天",
+  "habitDoneToday": "今天已完成 ✓",
+  "habitNotToday": "今天还没完成——保持连续！",
+  "choresStars": "⭐ 今天完成 {count} 项任务",
+  "feedingLast": "上次喂食：{ago}前（{time}）",
+  "feedingNever": "尚无喂食记录",
+  "visitorsToday": "今天 {count} 位访客",
+  "visitorNamePrompt": "访客姓名",
+  "visitorNameHint": "姓名、公司（可选）"
 }

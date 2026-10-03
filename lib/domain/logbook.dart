@@ -1,5 +1,5 @@
 /// What a logbook is for; changes the summary shown on top.
-enum LogBookKind { attendance, medication, inventory, timeClock, custom }
+enum LogBookKind { attendance, medication, inventory, timeClock, habit, chores, feeding, visitors, custom }
 
 /// One tap recorded in a logbook.
 class LogEntry {
@@ -12,7 +12,10 @@ class LogEntry {
   /// Time clock books only: true for check-in, false for check-out.
   final bool? checkIn;
 
-  const LogEntry({required this.time, required this.uid, required this.label, this.checkIn});
+  /// Free text typed at scan time (visitor name…).
+  final String note;
+
+  const LogEntry({required this.time, required this.uid, required this.label, this.checkIn, this.note = ''});
 
   /// UID, or the label when the UID is unknown; identifies a person/tag.
   String get key => uid.isNotEmpty ? uid : label;
@@ -22,6 +25,7 @@ class LogEntry {
         'uid': uid,
         'label': label,
         if (checkIn != null) 'in': checkIn,
+        if (note.isNotEmpty) 'note': note,
       };
 
   factory LogEntry.fromJsonMap(Map<String, dynamic> m) => LogEntry(
@@ -29,6 +33,7 @@ class LogEntry {
         uid: m['uid'] as String? ?? '',
         label: m['label'] as String? ?? '',
         checkIn: m['in'] as bool?,
+        note: m['note'] as String? ?? '',
       );
 }
 
@@ -65,7 +70,8 @@ class LogBook {
   /// clock book the entry alternates check-in / check-out per tag.
   LogBook add(LogEntry entry) {
     if (kind == LogBookKind.timeClock && entry.checkIn == null) {
-      entry = LogEntry(time: entry.time, uid: entry.uid, label: entry.label, checkIn: !isInside(entry.key));
+      entry = LogEntry(
+          time: entry.time, uid: entry.uid, label: entry.label, note: entry.note, checkIn: !isInside(entry.key));
     }
     return copyWith(entries: [entry, ...entries].take(maxEntries).toList());
   }
@@ -118,6 +124,38 @@ class LogBook {
     open.forEach((key, from) => addSpan(key, from, now!.isBefore(end) ? now : end));
     return result;
   }
+
+  /// Habit streak: consecutive days with at least one entry, ending today
+  /// (or yesterday when today has no entry yet, so the streak isn't lost
+  /// before the day is over). Returns (current, best).
+  ({int current, int best}) streak({DateTime? today}) {
+    today ??= DateTime.now();
+    final days = {
+      for (final e in entries)
+        DateTime(e.time.toLocal().year, e.time.toLocal().month, e.time.toLocal().day),
+    };
+    if (days.isEmpty) return (current: 0, best: 0);
+    final sorted = days.toList()..sort();
+    var best = 1, run = 1;
+    for (int i = 1; i < sorted.length; i++) {
+      run = _dayGap(sorted[i - 1], sorted[i]) == 1 ? run + 1 : 1;
+      if (run > best) best = run;
+    }
+    var day = DateTime(today.year, today.month, today.day);
+    if (!days.contains(day)) day = DateTime(day.year, day.month, day.day - 1);
+    var current = 0;
+    while (days.contains(day)) {
+      current++;
+      day = DateTime(day.year, day.month, day.day - 1);
+    }
+    return (current: current, best: best);
+  }
+
+  static int _dayGap(DateTime a, DateTime b) =>
+      DateTime.utc(b.year, b.month, b.day).difference(DateTime.utc(a.year, a.month, a.day)).inDays;
+
+  /// Latest entry, or null for an empty book.
+  LogEntry? get last => entries.isEmpty ? null : entries.first;
 
   Duration totalWorkedOn(DateTime day, {DateTime? now}) =>
       workedOn(day, now: now).values.fold(Duration.zero, (a, b) => a + b.worked);

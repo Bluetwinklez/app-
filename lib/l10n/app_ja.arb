@@ -1289,5 +1289,18 @@
   "textSizeTitle": "文字サイズ",
   "speakTag": "読み上げ",
   "speakAfterScanTitle": "読み取り後に読み上げ",
-  "speakAfterScanSubtitle": "内容を音声で読み上げます。弱視の方やシンプルモードに便利"
+  "speakAfterScanSubtitle": "内容を音声で読み上げます。弱視の方やシンプルモードに便利",
+  "logbookKindHabit": "習慣（連続記録）",
+  "logbookKindChores": "子どものお手伝い表",
+  "logbookKindFeeding": "ペットのごはん",
+  "logbookKindVisitors": "来訪者記録",
+  "habitStreak": "🔥 {current}日連続 · 最長{best}日",
+  "habitDoneToday": "今日は完了 ✓",
+  "habitNotToday": "今日はまだです — 記録を続けよう！",
+  "choresStars": "⭐ 今日のお手伝い {count}件",
+  "feedingLast": "最後のごはん: {ago}前（{time}）",
+  "feedingNever": "まだ記録がありません",
+  "visitorsToday": "今日の来訪者 {count}人",
+  "visitorNamePrompt": "来訪者名",
+  "visitorNameHint": "氏名・会社（任意）"
 }

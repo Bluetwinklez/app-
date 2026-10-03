@@ -7864,6 +7864,84 @@ abstract class AppLocalizations {
   /// In tr, this message translates to:
   /// **'Etiketin içeriği sesli söylenir; görme güçlüğü olanlar ve basit mod için'**
   String get speakAfterScanSubtitle;
+
+  /// No description provided for @logbookKindHabit.
+  ///
+  /// In tr, this message translates to:
+  /// **'Alışkanlık (seri)'**
+  String get logbookKindHabit;
+
+  /// No description provided for @logbookKindChores.
+  ///
+  /// In tr, this message translates to:
+  /// **'Çocuk görev tablosu'**
+  String get logbookKindChores;
+
+  /// No description provided for @logbookKindFeeding.
+  ///
+  /// In tr, this message translates to:
+  /// **'Evcil hayvan besleme'**
+  String get logbookKindFeeding;
+
+  /// No description provided for @logbookKindVisitors.
+  ///
+  /// In tr, this message translates to:
+  /// **'Ziyaretçi defteri'**
+  String get logbookKindVisitors;
+
+  /// No description provided for @habitStreak.
+  ///
+  /// In tr, this message translates to:
+  /// **'🔥 {current} günlük seri · en uzun {best}'**
+  String habitStreak(String current, String best);
+
+  /// No description provided for @habitDoneToday.
+  ///
+  /// In tr, this message translates to:
+  /// **'Bugün yapıldı ✓'**
+  String get habitDoneToday;
+
+  /// No description provided for @habitNotToday.
+  ///
+  /// In tr, this message translates to:
+  /// **'Bugün henüz yapılmadı — seriyi bozma!'**
+  String get habitNotToday;
+
+  /// No description provided for @choresStars.
+  ///
+  /// In tr, this message translates to:
+  /// **'Bugün ⭐ {count} görev tamamlandı'**
+  String choresStars(String count);
+
+  /// No description provided for @feedingLast.
+  ///
+  /// In tr, this message translates to:
+  /// **'Son beslenme: {ago} önce ({time})'**
+  String feedingLast(String ago, String time);
+
+  /// No description provided for @feedingNever.
+  ///
+  /// In tr, this message translates to:
+  /// **'Henüz besleme kaydı yok'**
+  String get feedingNever;
+
+  /// No description provided for @visitorsToday.
+  ///
+  /// In tr, this message translates to:
+  /// **'Bugün {count} ziyaretçi'**
+  String visitorsToday(String count);
+
+  /// No description provided for @visitorNamePrompt.
+  ///
+  /// In tr, this message translates to:
+  /// **'Ziyaretçi adı'**
+  String get visitorNamePrompt;
+
+  /// No description provided for @visitorNameHint.
+  ///
+  /// In tr, this message translates to:
+  /// **'Ad Soyad, firma (isteğe bağlı)'**
+  String get visitorNameHint;
 }
 
 class _AppLocalizationsDelegate

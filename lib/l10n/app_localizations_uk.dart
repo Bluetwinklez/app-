@@ -4611,4 +4611,51 @@ class AppLocalizationsUk extends AppLocalizations {
   @override
   String get speakAfterScanSubtitle =>
       'Вміст озвучується; зручно при слабкому зорі та в простому режимі';
+
+  @override
+  String get logbookKindHabit => 'Звичка (серія)';
+
+  @override
+  String get logbookKindChores => 'Таблиця справ для дітей';
+
+  @override
+  String get logbookKindFeeding => 'Годування улюбленця';
+
+  @override
+  String get logbookKindVisitors => 'Журнал відвідувачів';
+
+  @override
+  String habitStreak(String current, String best) {
+    return '🔥 Серія $current дн. · рекорд $best';
+  }
+
+  @override
+  String get habitDoneToday => 'Сьогодні виконано ✓';
+
+  @override
+  String get habitNotToday => 'Сьогодні ще ні — не переривайте серію!';
+
+  @override
+  String choresStars(String count) {
+    return '⭐ Сьогодні виконано справ: $count';
+  }
+
+  @override
+  String feedingLast(String ago, String time) {
+    return 'Останнє годування $ago тому ($time)';
+  }
+
+  @override
+  String get feedingNever => 'Годувань ще немає';
+
+  @override
+  String visitorsToday(String count) {
+    return 'Відвідувачів сьогодні: $count';
+  }
+
+  @override
+  String get visitorNamePrompt => 'Ім\'я відвідувача';
+
+  @override
+  String get visitorNameHint => 'Ім\'я, компанія (необов\'язково)';
 }

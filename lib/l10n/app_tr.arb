@@ -3162,5 +3162,52 @@
   "textSizeTitle": "Yazı boyutu",
   "speakTag": "Sesli oku",
   "speakAfterScanTitle": "Okununca sesli oku",
-  "speakAfterScanSubtitle": "Etiketin içeriği sesli söylenir; görme güçlüğü olanlar ve basit mod için"
+  "speakAfterScanSubtitle": "Etiketin içeriği sesli söylenir; görme güçlüğü olanlar ve basit mod için",
+  "logbookKindHabit": "Alışkanlık (seri)",
+  "logbookKindChores": "Çocuk görev tablosu",
+  "logbookKindFeeding": "Evcil hayvan besleme",
+  "logbookKindVisitors": "Ziyaretçi defteri",
+  "habitStreak": "🔥 {current} günlük seri · en uzun {best}",
+  "@habitStreak": {
+    "placeholders": {
+      "current": {
+        "type": "String"
+      },
+      "best": {
+        "type": "String"
+      }
+    }
+  },
+  "habitDoneToday": "Bugün yapıldı ✓",
+  "habitNotToday": "Bugün henüz yapılmadı — seriyi bozma!",
+  "choresStars": "Bugün ⭐ {count} görev tamamlandı",
+  "@choresStars": {
+    "placeholders": {
+      "count": {
+        "type": "String"
+      }
+    }
+  },
+  "feedingLast": "Son beslenme: {ago} önce ({time})",
+  "@feedingLast": {
+    "placeholders": {
+      "ago": {
+        "type": "String"
+      },
+      "time": {
+        "type": "String"
+      }
+    }
+  },
+  "feedingNever": "Henüz besleme kaydı yok",
+  "visitorsToday": "Bugün {count} ziyaretçi",
+  "@visitorsToday": {
+    "placeholders": {
+      "count": {
+        "type": "String"
+      }
+    }
+  },
+  "visitorNamePrompt": "Ziyaretçi adı",
+  "visitorNameHint": "Ad Soyad, firma (isteğe bağlı)"
 }

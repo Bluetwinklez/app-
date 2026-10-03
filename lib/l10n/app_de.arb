@@ -1289,5 +1289,18 @@
   "textSizeTitle": "Textgröße",
   "speakTag": "Vorlesen",
   "speakAfterScanTitle": "Nach dem Scannen vorlesen",
-  "speakAfterScanSubtitle": "Der Inhalt wird vorgelesen; hilfreich bei Sehschwäche und im einfachen Modus"
+  "speakAfterScanSubtitle": "Der Inhalt wird vorgelesen; hilfreich bei Sehschwäche und im einfachen Modus",
+  "logbookKindHabit": "Gewohnheit (Serie)",
+  "logbookKindChores": "Kinder-Aufgabenplan",
+  "logbookKindFeeding": "Haustier füttern",
+  "logbookKindVisitors": "Besucherbuch",
+  "habitStreak": "🔥 {current} Tage in Folge · Rekord {best}",
+  "habitDoneToday": "Heute erledigt ✓",
+  "habitNotToday": "Heute noch nicht — Serie halten!",
+  "choresStars": "⭐ {count} Aufgaben heute erledigt",
+  "feedingLast": "Zuletzt gefüttert vor {ago} ({time})",
+  "feedingNever": "Noch keine Fütterung erfasst",
+  "visitorsToday": "{count} Besucher heute",
+  "visitorNamePrompt": "Name des Besuchers",
+  "visitorNameHint": "Name, Firma (optional)"
 }

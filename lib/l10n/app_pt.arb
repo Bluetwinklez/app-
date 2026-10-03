@@ -1289,5 +1289,18 @@
   "textSizeTitle": "Tamanho do texto",
   "speakTag": "Ler em voz alta",
   "speakAfterScanTitle": "Ler em voz alta após a leitura",
-  "speakAfterScanSubtitle": "O conteúdo é falado; útil para baixa visão e modo simples"
+  "speakAfterScanSubtitle": "O conteúdo é falado; útil para baixa visão e modo simples",
+  "logbookKindHabit": "Hábito (sequência)",
+  "logbookKindChores": "Quadro de tarefas infantil",
+  "logbookKindFeeding": "Alimentar o pet",
+  "logbookKindVisitors": "Registro de visitantes",
+  "habitStreak": "🔥 Sequência de {current} dias · recorde {best}",
+  "habitDoneToday": "Feito hoje ✓",
+  "habitNotToday": "Ainda não hoje — mantenha a sequência!",
+  "choresStars": "⭐ {count} tarefas feitas hoje",
+  "feedingLast": "Última refeição há {ago} ({time})",
+  "feedingNever": "Nenhuma refeição registrada",
+  "visitorsToday": "{count} visitantes hoje",
+  "visitorNamePrompt": "Nome do visitante",
+  "visitorNameHint": "Nome, empresa (opcional)"
 }
