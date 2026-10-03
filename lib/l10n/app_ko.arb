@@ -1374,5 +1374,10 @@
   "mergeEmpty": "합칠 항목이 없습니다. 먼저 태그나 템플릿을 저장하세요.",
   "mergeLastScan": "마지막 스캔 태그",
   "locationSearchHint": "주소나 장소 검색",
-  "locationNotFound": "주소를 찾을 수 없음"
+  "locationNotFound": "주소를 찾을 수 없음",
+  "cardCall": "전화",
+  "cardEmail": "이메일",
+  "cardWeb": "웹",
+  "cardAddContact": "연락처에 추가",
+  "cardTitle": "디지털 명함"
 }

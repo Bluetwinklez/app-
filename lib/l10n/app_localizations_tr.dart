@@ -4905,4 +4905,19 @@ class AppLocalizationsTr extends AppLocalizations {
 
   @override
   String get locationNotFound => 'Adres bulunamadı';
+
+  @override
+  String get cardCall => 'Ara';
+
+  @override
+  String get cardEmail => 'E-posta';
+
+  @override
+  String get cardWeb => 'Web';
+
+  @override
+  String get cardAddContact => 'Rehbere ekle';
+
+  @override
+  String get cardTitle => 'Dijital kartvizit';
 }

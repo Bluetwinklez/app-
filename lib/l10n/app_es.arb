@@ -1374,5 +1374,10 @@
   "mergeEmpty": "Nada que combinar. Guarda primero etiquetas o plantillas.",
   "mergeLastScan": "Última etiqueta",
   "locationSearchHint": "Buscar dirección o lugar",
-  "locationNotFound": "Dirección no encontrada"
+  "locationNotFound": "Dirección no encontrada",
+  "cardCall": "Llamar",
+  "cardEmail": "Correo",
+  "cardWeb": "Web",
+  "cardAddContact": "Añadir a contactos",
+  "cardTitle": "Tarjeta de visita digital"
 }

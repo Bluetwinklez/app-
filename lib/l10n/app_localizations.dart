@@ -8374,6 +8374,36 @@ abstract class AppLocalizations {
   /// In tr, this message translates to:
   /// **'Adres bulunamadı'**
   String get locationNotFound;
+
+  /// No description provided for @cardCall.
+  ///
+  /// In tr, this message translates to:
+  /// **'Ara'**
+  String get cardCall;
+
+  /// No description provided for @cardEmail.
+  ///
+  /// In tr, this message translates to:
+  /// **'E-posta'**
+  String get cardEmail;
+
+  /// No description provided for @cardWeb.
+  ///
+  /// In tr, this message translates to:
+  /// **'Web'**
+  String get cardWeb;
+
+  /// No description provided for @cardAddContact.
+  ///
+  /// In tr, this message translates to:
+  /// **'Rehbere ekle'**
+  String get cardAddContact;
+
+  /// No description provided for @cardTitle.
+  ///
+  /// In tr, this message translates to:
+  /// **'Dijital kartvizit'**
+  String get cardTitle;
 }
 
 class _AppLocalizationsDelegate

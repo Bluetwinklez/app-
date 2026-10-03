@@ -1374,5 +1374,10 @@
   "mergeEmpty": "Noch nichts zum Zusammenführen. Zuerst Tags oder Vorlagen speichern.",
   "mergeLastScan": "Zuletzt gescannter Tag",
   "locationSearchHint": "Adresse oder Ort suchen",
-  "locationNotFound": "Adresse nicht gefunden"
+  "locationNotFound": "Adresse nicht gefunden",
+  "cardCall": "Anrufen",
+  "cardEmail": "E-Mail",
+  "cardWeb": "Website",
+  "cardAddContact": "Zu Kontakten",
+  "cardTitle": "Digitale Visitenkarte"
 }

@@ -1374,5 +1374,10 @@
   "mergeEmpty": "Немає що об'єднувати. Спершу збережіть мітки або шаблони.",
   "mergeLastScan": "Остання мітка",
   "locationSearchHint": "Знайти адресу чи місце",
-  "locationNotFound": "Адресу не знайдено"
+  "locationNotFound": "Адресу не знайдено",
+  "cardCall": "Зателефонувати",
+  "cardEmail": "Пошта",
+  "cardWeb": "Сайт",
+  "cardAddContact": "До контактів",
+  "cardTitle": "Цифрова візитка"
 }

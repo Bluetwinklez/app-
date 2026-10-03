@@ -1374,5 +1374,10 @@
   "mergeEmpty": "Nothing to merge yet. Save tags or templates first.",
   "mergeLastScan": "Last scanned tag",
   "locationSearchHint": "Search an address or place",
-  "locationNotFound": "Address not found"
+  "locationNotFound": "Address not found",
+  "cardCall": "Call",
+  "cardEmail": "Email",
+  "cardWeb": "Website",
+  "cardAddContact": "Add to contacts",
+  "cardTitle": "Digital business card"
 }

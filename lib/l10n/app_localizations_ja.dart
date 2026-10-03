@@ -4692,4 +4692,19 @@ class AppLocalizationsJa extends AppLocalizations {
 
   @override
   String get locationNotFound => '住所が見つかりません';
+
+  @override
+  String get cardCall => '電話';
+
+  @override
+  String get cardEmail => 'メール';
+
+  @override
+  String get cardWeb => 'ウェブ';
+
+  @override
+  String get cardAddContact => '連絡先に追加';
+
+  @override
+  String get cardTitle => 'デジタル名刺';
 }

@@ -4937,4 +4937,19 @@ class AppLocalizationsEs extends AppLocalizations {
 
   @override
   String get locationNotFound => 'Dirección no encontrada';
+
+  @override
+  String get cardCall => 'Llamar';
+
+  @override
+  String get cardEmail => 'Correo';
+
+  @override
+  String get cardWeb => 'Web';
+
+  @override
+  String get cardAddContact => 'Añadir a contactos';
+
+  @override
+  String get cardTitle => 'Tarjeta de visita digital';
 }

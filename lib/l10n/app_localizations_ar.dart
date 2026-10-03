@@ -4847,4 +4847,19 @@ class AppLocalizationsAr extends AppLocalizations {
 
   @override
   String get locationNotFound => 'لم يُعثر على العنوان';
+
+  @override
+  String get cardCall => 'اتصال';
+
+  @override
+  String get cardEmail => 'بريد';
+
+  @override
+  String get cardWeb => 'الموقع';
+
+  @override
+  String get cardAddContact => 'إضافة إلى جهات الاتصال';
+
+  @override
+  String get cardTitle => 'بطاقة عمل رقمية';
 }

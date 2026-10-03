@@ -4904,4 +4904,19 @@ class AppLocalizationsUk extends AppLocalizations {
 
   @override
   String get locationNotFound => 'Адресу не знайдено';
+
+  @override
+  String get cardCall => 'Зателефонувати';
+
+  @override
+  String get cardEmail => 'Пошта';
+
+  @override
+  String get cardWeb => 'Сайт';
+
+  @override
+  String get cardAddContact => 'До контактів';
+
+  @override
+  String get cardTitle => 'Цифрова візитка';
 }
