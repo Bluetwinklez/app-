@@ -1220,5 +1220,8 @@
   "presetManualDesc": "운동기구, 커피머신, 숙소 가전: 짧은 사용법과 영상/설명서 링크.",
   "manualItem": "기기 / 물건",
   "manualSteps": "짧은 사용법",
-  "manualLink": "영상/설명서 링크(선택)"
+  "manualLink": "영상/설명서 링크(선택)",
+  "libraryAutoLog": "스캔 시 기록부에 기록",
+  "libraryAutoLogHint": "메인 화면에서 이 태그를 스캔하면 선택한 기록부에 자동 기록됩니다(예: 문 태그 → 출퇴근).",
+  "autoLogged": "\"{book}\"에 기록됨"
 }

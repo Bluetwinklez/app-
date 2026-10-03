@@ -4365,4 +4365,16 @@ class AppLocalizationsNl extends AppLocalizations {
 
   @override
   String get manualLink => 'Video-/handleidinglink (optioneel)';
+
+  @override
+  String get libraryAutoLog => 'Bij scannen in logboek zetten';
+
+  @override
+  String get libraryAutoLogHint =>
+      'Scan je deze tag vanaf het hoofdscherm, dan komt er automatisch een regel in het gekozen logboek (bijv. deurtag → in/uitchecken).';
+
+  @override
+  String autoLogged(String book) {
+    return 'Gelogd in \"$book\"';
+  }
 }

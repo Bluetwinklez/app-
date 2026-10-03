@@ -581,6 +581,19 @@ class _HomeScreenState extends State<HomeScreen>
     final chips = <Widget>[
       if (match != null)
         _infoChip(Icons.collections_bookmark_outlined, L10n.current.libraryMatch(match.name), AppColors.success),
+      if (_controller.lastAutoLog case final log? when tag.error == null && match != null)
+        _infoChip(
+            switch (log.entry.checkIn) {
+              true => Icons.login_rounded,
+              false => Icons.logout_rounded,
+              null => Icons.event_note_outlined,
+            },
+            switch (log.entry.checkIn) {
+              true => '${log.book} · ${L10n.current.logbookCheckIn}',
+              false => '${log.book} · ${L10n.current.logbookCheckOut}',
+              null => L10n.current.autoLogged(log.book),
+            },
+            AppColors.accent),
       if (match?.nextCheckAt case final next? when tag.error == null)
         _infoChip(
             Icons.build_circle_outlined,

@@ -4173,4 +4173,16 @@ class AppLocalizationsJa extends AppLocalizations {
 
   @override
   String get manualLink => '動画・説明書リンク（任意）';
+
+  @override
+  String get libraryAutoLog => '読み取り時に記録帳へ記録';
+
+  @override
+  String get libraryAutoLogHint =>
+      'メイン画面でこのタグを読むと、選んだ記録帳に自動で記録されます（例：ドアのタグ→出退勤）。';
+
+  @override
+  String autoLogged(String book) {
+    return '「$book」に記録しました';
+  }
 }

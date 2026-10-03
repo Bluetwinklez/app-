@@ -1220,5 +1220,8 @@
   "presetManualDesc": "Máquina de gimnasio, cafetera, alquiler: instrucciones breves y enlace a vídeo o manual.",
   "manualItem": "Aparato / objeto",
   "manualSteps": "Instrucciones breves",
-  "manualLink": "Enlace a vídeo / manual (opcional)"
+  "manualLink": "Enlace a vídeo / manual (opcional)",
+  "libraryAutoLog": "Registrar en un cuaderno al escanear",
+  "libraryAutoLogHint": "Al escanear esta etiqueta desde la pantalla principal se añade una entrada al cuaderno elegido (p. ej. etiqueta de la puerta → fichaje).",
+  "autoLogged": "Registrado en \"{book}\""
 }

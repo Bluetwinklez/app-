@@ -4397,4 +4397,16 @@ class AppLocalizationsFr extends AppLocalizations {
 
   @override
   String get manualLink => 'Lien vidéo / notice (facultatif)';
+
+  @override
+  String get libraryAutoLog => 'Consigner dans un registre au scan';
+
+  @override
+  String get libraryAutoLogHint =>
+      'Scanner ce tag depuis l\'écran principal ajoute automatiquement une entrée au registre choisi (ex. tag de porte → pointage).';
+
+  @override
+  String autoLogged(String book) {
+    return 'Consigné dans « $book »';
+  }
 }

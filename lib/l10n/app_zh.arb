@@ -1220,5 +1220,8 @@
   "presetManualDesc": "健身器械、咖啡机、出租屋电器：简短说明加视频或手册链接。",
   "manualItem": "设备 / 物品",
   "manualSteps": "简要说明",
-  "manualLink": "视频 / 手册链接（可选）"
+  "manualLink": "视频 / 手册链接（可选）",
+  "libraryAutoLog": "扫描时记入记录本",
+  "libraryAutoLogHint": "从主屏幕扫描此标签时会自动在所选记录本中添加一条（如门上标签 → 考勤）。",
+  "autoLogged": "已记入“{book}”"
 }

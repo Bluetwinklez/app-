@@ -4365,4 +4365,16 @@ class AppLocalizationsUk extends AppLocalizations {
 
   @override
   String get manualLink => 'Посилання на відео / посібник (необов\'язково)';
+
+  @override
+  String get libraryAutoLog => 'Записувати в журнал під час сканування';
+
+  @override
+  String get libraryAutoLogHint =>
+      'Під час сканування цієї мітки з головного екрана до вибраного журналу автоматично додається запис (напр. мітка на дверях → прихід/вихід).';
+
+  @override
+  String autoLogged(String book) {
+    return 'Записано до «$book»';
+  }
 }

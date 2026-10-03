@@ -4139,4 +4139,15 @@ class AppLocalizationsZh extends AppLocalizations {
 
   @override
   String get manualLink => '视频 / 手册链接（可选）';
+
+  @override
+  String get libraryAutoLog => '扫描时记入记录本';
+
+  @override
+  String get libraryAutoLogHint => '从主屏幕扫描此标签时会自动在所选记录本中添加一条（如门上标签 → 考勤）。';
+
+  @override
+  String autoLogged(String book) {
+    return '已记入“$book”';
+  }
 }

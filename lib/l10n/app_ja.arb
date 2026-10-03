@@ -1220,5 +1220,8 @@
   "presetManualDesc": "ジムのマシン、コーヒーメーカー、貸し物件の家電：短い手順と動画・説明書のリンク。",
   "manualItem": "機器 / 物",
   "manualSteps": "簡単な手順",
-  "manualLink": "動画・説明書リンク（任意）"
+  "manualLink": "動画・説明書リンク（任意）",
+  "libraryAutoLog": "読み取り時に記録帳へ記録",
+  "libraryAutoLogHint": "メイン画面でこのタグを読むと、選んだ記録帳に自動で記録されます（例：ドアのタグ→出退勤）。",
+  "autoLogged": "「{book}」に記録しました"
 }
