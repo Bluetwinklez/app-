@@ -12,12 +12,6 @@ class AppLocalizationsKo extends AppLocalizations {
   String get addRecord => '레코드 추가';
 
   @override
-  String get addRule => '규칙 추가';
-
-  @override
-  String get addTag => '태그 추가';
-
-  @override
   String get addToComposerList => '쓰기 목록에 추가';
 
   @override
@@ -35,9 +29,6 @@ class AppLocalizationsKo extends AppLocalizations {
 
   @override
   String get advancedCommandsTitle => '고급 NFC 명령어';
-
-  @override
-  String get allRulesCleared => '모든 규칙이 삭제되었습니다';
 
   @override
   String get appLinksDesc => '이 링크를 태그에 기록하면 접촉 시 알림과 함께 앱의 해당 화면이 열립니다.';
@@ -58,38 +49,10 @@ class AppLocalizationsKo extends AppLocalizations {
   String get autoRunOnTap => '태그 접촉 시 자동 실행';
 
   @override
-  String get backupExportSuccess => '백업 파일이 성공적으로 저장되었습니다';
-
-  @override
   String get backupFileSizeExceeded => '백업 파일 크기가 2 MiB를 초과합니다.';
 
   @override
   String get backupHistoryMustBeList => '\"history\" 필드는 목록 형태여야 합니다.';
-
-  @override
-  String backupImportFailed(String error) {
-    return '백업 가져오기 실패: $error';
-  }
-
-  @override
-  String backupImportSuccess(int history, int rules, int templates) {
-    return '백업 가져오기 완료: 템플릿 $templates개, 규칙 $rules개, 기록 $history개 추가됨';
-  }
-
-  @override
-  String backupInvalidBase64Id(String id) {
-    return 'ID의 Base64 인코딩이 잘못되었습니다: $id';
-  }
-
-  @override
-  String backupInvalidBase64Payload(String payload) {
-    return 'Payload의 Base64 인코딩이 잘못되었습니다: $payload';
-  }
-
-  @override
-  String backupInvalidBase64Type(String type) {
-    return 'Type의 Base64 인코딩이 잘못되었습니다: $type';
-  }
 
   @override
   String backupInvalidJson(String error) {
@@ -103,29 +66,14 @@ class AppLocalizationsKo extends AppLocalizations {
   String get backupInvalidRuleSha => '유효한 64자리 SHA-256 16진수 문자열이어야 합니다.';
 
   @override
-  String backupInvalidTemplateCreatedAt(String date) {
-    return '생성 일시 형식이 잘못되었습니다: $date';
-  }
-
-  @override
   String get backupInvalidTemplateId => '유효하지 않은 템플릿 ID입니다.';
 
   @override
   String get backupInvalidTemplateName => '유효하지 않은 템플릿 이름입니다.';
 
   @override
-  String backupInvalidTnf(String tnf) {
-    return '유효하지 않은 TNF 값 ($tnf)입니다. 0에서 7 사이여야 합니다.';
-  }
-
-  @override
   String backupMaxHistoryExceeded(int count, int max) {
     return '기록 수가 최대 제한 $max개를 초과했습니다 ($count개).';
-  }
-
-  @override
-  String backupMaxRecordsExceeded(int count, int max) {
-    return '레코드 수가 최대 제한 $max개를 초과했습니다 ($count개).';
   }
 
   @override
@@ -143,9 +91,6 @@ class AppLocalizationsKo extends AppLocalizations {
 
   @override
   String get backupRecordMustBeObject => '각 NDEF 레코드는 JSON 객체여야 합니다.';
-
-  @override
-  String get backupRecordsMustBeList => '레코드 필드는 목록 형태여야 합니다.';
 
   @override
   String get backupRestoreSubtitle =>
@@ -180,20 +125,6 @@ class AppLocalizationsKo extends AppLocalizations {
   @override
   String backupUnsupportedSchemaVersion(String version) {
     return '지원되지 않는 백업 스키마 버전입니다: $version.';
-  }
-
-  @override
-  String get batchWrite => '일괄 쓰기';
-
-  @override
-  String get bluetoothDeviceName => '기기 이름 (선택)';
-
-  @override
-  String get bluetoothMac => '블루투스 MAC 주소';
-
-  @override
-  String bytesWrittenWithVerification(int bytes, String status) {
-    return '기록된 바이트: $bytes | 검증: $status';
   }
 
   @override
@@ -235,12 +166,6 @@ class AppLocalizationsKo extends AppLocalizations {
   String get clearAll => '모두 삭제';
 
   @override
-  String get clearAllRulesConfirm => '저장된 모든 메모를 삭제하시겠습니까?';
-
-  @override
-  String get clearConfirmButton => '예, 지우기';
-
-  @override
   String get clearConfirmMessage => '태그의 모든 NDEF 데이터가 삭제됩니다. 계속하시겠습니까?';
 
   @override
@@ -250,23 +175,10 @@ class AppLocalizationsKo extends AppLocalizations {
   String get clearHistory => '기록 지우기';
 
   @override
-  String get clearList => '목록 지우기';
-
-  @override
   String get clearTagSubtitle => '모든 레코드를 삭제하고 빈 NDEF를 씁니다';
 
   @override
   String get clearTagTitle => '태그 내용 지우기';
-
-  @override
-  String clipboardBanner(int bytes, int count, String source) {
-    String _temp0 = intl.Intl.pluralLogic(
-      count,
-      locale: localeName,
-      other: '클립보드에 $count개 레코드 준비됨 ($bytes B) · $source',
-    );
-    return '$_temp0';
-  }
 
   @override
   String get close => '닫기';
@@ -276,9 +188,6 @@ class AppLocalizationsKo extends AppLocalizations {
 
   @override
   String get commandsLabel => '명령어';
-
-  @override
-  String get composeRecordTitle => '레코드 추가';
 
   @override
   String get confirmClearHistoryContent => '기기에 저장된 모든 스캔 기록이 삭제됩니다. 계속하시겠습니까?';
@@ -302,9 +211,6 @@ class AppLocalizationsKo extends AppLocalizations {
   String get contactFullName => '이름';
 
   @override
-  String get contactNote => '메모';
-
-  @override
   String get contactPhone => '전화번호';
 
   @override
@@ -314,20 +220,7 @@ class AppLocalizationsKo extends AppLocalizations {
   String get contactWebsite => '웹사이트';
 
   @override
-  String contentSummary(String content, int count) {
-    String _temp0 = intl.Intl.pluralLogic(
-      count,
-      locale: localeName,
-      other: '내용: $count개 레코드 · $content',
-    );
-    return '$_temp0';
-  }
-
-  @override
   String get copy => '복사';
-
-  @override
-  String get copyAllRecords => '모든 레코드 복사';
 
   @override
   String get copyTagUid => 'UID 복사';
@@ -372,14 +265,6 @@ class AppLocalizationsKo extends AppLocalizations {
   String get delete => '삭제';
 
   @override
-  String deleteTagConfirmContent(String name) {
-    return '\"$name\" 태그를 보관함에서 삭제하시겠습니까? 실제 태그 내용은 유지됩니다.';
-  }
-
-  @override
-  String get deleteTagConfirmTitle => '태그 삭제';
-
-  @override
   String get deleteTemplateTooltip => '템플릿 삭제';
 
   @override
@@ -392,50 +277,7 @@ class AppLocalizationsKo extends AppLocalizations {
   String get editRecordTitle => '레코드 편집';
 
   @override
-  String get editRule => '규칙 편집';
-
-  @override
-  String get editTag => '태그 편집';
-
-  @override
-  String get emailBody => '내용';
-
-  @override
   String get emailRecipient => '받는 사람 이메일';
-
-  @override
-  String get emailSubject => '제목';
-
-  @override
-  String get emptyComposerSubtitle =>
-      '\"레코드 추가\"를 눌러 URL, 텍스트, Wi-Fi, 연락처를 만드세요.';
-
-  @override
-  String get emptyComposerTitle => '추가된 데이터가 없습니다';
-
-  @override
-  String get emptyHistorySubtitle => '스캔한 태그 내용이 여기에 표시됩니다.';
-
-  @override
-  String get emptyHistoryTitle => '스캔 기록이 없습니다';
-
-  @override
-  String get emptyLibrary => '저장된 태그가 없습니다.\n태그를 스캔한 후 사진과 함께 등록해보세요.';
-
-  @override
-  String get eventDescription => '설명';
-
-  @override
-  String get eventEnd => '종료 일시';
-
-  @override
-  String get eventLocation => '장소';
-
-  @override
-  String get eventStart => '시작 일시';
-
-  @override
-  String get eventTitle => '일정 제목';
 
   @override
   String get exportBackup => '내보내기';
@@ -449,25 +291,7 @@ class AppLocalizationsKo extends AppLocalizations {
   }
 
   @override
-  String get fieldTextPrompt => '태그에 쓸 텍스트 내용';
-
-  @override
-  String get fieldUrlPrompt => '웹사이트 주소 (https://...)';
-
-  @override
-  String get fileUrl => '파일 다운로드 URL';
-
-  @override
-  String get filterAll => '전체';
-
-  @override
   String get flashlight => '손전등';
-
-  @override
-  String get formatConfirmButton => '포맷';
-
-  @override
-  String get formatConfirmMessage => '데이터를 지우고 빈 NDEF 태그로 포맷합니다. 계속하시겠습니까?';
 
   @override
   String get formatMemorySubtitle => 'NDEF용으로 초기화합니다 (빈 태그/손상 태그)';
@@ -476,25 +300,10 @@ class AppLocalizationsKo extends AppLocalizations {
   String get formatMemoryTitle => '메모리 포맷';
 
   @override
-  String get hardwareAvailable => 'NFC 하드웨어 준비됨';
-
-  @override
-  String get hardwareDisabled => 'NFC 비활성화됨';
-
-  @override
-  String get hardwareNotSupported => 'NFC 미지원';
-
-  @override
-  String get historyFilteredEmpty => '일치하는 기록을 찾을 수 없습니다.';
-
-  @override
   String get idTooLarge => 'ID 길이는 255바이트를 초과할 수 없습니다';
 
   @override
   String get importBackup => '가져오기 (병합)';
-
-  @override
-  String get importCsv => 'CSV 가져오기';
 
   @override
   String get inAppTagRules => '태그 로컬 규칙';
@@ -512,9 +321,6 @@ class AppLocalizationsKo extends AppLocalizations {
   String get languageTitle => 'Dil / Language';
 
   @override
-  String get latitude => '위도 (Lat)';
-
-  @override
   String get linkCopied => '링크가 복사되었습니다';
 
   @override
@@ -530,19 +336,10 @@ class AppLocalizationsKo extends AppLocalizations {
   String get linkWriteDesc => '쓰기 편집 화면을 엽니다';
 
   @override
-  String get loadToComposerTooltip => '작성기에 불러오기';
-
-  @override
-  String get locationHint => '예: 냉장고 문';
-
-  @override
   String get locationLabel => '위치';
 
   @override
   String get lockAcknowledge => '이 작업은 취소할 수 없음을 이해했습니다';
-
-  @override
-  String get lockButton => '잠그기';
 
   @override
   String get lockTagSubtitle => '태그를 영구 읽기 전용으로 설정합니다 (되돌리기 불가)';
@@ -551,26 +348,7 @@ class AppLocalizationsKo extends AppLocalizations {
   String get lockTagTitle => '태그 영구 잠금';
 
   @override
-  String get lockWarning =>
-      '잠긴 태그는 영구 읽기 전용이 됩니다: 변경, 삭제 또는 잠금 해제가 절대 불가능합니다. 신중히 확인하세요.';
-
-  @override
-  String get longitude => '경도 (Lng)';
-
-  @override
   String get manage => '관리';
-
-  @override
-  String get matchedRule => '일치하는 메모';
-
-  @override
-  String get mimePayloadHex => '페이로드 (Hex / 텍스트)';
-
-  @override
-  String get mimeTypeLabel => 'MIME 유형';
-
-  @override
-  String get nameRequired => '태그 이름을 입력하세요.';
 
   @override
   String get navHistory => '기록';
@@ -613,9 +391,6 @@ class AppLocalizationsKo extends AppLocalizations {
   }
 
   @override
-  String get ndefRecordsTitle => 'NDEF 레코드';
-
-  @override
   String get nfcPromptClear => '태그를 초기화하려면 기기에 대어주세요';
 
   @override
@@ -629,15 +404,6 @@ class AppLocalizationsKo extends AppLocalizations {
 
   @override
   String get no => '아니요';
-
-  @override
-  String get noContentInTag => '연결된 태그 내용이 없습니다.';
-
-  @override
-  String get noLibraryMatches => '검색 결과가 없습니다.';
-
-  @override
-  String get noRecordsOnTag => '태그에서 NDEF 레코드를 찾을 수 없습니다.';
 
   @override
   String get noTemplates => '저장된 템플릿이 없습니다.\n\"쓰기\" 탭에서 데이터를 생성해 템플릿으로 저장하세요.';
@@ -686,36 +452,6 @@ class AppLocalizationsKo extends AppLocalizations {
   String optionalField(String label) {
     return '$label (선택)';
   }
-
-  @override
-  String pageN(int page) {
-    return '$page페이지';
-  }
-
-  @override
-  String get pageRoleCc => 'CC';
-
-  @override
-  String get pageRoleData => '데이터';
-
-  @override
-  String get pageRoleLock => '잠금';
-
-  @override
-  String get pageRoleUid => 'UID';
-
-  @override
-  String get pageRoleUidLock => 'UID / 잠금';
-
-  @override
-  String get passwordDialogAction => '설정';
-
-  @override
-  String get passwordDialogTitle => '비밀번호 설정';
-
-  @override
-  String get passwordDialogWarning =>
-      '비밀번호를 분실하면 태그 내용을 다시 수정할 수 없습니다. 읽기는 누구에게나 허용됩니다.';
 
   @override
   String get passwordError => '정확히 4글자 또는 8자리 16진수를 입력하세요.';
@@ -848,9 +584,6 @@ class AppLocalizationsKo extends AppLocalizations {
   String get qrUserOnlyNote => '사용자 요청 시에만 표시됩니다.';
 
   @override
-  String get rawInspection => '상세 분석';
-
-  @override
   String get rawRecordDetailsTitle => '레코드 세부 정보 (읽기 전용)';
 
   @override
@@ -860,18 +593,6 @@ class AppLocalizationsKo extends AppLocalizations {
   String get readHeroButton => '스캔 시작';
 
   @override
-  String get readHeroEyebrow => 'NFC 리더';
-
-  @override
-  String get readHeroScanning => '스캔 중...';
-
-  @override
-  String get readHeroSubtitle => '휴대폰을 태그에 대어 NDEF 데이터와 칩 정보를 확인하세요.';
-
-  @override
-  String get readHeroTitle => '태그 스캔';
-
-  @override
   String get readMemorySubtitle => '페이지별 원시 메모리; 복사 또는 .bin 저장';
 
   @override
@@ -879,14 +600,6 @@ class AppLocalizationsKo extends AppLocalizations {
 
   @override
   String get readyTemplates => '추천 템플릿';
-
-  @override
-  String get recordCopied => '내용이 복사되었습니다';
-
-  @override
-  String recordIndex(int index) {
-    return '레코드 #$index';
-  }
 
   @override
   String get recordTypeCalendar => '캘린더 일정 (iCal)';
@@ -938,32 +651,13 @@ class AppLocalizationsKo extends AppLocalizations {
   String get recordTypeWifiCorrupt => '손상된 WSC 데이터';
 
   @override
-  String recordsCopiedToClipboard(int count) {
-    String _temp0 = intl.Intl.pluralLogic(
-      count,
-      locale: localeName,
-      other: '$count개 레코드가 클립보드에 복사되었습니다',
-    );
-    return '$_temp0';
-  }
-
-  @override
   String get redo => '다시 실행';
-
-  @override
-  String get removePasswordDialogTitle => '비밀번호 해제';
-
-  @override
-  String get removePasswordDialogWarning => '태그에 설정된 현재 비밀번호를 입력하세요.';
 
   @override
   String get removePasswordSubtitle => '설정된 비밀번호를 입력해 보호를 해제합니다';
 
   @override
   String get removePasswordTitle => '비밀번호 해제';
-
-  @override
-  String get removePhoto => '삭제';
 
   @override
   String get rewriteTag => '다시 쓰기';
@@ -974,19 +668,10 @@ class AppLocalizationsKo extends AppLocalizations {
   }
 
   @override
-  String get ruleDeleted => '규칙이 삭제되었습니다';
-
-  @override
   String get ruleNoteDialogTitle => '태그 메모 편집';
 
   @override
-  String get ruleNoteHint => '예: 창고 선반 #4 또는 회의실';
-
-  @override
   String get ruleNoteLabel => '앱 내 메모 / 라벨';
-
-  @override
-  String get ruleSaved => '규칙이 저장되었습니다';
 
   @override
   String get save => '저장';
@@ -1005,31 +690,10 @@ class AppLocalizationsKo extends AppLocalizations {
       '끄면 스캔 기록을 저장하지 않습니다. 켜면 성공한 스캔만 로컬에 저장됩니다.';
 
   @override
-  String get saveTemplateDialogTitle => '템플릿으로 저장';
-
-  @override
-  String get saveToLibrary => '보관함에 저장';
-
-  @override
   String get scanFabLabel => '태그 스캔';
 
   @override
-  String get scanQrToRecord => 'QR 코드 스캔';
-
-  @override
   String get scannedTag => '스캔된 태그';
-
-  @override
-  String get searchEngine => '검색 엔진';
-
-  @override
-  String get searchHistoryHint => '기록 검색 (UID, 내용, 유형)...';
-
-  @override
-  String get searchLibraryHint => '이름, 메모, 위치 또는 내용으로 검색';
-
-  @override
-  String get searchQuery => '검색어';
 
   @override
   String get searchQueryCannotBeEmpty => '검색어를 입력해주세요.';
@@ -1045,9 +709,6 @@ class AppLocalizationsKo extends AppLocalizations {
 
   @override
   String get setPasswordTitle => '비밀번호 설정';
-
-  @override
-  String get shareRecords => '레코드 공유';
 
   @override
   String get shortcutAutomationNote =>
@@ -1087,19 +748,7 @@ class AppLocalizationsKo extends AppLocalizations {
   String get smsMessage => '문자 내용';
 
   @override
-  String get socialNetwork => '플랫폼';
-
-  @override
   String get socialUsername => '사용자 이름 / 아이디';
-
-  @override
-  String get sourceComposer => '작성기 목록의 레코드';
-
-  @override
-  String get sourceEmpty => '내용 없음 (메모만)';
-
-  @override
-  String get sourceLastScan => '최근 스캔한 태그';
 
   @override
   String get sourceSelectPrompt => '태그 데이터를 어디서 가져올까요?';
@@ -1191,15 +840,6 @@ class AppLocalizationsKo extends AppLocalizations {
   String get systemLanguage => '시스템 언어';
 
   @override
-  String get tabApp => '앱';
-
-  @override
-  String get tabBluetooth => '블루투스';
-
-  @override
-  String get tabCalendar => '캘린더';
-
-  @override
   String get tabContact => '연락처 (vCard)';
 
   @override
@@ -1209,22 +849,10 @@ class AppLocalizationsKo extends AppLocalizations {
   String get tabEmail => '이메일';
 
   @override
-  String get tabFile => '파일';
-
-  @override
-  String get tabLocation => '위치';
-
-  @override
   String get tabPhone => '전화';
 
   @override
-  String get tabSearch => '검색';
-
-  @override
   String get tabSms => 'SMS';
-
-  @override
-  String get tabSocial => '소셜 미디어';
 
   @override
   String get tabText => '텍스트';
@@ -1233,33 +861,13 @@ class AppLocalizationsKo extends AppLocalizations {
   String get tabUrl => '웹 URL';
 
   @override
-  String get tabVideo => '비디오';
-
-  @override
   String get tabWifi => 'Wi-Fi';
-
-  @override
-  String get tagCapacity => '용량';
-
-  @override
-  String tagCapacityValue(int available, int max, int used) {
-    return '$used / $max 바이트 ($available 바이트 남음)';
-  }
 
   @override
   String get tagInfoTitle => '태그 정보';
 
   @override
   String get tagLibraryTitle => '태그 보관함';
-
-  @override
-  String get tagNameHint => '예: 주방 태그';
-
-  @override
-  String get tagNameLabel => '태그 이름';
-
-  @override
-  String get tagReadOnly => '읽기 전용 (잠김)';
 
   @override
   String tagRulesCount(int count) {
@@ -1270,41 +878,13 @@ class AppLocalizationsKo extends AppLocalizations {
   String get tagRulesSubtitle => 'NDEF 데이터의 SHA-256 해시를 기준으로 일치하는 메모만 표시합니다.';
 
   @override
-  String get tagSerialNumber => '일련번호 (UID)';
-
-  @override
-  String get tagTechnology => '기술 규격';
-
-  @override
-  String get tagType => '유형';
-
-  @override
-  String get tagUidCopied => '태그 UID가 복사되었습니다';
-
-  @override
   String get tagWritable => '쓰기 가능';
 
   @override
   String get takePhoto => '사진 촬영';
 
   @override
-  String get templateGalleryTitle => '추천 템플릿';
-
-  @override
   String get templateNameHint => '템플릿 이름';
-
-  @override
-  String templateRecordCount(int count, String date) {
-    String _temp0 = intl.Intl.pluralLogic(
-      count,
-      locale: localeName,
-      other: '$count개 레코드',
-    );
-    return '$_temp0 | $date';
-  }
-
-  @override
-  String get templateSaved => '템플릿이 저장되었습니다';
 
   @override
   String get toolsExpertSection => '고급';
@@ -1321,9 +901,6 @@ class AppLocalizationsKo extends AppLocalizations {
 
   @override
   String get toolsTagSection => '태그';
-
-  @override
-  String get totalBytes => '총 용량';
 
   @override
   String get typeTooLarge => 'Type 길이는 255바이트를 초과할 수 없습니다';
@@ -1396,28 +973,10 @@ class AppLocalizationsKo extends AppLocalizations {
   String get videoUrlCannotBeEmpty => '비디오 링크를 입력해주세요.';
 
   @override
-  String get videoUrlOrId => '영상 링크 또는 YouTube ID';
-
-  @override
   String get videoUrlOrIdPrompt => 'URL (https://...) 또는 YouTube ID를 입력하세요.';
 
   @override
   String get wifiAuthOpen => '개방형 (비밀번호 없음)';
-
-  @override
-  String get wifiAuthType => '보안 유형';
-
-  @override
-  String get wifiAuthWpa => 'WPA Personal';
-
-  @override
-  String get wifiAuthWpa2 => 'WPA2 Personal';
-
-  @override
-  String get wifiAuthWpaWpa2 => 'WPA/WPA2 Personal';
-
-  @override
-  String get wifiHidden => '숨겨진 네트워크';
 
   @override
   String get wifiPassword => '비밀번호';
@@ -1429,9 +988,6 @@ class AppLocalizationsKo extends AppLocalizations {
   String get withSiri => 'Siri 사용';
 
   @override
-  String get writeDumpConfirmButton => '쓰기';
-
-  @override
   String writeDumpConfirmMessage(int bytes, String name) {
     return '\"$name\" ($bytes 바이트) 데이터를 사용자 메모리에 기록합니다. 기존 데이터는 덮어써집니다.';
   }
@@ -1441,15 +997,6 @@ class AppLocalizationsKo extends AppLocalizations {
 
   @override
   String get writeDumpTitle => '덤프 쓰기 (.bin)';
-
-  @override
-  String get writeHeroButton => '쓰기 시작';
-
-  @override
-  String get writeHeroEyebrow => 'NDEF 라이터';
-
-  @override
-  String get writeHeroSubtitle => '여러 NDEF 레코드를 준비하여 태그에 한 번에 기록하세요.';
 
   @override
   String get writeHeroTitle => '태그에 쓰기';
@@ -1469,9 +1016,6 @@ class AppLocalizationsKo extends AppLocalizations {
   @override
   String get writeTemplatesSubtitle =>
       '자주 쓰는 NDEF 데이터를 템플릿으로 저장하여 언제든 간편하게 쓰세요.';
-
-  @override
-  String get yes => '예';
 
   @override
   String get unknown => '알 수 없음';
@@ -2404,16 +1948,6 @@ class AppLocalizationsKo extends AppLocalizations {
   String get rewriteNotice3 => '• 이전 태그에 자동으로 쓰지 않으며 새 NFC 터치가 필요합니다.';
 
   @override
-  String rewriteSourceUidLabel(String uid) {
-    return '소스 UID: $uid';
-  }
-
-  @override
-  String rewriteRecordCountLabel(num count) {
-    return '기록할 레코드 수: $count';
-  }
-
-  @override
   String get rewriteInstruction =>
       '대상 태그를 준비하고 \"터치하여 쓰기\"를 누른 뒤 태그를 휴대폰에 대세요.';
 
@@ -2424,20 +1958,10 @@ class AppLocalizationsKo extends AppLocalizations {
   String get rewritePromptMessage => '대상 태그를 기기에 대세요(내용이 완전히 갱신됩니다)';
 
   @override
-  String rewriteFailedMessage(String error) {
-    return '다시 쓰기 실패: $error';
-  }
-
-  @override
   String get writeVerifiedTitle => '쓰기 확인 완료';
 
   @override
   String get writeVerifiedDesc => 'NDEF 콘텐츠가 대상 태그에 성공적으로 기록되고 확인되었습니다.';
-
-  @override
-  String writtenRecordCount(num count) {
-    return '기록된 레코드 수: $count';
-  }
 
   @override
   String get writeVerifiedHint => '다음 스캔을 시작하여 기록된 데이터를 확인하거나 비교할 수 있습니다.';
@@ -2450,21 +1974,6 @@ class AppLocalizationsKo extends AppLocalizations {
 
   @override
   String get differenceDetected => '차이점 발견됨';
-
-  @override
-  String compareScannedUid(String uid) {
-    return '스캔된 태그 UID: $uid';
-  }
-
-  @override
-  String compareWrittenData(num count, num bytes) {
-    return '기록된 데이터: $count개 레코드($bytes바이트)';
-  }
-
-  @override
-  String compareScannedData(num count, num bytes) {
-    return '스캔된 데이터: $count개 레코드($bytes바이트)';
-  }
 
   @override
   String get compareMatchDesc =>
@@ -2495,16 +2004,6 @@ class AppLocalizationsKo extends AppLocalizations {
   String get batchNotice2 => '• 자동 연속 스캔은 수행되지 않으며 각 태그를 물리적으로 교체해야 합니다.';
 
   @override
-  String batchTargetCountLabel(num count) {
-    return '대상 태그 수: $count';
-  }
-
-  @override
-  String batchComposerSummary(num count, num bytes) {
-    return '작성기 레코드: $count개($bytes바이트)';
-  }
-
-  @override
   String get batchStartButton => '일괄 쓰기 시작';
 
   @override
@@ -2517,50 +2016,15 @@ class AppLocalizationsKo extends AppLocalizations {
   String get batchAllCompleted => '모든 태그 시도가 완료되었습니다!';
 
   @override
-  String batchNextTag(num current, num total) {
-    return '다음: 태그 #$current / $total';
-  }
-
-  @override
-  String batchStats(num success, num fail, num remaining) {
-    return '성공: $success | 실패: $fail | 남음: $remaining';
-  }
-
-  @override
-  String batchSuccessMsg(String message) {
-    return '성공 ($message)';
-  }
-
-  @override
-  String batchFailMsg(String message) {
-    return '실패: $message';
-  }
-
-  @override
-  String tagNumberLabel(num index) {
-    return '태그 #$index: ';
+  String batchStats(String ok, String failed, String left) {
+    return '성공: $ok | 실패: $failed | 남음: $left';
   }
 
   @override
   String get waitingForTag => '태그 대기 중...';
 
   @override
-  String tapToWriteForTag(num index) {
-    return '태그 #$index을(를) 터치하여 쓰기';
-  }
-
-  @override
   String get batchFinishButton => '일괄 쓰기 완료';
-
-  @override
-  String batchPromptMessage(num current, num total) {
-    return '일괄 쓰기: #$current / $total 태그를 기기에 대세요';
-  }
-
-  @override
-  String batchTagSuccessSummary(num count) {
-    return '$count개 레코드 기록 및 확인됨';
-  }
 
   @override
   String get writeError => '쓰기 오류';
@@ -2613,16 +2077,11 @@ class AppLocalizationsKo extends AppLocalizations {
       '참고: 이 분석은 로컬 오프라인 규칙을 기반으로 합니다. 온라인 바이러스 검사가 아니며 URL이 자동으로 열리지 않습니다.';
 
   @override
-  String templateLoadedToComposer(String name) {
-    return '\"$name\" 템플릿의 레코드가 작성기로 로드되었습니다.';
-  }
-
-  @override
   String get templateSaveEmptyError => '템플릿으로 저장하기 전에 레코드를 추가하세요.';
 
   @override
-  String templateDefaultName(num index) {
-    return '템플릿 $index';
+  String templateDefaultName(String n) {
+    return '템플릿 $n';
   }
 
   @override
@@ -2642,15 +2101,7 @@ class AppLocalizationsKo extends AppLocalizations {
       '이 메모는 태그 NDEF SHA-256 다이제스트에 바인딩됩니다. 태그 스캔 시 이 설명만 표시됩니다.';
 
   @override
-  String ruleNoteShaSummary(String sha) {
-    return 'NDEF 콘텐츠 다이제스트 (SHA-256):\n$sha';
-  }
-
-  @override
   String get ruleNoteSavedSnack => '태그 메모가 저장되었습니다.';
-
-  @override
-  String get ruleNoteDeleteTitle => '태그 메모 삭제';
 
   @override
   String get ruleNoteDeleteConfirm => '이 태그의 앱 내 메모가 삭제됩니다. 계속하시겠습니까?';
@@ -2672,21 +2123,21 @@ class AppLocalizationsKo extends AppLocalizations {
   String get backupIncludedItems => '포함할 항목:';
 
   @override
-  String backupTemplatesCount(num count) {
-    return '• 템플릿: $count개';
+  String backupTemplatesCount(String count) {
+    return '• 템플릿: $count';
   }
 
   @override
-  String backupRulesCount(num count) {
-    return '• 앱 내 태그 메모/규칙: $count개';
+  String backupRulesCount(String count) {
+    return '• 태그 메모/규칙: $count';
   }
 
   @override
   String get backupIncludeHistoryOptional => '스캔 기록 포함 (선택 사항)';
 
   @override
-  String backupHistoryCount(num count) {
-    return '$count개 기록 항목';
+  String backupHistoryCount(String count) {
+    return '기록 $count개';
   }
 
   @override
@@ -2706,11 +2157,6 @@ class AppLocalizationsKo extends AppLocalizations {
 
   @override
   String get backupExportCancelled => '내보내기 공유가 취소되었습니다.';
-
-  @override
-  String backupExportError(String error) {
-    return '내보내기 오류: $error';
-  }
 
   @override
   String get backupImportTitle => '백업 가져오기';
@@ -2755,11 +2201,6 @@ class AppLocalizationsKo extends AppLocalizations {
   String get backupHistoryDetectedTitle => '스캔 기록 감지됨';
 
   @override
-  String backupHistoryDetectedMsg(num count) {
-    return '백업 파일에 $count개의 스캔 기록이 있지만 이 기기에서는 비활성화되어 있습니다.\n\n';
-  }
-
-  @override
   String get backupHistoryDetectedPrompt =>
       '기록도 가져오고 활성화하시겠습니까? 아니면 기록을 건너뛰고 템플릿과 메모만 가져올까요?';
 
@@ -2768,16 +2209,6 @@ class AppLocalizationsKo extends AppLocalizations {
 
   @override
   String get backupEnableHistoryOption => '기록 활성화 및 로드';
-
-  @override
-  String backupImportSuccessWithSummary(String summary) {
-    return '가져오기 성공:\n$summary';
-  }
-
-  @override
-  String backupMergeError(String error) {
-    return '병합 오류: $error';
-  }
 
   @override
   String get nfcReadyStatus => 'NFC 준비됨';
@@ -2792,20 +2223,10 @@ class AppLocalizationsKo extends AppLocalizations {
   String get nfcDisabledDesc => 'NFC가 꺼져 있습니다. 기기 설정에서 켜주세요.';
 
   @override
-  String ndefClipboardBanner(num count, num bytes, String source) {
-    return 'NDEF 클립보드: $count개 레코드($bytes B) - $source';
-  }
-
-  @override
   String get template => '템플릿';
 
   @override
   String get nfcScannerTitle => 'NFC 스캐너';
-
-  @override
-  String lastScannedTagId(String id) {
-    return '마지막 태그: $id';
-  }
 
   @override
   String get composeRecord => '레코드 생성';
@@ -2817,11 +2238,6 @@ class AppLocalizationsKo extends AppLocalizations {
   String get previousScans => '이전 스캔';
 
   @override
-  String scanErrorWithMsg(String error) {
-    return '스캔 오류: $error';
-  }
-
-  @override
   String get noScannedTagYet => '스캔된 NFC 태그가 아직 없습니다';
 
   @override
@@ -2829,16 +2245,6 @@ class AppLocalizationsKo extends AppLocalizations {
 
   @override
   String get ndefCopyAndRewriteTitle => 'NDEF 콘텐츠 복사 및 다시 쓰기';
-
-  @override
-  String ndefCopyNotice(num count, num bytes) {
-    return '$count개 레코드($bytes바이트) - NDEF 데이터만 처리되며 UID는 복제되지 않습니다.';
-  }
-
-  @override
-  String tagIdHeader(String id) {
-    return '태그 $id';
-  }
 
   @override
   String get savedTagNoteHeader => '저장된 태그 메모 (앱 내 규칙)';
@@ -2873,22 +2279,7 @@ class AppLocalizationsKo extends AppLocalizations {
   String get freeSpace => '여유 공간:';
 
   @override
-  String errorWithMsg(String error) {
-    return '오류: $error';
-  }
-
-  @override
   String get noNdefMessageOnTag => '태그에 저장된 NDEF 메시지를 찾을 수 없습니다.';
-
-  @override
-  String readNdefRecordsHeader(num count) {
-    return '읽은 NDEF 레코드 ($count)';
-  }
-
-  @override
-  String stagedNdefRecordsHeader(num count) {
-    return '작성된 NDEF 레코드 ($count)';
-  }
 
   @override
   String get hideDetails => '세부정보 숨기기';
@@ -2909,11 +2300,6 @@ class AppLocalizationsKo extends AppLocalizations {
   String get inspectorRawHexPreview => '원시 16진수 미리보기 (제한됨):';
 
   @override
-  String inspectorPayloadTruncated(num length) {
-    return '참고: 페이로드가 $length바이트이므로 처음 64바이트만 표시됩니다.';
-  }
-
-  @override
   String get ndefRecordsToWriteTitle => '기록할 NDEF 레코드';
 
   @override
@@ -2930,11 +2316,6 @@ class AppLocalizationsKo extends AppLocalizations {
 
   @override
   String get importFromCsvAction => 'CSV 파일에서 가져오기';
-
-  @override
-  String composerTotalSizeAndCount(num bytes, num count) {
-    return '총 크기: $bytes바이트 | 레코드 수: $count';
-  }
 
   @override
   String get composerEmptyDescription =>
@@ -2956,11 +2337,6 @@ class AppLocalizationsKo extends AppLocalizations {
   String get writeAndVerify => '태그에 쓰고 확인';
 
   @override
-  String writeAndVerifyWithBytes(num bytes) {
-    return '태그에 쓰고 확인 ($bytes바이트)';
-  }
-
-  @override
   String get batchWriteButtonLabel => '일괄 태그 쓰기 (2..100개 태그)';
 
   @override
@@ -2971,11 +2347,6 @@ class AppLocalizationsKo extends AppLocalizations {
 
   @override
   String get confirmWriteMessage1 => '이 작업은 대상 태그의 기존 NDEF 콘텐츠를 완전히 덮어씁니다.';
-
-  @override
-  String confirmWriteRecordCount(num count) {
-    return '기록할 레코드 수: $count';
-  }
 
   @override
   String get confirmWriteMessage2 =>
@@ -2998,17 +2369,7 @@ class AppLocalizationsKo extends AppLocalizations {
   String get historySearchHint => 'UID, 텍스트 또는 유형으로 검색(예: URL, Wi-Fi, 04A1...)';
 
   @override
-  String historyScansCount(num count) {
-    return '저장된 스캔: $count';
-  }
-
-  @override
   String get noHistoryYet => '저장된 스캔 기록이 아직 없습니다.';
-
-  @override
-  String noHistoryResultsForQuery(String query) {
-    return '\"$query\"에 대한 검색 결과가 없습니다.';
-  }
 
   @override
   String get tryDifferentQuery => '다른 UID, 텍스트 내용 또는 레코드 유형을 사용해 보세요.';
@@ -3017,42 +2378,13 @@ class AppLocalizationsKo extends AppLocalizations {
   String get clearSearch => '검색 지우기';
 
   @override
-  String historyItemHeader(String time, num count) {
-    return '$time | $count개 레코드';
-  }
-
-  @override
   String get deleteThisRecord => '이 레코드 삭제';
-
-  @override
-  String historyCapacitySummary(num cap, num used) {
-    return '용량: ${cap}B | 사용됨: ${used}B';
-  }
-
-  @override
-  String historyUidHeader(String uid) {
-    return '기록 UID $uid';
-  }
 
   @override
   String get qrPreview => 'QR 미리보기';
 
   @override
-  String templateRecordCountWithDate(num count, String date) {
-    return '$count개 레코드 | $date';
-  }
-
-  @override
-  String writeVerificationSummary(num bytes, String status) {
-    return '기록된 바이트: $bytes | 확인: $status';
-  }
-
-  @override
   String get lockTagConfirmTitle => '태그 영구 잠금';
-
-  @override
-  String get lockTagWarning1 =>
-      '잠긴 태그는 읽기 전용이 됩니다. 내용을 다시 수정, 삭제하거나 잠금을 해제할 수 없습니다.';
 
   @override
   String get lockTagWarning2 => '먼저 올바른 내용을 기록했는지 확인하세요.';
@@ -3061,43 +2393,7 @@ class AppLocalizationsKo extends AppLocalizations {
   String get langTr => 'Türkçe';
 
   @override
-  String get langEn => 'English';
-
-  @override
-  String get langDe => 'Deutsch';
-
-  @override
   String get langFr => 'Français';
-
-  @override
-  String get langEs => 'Español';
-
-  @override
-  String get langIt => 'Italiano';
-
-  @override
-  String get langPt => 'Português';
-
-  @override
-  String get langRu => 'Русский';
-
-  @override
-  String get langAr => 'العربية';
-
-  @override
-  String get langJa => '日本語';
-
-  @override
-  String get langZh => '中文';
-
-  @override
-  String get langKo => '한국어';
-
-  @override
-  String get langNl => 'Nederlands';
-
-  @override
-  String get langUk => 'Українська';
 
   @override
   String get qrPreviewTooltip => 'QR 코드 미리보기';
@@ -3107,4 +2403,217 @@ class AppLocalizationsKo extends AppLocalizations {
 
   @override
   String get ok => '확인';
+
+  @override
+  String rewriteSourceUid(String uid) {
+    return '원본 UID: $uid';
+  }
+
+  @override
+  String recordsToWriteCount(String count) {
+    return '쓸 레코드: $count';
+  }
+
+  @override
+  String rewriteFailed(String message) {
+    return '다시 쓰기 실패: $message';
+  }
+
+  @override
+  String writtenRecordsCount(String count) {
+    return '쓴 레코드: $count';
+  }
+
+  @override
+  String scannedTagUid(String uid) {
+    return '스캔한 태그 UID: $uid';
+  }
+
+  @override
+  String writtenDataSummary(String count, String bytes) {
+    return '쓴 데이터: $count개 ($bytes바이트)';
+  }
+
+  @override
+  String scannedDataSummary(String count, String bytes) {
+    return '스캔한 데이터: $count개 ($bytes바이트)';
+  }
+
+  @override
+  String batchTargetCount(String count) {
+    return '대상 태그 수: $count';
+  }
+
+  @override
+  String composerRecordsSummary(String count, String bytes) {
+    return '쓰기 목록: $count개 ($bytes바이트)';
+  }
+
+  @override
+  String batchNext(String current, String total) {
+    return '다음: 태그 #$current / $total';
+  }
+
+  @override
+  String batchAttemptOk(String message) {
+    return '성공 ($message)';
+  }
+
+  @override
+  String batchAttemptFailed(String message) {
+    return '실패: $message';
+  }
+
+  @override
+  String batchAttemptLabel(String n) {
+    return '태그 #$n: ';
+  }
+
+  @override
+  String batchTapToWrite(String n) {
+    return '태그 #$n 터치하여 쓰기';
+  }
+
+  @override
+  String batchPrompt(String current, String total) {
+    return '일괄 쓰기: 태그 #$current / $total를 가까이 대세요';
+  }
+
+  @override
+  String batchWrittenVerified(String count) {
+    return '$count개 레코드를 쓰고 검증했습니다';
+  }
+
+  @override
+  String templateLoaded(String name) {
+    return '\"$name\"의 레코드를 쓰기 목록에 추가했습니다.';
+  }
+
+  @override
+  String ndefSha256Summary(String sha) {
+    return 'NDEF 콘텐츠 요약 (SHA-256):\n$sha';
+  }
+
+  @override
+  String exportError(String error) {
+    return '내보내기 오류: $error';
+  }
+
+  @override
+  String backupHistoryDetected(String count, String prompt) {
+    return '백업에 스캔 기록 $count개가 있지만 이 기기에서는 기록이 꺼져 있습니다.\n\n$prompt';
+  }
+
+  @override
+  String importSucceeded(String summary) {
+    return '가져오기 성공:\n$summary';
+  }
+
+  @override
+  String mergeError(String error) {
+    return '병합 오류: $error';
+  }
+
+  @override
+  String clipboardBannerText(String count, String bytes, String source) {
+    return 'NDEF 클립보드: $count개 ($bytes B) - $source';
+  }
+
+  @override
+  String get heroScanSubtitle => '태그를 휴대폰 위쪽에 대면 내용, 용량, 일련번호가 바로 표시됩니다.';
+
+  @override
+  String lastTagLabel(String uid) {
+    return '마지막 태그: $uid';
+  }
+
+  @override
+  String scanErrorWithMessage(String message) {
+    return '스캔 오류: $message';
+  }
+
+  @override
+  String copyContentSummary(String count, String bytes) {
+    return '$count개 ($bytes바이트) - NDEF 데이터만 복사하며 UID는 복사하지 않습니다.';
+  }
+
+  @override
+  String tagSourceLabel(String uid) {
+    return '태그 $uid';
+  }
+
+  @override
+  String errorWithMessage(String message) {
+    return '오류: $message';
+  }
+
+  @override
+  String readRecordsHeader(String count) {
+    return '읽은 NDEF 레코드 ($count)';
+  }
+
+  @override
+  String composedRecordsHeader(String count) {
+    return '쓸 NDEF 레코드 ($count)';
+  }
+
+  @override
+  String payloadTruncatedNote(String bytes) {
+    return '참고: 페이로드가 $bytes바이트라 처음 64바이트만 표시합니다.';
+  }
+
+  @override
+  String composerTotals(String bytes, String count) {
+    return '전체 크기: $bytes바이트 | 레코드: $count';
+  }
+
+  @override
+  String writeAndVerifyWithSize(String bytes) {
+    return '쓰고 검증 ($bytes바이트)';
+  }
+
+  @override
+  String savedScansCount(String count) {
+    return '저장된 스캔: $count';
+  }
+
+  @override
+  String historyNoResults(String query) {
+    return '\"$query\"에 대한 결과가 없습니다.';
+  }
+
+  @override
+  String historyItemMeta(String date, String count) {
+    return '$date | $count개';
+  }
+
+  @override
+  String historyCapacity(String max, String used) {
+    return '용량: $max B | 사용: $used B';
+  }
+
+  @override
+  String historySourceLabel(String uid) {
+    return '기록 UID $uid';
+  }
+
+  @override
+  String templateMeta(String count, String date) {
+    return '$count개 | $date';
+  }
+
+  @override
+  String rulesCountLabel(String count) {
+    return '저장된 규칙/메모: $count';
+  }
+
+  @override
+  String writeResultDetails(String bytes, String verification) {
+    return '쓴 바이트: $bytes | 검증: $verification';
+  }
+
+  @override
+  String lockTagWarningFull(String more) {
+    return '잠근 태그는 읽기 전용이 되어 내용을 다시는 바꾸거나 지울 수 없고 잠금도 해제할 수 없습니다. $more';
+  }
 }

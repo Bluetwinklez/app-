@@ -12,12 +12,6 @@ class AppLocalizationsUk extends AppLocalizations {
   String get addRecord => 'Додати запис';
 
   @override
-  String get addRule => 'Додати правило';
-
-  @override
-  String get addTag => 'Додати мітку';
-
-  @override
   String get addToComposerList => 'Додати до списку запису';
 
   @override
@@ -36,9 +30,6 @@ class AppLocalizationsUk extends AppLocalizations {
 
   @override
   String get advancedCommandsTitle => 'Розширені команди NFC';
-
-  @override
-  String get allRulesCleared => 'Усі правила видалено';
 
   @override
   String get appLinksDesc =>
@@ -60,39 +51,11 @@ class AppLocalizationsUk extends AppLocalizations {
   String get autoRunOnTap => 'Автозапуск при торканні';
 
   @override
-  String get backupExportSuccess => 'Файл резервної копії успішно збережено';
-
-  @override
   String get backupFileSizeExceeded =>
       'Розмір файлу резервної копії перевищує 2 МіБ.';
 
   @override
   String get backupHistoryMustBeList => 'Поле \"history\" має бути списком.';
-
-  @override
-  String backupImportFailed(String error) {
-    return 'Не вдалося імпортувати резервну копію: $error';
-  }
-
-  @override
-  String backupImportSuccess(int history, int rules, int templates) {
-    return 'Резервну копію імпортовано: додано $templates шаблонів, $rules правил, $history записів історії';
-  }
-
-  @override
-  String backupInvalidBase64Id(String id) {
-    return 'Некоректний Base64 для ID: $id';
-  }
-
-  @override
-  String backupInvalidBase64Payload(String payload) {
-    return 'Некоректний Base64 для даних: $payload';
-  }
-
-  @override
-  String backupInvalidBase64Type(String type) {
-    return 'Некоректний Base64 для типу: $type';
-  }
 
   @override
   String backupInvalidJson(String error) {
@@ -106,29 +69,14 @@ class AppLocalizationsUk extends AppLocalizations {
   String get backupInvalidRuleSha => 'Неприпустимий SHA-256 хеш.';
 
   @override
-  String backupInvalidTemplateCreatedAt(String date) {
-    return 'Некоректна дата створення: $date';
-  }
-
-  @override
   String get backupInvalidTemplateId => 'Некоректний ID шаблону.';
 
   @override
   String get backupInvalidTemplateName => 'Некоректна назва шаблону.';
 
   @override
-  String backupInvalidTnf(String tnf) {
-    return 'Неприпустиме значення TNF ($tnf). Має бути від 0 до 7.';
-  }
-
-  @override
   String backupMaxHistoryExceeded(int count, int max) {
     return 'Кількість історії перевищує ліміт $max ($count).';
-  }
-
-  @override
-  String backupMaxRecordsExceeded(int count, int max) {
-    return 'Кількість записів перевищує ліміт $max ($count).';
   }
 
   @override
@@ -147,9 +95,6 @@ class AppLocalizationsUk extends AppLocalizations {
   @override
   String get backupRecordMustBeObject =>
       'Кожен запис NDEF має бути об\'єктом JSON.';
-
-  @override
-  String get backupRecordsMustBeList => 'Записи мають бути списком.';
 
   @override
   String get backupRestoreSubtitle =>
@@ -191,20 +136,6 @@ class AppLocalizationsUk extends AppLocalizations {
   }
 
   @override
-  String get batchWrite => 'Пакетний запис';
-
-  @override
-  String get bluetoothDeviceName => 'Назва пристрою (Необов\'язково)';
-
-  @override
-  String get bluetoothMac => 'MAC-адреса Bluetooth';
-
-  @override
-  String bytesWrittenWithVerification(int bytes, String status) {
-    return 'Записано байтів: $bytes | Перевірка: $status';
-  }
-
-  @override
   String cameraError(String error) {
     return 'Не вдалося відкрити камеру. Надайте дозвіл у меню Параметри > Приватність > Камера.\n($error)';
   }
@@ -243,12 +174,6 @@ class AppLocalizationsUk extends AppLocalizations {
   String get clearAll => 'Очистити все';
 
   @override
-  String get clearAllRulesConfirm => 'Видалити всі збережені нотатки міток?';
-
-  @override
-  String get clearConfirmButton => 'Так, очистити';
-
-  @override
   String get clearConfirmMessage =>
       'Усі записи NDEF буде видалено, і буде записано порожній запис. Продовжити?';
 
@@ -259,24 +184,10 @@ class AppLocalizationsUk extends AppLocalizations {
   String get clearHistory => 'Очистити історію';
 
   @override
-  String get clearList => 'Очистити список';
-
-  @override
   String get clearTagSubtitle => 'Видаляє всі записи та записує порожній NDEF';
 
   @override
   String get clearTagTitle => 'Очистити мітку';
-
-  @override
-  String clipboardBanner(int bytes, int count, String source) {
-    String _temp0 = intl.Intl.pluralLogic(
-      count,
-      locale: localeName,
-      other: '$count записів у буфері обміну',
-      one: '1 запис у буфері обміну',
-    );
-    return '$_temp0 ($bytes Б) · $source';
-  }
 
   @override
   String get close => 'Закрити';
@@ -286,9 +197,6 @@ class AppLocalizationsUk extends AppLocalizations {
 
   @override
   String get commandsLabel => 'Команди';
-
-  @override
-  String get composeRecordTitle => 'Додати новий запис';
 
   @override
   String get confirmClearHistoryContent =>
@@ -314,9 +222,6 @@ class AppLocalizationsUk extends AppLocalizations {
   String get contactFullName => 'ПІБ';
 
   @override
-  String get contactNote => 'Нотатка';
-
-  @override
   String get contactPhone => 'Телефон';
 
   @override
@@ -326,21 +231,7 @@ class AppLocalizationsUk extends AppLocalizations {
   String get contactWebsite => 'Веб-сайт';
 
   @override
-  String contentSummary(String content, int count) {
-    String _temp0 = intl.Intl.pluralLogic(
-      count,
-      locale: localeName,
-      other: '$count записів',
-      one: '1 запис',
-    );
-    return 'Вміст: $_temp0 · $content';
-  }
-
-  @override
   String get copy => 'Копіювати';
-
-  @override
-  String get copyAllRecords => 'Копіювати всі записи';
 
   @override
   String get copyTagUid => 'Скопіювати UID';
@@ -386,14 +277,6 @@ class AppLocalizationsUk extends AppLocalizations {
   String get delete => 'Видалити';
 
   @override
-  String deleteTagConfirmContent(String name) {
-    return 'Видалити \"$name\" з бібліотеки? Фізична мітка не зміниться.';
-  }
-
-  @override
-  String get deleteTagConfirmTitle => 'Видалити мітку';
-
-  @override
   String get deleteTemplateTooltip => 'Видалити шаблон';
 
   @override
@@ -406,51 +289,7 @@ class AppLocalizationsUk extends AppLocalizations {
   String get editRecordTitle => 'Редагувати запис';
 
   @override
-  String get editRule => 'Змінити правило';
-
-  @override
-  String get editTag => 'Редагувати мітку';
-
-  @override
-  String get emailBody => 'Текст листа';
-
-  @override
   String get emailRecipient => 'Кому (Email)';
-
-  @override
-  String get emailSubject => 'Тема';
-
-  @override
-  String get emptyComposerSubtitle =>
-      'Натисніть \"Додати запис\", щоб створити URL, текст, Wi-Fi або контакт.';
-
-  @override
-  String get emptyComposerTitle => 'Записів ще немає';
-
-  @override
-  String get emptyHistorySubtitle => 'Відскановані мітки з\'являтимуться тут.';
-
-  @override
-  String get emptyHistoryTitle => 'Історія порожня';
-
-  @override
-  String get emptyLibrary =>
-      'Збережених міток ще немає.\nВідскануйте мітку та збережіть її тут з фото та назвою.';
-
-  @override
-  String get eventDescription => 'Опис';
-
-  @override
-  String get eventEnd => 'Завершення';
-
-  @override
-  String get eventLocation => 'Місце';
-
-  @override
-  String get eventStart => 'Початок';
-
-  @override
-  String get eventTitle => 'Назва події';
 
   @override
   String get exportBackup => 'Експорт';
@@ -465,26 +304,7 @@ class AppLocalizationsUk extends AppLocalizations {
   }
 
   @override
-  String get fieldTextPrompt => 'Текст для запису на мітку';
-
-  @override
-  String get fieldUrlPrompt => 'Адреса сайту (https://...)';
-
-  @override
-  String get fileUrl => 'Посилання на файл';
-
-  @override
-  String get filterAll => 'Всі';
-
-  @override
   String get flashlight => 'Ліхтарик';
-
-  @override
-  String get formatConfirmButton => 'Форматувати';
-
-  @override
-  String get formatConfirmMessage =>
-      'Дані на мітці буде видалено та налаштовано як порожню мітку NDEF. Продовжити?';
 
   @override
   String get formatMemorySubtitle =>
@@ -494,25 +314,10 @@ class AppLocalizationsUk extends AppLocalizations {
   String get formatMemoryTitle => 'Форматувати пам\'ять';
 
   @override
-  String get hardwareAvailable => 'NFC готовий до роботи';
-
-  @override
-  String get hardwareDisabled => 'NFC вимкнено';
-
-  @override
-  String get hardwareNotSupported => 'NFC не підтримується';
-
-  @override
-  String get historyFilteredEmpty => 'Нічого не знайдено в історії.';
-
-  @override
   String get idTooLarge => 'Довжина ID не може перевищувати 255 байтів';
 
   @override
   String get importBackup => 'Імпорт (Об\'єднати)';
-
-  @override
-  String get importCsv => 'Імпорт CSV';
 
   @override
   String get inAppTagRules => 'Локальні правила міток';
@@ -530,9 +335,6 @@ class AppLocalizationsUk extends AppLocalizations {
   String get languageTitle => 'Dil / Language';
 
   @override
-  String get latitude => 'Широта (Lat)';
-
-  @override
   String get linkCopied => 'Посилання скопійовано';
 
   @override
@@ -548,19 +350,10 @@ class AppLocalizationsUk extends AppLocalizations {
   String get linkWriteDesc => 'Відкриває екран запису';
 
   @override
-  String get loadToComposerTooltip => 'Завантажити в редактор';
-
-  @override
-  String get locationHint => 'Напр.: Дверцята холодильника';
-
-  @override
   String get locationLabel => 'Де розташована?';
 
   @override
   String get lockAcknowledge => 'Я розумію, що цю дію не можна скасувати';
-
-  @override
-  String get lockButton => 'Заблокувати';
 
   @override
   String get lockTagSubtitle =>
@@ -570,26 +363,7 @@ class AppLocalizationsUk extends AppLocalizations {
   String get lockTagTitle => 'Заблокувати мітку';
 
   @override
-  String get lockWarning =>
-      'Заблокована мітка стає доступною ТІЛЬКИ для читання: змінити, стерти чи розблокувати її буде НЕМОЖЛИВО.';
-
-  @override
-  String get longitude => 'Довгота (Lng)';
-
-  @override
   String get manage => 'Керування';
-
-  @override
-  String get matchedRule => 'Відповідна нотатка';
-
-  @override
-  String get mimePayloadHex => 'Дані (Hex / Текст)';
-
-  @override
-  String get mimeTypeLabel => 'MIME тип';
-
-  @override
-  String get nameRequired => 'Будь ласка, вкажіть назву мітки.';
 
   @override
   String get navHistory => 'Історія';
@@ -633,9 +407,6 @@ class AppLocalizationsUk extends AppLocalizations {
   }
 
   @override
-  String get ndefRecordsTitle => 'Записи NDEF';
-
-  @override
   String get nfcPromptClear => 'Піднесіть мітку для скидання';
 
   @override
@@ -649,15 +420,6 @@ class AppLocalizationsUk extends AppLocalizations {
 
   @override
   String get no => 'Ні';
-
-  @override
-  String get noContentInTag => 'У цьому записі немає вмісту мітки.';
-
-  @override
-  String get noLibraryMatches => 'Нічого не знайдено.';
-
-  @override
-  String get noRecordsOnTag => 'На мітці не знайдено записів NDEF.';
 
   @override
   String get noTemplates =>
@@ -707,36 +469,6 @@ class AppLocalizationsUk extends AppLocalizations {
   String optionalField(String label) {
     return '$label (необов\'язково)';
   }
-
-  @override
-  String pageN(int page) {
-    return 'Сторінка $page';
-  }
-
-  @override
-  String get pageRoleCc => 'CC';
-
-  @override
-  String get pageRoleData => 'Дані';
-
-  @override
-  String get pageRoleLock => 'Блок';
-
-  @override
-  String get pageRoleUid => 'UID';
-
-  @override
-  String get pageRoleUidLock => 'UID / Блок';
-
-  @override
-  String get passwordDialogAction => 'Встановити';
-
-  @override
-  String get passwordDialogTitle => 'Встановити пароль';
-
-  @override
-  String get passwordDialogWarning =>
-      'Якщо ви забудете цей пароль, змінити дані на мітці буде неможливо. Читання залишиться відкритим.';
 
   @override
   String get passwordError => 'Введіть рівно 4 символи або 8 hex-знаків.';
@@ -879,9 +611,6 @@ class AppLocalizationsUk extends AppLocalizations {
   String get qrUserOnlyNote => 'Відкривається лише за запитом користувача.';
 
   @override
-  String get rawInspection => 'Детальний аналіз';
-
-  @override
   String get rawRecordDetailsTitle => 'Деталі запису (Лише читання)';
 
   @override
@@ -889,19 +618,6 @@ class AppLocalizationsUk extends AppLocalizations {
 
   @override
   String get readHeroButton => 'Почати сканування';
-
-  @override
-  String get readHeroEyebrow => 'ЗЧИТУВАЧ NFC';
-
-  @override
-  String get readHeroScanning => 'Сканування...';
-
-  @override
-  String get readHeroSubtitle =>
-      'Піднесіть верхню частину телефону до мітки для читання записів NDEF та даних чіпа.';
-
-  @override
-  String get readHeroTitle => 'Сканувати мітку';
 
   @override
   String get readMemorySubtitle =>
@@ -912,14 +628,6 @@ class AppLocalizationsUk extends AppLocalizations {
 
   @override
   String get readyTemplates => 'Готові шаблони';
-
-  @override
-  String get recordCopied => 'Вміст скопійовано';
-
-  @override
-  String recordIndex(int index) {
-    return 'Запис #$index';
-  }
 
   @override
   String get recordTypeCalendar => 'Подія календаря (iCal)';
@@ -971,24 +679,7 @@ class AppLocalizationsUk extends AppLocalizations {
   String get recordTypeWifiCorrupt => 'Пошкоджені дані WSC';
 
   @override
-  String recordsCopiedToClipboard(int count) {
-    String _temp0 = intl.Intl.pluralLogic(
-      count,
-      locale: localeName,
-      other: '$count записів скопійовано',
-      one: '1 запис скопійовано',
-    );
-    return '$_temp0';
-  }
-
-  @override
   String get redo => 'Повторити';
-
-  @override
-  String get removePasswordDialogTitle => 'Зняти пароль';
-
-  @override
-  String get removePasswordDialogWarning => 'Введіть поточний пароль мітки.';
 
   @override
   String get removePasswordSubtitle =>
@@ -996,9 +687,6 @@ class AppLocalizationsUk extends AppLocalizations {
 
   @override
   String get removePasswordTitle => 'Зняти пароль';
-
-  @override
-  String get removePhoto => 'Видалити';
 
   @override
   String get rewriteTag => 'Перезаписати';
@@ -1009,19 +697,10 @@ class AppLocalizationsUk extends AppLocalizations {
   }
 
   @override
-  String get ruleDeleted => 'Правило видалено';
-
-  @override
   String get ruleNoteDialogTitle => 'Редагувати нотатку мітки';
 
   @override
-  String get ruleNoteHint => 'Напр.: Стелаж на складі #4 або Конференц-зал';
-
-  @override
   String get ruleNoteLabel => 'Локальна нотатка / Опис';
-
-  @override
-  String get ruleSaved => 'Правило збережено';
 
   @override
   String get save => 'Зберегти';
@@ -1040,32 +719,10 @@ class AppLocalizationsUk extends AppLocalizations {
       'Якщо вимкнено, скани не зберігаються. Якщо ввімкнено, успішні скани зберігаються локально.';
 
   @override
-  String get saveTemplateDialogTitle => 'Зберегти як шаблон';
-
-  @override
-  String get saveToLibrary => 'Зберегти в бібліотеку';
-
-  @override
   String get scanFabLabel => 'Сканувати мітку';
 
   @override
-  String get scanQrToRecord => 'Сканувати QR';
-
-  @override
   String get scannedTag => 'Зчитана мітка';
-
-  @override
-  String get searchEngine => 'Пошукова система';
-
-  @override
-  String get searchHistoryHint => 'Пошук в історії (UID, вміст, тип)...';
-
-  @override
-  String get searchLibraryHint =>
-      'Пошук за назвою, нотаткою, місцем або текстом';
-
-  @override
-  String get searchQuery => 'Пошуковий запит';
 
   @override
   String get searchQueryCannotBeEmpty =>
@@ -1083,9 +740,6 @@ class AppLocalizationsUk extends AppLocalizations {
 
   @override
   String get setPasswordTitle => 'Встановити пароль';
-
-  @override
-  String get shareRecords => 'Поділитися записами';
 
   @override
   String get shortcutAutomationNote =>
@@ -1134,19 +788,7 @@ class AppLocalizationsUk extends AppLocalizations {
   String get smsMessage => 'Текст повідомлення';
 
   @override
-  String get socialNetwork => 'Платформа';
-
-  @override
   String get socialUsername => 'Ім\'я користувача';
-
-  @override
-  String get sourceComposer => 'Записи зі списку редактора';
-
-  @override
-  String get sourceEmpty => 'Без вмісту (лише нотатка)';
-
-  @override
-  String get sourceLastScan => 'Остання відсканована мітка';
 
   @override
   String get sourceSelectPrompt => 'Звідки взяти дані для мітки?';
@@ -1240,15 +882,6 @@ class AppLocalizationsUk extends AppLocalizations {
   String get systemLanguage => 'Мова системи';
 
   @override
-  String get tabApp => 'Додаток';
-
-  @override
-  String get tabBluetooth => 'Bluetooth';
-
-  @override
-  String get tabCalendar => 'Календар';
-
-  @override
   String get tabContact => 'Контакт (vCard)';
 
   @override
@@ -1258,22 +891,10 @@ class AppLocalizationsUk extends AppLocalizations {
   String get tabEmail => 'Ел. пошта';
 
   @override
-  String get tabFile => 'Файл';
-
-  @override
-  String get tabLocation => 'Геолокація';
-
-  @override
   String get tabPhone => 'Телефон';
 
   @override
-  String get tabSearch => 'Пошук';
-
-  @override
   String get tabSms => 'SMS';
-
-  @override
-  String get tabSocial => 'Соцмережі';
 
   @override
   String get tabText => 'Текст';
@@ -1282,33 +903,13 @@ class AppLocalizationsUk extends AppLocalizations {
   String get tabUrl => 'Веб-URL';
 
   @override
-  String get tabVideo => 'Відео';
-
-  @override
   String get tabWifi => 'Wi-Fi';
-
-  @override
-  String get tagCapacity => 'Місткість';
-
-  @override
-  String tagCapacityValue(int available, int max, int used) {
-    return '$used / $max байтів ($available байтів вільно)';
-  }
 
   @override
   String get tagInfoTitle => 'Інформація про мітку';
 
   @override
   String get tagLibraryTitle => 'Моя бібліотека міток';
-
-  @override
-  String get tagNameHint => 'Напр.: Мітка на кухні';
-
-  @override
-  String get tagNameLabel => 'Назва';
-
-  @override
-  String get tagReadOnly => 'Тільки читання (Заблоковано)';
 
   @override
   String tagRulesCount(int count) {
@@ -1320,42 +921,13 @@ class AppLocalizationsUk extends AppLocalizations {
       'Відображає лише збережену нотатку на основі SHA-256 хешу байтів вмісту NDEF.';
 
   @override
-  String get tagSerialNumber => 'Серійний номер (UID)';
-
-  @override
-  String get tagTechnology => 'Технологія';
-
-  @override
-  String get tagType => 'Тип';
-
-  @override
-  String get tagUidCopied => 'UID мітки скопійовано';
-
-  @override
   String get tagWritable => 'Доступний для запису';
 
   @override
   String get takePhoto => 'Зробити фото';
 
   @override
-  String get templateGalleryTitle => 'Готові шаблони';
-
-  @override
   String get templateNameHint => 'Назва шаблону';
-
-  @override
-  String templateRecordCount(int count, String date) {
-    String _temp0 = intl.Intl.pluralLogic(
-      count,
-      locale: localeName,
-      other: '$count записів',
-      one: '1 запис',
-    );
-    return '$_temp0 | $date';
-  }
-
-  @override
-  String get templateSaved => 'Шаблон успішно збережено';
 
   @override
   String get toolsExpertSection => 'Експерт';
@@ -1372,9 +944,6 @@ class AppLocalizationsUk extends AppLocalizations {
 
   @override
   String get toolsTagSection => 'Мітка';
-
-  @override
-  String get totalBytes => 'Загальний розмір';
 
   @override
   String get typeTooLarge => 'Довжина типу не може перевищувати 255 байтів';
@@ -1452,29 +1021,11 @@ class AppLocalizationsUk extends AppLocalizations {
       'Посилання на відео не може бути порожнім.';
 
   @override
-  String get videoUrlOrId => 'Посилання на відео або YouTube ID';
-
-  @override
   String get videoUrlOrIdPrompt =>
       'Введіть URL (https://...) або ID відео на YouTube.';
 
   @override
   String get wifiAuthOpen => 'Відкрита (Без захисту)';
-
-  @override
-  String get wifiAuthType => 'Тип безпеки';
-
-  @override
-  String get wifiAuthWpa => 'WPA Personal';
-
-  @override
-  String get wifiAuthWpa2 => 'WPA2 Personal';
-
-  @override
-  String get wifiAuthWpaWpa2 => 'WPA/WPA2 Personal';
-
-  @override
-  String get wifiHidden => 'Прихована мережа';
 
   @override
   String get wifiPassword => 'Пароль';
@@ -1486,9 +1037,6 @@ class AppLocalizationsUk extends AppLocalizations {
   String get withSiri => 'За допомогою Siri';
 
   @override
-  String get writeDumpConfirmButton => 'Записати';
-
-  @override
   String writeDumpConfirmMessage(int bytes, String name) {
     return '\"$name\" ($bytes байтів) буде записано в пам\'ять мітки. UID та сторінки конфігурації зберігаються.';
   }
@@ -1498,16 +1046,6 @@ class AppLocalizationsUk extends AppLocalizations {
 
   @override
   String get writeDumpTitle => 'Записати дамп (.bin)';
-
-  @override
-  String get writeHeroButton => 'Почати запис';
-
-  @override
-  String get writeHeroEyebrow => 'ЗАПИСУВАЧ NDEF';
-
-  @override
-  String get writeHeroSubtitle =>
-      'Створіть кілька записів NDEF та запишіть їх на мітку за один раз.';
 
   @override
   String get writeHeroTitle => 'Записати мітку';
@@ -1527,9 +1065,6 @@ class AppLocalizationsUk extends AppLocalizations {
   @override
   String get writeTemplatesSubtitle =>
       'Зберігайте популярний вміст NDEF як шаблони для швидкого запису.';
-
-  @override
-  String get yes => 'Так';
 
   @override
   String get unknown => 'Невідомо';
@@ -2507,16 +2042,6 @@ class AppLocalizationsUk extends AppLocalizations {
       '• Запис не відбувається автоматично на попередню мітку; потрібен новий дотик NFC.';
 
   @override
-  String rewriteSourceUidLabel(String uid) {
-    return 'Вихідний UID: $uid';
-  }
-
-  @override
-  String rewriteRecordCountLabel(num count) {
-    return 'Кількість записів для запису: $count';
-  }
-
-  @override
   String get rewriteInstruction =>
       'Підготуйте цільову мітку, натисніть \"Доторкнутися і записати\" та піднесіть мітку.';
 
@@ -2528,21 +2053,11 @@ class AppLocalizationsUk extends AppLocalizations {
       'Піднесіть цільову мітку до пристрою (вміст буде повністю оновлено)';
 
   @override
-  String rewriteFailedMessage(String error) {
-    return 'Не вдалося перезаписати: $error';
-  }
-
-  @override
   String get writeVerifiedTitle => 'Запис перевірено';
 
   @override
   String get writeVerifiedDesc =>
       'Вміст NDEF успішно записано та перевірено на цільовій мітці.';
-
-  @override
-  String writtenRecordCount(num count) {
-    return 'Кількість записаних записів: $count';
-  }
 
   @override
   String get writeVerifiedHint =>
@@ -2556,21 +2071,6 @@ class AppLocalizationsUk extends AppLocalizations {
 
   @override
   String get differenceDetected => 'Виявлено розбіжність';
-
-  @override
-  String compareScannedUid(String uid) {
-    return 'UID сканованої мітки: $uid';
-  }
-
-  @override
-  String compareWrittenData(num count, num bytes) {
-    return 'Записані дані: $count записів ($bytes байтів)';
-  }
-
-  @override
-  String compareScannedData(num count, num bytes) {
-    return 'Скановані дані: $count записів ($bytes байтів)';
-  }
 
   @override
   String get compareMatchDesc =>
@@ -2603,16 +2103,6 @@ class AppLocalizationsUk extends AppLocalizations {
       '• Автоматичне безперервне сканування не проводиться; мітки слід замінювати фізично.';
 
   @override
-  String batchTargetCountLabel(num count) {
-    return 'Кількість цільових міток: $count';
-  }
-
-  @override
-  String batchComposerSummary(num count, num bytes) {
-    return 'Записи: $count ($bytes байтів)';
-  }
-
-  @override
   String get batchStartButton => 'Почати пакетний запис';
 
   @override
@@ -2625,50 +2115,15 @@ class AppLocalizationsUk extends AppLocalizations {
   String get batchAllCompleted => 'Усі спроби запису завершено!';
 
   @override
-  String batchNextTag(num current, num total) {
-    return 'Наступна: Мітка #$current / $total';
-  }
-
-  @override
-  String batchStats(num success, num fail, num remaining) {
-    return 'Успішно: $success | Помилка: $fail | Залишилося: $remaining';
-  }
-
-  @override
-  String batchSuccessMsg(String message) {
-    return 'Успішно ($message)';
-  }
-
-  @override
-  String batchFailMsg(String message) {
-    return 'Помилка: $message';
-  }
-
-  @override
-  String tagNumberLabel(num index) {
-    return 'Мітка #$index: ';
+  String batchStats(String ok, String failed, String left) {
+    return 'Успішно: $ok | Помилки: $failed | Залишилось: $left';
   }
 
   @override
   String get waitingForTag => 'Очікування мітки...';
 
   @override
-  String tapToWriteForTag(num index) {
-    return 'Доторкнутися і записати для мітки #$index';
-  }
-
-  @override
   String get batchFinishButton => 'Завершити пакетний запис';
-
-  @override
-  String batchPromptMessage(num current, num total) {
-    return 'Пакетний запис: Піднесіть мітку #$current / $total';
-  }
-
-  @override
-  String batchTagSuccessSummary(num count) {
-    return '$count записів записано та перевірено';
-  }
 
   @override
   String get writeError => 'Помилка запису';
@@ -2722,17 +2177,12 @@ class AppLocalizationsUk extends AppLocalizations {
       'ПРИМІТКА: Автономний аналіз. Не перевіряє на віруси в мережі. URL не відкривається автоматично.';
 
   @override
-  String templateLoadedToComposer(String name) {
-    return 'Записи з шаблону \"$name\" завантажено у список.';
-  }
-
-  @override
   String get templateSaveEmptyError =>
       'Додайте записи перед збереженням шаблону.';
 
   @override
-  String templateDefaultName(num index) {
-    return 'Шаблон $index';
+  String templateDefaultName(String n) {
+    return 'Шаблон $n';
   }
 
   @override
@@ -2753,15 +2203,7 @@ class AppLocalizationsUk extends AppLocalizations {
       'Прив\'язується до хешу SHA-256 NDEF. При скануванні показується лише цей опис.';
 
   @override
-  String ruleNoteShaSummary(String sha) {
-    return 'Хеш вмісту NDEF (SHA-256):\n$sha';
-  }
-
-  @override
   String get ruleNoteSavedSnack => 'Примітку мітки збережено.';
-
-  @override
-  String get ruleNoteDeleteTitle => 'Видалити примітку мітки';
 
   @override
   String get ruleNoteDeleteConfirm =>
@@ -2785,13 +2227,13 @@ class AppLocalizationsUk extends AppLocalizations {
   String get backupIncludedItems => 'Елементи для включення:';
 
   @override
-  String backupTemplatesCount(num count) {
+  String backupTemplatesCount(String count) {
     return '• Шаблони: $count';
   }
 
   @override
-  String backupRulesCount(num count) {
-    return '• Примітки/правила міток: $count';
+  String backupRulesCount(String count) {
+    return '• Нотатки/правила міток: $count';
   }
 
   @override
@@ -2799,8 +2241,8 @@ class AppLocalizationsUk extends AppLocalizations {
       'Включити історію сканувань (необов\'язково)';
 
   @override
-  String backupHistoryCount(num count) {
-    return '$count записів історії';
+  String backupHistoryCount(String count) {
+    return 'Записів історії: $count';
   }
 
   @override
@@ -2823,11 +2265,6 @@ class AppLocalizationsUk extends AppLocalizations {
 
   @override
   String get backupExportCancelled => 'Експорт скасовано.';
-
-  @override
-  String backupExportError(String error) {
-    return 'Помилка експорту: $error';
-  }
 
   @override
   String get backupImportTitle => 'Імпорт резервної копії';
@@ -2868,16 +2305,11 @@ class AppLocalizationsUk extends AppLocalizations {
 
   @override
   String backupValidationError(String error) {
-    return 'Помилка перевірки резервної копії: $error';
+    return 'Помилка перевірки копії: $error';
   }
 
   @override
   String get backupHistoryDetectedTitle => 'Виявлено історію сканувань';
-
-  @override
-  String backupHistoryDetectedMsg(num count) {
-    return 'Резервна копія містить $count записів історії, але на цьому пристрої функція вимкнена.\n\n';
-  }
 
   @override
   String get backupHistoryDetectedPrompt =>
@@ -2889,16 +2321,6 @@ class AppLocalizationsUk extends AppLocalizations {
 
   @override
   String get backupEnableHistoryOption => 'Увімкнути історію та завантажити';
-
-  @override
-  String backupImportSuccessWithSummary(String summary) {
-    return 'Імпорт успішно завершено:\n$summary';
-  }
-
-  @override
-  String backupMergeError(String error) {
-    return 'Помилка злиття: $error';
-  }
 
   @override
   String get nfcReadyStatus => 'NFC готовий';
@@ -2914,20 +2336,10 @@ class AppLocalizationsUk extends AppLocalizations {
       'NFC вимкнено. Увімкніть його в налаштуваннях пристрою.';
 
   @override
-  String ndefClipboardBanner(num count, num bytes, String source) {
-    return 'Буфер NDEF: $count записів ($bytes Б) - $source';
-  }
-
-  @override
   String get template => 'Шаблон';
 
   @override
   String get nfcScannerTitle => 'NFC Сканер';
-
-  @override
-  String lastScannedTagId(String id) {
-    return 'Остання мітка: $id';
-  }
 
   @override
   String get composeRecord => 'Створити запис';
@@ -2939,11 +2351,6 @@ class AppLocalizationsUk extends AppLocalizations {
   String get previousScans => 'Попередні сканування';
 
   @override
-  String scanErrorWithMsg(String error) {
-    return 'Помилка сканування: $error';
-  }
-
-  @override
   String get noScannedTagYet => 'Ще не відскановано жодної мітки NFC';
 
   @override
@@ -2952,16 +2359,6 @@ class AppLocalizationsUk extends AppLocalizations {
 
   @override
   String get ndefCopyAndRewriteTitle => 'Копіювання та перезапис вмісту NDEF';
-
-  @override
-  String ndefCopyNotice(num count, num bytes) {
-    return '$count записів ($bytes байтів) - Обробляються лише дані NDEF, UID не клонується.';
-  }
-
-  @override
-  String tagIdHeader(String id) {
-    return 'Мітка $id';
-  }
 
   @override
   String get savedTagNoteHeader =>
@@ -2997,22 +2394,7 @@ class AppLocalizationsUk extends AppLocalizations {
   String get freeSpace => 'Вільно пам\'яті:';
 
   @override
-  String errorWithMsg(String error) {
-    return 'Помилка: $error';
-  }
-
-  @override
   String get noNdefMessageOnTag => 'На мітці не знайдено повідомлень NDEF.';
-
-  @override
-  String readNdefRecordsHeader(num count) {
-    return 'Зчитані записи NDEF ($count)';
-  }
-
-  @override
-  String stagedNdefRecordsHeader(num count) {
-    return 'Підготовлені записи NDEF ($count)';
-  }
 
   @override
   String get hideDetails => 'Приховати деталі';
@@ -3031,11 +2413,6 @@ class AppLocalizationsUk extends AppLocalizations {
 
   @override
   String get inspectorRawHexPreview => 'Попередній перегляд Hex (обмежено):';
-
-  @override
-  String inspectorPayloadTruncated(num length) {
-    return 'Примітка: Обсяг даних $length байтів; показано перші 64 байти.';
-  }
 
   @override
   String get ndefRecordsToWriteTitle => 'Записи NDEF для запису';
@@ -3057,11 +2434,6 @@ class AppLocalizationsUk extends AppLocalizations {
   String get importFromCsvAction => 'Імпортувати з файлу CSV';
 
   @override
-  String composerTotalSizeAndCount(num bytes, num count) {
-    return 'Загальний обсяг: $bytes байтів | Записів: $count';
-  }
-
-  @override
   String get composerEmptyDescription =>
       'Ви можете записувати текст, посилання, Wi-Fi, телефони, контакти та багато іншого.';
 
@@ -3081,11 +2453,6 @@ class AppLocalizationsUk extends AppLocalizations {
   String get writeAndVerify => 'Записати на мітку та перевірити';
 
   @override
-  String writeAndVerifyWithBytes(num bytes) {
-    return 'Записати на мітку та перевірити ($bytes байтів)';
-  }
-
-  @override
   String get batchWriteButtonLabel => 'Пакетний запис міток (2..100 міток)';
 
   @override
@@ -3097,11 +2464,6 @@ class AppLocalizationsUk extends AppLocalizations {
   @override
   String get confirmWriteMessage1 =>
       'Ця операція ПОВНІСТЮ ПЕРЕЗАПИШЕ наявний вміст NDEF на мітці.';
-
-  @override
-  String confirmWriteRecordCount(num count) {
-    return 'Кількість записів для запису: $count';
-  }
 
   @override
   String get confirmWriteMessage2 =>
@@ -3125,17 +2487,7 @@ class AppLocalizationsUk extends AppLocalizations {
       'Пошук за UID, текстом або типом (наприклад: URL, Wi-Fi, 04A1...)';
 
   @override
-  String historyScansCount(num count) {
-    return 'Збережені сканування: $count';
-  }
-
-  @override
   String get noHistoryYet => 'Історія сканувань порожня.';
-
-  @override
-  String noHistoryResultsForQuery(String query) {
-    return 'Для \"$query\" нічого не знайдено.';
-  }
 
   @override
   String get tryDifferentQuery => 'Спробуйте інший UID, текст або тип запису.';
@@ -3144,54 +2496,13 @@ class AppLocalizationsUk extends AppLocalizations {
   String get clearSearch => 'Очистити пошук';
 
   @override
-  String historyItemHeader(String time, num count) {
-    String _temp0 = intl.Intl.pluralLogic(
-      count,
-      locale: localeName,
-      other: '$count записів',
-      one: '1 запис',
-    );
-    return '$time | $_temp0';
-  }
-
-  @override
   String get deleteThisRecord => 'Видалити цей запис';
-
-  @override
-  String historyCapacitySummary(num cap, num used) {
-    return 'Ємність: $capБ | Використано: $usedБ';
-  }
-
-  @override
-  String historyUidHeader(String uid) {
-    return 'UID історії $uid';
-  }
 
   @override
   String get qrPreview => 'QR перегляд';
 
   @override
-  String templateRecordCountWithDate(num count, String date) {
-    String _temp0 = intl.Intl.pluralLogic(
-      count,
-      locale: localeName,
-      other: '$count записів',
-      one: '1 запис',
-    );
-    return '$_temp0 | $date';
-  }
-
-  @override
-  String writeVerificationSummary(num bytes, String status) {
-    return 'Записано байтів: $bytes | Перевірка: $status';
-  }
-
-  @override
   String get lockTagConfirmTitle => 'Назавжди заблокувати мітку';
-
-  @override
-  String get lockTagWarning1 =>
-      'Заблокована мітка стає доступною лише для читання: змінити або розблокувати її НЕМОЖЛИВО.';
 
   @override
   String get lockTagWarning2 =>
@@ -3201,43 +2512,7 @@ class AppLocalizationsUk extends AppLocalizations {
   String get langTr => 'Türkçe';
 
   @override
-  String get langEn => 'English';
-
-  @override
-  String get langDe => 'Deutsch';
-
-  @override
   String get langFr => 'Français';
-
-  @override
-  String get langEs => 'Español';
-
-  @override
-  String get langIt => 'Italiano';
-
-  @override
-  String get langPt => 'Português';
-
-  @override
-  String get langRu => 'Русский';
-
-  @override
-  String get langAr => 'العربية';
-
-  @override
-  String get langJa => '日本語';
-
-  @override
-  String get langZh => '中文';
-
-  @override
-  String get langKo => '한국어';
-
-  @override
-  String get langNl => 'Nederlands';
-
-  @override
-  String get langUk => 'Українська';
 
   @override
   String get qrPreviewTooltip => 'Попередній перегляд QR-коду';
@@ -3247,4 +2522,218 @@ class AppLocalizationsUk extends AppLocalizations {
 
   @override
   String get ok => 'ОК';
+
+  @override
+  String rewriteSourceUid(String uid) {
+    return 'UID джерела: $uid';
+  }
+
+  @override
+  String recordsToWriteCount(String count) {
+    return 'Записів до запису: $count';
+  }
+
+  @override
+  String rewriteFailed(String message) {
+    return 'Перезапис не вдався: $message';
+  }
+
+  @override
+  String writtenRecordsCount(String count) {
+    return 'Записано записів: $count';
+  }
+
+  @override
+  String scannedTagUid(String uid) {
+    return 'UID зчитаної мітки: $uid';
+  }
+
+  @override
+  String writtenDataSummary(String count, String bytes) {
+    return 'Записані дані: $count зап. ($bytes байт)';
+  }
+
+  @override
+  String scannedDataSummary(String count, String bytes) {
+    return 'Зчитані дані: $count зап. ($bytes байт)';
+  }
+
+  @override
+  String batchTargetCount(String count) {
+    return 'Цільових міток: $count';
+  }
+
+  @override
+  String composerRecordsSummary(String count, String bytes) {
+    return 'Список запису: $count зап. ($bytes байт)';
+  }
+
+  @override
+  String batchNext(String current, String total) {
+    return 'Далі: мітка #$current / $total';
+  }
+
+  @override
+  String batchAttemptOk(String message) {
+    return 'Успішно ($message)';
+  }
+
+  @override
+  String batchAttemptFailed(String message) {
+    return 'Помилка: $message';
+  }
+
+  @override
+  String batchAttemptLabel(String n) {
+    return 'Мітка #$n: ';
+  }
+
+  @override
+  String batchTapToWrite(String n) {
+    return 'Торкніться й запишіть мітку #$n';
+  }
+
+  @override
+  String batchPrompt(String current, String total) {
+    return 'Пакетний запис: піднесіть мітку #$current / $total';
+  }
+
+  @override
+  String batchWrittenVerified(String count) {
+    return 'Записано й перевірено: $count';
+  }
+
+  @override
+  String templateLoaded(String name) {
+    return 'Записи з «$name» додано до списку.';
+  }
+
+  @override
+  String ndefSha256Summary(String sha) {
+    return 'Хеш вмісту NDEF (SHA-256):\n$sha';
+  }
+
+  @override
+  String exportError(String error) {
+    return 'Помилка експорту: $error';
+  }
+
+  @override
+  String backupHistoryDetected(String count, String prompt) {
+    return 'У копії $count записів історії, але історію на цьому пристрої вимкнено.\n\n$prompt';
+  }
+
+  @override
+  String importSucceeded(String summary) {
+    return 'Імпорт виконано:\n$summary';
+  }
+
+  @override
+  String mergeError(String error) {
+    return 'Помилка об\'єднання: $error';
+  }
+
+  @override
+  String clipboardBannerText(String count, String bytes, String source) {
+    return 'Буфер NDEF: $count зап. ($bytes Б) - $source';
+  }
+
+  @override
+  String get heroScanSubtitle =>
+      'Піднесіть мітку до верхньої частини телефона — вміст, ємність і серійний номер з\'являться одразу.';
+
+  @override
+  String lastTagLabel(String uid) {
+    return 'Остання мітка: $uid';
+  }
+
+  @override
+  String scanErrorWithMessage(String message) {
+    return 'Помилка сканування: $message';
+  }
+
+  @override
+  String copyContentSummary(String count, String bytes) {
+    return '$count зап. ($bytes байт) — копіюються лише дані NDEF, без UID.';
+  }
+
+  @override
+  String tagSourceLabel(String uid) {
+    return 'Мітка $uid';
+  }
+
+  @override
+  String errorWithMessage(String message) {
+    return 'Помилка: $message';
+  }
+
+  @override
+  String readRecordsHeader(String count) {
+    return 'Зчитані записи NDEF ($count)';
+  }
+
+  @override
+  String composedRecordsHeader(String count) {
+    return 'Записи NDEF до запису ($count)';
+  }
+
+  @override
+  String payloadTruncatedNote(String bytes) {
+    return 'Примітка: дані займають $bytes байт, показано перші 64.';
+  }
+
+  @override
+  String composerTotals(String bytes, String count) {
+    return 'Загальний розмір: $bytes байт | Записів: $count';
+  }
+
+  @override
+  String writeAndVerifyWithSize(String bytes) {
+    return 'Записати й перевірити ($bytes байт)';
+  }
+
+  @override
+  String savedScansCount(String count) {
+    return 'Збережені скани: $count';
+  }
+
+  @override
+  String historyNoResults(String query) {
+    return 'Нічого не знайдено за запитом «$query».';
+  }
+
+  @override
+  String historyItemMeta(String date, String count) {
+    return '$date | $count зап.';
+  }
+
+  @override
+  String historyCapacity(String max, String used) {
+    return 'Ємність: $max Б | Зайнято: $used Б';
+  }
+
+  @override
+  String historySourceLabel(String uid) {
+    return 'Історія UID $uid';
+  }
+
+  @override
+  String templateMeta(String count, String date) {
+    return '$count зап. | $date';
+  }
+
+  @override
+  String rulesCountLabel(String count) {
+    return 'Збережені правила/нотатки: $count';
+  }
+
+  @override
+  String writeResultDetails(String bytes, String verification) {
+    return 'Записано байт: $bytes | Перевірка: $verification';
+  }
+
+  @override
+  String lockTagWarningFull(String more) {
+    return 'Заблокована мітка стане лише для читання: вміст НЕМОЖЛИВО буде змінити чи стерти, а блокування — ЗНЯТИ. $more';
+  }
 }

@@ -12,12 +12,6 @@ class AppLocalizationsZh extends AppLocalizations {
   String get addRecord => '添加记录';
 
   @override
-  String get addRule => '添加规则';
-
-  @override
-  String get addTag => '添加标签';
-
-  @override
   String get addToComposerList => '添加到写入列表';
 
   @override
@@ -35,9 +29,6 @@ class AppLocalizationsZh extends AppLocalizations {
 
   @override
   String get advancedCommandsTitle => '高级 NFC 指令';
-
-  @override
-  String get allRulesCleared => '所有规则已清空';
 
   @override
   String get appLinksDesc => '将此类链接写入标签后，触碰手机将弹出横幅并直达对应页面。';
@@ -58,38 +49,10 @@ class AppLocalizationsZh extends AppLocalizations {
   String get autoRunOnTap => '触碰时自动运行';
 
   @override
-  String get backupExportSuccess => '备份文件已成功保存';
-
-  @override
   String get backupFileSizeExceeded => '备份文件大小超过 2 MiB。';
 
   @override
   String get backupHistoryMustBeList => '\"history\" 字段必须为数组列表。';
-
-  @override
-  String backupImportFailed(String error) {
-    return '备份导入失败: $error';
-  }
-
-  @override
-  String backupImportSuccess(int history, int rules, int templates) {
-    return '备份导入成功：新增 $templates 个模板、$rules 条规则、$history 条历史';
-  }
-
-  @override
-  String backupInvalidBase64Id(String id) {
-    return '记录 ID 的 Base64 编码无效: $id';
-  }
-
-  @override
-  String backupInvalidBase64Payload(String payload) {
-    return '记录 Payload 的 Base64 编码无效: $payload';
-  }
-
-  @override
-  String backupInvalidBase64Type(String type) {
-    return '记录 Type 的 Base64 编码无效: $type';
-  }
 
   @override
   String backupInvalidJson(String error) {
@@ -103,29 +66,14 @@ class AppLocalizationsZh extends AppLocalizations {
   String get backupInvalidRuleSha => '无效的 64 位 SHA-256 哈希字符串。';
 
   @override
-  String backupInvalidTemplateCreatedAt(String date) {
-    return '无效的创建时间: $date';
-  }
-
-  @override
   String get backupInvalidTemplateId => '无效的模板 ID。';
 
   @override
   String get backupInvalidTemplateName => '无效的模板名称。';
 
   @override
-  String backupInvalidTnf(String tnf) {
-    return '无效的 TNF 值 ($tnf)，必须在 0 至 7 之间。';
-  }
-
-  @override
   String backupMaxHistoryExceeded(int count, int max) {
     return '历史条数超过限制 $max ($count)。';
-  }
-
-  @override
-  String backupMaxRecordsExceeded(int count, int max) {
-    return '记录数量超过限制 $max ($count)。';
   }
 
   @override
@@ -143,9 +91,6 @@ class AppLocalizationsZh extends AppLocalizations {
 
   @override
   String get backupRecordMustBeObject => '每个 NDEF 记录必须为 JSON 对象。';
-
-  @override
-  String get backupRecordsMustBeList => '记录列表必须为数组。';
 
   @override
   String get backupRestoreSubtitle => '将模板、标签备注及历史记录导出为 JSON 文件或合并导入。';
@@ -179,20 +124,6 @@ class AppLocalizationsZh extends AppLocalizations {
   @override
   String backupUnsupportedSchemaVersion(String version) {
     return '不支持的备份架构版本: $version。';
-  }
-
-  @override
-  String get batchWrite => '批量写入';
-
-  @override
-  String get bluetoothDeviceName => '设备名称 (选填)';
-
-  @override
-  String get bluetoothMac => '蓝牙 MAC 地址';
-
-  @override
-  String bytesWrittenWithVerification(int bytes, String status) {
-    return '写入字节: $bytes | 校验: $status';
   }
 
   @override
@@ -234,12 +165,6 @@ class AppLocalizationsZh extends AppLocalizations {
   String get clearAll => '全部清除';
 
   @override
-  String get clearAllRulesConfirm => '确定清空所有已保存的应用内标签备注吗？';
-
-  @override
-  String get clearConfirmButton => '确认清空';
-
-  @override
   String get clearConfirmMessage => '此操作将清除标签上的所有 NDEF 记录并写入一条空记录。是否继续？';
 
   @override
@@ -249,23 +174,10 @@ class AppLocalizationsZh extends AppLocalizations {
   String get clearHistory => '清空历史';
 
   @override
-  String get clearList => '清空列表';
-
-  @override
   String get clearTagSubtitle => '删除所有记录并写入空 NDEF';
 
   @override
   String get clearTagTitle => '清空标签';
-
-  @override
-  String clipboardBanner(int bytes, int count, String source) {
-    String _temp0 = intl.Intl.pluralLogic(
-      count,
-      locale: localeName,
-      other: '剪贴板中有 $count 条记录就绪 ($bytes B) · $source',
-    );
-    return '$_temp0';
-  }
 
   @override
   String get close => '关闭';
@@ -275,9 +187,6 @@ class AppLocalizationsZh extends AppLocalizations {
 
   @override
   String get commandsLabel => '指令列表';
-
-  @override
-  String get composeRecordTitle => '添加记录';
 
   @override
   String get confirmClearHistoryContent => '设备上保存的所有扫描历史将被删除，确认继续吗？';
@@ -301,9 +210,6 @@ class AppLocalizationsZh extends AppLocalizations {
   String get contactFullName => '姓名';
 
   @override
-  String get contactNote => '备注';
-
-  @override
   String get contactPhone => '联系电话';
 
   @override
@@ -313,20 +219,7 @@ class AppLocalizationsZh extends AppLocalizations {
   String get contactWebsite => '个人网站';
 
   @override
-  String contentSummary(String content, int count) {
-    String _temp0 = intl.Intl.pluralLogic(
-      count,
-      locale: localeName,
-      other: '内容: $count 条记录 · $content',
-    );
-    return '$_temp0';
-  }
-
-  @override
   String get copy => '复制';
-
-  @override
-  String get copyAllRecords => '复制全部记录';
 
   @override
   String get copyTagUid => '复制 UID';
@@ -370,14 +263,6 @@ class AppLocalizationsZh extends AppLocalizations {
   String get delete => '删除';
 
   @override
-  String deleteTagConfirmContent(String name) {
-    return '确定从标签库中删除“$name”吗？物理标签不受影响。';
-  }
-
-  @override
-  String get deleteTagConfirmTitle => '删除标签';
-
-  @override
   String get deleteTemplateTooltip => '删除模板';
 
   @override
@@ -390,49 +275,7 @@ class AppLocalizationsZh extends AppLocalizations {
   String get editRecordTitle => '编辑记录';
 
   @override
-  String get editRule => '编辑规则';
-
-  @override
-  String get editTag => '编辑标签';
-
-  @override
-  String get emailBody => '邮件正文';
-
-  @override
   String get emailRecipient => '收件人邮箱';
-
-  @override
-  String get emailSubject => '邮件主题';
-
-  @override
-  String get emptyComposerSubtitle => '点击“添加记录”以创建网址、纯文本、Wi-Fi 或联系人信息。';
-
-  @override
-  String get emptyComposerTitle => '暂未添加记录';
-
-  @override
-  String get emptyHistorySubtitle => '扫描过的标签记录将展示在这里。';
-
-  @override
-  String get emptyHistoryTitle => '暂无扫描历史';
-
-  @override
-  String get emptyLibrary => '暂无已保存的标签。\n扫描标签后可在此附上照片和名称保存。';
-
-  @override
-  String get eventDescription => '详细说明';
-
-  @override
-  String get eventEnd => '结束时间';
-
-  @override
-  String get eventLocation => '地点 / 场所';
-
-  @override
-  String get eventStart => '开始时间';
-
-  @override
-  String get eventTitle => '日程标题';
 
   @override
   String get exportBackup => '导出';
@@ -446,25 +289,7 @@ class AppLocalizationsZh extends AppLocalizations {
   }
 
   @override
-  String get fieldTextPrompt => '要写入标签的文本内容';
-
-  @override
-  String get fieldUrlPrompt => '网站地址 (https://...)';
-
-  @override
-  String get fileUrl => '文件直链 (URL)';
-
-  @override
-  String get filterAll => '全部';
-
-  @override
   String get flashlight => '手电筒';
-
-  @override
-  String get formatConfirmButton => '格式化';
-
-  @override
-  String get formatConfirmMessage => '标签上的数据将被清除，并初始化为空的 NDEF 标签。是否继续？';
 
   @override
   String get formatMemorySubtitle => '为 NDEF 准备芯片（空白或损坏标签）';
@@ -473,25 +298,10 @@ class AppLocalizationsZh extends AppLocalizations {
   String get formatMemoryTitle => '格式化内存';
 
   @override
-  String get hardwareAvailable => 'NFC 硬件就绪';
-
-  @override
-  String get hardwareDisabled => 'NFC 已关闭';
-
-  @override
-  String get hardwareNotSupported => '不支持 NFC';
-
-  @override
-  String get historyFilteredEmpty => '未检索到相匹配的历史记录。';
-
-  @override
   String get idTooLarge => 'ID 长度不能超过 255 字节';
 
   @override
   String get importBackup => '导入 (合并)';
-
-  @override
-  String get importCsv => '导入 CSV';
 
   @override
   String get inAppTagRules => '标签本地规则';
@@ -509,9 +319,6 @@ class AppLocalizationsZh extends AppLocalizations {
   String get languageTitle => 'Dil / Language';
 
   @override
-  String get latitude => '纬度 (Lat)';
-
-  @override
   String get linkCopied => '链接已复制';
 
   @override
@@ -527,19 +334,10 @@ class AppLocalizationsZh extends AppLocalizations {
   String get linkWriteDesc => '打开写入编辑器页面';
 
   @override
-  String get loadToComposerTooltip => '载入到编辑器';
-
-  @override
-  String get locationHint => '例如：冰箱门上';
-
-  @override
   String get locationLabel => '位置在哪？';
 
   @override
   String get lockAcknowledge => '我已知晓此操作无法撤销';
-
-  @override
-  String get lockButton => '锁定';
 
   @override
   String get lockTagSubtitle => '永久设为只读状态（不可逆）';
@@ -548,25 +346,7 @@ class AppLocalizationsZh extends AppLocalizations {
   String get lockTagTitle => '锁定标签';
 
   @override
-  String get lockWarning => '锁定的标签将永久变为只读：其内容无法再被修改、删除或解锁。请务必确认内容正确。';
-
-  @override
-  String get longitude => '经度 (Lng)';
-
-  @override
   String get manage => '管理';
-
-  @override
-  String get matchedRule => '匹配的备注';
-
-  @override
-  String get mimePayloadHex => '负载数据 (Hex / 文本)';
-
-  @override
-  String get mimeTypeLabel => 'MIME 类型';
-
-  @override
-  String get nameRequired => '请为标签输入名称。';
 
   @override
   String get navHistory => '历史';
@@ -609,9 +389,6 @@ class AppLocalizationsZh extends AppLocalizations {
   }
 
   @override
-  String get ndefRecordsTitle => 'NDEF 记录';
-
-  @override
   String get nfcPromptClear => '请贴近标签以重置清空内容';
 
   @override
@@ -625,15 +402,6 @@ class AppLocalizationsZh extends AppLocalizations {
 
   @override
   String get no => '否';
-
-  @override
-  String get noContentInTag => '此条目暂无标签内容。';
-
-  @override
-  String get noLibraryMatches => '未找到匹配的标签。';
-
-  @override
-  String get noRecordsOnTag => '标签上未发现 NDEF 记录。';
 
   @override
   String get noTemplates => '暂无已保存的模板。\n在“写入”页面创建记录即可另存为模板。';
@@ -679,35 +447,6 @@ class AppLocalizationsZh extends AppLocalizations {
   String optionalField(String label) {
     return '$label (选填)';
   }
-
-  @override
-  String pageN(int page) {
-    return '第 $page 页';
-  }
-
-  @override
-  String get pageRoleCc => 'CC';
-
-  @override
-  String get pageRoleData => '数据';
-
-  @override
-  String get pageRoleLock => '锁定';
-
-  @override
-  String get pageRoleUid => 'UID';
-
-  @override
-  String get pageRoleUidLock => 'UID / 锁';
-
-  @override
-  String get passwordDialogAction => '设置密码';
-
-  @override
-  String get passwordDialogTitle => '设置密码';
-
-  @override
-  String get passwordDialogWarning => '若忘记此密码，标签内容将无法再次修改。读取功能对所有人保持开放。';
 
   @override
   String get passwordError => '请输入恰好 4 个字符或 8 位十六进制数字。';
@@ -839,9 +578,6 @@ class AppLocalizationsZh extends AppLocalizations {
   String get qrUserOnlyNote => '仅在用户主动触发时展示。';
 
   @override
-  String get rawInspection => '详细原始检查';
-
-  @override
   String get rawRecordDetailsTitle => '记录详情 (只读)';
 
   @override
@@ -851,18 +587,6 @@ class AppLocalizationsZh extends AppLocalizations {
   String get readHeroButton => '开始扫描';
 
   @override
-  String get readHeroEyebrow => 'NFC 读取器';
-
-  @override
-  String get readHeroScanning => '正在扫描...';
-
-  @override
-  String get readHeroSubtitle => '将手机顶部贴近 NFC 标签，快速读取所有 NDEF 记录和芯片信息。';
-
-  @override
-  String get readHeroTitle => '扫描标签';
-
-  @override
   String get readMemorySubtitle => '逐页查看原始内存；复制或保存为 .bin';
 
   @override
@@ -870,14 +594,6 @@ class AppLocalizationsZh extends AppLocalizations {
 
   @override
   String get readyTemplates => '预置模板';
-
-  @override
-  String get recordCopied => '记录内容已复制';
-
-  @override
-  String recordIndex(int index) {
-    return '记录 #$index';
-  }
 
   @override
   String get recordTypeCalendar => '日历日程 (iCal)';
@@ -929,32 +645,13 @@ class AppLocalizationsZh extends AppLocalizations {
   String get recordTypeWifiCorrupt => '损坏的 WSC 数据';
 
   @override
-  String recordsCopiedToClipboard(int count) {
-    String _temp0 = intl.Intl.pluralLogic(
-      count,
-      locale: localeName,
-      other: '已将 $count 条记录复制到剪贴板',
-    );
-    return '$_temp0';
-  }
-
-  @override
   String get redo => '重做';
-
-  @override
-  String get removePasswordDialogTitle => '移除密码';
-
-  @override
-  String get removePasswordDialogWarning => '请输入当前标签配置的密码。';
 
   @override
   String get removePasswordSubtitle => '使用已知密码解除写入保护';
 
   @override
   String get removePasswordTitle => '移除密码';
-
-  @override
-  String get removePhoto => '移除';
 
   @override
   String get rewriteTag => '重新写入';
@@ -965,19 +662,10 @@ class AppLocalizationsZh extends AppLocalizations {
   }
 
   @override
-  String get ruleDeleted => '规则已删除';
-
-  @override
   String get ruleNoteDialogTitle => '编辑标签备注';
 
   @override
-  String get ruleNoteHint => '例如：仓库货架 #4 或 3号会议室';
-
-  @override
   String get ruleNoteLabel => '应用内备注 / 说明';
-
-  @override
-  String get ruleSaved => '规则已保存';
 
   @override
   String get save => '保存';
@@ -995,31 +683,10 @@ class AppLocalizationsZh extends AppLocalizations {
   String get saveLocalHistorySubtitle => '关闭后不保存扫描记录。开启时仅将成功的扫描保存至本地。';
 
   @override
-  String get saveTemplateDialogTitle => '另存为模板';
-
-  @override
-  String get saveToLibrary => '存入标签库';
-
-  @override
   String get scanFabLabel => '扫描标签';
 
   @override
-  String get scanQrToRecord => '扫码转换';
-
-  @override
   String get scannedTag => '已扫描标签';
-
-  @override
-  String get searchEngine => '搜索引擎';
-
-  @override
-  String get searchHistoryHint => '搜索历史 (UID、文本、类型)...';
-
-  @override
-  String get searchLibraryHint => '按名称、备注、地点或内容搜索';
-
-  @override
-  String get searchQuery => '搜索关键词';
 
   @override
   String get searchQueryCannotBeEmpty => '搜索内容不能为空。';
@@ -1035,9 +702,6 @@ class AppLocalizationsZh extends AppLocalizations {
 
   @override
   String get setPasswordTitle => '设置密码';
-
-  @override
-  String get shareRecords => '分享记录';
 
   @override
   String get shortcutAutomationNote => '注意：自动化绑定于标签序列号 (UID)，即使更换标签内容也能正常工作。';
@@ -1076,19 +740,7 @@ class AppLocalizationsZh extends AppLocalizations {
   String get smsMessage => '短信内容';
 
   @override
-  String get socialNetwork => '平台';
-
-  @override
   String get socialUsername => '用户名 / 账号';
-
-  @override
-  String get sourceComposer => '写入列表中的记录';
-
-  @override
-  String get sourceEmpty => '无内容（仅备注）';
-
-  @override
-  String get sourceLastScan => '最近扫描的标签';
 
   @override
   String get sourceSelectPrompt => '从何处获取标签内容？';
@@ -1180,15 +832,6 @@ class AppLocalizationsZh extends AppLocalizations {
   String get systemLanguage => '系统语言';
 
   @override
-  String get tabApp => '应用直达';
-
-  @override
-  String get tabBluetooth => '蓝牙配对';
-
-  @override
-  String get tabCalendar => '日历日程';
-
-  @override
   String get tabContact => '电子名片 (vCard)';
 
   @override
@@ -1198,22 +841,10 @@ class AppLocalizationsZh extends AppLocalizations {
   String get tabEmail => '电子邮件';
 
   @override
-  String get tabFile => '文件直链';
-
-  @override
-  String get tabLocation => '地理坐标';
-
-  @override
   String get tabPhone => '电话呼叫';
 
   @override
-  String get tabSearch => '网络搜索';
-
-  @override
   String get tabSms => '短信发送';
-
-  @override
-  String get tabSocial => '社交主页';
 
   @override
   String get tabText => '纯文本';
@@ -1222,33 +853,13 @@ class AppLocalizationsZh extends AppLocalizations {
   String get tabUrl => '网页链接';
 
   @override
-  String get tabVideo => '视频链接';
-
-  @override
   String get tabWifi => 'Wi-Fi 配置';
-
-  @override
-  String get tagCapacity => '存储容量';
-
-  @override
-  String tagCapacityValue(int available, int max, int used) {
-    return '$used / $max 字节 (剩余 $available 字节)';
-  }
 
   @override
   String get tagInfoTitle => '标签信息';
 
   @override
   String get tagLibraryTitle => '我的标签库';
-
-  @override
-  String get tagNameHint => '例如：厨房标签';
-
-  @override
-  String get tagNameLabel => '名称';
-
-  @override
-  String get tagReadOnly => '只读 (已锁定)';
 
   @override
   String tagRulesCount(int count) {
@@ -1259,41 +870,13 @@ class AppLocalizationsZh extends AppLocalizations {
   String get tagRulesSubtitle => '根据 NDEF 内容的 SHA-256 哈希匹配仅展示对应备注，不触发额外操作。';
 
   @override
-  String get tagSerialNumber => '序列号 (UID)';
-
-  @override
-  String get tagTechnology => '通信技术';
-
-  @override
-  String get tagType => '类型';
-
-  @override
-  String get tagUidCopied => '标签 UID 已复制';
-
-  @override
   String get tagWritable => '可写入';
 
   @override
   String get takePhoto => '拍照';
 
   @override
-  String get templateGalleryTitle => '预置模板';
-
-  @override
   String get templateNameHint => '模板名称';
-
-  @override
-  String templateRecordCount(int count, String date) {
-    String _temp0 = intl.Intl.pluralLogic(
-      count,
-      locale: localeName,
-      other: '$count 条记录',
-    );
-    return '$_temp0 | $date';
-  }
-
-  @override
-  String get templateSaved => '模板保存成功';
 
   @override
   String get toolsExpertSection => '高级';
@@ -1310,9 +893,6 @@ class AppLocalizationsZh extends AppLocalizations {
 
   @override
   String get toolsTagSection => '标签';
-
-  @override
-  String get totalBytes => '总字节数';
 
   @override
   String get typeTooLarge => 'Type 长度不能超过 255 字节';
@@ -1382,28 +962,10 @@ class AppLocalizationsZh extends AppLocalizations {
   String get videoUrlCannotBeEmpty => '视频链接不能为空。';
 
   @override
-  String get videoUrlOrId => '视频链接或 YouTube ID';
-
-  @override
   String get videoUrlOrIdPrompt => '请输入网址 (https://...) 或视频 ID。';
 
   @override
   String get wifiAuthOpen => '开放网络 (无密码)';
-
-  @override
-  String get wifiAuthType => '加密方式';
-
-  @override
-  String get wifiAuthWpa => 'WPA Personal';
-
-  @override
-  String get wifiAuthWpa2 => 'WPA2 Personal';
-
-  @override
-  String get wifiAuthWpaWpa2 => 'WPA/WPA2 Personal';
-
-  @override
-  String get wifiHidden => '隐藏网络';
 
   @override
   String get wifiPassword => '密码';
@@ -1415,9 +977,6 @@ class AppLocalizationsZh extends AppLocalizations {
   String get withSiri => '使用 Siri';
 
   @override
-  String get writeDumpConfirmButton => '写入';
-
-  @override
   String writeDumpConfirmMessage(int bytes, String name) {
     return '\"$name\" ($bytes 字节) 将被写入用户内存。UID 及配置页面将保持不变。现有数据将被覆盖。';
   }
@@ -1427,15 +986,6 @@ class AppLocalizationsZh extends AppLocalizations {
 
   @override
   String get writeDumpTitle => '写入镜像 (.bin)';
-
-  @override
-  String get writeHeroButton => '开始写入';
-
-  @override
-  String get writeHeroEyebrow => 'NDEF 写入器';
-
-  @override
-  String get writeHeroSubtitle => '组织多个 NDEF 记录，一次性快速写入到目标 NFC 标签。';
 
   @override
   String get writeHeroTitle => '写入标签';
@@ -1454,9 +1004,6 @@ class AppLocalizationsZh extends AppLocalizations {
 
   @override
   String get writeTemplatesSubtitle => '将常用的 NDEF 数据保存为模板，随时一键写入标签。';
-
-  @override
-  String get yes => '是';
 
   @override
   String get unknown => '未知';
@@ -2379,16 +1926,6 @@ class AppLocalizationsZh extends AppLocalizations {
   String get rewriteNotice3 => '• 不会静默写入上一个标签；需要新的 NFC 触碰。';
 
   @override
-  String rewriteSourceUidLabel(String uid) {
-    return '源 UID：$uid';
-  }
-
-  @override
-  String rewriteRecordCountLabel(num count) {
-    return '要写入的记录数：$count';
-  }
-
-  @override
   String get rewriteInstruction => '准备好目标标签，点击“轻触并写入”，然后将标签贴近手机背面。';
 
   @override
@@ -2398,20 +1935,10 @@ class AppLocalizationsZh extends AppLocalizations {
   String get rewritePromptMessage => '将目标标签贴近设备（内容将被完全更新）';
 
   @override
-  String rewriteFailedMessage(String error) {
-    return '重新写入失败：$error';
-  }
-
-  @override
   String get writeVerifiedTitle => '写入验证成功';
 
   @override
   String get writeVerifiedDesc => 'NDEF 内容已成功写入目标标签并已验证。';
-
-  @override
-  String writtenRecordCount(num count) {
-    return '已写入记录数：$count';
-  }
 
   @override
   String get writeVerifiedHint => '您可以开始下一次扫描以验证或比较写入的数据。';
@@ -2424,21 +1951,6 @@ class AppLocalizationsZh extends AppLocalizations {
 
   @override
   String get differenceDetected => '检测到差异';
-
-  @override
-  String compareScannedUid(String uid) {
-    return '扫描的标签 UID：$uid';
-  }
-
-  @override
-  String compareWrittenData(num count, num bytes) {
-    return '写入数据：$count 条记录 ($bytes 字节)';
-  }
-
-  @override
-  String compareScannedData(num count, num bytes) {
-    return '扫描数据：$count 条记录 ($bytes 字节)';
-  }
 
   @override
   String get compareMatchDesc => '目标标签上的 NDEF 消息与写入的源 NDEF 消息逐字节完全一致。';
@@ -2465,16 +1977,6 @@ class AppLocalizationsZh extends AppLocalizations {
   String get batchNotice2 => '• 不会进行自动连续扫描；必须物理更换每个标签。';
 
   @override
-  String batchTargetCountLabel(num count) {
-    return '目标标签数量：$count';
-  }
-
-  @override
-  String batchComposerSummary(num count, num bytes) {
-    return '待写入记录：$count 条 ($bytes 字节)';
-  }
-
-  @override
   String get batchStartButton => '开始批量写入';
 
   @override
@@ -2487,50 +1989,15 @@ class AppLocalizationsZh extends AppLocalizations {
   String get batchAllCompleted => '所有标签尝试均已完成！';
 
   @override
-  String batchNextTag(num current, num total) {
-    return '下一个：标签 #$current / $total';
-  }
-
-  @override
-  String batchStats(num success, num fail, num remaining) {
-    return '成功：$success | 失败：$fail | 剩余：$remaining';
-  }
-
-  @override
-  String batchSuccessMsg(String message) {
-    return '成功 ($message)';
-  }
-
-  @override
-  String batchFailMsg(String message) {
-    return '失败：$message';
-  }
-
-  @override
-  String tagNumberLabel(num index) {
-    return '标签 #$index：';
+  String batchStats(String ok, String failed, String left) {
+    return '成功：$ok | 失败：$failed | 剩余：$left';
   }
 
   @override
   String get waitingForTag => '等待标签...';
 
   @override
-  String tapToWriteForTag(num index) {
-    return '轻触并写入标签 #$index';
-  }
-
-  @override
   String get batchFinishButton => '完成批量写入';
-
-  @override
-  String batchPromptMessage(num current, num total) {
-    return '批量写入：将标签 #$current / $total 贴近设备';
-  }
-
-  @override
-  String batchTagSuccessSummary(num count) {
-    return '$count 条记录已写入并验证';
-  }
 
   @override
   String get writeError => '写入错误';
@@ -2581,16 +2048,11 @@ class AppLocalizationsZh extends AppLocalizations {
   String get urlSafetyDisclaimer => '注意：此分析完全基于本地离线规则。不保证在线检测恶意软件。URL 不会自动打开。';
 
   @override
-  String templateLoadedToComposer(String name) {
-    return '模板“$name”中的记录已载入编写器。';
-  }
-
-  @override
   String get templateSaveEmptyError => '在另存为模板之前请先添加记录。';
 
   @override
-  String templateDefaultName(num index) {
-    return '模板 $index';
+  String templateDefaultName(String n) {
+    return '模板 $n';
   }
 
   @override
@@ -2610,15 +2072,7 @@ class AppLocalizationsZh extends AppLocalizations {
       '此备注绑定到标签 NDEF SHA-256 摘要。重新扫描时仅显示此说明；不会触发外部操作。';
 
   @override
-  String ruleNoteShaSummary(String sha) {
-    return 'NDEF 内容摘要 (SHA-256)：\n$sha';
-  }
-
-  @override
   String get ruleNoteSavedSnack => '标签备注已保存。';
-
-  @override
-  String get ruleNoteDeleteTitle => '删除标签备注';
 
   @override
   String get ruleNoteDeleteConfirm => '此标签的应用内备注将被删除。是否继续？';
@@ -2640,20 +2094,20 @@ class AppLocalizationsZh extends AppLocalizations {
   String get backupIncludedItems => '包含的项目：';
 
   @override
-  String backupTemplatesCount(num count) {
-    return '• 模板：$count 个';
+  String backupTemplatesCount(String count) {
+    return '• 模板：$count';
   }
 
   @override
-  String backupRulesCount(num count) {
-    return '• 应用内标签备注/规则：$count 条';
+  String backupRulesCount(String count) {
+    return '• 标签备注/规则：$count';
   }
 
   @override
   String get backupIncludeHistoryOptional => '包含扫描历史记录（可选）';
 
   @override
-  String backupHistoryCount(num count) {
+  String backupHistoryCount(String count) {
     return '$count 条历史记录';
   }
 
@@ -2674,11 +2128,6 @@ class AppLocalizationsZh extends AppLocalizations {
 
   @override
   String get backupExportCancelled => '导出分享已取消。';
-
-  @override
-  String backupExportError(String error) {
-    return '导出错误：$error';
-  }
 
   @override
   String get backupImportTitle => '导入备份';
@@ -2721,11 +2170,6 @@ class AppLocalizationsZh extends AppLocalizations {
   String get backupHistoryDetectedTitle => '检测到扫描历史记录';
 
   @override
-  String backupHistoryDetectedMsg(num count) {
-    return '备份中包含 $count 条历史记录，但此设备上已禁用扫描历史记录功能。\n\n';
-  }
-
-  @override
   String get backupHistoryDetectedPrompt =>
       '是否要导入历史记录并启用该功能？还是跳过历史记录仅导入模板和标签备注？';
 
@@ -2734,16 +2178,6 @@ class AppLocalizationsZh extends AppLocalizations {
 
   @override
   String get backupEnableHistoryOption => '启用历史记录并加载';
-
-  @override
-  String backupImportSuccessWithSummary(String summary) {
-    return '导入成功：\n$summary';
-  }
-
-  @override
-  String backupMergeError(String error) {
-    return '合并错误：$error';
-  }
 
   @override
   String get nfcReadyStatus => 'NFC 已就绪';
@@ -2758,20 +2192,10 @@ class AppLocalizationsZh extends AppLocalizations {
   String get nfcDisabledDesc => 'NFC 已关闭。请在设备设置中开启。';
 
   @override
-  String ndefClipboardBanner(num count, num bytes, String source) {
-    return 'NDEF 剪贴板：$count 条记录 ($bytes B) - $source';
-  }
-
-  @override
   String get template => '模板';
 
   @override
   String get nfcScannerTitle => 'NFC 扫描仪';
-
-  @override
-  String lastScannedTagId(String id) {
-    return '上次扫描的标签：$id';
-  }
 
   @override
   String get composeRecord => '创建记录';
@@ -2783,11 +2207,6 @@ class AppLocalizationsZh extends AppLocalizations {
   String get previousScans => '历史扫描';
 
   @override
-  String scanErrorWithMsg(String error) {
-    return '扫描错误：$error';
-  }
-
-  @override
   String get noScannedTagYet => '尚未扫描任何 NFC 标签';
 
   @override
@@ -2795,16 +2214,6 @@ class AppLocalizationsZh extends AppLocalizations {
 
   @override
   String get ndefCopyAndRewriteTitle => 'NDEF 内容复制与重新写入';
-
-  @override
-  String ndefCopyNotice(num count, num bytes) {
-    return '$count 条记录 ($bytes 字节) - 仅处理 NDEF 数据，未克隆 UID。';
-  }
-
-  @override
-  String tagIdHeader(String id) {
-    return '标签 $id';
-  }
 
   @override
   String get savedTagNoteHeader => '已保存的标签备注（应用内规则）';
@@ -2837,22 +2246,7 @@ class AppLocalizationsZh extends AppLocalizations {
   String get freeSpace => '剩余空间：';
 
   @override
-  String errorWithMsg(String error) {
-    return '错误：$error';
-  }
-
-  @override
   String get noNdefMessageOnTag => '未在标签上找到已保存的 NDEF 消息。';
-
-  @override
-  String readNdefRecordsHeader(num count) {
-    return '已读取的 NDEF 记录 ($count)';
-  }
-
-  @override
-  String stagedNdefRecordsHeader(num count) {
-    return '编写的 NDEF 记录 ($count)';
-  }
 
   @override
   String get hideDetails => '隐藏详情';
@@ -2873,11 +2267,6 @@ class AppLocalizationsZh extends AppLocalizations {
   String get inspectorRawHexPreview => '原始十六进制预览（受限）：';
 
   @override
-  String inspectorPayloadTruncated(num length) {
-    return '注意：有效载荷为 $length 字节；仅显示前 64 字节。';
-  }
-
-  @override
   String get ndefRecordsToWriteTitle => '要写入的 NDEF 记录';
 
   @override
@@ -2894,11 +2283,6 @@ class AppLocalizationsZh extends AppLocalizations {
 
   @override
   String get importFromCsvAction => '从 CSV 文件导入';
-
-  @override
-  String composerTotalSizeAndCount(num bytes, num count) {
-    return '总大小：$bytes 字节 | 记录数：$count';
-  }
 
   @override
   String get composerEmptyDescription =>
@@ -2920,11 +2304,6 @@ class AppLocalizationsZh extends AppLocalizations {
   String get writeAndVerify => '写入标签并验证';
 
   @override
-  String writeAndVerifyWithBytes(num bytes) {
-    return '写入标签并验证 ($bytes 字节)';
-  }
-
-  @override
   String get batchWriteButtonLabel => '批量标签写入 (2..100 个标签)';
 
   @override
@@ -2935,11 +2314,6 @@ class AppLocalizationsZh extends AppLocalizations {
 
   @override
   String get confirmWriteMessage1 => '此操作将完全覆盖目标标签上的现有 NDEF 内容。';
-
-  @override
-  String confirmWriteRecordCount(num count) {
-    return '要写入的记录数：$count';
-  }
 
   @override
   String get confirmWriteMessage2 => '请确保目标标签可写（未锁定）。写入后将自动验证标签内容。';
@@ -2960,17 +2334,7 @@ class AppLocalizationsZh extends AppLocalizations {
   String get historySearchHint => '按 UID、文本或类型搜索（例如：URL、Wi-Fi、04A1...）';
 
   @override
-  String historyScansCount(num count) {
-    return '已保存的扫描：$count';
-  }
-
-  @override
   String get noHistoryYet => '暂无保存的扫描历史记录。';
-
-  @override
-  String noHistoryResultsForQuery(String query) {
-    return '未找到“$query”的结果。';
-  }
 
   @override
   String get tryDifferentQuery => '请尝试其他 UID、文本内容或记录类型。';
@@ -2979,41 +2343,13 @@ class AppLocalizationsZh extends AppLocalizations {
   String get clearSearch => '清除搜索';
 
   @override
-  String historyItemHeader(String time, num count) {
-    return '$time | $count 条记录';
-  }
-
-  @override
   String get deleteThisRecord => '删除此记录';
-
-  @override
-  String historyCapacitySummary(num cap, num used) {
-    return '容量：${cap}B | 已用：${used}B';
-  }
-
-  @override
-  String historyUidHeader(String uid) {
-    return '历史 UID $uid';
-  }
 
   @override
   String get qrPreview => 'QR 预览';
 
   @override
-  String templateRecordCountWithDate(num count, String date) {
-    return '$count 条记录 | $date';
-  }
-
-  @override
-  String writeVerificationSummary(num bytes, String status) {
-    return '写入字节：$bytes | 验证：$status';
-  }
-
-  @override
   String get lockTagConfirmTitle => '永久锁定标签';
-
-  @override
-  String get lockTagWarning1 => '锁定的标签将变为只读：内容无法再次修改、删除，且无法解锁。';
 
   @override
   String get lockTagWarning2 => '请务必先确认已写入正确的内容。';
@@ -3022,43 +2358,7 @@ class AppLocalizationsZh extends AppLocalizations {
   String get langTr => 'Türkçe';
 
   @override
-  String get langEn => 'English';
-
-  @override
-  String get langDe => 'Deutsch';
-
-  @override
   String get langFr => 'Français';
-
-  @override
-  String get langEs => 'Español';
-
-  @override
-  String get langIt => 'Italiano';
-
-  @override
-  String get langPt => 'Português';
-
-  @override
-  String get langRu => 'Русский';
-
-  @override
-  String get langAr => 'العربية';
-
-  @override
-  String get langJa => '日本語';
-
-  @override
-  String get langZh => '中文';
-
-  @override
-  String get langKo => '한국어';
-
-  @override
-  String get langNl => 'Nederlands';
-
-  @override
-  String get langUk => 'Українська';
 
   @override
   String get qrPreviewTooltip => 'QR码预览';
@@ -3068,4 +2368,217 @@ class AppLocalizationsZh extends AppLocalizations {
 
   @override
   String get ok => '确定';
+
+  @override
+  String rewriteSourceUid(String uid) {
+    return '源 UID：$uid';
+  }
+
+  @override
+  String recordsToWriteCount(String count) {
+    return '待写入记录：$count';
+  }
+
+  @override
+  String rewriteFailed(String message) {
+    return '重写失败：$message';
+  }
+
+  @override
+  String writtenRecordsCount(String count) {
+    return '已写入记录：$count';
+  }
+
+  @override
+  String scannedTagUid(String uid) {
+    return '已扫描标签 UID：$uid';
+  }
+
+  @override
+  String writtenDataSummary(String count, String bytes) {
+    return '已写入数据：$count 条（$bytes 字节）';
+  }
+
+  @override
+  String scannedDataSummary(String count, String bytes) {
+    return '已扫描数据：$count 条（$bytes 字节）';
+  }
+
+  @override
+  String batchTargetCount(String count) {
+    return '目标标签数：$count';
+  }
+
+  @override
+  String composerRecordsSummary(String count, String bytes) {
+    return '写入列表：$count 条（$bytes 字节）';
+  }
+
+  @override
+  String batchNext(String current, String total) {
+    return '下一个：标签 #$current / $total';
+  }
+
+  @override
+  String batchAttemptOk(String message) {
+    return '成功（$message）';
+  }
+
+  @override
+  String batchAttemptFailed(String message) {
+    return '失败：$message';
+  }
+
+  @override
+  String batchAttemptLabel(String n) {
+    return '标签 #$n：';
+  }
+
+  @override
+  String batchTapToWrite(String n) {
+    return '轻触并写入标签 #$n';
+  }
+
+  @override
+  String batchPrompt(String current, String total) {
+    return '批量写入：请靠近标签 #$current / $total';
+  }
+
+  @override
+  String batchWrittenVerified(String count) {
+    return '已写入并验证 $count 条记录';
+  }
+
+  @override
+  String templateLoaded(String name) {
+    return '已将“$name”中的记录加入写入列表。';
+  }
+
+  @override
+  String ndefSha256Summary(String sha) {
+    return 'NDEF 内容摘要（SHA-256）：\n$sha';
+  }
+
+  @override
+  String exportError(String error) {
+    return '导出错误：$error';
+  }
+
+  @override
+  String backupHistoryDetected(String count, String prompt) {
+    return '备份包含 $count 条扫描历史，但此设备已关闭历史记录。\n\n$prompt';
+  }
+
+  @override
+  String importSucceeded(String summary) {
+    return '导入成功：\n$summary';
+  }
+
+  @override
+  String mergeError(String error) {
+    return '合并错误：$error';
+  }
+
+  @override
+  String clipboardBannerText(String count, String bytes, String source) {
+    return 'NDEF 剪贴板：$count 条（$bytes B）- $source';
+  }
+
+  @override
+  String get heroScanSubtitle => '将标签靠近手机顶部，即可立即看到内容、容量和序列号。';
+
+  @override
+  String lastTagLabel(String uid) {
+    return '上一个标签：$uid';
+  }
+
+  @override
+  String scanErrorWithMessage(String message) {
+    return '扫描错误：$message';
+  }
+
+  @override
+  String copyContentSummary(String count, String bytes) {
+    return '$count 条（$bytes 字节）- 仅复制 NDEF 数据，不复制 UID。';
+  }
+
+  @override
+  String tagSourceLabel(String uid) {
+    return '标签 $uid';
+  }
+
+  @override
+  String errorWithMessage(String message) {
+    return '错误：$message';
+  }
+
+  @override
+  String readRecordsHeader(String count) {
+    return '已读取的 NDEF 记录（$count）';
+  }
+
+  @override
+  String composedRecordsHeader(String count) {
+    return '待写入的 NDEF 记录（$count）';
+  }
+
+  @override
+  String payloadTruncatedNote(String bytes) {
+    return '注意：负载为 $bytes 字节，仅显示前 64 字节。';
+  }
+
+  @override
+  String composerTotals(String bytes, String count) {
+    return '总大小：$bytes 字节 | 记录：$count';
+  }
+
+  @override
+  String writeAndVerifyWithSize(String bytes) {
+    return '写入并验证（$bytes 字节）';
+  }
+
+  @override
+  String savedScansCount(String count) {
+    return '已保存的扫描：$count';
+  }
+
+  @override
+  String historyNoResults(String query) {
+    return '未找到“$query”的结果。';
+  }
+
+  @override
+  String historyItemMeta(String date, String count) {
+    return '$date | $count 条';
+  }
+
+  @override
+  String historyCapacity(String max, String used) {
+    return '容量：$max B | 已用：$used B';
+  }
+
+  @override
+  String historySourceLabel(String uid) {
+    return '历史 UID $uid';
+  }
+
+  @override
+  String templateMeta(String count, String date) {
+    return '$count 条 | $date';
+  }
+
+  @override
+  String rulesCountLabel(String count) {
+    return '已保存规则/备注：$count';
+  }
+
+  @override
+  String writeResultDetails(String bytes, String verification) {
+    return '已写入字节：$bytes | 验证：$verification';
+  }
+
+  @override
+  String lockTagWarningFull(String more) {
+    return '锁定后标签将变为只读：内容永远无法修改或擦除，锁定也无法解除。$more';
+  }
 }

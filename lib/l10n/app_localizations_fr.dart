@@ -12,12 +12,6 @@ class AppLocalizationsFr extends AppLocalizations {
   String get addRecord => 'Ajouter un enregistrement';
 
   @override
-  String get addRule => 'Ajouter une règle';
-
-  @override
-  String get addTag => 'Ajouter un tag';
-
-  @override
   String get addToComposerList => 'Ajouter à la liste d\'écriture';
 
   @override
@@ -36,9 +30,6 @@ class AppLocalizationsFr extends AppLocalizations {
 
   @override
   String get advancedCommandsTitle => 'Commandes NFC avancées';
-
-  @override
-  String get allRulesCleared => 'Toutes les règles ont été supprimées';
 
   @override
   String get appLinksDesc =>
@@ -60,41 +51,12 @@ class AppLocalizationsFr extends AppLocalizations {
   String get autoRunOnTap => 'Exécution automatique au toucher';
 
   @override
-  String get backupExportSuccess =>
-      'Fichier de sauvegarde enregistré avec succès';
-
-  @override
   String get backupFileSizeExceeded =>
       'La taille de la sauvegarde dépasse 2 Mo.';
 
   @override
   String get backupHistoryMustBeList =>
       'Le champ \"history\" doit être une liste.';
-
-  @override
-  String backupImportFailed(String error) {
-    return 'Échec de l\'importation de la sauvegarde : $error';
-  }
-
-  @override
-  String backupImportSuccess(int history, int rules, int templates) {
-    return 'Sauvegarde importée avec succès : $templates modèles, $rules règles, $history entrées d\'historique';
-  }
-
-  @override
-  String backupInvalidBase64Id(String id) {
-    return 'ID non conforme en Base64 : $id';
-  }
-
-  @override
-  String backupInvalidBase64Payload(String payload) {
-    return 'Données non conformes en Base64 : $payload';
-  }
-
-  @override
-  String backupInvalidBase64Type(String type) {
-    return 'Type non conforme en Base64 : $type';
-  }
 
   @override
   String backupInvalidJson(String error) {
@@ -108,29 +70,14 @@ class AppLocalizationsFr extends AppLocalizations {
   String get backupInvalidRuleSha => 'Hash SHA-256 de règle invalide.';
 
   @override
-  String backupInvalidTemplateCreatedAt(String date) {
-    return 'Date de création de modèle invalide : $date';
-  }
-
-  @override
   String get backupInvalidTemplateId => 'ID de modèle invalide.';
 
   @override
   String get backupInvalidTemplateName => 'Nom de modèle invalide.';
 
   @override
-  String backupInvalidTnf(String tnf) {
-    return 'Valeur TNF invalide ($tnf). Doit être comprise entre 0 et 7.';
-  }
-
-  @override
   String backupMaxHistoryExceeded(int count, int max) {
     return 'Nombre d\'historiques supérieur à la limite de $max ($count).';
-  }
-
-  @override
-  String backupMaxRecordsExceeded(int count, int max) {
-    return 'Nombre d\'enregistrements supérieur à la limite de $max ($count).';
   }
 
   @override
@@ -149,10 +96,6 @@ class AppLocalizationsFr extends AppLocalizations {
   @override
   String get backupRecordMustBeObject =>
       'Chaque enregistrement NDEF doit être un objet JSON.';
-
-  @override
-  String get backupRecordsMustBeList =>
-      'Les enregistrements doivent être une liste.';
 
   @override
   String get backupRestoreSubtitle =>
@@ -194,20 +137,6 @@ class AppLocalizationsFr extends AppLocalizations {
   }
 
   @override
-  String get batchWrite => 'Écriture par lot';
-
-  @override
-  String get bluetoothDeviceName => 'Nom de l\'appareil (Optionnel)';
-
-  @override
-  String get bluetoothMac => 'Adresse MAC Bluetooth';
-
-  @override
-  String bytesWrittenWithVerification(int bytes, String status) {
-    return 'Octets écrits : $bytes | Vérification : $status';
-  }
-
-  @override
   String cameraError(String error) {
     return 'Impossible d\'ouvrir l\'appareil photo. Autorisez l\'accès dans Réglages > Confidentialité > Appareil photo.\n($error)';
   }
@@ -246,13 +175,6 @@ class AppLocalizationsFr extends AppLocalizations {
   String get clearAll => 'Tout effacer';
 
   @override
-  String get clearAllRulesConfirm =>
-      'Supprimer toutes les notes enregistrées ?';
-
-  @override
-  String get clearConfirmButton => 'Oui, effacer';
-
-  @override
   String get clearConfirmMessage =>
       'Cette opération efface tous les enregistrements NDEF et écrit un enregistrement vide. Continuer ?';
 
@@ -263,25 +185,11 @@ class AppLocalizationsFr extends AppLocalizations {
   String get clearHistory => 'Effacer l\'historique';
 
   @override
-  String get clearList => 'Vider la liste';
-
-  @override
   String get clearTagSubtitle =>
       'Supprime tous les enregistrements et écrit un NDEF vide';
 
   @override
   String get clearTagTitle => 'Effacer le tag';
-
-  @override
-  String clipboardBanner(int bytes, int count, String source) {
-    String _temp0 = intl.Intl.pluralLogic(
-      count,
-      locale: localeName,
-      other: '$count enregistrements dans le presse-papiers',
-      one: '1 enregistrement dans le presse-papiers',
-    );
-    return '$_temp0 ($bytes o) · $source';
-  }
 
   @override
   String get close => 'Fermer';
@@ -291,9 +199,6 @@ class AppLocalizationsFr extends AppLocalizations {
 
   @override
   String get commandsLabel => 'Commandes';
-
-  @override
-  String get composeRecordTitle => 'Ajouter un enregistrement';
 
   @override
   String get confirmClearHistoryContent =>
@@ -319,9 +224,6 @@ class AppLocalizationsFr extends AppLocalizations {
   String get contactFullName => 'Nom et prénom';
 
   @override
-  String get contactNote => 'Note';
-
-  @override
   String get contactPhone => 'Téléphone';
 
   @override
@@ -331,21 +233,7 @@ class AppLocalizationsFr extends AppLocalizations {
   String get contactWebsite => 'Site web';
 
   @override
-  String contentSummary(String content, int count) {
-    String _temp0 = intl.Intl.pluralLogic(
-      count,
-      locale: localeName,
-      other: '$count enregistrements',
-      one: '1 enregistrement',
-    );
-    return 'Contenu : $_temp0 · $content';
-  }
-
-  @override
   String get copy => 'Copier';
-
-  @override
-  String get copyAllRecords => 'Tout copier';
 
   @override
   String get copyTagUid => 'Copier l\'UID';
@@ -391,14 +279,6 @@ class AppLocalizationsFr extends AppLocalizations {
   String get delete => 'Supprimer';
 
   @override
-  String deleteTagConfirmContent(String name) {
-    return 'Supprimer \"$name\" de la bibliothèque ? Le tag physique ne sera pas modifié.';
-  }
-
-  @override
-  String get deleteTagConfirmTitle => 'Supprimer le tag';
-
-  @override
   String get deleteTemplateTooltip => 'Supprimer le modèle';
 
   @override
@@ -411,52 +291,7 @@ class AppLocalizationsFr extends AppLocalizations {
   String get editRecordTitle => 'Modifier l\'enregistrement';
 
   @override
-  String get editRule => 'Modifier la règle';
-
-  @override
-  String get editTag => 'Modifier le tag';
-
-  @override
-  String get emailBody => 'Corps du message';
-
-  @override
   String get emailRecipient => 'Destinataire';
-
-  @override
-  String get emailSubject => 'Objet';
-
-  @override
-  String get emptyComposerSubtitle =>
-      'Touchez \"Ajouter un enregistrement\" pour créer des URL, textes, Wi-Fi, fiches contacts et plus.';
-
-  @override
-  String get emptyComposerTitle => 'Aucun enregistrement';
-
-  @override
-  String get emptyHistorySubtitle =>
-      'Vos scans apparaîtront ici au fur et à mesure.';
-
-  @override
-  String get emptyHistoryTitle => 'Aucun historique';
-
-  @override
-  String get emptyLibrary =>
-      'Aucun tag enregistré.\nScannez un tag pour l\'ajouter ici avec nom et photo.';
-
-  @override
-  String get eventDescription => 'Description';
-
-  @override
-  String get eventEnd => 'Fin';
-
-  @override
-  String get eventLocation => 'Lieu';
-
-  @override
-  String get eventStart => 'Début';
-
-  @override
-  String get eventTitle => 'Titre de l\'événement';
 
   @override
   String get exportBackup => 'Exporter';
@@ -471,26 +306,7 @@ class AppLocalizationsFr extends AppLocalizations {
   }
 
   @override
-  String get fieldTextPrompt => 'Texte à écrire sur le tag';
-
-  @override
-  String get fieldUrlPrompt => 'Adresse web (https://...)';
-
-  @override
-  String get fileUrl => 'Lien du fichier (URL)';
-
-  @override
-  String get filterAll => 'Tous';
-
-  @override
   String get flashlight => 'Lampe';
-
-  @override
-  String get formatConfirmButton => 'Formater';
-
-  @override
-  String get formatConfirmMessage =>
-      'Les données seront effacées et le tag sera préparé comme un tag NDEF vierge. Continuer ?';
 
   @override
   String get formatMemorySubtitle =>
@@ -500,26 +316,10 @@ class AppLocalizationsFr extends AppLocalizations {
   String get formatMemoryTitle => 'Formater la mémoire';
 
   @override
-  String get hardwareAvailable => 'Matériel NFC prêt';
-
-  @override
-  String get hardwareDisabled => 'NFC désactivé';
-
-  @override
-  String get hardwareNotSupported => 'NFC non pris en charge';
-
-  @override
-  String get historyFilteredEmpty =>
-      'Aucun résultat trouvé dans l\'historique.';
-
-  @override
   String get idTooLarge => 'L\'ID ne peut excéder 255 octets';
 
   @override
   String get importBackup => 'Importer (Fusionner)';
-
-  @override
-  String get importCsv => 'Importer CSV';
 
   @override
   String get inAppTagRules => 'Règles de tag intégrées';
@@ -537,9 +337,6 @@ class AppLocalizationsFr extends AppLocalizations {
   String get languageTitle => 'Dil / Language';
 
   @override
-  String get latitude => 'Latitude (Lat)';
-
-  @override
   String get linkCopied => 'Lien copié';
 
   @override
@@ -555,20 +352,11 @@ class AppLocalizationsFr extends AppLocalizations {
   String get linkWriteDesc => 'Ouvre l\'écran d\'écriture';
 
   @override
-  String get loadToComposerTooltip => 'Charger dans l\'éditeur';
-
-  @override
-  String get locationHint => 'Ex. : Porte du réfrigérateur';
-
-  @override
   String get locationLabel => 'Où se trouve-t-il ?';
 
   @override
   String get lockAcknowledge =>
       'Je comprends que cette action est irréversible';
-
-  @override
-  String get lockButton => 'Verrouiller';
 
   @override
   String get lockTagSubtitle =>
@@ -578,26 +366,7 @@ class AppLocalizationsFr extends AppLocalizations {
   String get lockTagTitle => 'Verrouiller le tag';
 
   @override
-  String get lockWarning =>
-      'Un tag verrouillé devient strictement en lecture seule : son contenu ne pourra PLUS être modifié ni déverrouillé. Vérifiez-le avant.';
-
-  @override
-  String get longitude => 'Longitude (Lng)';
-
-  @override
   String get manage => 'Gérer';
-
-  @override
-  String get matchedRule => 'Règle / Note associée';
-
-  @override
-  String get mimePayloadHex => 'Données brutes (Hex / Texte)';
-
-  @override
-  String get mimeTypeLabel => 'Type MIME';
-
-  @override
-  String get nameRequired => 'Veuillez donner un nom au tag.';
 
   @override
   String get navHistory => 'Hist.';
@@ -641,9 +410,6 @@ class AppLocalizationsFr extends AppLocalizations {
   }
 
   @override
-  String get ndefRecordsTitle => 'Enregistrements NDEF';
-
-  @override
   String get nfcPromptClear =>
       'Approchez le tag de l\'appareil pour le réinitialiser';
 
@@ -660,15 +426,6 @@ class AppLocalizationsFr extends AppLocalizations {
 
   @override
   String get no => 'Non';
-
-  @override
-  String get noContentInTag => 'Aucun contenu associé.';
-
-  @override
-  String get noLibraryMatches => 'Aucun tag correspondant.';
-
-  @override
-  String get noRecordsOnTag => 'Aucun enregistrement NDEF trouvé sur le tag.';
 
   @override
   String get noTemplates =>
@@ -718,36 +475,6 @@ class AppLocalizationsFr extends AppLocalizations {
   String optionalField(String label) {
     return '$label (facultatif)';
   }
-
-  @override
-  String pageN(int page) {
-    return 'Page $page';
-  }
-
-  @override
-  String get pageRoleCc => 'CC';
-
-  @override
-  String get pageRoleData => 'Données';
-
-  @override
-  String get pageRoleLock => 'Verrou';
-
-  @override
-  String get pageRoleUid => 'UID';
-
-  @override
-  String get pageRoleUidLock => 'UID / Verrou';
-
-  @override
-  String get passwordDialogAction => 'Appliquer';
-
-  @override
-  String get passwordDialogTitle => 'Définir un mot de passe';
-
-  @override
-  String get passwordDialogWarning =>
-      'Si vous oubliez ce mot de passe, le tag ne pourra plus être modifié. La lecture reste publique.';
 
   @override
   String get passwordError =>
@@ -892,9 +619,6 @@ class AppLocalizationsFr extends AppLocalizations {
       'Ouvert uniquement à la demande de l\'utilisateur.';
 
   @override
-  String get rawInspection => 'Inspection détaillée';
-
-  @override
   String get rawRecordDetailsTitle => 'Détails du record (Lecture seule)';
 
   @override
@@ -902,19 +626,6 @@ class AppLocalizationsFr extends AppLocalizations {
 
   @override
   String get readHeroButton => 'Lancer le scan';
-
-  @override
-  String get readHeroEyebrow => 'LECTEUR NFC';
-
-  @override
-  String get readHeroScanning => 'Scan en cours...';
-
-  @override
-  String get readHeroSubtitle =>
-      'Approchez le haut du téléphone d\'un tag NFC pour lire les données NDEF et les détails de la puce.';
-
-  @override
-  String get readHeroTitle => 'Scanner un tag';
 
   @override
   String get readMemorySubtitle =>
@@ -925,14 +636,6 @@ class AppLocalizationsFr extends AppLocalizations {
 
   @override
   String get readyTemplates => 'Modèles prêts';
-
-  @override
-  String get recordCopied => 'Contenu copié';
-
-  @override
-  String recordIndex(int index) {
-    return 'Enregistrement n°$index';
-  }
 
   @override
   String get recordTypeCalendar => 'Événement calendrier (iCal)';
@@ -984,25 +687,7 @@ class AppLocalizationsFr extends AppLocalizations {
   String get recordTypeWifiCorrupt => 'Données WSC corrompues';
 
   @override
-  String recordsCopiedToClipboard(int count) {
-    String _temp0 = intl.Intl.pluralLogic(
-      count,
-      locale: localeName,
-      other: '$count enregistrements copiés',
-      one: '1 enregistrement copié',
-    );
-    return '$_temp0';
-  }
-
-  @override
   String get redo => 'Rétablir';
-
-  @override
-  String get removePasswordDialogTitle => 'Supprimer le mot de passe';
-
-  @override
-  String get removePasswordDialogWarning =>
-      'Saisissez le mot de passe actuel du tag.';
 
   @override
   String get removePasswordSubtitle =>
@@ -1010,9 +695,6 @@ class AppLocalizationsFr extends AppLocalizations {
 
   @override
   String get removePasswordTitle => 'Supprimer le mot de passe';
-
-  @override
-  String get removePhoto => 'Retirer';
 
   @override
   String get rewriteTag => 'Réécrire';
@@ -1023,19 +705,10 @@ class AppLocalizationsFr extends AppLocalizations {
   }
 
   @override
-  String get ruleDeleted => 'Règle supprimée';
-
-  @override
   String get ruleNoteDialogTitle => 'Modifier la note du tag';
 
   @override
-  String get ruleNoteHint => 'Ex. : Étagère #4 ou Salle de réunion';
-
-  @override
   String get ruleNoteLabel => 'Note / Description locale';
-
-  @override
-  String get ruleSaved => 'Règle enregistrée';
 
   @override
   String get save => 'Enregistrer';
@@ -1054,32 +727,10 @@ class AppLocalizationsFr extends AppLocalizations {
       'Désactivé, aucun scan n\'est conservé. Activé, les scans réussis sont stockés localement.';
 
   @override
-  String get saveTemplateDialogTitle => 'Enregistrer comme modèle';
-
-  @override
-  String get saveToLibrary => 'Sauvegarder dans la bibliothèque';
-
-  @override
   String get scanFabLabel => 'Scanner le tag';
 
   @override
-  String get scanQrToRecord => 'Scanner un QR';
-
-  @override
   String get scannedTag => 'Tag scanné';
-
-  @override
-  String get searchEngine => 'Moteur de recherche';
-
-  @override
-  String get searchHistoryHint =>
-      'Rechercher dans l\'historique (UID, texte, type)...';
-
-  @override
-  String get searchLibraryHint => 'Rechercher par nom, note, lieu ou contenu';
-
-  @override
-  String get searchQuery => 'Requête de recherche';
 
   @override
   String get searchQueryCannotBeEmpty => 'La recherche ne peut pas être vide.';
@@ -1096,9 +747,6 @@ class AppLocalizationsFr extends AppLocalizations {
 
   @override
   String get setPasswordTitle => 'Définir un mot de passe';
-
-  @override
-  String get shareRecords => 'Partager';
 
   @override
   String get shortcutAutomationNote =>
@@ -1147,19 +795,7 @@ class AppLocalizationsFr extends AppLocalizations {
   String get smsMessage => 'Message SMS';
 
   @override
-  String get socialNetwork => 'Plateforme';
-
-  @override
   String get socialUsername => 'Nom d\'utilisateur';
-
-  @override
-  String get sourceComposer => 'Enregistrements de la liste d\'écriture';
-
-  @override
-  String get sourceEmpty => 'Sans contenu (note uniquement)';
-
-  @override
-  String get sourceLastScan => 'Dernier tag scanné';
 
   @override
   String get sourceSelectPrompt => 'D\'où provient le contenu du tag ?';
@@ -1255,15 +891,6 @@ class AppLocalizationsFr extends AppLocalizations {
   String get systemLanguage => 'Langue du système';
 
   @override
-  String get tabApp => 'Application';
-
-  @override
-  String get tabBluetooth => 'Bluetooth';
-
-  @override
-  String get tabCalendar => 'Calendrier';
-
-  @override
   String get tabContact => 'Contact (vCard)';
 
   @override
@@ -1273,22 +900,10 @@ class AppLocalizationsFr extends AppLocalizations {
   String get tabEmail => 'E-mail';
 
   @override
-  String get tabFile => 'Fichier';
-
-  @override
-  String get tabLocation => 'Localisation';
-
-  @override
   String get tabPhone => 'Téléphone';
 
   @override
-  String get tabSearch => 'Recherche';
-
-  @override
   String get tabSms => 'SMS';
-
-  @override
-  String get tabSocial => 'Réseaux sociaux';
 
   @override
   String get tabText => 'Texte';
@@ -1297,33 +912,13 @@ class AppLocalizationsFr extends AppLocalizations {
   String get tabUrl => 'URL Web';
 
   @override
-  String get tabVideo => 'Vidéo';
-
-  @override
   String get tabWifi => 'Wi-Fi';
-
-  @override
-  String get tagCapacity => 'Capacité';
-
-  @override
-  String tagCapacityValue(int available, int max, int used) {
-    return '$used / $max octets ($available octets libres)';
-  }
 
   @override
   String get tagInfoTitle => 'Informations sur le tag';
 
   @override
   String get tagLibraryTitle => 'Ma bibliothèque de tags';
-
-  @override
-  String get tagNameHint => 'Ex. : Tag de la cuisine';
-
-  @override
-  String get tagNameLabel => 'Nom';
-
-  @override
-  String get tagReadOnly => 'Lecture seule (Verrouillé)';
 
   @override
   String tagRulesCount(int count) {
@@ -1335,42 +930,13 @@ class AppLocalizationsFr extends AppLocalizations {
       'Affiche uniquement la note associée selon le hachage SHA-256 du contenu NDEF.';
 
   @override
-  String get tagSerialNumber => 'Numéro de série (UID)';
-
-  @override
-  String get tagTechnology => 'Technologie';
-
-  @override
-  String get tagType => 'Type';
-
-  @override
-  String get tagUidCopied => 'UID du tag copié';
-
-  @override
   String get tagWritable => 'Inscriptible';
 
   @override
   String get takePhoto => 'Prendre une photo';
 
   @override
-  String get templateGalleryTitle => 'Modèles prêts';
-
-  @override
   String get templateNameHint => 'Nom du modèle';
-
-  @override
-  String templateRecordCount(int count, String date) {
-    String _temp0 = intl.Intl.pluralLogic(
-      count,
-      locale: localeName,
-      other: '$count Enregistrements',
-      one: '1 Enregistrement',
-    );
-    return '$_temp0 | $date';
-  }
-
-  @override
-  String get templateSaved => 'Modèle enregistré avec succès';
 
   @override
   String get toolsExpertSection => 'Expert';
@@ -1387,9 +953,6 @@ class AppLocalizationsFr extends AppLocalizations {
 
   @override
   String get toolsTagSection => 'Tag';
-
-  @override
-  String get totalBytes => 'Taille totale';
 
   @override
   String get typeTooLarge => 'Le type ne peut excéder 255 octets';
@@ -1468,29 +1031,11 @@ class AppLocalizationsFr extends AppLocalizations {
   String get videoUrlCannotBeEmpty => 'Le lien vidéo ne peut pas être vide.';
 
   @override
-  String get videoUrlOrId => 'Lien vidéo ou identifiant YouTube';
-
-  @override
   String get videoUrlOrIdPrompt =>
       'Entrez une URL (https://...) ou l\'ID de la vidéo.';
 
   @override
   String get wifiAuthOpen => 'Ouvert (Non sécurisé)';
-
-  @override
-  String get wifiAuthType => 'Sécurité';
-
-  @override
-  String get wifiAuthWpa => 'WPA Personal';
-
-  @override
-  String get wifiAuthWpa2 => 'WPA2 Personal';
-
-  @override
-  String get wifiAuthWpaWpa2 => 'WPA/WPA2 Personal';
-
-  @override
-  String get wifiHidden => 'Réseau masqué';
 
   @override
   String get wifiPassword => 'Mot de passe';
@@ -1500,9 +1045,6 @@ class AppLocalizationsFr extends AppLocalizations {
 
   @override
   String get withSiri => 'Avec Siri';
-
-  @override
-  String get writeDumpConfirmButton => 'Écrire';
 
   @override
   String writeDumpConfirmMessage(int bytes, String name) {
@@ -1515,16 +1057,6 @@ class AppLocalizationsFr extends AppLocalizations {
 
   @override
   String get writeDumpTitle => 'Écrire un dump (.bin)';
-
-  @override
-  String get writeHeroButton => 'Lancer l\'écriture';
-
-  @override
-  String get writeHeroEyebrow => 'ÉCRIVAIN NDEF';
-
-  @override
-  String get writeHeroSubtitle =>
-      'Préparez plusieurs enregistrements NDEF et écrivez-les en une seule fois.';
 
   @override
   String get writeHeroTitle => 'Écrire sur le tag';
@@ -1544,9 +1076,6 @@ class AppLocalizationsFr extends AppLocalizations {
   @override
   String get writeTemplatesSubtitle =>
       'Enregistrez vos contenus NDEF fréquents sous forme de modèles réutilisables.';
-
-  @override
-  String get yes => 'Oui';
 
   @override
   String get unknown => 'Inconnu';
@@ -2422,7 +1951,7 @@ class AppLocalizationsFr extends AppLocalizations {
 
   @override
   String filePickerError(String error) {
-    return 'Impossible d\'ouvrir le sélecteur de fichiers : $error';
+    return 'Impossible d\'ouvrir le sélecteur : $error';
   }
 
   @override
@@ -2527,16 +2056,6 @@ class AppLocalizationsFr extends AppLocalizations {
       '• N\'écrit pas silencieusement sur le tag précédent ; un nouveau scan NFC est requis.';
 
   @override
-  String rewriteSourceUidLabel(String uid) {
-    return 'UID source : $uid';
-  }
-
-  @override
-  String rewriteRecordCountLabel(num count) {
-    return 'Nombre d\'enregistrements à écrire : $count';
-  }
-
-  @override
   String get rewriteInstruction =>
       'Préparez le tag cible, appuyez sur \"Toucher et écrire\", puis approchez le tag.';
 
@@ -2548,21 +2067,11 @@ class AppLocalizationsFr extends AppLocalizations {
       'Approchez le tag cible (le contenu sera totalement renouvelé)';
 
   @override
-  String rewriteFailedMessage(String error) {
-    return 'Échec de la réécriture : $error';
-  }
-
-  @override
   String get writeVerifiedTitle => 'Écriture vérifiée';
 
   @override
   String get writeVerifiedDesc =>
       'Contenu NDEF écrit et vérifié avec succès sur le tag cible.';
-
-  @override
-  String writtenRecordCount(num count) {
-    return 'Nombre d\'enregistrements écrits : $count';
-  }
 
   @override
   String get writeVerifiedHint =>
@@ -2576,21 +2085,6 @@ class AppLocalizationsFr extends AppLocalizations {
 
   @override
   String get differenceDetected => 'Différence détectée';
-
-  @override
-  String compareScannedUid(String uid) {
-    return 'UID du tag scanné : $uid';
-  }
-
-  @override
-  String compareWrittenData(num count, num bytes) {
-    return 'Données écrites : $count enregistrements ($bytes octets)';
-  }
-
-  @override
-  String compareScannedData(num count, num bytes) {
-    return 'Données scannées : $count enregistrements ($bytes octets)';
-  }
 
   @override
   String get compareMatchDesc =>
@@ -2623,16 +2117,6 @@ class AppLocalizationsFr extends AppLocalizations {
       '• Aucun scan automatique en continu ; chaque tag doit être changé physiquement.';
 
   @override
-  String batchTargetCountLabel(num count) {
-    return 'Nombre de tags cibles : $count';
-  }
-
-  @override
-  String batchComposerSummary(num count, num bytes) {
-    return 'Enregistrements : $count ($bytes octets)';
-  }
-
-  @override
   String get batchStartButton => 'Démarrer l\'écriture par lot';
 
   @override
@@ -2647,50 +2131,15 @@ class AppLocalizationsFr extends AppLocalizations {
       'Toutes les tentatives de tag sont terminées !';
 
   @override
-  String batchNextTag(num current, num total) {
-    return 'Suivant : Tag #$current / $total';
-  }
-
-  @override
-  String batchStats(num success, num fail, num remaining) {
-    return 'Succès : $success | Échec : $fail | Restant : $remaining';
-  }
-
-  @override
-  String batchSuccessMsg(String message) {
-    return 'Succès ($message)';
-  }
-
-  @override
-  String batchFailMsg(String message) {
-    return 'Échec : $message';
-  }
-
-  @override
-  String tagNumberLabel(num index) {
-    return 'Tag #$index : ';
+  String batchStats(String ok, String failed, String left) {
+    return 'Réussis : $ok | Échecs : $failed | Restants : $left';
   }
 
   @override
   String get waitingForTag => 'En attente du tag...';
 
   @override
-  String tapToWriteForTag(num index) {
-    return 'Toucher et écrire pour le tag #$index';
-  }
-
-  @override
   String get batchFinishButton => 'Terminer l\'écriture par lot';
-
-  @override
-  String batchPromptMessage(num current, num total) {
-    return 'Écriture par lot : Approchez le tag #$current / $total';
-  }
-
-  @override
-  String batchTagSuccessSummary(num count) {
-    return '$count enregistrements écrits et vérifiés';
-  }
 
   @override
   String get writeError => 'Erreur d\'écriture';
@@ -2744,17 +2193,12 @@ class AppLocalizationsFr extends AppLocalizations {
       'NOTE : Analyse hors ligne. Ne remplace pas un antivirus en ligne. L\'URL ne s\'ouvre pas automatiquement.';
 
   @override
-  String templateLoadedToComposer(String name) {
-    return 'Enregistrements du modèle \"$name\" chargés.';
-  }
-
-  @override
   String get templateSaveEmptyError =>
       'Ajoutez des enregistrements avant d\'enregistrer comme modèle.';
 
   @override
-  String templateDefaultName(num index) {
-    return 'Modèle $index';
+  String templateDefaultName(String n) {
+    return 'Modèle $n';
   }
 
   @override
@@ -2775,15 +2219,7 @@ class AppLocalizationsFr extends AppLocalizations {
       'Liée au digest SHA-256 du NDEF. N\'affiche que cette description ; aucune action externe.';
 
   @override
-  String ruleNoteShaSummary(String sha) {
-    return 'Digest du contenu NDEF (SHA-256) :\n$sha';
-  }
-
-  @override
   String get ruleNoteSavedSnack => 'Note de tag enregistrée.';
-
-  @override
-  String get ruleNoteDeleteTitle => 'Supprimer la note du tag';
 
   @override
   String get ruleNoteDeleteConfirm =>
@@ -2807,12 +2243,12 @@ class AppLocalizationsFr extends AppLocalizations {
   String get backupIncludedItems => 'Éléments à inclure :';
 
   @override
-  String backupTemplatesCount(num count) {
+  String backupTemplatesCount(String count) {
     return '• Modèles : $count';
   }
 
   @override
-  String backupRulesCount(num count) {
+  String backupRulesCount(String count) {
     return '• Notes/règles de tags : $count';
   }
 
@@ -2821,8 +2257,8 @@ class AppLocalizationsFr extends AppLocalizations {
       'Inclure l\'historique des scans (facultatif)';
 
   @override
-  String backupHistoryCount(num count) {
-    return '$count enregistrements d\'historique';
+  String backupHistoryCount(String count) {
+    return '$count entrées d\'historique';
   }
 
   @override
@@ -2845,11 +2281,6 @@ class AppLocalizationsFr extends AppLocalizations {
 
   @override
   String get backupExportCancelled => 'Partage de l\'exportation annulé.';
-
-  @override
-  String backupExportError(String error) {
-    return 'Erreur d\'exportation : $error';
-  }
 
   @override
   String get backupImportTitle => 'Importer la sauvegarde';
@@ -2885,21 +2316,16 @@ class AppLocalizationsFr extends AppLocalizations {
 
   @override
   String fileReadError(String error) {
-    return 'Erreur de lecture du fichier : $error';
+    return 'Erreur de lecture : $error';
   }
 
   @override
   String backupValidationError(String error) {
-    return 'Erreur de validation de la sauvegarde : $error';
+    return 'Erreur de validation : $error';
   }
 
   @override
   String get backupHistoryDetectedTitle => 'Historique des scans détecté';
-
-  @override
-  String backupHistoryDetectedMsg(num count) {
-    return 'La sauvegarde contient $count enregistrements d\'historique, mais l\'option est désactivée.\n\n';
-  }
 
   @override
   String get backupHistoryDetectedPrompt =>
@@ -2911,16 +2337,6 @@ class AppLocalizationsFr extends AppLocalizations {
 
   @override
   String get backupEnableHistoryOption => 'Activer l\'historique et charger';
-
-  @override
-  String backupImportSuccessWithSummary(String summary) {
-    return 'Importation réussie :\n$summary';
-  }
-
-  @override
-  String backupMergeError(String error) {
-    return 'Erreur de fusion : $error';
-  }
 
   @override
   String get nfcReadyStatus => 'NFC prêt';
@@ -2936,20 +2352,10 @@ class AppLocalizationsFr extends AppLocalizations {
       'Le NFC est désactivé. Veuillez l\'activer dans les paramètres.';
 
   @override
-  String ndefClipboardBanner(num count, num bytes, String source) {
-    return 'Presse-papiers NDEF : $count enregistrements ($bytes o) - $source';
-  }
-
-  @override
   String get template => 'Modèle';
 
   @override
   String get nfcScannerTitle => 'Scanner NFC';
-
-  @override
-  String lastScannedTagId(String id) {
-    return 'Dernier tag : $id';
-  }
 
   @override
   String get composeRecord => 'Créer un enregistrement';
@@ -2961,11 +2367,6 @@ class AppLocalizationsFr extends AppLocalizations {
   String get previousScans => 'Scans précédents';
 
   @override
-  String scanErrorWithMsg(String error) {
-    return 'Erreur de scan : $error';
-  }
-
-  @override
   String get noScannedTagYet => 'Aucun tag NFC scanné pour le moment';
 
   @override
@@ -2974,16 +2375,6 @@ class AppLocalizationsFr extends AppLocalizations {
 
   @override
   String get ndefCopyAndRewriteTitle => 'Copie et réécriture de contenu NDEF';
-
-  @override
-  String ndefCopyNotice(num count, num bytes) {
-    return '$count enregistrements ($bytes octets) - Seules les données NDEF sont traitées.';
-  }
-
-  @override
-  String tagIdHeader(String id) {
-    return 'Tag $id';
-  }
 
   @override
   String get savedTagNoteHeader => 'Note de tag enregistrée (règle intégrée)';
@@ -3018,22 +2409,7 @@ class AppLocalizationsFr extends AppLocalizations {
   String get freeSpace => 'Espace libre :';
 
   @override
-  String errorWithMsg(String error) {
-    return 'Erreur : $error';
-  }
-
-  @override
   String get noNdefMessageOnTag => 'Aucun message NDEF trouvé sur le tag.';
-
-  @override
-  String readNdefRecordsHeader(num count) {
-    return 'Enregistrements NDEF lus ($count)';
-  }
-
-  @override
-  String stagedNdefRecordsHeader(num count) {
-    return 'Enregistrements NDEF préparés ($count)';
-  }
 
   @override
   String get hideDetails => 'Masquer les détails';
@@ -3055,11 +2431,6 @@ class AppLocalizationsFr extends AppLocalizations {
   String get inspectorRawHexPreview => 'Aperçu hexadécimal brut (limité) :';
 
   @override
-  String inspectorPayloadTruncated(num length) {
-    return 'Note : La charge fait $length octets ; 64 premiers octets affichés.';
-  }
-
-  @override
   String get ndefRecordsToWriteTitle => 'Enregistrements NDEF à écrire';
 
   @override
@@ -3077,11 +2448,6 @@ class AppLocalizationsFr extends AppLocalizations {
 
   @override
   String get importFromCsvAction => 'Importer depuis un fichier CSV';
-
-  @override
-  String composerTotalSizeAndCount(num bytes, num count) {
-    return 'Taille totale : $bytes octets | Enregistrements : $count';
-  }
 
   @override
   String get composerEmptyDescription =>
@@ -3103,11 +2469,6 @@ class AppLocalizationsFr extends AppLocalizations {
   String get writeAndVerify => 'Écrire sur le tag et vérifier';
 
   @override
-  String writeAndVerifyWithBytes(num bytes) {
-    return 'Écrire sur le tag et vérifier ($bytes octets)';
-  }
-
-  @override
   String get batchWriteButtonLabel => 'Écriture par lot (2..100 tags)';
 
   @override
@@ -3119,11 +2480,6 @@ class AppLocalizationsFr extends AppLocalizations {
   @override
   String get confirmWriteMessage1 =>
       'Cette opération ÉCRASE COMPLÈTEMENT le contenu NDEF existant sur le tag.';
-
-  @override
-  String confirmWriteRecordCount(num count) {
-    return 'Nombre d\'enregistrements à écrire : $count';
-  }
 
   @override
   String get confirmWriteMessage2 =>
@@ -3147,18 +2503,8 @@ class AppLocalizationsFr extends AppLocalizations {
       'Rechercher par UID, texte ou type (ex: URL, Wi-Fi, 04A1...)';
 
   @override
-  String historyScansCount(num count) {
-    return 'Scans enregistrés : $count';
-  }
-
-  @override
   String get noHistoryYet =>
       'Aucun historique de scan enregistré pour le moment.';
-
-  @override
-  String noHistoryResultsForQuery(String query) {
-    return 'Aucun résultat trouvé pour \"$query\".';
-  }
 
   @override
   String get tryDifferentQuery =>
@@ -3168,54 +2514,13 @@ class AppLocalizationsFr extends AppLocalizations {
   String get clearSearch => 'Effacer la recherche';
 
   @override
-  String historyItemHeader(String time, num count) {
-    String _temp0 = intl.Intl.pluralLogic(
-      count,
-      locale: localeName,
-      other: '$count enregistrements',
-      one: '1 enregistrement',
-    );
-    return '$time | $_temp0';
-  }
-
-  @override
   String get deleteThisRecord => 'Supprimer cet enregistrement';
-
-  @override
-  String historyCapacitySummary(num cap, num used) {
-    return 'Capacité : $cap B | Utilisé : $used B';
-  }
-
-  @override
-  String historyUidHeader(String uid) {
-    return 'UID d\'historique $uid';
-  }
 
   @override
   String get qrPreview => 'Aperçu QR';
 
   @override
-  String templateRecordCountWithDate(num count, String date) {
-    String _temp0 = intl.Intl.pluralLogic(
-      count,
-      locale: localeName,
-      other: '$count enregistrements',
-      one: '1 enregistrement',
-    );
-    return '$_temp0 | $date';
-  }
-
-  @override
-  String writeVerificationSummary(num bytes, String status) {
-    return 'Octets écrits : $bytes | Vérification : $status';
-  }
-
-  @override
   String get lockTagConfirmTitle => 'Verrouiller définitivement le tag';
-
-  @override
-  String get lockTagWarning1 =>
-      'Un tag verrouillé devient en lecture seule : contenu NON MODIFIABLE, impossible à déverrouiller.';
 
   @override
   String get lockTagWarning2 =>
@@ -3225,43 +2530,7 @@ class AppLocalizationsFr extends AppLocalizations {
   String get langTr => 'Türkçe';
 
   @override
-  String get langEn => 'English';
-
-  @override
-  String get langDe => 'Deutsch';
-
-  @override
   String get langFr => 'Français';
-
-  @override
-  String get langEs => 'Español';
-
-  @override
-  String get langIt => 'Italiano';
-
-  @override
-  String get langPt => 'Português';
-
-  @override
-  String get langRu => 'Русский';
-
-  @override
-  String get langAr => 'العربية';
-
-  @override
-  String get langJa => '日本語';
-
-  @override
-  String get langZh => '中文';
-
-  @override
-  String get langKo => '한국어';
-
-  @override
-  String get langNl => 'Nederlands';
-
-  @override
-  String get langUk => 'Українська';
 
   @override
   String get qrPreviewTooltip => 'Aperçu du code QR';
@@ -3271,4 +2540,218 @@ class AppLocalizationsFr extends AppLocalizations {
 
   @override
   String get ok => 'OK';
+
+  @override
+  String rewriteSourceUid(String uid) {
+    return 'UID source : $uid';
+  }
+
+  @override
+  String recordsToWriteCount(String count) {
+    return 'Enregistrements à écrire : $count';
+  }
+
+  @override
+  String rewriteFailed(String message) {
+    return 'Réécriture échouée : $message';
+  }
+
+  @override
+  String writtenRecordsCount(String count) {
+    return 'Enregistrements écrits : $count';
+  }
+
+  @override
+  String scannedTagUid(String uid) {
+    return 'UID du tag scanné : $uid';
+  }
+
+  @override
+  String writtenDataSummary(String count, String bytes) {
+    return 'Données écrites : $count enregistrements ($bytes octets)';
+  }
+
+  @override
+  String scannedDataSummary(String count, String bytes) {
+    return 'Données scannées : $count enregistrements ($bytes octets)';
+  }
+
+  @override
+  String batchTargetCount(String count) {
+    return 'Tags cibles : $count';
+  }
+
+  @override
+  String composerRecordsSummary(String count, String bytes) {
+    return 'Liste d\'écriture : $count enregistrements ($bytes octets)';
+  }
+
+  @override
+  String batchNext(String current, String total) {
+    return 'Suivant : tag n°$current / $total';
+  }
+
+  @override
+  String batchAttemptOk(String message) {
+    return 'Réussi ($message)';
+  }
+
+  @override
+  String batchAttemptFailed(String message) {
+    return 'Échec : $message';
+  }
+
+  @override
+  String batchAttemptLabel(String n) {
+    return 'Tag n°$n : ';
+  }
+
+  @override
+  String batchTapToWrite(String n) {
+    return 'Toucher et écrire le tag n°$n';
+  }
+
+  @override
+  String batchPrompt(String current, String total) {
+    return 'Écriture en lot : approchez le tag n°$current / $total';
+  }
+
+  @override
+  String batchWrittenVerified(String count) {
+    return '$count enregistrements écrits et vérifiés';
+  }
+
+  @override
+  String templateLoaded(String name) {
+    return 'Les enregistrements de « $name » ont été ajoutés à la liste.';
+  }
+
+  @override
+  String ndefSha256Summary(String sha) {
+    return 'Empreinte du contenu NDEF (SHA-256) :\n$sha';
+  }
+
+  @override
+  String exportError(String error) {
+    return 'Erreur d\'export : $error';
+  }
+
+  @override
+  String backupHistoryDetected(String count, String prompt) {
+    return 'La sauvegarde contient $count entrées d\'historique, mais l\'historique est désactivé ici.\n\n$prompt';
+  }
+
+  @override
+  String importSucceeded(String summary) {
+    return 'Import réussi :\n$summary';
+  }
+
+  @override
+  String mergeError(String error) {
+    return 'Erreur de fusion : $error';
+  }
+
+  @override
+  String clipboardBannerText(String count, String bytes, String source) {
+    return 'Presse-papiers NDEF : $count enr. ($bytes o) - $source';
+  }
+
+  @override
+  String get heroScanSubtitle =>
+      'Approchez le tag du haut du téléphone ; contenu, capacité et numéro de série s\'affichent aussitôt.';
+
+  @override
+  String lastTagLabel(String uid) {
+    return 'Dernier tag : $uid';
+  }
+
+  @override
+  String scanErrorWithMessage(String message) {
+    return 'Erreur de lecture : $message';
+  }
+
+  @override
+  String copyContentSummary(String count, String bytes) {
+    return '$count enr. ($bytes octets) - seules les données NDEF sont copiées, pas l\'UID.';
+  }
+
+  @override
+  String tagSourceLabel(String uid) {
+    return 'Tag $uid';
+  }
+
+  @override
+  String errorWithMessage(String message) {
+    return 'Erreur : $message';
+  }
+
+  @override
+  String readRecordsHeader(String count) {
+    return 'Enregistrements NDEF lus ($count)';
+  }
+
+  @override
+  String composedRecordsHeader(String count) {
+    return 'Enregistrements NDEF à écrire ($count)';
+  }
+
+  @override
+  String payloadTruncatedNote(String bytes) {
+    return 'Remarque : la charge fait $bytes octets, seuls les 64 premiers sont affichés.';
+  }
+
+  @override
+  String composerTotals(String bytes, String count) {
+    return 'Taille totale : $bytes octets | Enregistrements : $count';
+  }
+
+  @override
+  String writeAndVerifyWithSize(String bytes) {
+    return 'Écrire et vérifier ($bytes octets)';
+  }
+
+  @override
+  String savedScansCount(String count) {
+    return 'Lectures enregistrées : $count';
+  }
+
+  @override
+  String historyNoResults(String query) {
+    return 'Aucun résultat pour « $query ».';
+  }
+
+  @override
+  String historyItemMeta(String date, String count) {
+    return '$date | $count enr.';
+  }
+
+  @override
+  String historyCapacity(String max, String used) {
+    return 'Capacité : $max o | Utilisé : $used o';
+  }
+
+  @override
+  String historySourceLabel(String uid) {
+    return 'Historique UID $uid';
+  }
+
+  @override
+  String templateMeta(String count, String date) {
+    return '$count enr. | $date';
+  }
+
+  @override
+  String rulesCountLabel(String count) {
+    return 'Règles/notes enregistrées : $count';
+  }
+
+  @override
+  String writeResultDetails(String bytes, String verification) {
+    return 'Octets écrits : $bytes | Vérification : $verification';
+  }
+
+  @override
+  String lockTagWarningFull(String more) {
+    return 'Un tag verrouillé passe en lecture seule : son contenu ne pourra JAMAIS être modifié ni effacé, et le verrou est DÉFINITIF. $more';
+  }
 }

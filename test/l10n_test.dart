@@ -8,6 +8,21 @@ import 'package:nfc_tag_master/services/app_storage_service.dart';
 import 'phase2_storage_and_history_test.dart' show MockNfcPlatformService;
 
 void main() {
+  test('every ARB key is referenced from lib/', () {
+    final template = jsonDecode(File('lib/l10n/app_tr.arb').readAsStringSync()) as Map<String, dynamic>;
+    final source = Directory('lib')
+        .listSync(recursive: true)
+        .whereType<File>()
+        .where((f) => f.path.endsWith('.dart') && !f.path.contains('app_localizations'))
+        .map((f) => f.readAsStringSync())
+        .join('\n');
+    final unused = template.keys
+        .where((k) => !k.startsWith('@'))
+        .where((k) => !RegExp('\\.${RegExp.escape(k)}\\b').hasMatch(source))
+        .toList();
+    expect(unused, isEmpty, reason: 'Unused keys: ${unused.join(', ')}');
+  });
+
   group('ARB Localization Consistency Tests', () {
     const l10nDir = 'lib/l10n';
     const templateFileName = 'app_tr.arb';
@@ -105,4 +120,5 @@ Set<String> _extractPlaceholders(String text, [Map<String, dynamic>? meta]) {
   final matches = reg.allMatches(text);
   final keywords = {'plural', 'select', 'other'};
   return matches.map((m) => m.group(1)!).where((name) => !keywords.contains(name)).toSet();
+
 }

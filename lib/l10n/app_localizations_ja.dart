@@ -12,12 +12,6 @@ class AppLocalizationsJa extends AppLocalizations {
   String get addRecord => 'レコードを追加';
 
   @override
-  String get addRule => 'ルールを追加';
-
-  @override
-  String get addTag => 'タグを追加';
-
-  @override
   String get addToComposerList => '書き込みリストに追加';
 
   @override
@@ -35,9 +29,6 @@ class AppLocalizationsJa extends AppLocalizations {
 
   @override
   String get advancedCommandsTitle => '高度なNFCコマンド';
-
-  @override
-  String get allRulesCleared => 'すべてのルールを削除しました';
 
   @override
   String get appLinksDesc => 'このリンクをタグに書き込むと、iPhoneをタッチした際にアプリの該当画面を開きます。';
@@ -58,38 +49,10 @@ class AppLocalizationsJa extends AppLocalizations {
   String get autoRunOnTap => 'タッチで自動実行';
 
   @override
-  String get backupExportSuccess => 'バックアップファイルを保存しました';
-
-  @override
   String get backupFileSizeExceeded => 'バックアップファイルが 2 MiB を超えています。';
 
   @override
   String get backupHistoryMustBeList => '\"history\" は配列である必要があります。';
-
-  @override
-  String backupImportFailed(String error) {
-    return 'バックアップの復元に失敗しました: $error';
-  }
-
-  @override
-  String backupImportSuccess(int history, int rules, int templates) {
-    return '復元が完了しました: テンプレート $templates 件、ルール $rules 件、履歴 $history 件を追加';
-  }
-
-  @override
-  String backupInvalidBase64Id(String id) {
-    return 'IDのBase64形式が不正です: $id';
-  }
-
-  @override
-  String backupInvalidBase64Payload(String payload) {
-    return 'PayloadのBase64形式が不正です: $payload';
-  }
-
-  @override
-  String backupInvalidBase64Type(String type) {
-    return 'TypeのBase64形式が不正です: $type';
-  }
 
   @override
   String backupInvalidJson(String error) {
@@ -103,29 +66,14 @@ class AppLocalizationsJa extends AppLocalizations {
   String get backupInvalidRuleSha => '無効なSHA-256ハッシュ文字列です。';
 
   @override
-  String backupInvalidTemplateCreatedAt(String date) {
-    return '無効な作成日時です: $date';
-  }
-
-  @override
   String get backupInvalidTemplateId => '無効なテンプレートIDです。';
 
   @override
   String get backupInvalidTemplateName => '無効なテンプレート名です。';
 
   @override
-  String backupInvalidTnf(String tnf) {
-    return '無効なTNF値 ($tnf) です。0〜7の範囲で指定してください。';
-  }
-
-  @override
   String backupMaxHistoryExceeded(int count, int max) {
     return '履歴数が上限の $max 件を超えています ($count)。';
-  }
-
-  @override
-  String backupMaxRecordsExceeded(int count, int max) {
-    return 'レコード数が上限の $max 件を超えています ($count)。';
   }
 
   @override
@@ -143,9 +91,6 @@ class AppLocalizationsJa extends AppLocalizations {
 
   @override
   String get backupRecordMustBeObject => '各NDEFレコードはJSONオブジェクトである必要があります。';
-
-  @override
-  String get backupRecordsMustBeList => 'レコードは配列である必要があります。';
 
   @override
   String get backupRestoreSubtitle => 'テンプレート、メモ、履歴をJSON形式で保存または既存データに結合します。';
@@ -179,20 +124,6 @@ class AppLocalizationsJa extends AppLocalizations {
   @override
   String backupUnsupportedSchemaVersion(String version) {
     return '未対応のスキーマバージョンです: $version';
-  }
-
-  @override
-  String get batchWrite => '一括書き込み';
-
-  @override
-  String get bluetoothDeviceName => 'デバイス名 (任意)';
-
-  @override
-  String get bluetoothMac => 'Bluetooth MACアドレス';
-
-  @override
-  String bytesWrittenWithVerification(int bytes, String status) {
-    return '書き込みサイズ: $bytes バイト | 検証: $status';
   }
 
   @override
@@ -234,12 +165,6 @@ class AppLocalizationsJa extends AppLocalizations {
   String get clearAll => 'すべて削除';
 
   @override
-  String get clearAllRulesConfirm => '保存されているすべてのメモを削除しますか？';
-
-  @override
-  String get clearConfirmButton => 'はい、消去します';
-
-  @override
   String get clearConfirmMessage => 'タグ上のすべてのNDEFレコードが消去されます。続行しますか？';
 
   @override
@@ -249,23 +174,10 @@ class AppLocalizationsJa extends AppLocalizations {
   String get clearHistory => '履歴を削除';
 
   @override
-  String get clearList => 'リストをクリア';
-
-  @override
   String get clearTagSubtitle => '全レコードを消去して空のNDEFを書き込みます';
 
   @override
   String get clearTagTitle => 'タグを消去';
-
-  @override
-  String clipboardBanner(int bytes, int count, String source) {
-    String _temp0 = intl.Intl.pluralLogic(
-      count,
-      locale: localeName,
-      other: '$count 件のレコードがクリップボードにあります ($bytes B) · $source',
-    );
-    return '$_temp0';
-  }
 
   @override
   String get close => '閉じる';
@@ -275,9 +187,6 @@ class AppLocalizationsJa extends AppLocalizations {
 
   @override
   String get commandsLabel => 'コマンド';
-
-  @override
-  String get composeRecordTitle => 'レコードを追加';
 
   @override
   String get confirmClearHistoryContent =>
@@ -303,9 +212,6 @@ class AppLocalizationsJa extends AppLocalizations {
   String get contactFullName => '氏名';
 
   @override
-  String get contactNote => 'メモ';
-
-  @override
   String get contactPhone => '電話番号';
 
   @override
@@ -315,20 +221,7 @@ class AppLocalizationsJa extends AppLocalizations {
   String get contactWebsite => 'Webサイト';
 
   @override
-  String contentSummary(String content, int count) {
-    String _temp0 = intl.Intl.pluralLogic(
-      count,
-      locale: localeName,
-      other: '内容: $count 件のレコード · $content',
-    );
-    return '$_temp0';
-  }
-
-  @override
   String get copy => 'コピー';
-
-  @override
-  String get copyAllRecords => 'すべてのレコードをコピー';
 
   @override
   String get copyTagUid => 'UIDをコピー';
@@ -373,14 +266,6 @@ class AppLocalizationsJa extends AppLocalizations {
   String get delete => '削除';
 
   @override
-  String deleteTagConfirmContent(String name) {
-    return '\"$name\" をライブラリから削除しますか？ 実際のタグ内容は変更されません。';
-  }
-
-  @override
-  String get deleteTagConfirmTitle => 'タグを削除';
-
-  @override
   String get deleteTemplateTooltip => 'テンプレートを削除';
 
   @override
@@ -393,50 +278,7 @@ class AppLocalizationsJa extends AppLocalizations {
   String get editRecordTitle => 'レコードを編集';
 
   @override
-  String get editRule => 'ルールを編集';
-
-  @override
-  String get editTag => 'タグを編集';
-
-  @override
-  String get emailBody => '本文';
-
-  @override
   String get emailRecipient => '宛先メールアドレス';
-
-  @override
-  String get emailSubject => '件名';
-
-  @override
-  String get emptyComposerSubtitle =>
-      '「レコードを追加」からURL、テキスト、Wi-Fi、連絡先などを作成してください。';
-
-  @override
-  String get emptyComposerTitle => 'データがありません';
-
-  @override
-  String get emptyHistorySubtitle => 'スキャンしたタグがここに表示されます。';
-
-  @override
-  String get emptyHistoryTitle => 'スキャン履歴がありません';
-
-  @override
-  String get emptyLibrary => '保存されたタグはありません。\nタグを読み取って写真と一緒に登録してください。';
-
-  @override
-  String get eventDescription => '説明';
-
-  @override
-  String get eventEnd => '終了日時';
-
-  @override
-  String get eventLocation => '開催場所';
-
-  @override
-  String get eventStart => '開始日時';
-
-  @override
-  String get eventTitle => 'イベント名';
 
   @override
   String get exportBackup => 'エクスポート';
@@ -450,25 +292,7 @@ class AppLocalizationsJa extends AppLocalizations {
   }
 
   @override
-  String get fieldTextPrompt => 'タグに書き込むテキスト';
-
-  @override
-  String get fieldUrlPrompt => 'Webサイトのアドレス (https://...)';
-
-  @override
-  String get fileUrl => 'ファイルURL';
-
-  @override
-  String get filterAll => 'すべて';
-
-  @override
   String get flashlight => 'ライト';
-
-  @override
-  String get formatConfirmButton => 'フォーマット';
-
-  @override
-  String get formatConfirmMessage => 'データが消去され、空のNDEFタグとして初期化されます。続行しますか？';
 
   @override
   String get formatMemorySubtitle => 'NDEF用に初期化します (未フォーマットや破損タグ)';
@@ -477,25 +301,10 @@ class AppLocalizationsJa extends AppLocalizations {
   String get formatMemoryTitle => 'メモリをフォーマット';
 
   @override
-  String get hardwareAvailable => 'NFC利用可能';
-
-  @override
-  String get hardwareDisabled => 'NFCが無効です';
-
-  @override
-  String get hardwareNotSupported => 'NFC非対応';
-
-  @override
-  String get historyFilteredEmpty => '該当する履歴がありません。';
-
-  @override
   String get idTooLarge => 'IDの長さは255バイト以内です';
 
   @override
   String get importBackup => 'インポート (結合)';
-
-  @override
-  String get importCsv => 'CSVインポート';
 
   @override
   String get inAppTagRules => 'タグの独自ルール';
@@ -513,9 +322,6 @@ class AppLocalizationsJa extends AppLocalizations {
   String get languageTitle => 'Dil / Language';
 
   @override
-  String get latitude => '緯度 (Lat)';
-
-  @override
   String get linkCopied => 'リンクをコピーしました';
 
   @override
@@ -531,19 +337,10 @@ class AppLocalizationsJa extends AppLocalizations {
   String get linkWriteDesc => '書き込み画面を開く';
 
   @override
-  String get loadToComposerTooltip => '作成画面に読み込む';
-
-  @override
-  String get locationHint => '例: 冷蔵庫のドア';
-
-  @override
   String get locationLabel => '設置場所';
 
   @override
   String get lockAcknowledge => 'この操作は取り消せないことを理解しました';
-
-  @override
-  String get lockButton => 'ロックする';
 
   @override
   String get lockTagSubtitle => 'タグを恒久的に読み取り専用にします (解除不可)';
@@ -552,25 +349,7 @@ class AppLocalizationsJa extends AppLocalizations {
   String get lockTagTitle => 'タグをロック';
 
   @override
-  String get lockWarning => 'ロックされたタグは恒久的に読み取り専用になります。内容の変更やロック解除は二度とできません。';
-
-  @override
-  String get longitude => '経度 (Lng)';
-
-  @override
   String get manage => '管理';
-
-  @override
-  String get matchedRule => '一致したメモ';
-
-  @override
-  String get mimePayloadHex => 'ペイロード (Hex / テキスト)';
-
-  @override
-  String get mimeTypeLabel => 'MIMEタイプ';
-
-  @override
-  String get nameRequired => 'タグの名前を入力してください。';
 
   @override
   String get navHistory => '履歴';
@@ -613,9 +392,6 @@ class AppLocalizationsJa extends AppLocalizations {
   }
 
   @override
-  String get ndefRecordsTitle => 'NDEFレコード';
-
-  @override
   String get nfcPromptClear => '初期化するタグを近づけてください';
 
   @override
@@ -629,15 +405,6 @@ class AppLocalizationsJa extends AppLocalizations {
 
   @override
   String get no => 'いいえ';
-
-  @override
-  String get noContentInTag => 'タグの内容がありません。';
-
-  @override
-  String get noLibraryMatches => '一致するタグがありません。';
-
-  @override
-  String get noRecordsOnTag => 'タグにNDEFレコードが見つかりません。';
 
   @override
   String get noTemplates => '保存されたテンプレートはまだありません。\n「書込」タブでデータを作成して保存してください。';
@@ -685,35 +452,6 @@ class AppLocalizationsJa extends AppLocalizations {
   String optionalField(String label) {
     return '$label (任意)';
   }
-
-  @override
-  String pageN(int page) {
-    return 'ページ $page';
-  }
-
-  @override
-  String get pageRoleCc => 'CC';
-
-  @override
-  String get pageRoleData => 'データ';
-
-  @override
-  String get pageRoleLock => 'ロック';
-
-  @override
-  String get pageRoleUid => 'UID';
-
-  @override
-  String get pageRoleUidLock => 'UID / ロック';
-
-  @override
-  String get passwordDialogAction => '設定';
-
-  @override
-  String get passwordDialogTitle => 'パスワード設定';
-
-  @override
-  String get passwordDialogWarning => 'パスワードを忘れると二度と書き込めなくなります。読み取りは公開のままです。';
 
   @override
   String get passwordError => '正確に4文字または8桁の16進数を入力してください。';
@@ -846,9 +584,6 @@ class AppLocalizationsJa extends AppLocalizations {
   String get qrUserOnlyNote => 'ユーザー要求時のみ表示されます。';
 
   @override
-  String get rawInspection => 'バイナリ詳細検査';
-
-  @override
   String get rawRecordDetailsTitle => 'レコード詳細 (読み取り専用)';
 
   @override
@@ -858,18 +593,6 @@ class AppLocalizationsJa extends AppLocalizations {
   String get readHeroButton => 'スキャン開始';
 
   @override
-  String get readHeroEyebrow => 'NFCリーダー';
-
-  @override
-  String get readHeroScanning => 'スキャン中...';
-
-  @override
-  String get readHeroSubtitle => 'スマホをNFCタグにかざしてNDEFレコードとチップ情報を取得します。';
-
-  @override
-  String get readHeroTitle => 'タグをスキャン';
-
-  @override
   String get readMemorySubtitle => 'ページ単位の生メモリ表示; コピーまたは .bin 保存';
 
   @override
@@ -877,14 +600,6 @@ class AppLocalizationsJa extends AppLocalizations {
 
   @override
   String get readyTemplates => '既製テンプレート';
-
-  @override
-  String get recordCopied => '内容をコピーしました';
-
-  @override
-  String recordIndex(int index) {
-    return 'レコード #$index';
-  }
 
   @override
   String get recordTypeCalendar => 'カレンダーイベント (iCal)';
@@ -936,32 +651,13 @@ class AppLocalizationsJa extends AppLocalizations {
   String get recordTypeWifiCorrupt => '破損したWSCデータ';
 
   @override
-  String recordsCopiedToClipboard(int count) {
-    String _temp0 = intl.Intl.pluralLogic(
-      count,
-      locale: localeName,
-      other: '$count 件のレコードをクリップボードにコピーしました',
-    );
-    return '$_temp0';
-  }
-
-  @override
   String get redo => 'やり直し';
-
-  @override
-  String get removePasswordDialogTitle => 'パスワード解除';
-
-  @override
-  String get removePasswordDialogWarning => '設定されているパスワードを入力してください。';
 
   @override
   String get removePasswordSubtitle => '設定済みパスワードを入力して保護を解除';
 
   @override
   String get removePasswordTitle => 'パスワード解除';
-
-  @override
-  String get removePhoto => '削除';
 
   @override
   String get rewriteTag => '再書き込み';
@@ -972,19 +668,10 @@ class AppLocalizationsJa extends AppLocalizations {
   }
 
   @override
-  String get ruleDeleted => 'ルールを削除しました';
-
-  @override
   String get ruleNoteDialogTitle => 'タグのメモを編集';
 
   @override
-  String get ruleNoteHint => '例: 倉庫の棚 #4 や 会議室';
-
-  @override
   String get ruleNoteLabel => 'ローカルメモ / ラベル';
-
-  @override
-  String get ruleSaved => 'ルールを保存しました';
 
   @override
   String get save => '保存';
@@ -1003,31 +690,10 @@ class AppLocalizationsJa extends AppLocalizations {
       'オフの場合履歴は保持されません。オンにすると成功したスキャンがローカルに保存されます。';
 
   @override
-  String get saveTemplateDialogTitle => 'テンプレートとして保存';
-
-  @override
-  String get saveToLibrary => 'ライブラリに保存';
-
-  @override
   String get scanFabLabel => 'タグをスキャン';
 
   @override
-  String get scanQrToRecord => 'QRコード読取';
-
-  @override
   String get scannedTag => 'スキャンしたタグ';
-
-  @override
-  String get searchEngine => '検索エンジン';
-
-  @override
-  String get searchHistoryHint => '履歴を検索 (UID、内容、種別)...';
-
-  @override
-  String get searchLibraryHint => '名前、メモ、場所、内容で検索';
-
-  @override
-  String get searchQuery => '検索キーワード';
 
   @override
   String get searchQueryCannotBeEmpty => '検索キーワードを入力してください。';
@@ -1043,9 +709,6 @@ class AppLocalizationsJa extends AppLocalizations {
 
   @override
   String get setPasswordTitle => 'パスワード設定';
-
-  @override
-  String get shareRecords => 'レコードを共有';
 
   @override
   String get shortcutAutomationNote =>
@@ -1086,19 +749,7 @@ class AppLocalizationsJa extends AppLocalizations {
   String get smsMessage => 'メッセージ内容';
 
   @override
-  String get socialNetwork => 'プラットフォーム';
-
-  @override
   String get socialUsername => 'ユーザー名';
-
-  @override
-  String get sourceComposer => '書き込みリストのデータ';
-
-  @override
-  String get sourceEmpty => 'データなし (メモのみ)';
-
-  @override
-  String get sourceLastScan => '直前に読み取ったタグ';
 
   @override
   String get sourceSelectPrompt => 'どこからタグデータを取得しますか？';
@@ -1190,15 +841,6 @@ class AppLocalizationsJa extends AppLocalizations {
   String get systemLanguage => 'システム言語';
 
   @override
-  String get tabApp => 'アプリ';
-
-  @override
-  String get tabBluetooth => 'Bluetooth';
-
-  @override
-  String get tabCalendar => 'カレンダー';
-
-  @override
   String get tabContact => '連絡先 (vCard)';
 
   @override
@@ -1208,22 +850,10 @@ class AppLocalizationsJa extends AppLocalizations {
   String get tabEmail => 'メール';
 
   @override
-  String get tabFile => 'ファイル';
-
-  @override
-  String get tabLocation => '位置情報';
-
-  @override
   String get tabPhone => '電話番号';
 
   @override
-  String get tabSearch => '検索';
-
-  @override
   String get tabSms => 'SMS';
-
-  @override
-  String get tabSocial => 'SNS';
 
   @override
   String get tabText => 'テキスト';
@@ -1232,33 +862,13 @@ class AppLocalizationsJa extends AppLocalizations {
   String get tabUrl => 'Web URL';
 
   @override
-  String get tabVideo => '動画';
-
-  @override
   String get tabWifi => 'Wi-Fi';
-
-  @override
-  String get tagCapacity => '容量';
-
-  @override
-  String tagCapacityValue(int available, int max, int used) {
-    return '$used / $max バイト (空き $available バイト)';
-  }
 
   @override
   String get tagInfoTitle => 'タグ情報';
 
   @override
   String get tagLibraryTitle => 'タグライブラリ';
-
-  @override
-  String get tagNameHint => '例: キッチンのタグ';
-
-  @override
-  String get tagNameLabel => 'タグ名';
-
-  @override
-  String get tagReadOnly => '読み取り専用 (ロック済)';
 
   @override
   String tagRulesCount(int count) {
@@ -1269,41 +879,13 @@ class AppLocalizationsJa extends AppLocalizations {
   String get tagRulesSubtitle => 'NDEFバイト列のSHA-256ハッシュに基づいて一致するメモのみを表示します。';
 
   @override
-  String get tagSerialNumber => 'シリアル番号 (UID)';
-
-  @override
-  String get tagTechnology => '規格';
-
-  @override
-  String get tagType => '種類';
-
-  @override
-  String get tagUidCopied => 'UIDをコピーしました';
-
-  @override
   String get tagWritable => '書き込み可能';
 
   @override
   String get takePhoto => '写真を撮る';
 
   @override
-  String get templateGalleryTitle => '既製テンプレート';
-
-  @override
   String get templateNameHint => 'テンプレート名';
-
-  @override
-  String templateRecordCount(int count, String date) {
-    String _temp0 = intl.Intl.pluralLogic(
-      count,
-      locale: localeName,
-      other: '$count 件のレコード',
-    );
-    return '$_temp0 | $date';
-  }
-
-  @override
-  String get templateSaved => 'テンプレートを保存しました';
 
   @override
   String get toolsExpertSection => 'エキスパート';
@@ -1320,9 +902,6 @@ class AppLocalizationsJa extends AppLocalizations {
 
   @override
   String get toolsTagSection => 'タグ';
-
-  @override
-  String get totalBytes => '合計サイズ';
 
   @override
   String get typeTooLarge => 'Typeの長さは255バイト以内です';
@@ -1395,28 +974,10 @@ class AppLocalizationsJa extends AppLocalizations {
   String get videoUrlCannotBeEmpty => '動画リンクを入力してください。';
 
   @override
-  String get videoUrlOrId => '動画URLまたはYouTube ID';
-
-  @override
   String get videoUrlOrIdPrompt => 'URL (https://...) または動画IDを入力してください。';
 
   @override
   String get wifiAuthOpen => 'オープン (暗号化なし)';
-
-  @override
-  String get wifiAuthType => 'セキュリティ';
-
-  @override
-  String get wifiAuthWpa => 'WPA Personal';
-
-  @override
-  String get wifiAuthWpa2 => 'WPA2 Personal';
-
-  @override
-  String get wifiAuthWpaWpa2 => 'WPA/WPA2 Personal';
-
-  @override
-  String get wifiHidden => '非公開ネットワーク';
 
   @override
   String get wifiPassword => 'パスワード';
@@ -1428,9 +989,6 @@ class AppLocalizationsJa extends AppLocalizations {
   String get withSiri => 'Siriで操作';
 
   @override
-  String get writeDumpConfirmButton => '書き込む';
-
-  @override
   String writeDumpConfirmMessage(int bytes, String name) {
     return '\"$name\" ($bytes バイト) をユーザーメモリに書き込みます。既存データは上書きされます。';
   }
@@ -1440,15 +998,6 @@ class AppLocalizationsJa extends AppLocalizations {
 
   @override
   String get writeDumpTitle => 'ダンプ書き込み (.bin)';
-
-  @override
-  String get writeHeroButton => '書き込み開始';
-
-  @override
-  String get writeHeroEyebrow => 'NDEFライター';
-
-  @override
-  String get writeHeroSubtitle => '複数のNDEFレコードを一度にタグへ書き込めます。';
 
   @override
   String get writeHeroTitle => 'タグに書き込む';
@@ -1468,9 +1017,6 @@ class AppLocalizationsJa extends AppLocalizations {
   @override
   String get writeTemplatesSubtitle =>
       'よく使うNDEFデータをテンプレートとして保存し、いつでもワンタップで書き込めます。';
-
-  @override
-  String get yes => 'はい';
 
   @override
   String get unknown => '不明';
@@ -2298,7 +1844,7 @@ class AppLocalizationsJa extends AppLocalizations {
 
   @override
   String filePickerError(String error) {
-    return 'ファイル選択を開けませんでした：$error';
+    return 'ファイル選択を開けません: $error';
   }
 
   @override
@@ -2397,16 +1943,6 @@ class AppLocalizationsJa extends AppLocalizations {
   String get rewriteNotice3 => '• 前のタグに自動で書き込むことはありません。新しいNFCタッチが必要です。';
 
   @override
-  String rewriteSourceUidLabel(String uid) {
-    return 'ソースUID：$uid';
-  }
-
-  @override
-  String rewriteRecordCountLabel(num count) {
-    return '書き込むレコード数：$count';
-  }
-
-  @override
   String get rewriteInstruction => '対象タグを用意し、「タッチして書き込み」を押してからタグを近づけてください。';
 
   @override
@@ -2416,20 +1952,10 @@ class AppLocalizationsJa extends AppLocalizations {
   String get rewritePromptMessage => '対象タグをデバイスに近づけてください（内容は完全に更新されます）';
 
   @override
-  String rewriteFailedMessage(String error) {
-    return '再書き込みに失敗しました：$error';
-  }
-
-  @override
   String get writeVerifiedTitle => '書き込み検証完了';
 
   @override
   String get writeVerifiedDesc => 'NDEFコンテンツが対象タグに正常に書き込まれ、検証されました。';
-
-  @override
-  String writtenRecordCount(num count) {
-    return '書き込まれたレコード数：$count';
-  }
 
   @override
   String get writeVerifiedHint => '次のスキャンを開始して、書き込まれたデータを確認・比較できます。';
@@ -2442,21 +1968,6 @@ class AppLocalizationsJa extends AppLocalizations {
 
   @override
   String get differenceDetected => '相違点が検出されました';
-
-  @override
-  String compareScannedUid(String uid) {
-    return 'スキャンされたタグのUID：$uid';
-  }
-
-  @override
-  String compareWrittenData(num count, num bytes) {
-    return '書き込まれたデータ：$count レコード（$bytes バイト）';
-  }
-
-  @override
-  String compareScannedData(num count, num bytes) {
-    return 'スキャンされたデータ：$count レコード（$bytes バイト）';
-  }
 
   @override
   String get compareMatchDesc => '対象タグのNDEFメッセージは書き込まれたソースとバイト単位で完全に一致しています。';
@@ -2484,16 +1995,6 @@ class AppLocalizationsJa extends AppLocalizations {
   String get batchNotice2 => '• 自動連続スキャンは行われません。各タグを物理的に交換する必要があります。';
 
   @override
-  String batchTargetCountLabel(num count) {
-    return '対象タグ数：$count';
-  }
-
-  @override
-  String batchComposerSummary(num count, num bytes) {
-    return '作成中のレコード：$count 件（$bytes バイト）';
-  }
-
-  @override
   String get batchStartButton => '一括書き込みを開始';
 
   @override
@@ -2506,50 +2007,15 @@ class AppLocalizationsJa extends AppLocalizations {
   String get batchAllCompleted => 'すべてのタグの試行が完了しました！';
 
   @override
-  String batchNextTag(num current, num total) {
-    return '次へ：タグ #$current / $total';
-  }
-
-  @override
-  String batchStats(num success, num fail, num remaining) {
-    return '成功：$success | 失敗：$fail | 残り：$remaining';
-  }
-
-  @override
-  String batchSuccessMsg(String message) {
-    return '成功（$message）';
-  }
-
-  @override
-  String batchFailMsg(String message) {
-    return '失敗：$message';
-  }
-
-  @override
-  String tagNumberLabel(num index) {
-    return 'タグ #$index：';
+  String batchStats(String ok, String failed, String left) {
+    return '成功: $ok | 失敗: $failed | 残り: $left';
   }
 
   @override
   String get waitingForTag => 'タグを待機中...';
 
   @override
-  String tapToWriteForTag(num index) {
-    return 'タグ #$index をタッチして書き込み';
-  }
-
-  @override
   String get batchFinishButton => '一括書き込みを終了';
-
-  @override
-  String batchPromptMessage(num current, num total) {
-    return '一括書き込み：タグ #$current / $total を近づけてください';
-  }
-
-  @override
-  String batchTagSuccessSummary(num count) {
-    return '$count 件のレコードが書き込まれ、検証されました';
-  }
 
   @override
   String get writeError => '書き込みエラー';
@@ -2602,16 +2068,11 @@ class AppLocalizationsJa extends AppLocalizations {
       '注意：オフラインルールによる分析です。オンラインのマルウェア検査ではありません。URLは自動で開きません。';
 
   @override
-  String templateLoadedToComposer(String name) {
-    return 'テンプレート「$name」のレコードを読み込みました。';
-  }
-
-  @override
   String get templateSaveEmptyError => 'テンプレートとして保存する前にレコードを追加してください。';
 
   @override
-  String templateDefaultName(num index) {
-    return 'テンプレート $index';
+  String templateDefaultName(String n) {
+    return 'テンプレート $n';
   }
 
   @override
@@ -2632,15 +2093,7 @@ class AppLocalizationsJa extends AppLocalizations {
       'このメモはNDEFのSHA-256ダイジェストに関連付けられます。スキャン時にこの説明のみが表示されます。';
 
   @override
-  String ruleNoteShaSummary(String sha) {
-    return 'NDEFコンテンツダイジェスト (SHA-256)：\n$sha';
-  }
-
-  @override
   String get ruleNoteSavedSnack => 'タグメモを保存しました。';
-
-  @override
-  String get ruleNoteDeleteTitle => 'タグメモを削除';
 
   @override
   String get ruleNoteDeleteConfirm => 'このタグに登録されたアプリ内メモが削除されます。続行しますか？';
@@ -2662,21 +2115,21 @@ class AppLocalizationsJa extends AppLocalizations {
   String get backupIncludedItems => '含まれる項目：';
 
   @override
-  String backupTemplatesCount(num count) {
-    return '• テンプレート：$count 件';
+  String backupTemplatesCount(String count) {
+    return '• テンプレート: $count';
   }
 
   @override
-  String backupRulesCount(num count) {
-    return '• アプリ内タグメモ/ルール：$count 件';
+  String backupRulesCount(String count) {
+    return '• タグのメモ/ルール: $count';
   }
 
   @override
   String get backupIncludeHistoryOptional => 'スキャン履歴を含める（省略可能）';
 
   @override
-  String backupHistoryCount(num count) {
-    return '$count 件の履歴レコード';
+  String backupHistoryCount(String count) {
+    return '履歴 $count件';
   }
 
   @override
@@ -2696,11 +2149,6 @@ class AppLocalizationsJa extends AppLocalizations {
 
   @override
   String get backupExportCancelled => 'エクスポートの共有がキャンセルされました。';
-
-  @override
-  String backupExportError(String error) {
-    return 'エクスポートエラー：$error';
-  }
 
   @override
   String get backupImportTitle => 'バックアップをインポート';
@@ -2733,21 +2181,16 @@ class AppLocalizationsJa extends AppLocalizations {
 
   @override
   String fileReadError(String error) {
-    return 'ファイル読み込みエラー：$error';
+    return 'ファイル読み込みエラー: $error';
   }
 
   @override
   String backupValidationError(String error) {
-    return 'バックアップ検証エラー：$error';
+    return 'バックアップ検証エラー: $error';
   }
 
   @override
   String get backupHistoryDetectedTitle => 'スキャン履歴が検出されました';
-
-  @override
-  String backupHistoryDetectedMsg(num count) {
-    return 'バックアップに $count 件の履歴レコードが含まれていますが、この端末では無効化されています。\n\n';
-  }
 
   @override
   String get backupHistoryDetectedPrompt =>
@@ -2758,16 +2201,6 @@ class AppLocalizationsJa extends AppLocalizations {
 
   @override
   String get backupEnableHistoryOption => '履歴を有効にして読み込む';
-
-  @override
-  String backupImportSuccessWithSummary(String summary) {
-    return 'インポート成功：\n$summary';
-  }
-
-  @override
-  String backupMergeError(String error) {
-    return 'マージエラー：$error';
-  }
 
   @override
   String get nfcReadyStatus => 'NFC準備完了';
@@ -2782,20 +2215,10 @@ class AppLocalizationsJa extends AppLocalizations {
   String get nfcDisabledDesc => 'NFCがオフです。端末の設定からオンにしてください。';
 
   @override
-  String ndefClipboardBanner(num count, num bytes, String source) {
-    return 'NDEFクリップボード：$count レコード（$bytes B） - $source';
-  }
-
-  @override
   String get template => 'テンプレート';
 
   @override
   String get nfcScannerTitle => 'NFCスキャナー';
-
-  @override
-  String lastScannedTagId(String id) {
-    return '前回のタグ：$id';
-  }
 
   @override
   String get composeRecord => 'レコードを作成';
@@ -2807,11 +2230,6 @@ class AppLocalizationsJa extends AppLocalizations {
   String get previousScans => '前回のスキャン';
 
   @override
-  String scanErrorWithMsg(String error) {
-    return 'スキャンエラー：$error';
-  }
-
-  @override
   String get noScannedTagYet => 'スキャンされたNFCタグはまだありません';
 
   @override
@@ -2819,16 +2237,6 @@ class AppLocalizationsJa extends AppLocalizations {
 
   @override
   String get ndefCopyAndRewriteTitle => 'NDEFコンテンツのコピーと再書き込み';
-
-  @override
-  String ndefCopyNotice(num count, num bytes) {
-    return '$count 件のレコード（$bytes バイト） - NDEFデータのみが処理され、UIDは複製されません。';
-  }
-
-  @override
-  String tagIdHeader(String id) {
-    return 'タグ $id';
-  }
 
   @override
   String get savedTagNoteHeader => '保存されたタグメモ（アプリ内ルール）';
@@ -2862,22 +2270,7 @@ class AppLocalizationsJa extends AppLocalizations {
   String get freeSpace => '空き容量：';
 
   @override
-  String errorWithMsg(String error) {
-    return 'エラー：$error';
-  }
-
-  @override
   String get noNdefMessageOnTag => 'タグに保存されたNDEFメッセージが見つかりませんでした。';
-
-  @override
-  String readNdefRecordsHeader(num count) {
-    return '読み取られたNDEFレコード ($count)';
-  }
-
-  @override
-  String stagedNdefRecordsHeader(num count) {
-    return '作成されたNDEFレコード ($count)';
-  }
 
   @override
   String get hideDetails => '詳細を非表示';
@@ -2898,11 +2291,6 @@ class AppLocalizationsJa extends AppLocalizations {
   String get inspectorRawHexPreview => '生Hexプレビュー（制限あり）：';
 
   @override
-  String inspectorPayloadTruncated(num length) {
-    return '注：ペイロードは $length バイトです。最初の64バイトを表示しています。';
-  }
-
-  @override
   String get ndefRecordsToWriteTitle => '書き込むNDEFレコード';
 
   @override
@@ -2919,11 +2307,6 @@ class AppLocalizationsJa extends AppLocalizations {
 
   @override
   String get importFromCsvAction => 'CSVファイルからインポート';
-
-  @override
-  String composerTotalSizeAndCount(num bytes, num count) {
-    return '合計サイズ：$bytes バイト | レコード数：$count';
-  }
 
   @override
   String get composerEmptyDescription =>
@@ -2945,11 +2328,6 @@ class AppLocalizationsJa extends AppLocalizations {
   String get writeAndVerify => 'タグに書き込んで検証';
 
   @override
-  String writeAndVerifyWithBytes(num bytes) {
-    return 'タグに書き込んで検証（$bytes バイト）';
-  }
-
-  @override
   String get batchWriteButtonLabel => 'タグの一括書き込み（2〜100枚）';
 
   @override
@@ -2960,11 +2338,6 @@ class AppLocalizationsJa extends AppLocalizations {
 
   @override
   String get confirmWriteMessage1 => 'この操作は対象タグの既存のNDEFコンテンツを完全に上書きします。';
-
-  @override
-  String confirmWriteRecordCount(num count) {
-    return '書き込むレコード数：$count';
-  }
 
   @override
   String get confirmWriteMessage2 =>
@@ -2987,17 +2360,7 @@ class AppLocalizationsJa extends AppLocalizations {
   String get historySearchHint => 'UID、テキスト、またはタイプで検索（例：URL、Wi-Fi、04A1...）';
 
   @override
-  String historyScansCount(num count) {
-    return '保存されたスキャン：$count';
-  }
-
-  @override
   String get noHistoryYet => '保存されたスキャン履歴はまだありません。';
-
-  @override
-  String noHistoryResultsForQuery(String query) {
-    return '「$query」の結果は見つかりませんでした。';
-  }
 
   @override
   String get tryDifferentQuery => '別のUID、テキスト内容、またはレコードタイプをお試しください。';
@@ -3006,41 +2369,13 @@ class AppLocalizationsJa extends AppLocalizations {
   String get clearSearch => '検索をクリア';
 
   @override
-  String historyItemHeader(String time, num count) {
-    return '$time | $count 件のレコード';
-  }
-
-  @override
   String get deleteThisRecord => 'このレコードを削除';
-
-  @override
-  String historyCapacitySummary(num cap, num used) {
-    return '容量：${cap}B | 使用中：${used}B';
-  }
-
-  @override
-  String historyUidHeader(String uid) {
-    return '履歴UID $uid';
-  }
 
   @override
   String get qrPreview => 'QRプレビュー';
 
   @override
-  String templateRecordCountWithDate(num count, String date) {
-    return '$count レコード | $date';
-  }
-
-  @override
-  String writeVerificationSummary(num bytes, String status) {
-    return '書き込まれたバイト数：$bytes | 検証：$status';
-  }
-
-  @override
   String get lockTagConfirmTitle => 'タグを永久にロック';
-
-  @override
-  String get lockTagWarning1 => 'ロックされたタグは読み取り専用になります。内容は変更・削除・ロック解除できません。';
 
   @override
   String get lockTagWarning2 => '最初に正しいコンテンツを書き込んだことを確認してください。';
@@ -3049,43 +2384,7 @@ class AppLocalizationsJa extends AppLocalizations {
   String get langTr => 'Türkçe';
 
   @override
-  String get langEn => 'English';
-
-  @override
-  String get langDe => 'Deutsch';
-
-  @override
   String get langFr => 'Français';
-
-  @override
-  String get langEs => 'Español';
-
-  @override
-  String get langIt => 'Italiano';
-
-  @override
-  String get langPt => 'Português';
-
-  @override
-  String get langRu => 'Русский';
-
-  @override
-  String get langAr => 'العربية';
-
-  @override
-  String get langJa => '日本語';
-
-  @override
-  String get langZh => '中文';
-
-  @override
-  String get langKo => '한국어';
-
-  @override
-  String get langNl => 'Nederlands';
-
-  @override
-  String get langUk => 'Українська';
 
   @override
   String get qrPreviewTooltip => 'QRコードプレビュー';
@@ -3095,4 +2394,217 @@ class AppLocalizationsJa extends AppLocalizations {
 
   @override
   String get ok => 'OK';
+
+  @override
+  String rewriteSourceUid(String uid) {
+    return '元のUID: $uid';
+  }
+
+  @override
+  String recordsToWriteCount(String count) {
+    return '書き込むレコード: $count';
+  }
+
+  @override
+  String rewriteFailed(String message) {
+    return '再書き込みに失敗: $message';
+  }
+
+  @override
+  String writtenRecordsCount(String count) {
+    return '書き込んだレコード: $count';
+  }
+
+  @override
+  String scannedTagUid(String uid) {
+    return 'スキャンしたタグのUID: $uid';
+  }
+
+  @override
+  String writtenDataSummary(String count, String bytes) {
+    return '書き込んだデータ: $count件 ($bytesバイト)';
+  }
+
+  @override
+  String scannedDataSummary(String count, String bytes) {
+    return 'スキャンしたデータ: $count件 ($bytesバイト)';
+  }
+
+  @override
+  String batchTargetCount(String count) {
+    return '対象タグ数: $count';
+  }
+
+  @override
+  String composerRecordsSummary(String count, String bytes) {
+    return '書き込みリスト: $count件 ($bytesバイト)';
+  }
+
+  @override
+  String batchNext(String current, String total) {
+    return '次: タグ #$current / $total';
+  }
+
+  @override
+  String batchAttemptOk(String message) {
+    return '成功 ($message)';
+  }
+
+  @override
+  String batchAttemptFailed(String message) {
+    return '失敗: $message';
+  }
+
+  @override
+  String batchAttemptLabel(String n) {
+    return 'タグ #$n: ';
+  }
+
+  @override
+  String batchTapToWrite(String n) {
+    return 'タグ #$n をタッチして書き込む';
+  }
+
+  @override
+  String batchPrompt(String current, String total) {
+    return '一括書き込み: タグ #$current / $total をかざしてください';
+  }
+
+  @override
+  String batchWrittenVerified(String count) {
+    return '$count件を書き込み・検証しました';
+  }
+
+  @override
+  String templateLoaded(String name) {
+    return '「$name」のレコードを書き込みリストに追加しました。';
+  }
+
+  @override
+  String ndefSha256Summary(String sha) {
+    return 'NDEFコンテンツのダイジェスト (SHA-256):\n$sha';
+  }
+
+  @override
+  String exportError(String error) {
+    return 'エクスポートエラー: $error';
+  }
+
+  @override
+  String backupHistoryDetected(String count, String prompt) {
+    return 'バックアップに履歴が$count件ありますが、この端末では履歴がオフです。\n\n$prompt';
+  }
+
+  @override
+  String importSucceeded(String summary) {
+    return 'インポート完了:\n$summary';
+  }
+
+  @override
+  String mergeError(String error) {
+    return '統合エラー: $error';
+  }
+
+  @override
+  String clipboardBannerText(String count, String bytes, String source) {
+    return 'NDEFクリップボード: $count件 ($bytes B) - $source';
+  }
+
+  @override
+  String get heroScanSubtitle => 'タグをスマホの上部にかざすと、内容・容量・シリアル番号がすぐに表示されます。';
+
+  @override
+  String lastTagLabel(String uid) {
+    return '前回のタグ: $uid';
+  }
+
+  @override
+  String scanErrorWithMessage(String message) {
+    return 'スキャンエラー: $message';
+  }
+
+  @override
+  String copyContentSummary(String count, String bytes) {
+    return '$count件 ($bytesバイト) - NDEFデータのみコピーし、UIDはコピーしません。';
+  }
+
+  @override
+  String tagSourceLabel(String uid) {
+    return 'タグ $uid';
+  }
+
+  @override
+  String errorWithMessage(String message) {
+    return 'エラー: $message';
+  }
+
+  @override
+  String readRecordsHeader(String count) {
+    return '読み取ったNDEFレコード ($count)';
+  }
+
+  @override
+  String composedRecordsHeader(String count) {
+    return '書き込むNDEFレコード ($count)';
+  }
+
+  @override
+  String payloadTruncatedNote(String bytes) {
+    return '注: ペイロードは$bytesバイトのため、先頭64バイトのみ表示しています。';
+  }
+
+  @override
+  String composerTotals(String bytes, String count) {
+    return '合計サイズ: $bytesバイト | レコード: $count';
+  }
+
+  @override
+  String writeAndVerifyWithSize(String bytes) {
+    return '書き込んで検証 ($bytesバイト)';
+  }
+
+  @override
+  String savedScansCount(String count) {
+    return '保存済みスキャン: $count';
+  }
+
+  @override
+  String historyNoResults(String query) {
+    return '「$query」の結果はありません。';
+  }
+
+  @override
+  String historyItemMeta(String date, String count) {
+    return '$date | $count件';
+  }
+
+  @override
+  String historyCapacity(String max, String used) {
+    return '容量: $max B | 使用: $used B';
+  }
+
+  @override
+  String historySourceLabel(String uid) {
+    return '履歴 UID $uid';
+  }
+
+  @override
+  String templateMeta(String count, String date) {
+    return '$count件 | $date';
+  }
+
+  @override
+  String rulesCountLabel(String count) {
+    return '保存済みルール/メモ: $count';
+  }
+
+  @override
+  String writeResultDetails(String bytes, String verification) {
+    return '書き込みバイト: $bytes | 検証: $verification';
+  }
+
+  @override
+  String lockTagWarningFull(String more) {
+    return 'ロックしたタグは読み取り専用になり、内容の変更・消去やロック解除は二度とできません。$more';
+  }
 }

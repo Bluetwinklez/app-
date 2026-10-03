@@ -12,12 +12,6 @@ class AppLocalizationsRu extends AppLocalizations {
   String get addRecord => 'Добавить запись';
 
   @override
-  String get addRule => 'Добавить заметку';
-
-  @override
-  String get addTag => 'Добавить метку';
-
-  @override
   String get addToComposerList => 'Добавить в список записи';
 
   @override
@@ -36,9 +30,6 @@ class AppLocalizationsRu extends AppLocalizations {
 
   @override
   String get advancedCommandsTitle => 'Расширенные команды NFC';
-
-  @override
-  String get allRulesCleared => 'Все правила удалены';
 
   @override
   String get appLinksDesc =>
@@ -60,40 +51,12 @@ class AppLocalizationsRu extends AppLocalizations {
   String get autoRunOnTap => 'Автозапуск при касании';
 
   @override
-  String get backupExportSuccess => 'Файл резервной копии успешно сохранён';
-
-  @override
   String get backupFileSizeExceeded =>
       'Размер файла резервной копии превышает 2 МБ.';
 
   @override
   String get backupHistoryMustBeList =>
       'Поле \"history\" должно быть массивом.';
-
-  @override
-  String backupImportFailed(String error) {
-    return 'Не удалось импортировать копию: $error';
-  }
-
-  @override
-  String backupImportSuccess(int history, int rules, int templates) {
-    return 'Резервная копия импортирована: добавлено шаблонов — $templates, правил — $rules, записей истории — $history';
-  }
-
-  @override
-  String backupInvalidBase64Id(String id) {
-    return 'Некорректный Base64 для ID: $id';
-  }
-
-  @override
-  String backupInvalidBase64Payload(String payload) {
-    return 'Некорректный Base64 для данных: $payload';
-  }
-
-  @override
-  String backupInvalidBase64Type(String type) {
-    return 'Некорректный Base64 для типа: $type';
-  }
 
   @override
   String backupInvalidJson(String error) {
@@ -107,29 +70,14 @@ class AppLocalizationsRu extends AppLocalizations {
   String get backupInvalidRuleSha => 'Недопустимый SHA-256 хеш.';
 
   @override
-  String backupInvalidTemplateCreatedAt(String date) {
-    return 'Некорректная дата создания: $date';
-  }
-
-  @override
   String get backupInvalidTemplateId => 'Некорректный ID шаблона.';
 
   @override
   String get backupInvalidTemplateName => 'Некорректное имя шаблона.';
 
   @override
-  String backupInvalidTnf(String tnf) {
-    return 'Недопустимое значение TNF ($tnf). Должно быть от 0 до 7.';
-  }
-
-  @override
   String backupMaxHistoryExceeded(int count, int max) {
     return 'Превышен лимит истории $max ($count).';
-  }
-
-  @override
-  String backupMaxRecordsExceeded(int count, int max) {
-    return 'Превышен лимит записей $max ($count).';
   }
 
   @override
@@ -149,9 +97,6 @@ class AppLocalizationsRu extends AppLocalizations {
   @override
   String get backupRecordMustBeObject =>
       'Каждая NDEF-запись должна быть объектом JSON.';
-
-  @override
-  String get backupRecordsMustBeList => 'Записи должны быть массивом.';
 
   @override
   String get backupRestoreSubtitle =>
@@ -195,20 +140,6 @@ class AppLocalizationsRu extends AppLocalizations {
   }
 
   @override
-  String get batchWrite => 'Пакетная запись';
-
-  @override
-  String get bluetoothDeviceName => 'Имя устройства (Опционально)';
-
-  @override
-  String get bluetoothMac => 'MAC-адрес Bluetooth';
-
-  @override
-  String bytesWrittenWithVerification(int bytes, String status) {
-    return 'Записано байт: $bytes | Проверка: $status';
-  }
-
-  @override
   String cameraError(String error) {
     return 'Не удалось открыть камеру. Разрешите доступ в Настройки > Конфиденциальность > Камера.\n($error)';
   }
@@ -247,12 +178,6 @@ class AppLocalizationsRu extends AppLocalizations {
   String get clearAll => 'Очистить всё';
 
   @override
-  String get clearAllRulesConfirm => 'Удалить все сохранённые заметки меток?';
-
-  @override
-  String get clearConfirmButton => 'Да, очистить';
-
-  @override
   String get clearConfirmMessage =>
       'Все записи NDEF будут стёрты, будет записана пустая запись. Продолжить?';
 
@@ -263,24 +188,10 @@ class AppLocalizationsRu extends AppLocalizations {
   String get clearHistory => 'Очистить историю';
 
   @override
-  String get clearList => 'Очистить список';
-
-  @override
   String get clearTagSubtitle => 'Удаляет все записи и пишет пустой NDEF';
 
   @override
   String get clearTagTitle => 'Очистить метку';
-
-  @override
-  String clipboardBanner(int bytes, int count, String source) {
-    String _temp0 = intl.Intl.pluralLogic(
-      count,
-      locale: localeName,
-      other: '$count записей в буфере',
-      one: '1 запись в буфере',
-    );
-    return '$_temp0 ($bytes Б) · $source';
-  }
 
   @override
   String get close => 'Закрыть';
@@ -290,9 +201,6 @@ class AppLocalizationsRu extends AppLocalizations {
 
   @override
   String get commandsLabel => 'Команды';
-
-  @override
-  String get composeRecordTitle => 'Добавить запись';
 
   @override
   String get confirmClearHistoryContent =>
@@ -318,9 +226,6 @@ class AppLocalizationsRu extends AppLocalizations {
   String get contactFullName => 'ФИО';
 
   @override
-  String get contactNote => 'Заметка';
-
-  @override
   String get contactPhone => 'Телефон';
 
   @override
@@ -330,21 +235,7 @@ class AppLocalizationsRu extends AppLocalizations {
   String get contactWebsite => 'Веб-сайт';
 
   @override
-  String contentSummary(String content, int count) {
-    String _temp0 = intl.Intl.pluralLogic(
-      count,
-      locale: localeName,
-      other: '$count записей',
-      one: '1 запись',
-    );
-    return 'Содержимое: $_temp0 · $content';
-  }
-
-  @override
   String get copy => 'Копировать';
-
-  @override
-  String get copyAllRecords => 'Копировать все записи';
 
   @override
   String get copyTagUid => 'Скопировать UID';
@@ -390,14 +281,6 @@ class AppLocalizationsRu extends AppLocalizations {
   String get delete => 'Удалить';
 
   @override
-  String deleteTagConfirmContent(String name) {
-    return 'Удалить \"$name\" из библиотеки? Физическая метка не изменится.';
-  }
-
-  @override
-  String get deleteTagConfirmTitle => 'Удалить метку';
-
-  @override
   String get deleteTemplateTooltip => 'Удалить шаблон';
 
   @override
@@ -410,51 +293,7 @@ class AppLocalizationsRu extends AppLocalizations {
   String get editRecordTitle => 'Редактировать запись';
 
   @override
-  String get editRule => 'Изменить заметку';
-
-  @override
-  String get editTag => 'Редактировать метку';
-
-  @override
-  String get emailBody => 'Текст письма';
-
-  @override
   String get emailRecipient => 'Кому (Email)';
-
-  @override
-  String get emailSubject => 'Тема';
-
-  @override
-  String get emptyComposerSubtitle =>
-      'Нажмите «Добавить запись», чтобы создать веб-ссылку, текст, Wi-Fi или контакт.';
-
-  @override
-  String get emptyComposerTitle => 'Записей пока нет';
-
-  @override
-  String get emptyHistorySubtitle => 'Отсканированные метки появятся здесь.';
-
-  @override
-  String get emptyHistoryTitle => 'История пуста';
-
-  @override
-  String get emptyLibrary =>
-      'Нет сохранённых меток.\nОтсканируйте метку и сохраните её здесь с фото и именем.';
-
-  @override
-  String get eventDescription => 'Описание';
-
-  @override
-  String get eventEnd => 'Окончание';
-
-  @override
-  String get eventLocation => 'Место';
-
-  @override
-  String get eventStart => 'Начало';
-
-  @override
-  String get eventTitle => 'Название события';
 
   @override
   String get exportBackup => 'Экспорт';
@@ -468,26 +307,7 @@ class AppLocalizationsRu extends AppLocalizations {
   }
 
   @override
-  String get fieldTextPrompt => 'Текст для записи на метку';
-
-  @override
-  String get fieldUrlPrompt => 'Адрес сайта (https://...)';
-
-  @override
-  String get fileUrl => 'Ссылка на файл';
-
-  @override
-  String get filterAll => 'Все';
-
-  @override
   String get flashlight => 'Фонарик';
-
-  @override
-  String get formatConfirmButton => 'Форматировать';
-
-  @override
-  String get formatConfirmMessage =>
-      'Все данные на метке будут перезаписаны для формата NDEF. Продолжить?';
 
   @override
   String get formatMemorySubtitle =>
@@ -497,25 +317,10 @@ class AppLocalizationsRu extends AppLocalizations {
   String get formatMemoryTitle => 'Форматировать память';
 
   @override
-  String get hardwareAvailable => 'NFC готов к работе';
-
-  @override
-  String get hardwareDisabled => 'NFC выключен';
-
-  @override
-  String get hardwareNotSupported => 'NFC не поддерживается';
-
-  @override
-  String get historyFilteredEmpty => 'В истории ничего не найдено.';
-
-  @override
   String get idTooLarge => 'Длина ID не может превышать 255 байт';
 
   @override
   String get importBackup => 'Импорт (Объединить)';
-
-  @override
-  String get importCsv => 'Импорт CSV';
 
   @override
   String get inAppTagRules => 'Локальные правила меток';
@@ -533,9 +338,6 @@ class AppLocalizationsRu extends AppLocalizations {
   String get languageTitle => 'Dil / Language';
 
   @override
-  String get latitude => 'Широта (Lat)';
-
-  @override
   String get linkCopied => 'Ссылка скопирована';
 
   @override
@@ -551,19 +353,10 @@ class AppLocalizationsRu extends AppLocalizations {
   String get linkWriteDesc => 'Открывает экран записи';
 
   @override
-  String get loadToComposerTooltip => 'Загрузить в редактор';
-
-  @override
-  String get locationHint => 'Напр.: Дверца холодильника';
-
-  @override
   String get locationLabel => 'Где находится?';
 
   @override
   String get lockAcknowledge => 'Я понимаю, что это действие необратимо';
-
-  @override
-  String get lockButton => 'Заблокировать';
 
   @override
   String get lockTagSubtitle =>
@@ -573,26 +366,7 @@ class AppLocalizationsRu extends AppLocalizations {
   String get lockTagTitle => 'Заблокировать метку';
 
   @override
-  String get lockWarning =>
-      'Заблокированная метка становится доступной ТОЛЬКО для чтения: изменить, стереть или разблокировать её будет НЕЛЬЗЯ.';
-
-  @override
-  String get longitude => 'Долгота (Lng)';
-
-  @override
   String get manage => 'Управление';
-
-  @override
-  String get matchedRule => 'Совпавшая заметка';
-
-  @override
-  String get mimePayloadHex => 'Данные (Hex / Текст)';
-
-  @override
-  String get mimeTypeLabel => 'MIME тип';
-
-  @override
-  String get nameRequired => 'Укажите название метки.';
 
   @override
   String get navHistory => 'История';
@@ -636,9 +410,6 @@ class AppLocalizationsRu extends AppLocalizations {
   }
 
   @override
-  String get ndefRecordsTitle => 'NDEF Записи';
-
-  @override
   String get nfcPromptClear => 'Поднесите метку к устройству для сброса';
 
   @override
@@ -652,15 +423,6 @@ class AppLocalizationsRu extends AppLocalizations {
 
   @override
   String get no => 'Нет';
-
-  @override
-  String get noContentInTag => 'В этой записи нет содержимого метки.';
-
-  @override
-  String get noLibraryMatches => 'Ничего не найдено.';
-
-  @override
-  String get noRecordsOnTag => 'На метке нет NDEF записей.';
 
   @override
   String get noTemplates =>
@@ -710,36 +472,6 @@ class AppLocalizationsRu extends AppLocalizations {
   String optionalField(String label) {
     return '$label (необязательно)';
   }
-
-  @override
-  String pageN(int page) {
-    return 'Страница $page';
-  }
-
-  @override
-  String get pageRoleCc => 'CC';
-
-  @override
-  String get pageRoleData => 'Данные';
-
-  @override
-  String get pageRoleLock => 'Блок';
-
-  @override
-  String get pageRoleUid => 'UID';
-
-  @override
-  String get pageRoleUidLock => 'UID / Блок';
-
-  @override
-  String get passwordDialogAction => 'Установить';
-
-  @override
-  String get passwordDialogTitle => 'Установить пароль';
-
-  @override
-  String get passwordDialogWarning =>
-      'Если вы забудете пароль, изменить данные на метке будет невозможно. Чтение останется открытым.';
 
   @override
   String get passwordError => 'Введите ровно 4 символа или 8 hex-знаков.';
@@ -884,9 +616,6 @@ class AppLocalizationsRu extends AppLocalizations {
   String get qrUserOnlyNote => 'Открывается только по запросу пользователя.';
 
   @override
-  String get rawInspection => 'Подробный анализ';
-
-  @override
   String get rawRecordDetailsTitle => 'Подробности записи (Только чтение)';
 
   @override
@@ -894,19 +623,6 @@ class AppLocalizationsRu extends AppLocalizations {
 
   @override
   String get readHeroButton => 'Начать скан';
-
-  @override
-  String get readHeroEyebrow => 'NFC СКАНЕР';
-
-  @override
-  String get readHeroScanning => 'Сканирование...';
-
-  @override
-  String get readHeroSubtitle =>
-      'Поднесите верхнюю часть телефона к метке для чтения NDEF-записей и данных чипа.';
-
-  @override
-  String get readHeroTitle => 'Скан метки';
 
   @override
   String get readMemorySubtitle =>
@@ -917,14 +633,6 @@ class AppLocalizationsRu extends AppLocalizations {
 
   @override
   String get readyTemplates => 'Готовые шаблоны';
-
-  @override
-  String get recordCopied => 'Запись скопирована';
-
-  @override
-  String recordIndex(int index) {
-    return 'Запись #$index';
-  }
 
   @override
   String get recordTypeCalendar => 'Событие календаря (iCal)';
@@ -976,24 +684,7 @@ class AppLocalizationsRu extends AppLocalizations {
   String get recordTypeWifiCorrupt => 'Повреждённые данные WSC';
 
   @override
-  String recordsCopiedToClipboard(int count) {
-    String _temp0 = intl.Intl.pluralLogic(
-      count,
-      locale: localeName,
-      other: '$count записей скопировано',
-      one: '1 запись скопирована',
-    );
-    return '$_temp0';
-  }
-
-  @override
   String get redo => 'Повторить';
-
-  @override
-  String get removePasswordDialogTitle => 'Снять пароль';
-
-  @override
-  String get removePasswordDialogWarning => 'Введите текущий пароль метки.';
 
   @override
   String get removePasswordSubtitle =>
@@ -1001,9 +692,6 @@ class AppLocalizationsRu extends AppLocalizations {
 
   @override
   String get removePasswordTitle => 'Снять пароль';
-
-  @override
-  String get removePhoto => 'Удалить';
 
   @override
   String get rewriteTag => 'Перезаписать';
@@ -1014,19 +702,10 @@ class AppLocalizationsRu extends AppLocalizations {
   }
 
   @override
-  String get ruleDeleted => 'Правило удалено';
-
-  @override
   String get ruleNoteDialogTitle => 'Изменить заметку метки';
 
   @override
-  String get ruleNoteHint => 'Напр.: Стеллаж на складе #4 или Переговорная';
-
-  @override
   String get ruleNoteLabel => 'Локальная заметка / Описание';
-
-  @override
-  String get ruleSaved => 'Правило сохранено';
 
   @override
   String get save => 'Сохранить';
@@ -1045,32 +724,10 @@ class AppLocalizationsRu extends AppLocalizations {
       'В выключенном состоянии сканы не сохраняются. При включении успешные сканы сохраняются локально.';
 
   @override
-  String get saveTemplateDialogTitle => 'Сохранить как шаблон';
-
-  @override
-  String get saveToLibrary => 'Сохранить в библиотеку';
-
-  @override
   String get scanFabLabel => 'Скан метки';
 
   @override
-  String get scanQrToRecord => 'Сканировать QR';
-
-  @override
   String get scannedTag => 'Считанная метка';
-
-  @override
-  String get searchEngine => 'Поисковая система';
-
-  @override
-  String get searchHistoryHint => 'Поиск по истории (UID, текст, тип)...';
-
-  @override
-  String get searchLibraryHint =>
-      'Поиск по названию, заметке, месту или тексту';
-
-  @override
-  String get searchQuery => 'Поисковый запрос';
 
   @override
   String get searchQueryCannotBeEmpty =>
@@ -1087,9 +744,6 @@ class AppLocalizationsRu extends AppLocalizations {
 
   @override
   String get setPasswordTitle => 'Установить пароль';
-
-  @override
-  String get shareRecords => 'Поделиться записями';
 
   @override
   String get shortcutAutomationNote =>
@@ -1138,19 +792,7 @@ class AppLocalizationsRu extends AppLocalizations {
   String get smsMessage => 'Текст сообщения';
 
   @override
-  String get socialNetwork => 'Платформа';
-
-  @override
   String get socialUsername => 'Имя пользователя';
-
-  @override
-  String get sourceComposer => 'Записи из списка редактора';
-
-  @override
-  String get sourceEmpty => 'Без содержимого (только заметка)';
-
-  @override
-  String get sourceLastScan => 'Последняя отсканированная метка';
 
   @override
   String get sourceSelectPrompt => 'Откуда взять данные метки?';
@@ -1244,15 +886,6 @@ class AppLocalizationsRu extends AppLocalizations {
   String get systemLanguage => 'Язык системы';
 
   @override
-  String get tabApp => 'Приложение';
-
-  @override
-  String get tabBluetooth => 'Bluetooth';
-
-  @override
-  String get tabCalendar => 'Календарь';
-
-  @override
   String get tabContact => 'Контакт (vCard)';
 
   @override
@@ -1262,22 +895,10 @@ class AppLocalizationsRu extends AppLocalizations {
   String get tabEmail => 'Эл. почта';
 
   @override
-  String get tabFile => 'Файл';
-
-  @override
-  String get tabLocation => 'Геолокация';
-
-  @override
   String get tabPhone => 'Телефон';
 
   @override
-  String get tabSearch => 'Поиск';
-
-  @override
   String get tabSms => 'SMS';
-
-  @override
-  String get tabSocial => 'Соцсети';
 
   @override
   String get tabText => 'Текст';
@@ -1286,33 +907,13 @@ class AppLocalizationsRu extends AppLocalizations {
   String get tabUrl => 'Веб-URL';
 
   @override
-  String get tabVideo => 'Видео';
-
-  @override
   String get tabWifi => 'Wi-Fi';
-
-  @override
-  String get tagCapacity => 'Ёмкость';
-
-  @override
-  String tagCapacityValue(int available, int max, int used) {
-    return '$used / $max байт ($available байт свободно)';
-  }
 
   @override
   String get tagInfoTitle => 'Информация о метке';
 
   @override
   String get tagLibraryTitle => 'Моя библиотека меток';
-
-  @override
-  String get tagNameHint => 'Напр.: Метка на кухне';
-
-  @override
-  String get tagNameLabel => 'Название';
-
-  @override
-  String get tagReadOnly => 'Только чтение (Заблокирована)';
 
   @override
   String tagRulesCount(int count) {
@@ -1324,42 +925,13 @@ class AppLocalizationsRu extends AppLocalizations {
       'Отображает заметку на основе точного SHA-256 хеша содержимого NDEF.';
 
   @override
-  String get tagSerialNumber => 'Серийный номер (UID)';
-
-  @override
-  String get tagTechnology => 'Технология';
-
-  @override
-  String get tagType => 'Тип';
-
-  @override
-  String get tagUidCopied => 'UID метки скопирован';
-
-  @override
   String get tagWritable => 'Доступна запись';
 
   @override
   String get takePhoto => 'Сделать снимок';
 
   @override
-  String get templateGalleryTitle => 'Готовые шаблоны';
-
-  @override
   String get templateNameHint => 'Название шаблона';
-
-  @override
-  String templateRecordCount(int count, String date) {
-    String _temp0 = intl.Intl.pluralLogic(
-      count,
-      locale: localeName,
-      other: '$count записей',
-      one: '1 запись',
-    );
-    return '$_temp0 | $date';
-  }
-
-  @override
-  String get templateSaved => 'Шаблон успешно сохранён';
 
   @override
   String get toolsExpertSection => 'Эксперт';
@@ -1376,9 +948,6 @@ class AppLocalizationsRu extends AppLocalizations {
 
   @override
   String get toolsTagSection => 'Метка';
-
-  @override
-  String get totalBytes => 'Общий размер';
 
   @override
   String get typeTooLarge => 'Длина типа не может превышать 255 байт';
@@ -1454,29 +1023,11 @@ class AppLocalizationsRu extends AppLocalizations {
   String get videoUrlCannotBeEmpty => 'Ссылка на видео не может быть пустой.';
 
   @override
-  String get videoUrlOrId => 'Ссылка на видео или YouTube ID';
-
-  @override
   String get videoUrlOrIdPrompt =>
       'Введите URL (https://...) или ID видео на YouTube.';
 
   @override
   String get wifiAuthOpen => 'Открытая (Без пароля)';
-
-  @override
-  String get wifiAuthType => 'Тип защиты';
-
-  @override
-  String get wifiAuthWpa => 'WPA Personal';
-
-  @override
-  String get wifiAuthWpa2 => 'WPA2 Personal';
-
-  @override
-  String get wifiAuthWpaWpa2 => 'WPA/WPA2 Personal';
-
-  @override
-  String get wifiHidden => 'Скрытая сеть';
 
   @override
   String get wifiPassword => 'Пароль';
@@ -1488,9 +1039,6 @@ class AppLocalizationsRu extends AppLocalizations {
   String get withSiri => 'С помощью Siri';
 
   @override
-  String get writeDumpConfirmButton => 'Записать';
-
-  @override
   String writeDumpConfirmMessage(int bytes, String name) {
     return '\"$name\" ($bytes байт) будет записан в память метки. UID и системные страницы не затрагиваются.';
   }
@@ -1500,16 +1048,6 @@ class AppLocalizationsRu extends AppLocalizations {
 
   @override
   String get writeDumpTitle => 'Записать дамп (.bin)';
-
-  @override
-  String get writeHeroButton => 'Начать запись';
-
-  @override
-  String get writeHeroEyebrow => 'NFC РЕДАКТОР';
-
-  @override
-  String get writeHeroSubtitle =>
-      'Подготовьте несколько записей NDEF и запишите их на метку за один раз.';
 
   @override
   String get writeHeroTitle => 'Запись метки';
@@ -1529,9 +1067,6 @@ class AppLocalizationsRu extends AppLocalizations {
   @override
   String get writeTemplatesSubtitle =>
       'Сохраняйте часто используемые записи NDEF как шаблоны для быстрой записи.';
-
-  @override
-  String get yes => 'Да';
 
   @override
   String get unknown => 'Неизвестно';
@@ -2506,16 +2041,6 @@ class AppLocalizationsRu extends AppLocalizations {
       '• Запись не происходит автоматически на предыдущую метку; требуется новое касание NFC.';
 
   @override
-  String rewriteSourceUidLabel(String uid) {
-    return 'Исходный UID: $uid';
-  }
-
-  @override
-  String rewriteRecordCountLabel(num count) {
-    return 'Количество записей для записи: $count';
-  }
-
-  @override
   String get rewriteInstruction =>
       'Подготовьте целевую метку, нажмите \"Коснуться и записать\" и поднесите метку.';
 
@@ -2527,21 +2052,11 @@ class AppLocalizationsRu extends AppLocalizations {
       'Поднесите целевую метку к устройству (содержимое будет полностью обновлено)';
 
   @override
-  String rewriteFailedMessage(String error) {
-    return 'Не удалось перезаписать: $error';
-  }
-
-  @override
   String get writeVerifiedTitle => 'Запись проверена';
 
   @override
   String get writeVerifiedDesc =>
       'Данные NDEF успешно записаны и проверены на целевой метке.';
-
-  @override
-  String writtenRecordCount(num count) {
-    return 'Количество записанных записей: $count';
-  }
 
   @override
   String get writeVerifiedHint =>
@@ -2555,21 +2070,6 @@ class AppLocalizationsRu extends AppLocalizations {
 
   @override
   String get differenceDetected => 'Обнаружены различия';
-
-  @override
-  String compareScannedUid(String uid) {
-    return 'UID сканированной метки: $uid';
-  }
-
-  @override
-  String compareWrittenData(num count, num bytes) {
-    return 'Записанные данные: $count записей ($bytes байт)';
-  }
-
-  @override
-  String compareScannedData(num count, num bytes) {
-    return 'Сканированные данные: $count записей ($bytes байт)';
-  }
 
   @override
   String get compareMatchDesc =>
@@ -2602,16 +2102,6 @@ class AppLocalizationsRu extends AppLocalizations {
       '• Автоматическое непрерывное сканирование не производится; метки меняются вручную.';
 
   @override
-  String batchTargetCountLabel(num count) {
-    return 'Количество целевых меток: $count';
-  }
-
-  @override
-  String batchComposerSummary(num count, num bytes) {
-    return 'Записи: $count ($bytes байт)';
-  }
-
-  @override
   String get batchStartButton => 'Начать пакетную запись';
 
   @override
@@ -2624,50 +2114,15 @@ class AppLocalizationsRu extends AppLocalizations {
   String get batchAllCompleted => 'Все попытки записи завершены!';
 
   @override
-  String batchNextTag(num current, num total) {
-    return 'Следующая: Метка #$current / $total';
-  }
-
-  @override
-  String batchStats(num success, num fail, num remaining) {
-    return 'Успешно: $success | С ошибкой: $fail | Осталось: $remaining';
-  }
-
-  @override
-  String batchSuccessMsg(String message) {
-    return 'Успешно ($message)';
-  }
-
-  @override
-  String batchFailMsg(String message) {
-    return 'Ошибка: $message';
-  }
-
-  @override
-  String tagNumberLabel(num index) {
-    return 'Метка #$index: ';
+  String batchStats(String ok, String failed, String left) {
+    return 'Успешно: $ok | Ошибки: $failed | Осталось: $left';
   }
 
   @override
   String get waitingForTag => 'Ожидание метки...';
 
   @override
-  String tapToWriteForTag(num index) {
-    return 'Коснуться и записать для метки #$index';
-  }
-
-  @override
   String get batchFinishButton => 'Завершить пакетную запись';
-
-  @override
-  String batchPromptMessage(num current, num total) {
-    return 'Пакетная запись: Поднесите метку #$current / $total';
-  }
-
-  @override
-  String batchTagSuccessSummary(num count) {
-    return '$count записей записано и проверено';
-  }
 
   @override
   String get writeError => 'Ошибка записи';
@@ -2721,17 +2176,12 @@ class AppLocalizationsRu extends AppLocalizations {
       'ПРИМЕЧАНИЕ: Автономный анализ. Не проверяет на вирусы в сети. URL не открывается автоматически.';
 
   @override
-  String templateLoadedToComposer(String name) {
-    return 'Записи из шаблона \"$name\" загружены в список.';
-  }
-
-  @override
   String get templateSaveEmptyError =>
       'Добавьте записи перед сохранением шаблона.';
 
   @override
-  String templateDefaultName(num index) {
-    return 'Шаблон $index';
+  String templateDefaultName(String n) {
+    return 'Шаблон $n';
   }
 
   @override
@@ -2752,15 +2202,7 @@ class AppLocalizationsRu extends AppLocalizations {
       'Привязывается к хэшу SHA-256 NDEF. При сканировании отображается только это описание.';
 
   @override
-  String ruleNoteShaSummary(String sha) {
-    return 'Хэш содержимого NDEF (SHA-256):\n$sha';
-  }
-
-  @override
   String get ruleNoteSavedSnack => 'Заметка метки сохранена.';
-
-  @override
-  String get ruleNoteDeleteTitle => 'Удалить заметку метки';
 
   @override
   String get ruleNoteDeleteConfirm =>
@@ -2784,12 +2226,12 @@ class AppLocalizationsRu extends AppLocalizations {
   String get backupIncludedItems => 'Включаемые элементы:';
 
   @override
-  String backupTemplatesCount(num count) {
+  String backupTemplatesCount(String count) {
     return '• Шаблоны: $count';
   }
 
   @override
-  String backupRulesCount(num count) {
+  String backupRulesCount(String count) {
     return '• Заметки/правила меток: $count';
   }
 
@@ -2798,8 +2240,8 @@ class AppLocalizationsRu extends AppLocalizations {
       'Включить историю сканирований (необязательно)';
 
   @override
-  String backupHistoryCount(num count) {
-    return '$count записей истории';
+  String backupHistoryCount(String count) {
+    return 'Записей истории: $count';
   }
 
   @override
@@ -2822,11 +2264,6 @@ class AppLocalizationsRu extends AppLocalizations {
 
   @override
   String get backupExportCancelled => 'Экспорт отменен.';
-
-  @override
-  String backupExportError(String error) {
-    return 'Ошибка экспорта: $error';
-  }
 
   @override
   String get backupImportTitle => 'Импорт резервной копии';
@@ -2867,16 +2304,11 @@ class AppLocalizationsRu extends AppLocalizations {
 
   @override
   String backupValidationError(String error) {
-    return 'Ошибка проверки резервной копии: $error';
+    return 'Ошибка проверки копии: $error';
   }
 
   @override
   String get backupHistoryDetectedTitle => 'Обнаружена история сканирований';
-
-  @override
-  String backupHistoryDetectedMsg(num count) {
-    return 'Резервная копия содержит $count записей истории, но функция отключена на устройстве.\n\n';
-  }
 
   @override
   String get backupHistoryDetectedPrompt =>
@@ -2888,16 +2320,6 @@ class AppLocalizationsRu extends AppLocalizations {
 
   @override
   String get backupEnableHistoryOption => 'Включить историю и загрузить';
-
-  @override
-  String backupImportSuccessWithSummary(String summary) {
-    return 'Импорт успешно завершен:\n$summary';
-  }
-
-  @override
-  String backupMergeError(String error) {
-    return 'Ошибка слияния: $error';
-  }
 
   @override
   String get nfcReadyStatus => 'NFC готов';
@@ -2913,20 +2335,10 @@ class AppLocalizationsRu extends AppLocalizations {
       'NFC выключен. Пожалуйста, включите его в настройках устройства.';
 
   @override
-  String ndefClipboardBanner(num count, num bytes, String source) {
-    return 'Буфер NDEF: $count записей ($bytes Б) - $source';
-  }
-
-  @override
   String get template => 'Шаблон';
 
   @override
   String get nfcScannerTitle => 'NFC Сканер';
-
-  @override
-  String lastScannedTagId(String id) {
-    return 'Последняя метка: $id';
-  }
 
   @override
   String get composeRecord => 'Создать запись';
@@ -2938,11 +2350,6 @@ class AppLocalizationsRu extends AppLocalizations {
   String get previousScans => 'Предыдущие сканирования';
 
   @override
-  String scanErrorWithMsg(String error) {
-    return 'Ошибка сканирования: $error';
-  }
-
-  @override
   String get noScannedTagYet => 'Пока нет сканированных меток NFC';
 
   @override
@@ -2951,16 +2358,6 @@ class AppLocalizationsRu extends AppLocalizations {
 
   @override
   String get ndefCopyAndRewriteTitle => 'Копирование и перезапись NDEF';
-
-  @override
-  String ndefCopyNotice(num count, num bytes) {
-    return '$count записей ($bytes байт) - Обрабатываются только данные NDEF, UID не клонируется.';
-  }
-
-  @override
-  String tagIdHeader(String id) {
-    return 'Метка $id';
-  }
 
   @override
   String get savedTagNoteHeader => 'Сохраненная заметка метки (правило)';
@@ -2995,22 +2392,7 @@ class AppLocalizationsRu extends AppLocalizations {
   String get freeSpace => 'Свободно памяти:';
 
   @override
-  String errorWithMsg(String error) {
-    return 'Ошибка: $error';
-  }
-
-  @override
   String get noNdefMessageOnTag => 'На метке не найдено сообщений NDEF.';
-
-  @override
-  String readNdefRecordsHeader(num count) {
-    return 'Считанные записи NDEF ($count)';
-  }
-
-  @override
-  String stagedNdefRecordsHeader(num count) {
-    return 'Подготовленные записи NDEF ($count)';
-  }
 
   @override
   String get hideDetails => 'Скрыть подробности';
@@ -3029,11 +2411,6 @@ class AppLocalizationsRu extends AppLocalizations {
 
   @override
   String get inspectorRawHexPreview => 'Предпросмотр Hex (ограничено):';
-
-  @override
-  String inspectorPayloadTruncated(num length) {
-    return 'Примечание: Размер данных $length байт; показаны первые 64 байта.';
-  }
 
   @override
   String get ndefRecordsToWriteTitle => 'Записи NDEF для записи';
@@ -3055,11 +2432,6 @@ class AppLocalizationsRu extends AppLocalizations {
   String get importFromCsvAction => 'Импорт из файла CSV';
 
   @override
-  String composerTotalSizeAndCount(num bytes, num count) {
-    return 'Общий объем: $bytes байт | Записей: $count';
-  }
-
-  @override
   String get composerEmptyDescription =>
       'Вы можете записывать текст, ссылки, Wi-Fi, телефоны, контакты и многое другое.';
 
@@ -3079,11 +2451,6 @@ class AppLocalizationsRu extends AppLocalizations {
   String get writeAndVerify => 'Записать на метку и проверить';
 
   @override
-  String writeAndVerifyWithBytes(num bytes) {
-    return 'Записать на метку и проверить ($bytes байт)';
-  }
-
-  @override
   String get batchWriteButtonLabel => 'Пакетная запись меток (2..100 меток)';
 
   @override
@@ -3095,11 +2462,6 @@ class AppLocalizationsRu extends AppLocalizations {
   @override
   String get confirmWriteMessage1 =>
       'Эта операция ПОЛНОСТЬЮ ПЕРЕЗАПИШЕТ существующее содержимое NDEF на метке.';
-
-  @override
-  String confirmWriteRecordCount(num count) {
-    return 'Количество записей для записи: $count';
-  }
 
   @override
   String get confirmWriteMessage2 =>
@@ -3123,17 +2485,7 @@ class AppLocalizationsRu extends AppLocalizations {
       'Поиск по UID, тексту или типу (например: URL, Wi-Fi, 04A1...)';
 
   @override
-  String historyScansCount(num count) {
-    return 'Сохраненные сканирования: $count';
-  }
-
-  @override
   String get noHistoryYet => 'История сканирований пуста.';
-
-  @override
-  String noHistoryResultsForQuery(String query) {
-    return 'Для \"$query\" ничего не найдено.';
-  }
 
   @override
   String get tryDifferentQuery =>
@@ -3143,54 +2495,13 @@ class AppLocalizationsRu extends AppLocalizations {
   String get clearSearch => 'Очистить поиск';
 
   @override
-  String historyItemHeader(String time, num count) {
-    String _temp0 = intl.Intl.pluralLogic(
-      count,
-      locale: localeName,
-      other: '$count записей',
-      one: '1 запись',
-    );
-    return '$time | $_temp0';
-  }
-
-  @override
   String get deleteThisRecord => 'Удалить эту запись';
-
-  @override
-  String historyCapacitySummary(num cap, num used) {
-    return 'Емкость: $capБ | Использовано: $usedБ';
-  }
-
-  @override
-  String historyUidHeader(String uid) {
-    return 'UID истории $uid';
-  }
 
   @override
   String get qrPreview => 'QR предпросмотр';
 
   @override
-  String templateRecordCountWithDate(num count, String date) {
-    String _temp0 = intl.Intl.pluralLogic(
-      count,
-      locale: localeName,
-      other: '$count записей',
-      one: '1 запись',
-    );
-    return '$_temp0 | $date';
-  }
-
-  @override
-  String writeVerificationSummary(num bytes, String status) {
-    return 'Записано байт: $bytes | Проверка: $status';
-  }
-
-  @override
   String get lockTagConfirmTitle => 'Навсегда заблокировать метку';
-
-  @override
-  String get lockTagWarning1 =>
-      'Заблокированная метка становится доступной только для чтения: изменить или снять блокировку НЕЛЬЗЯ.';
 
   @override
   String get lockTagWarning2 =>
@@ -3200,43 +2511,7 @@ class AppLocalizationsRu extends AppLocalizations {
   String get langTr => 'Türkçe';
 
   @override
-  String get langEn => 'English';
-
-  @override
-  String get langDe => 'Deutsch';
-
-  @override
   String get langFr => 'Français';
-
-  @override
-  String get langEs => 'Español';
-
-  @override
-  String get langIt => 'Italiano';
-
-  @override
-  String get langPt => 'Português';
-
-  @override
-  String get langRu => 'Русский';
-
-  @override
-  String get langAr => 'العربية';
-
-  @override
-  String get langJa => '日本語';
-
-  @override
-  String get langZh => '中文';
-
-  @override
-  String get langKo => '한국어';
-
-  @override
-  String get langNl => 'Nederlands';
-
-  @override
-  String get langUk => 'Українська';
 
   @override
   String get qrPreviewTooltip => 'Предпросмотр QR-кода';
@@ -3246,4 +2521,218 @@ class AppLocalizationsRu extends AppLocalizations {
 
   @override
   String get ok => 'ОК';
+
+  @override
+  String rewriteSourceUid(String uid) {
+    return 'UID источника: $uid';
+  }
+
+  @override
+  String recordsToWriteCount(String count) {
+    return 'Записей к записи: $count';
+  }
+
+  @override
+  String rewriteFailed(String message) {
+    return 'Перезапись не удалась: $message';
+  }
+
+  @override
+  String writtenRecordsCount(String count) {
+    return 'Записано записей: $count';
+  }
+
+  @override
+  String scannedTagUid(String uid) {
+    return 'UID считанной метки: $uid';
+  }
+
+  @override
+  String writtenDataSummary(String count, String bytes) {
+    return 'Записанные данные: $count зап. ($bytes байт)';
+  }
+
+  @override
+  String scannedDataSummary(String count, String bytes) {
+    return 'Считанные данные: $count зап. ($bytes байт)';
+  }
+
+  @override
+  String batchTargetCount(String count) {
+    return 'Целевых меток: $count';
+  }
+
+  @override
+  String composerRecordsSummary(String count, String bytes) {
+    return 'Список записи: $count зап. ($bytes байт)';
+  }
+
+  @override
+  String batchNext(String current, String total) {
+    return 'Далее: метка #$current / $total';
+  }
+
+  @override
+  String batchAttemptOk(String message) {
+    return 'Успешно ($message)';
+  }
+
+  @override
+  String batchAttemptFailed(String message) {
+    return 'Ошибка: $message';
+  }
+
+  @override
+  String batchAttemptLabel(String n) {
+    return 'Метка #$n: ';
+  }
+
+  @override
+  String batchTapToWrite(String n) {
+    return 'Коснитесь и запишите метку #$n';
+  }
+
+  @override
+  String batchPrompt(String current, String total) {
+    return 'Пакетная запись: поднесите метку #$current / $total';
+  }
+
+  @override
+  String batchWrittenVerified(String count) {
+    return 'Записано и проверено: $count';
+  }
+
+  @override
+  String templateLoaded(String name) {
+    return 'Записи из «$name» добавлены в список.';
+  }
+
+  @override
+  String ndefSha256Summary(String sha) {
+    return 'Хеш содержимого NDEF (SHA-256):\n$sha';
+  }
+
+  @override
+  String exportError(String error) {
+    return 'Ошибка экспорта: $error';
+  }
+
+  @override
+  String backupHistoryDetected(String count, String prompt) {
+    return 'В копии $count записей истории, но история на этом устройстве отключена.\n\n$prompt';
+  }
+
+  @override
+  String importSucceeded(String summary) {
+    return 'Импорт выполнен:\n$summary';
+  }
+
+  @override
+  String mergeError(String error) {
+    return 'Ошибка объединения: $error';
+  }
+
+  @override
+  String clipboardBannerText(String count, String bytes, String source) {
+    return 'Буфер NDEF: $count зап. ($bytes Б) - $source';
+  }
+
+  @override
+  String get heroScanSubtitle =>
+      'Поднесите метку к верхней части телефона — содержимое, ёмкость и серийный номер появятся сразу.';
+
+  @override
+  String lastTagLabel(String uid) {
+    return 'Последняя метка: $uid';
+  }
+
+  @override
+  String scanErrorWithMessage(String message) {
+    return 'Ошибка сканирования: $message';
+  }
+
+  @override
+  String copyContentSummary(String count, String bytes) {
+    return '$count зап. ($bytes байт) — копируются только данные NDEF, без UID.';
+  }
+
+  @override
+  String tagSourceLabel(String uid) {
+    return 'Метка $uid';
+  }
+
+  @override
+  String errorWithMessage(String message) {
+    return 'Ошибка: $message';
+  }
+
+  @override
+  String readRecordsHeader(String count) {
+    return 'Считанные записи NDEF ($count)';
+  }
+
+  @override
+  String composedRecordsHeader(String count) {
+    return 'Записи NDEF к записи ($count)';
+  }
+
+  @override
+  String payloadTruncatedNote(String bytes) {
+    return 'Примечание: данные занимают $bytes байт, показаны первые 64.';
+  }
+
+  @override
+  String composerTotals(String bytes, String count) {
+    return 'Общий размер: $bytes байт | Записей: $count';
+  }
+
+  @override
+  String writeAndVerifyWithSize(String bytes) {
+    return 'Записать и проверить ($bytes байт)';
+  }
+
+  @override
+  String savedScansCount(String count) {
+    return 'Сохранённые сканы: $count';
+  }
+
+  @override
+  String historyNoResults(String query) {
+    return 'Ничего не найдено по запросу «$query».';
+  }
+
+  @override
+  String historyItemMeta(String date, String count) {
+    return '$date | $count зап.';
+  }
+
+  @override
+  String historyCapacity(String max, String used) {
+    return 'Ёмкость: $max Б | Занято: $used Б';
+  }
+
+  @override
+  String historySourceLabel(String uid) {
+    return 'История UID $uid';
+  }
+
+  @override
+  String templateMeta(String count, String date) {
+    return '$count зап. | $date';
+  }
+
+  @override
+  String rulesCountLabel(String count) {
+    return 'Сохранённые правила/заметки: $count';
+  }
+
+  @override
+  String writeResultDetails(String bytes, String verification) {
+    return 'Записано байт: $bytes | Проверка: $verification';
+  }
+
+  @override
+  String lockTagWarningFull(String more) {
+    return 'Заблокированная метка станет только для чтения: содержимое НЕЛЬЗЯ будет изменить или стереть, а блокировку — СНЯТЬ. $more';
+  }
 }
