@@ -2905,4 +2905,60 @@ class AppLocalizationsKo extends AppLocalizations {
   @override
   String get contentTooLargeForChips =>
       '일반 태그에 담기에 너무 큽니다. 텍스트를 줄이거나 짧은 링크를 쓰세요.';
+
+  @override
+  String get tagReportTitle => '태그 보고서';
+
+  @override
+  String get tagReportSubtitle => '칩, 잠금, 비밀번호, 사용량';
+
+  @override
+  String get tagReportPrompt => '확인할 태그를 대세요';
+
+  @override
+  String get tagReportBusy => '태그 확인 중...';
+
+  @override
+  String tagReportDone(String chip) {
+    return '보고서 완료: $chip';
+  }
+
+  @override
+  String get unknownChip => '알 수 없는 칩';
+
+  @override
+  String get yes => '예';
+
+  @override
+  String get reportChip => '칩';
+
+  @override
+  String get reportNdefFormatted => 'NDEF 포맷됨';
+
+  @override
+  String get reportWritable => '쓰기 가능';
+
+  @override
+  String get reportStaticLock => '정적 잠금';
+
+  @override
+  String get reportDynamicLock => '동적 잠금';
+
+  @override
+  String get reportPassword => '비밀번호 보호';
+
+  @override
+  String get reportReadProtected => '읽기 보호';
+
+  @override
+  String get reportNdefUsage => 'NDEF 사용량';
+
+  @override
+  String get reportVerdictWritable => '태그에 쓸 수 있습니다';
+
+  @override
+  String get reportVerdictRestricted => '태그에 제한이 있습니다';
+
+  @override
+  String get reportCopied => '보고서를 복사했습니다';
 }

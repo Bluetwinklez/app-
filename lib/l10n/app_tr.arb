@@ -2036,5 +2036,30 @@
       }
     }
   },
-  "contentTooLargeForChips": "İçerik yaygın etiketlere sığmıyor; metni kısaltın veya kısa bağlantı kullanın."
+  "contentTooLargeForChips": "İçerik yaygın etiketlere sığmıyor; metni kısaltın veya kısa bağlantı kullanın.",
+  "tagReportTitle": "Etiket Raporu",
+  "tagReportSubtitle": "Çip, kilit, şifre ve doluluk durumu",
+  "tagReportPrompt": "Raporu çıkarılacak etiketi yaklaştırın",
+  "tagReportBusy": "Etiket inceleniyor...",
+  "tagReportDone": "Rapor hazır: {chip}",
+  "@tagReportDone": {
+    "placeholders": {
+      "chip": {
+        "type": "String"
+      }
+    }
+  },
+  "unknownChip": "Bilinmeyen çip",
+  "yes": "Evet",
+  "reportChip": "Çip",
+  "reportNdefFormatted": "NDEF biçimli",
+  "reportWritable": "Yazılabilir",
+  "reportStaticLock": "Sabit kilit",
+  "reportDynamicLock": "Dinamik kilit",
+  "reportPassword": "Şifre koruması",
+  "reportReadProtected": "Okuma korumalı",
+  "reportNdefUsage": "NDEF doluluk",
+  "reportVerdictWritable": "Etiket yazmaya hazır",
+  "reportVerdictRestricted": "Etikette kısıtlama var",
+  "reportCopied": "Rapor kopyalandı"
 }

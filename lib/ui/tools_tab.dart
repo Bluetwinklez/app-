@@ -47,6 +47,13 @@ class ToolsTab extends StatelessWidget {
         ),
         SectionHeader(title: loc.toolsMemorySection),
         ToolTile(
+          icon: Icons.health_and_safety_outlined,
+          title: loc.tagReportTitle,
+          subtitle: loc.tagReportSubtitle,
+          color: AppColors.success,
+          onTap: _idle ? () => _tagReport(context) : null,
+        ),
+        ToolTile(
           icon: Icons.layers_outlined,
           title: loc.readMemoryTitle,
           subtitle: loc.readMemorySubtitle,
@@ -126,6 +133,26 @@ class ToolsTab extends StatelessWidget {
       ),
     );
     return result ?? false;
+  }
+
+  Future<void> _tagReport(BuildContext context) async {
+    final loc = AppLocalizations.of(context) ?? L10n.current;
+    final health = await controller.runRawTask<TagHealth>(
+      promptMessage: loc.tagReportPrompt,
+      busyMessage: loc.tagReportBusy,
+      task: NtagTools.healthReport,
+      successMessage: (h) => loc.tagReportDone(h.chip?.name ?? loc.unknownChip),
+    );
+    if (!context.mounted) return;
+    if (health == null) {
+      _snack(context, controller.statusMessage, error: true);
+      return;
+    }
+    await showModalBottomSheet<void>(
+      context: context,
+      isScrollControlled: true,
+      builder: (ctx) => _TagHealthSheet(health: health),
+    );
   }
 
   Future<void> _readMemory(BuildContext context) async {
@@ -513,6 +540,84 @@ class _AdvancedCommandsSheetState extends State<_AdvancedCommandsSheet> {
                 ),
               ),
             ],
+          ],
+        ),
+      ),
+    );
+  }
+}
+
+
+class _TagHealthSheet extends StatelessWidget {
+  final TagHealth health;
+
+  const _TagHealthSheet({required this.health});
+
+  @override
+  Widget build(BuildContext context) {
+    final loc = AppLocalizations.of(context) ?? L10n.current;
+    String yesNo(bool? v) => v == null ? loc.unknown : (v ? loc.yes : loc.no);
+    final rows = <(IconData, String, String, bool?)>[
+      (Icons.memory_rounded, loc.reportChip, health.chip?.name ?? loc.unknownChip, null),
+      (Icons.fingerprint, loc.serialUidLabel, health.uidHex, null),
+      (Icons.check_circle_outline, loc.reportNdefFormatted, yesNo(health.ndefFormatted), health.ndefFormatted),
+      (Icons.edit_outlined, loc.reportWritable, yesNo(health.writable), health.writable),
+      (Icons.lock_outline, loc.reportStaticLock, yesNo(health.staticLockBitsSet), !health.staticLockBitsSet),
+      (Icons.lock_clock_outlined, loc.reportDynamicLock, yesNo(health.dynamicLockBitsSet),
+          health.dynamicLockBitsSet == null ? null : !health.dynamicLockBitsSet!),
+      (Icons.key_outlined, loc.reportPassword, yesNo(health.passwordProtected),
+          health.passwordProtected == null ? null : !health.passwordProtected!),
+      (Icons.visibility_off_outlined, loc.reportReadProtected, yesNo(health.readProtected),
+          health.readProtected == null ? null : !health.readProtected!),
+      if (health.userCapacity != null)
+        (Icons.storage_outlined, loc.reportNdefUsage,
+            loc.bytesOfCapacity('${health.ndefMessageLength ?? 0}', '${health.userCapacity}'), null),
+    ];
+    final summary = [for (final r in rows) '${r.$2}: ${r.$3}'].join('\n');
+    return SafeArea(
+      child: Padding(
+        padding: const EdgeInsets.fromLTRB(20, 0, 20, 20),
+        child: Column(
+          mainAxisSize: MainAxisSize.min,
+          crossAxisAlignment: CrossAxisAlignment.stretch,
+          children: [
+            Row(
+              children: [
+                Icon(health.writable ? Icons.verified_outlined : Icons.report_outlined,
+                    color: health.writable ? AppColors.success : AppColors.warning, size: 28),
+                const SizedBox(width: 10),
+                Expanded(
+                  child: Text(
+                    health.writable ? loc.reportVerdictWritable : loc.reportVerdictRestricted,
+                    style: Theme.of(context).textTheme.titleLarge,
+                  ),
+                ),
+              ],
+            ),
+            const SizedBox(height: 12),
+            for (final (icon, label, value, good) in rows)
+              ListTile(
+                dense: true,
+                contentPadding: EdgeInsets.zero,
+                leading: Icon(icon, size: 20),
+                title: Text(label),
+                trailing: Text(
+                  value,
+                  style: TextStyle(
+                    fontWeight: FontWeight.w600,
+                    color: good == null ? AppColors.ink : (good ? AppColors.success : AppColors.warning),
+                  ),
+                ),
+              ),
+            const SizedBox(height: 8),
+            OutlinedButton.icon(
+              icon: const Icon(Icons.copy, size: 18),
+              label: Text(loc.copyToClipboard),
+              onPressed: () {
+                Clipboard.setData(ClipboardData(text: summary));
+                ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Text(loc.reportCopied)));
+              },
+            ),
           ],
         ),
       ),

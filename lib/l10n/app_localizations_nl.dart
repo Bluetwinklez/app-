@@ -3024,4 +3024,61 @@ class AppLocalizationsNl extends AppLocalizations {
   @override
   String get contentTooLargeForChips =>
       'Te groot voor gangbare tags; kort de tekst in of gebruik een korte link.';
+
+  @override
+  String get tagReportTitle => 'Tagrapport';
+
+  @override
+  String get tagReportSubtitle =>
+      'Chip, vergrendelingen, wachtwoord en gebruik';
+
+  @override
+  String get tagReportPrompt => 'Houd de tag tegen de telefoon';
+
+  @override
+  String get tagReportBusy => 'Tag wordt gecontroleerd...';
+
+  @override
+  String tagReportDone(String chip) {
+    return 'Rapport klaar: $chip';
+  }
+
+  @override
+  String get unknownChip => 'Onbekende chip';
+
+  @override
+  String get yes => 'Ja';
+
+  @override
+  String get reportChip => 'Chip';
+
+  @override
+  String get reportNdefFormatted => 'NDEF-geformatteerd';
+
+  @override
+  String get reportWritable => 'Beschrijfbaar';
+
+  @override
+  String get reportStaticLock => 'Statische vergrendeling';
+
+  @override
+  String get reportDynamicLock => 'Dynamische vergrendeling';
+
+  @override
+  String get reportPassword => 'Wachtwoordbeveiliging';
+
+  @override
+  String get reportReadProtected => 'Leesbeveiligd';
+
+  @override
+  String get reportNdefUsage => 'NDEF-gebruik';
+
+  @override
+  String get reportVerdictWritable => 'Tag is klaar om te schrijven';
+
+  @override
+  String get reportVerdictRestricted => 'Tag heeft beperkingen';
+
+  @override
+  String get reportCopied => 'Rapport gekopieerd';
 }

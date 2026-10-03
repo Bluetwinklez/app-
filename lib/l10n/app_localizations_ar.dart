@@ -2988,4 +2988,60 @@ class AppLocalizationsAr extends AppLocalizations {
   @override
   String get contentTooLargeForChips =>
       'كبير جدًا على الوسوم الشائعة؛ اختصر النص أو استخدم رابطًا قصيرًا.';
+
+  @override
+  String get tagReportTitle => 'تقرير الوسم';
+
+  @override
+  String get tagReportSubtitle => 'الشريحة والأقفال وكلمة المرور والاستخدام';
+
+  @override
+  String get tagReportPrompt => 'قرّب الوسم لفحصه';
+
+  @override
+  String get tagReportBusy => 'جارٍ فحص الوسم...';
+
+  @override
+  String tagReportDone(String chip) {
+    return 'التقرير جاهز: $chip';
+  }
+
+  @override
+  String get unknownChip => 'شريحة غير معروفة';
+
+  @override
+  String get yes => 'نعم';
+
+  @override
+  String get reportChip => 'الشريحة';
+
+  @override
+  String get reportNdefFormatted => 'بتنسيق NDEF';
+
+  @override
+  String get reportWritable => 'قابل للكتابة';
+
+  @override
+  String get reportStaticLock => 'قفل ثابت';
+
+  @override
+  String get reportDynamicLock => 'قفل ديناميكي';
+
+  @override
+  String get reportPassword => 'حماية بكلمة مرور';
+
+  @override
+  String get reportReadProtected => 'محمي من القراءة';
+
+  @override
+  String get reportNdefUsage => 'استخدام NDEF';
+
+  @override
+  String get reportVerdictWritable => 'الوسم جاهز للكتابة';
+
+  @override
+  String get reportVerdictRestricted => 'الوسم مقيّد';
+
+  @override
+  String get reportCopied => 'تم نسخ التقرير';
 }
