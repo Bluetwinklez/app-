@@ -2,6 +2,7 @@ import 'dart:convert';
 import 'dart:io';
 import 'dart:math';
 import 'package:file_selector/file_selector.dart';
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:image_picker/image_picker.dart';
@@ -37,6 +38,8 @@ import 'tag_library_page.dart';
 import 'password_prompt.dart';
 import 'shortcuts_guide_sheet.dart';
 import '../services/launch_action_service.dart';
+import '../services/companion_service.dart';
+import '../domain/watch_sync.dart';
 import '../services/security_service.dart';
 import '../services/speech_service.dart';
 import '../domain/tag_identity.dart';
@@ -70,6 +73,7 @@ part 'home_read_tab.dart';
 part 'home_write_tab.dart';
 part 'home_history_tab.dart';
 part 'home_settings_tab.dart';
+part 'home_companion.dart';
 
 class HomeScreen extends StatefulWidget {
   final NfcStateController? controller;
@@ -120,6 +124,12 @@ class _HomeScreenState extends State<HomeScreen>
 
   final LaunchActionService _launchActions = LaunchActionService();
   StreamSubscription<LaunchAction>? _launchSubscription;
+
+  // iCloud backup and Apple Watch (iPhone)
+  StreamSubscription<String>? _signalSubscription;
+  Timer? _watchTimer;
+  String? _lastWatchJson;
+  DateTime? _iCloudSavedAt;
   bool _showOnboarding = false;
 
   @override
@@ -135,6 +145,7 @@ class _HomeScreenState extends State<HomeScreen>
     _controller.init();
     _launchSubscription = _launchActions.actions.listen(_handleLaunchAction);
     _launchActions.start();
+    _startCompanion();
   }
 
   /// Opens the screen requested by a Siri shortcut or an nfctagmaster:// link.
@@ -952,16 +963,22 @@ class _HomeScreenState extends State<HomeScreen>
   void didChangeAppLifecycleState(AppLifecycleState state) {
     if (state == AppLifecycleState.resumed) {
       _controller.refreshAvailability();
+      if (_companionSupported) _takeWatchEvents();
+    } else if (state == AppLifecycleState.paused) {
+      _autoICloudBackup();
     }
   }
 
   void _onControllerUpdate() {
     if (mounted) setState(() {});
+    _scheduleWatchSync();
   }
 
   @override
   void dispose() {
     _launchSubscription?.cancel();
+    _signalSubscription?.cancel();
+    _watchTimer?.cancel();
     _launchActions.dispose();
     WidgetsBinding.instance.removeObserver(this);
     _tabController.dispose();

@@ -1411,5 +1411,17 @@
   "whatsNew150": "• Página de ideas y tarjeta \"Tu primera etiqueta\"\n• Estadísticas, categorías automáticas, escáner QR/código de barras\n• Combinar registros, tarjeta de visita digital, ubicación por dirección\n• Rachas de hábitos, tareas infantiles, comida de mascota, registro de visitas\n• Recordatorios, lectura en voz alta, activos y garantía\n• Compartir plantillas por QR e importarlas desde hojas; plantillas de restaurante y alquiler\n• 12 iconos, 9 colores de acento, tamaño de texto",
   "ocrTitle": "Texto desde foto (OCR)",
   "ocrSubtitle": "Lee el texto de un documento o tarjeta y escríbelo en una etiqueta",
-  "ocrNothing": "No se encontró texto legible (funciona en iPhone)."
+  "ocrNothing": "No se encontró texto legible (funciona en iPhone).",
+  "iCloudTitle": "Copia en iCloud",
+  "iCloudSubtitle": "Las plantillas, reglas y la biblioteca de etiquetas se guardan en tu cuenta de iCloud y se pueden restaurar en un iPhone nuevo. El historial de lecturas no se incluye.",
+  "iCloudAuto": "Copia automática",
+  "iCloudAutoHint": "Guarda al salir de la app",
+  "iCloudBackupNow": "Copiar ahora",
+  "iCloudRestore": "Restaurar",
+  "iCloudLastBackup": "Última copia en iCloud: {date}",
+  "iCloudNoBackup": "Aún no hay copia en iCloud",
+  "iCloudBackedUp": "Copiado en iCloud",
+  "iCloudNoAccount": "Este iPhone no tiene sesión en iCloud. Revisa Ajustes → Cuenta de Apple → iCloud.",
+  "iCloudTooLarge": "La copia supera el límite de iCloud (1 MB). Usa una copia en archivo.",
+  "iCloudFailed": "No se pudo guardar la copia en iCloud"
 }

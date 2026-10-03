@@ -1411,5 +1411,17 @@
   "whatsNew150": "• Ideen-Seite und Karte „Erster Tag\"\n• Tag-Statistik, automatische Kategorien, QR-/Barcode-Scanner\n• Datensätze zusammenführen, digitale Visitenkarte, Ort per Adresse\n• Gewohnheitsserien, Kinder-Aufgabenplan, Haustierfütterung, Besucherbuch\n• Erinnerungen, Vorlesen, Inventar und Garantie\n• Vorlagen per QR teilen und aus Tabellen importieren; Restaurant- und Ferienwohnungsvorlagen\n• 12 App-Symbole, 9 Akzentfarben, Textgröße",
   "ocrTitle": "Text aus Foto (OCR)",
   "ocrSubtitle": "Text von Dokument, Schild oder Karte lesen und auf einen Tag schreiben",
-  "ocrNothing": "Kein lesbarer Text gefunden (funktioniert auf dem iPhone)."
+  "ocrNothing": "Kein lesbarer Text gefunden (funktioniert auf dem iPhone).",
+  "iCloudTitle": "iCloud-Backup",
+  "iCloudSubtitle": "Vorlagen, Regeln und die Tag-Bibliothek werden in deinem iCloud-Konto gesichert und lassen sich auf einem neuen iPhone wiederherstellen. Der Scanverlauf ist nicht enthalten.",
+  "iCloudAuto": "Automatisch sichern",
+  "iCloudAutoHint": "Sichert beim Verlassen der App",
+  "iCloudBackupNow": "Jetzt sichern",
+  "iCloudRestore": "Wiederherstellen",
+  "iCloudLastBackup": "Letztes iCloud-Backup: {date}",
+  "iCloudNoBackup": "Noch kein Backup in iCloud",
+  "iCloudBackedUp": "In iCloud gesichert",
+  "iCloudNoAccount": "Dieses iPhone ist nicht bei iCloud angemeldet. Prüfe Einstellungen → Apple Account → iCloud.",
+  "iCloudTooLarge": "Das Backup überschreitet das iCloud-Limit (1 MB). Nutze stattdessen ein Datei-Backup.",
+  "iCloudFailed": "iCloud-Backup konnte nicht gespeichert werden"
 }
