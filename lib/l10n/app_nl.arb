@@ -897,5 +897,7 @@
   "clearList": "Lijst wissen",
   "csvColumnTime": "Tijd",
   "csvColumnRecords": "Records",
-  "csvColumnContent": "Inhoud"
+  "csvColumnContent": "Inhoud",
+  "csvColumnCapacity": "Capaciteit (B)",
+  "csvColumnUsed": "Gebruikt (B)"
 }

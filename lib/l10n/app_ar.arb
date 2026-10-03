@@ -897,5 +897,7 @@
   "clearList": "مسح القائمة",
   "csvColumnTime": "الوقت",
   "csvColumnRecords": "السجلات",
-  "csvColumnContent": "المحتوى"
+  "csvColumnContent": "المحتوى",
+  "csvColumnCapacity": "السعة (ب)",
+  "csvColumnUsed": "المستخدم (ب)"
 }

@@ -897,5 +897,7 @@
   "clearList": "Vider la liste",
   "csvColumnTime": "Heure",
   "csvColumnRecords": "Enregistrements",
-  "csvColumnContent": "Contenu"
+  "csvColumnContent": "Contenu",
+  "csvColumnCapacity": "Capacité (o)",
+  "csvColumnUsed": "Utilisé (o)"
 }

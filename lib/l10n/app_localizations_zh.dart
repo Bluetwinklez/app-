@@ -3026,4 +3026,10 @@ class AppLocalizationsZh extends AppLocalizations {
 
   @override
   String get csvColumnContent => '内容';
+
+  @override
+  String get csvColumnCapacity => '容量（B）';
+
+  @override
+  String get csvColumnUsed => '已用（B）';
 }
