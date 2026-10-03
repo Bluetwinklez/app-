@@ -4652,4 +4652,19 @@ class AppLocalizationsZh extends AppLocalizations {
 
   @override
   String get locationNotFound => '未找到地址';
+
+  @override
+  String get cardCall => '呼叫';
+
+  @override
+  String get cardEmail => '邮件';
+
+  @override
+  String get cardWeb => '网站';
+
+  @override
+  String get cardAddContact => '添加到通讯录';
+
+  @override
+  String get cardTitle => '数字名片';
 }

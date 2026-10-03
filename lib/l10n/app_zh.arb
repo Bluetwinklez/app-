@@ -1374,5 +1374,10 @@
   "mergeEmpty": "暂无可合并内容，请先保存标签或模板。",
   "mergeLastScan": "最近扫描的标签",
   "locationSearchHint": "搜索地址或地点",
-  "locationNotFound": "未找到地址"
+  "locationNotFound": "未找到地址",
+  "cardCall": "呼叫",
+  "cardEmail": "邮件",
+  "cardWeb": "网站",
+  "cardAddContact": "添加到通讯录",
+  "cardTitle": "数字名片"
 }

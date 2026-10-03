@@ -1374,5 +1374,10 @@
   "mergeEmpty": "Rien à fusionner. Enregistrez d'abord des tags ou modèles.",
   "mergeLastScan": "Dernier tag scanné",
   "locationSearchHint": "Rechercher une adresse ou un lieu",
-  "locationNotFound": "Adresse introuvable"
+  "locationNotFound": "Adresse introuvable",
+  "cardCall": "Appeler",
+  "cardEmail": "E-mail",
+  "cardWeb": "Site",
+  "cardAddContact": "Ajouter aux contacts",
+  "cardTitle": "Carte de visite numérique"
 }

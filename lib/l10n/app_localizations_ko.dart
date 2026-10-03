@@ -4708,4 +4708,19 @@ class AppLocalizationsKo extends AppLocalizations {
 
   @override
   String get locationNotFound => '주소를 찾을 수 없음';
+
+  @override
+  String get cardCall => '전화';
+
+  @override
+  String get cardEmail => '이메일';
+
+  @override
+  String get cardWeb => '웹';
+
+  @override
+  String get cardAddContact => '연락처에 추가';
+
+  @override
+  String get cardTitle => '디지털 명함';
 }

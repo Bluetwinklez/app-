@@ -1374,5 +1374,10 @@
   "mergeEmpty": "Nada para combinar. Salve tags ou modelos primeiro.",
   "mergeLastScan": "Última tag lida",
   "locationSearchHint": "Buscar endereço ou local",
-  "locationNotFound": "Endereço não encontrado"
+  "locationNotFound": "Endereço não encontrado",
+  "cardCall": "Ligar",
+  "cardEmail": "E-mail",
+  "cardWeb": "Site",
+  "cardAddContact": "Adicionar aos contatos",
+  "cardTitle": "Cartão de visita digital"
 }

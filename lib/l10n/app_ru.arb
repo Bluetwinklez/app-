@@ -1374,5 +1374,10 @@
   "mergeEmpty": "Нечего объединять. Сначала сохраните метки или шаблоны.",
   "mergeLastScan": "Последняя метка",
   "locationSearchHint": "Найти адрес или место",
-  "locationNotFound": "Адрес не найден"
+  "locationNotFound": "Адрес не найден",
+  "cardCall": "Позвонить",
+  "cardEmail": "Почта",
+  "cardWeb": "Сайт",
+  "cardAddContact": "В контакты",
+  "cardTitle": "Цифровая визитка"
 }

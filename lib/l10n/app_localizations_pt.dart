@@ -4917,4 +4917,19 @@ class AppLocalizationsPt extends AppLocalizations {
 
   @override
   String get locationNotFound => 'Endereço não encontrado';
+
+  @override
+  String get cardCall => 'Ligar';
+
+  @override
+  String get cardEmail => 'E-mail';
+
+  @override
+  String get cardWeb => 'Site';
+
+  @override
+  String get cardAddContact => 'Adicionar aos contatos';
+
+  @override
+  String get cardTitle => 'Cartão de visita digital';
 }

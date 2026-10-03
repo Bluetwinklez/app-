@@ -1374,5 +1374,10 @@
   "mergeEmpty": "لا يوجد ما يُدمج. احفظ وسومًا أو قوالب أولًا.",
   "mergeLastScan": "آخر وسم ممسوح",
   "locationSearchHint": "ابحث عن عنوان أو مكان",
-  "locationNotFound": "لم يُعثر على العنوان"
+  "locationNotFound": "لم يُعثر على العنوان",
+  "cardCall": "اتصال",
+  "cardEmail": "بريد",
+  "cardWeb": "الموقع",
+  "cardAddContact": "إضافة إلى جهات الاتصال",
+  "cardTitle": "بطاقة عمل رقمية"
 }

@@ -390,6 +390,8 @@ extension _ReadTab on _HomeScreenState {
             const Divider(height: 20),
             _buildMetaRow(L10n.current.serialUidLabel, tag.identifier),
             _buildTagIdentityChips(tag),
+            if (tag.error == null)
+              if (BusinessCardView.find(tag.records) case final card?) BusinessCardView(record: card),
             _buildMetaRow(L10n.current.ndefSupport,
                 tag.isNdefSupported ? L10n.current.supportedValue : L10n.current.notSupportedValue),
             _buildMetaRow(L10n.current.totalCapacityLabel, L10n.current.bytesValue('${tag.maxByteCapacity}')),

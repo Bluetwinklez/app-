@@ -4891,4 +4891,19 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get locationNotFound => 'Address not found';
+
+  @override
+  String get cardCall => 'Call';
+
+  @override
+  String get cardEmail => 'Email';
+
+  @override
+  String get cardWeb => 'Website';
+
+  @override
+  String get cardAddContact => 'Add to contacts';
+
+  @override
+  String get cardTitle => 'Digital business card';
 }

@@ -4942,4 +4942,19 @@ class AppLocalizationsFr extends AppLocalizations {
 
   @override
   String get locationNotFound => 'Adresse introuvable';
+
+  @override
+  String get cardCall => 'Appeler';
+
+  @override
+  String get cardEmail => 'E-mail';
+
+  @override
+  String get cardWeb => 'Site';
+
+  @override
+  String get cardAddContact => 'Ajouter aux contacts';
+
+  @override
+  String get cardTitle => 'Carte de visite numérique';
 }

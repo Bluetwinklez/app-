@@ -4906,4 +4906,19 @@ class AppLocalizationsRu extends AppLocalizations {
 
   @override
   String get locationNotFound => 'Адрес не найден';
+
+  @override
+  String get cardCall => 'Позвонить';
+
+  @override
+  String get cardEmail => 'Почта';
+
+  @override
+  String get cardWeb => 'Сайт';
+
+  @override
+  String get cardAddContact => 'В контакты';
+
+  @override
+  String get cardTitle => 'Цифровая визитка';
 }

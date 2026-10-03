@@ -4918,4 +4918,19 @@ class AppLocalizationsDe extends AppLocalizations {
 
   @override
   String get locationNotFound => 'Adresse nicht gefunden';
+
+  @override
+  String get cardCall => 'Anrufen';
+
+  @override
+  String get cardEmail => 'E-Mail';
+
+  @override
+  String get cardWeb => 'Website';
+
+  @override
+  String get cardAddContact => 'Zu Kontakten';
+
+  @override
+  String get cardTitle => 'Digitale Visitenkarte';
 }

@@ -1374,5 +1374,10 @@
   "mergeEmpty": "Nog niets om samen te voegen. Bewaar eerst tags of sjablonen.",
   "mergeLastScan": "Laatst gescande tag",
   "locationSearchHint": "Zoek een adres of plaats",
-  "locationNotFound": "Adres niet gevonden"
+  "locationNotFound": "Adres niet gevonden",
+  "cardCall": "Bellen",
+  "cardEmail": "E-mail",
+  "cardWeb": "Website",
+  "cardAddContact": "Aan contacten toevoegen",
+  "cardTitle": "Digitaal visitekaartje"
 }
