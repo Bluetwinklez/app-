@@ -1116,5 +1116,18 @@
   "appLockUnavailable": "No hay bloqueo de pantalla configurado en este dispositivo.",
   "appLockLocked": "App bloqueada",
   "appLockUnlock": "Desbloquear",
-  "appLockReason": "Para abrir tu biblioteca e historial"
+  "appLockReason": "Para abrir tu biblioteca e historial",
+  "sigTitle": "Etiquetas firmadas",
+  "sigSubtitle": "Detecta si alguien cambia el contenido",
+  "sigExplain": "Se añade a tus etiquetas un registro de firma hecho con tu clave secreta. Al leerlas con esta app, cualquier cambio se detecta. Puedes compartir la clave con tu equipo; sin ella nadie puede falsificar la firma. No impide leer la etiqueta.",
+  "sigCreateKey": "Crear clave",
+  "sigCopyKey": "Copiar clave (compartir)",
+  "sigImportKey": "Pegar clave",
+  "sigImportInvalid": "El portapapeles no contiene una clave válida.",
+  "sigKeyReady": "Clave lista ({id})",
+  "sigSignOnWrite": "Firmar las etiquetas que escribo",
+  "sigValid": "Firma válida",
+  "sigInvalid": "Firma no válida: contenido cambiado",
+  "sigOtherKey": "Firmada con otra clave",
+  "sigReplaceKeyConfirm": "¿Reemplazar la clave actual? Las etiquetas firmadas con la anterior aparecerán como «otra clave»."
 }

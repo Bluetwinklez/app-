@@ -1,3 +1,4 @@
+import 'dart:convert';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import '../domain/ndef_record.dart';
@@ -7,6 +8,7 @@ import '../domain/nfc_workflow_models.dart';
 import '../domain/tag_rule.dart';
 import '../domain/ntag_tools.dart';
 import '../domain/template_variables.dart';
+import '../domain/tag_signature.dart';
 import '../l10n/l10n.dart';
 import '../services/nfc_service.dart';
 import '../services/app_storage_service.dart';
@@ -295,6 +297,11 @@ class NfcStateController extends ChangeNotifier {
     final nextCounter = _storage.writeCounter + 1;
     if (usesVariables) {
       records = TemplateVariables.apply(records, now: DateTime.now(), counterValue: nextCounter);
+    }
+
+    final signingKey = _storage.signingKey;
+    if (_storage.signOnWrite && signingKey != null) {
+      records = TagSignature.sign(records, base64Decode(signingKey));
     }
 
     try {

@@ -1116,5 +1116,18 @@
   "appLockUnavailable": "この端末には画面ロックが設定されていません。",
   "appLockLocked": "アプリはロックされています",
   "appLockUnlock": "ロック解除",
-  "appLockReason": "タグライブラリと履歴を開くため"
+  "appLockReason": "タグライブラリと履歴を開くため",
+  "sigTitle": "署名付きタグ",
+  "sigSubtitle": "誰かが内容を書き換えたら分かります",
+  "sigExplain": "書き込むタグに秘密鍵で作った署名レコードを追加します。このアプリで読むと内容の改ざんを検出します。鍵はチームと共有できます。鍵がなければ署名は偽造できません。読み取り自体は防ぎません。",
+  "sigCreateKey": "鍵を作成",
+  "sigCopyKey": "鍵をコピー (共有)",
+  "sigImportKey": "鍵を貼り付け",
+  "sigImportInvalid": "クリップボードに有効な鍵がありません。",
+  "sigKeyReady": "鍵の準備完了 ({id})",
+  "sigSignOnWrite": "書き込むタグに署名する",
+  "sigValid": "署名は有効",
+  "sigInvalid": "署名が無効: 内容が変更されています",
+  "sigOtherKey": "別の鍵で署名されています",
+  "sigReplaceKeyConfirm": "現在の鍵を置き換えますか？古い鍵で署名したタグは「別の鍵」と表示されます。"
 }

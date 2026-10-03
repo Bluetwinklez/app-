@@ -12,6 +12,7 @@ import '../domain/nfc_tag_info.dart';
 import '../domain/ndef_record.dart';
 import 'app_theme.dart';
 import 'logbook_page.dart';
+import 'signed_tags_page.dart';
 
 /// "Araçlar" screen: chip-level tools for NTAG / MIFARE Ultralight tags.
 class ToolsTab extends StatelessWidget {
@@ -98,6 +99,13 @@ class ToolsTab extends StatelessWidget {
           onTap: _idle ? () => _writeDump(context) : null,
         ),
         SectionHeader(title: loc.toolsSecuritySection),
+        ToolTile(
+          icon: Icons.verified_user_outlined,
+          title: loc.sigTitle,
+          subtitle: loc.sigSubtitle,
+          color: AppColors.success,
+          onTap: () => SignedTagsPage.open(context, controller.storage),
+        ),
         ToolTile(
           icon: Icons.key_outlined,
           title: loc.setPasswordTitle,

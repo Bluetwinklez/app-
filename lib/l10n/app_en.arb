@@ -1116,5 +1116,18 @@
   "appLockUnavailable": "No screen lock (Face ID / passcode) is set up on this device.",
   "appLockLocked": "App locked",
   "appLockUnlock": "Unlock",
-  "appLockReason": "To open your tag library and history"
+  "appLockReason": "To open your tag library and history",
+  "sigTitle": "Signed tags",
+  "sigSubtitle": "Notice when someone changes a tag's content",
+  "sigExplain": "A signature record made with your secret key is added to tags you write. When read with this app, any change to the content is flagged. You can share the key with teammates; without it nobody can forge the signature. It does not stop anyone from reading the tag.",
+  "sigCreateKey": "Create key",
+  "sigCopyKey": "Copy key (share with team)",
+  "sigImportKey": "Paste a key",
+  "sigImportInvalid": "The clipboard does not contain a valid key.",
+  "sigKeyReady": "Key ready ({id})",
+  "sigSignOnWrite": "Sign the tags I write",
+  "sigValid": "Signature valid",
+  "sigInvalid": "Signature invalid: content was changed",
+  "sigOtherKey": "Signed with a different key",
+  "sigReplaceKeyConfirm": "Replace the current key? Tags signed with the old key will show as \"different key\"."
 }

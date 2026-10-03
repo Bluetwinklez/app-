@@ -2652,5 +2652,25 @@
   "appLockUnavailable": "Bu cihazda ekran kilidi (Face ID / parola) ayarlı değil.",
   "appLockLocked": "Uygulama kilitli",
   "appLockUnlock": "Kilidi aç",
-  "appLockReason": "Etiket kütüphanenizi ve geçmişinizi açmak için"
+  "appLockReason": "Etiket kütüphanenizi ve geçmişinizi açmak için",
+  "sigTitle": "İmzalı etiketler",
+  "sigSubtitle": "Etiket içeriği değiştirilirse fark edin",
+  "sigExplain": "Yazdığınız etiketlere gizli anahtarınızla bir imza kaydı eklenir. Bu uygulamayla okununca içerik değiştirilmişse uyarı verir. Anahtarı ekip arkadaşlarınızla paylaşabilirsiniz; anahtarı olmayan kişi imzayı taklit edemez. Etiketi okumayı engellemez.",
+  "sigCreateKey": "Anahtar oluştur",
+  "sigCopyKey": "Anahtarı kopyala (ekiple paylaş)",
+  "sigImportKey": "Anahtar yapıştır",
+  "sigImportInvalid": "Panodaki metin geçerli bir anahtar değil.",
+  "sigKeyReady": "Anahtar hazır ({id})",
+  "@sigKeyReady": {
+    "placeholders": {
+      "id": {
+        "type": "String"
+      }
+    }
+  },
+  "sigSignOnWrite": "Yazdığım etiketleri imzala",
+  "sigValid": "İmza geçerli",
+  "sigInvalid": "İmza geçersiz: içerik değiştirilmiş",
+  "sigOtherKey": "Başka bir anahtarla imzalanmış",
+  "sigReplaceKeyConfirm": "Mevcut anahtar değiştirilsin mi? Eski anahtarla imzalanan etiketler artık \"başka anahtar\" olarak görünür."
 }

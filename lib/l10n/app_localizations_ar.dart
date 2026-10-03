@@ -3927,4 +3927,47 @@ class AppLocalizationsAr extends AppLocalizations {
 
   @override
   String get appLockReason => 'لفتح مكتبة الوسوم والسجل';
+
+  @override
+  String get sigTitle => 'وسوم موقّعة';
+
+  @override
+  String get sigSubtitle => 'اعرف إن غيّر أحد محتوى الوسم';
+
+  @override
+  String get sigExplain =>
+      'يُضاف إلى الوسوم التي تكتبها سجل توقيع بمفتاحك السري. عند قراءتها بهذا التطبيق يُكشف أي تغيير. يمكنك مشاركة المفتاح مع فريقك؛ ولا يمكن تزوير التوقيع بدونه. لا يمنع ذلك قراءة الوسم.';
+
+  @override
+  String get sigCreateKey => 'إنشاء مفتاح';
+
+  @override
+  String get sigCopyKey => 'نسخ المفتاح (مشاركة)';
+
+  @override
+  String get sigImportKey => 'لصق مفتاح';
+
+  @override
+  String get sigImportInvalid => 'لا تحتوي الحافظة على مفتاح صالح.';
+
+  @override
+  String sigKeyReady(String id) {
+    return 'المفتاح جاهز ($id)';
+  }
+
+  @override
+  String get sigSignOnWrite => 'توقيع الوسوم التي أكتبها';
+
+  @override
+  String get sigValid => 'التوقيع صالح';
+
+  @override
+  String get sigInvalid => 'التوقيع غير صالح: تم تغيير المحتوى';
+
+  @override
+  String get sigOtherKey => 'موقّع بمفتاح آخر';
+
+  @override
+  String get sigReplaceKeyConfirm =>
+      'استبدال المفتاح الحالي؟ ستظهر الوسوم الموقّعة بالقديم كـ\"مفتاح آخر\".';
 }
