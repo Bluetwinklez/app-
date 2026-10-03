@@ -3426,5 +3426,24 @@
   "whatsNew150": "• Fikirler sayfası ve \"İlk etiketini yap\" kartı\n• Etiket istatistikleri, otomatik kategoriler, QR/barkod tarayıcı\n• Kayıtları birleştir, dijital kartvizit görünümü, adresle konum arama\n• Alışkanlık serisi, çocuk görev tablosu, evcil hayvan besleme, ziyaretçi defteri\n• Bildirim hatırlatıcıları, sesli okuma, demirbaş ve garanti takibi\n• Şablonları QR ile paylaş ve tablodan içe aktar; restoran ve kiralık ev şablonları\n• 12 uygulama simgesi, 9 vurgu rengi, yazı boyutu",
   "ocrTitle": "Fotoğraftan metin (OCR)",
   "ocrSubtitle": "Belge, tabela veya kartvizitteki yazıyı okuyup etikete yaz",
-  "ocrNothing": "Fotoğrafta okunabilir yazı bulunamadı (bu özellik iPhone'da çalışır)."
+  "ocrNothing": "Fotoğrafta okunabilir yazı bulunamadı (bu özellik iPhone'da çalışır).",
+  "iCloudTitle": "iCloud yedekleme",
+  "iCloudSubtitle": "Şablonlar, kurallar ve etiket kütüphanesi iCloud hesabına yedeklenir; yeni iPhone'da geri yüklenebilir. Okuma geçmişi dahil değildir.",
+  "iCloudAuto": "Otomatik yedekle",
+  "iCloudAutoHint": "Uygulamadan çıkınca yedekler",
+  "iCloudBackupNow": "Şimdi yedekle",
+  "iCloudRestore": "Geri yükle",
+  "iCloudLastBackup": "Son iCloud yedeği: {date}",
+  "@iCloudLastBackup": {
+    "placeholders": {
+      "date": {
+        "type": "String"
+      }
+    }
+  },
+  "iCloudNoBackup": "iCloud'da henüz yedek yok",
+  "iCloudBackedUp": "iCloud'a yedeklendi",
+  "iCloudNoAccount": "Bu iPhone'da iCloud'a giriş yapılmamış. Ayarlar → Apple hesabı → iCloud bölümünü kontrol et.",
+  "iCloudTooLarge": "Yedek iCloud sınırını (1 MB) aşıyor. Dosya olarak yedeklemeyi kullan.",
+  "iCloudFailed": "iCloud yedeği kaydedilemedi"
 }

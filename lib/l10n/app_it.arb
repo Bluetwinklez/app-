@@ -1411,5 +1411,17 @@
   "whatsNew150": "• Pagina Idee e scheda \"Il tuo primo tag\"\n• Statistiche, categorie automatiche, scanner QR/codici a barre\n• Unisci record, biglietto da visita digitale, posizione da indirizzo\n• Serie di abitudini, compiti dei bambini, pappa dell'animale, registro visitatori\n• Promemoria, lettura ad alta voce, beni e garanzia\n• Modelli condivisi via QR e importati da fogli; modelli ristorante e affitto\n• 12 icone, 9 colori, dimensione testo",
   "ocrTitle": "Testo da foto (OCR)",
   "ocrSubtitle": "Leggi il testo di un documento o biglietto e scrivilo su un tag",
-  "ocrNothing": "Nessun testo leggibile trovato (funziona su iPhone)."
+  "ocrNothing": "Nessun testo leggibile trovato (funziona su iPhone).",
+  "iCloudTitle": "Backup iCloud",
+  "iCloudSubtitle": "Modelli, regole e libreria dei tag vengono salvati sul tuo account iCloud e si possono ripristinare su un nuovo iPhone. La cronologia delle letture non è inclusa.",
+  "iCloudAuto": "Backup automatico",
+  "iCloudAutoHint": "Salva quando esci dall'app",
+  "iCloudBackupNow": "Salva ora",
+  "iCloudRestore": "Ripristina",
+  "iCloudLastBackup": "Ultimo backup iCloud: {date}",
+  "iCloudNoBackup": "Ancora nessun backup su iCloud",
+  "iCloudBackedUp": "Salvato su iCloud",
+  "iCloudNoAccount": "Questo iPhone non ha eseguito l'accesso a iCloud. Controlla Impostazioni → Account Apple → iCloud.",
+  "iCloudTooLarge": "Il backup supera il limite di iCloud (1 MB). Usa un backup su file.",
+  "iCloudFailed": "Impossibile salvare il backup iCloud"
 }

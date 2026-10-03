@@ -5039,4 +5039,45 @@ class AppLocalizationsRu extends AppLocalizations {
 
   @override
   String get ocrNothing => 'Читаемый текст не найден (работает на iPhone).';
+
+  @override
+  String get iCloudTitle => 'Резервная копия iCloud';
+
+  @override
+  String get iCloudSubtitle =>
+      'Шаблоны, правила и библиотека меток сохраняются в iCloud и восстанавливаются на новом iPhone. История сканирований не включается.';
+
+  @override
+  String get iCloudAuto => 'Автоматическое копирование';
+
+  @override
+  String get iCloudAutoHint => 'Копирует при выходе из приложения';
+
+  @override
+  String get iCloudBackupNow => 'Создать копию';
+
+  @override
+  String get iCloudRestore => 'Восстановить';
+
+  @override
+  String iCloudLastBackup(String date) {
+    return 'Последняя копия в iCloud: $date';
+  }
+
+  @override
+  String get iCloudNoBackup => 'В iCloud пока нет копии';
+
+  @override
+  String get iCloudBackedUp => 'Сохранено в iCloud';
+
+  @override
+  String get iCloudNoAccount =>
+      'На этом iPhone не выполнен вход в iCloud. Проверьте Настройки → Аккаунт Apple → iCloud.';
+
+  @override
+  String get iCloudTooLarge =>
+      'Копия превышает лимит iCloud (1 МБ). Используйте резервную копию в файл.';
+
+  @override
+  String get iCloudFailed => 'Не удалось сохранить копию в iCloud';
 }

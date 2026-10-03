@@ -5039,4 +5039,45 @@ class AppLocalizationsTr extends AppLocalizations {
   @override
   String get ocrNothing =>
       'Fotoğrafta okunabilir yazı bulunamadı (bu özellik iPhone\'da çalışır).';
+
+  @override
+  String get iCloudTitle => 'iCloud yedekleme';
+
+  @override
+  String get iCloudSubtitle =>
+      'Şablonlar, kurallar ve etiket kütüphanesi iCloud hesabına yedeklenir; yeni iPhone\'da geri yüklenebilir. Okuma geçmişi dahil değildir.';
+
+  @override
+  String get iCloudAuto => 'Otomatik yedekle';
+
+  @override
+  String get iCloudAutoHint => 'Uygulamadan çıkınca yedekler';
+
+  @override
+  String get iCloudBackupNow => 'Şimdi yedekle';
+
+  @override
+  String get iCloudRestore => 'Geri yükle';
+
+  @override
+  String iCloudLastBackup(String date) {
+    return 'Son iCloud yedeği: $date';
+  }
+
+  @override
+  String get iCloudNoBackup => 'iCloud\'da henüz yedek yok';
+
+  @override
+  String get iCloudBackedUp => 'iCloud\'a yedeklendi';
+
+  @override
+  String get iCloudNoAccount =>
+      'Bu iPhone\'da iCloud\'a giriş yapılmamış. Ayarlar → Apple hesabı → iCloud bölümünü kontrol et.';
+
+  @override
+  String get iCloudTooLarge =>
+      'Yedek iCloud sınırını (1 MB) aşıyor. Dosya olarak yedeklemeyi kullan.';
+
+  @override
+  String get iCloudFailed => 'iCloud yedeği kaydedilemedi';
 }

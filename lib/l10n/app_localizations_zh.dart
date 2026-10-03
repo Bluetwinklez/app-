@@ -4779,4 +4779,44 @@ class AppLocalizationsZh extends AppLocalizations {
 
   @override
   String get ocrNothing => '未找到可识别的文字（仅限 iPhone）。';
+
+  @override
+  String get iCloudTitle => 'iCloud 备份';
+
+  @override
+  String get iCloudSubtitle =>
+      '模板、规则和标签库会备份到你的 iCloud 账户，可在新 iPhone 上恢复。不包括扫描记录。';
+
+  @override
+  String get iCloudAuto => '自动备份';
+
+  @override
+  String get iCloudAutoHint => '离开应用时备份';
+
+  @override
+  String get iCloudBackupNow => '立即备份';
+
+  @override
+  String get iCloudRestore => '恢复';
+
+  @override
+  String iCloudLastBackup(String date) {
+    return '上次 iCloud 备份：$date';
+  }
+
+  @override
+  String get iCloudNoBackup => 'iCloud 中还没有备份';
+
+  @override
+  String get iCloudBackedUp => '已备份到 iCloud';
+
+  @override
+  String get iCloudNoAccount =>
+      '此 iPhone 未登录 iCloud。请检查 设置 → Apple 账户 → iCloud。';
+
+  @override
+  String get iCloudTooLarge => '备份超出 iCloud 限制（1 MB）。请改用文件备份。';
+
+  @override
+  String get iCloudFailed => '无法保存 iCloud 备份';
 }

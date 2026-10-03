@@ -5041,4 +5041,45 @@ class AppLocalizationsIt extends AppLocalizations {
   @override
   String get ocrNothing =>
       'Nessun testo leggibile trovato (funziona su iPhone).';
+
+  @override
+  String get iCloudTitle => 'Backup iCloud';
+
+  @override
+  String get iCloudSubtitle =>
+      'Modelli, regole e libreria dei tag vengono salvati sul tuo account iCloud e si possono ripristinare su un nuovo iPhone. La cronologia delle letture non è inclusa.';
+
+  @override
+  String get iCloudAuto => 'Backup automatico';
+
+  @override
+  String get iCloudAutoHint => 'Salva quando esci dall\'app';
+
+  @override
+  String get iCloudBackupNow => 'Salva ora';
+
+  @override
+  String get iCloudRestore => 'Ripristina';
+
+  @override
+  String iCloudLastBackup(String date) {
+    return 'Ultimo backup iCloud: $date';
+  }
+
+  @override
+  String get iCloudNoBackup => 'Ancora nessun backup su iCloud';
+
+  @override
+  String get iCloudBackedUp => 'Salvato su iCloud';
+
+  @override
+  String get iCloudNoAccount =>
+      'Questo iPhone non ha eseguito l\'accesso a iCloud. Controlla Impostazioni → Account Apple → iCloud.';
+
+  @override
+  String get iCloudTooLarge =>
+      'Il backup supera il limite di iCloud (1 MB). Usa un backup su file.';
+
+  @override
+  String get iCloudFailed => 'Impossibile salvare il backup iCloud';
 }

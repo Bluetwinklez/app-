@@ -1411,5 +1411,17 @@
   "whatsNew150": "• Ideas page and a \"Make your first tag\" card\n• Tag analytics, automatic categories, QR/barcode scanner\n• Merge records, digital business card view, location by address\n• Habit streaks, kids' chore chart, pet feeding, visitor log\n• Reminders, read aloud, asset and warranty tracking\n• Share templates as QR and import them from a spreadsheet; restaurant and rental templates\n• 12 app icons, 9 accent colours, text size",
   "ocrTitle": "Text from photo (OCR)",
   "ocrSubtitle": "Read the text on a document, sign or card and write it to a tag",
-  "ocrNothing": "No readable text found in the photo (this works on iPhone)."
+  "ocrNothing": "No readable text found in the photo (this works on iPhone).",
+  "iCloudTitle": "iCloud backup",
+  "iCloudSubtitle": "Templates, rules and the tag library are backed up to your iCloud account and can be restored on a new iPhone. Scan history is not included.",
+  "iCloudAuto": "Back up automatically",
+  "iCloudAutoHint": "Backs up when you leave the app",
+  "iCloudBackupNow": "Back up now",
+  "iCloudRestore": "Restore",
+  "iCloudLastBackup": "Last iCloud backup: {date}",
+  "iCloudNoBackup": "No backup in iCloud yet",
+  "iCloudBackedUp": "Backed up to iCloud",
+  "iCloudNoAccount": "This iPhone is not signed in to iCloud. Check Settings → Apple Account → iCloud.",
+  "iCloudTooLarge": "The backup is over the iCloud limit (1 MB). Use a file backup instead.",
+  "iCloudFailed": "Could not save the iCloud backup"
 }

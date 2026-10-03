@@ -266,6 +266,10 @@ extension _SettingsTab on _HomeScreenState {
             ),
           ),
         ),
+        if (_companionSupported) ...[
+          const SizedBox(height: 16),
+          _buildICloudCard(),
+        ],
       ],
     );
   }

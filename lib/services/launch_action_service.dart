@@ -10,15 +10,22 @@ class LaunchActionService {
   static const MethodChannel _channel = MethodChannel('com.antigravity.nfc_tag_master/launch');
 
   final StreamController<LaunchAction> _actions = StreamController<LaunchAction>.broadcast();
+  final StreamController<String> _signals = StreamController<String>.broadcast();
 
   /// Emits every action requested while the app is running or at launch.
   Stream<LaunchAction> get actions => _actions.stream;
+
+  /// Native notices: `watchEventsAvailable` (the watch logged something)
+  /// and `iCloudBackupChanged` (another device saved a backup).
+  Stream<String> get signals => _signals.stream;
 
   /// Starts listening; also delivers an action that launched the app.
   Future<void> start() async {
     _channel.setMethodCallHandler((call) async {
       if (call.method == 'launchActionAvailable') {
         await _take();
+      } else {
+        _signals.add(call.method);
       }
     });
     await _take();
@@ -49,6 +56,7 @@ class LaunchActionService {
   void dispose() {
     _channel.setMethodCallHandler(null);
     _actions.close();
+    _signals.close();
   }
 
   /// Asks the store for the system review prompt (shown at the OS's discretion).

@@ -5025,4 +5025,45 @@ class AppLocalizationsEn extends AppLocalizations {
   @override
   String get ocrNothing =>
       'No readable text found in the photo (this works on iPhone).';
+
+  @override
+  String get iCloudTitle => 'iCloud backup';
+
+  @override
+  String get iCloudSubtitle =>
+      'Templates, rules and the tag library are backed up to your iCloud account and can be restored on a new iPhone. Scan history is not included.';
+
+  @override
+  String get iCloudAuto => 'Back up automatically';
+
+  @override
+  String get iCloudAutoHint => 'Backs up when you leave the app';
+
+  @override
+  String get iCloudBackupNow => 'Back up now';
+
+  @override
+  String get iCloudRestore => 'Restore';
+
+  @override
+  String iCloudLastBackup(String date) {
+    return 'Last iCloud backup: $date';
+  }
+
+  @override
+  String get iCloudNoBackup => 'No backup in iCloud yet';
+
+  @override
+  String get iCloudBackedUp => 'Backed up to iCloud';
+
+  @override
+  String get iCloudNoAccount =>
+      'This iPhone is not signed in to iCloud. Check Settings → Apple Account → iCloud.';
+
+  @override
+  String get iCloudTooLarge =>
+      'The backup is over the iCloud limit (1 MB). Use a file backup instead.';
+
+  @override
+  String get iCloudFailed => 'Could not save the iCloud backup';
 }

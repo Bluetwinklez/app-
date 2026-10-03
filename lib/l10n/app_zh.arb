@@ -1411,5 +1411,17 @@
   "whatsNew150": "• 创意页面与“制作第一个标签”卡片\n• 标签统计、自动分类、二维码/条形码扫描\n• 合并记录、数字名片、按地址定位\n• 习惯连续、儿童任务表、宠物喂食、访客登记\n• 提醒、朗读、资产与保修跟踪\n• 以二维码分享模板、从表格导入；餐厅与民宿模板\n• 12 款图标、9 种强调色、文字大小",
   "ocrTitle": "从照片识别文字（OCR）",
   "ocrSubtitle": "识别文档、标牌或名片上的文字并写入标签",
-  "ocrNothing": "未找到可识别的文字（仅限 iPhone）。"
+  "ocrNothing": "未找到可识别的文字（仅限 iPhone）。",
+  "iCloudTitle": "iCloud 备份",
+  "iCloudSubtitle": "模板、规则和标签库会备份到你的 iCloud 账户，可在新 iPhone 上恢复。不包括扫描记录。",
+  "iCloudAuto": "自动备份",
+  "iCloudAutoHint": "离开应用时备份",
+  "iCloudBackupNow": "立即备份",
+  "iCloudRestore": "恢复",
+  "iCloudLastBackup": "上次 iCloud 备份：{date}",
+  "iCloudNoBackup": "iCloud 中还没有备份",
+  "iCloudBackedUp": "已备份到 iCloud",
+  "iCloudNoAccount": "此 iPhone 未登录 iCloud。请检查 设置 → Apple 账户 → iCloud。",
+  "iCloudTooLarge": "备份超出 iCloud 限制（1 MB）。请改用文件备份。",
+  "iCloudFailed": "无法保存 iCloud 备份"
 }

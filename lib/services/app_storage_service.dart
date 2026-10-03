@@ -94,6 +94,10 @@ abstract class AppStorageService {
   bool get addMadeWith;
   Future<void> setAddMadeWith(bool value);
 
+  /// Back up templates, rules and the tag library to iCloud when the app goes to the background (iPhone).
+  bool get iCloudBackupEnabled;
+  Future<void> setICloudBackupEnabled(bool value);
+
   /// Compatibility mode: skip read-back verification after writes.
   bool get compatibilityMode;
   Future<void> setCompatibilityMode(bool enabled);
@@ -190,6 +194,14 @@ class InMemoryAppStorageService implements AppStorageService {
 
   @override
   Future<void> setCompatibilityMode(bool enabled) async => _compatibilityMode = enabled;
+
+  bool _iCloudBackupEnabled = false;
+
+  @override
+  bool get iCloudBackupEnabled => _iCloudBackupEnabled;
+
+  @override
+  Future<void> setICloudBackupEnabled(bool value) async => _iCloudBackupEnabled = value;
 
   bool _addMadeWith = false;
 
@@ -573,6 +585,7 @@ class LocalFileAppStorageService implements AppStorageService {
               : const [];
           _lastBackupAt = DateTime.tryParse(data['lastBackupAt'] as String? ?? '');
           _compatibilityMode = data['compatibilityMode'] as bool? ?? false;
+          _iCloudBackupEnabled = data['iCloudBackupEnabled'] as bool? ?? false;
           _addMadeWith = data['addMadeWith'] as bool? ?? false;
           _firstTagDone = data['firstTagDone'] as bool? ?? false;
           _speakAfterScan = data['speakAfterScan'] as bool? ?? false;
@@ -760,6 +773,7 @@ class LocalFileAppStorageService implements AppStorageService {
       'favoritePresets': _favoritePresets,
       if (_lastBackupAt != null) 'lastBackupAt': _lastBackupAt!.toIso8601String(),
       'compatibilityMode': _compatibilityMode,
+      'iCloudBackupEnabled': _iCloudBackupEnabled,
       'addMadeWith': _addMadeWith,
       'firstTagDone': _firstTagDone,
       'speakAfterScan': _speakAfterScan,
@@ -843,6 +857,17 @@ class LocalFileAppStorageService implements AppStorageService {
   @override
   Future<void> setCompatibilityMode(bool enabled) async {
     _compatibilityMode = enabled;
+    await _saveSettings();
+  }
+
+  bool _iCloudBackupEnabled = false;
+
+  @override
+  bool get iCloudBackupEnabled => _iCloudBackupEnabled;
+
+  @override
+  Future<void> setICloudBackupEnabled(bool value) async {
+    _iCloudBackupEnabled = value;
     await _saveSettings();
   }
 

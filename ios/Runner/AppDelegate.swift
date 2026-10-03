@@ -6,36 +6,6 @@ import AppIntents
 import StoreKit
 import LocalAuthentication
 
-extension Notification.Name {
-    static let nfcLaunchAction = Notification.Name("NfcTagMasterLaunchAction")
-}
-
-/// Siri / Shortcuts: "Scan a tag" opens the app and starts a scan.
-@available(iOS 16.0, *)
-struct ScanTagIntent: AppIntent {
-    static let title: LocalizedStringResource = "Scan Tag"
-    static let openAppWhenRun: Bool = true
-
-    @MainActor
-    func perform() async throws -> some IntentResult {
-        NotificationCenter.default.post(name: .nfcLaunchAction, object: "scan")
-        return .result()
-    }
-}
-
-/// Siri / Shortcuts: opens the write screen.
-@available(iOS 16.0, *)
-struct WriteTagIntent: AppIntent {
-    static let title: LocalizedStringResource = "Write Tag"
-    static let openAppWhenRun: Bool = true
-
-    @MainActor
-    func perform() async throws -> some IntentResult {
-        NotificationCenter.default.post(name: .nfcLaunchAction, object: "write")
-        return .result()
-    }
-}
-
 /// Phrases and titles are English keys; translations live in
 /// <lang>.lproj/AppShortcuts.strings and Localizable.strings.
 @available(iOS 16.0, *)
@@ -78,6 +48,7 @@ struct NfcTagMasterShortcuts: AppShortcutsProvider {
     // Action requested by a URL (nfctagmaster://scan) or a Siri shortcut,
     // waiting for Flutter to pick it up
     private var launchChannel: FlutterMethodChannel?
+    private var companion: CompanionBridge?
     private var privacyCoverEnabled = false
     private var authenticating = false
     private var privacyCover: UIView?
@@ -336,11 +307,12 @@ struct NfcTagMasterShortcuts: AppShortcutsProvider {
                     return
                 }
                 UIApplication.shared.open(url, options: [:]) { ok in result(ok) }
-            } else {
+            } else if self.companion?.handle(call, result: result) != true {
                 result(FlutterMethodNotImplemented)
             }
         })
         self.launchChannel = launchChannel
+        self.companion = CompanionBridge(channel: launchChannel)
 
         NotificationCenter.default.addObserver(forName: .nfcLaunchAction, object: nil, queue: .main) { [weak self] note in
             if let action = note.object as? String {

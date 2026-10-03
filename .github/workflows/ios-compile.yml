@@ -1,6 +1,6 @@
 name: iOS compile check
 
-# Builds the iOS app for the simulator (no signing, nothing is published)
+# Builds the iOS app, widgets and watch app (no signing, nothing is published)
 # whenever native iOS code or dependencies change.
 on:
   workflow_dispatch:
@@ -37,5 +37,7 @@ jobs:
           cd ios
           pod install
 
-      - name: Build for the iOS simulator
-        run: flutter build ios --simulator --debug --no-codesign
+      # A device build: Flutter needs a simulator ID for simulator builds
+      # once the project has an Apple Watch app.
+      - name: Build for iOS devices (unsigned)
+        run: flutter build ios --release --no-codesign
