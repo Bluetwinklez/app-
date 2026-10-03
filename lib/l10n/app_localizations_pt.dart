@@ -4562,4 +4562,8 @@ class AppLocalizationsPt extends AppLocalizations {
   String mapLocationFailed(String error) {
     return 'Não foi possível obter o local: $error';
   }
+
+  @override
+  String get whatsNew140 =>
+      '• Seção Segurança e privacidade: verificação, atraso do bloqueio, ocultar no seletor, limpar área de transferência, apagar tudo\n• Chave de assinatura nas Chaves; Face ID para ações sensíveis\n• Mapa de tags e local de uma tag\n• Pacotes de equipe: tags e modelos em um arquivo\n• Ícones alternativos\n• Ajustes e menu da biblioteca mais organizados';
 }

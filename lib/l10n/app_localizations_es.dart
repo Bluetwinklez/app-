@@ -4581,4 +4581,8 @@ class AppLocalizationsEs extends AppLocalizations {
   String mapLocationFailed(String error) {
     return 'No se pudo obtener la ubicación: $error';
   }
+
+  @override
+  String get whatsNew140 =>
+      '• Sección Seguridad y privacidad: revisión, retraso de bloqueo, ocultar en el selector, limpiar portapapeles, borrar todo\n• Clave de firma en el llavero; Face ID para acciones sensibles\n• Mapa de etiquetas y ubicación de una etiqueta\n• Paquetes de equipo: etiquetas y plantillas en un archivo\n• Iconos alternativos\n• Ajustes y menú de biblioteca más ordenados';
 }

@@ -4564,4 +4564,8 @@ class AppLocalizationsDe extends AppLocalizations {
   String mapLocationFailed(String error) {
     return 'Standort nicht verfügbar: $error';
   }
+
+  @override
+  String get whatsNew140 =>
+      '• Bereich Sicherheit & Datenschutz: Sicherheitscheck, Sperrverzögerung, im App-Umschalter ausblenden, Zwischenablage leeren, alle Daten löschen\n• Signaturschlüssel jetzt im Schlüsselbund; sensible Aktionen fragen nach Face ID\n• Tag-Karte und Ort eines Tags speichern\n• Team-Pakete: Tags und Vorlagen in einer Datei teilen\n• Alternative App-Symbole\n• Aufgeräumte Einstellungen und Bibliotheksmenü';
 }

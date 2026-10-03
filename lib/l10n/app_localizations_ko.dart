@@ -4371,4 +4371,8 @@ class AppLocalizationsKo extends AppLocalizations {
   String mapLocationFailed(String error) {
     return '위치를 가져올 수 없음: $error';
   }
+
+  @override
+  String get whatsNew140 =>
+      '• 보안 및 개인정보: 보안 점검, 잠금 지연, 앱 전환기에서 숨기기, 클립보드 지우기, 모든 데이터 지우기\n• 서명 키를 키체인에 보관, 민감한 작업은 Face ID 확인\n• 태그 지도와 태그 위치 저장\n• 팀 팩: 태그와 템플릿을 파일 하나로 공유\n• 대체 앱 아이콘\n• 더 깔끔한 설정과 보관함 메뉴';
 }

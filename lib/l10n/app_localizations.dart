@@ -7750,6 +7750,12 @@ abstract class AppLocalizations {
   /// In tr, this message translates to:
   /// **'Konum alınamadı: {error}'**
   String mapLocationFailed(String error);
+
+  /// No description provided for @whatsNew140.
+  ///
+  /// In tr, this message translates to:
+  /// **'• Güvenlik ve gizlilik bölümü: güvenlik kontrolü, kilit gecikmesi, uygulama değiştiricide gizleme, pano temizleme, tüm verileri sil\n• İmza anahtarı artık Anahtar Zinciri\'nde; hassas işlemler Face ID ister\n• Etiket haritası ve etikete konum kaydetme\n• Ekip paketi: etiket ve şablonları tek dosyayla paylaşın\n• Alternatif uygulama simgeleri\n• Daha sade ayarlar ve kütüphane menüsü'**
+  String get whatsNew140;
 }
 
 class _AppLocalizationsDelegate
