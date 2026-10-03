@@ -481,7 +481,7 @@ class HeroActionCard extends StatelessWidget {
                           padding: EdgeInsetsDirectional.only(end: 10),
                           child: SizedBox(width: 14, height: 14, child: CircularProgressIndicator(strokeWidth: 2)),
                         ),
-                      Text(buttonLabel),
+                      Flexible(child: Text(buttonLabel, textAlign: TextAlign.center)),
                       if (!busy) ...[
                         const SizedBox(width: 6),
                         const Icon(Icons.north_east, size: 16),
