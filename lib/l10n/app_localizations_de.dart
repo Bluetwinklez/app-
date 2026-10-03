@@ -3539,4 +3539,91 @@ class AppLocalizationsDe extends AppLocalizations {
 
   @override
   String get wifiSsidExampleHint => 'Heim_WLAN_5G';
+
+  @override
+  String get nfcErrUnavailable =>
+      'NFC ist auf diesem Gerät nicht verfügbar oder ausgeschaltet.';
+
+  @override
+  String get nfcErrBusy => 'Ein anderer NFC-Vorgang läuft; bitte warten.';
+
+  @override
+  String get nfcErrCancelled => 'Der Vorgang wurde abgebrochen.';
+
+  @override
+  String get nfcErrAppPaused =>
+      'Der Vorgang wurde abgebrochen, weil die App in den Hintergrund ging.';
+
+  @override
+  String get nfcErrUnsupportedTag => 'Dieser Tag-Typ wird nicht unterstützt.';
+
+  @override
+  String get nfcErrNtagOnly =>
+      'Dieses Werkzeug funktioniert nur mit NTAG-/MIFARE-Ultralight-Tags.';
+
+  @override
+  String get nfcErrNotNdefRead => 'Tag erkannt, aber nicht NDEF-formatiert.';
+
+  @override
+  String get nfcErrNotNdefWrite =>
+      'Der Tag ist nicht NDEF-formatiert; dieses Telefon kann nicht direkt NDEF schreiben.';
+
+  @override
+  String get nfcErrReadOnly => 'Der Tag ist schreibgeschützt (gesperrt).';
+
+  @override
+  String get nfcErrNoData => 'Keine Daten zum Schreiben.';
+
+  @override
+  String nfcErrCapacity(String required, String max) {
+    return 'Zu wenig Platz auf dem Tag: $required Byte nötig, $max Byte verfügbar.';
+  }
+
+  @override
+  String get nfcErrCapacityShort => 'Zu wenig Platz auf dem Tag.';
+
+  @override
+  String get nfcErrVerify =>
+      'Prüfung fehlgeschlagen: Gelesene Daten stimmen nicht überein.';
+
+  @override
+  String get nfcErrConnectionLost =>
+      'Verbindung zum Tag verloren; ruhig halten und erneut versuchen.';
+
+  @override
+  String get nfcErrAlreadyLocked =>
+      'Der Tag ist bereits gesperrt (schreibgeschützt).';
+
+  @override
+  String get nfcErrLockNotNdef =>
+      'Der Tag ist nicht NDEF-formatiert; vor dem Sperren einen Eintrag schreiben.';
+
+  @override
+  String get nfcErrLockNotSupported =>
+      'Dieser Tag-Typ unterstützt kein Sperren.';
+
+  @override
+  String get nfcSheetConnected => 'Tag verbunden, wird bearbeitet...';
+
+  @override
+  String get nfcSheetReadOk => 'Tag gelesen!';
+
+  @override
+  String get nfcSheetEmptyRead => 'Leerer Tag gelesen!';
+
+  @override
+  String get nfcSheetMultipleTags =>
+      'Mehrere Tags erkannt. Nur einen Tag an das Telefon halten.';
+
+  @override
+  String get nfcSheetWriteVerified => 'Geschrieben und geprüft!';
+
+  @override
+  String get nfcSheetWritten => 'Auf den Tag geschrieben!';
+
+  @override
+  String get nfcSheetLocked => 'Der Tag ist jetzt dauerhaft gesperrt!';
+
+  @override
+  String get nfcWriteDone => 'Erfolgreich auf den Tag geschrieben.';
 }

@@ -3533,4 +3533,89 @@ class AppLocalizationsUk extends AppLocalizations {
 
   @override
   String get wifiSsidExampleHint => 'Home_WiFi_5G';
+
+  @override
+  String get nfcErrUnavailable =>
+      'NFC недоступний або вимкнений на цьому пристрої.';
+
+  @override
+  String get nfcErrBusy => 'Триває інша NFC-операція; зачекайте.';
+
+  @override
+  String get nfcErrCancelled => 'Операцію скасовано.';
+
+  @override
+  String get nfcErrAppPaused =>
+      'Операцію скасовано: застосунок перейшов у фон.';
+
+  @override
+  String get nfcErrUnsupportedTag => 'Цей тип мітки не підтримується.';
+
+  @override
+  String get nfcErrNtagOnly =>
+      'Цей інструмент працює лише з мітками NTAG / MIFARE Ultralight.';
+
+  @override
+  String get nfcErrNotNdefRead => 'Мітку знайдено, але вона не у форматі NDEF.';
+
+  @override
+  String get nfcErrNotNdefWrite =>
+      'Мітка не у форматі NDEF; телефон не може записати NDEF напряму.';
+
+  @override
+  String get nfcErrReadOnly => 'Мітка лише для читання (заблокована).';
+
+  @override
+  String get nfcErrNoData => 'Немає даних для запису.';
+
+  @override
+  String nfcErrCapacity(String required, String max) {
+    return 'Недостатньо місця: потрібно $required байт, доступно $max.';
+  }
+
+  @override
+  String get nfcErrCapacityShort => 'Недостатньо місця на мітці.';
+
+  @override
+  String get nfcErrVerify =>
+      'Перевірка не пройдена: прочитані дані не збігаються.';
+
+  @override
+  String get nfcErrConnectionLost =>
+      'Зв\'язок із міткою втрачено; тримайте її нерухомо й повторіть.';
+
+  @override
+  String get nfcErrAlreadyLocked => 'Мітка вже заблокована (лише читання).';
+
+  @override
+  String get nfcErrLockNotNdef =>
+      'Мітка не у форматі NDEF; запишіть запис перед блокуванням.';
+
+  @override
+  String get nfcErrLockNotSupported => 'Цей тип мітки не підтримує блокування.';
+
+  @override
+  String get nfcSheetConnected => 'Мітку підключено, виконується...';
+
+  @override
+  String get nfcSheetReadOk => 'Мітку прочитано!';
+
+  @override
+  String get nfcSheetEmptyRead => 'Прочитано порожню мітку!';
+
+  @override
+  String get nfcSheetMultipleTags =>
+      'Виявлено кілька міток. Піднесіть лише одну.';
+
+  @override
+  String get nfcSheetWriteVerified => 'Записано й перевірено!';
+
+  @override
+  String get nfcSheetWritten => 'Записано на мітку!';
+
+  @override
+  String get nfcSheetLocked => 'Мітку заблоковано назавжди!';
+
+  @override
+  String get nfcWriteDone => 'Успішно записано на мітку.';
 }

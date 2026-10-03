@@ -3382,4 +3382,81 @@ class AppLocalizationsJa extends AppLocalizations {
 
   @override
   String get wifiSsidExampleHint => 'Home_WiFi_5G';
+
+  @override
+  String get nfcErrUnavailable => 'この端末ではNFCを使用できないか、オフになっています。';
+
+  @override
+  String get nfcErrBusy => '別のNFC処理が実行中です。終了をお待ちください。';
+
+  @override
+  String get nfcErrCancelled => '操作はキャンセルされました。';
+
+  @override
+  String get nfcErrAppPaused => 'アプリがバックグラウンドに移ったため操作はキャンセルされました。';
+
+  @override
+  String get nfcErrUnsupportedTag => 'このタグの種類には対応していません。';
+
+  @override
+  String get nfcErrNtagOnly => 'このツールはNTAG / MIFARE Ultralightタグ専用です。';
+
+  @override
+  String get nfcErrNotNdefRead => 'タグを検出しましたが、NDEF形式ではありません。';
+
+  @override
+  String get nfcErrNotNdefWrite => 'タグがNDEF形式ではないため、このスマホから直接NDEFを書き込めません。';
+
+  @override
+  String get nfcErrReadOnly => 'タグは読み取り専用 (ロック済み) で書き込めません。';
+
+  @override
+  String get nfcErrNoData => '書き込むデータがありません。';
+
+  @override
+  String nfcErrCapacity(String required, String max) {
+    return 'タグの容量不足: $requiredバイト必要、最大$maxバイト。';
+  }
+
+  @override
+  String get nfcErrCapacityShort => 'タグの容量が足りません。';
+
+  @override
+  String get nfcErrVerify => '検証失敗: 読み戻したデータが一致しません。';
+
+  @override
+  String get nfcErrConnectionLost => 'タグとの接続が切れました。動かさずにもう一度お試しください。';
+
+  @override
+  String get nfcErrAlreadyLocked => 'タグはすでにロックされています (読み取り専用)。';
+
+  @override
+  String get nfcErrLockNotNdef => 'タグがNDEF形式ではありません。ロック前にレコードを書き込んでください。';
+
+  @override
+  String get nfcErrLockNotSupported => 'このタグの種類はロックに対応していません。';
+
+  @override
+  String get nfcSheetConnected => 'タグに接続しました。処理中...';
+
+  @override
+  String get nfcSheetReadOk => 'タグを読み取りました!';
+
+  @override
+  String get nfcSheetEmptyRead => '空のタグを読み取りました!';
+
+  @override
+  String get nfcSheetMultipleTags => '複数のタグを検出しました。1枚だけかざしてください。';
+
+  @override
+  String get nfcSheetWriteVerified => '書き込みと検証が完了しました!';
+
+  @override
+  String get nfcSheetWritten => 'タグに書き込みました!';
+
+  @override
+  String get nfcSheetLocked => 'タグは完全にロックされました!';
+
+  @override
+  String get nfcWriteDone => 'タグへの書き込みに成功しました。';
 }

@@ -3392,4 +3392,81 @@ class AppLocalizationsKo extends AppLocalizations {
 
   @override
   String get wifiSsidExampleHint => 'Home_WiFi_5G';
+
+  @override
+  String get nfcErrUnavailable => '이 기기에서 NFC를 사용할 수 없거나 꺼져 있습니다.';
+
+  @override
+  String get nfcErrBusy => '다른 NFC 작업이 진행 중입니다. 끝날 때까지 기다리세요.';
+
+  @override
+  String get nfcErrCancelled => '작업이 취소되었습니다.';
+
+  @override
+  String get nfcErrAppPaused => '앱이 백그라운드로 전환되어 작업이 취소되었습니다.';
+
+  @override
+  String get nfcErrUnsupportedTag => '이 태그 유형은 지원되지 않습니다.';
+
+  @override
+  String get nfcErrNtagOnly => '이 도구는 NTAG / MIFARE Ultralight 태그에서만 작동합니다.';
+
+  @override
+  String get nfcErrNotNdefRead => '태그를 감지했지만 NDEF 형식이 아닙니다.';
+
+  @override
+  String get nfcErrNotNdefWrite => '태그가 NDEF 형식이 아니어서 이 휴대폰으로 바로 쓸 수 없습니다.';
+
+  @override
+  String get nfcErrReadOnly => '태그가 읽기 전용(잠김)이라 쓸 수 없습니다.';
+
+  @override
+  String get nfcErrNoData => '쓸 데이터가 없습니다.';
+
+  @override
+  String nfcErrCapacity(String required, String max) {
+    return '태그 용량 부족: $required바이트 필요, 최대 $max바이트.';
+  }
+
+  @override
+  String get nfcErrCapacityShort => '태그 용량이 부족합니다.';
+
+  @override
+  String get nfcErrVerify => '검증 실패: 다시 읽은 데이터가 일치하지 않습니다.';
+
+  @override
+  String get nfcErrConnectionLost => '태그 연결이 끊겼습니다. 움직이지 말고 다시 시도하세요.';
+
+  @override
+  String get nfcErrAlreadyLocked => '태그가 이미 잠겨 있습니다(읽기 전용).';
+
+  @override
+  String get nfcErrLockNotNdef => '태그가 NDEF 형식이 아닙니다. 잠그기 전에 레코드를 쓰세요.';
+
+  @override
+  String get nfcErrLockNotSupported => '이 태그 유형은 잠금을 지원하지 않습니다.';
+
+  @override
+  String get nfcSheetConnected => '태그 연결됨, 처리 중...';
+
+  @override
+  String get nfcSheetReadOk => '태그를 읽었습니다!';
+
+  @override
+  String get nfcSheetEmptyRead => '빈 태그를 읽었습니다!';
+
+  @override
+  String get nfcSheetMultipleTags => '태그가 여러 개 감지되었습니다. 하나만 가까이 대세요.';
+
+  @override
+  String get nfcSheetWriteVerified => '쓰기 및 검증 완료!';
+
+  @override
+  String get nfcSheetWritten => '태그에 썼습니다!';
+
+  @override
+  String get nfcSheetLocked => '태그가 영구적으로 잠겼습니다!';
+
+  @override
+  String get nfcWriteDone => '태그에 성공적으로 썼습니다.';
 }

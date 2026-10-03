@@ -3488,4 +3488,87 @@ class AppLocalizationsAr extends AppLocalizations {
 
   @override
   String get wifiSsidExampleHint => 'Home_WiFi_5G';
+
+  @override
+  String get nfcErrUnavailable => 'NFC غير متاح أو متوقف على هذا الجهاز.';
+
+  @override
+  String get nfcErrBusy => 'هناك عملية NFC أخرى جارية؛ انتظر حتى تنتهي.';
+
+  @override
+  String get nfcErrCancelled => 'تم إلغاء العملية.';
+
+  @override
+  String get nfcErrAppPaused => 'أُلغيت العملية لأن التطبيق انتقل إلى الخلفية.';
+
+  @override
+  String get nfcErrUnsupportedTag => 'نوع الوسم هذا غير مدعوم.';
+
+  @override
+  String get nfcErrNtagOnly =>
+      'تعمل هذه الأداة مع وسوم NTAG / MIFARE Ultralight فقط.';
+
+  @override
+  String get nfcErrNotNdefRead => 'تم اكتشاف الوسم لكنه غير منسّق بتنسيق NDEF.';
+
+  @override
+  String get nfcErrNotNdefWrite =>
+      'الوسم غير منسّق بتنسيق NDEF؛ ولا يستطيع هذا الهاتف الكتابة عليه مباشرة.';
+
+  @override
+  String get nfcErrReadOnly =>
+      'الوسم للقراءة فقط (مقفل) ولا يمكن الكتابة عليه.';
+
+  @override
+  String get nfcErrNoData => 'لا توجد بيانات للكتابة.';
+
+  @override
+  String nfcErrCapacity(String required, String max) {
+    return 'المساحة غير كافية: يلزم $required بايت والمتاح $max.';
+  }
+
+  @override
+  String get nfcErrCapacityShort => 'المساحة على الوسم غير كافية.';
+
+  @override
+  String get nfcErrVerify => 'فشل التحقق: البيانات المقروءة لا تطابق ما كُتب.';
+
+  @override
+  String get nfcErrConnectionLost =>
+      'انقطع الاتصال بالوسم؛ ثبّته وحاول مجددًا.';
+
+  @override
+  String get nfcErrAlreadyLocked => 'الوسم مقفل بالفعل (للقراءة فقط).';
+
+  @override
+  String get nfcErrLockNotNdef =>
+      'الوسم غير منسّق بتنسيق NDEF؛ اكتب سجلًا قبل قفله.';
+
+  @override
+  String get nfcErrLockNotSupported => 'نوع الوسم هذا لا يدعم القفل.';
+
+  @override
+  String get nfcSheetConnected => 'تم توصيل الوسم، جارٍ العمل...';
+
+  @override
+  String get nfcSheetReadOk => 'تمت قراءة الوسم!';
+
+  @override
+  String get nfcSheetEmptyRead => 'تمت قراءة وسم فارغ!';
+
+  @override
+  String get nfcSheetMultipleTags =>
+      'تم اكتشاف أكثر من وسم. قرّب وسمًا واحدًا فقط.';
+
+  @override
+  String get nfcSheetWriteVerified => 'تمت الكتابة والتحقق!';
+
+  @override
+  String get nfcSheetWritten => 'تمت الكتابة على الوسم!';
+
+  @override
+  String get nfcSheetLocked => 'تم قفل الوسم نهائيًا!';
+
+  @override
+  String get nfcWriteDone => 'تمت الكتابة على الوسم بنجاح.';
 }

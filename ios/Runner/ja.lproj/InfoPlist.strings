@@ -1,0 +1,4 @@
+"CFBundleDisplayName" = "NFC Tag Master";
+"NSCameraUsageDescription" = "QRコードの読み取りとタグライブラリへの写真追加にカメラを使用します。";
+"NSPhotoLibraryUsageDescription" = "タグライブラリのタグに写真を追加するために写真へアクセスします。";
+"NFCReaderUsageDescription" = "NFCタグの読み取りとNDEFメッセージの書き込みにNFCへのアクセスが必要です。";
