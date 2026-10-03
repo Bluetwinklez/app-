@@ -4292,4 +4292,77 @@ class AppLocalizationsIt extends AppLocalizations {
   String libraryImportDone(String count) {
     return '$count tag aggiunti alla libreria';
   }
+
+  @override
+  String get presetGiftTitle => 'Messaggio regalo';
+
+  @override
+  String get presetGiftDesc =>
+      'Attaccalo a un regalo: un tocco mostra il messaggio e, se vuoi, un video.';
+
+  @override
+  String get giftTo => 'Per';
+
+  @override
+  String get giftFrom => 'Da';
+
+  @override
+  String get giftVideo => 'Link video (facoltativo)';
+
+  @override
+  String giftText(String to, String message, String from) {
+    return '🎁 $to,\n$message\n— $from';
+  }
+
+  @override
+  String get presetPlantTitle => 'Scheda cura pianta';
+
+  @override
+  String get presetPlantDesc =>
+      'Sul vaso: acqua e luce. Con un intervallo di controllo nella libreria diventa anche un promemoria.';
+
+  @override
+  String get plantName => 'Nome della pianta';
+
+  @override
+  String get plantWater => 'Annaffiatura';
+
+  @override
+  String get plantLight => 'Luce';
+
+  @override
+  String plantText(String plant, String water, String light) {
+    return '🌱 $plant\n💧 $water\n☀️ $light';
+  }
+
+  @override
+  String get presetChildTitle => 'Braccialetto di sicurezza per bambini';
+
+  @override
+  String get presetChildDesc =>
+      'Nei luoghi affollati: chi lo tocca vede il nome del bambino e chiama i genitori con un tocco.';
+
+  @override
+  String get childName => 'Nome del bambino';
+
+  @override
+  String childText(String name, String phone) {
+    return 'Ciao, sono $name. Se mi sono perso/a, chiama la mia famiglia: $phone';
+  }
+
+  @override
+  String get presetManualTitle => 'Scheda istruzioni';
+
+  @override
+  String get presetManualDesc =>
+      'Attrezzo da palestra, macchina del caffè, affitto: istruzioni brevi e link a video o manuale.';
+
+  @override
+  String get manualItem => 'Dispositivo / oggetto';
+
+  @override
+  String get manualSteps => 'Istruzioni brevi';
+
+  @override
+  String get manualLink => 'Link video / manuale (facoltativo)';
 }

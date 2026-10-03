@@ -4305,4 +4305,77 @@ class AppLocalizationsDe extends AppLocalizations {
   String libraryImportDone(String count) {
     return '$count Tags zur Bibliothek hinzugefügt';
   }
+
+  @override
+  String get presetGiftTitle => 'Geschenknachricht';
+
+  @override
+  String get presetGiftDesc =>
+      'Aufs Geschenk kleben: Antippen zeigt Ihre Nachricht und optional einen Videolink.';
+
+  @override
+  String get giftTo => 'Für';
+
+  @override
+  String get giftFrom => 'Von';
+
+  @override
+  String get giftVideo => 'Videolink (optional)';
+
+  @override
+  String giftText(String to, String message, String from) {
+    return '🎁 $to,\n$message\n— $from';
+  }
+
+  @override
+  String get presetPlantTitle => 'Pflanzenpflege-Karte';
+
+  @override
+  String get presetPlantDesc =>
+      'Am Topf anbringen: Gießen und Licht. Mit Prüfintervall in der Bibliothek auch als Gießerinnerung.';
+
+  @override
+  String get plantName => 'Pflanzenname';
+
+  @override
+  String get plantWater => 'Gießen';
+
+  @override
+  String get plantLight => 'Licht';
+
+  @override
+  String plantText(String plant, String water, String light) {
+    return '🌱 $plant\n💧 $water\n☀️ $light';
+  }
+
+  @override
+  String get presetChildTitle => 'Kinder-Sicherheitsarmband';
+
+  @override
+  String get presetChildDesc =>
+      'Für volle Orte: Wer antippt, sieht den Namen des Kindes und ruft die Eltern mit einem Tipp an.';
+
+  @override
+  String get childName => 'Name des Kindes';
+
+  @override
+  String childText(String name, String phone) {
+    return 'Hallo, ich bin $name. Wenn ich verloren bin, ruf bitte meine Familie an: $phone';
+  }
+
+  @override
+  String get presetManualTitle => 'Anleitungskarte';
+
+  @override
+  String get presetManualDesc =>
+      'Fitnessgerät, Kaffeemaschine, Ferienwohnung: Kurzanleitung plus Video- oder Handbuchlink.';
+
+  @override
+  String get manualItem => 'Gerät / Gegenstand';
+
+  @override
+  String get manualSteps => 'Kurzanleitung';
+
+  @override
+  String get manualLink => 'Video-/Handbuchlink (optional)';
 }
