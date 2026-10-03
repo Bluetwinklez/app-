@@ -4351,4 +4351,16 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get manualLink => 'Video / manual link (optional)';
+
+  @override
+  String get libraryAutoLog => 'Log to a logbook when scanned';
+
+  @override
+  String get libraryAutoLogHint =>
+      'Scanning this tag from the main screen automatically adds an entry to the chosen logbook (e.g. door tag → time clock in/out).';
+
+  @override
+  String autoLogged(String book) {
+    return 'Logged to \"$book\"';
+  }
 }

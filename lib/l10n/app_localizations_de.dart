@@ -4378,4 +4378,16 @@ class AppLocalizationsDe extends AppLocalizations {
 
   @override
   String get manualLink => 'Video-/Handbuchlink (optional)';
+
+  @override
+  String get libraryAutoLog => 'Beim Scannen ins Logbuch';
+
+  @override
+  String get libraryAutoLogHint =>
+      'Wird dieser Tag im Hauptbildschirm gescannt, entsteht automatisch ein Eintrag im gewählten Logbuch (z. B. Türtag → Kommen/Gehen).';
+
+  @override
+  String autoLogged(String book) {
+    return 'Ins Logbuch „$book\" eingetragen';
+  }
 }

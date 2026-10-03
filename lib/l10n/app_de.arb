@@ -1220,5 +1220,8 @@
   "presetManualDesc": "Fitnessgerät, Kaffeemaschine, Ferienwohnung: Kurzanleitung plus Video- oder Handbuchlink.",
   "manualItem": "Gerät / Gegenstand",
   "manualSteps": "Kurzanleitung",
-  "manualLink": "Video-/Handbuchlink (optional)"
+  "manualLink": "Video-/Handbuchlink (optional)",
+  "libraryAutoLog": "Beim Scannen ins Logbuch",
+  "libraryAutoLogHint": "Wird dieser Tag im Hauptbildschirm gescannt, entsteht automatisch ein Eintrag im gewählten Logbuch (z. B. Türtag → Kommen/Gehen).",
+  "autoLogged": "Ins Logbuch „{book}\" eingetragen"
 }

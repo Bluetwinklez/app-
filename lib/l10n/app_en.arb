@@ -1220,5 +1220,8 @@
   "presetManualDesc": "Gym machine, coffee maker, rental appliance: short instructions plus a video or manual link.",
   "manualItem": "Device / item",
   "manualSteps": "Short instructions",
-  "manualLink": "Video / manual link (optional)"
+  "manualLink": "Video / manual link (optional)",
+  "libraryAutoLog": "Log to a logbook when scanned",
+  "libraryAutoLogHint": "Scanning this tag from the main screen automatically adds an entry to the chosen logbook (e.g. door tag → time clock in/out).",
+  "autoLogged": "Logged to \"{book}\""
 }

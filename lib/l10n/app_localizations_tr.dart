@@ -4363,4 +4363,16 @@ class AppLocalizationsTr extends AppLocalizations {
 
   @override
   String get manualLink => 'Video / kılavuz bağlantısı (isteğe bağlı)';
+
+  @override
+  String get libraryAutoLog => 'Okutunca deftere kaydet';
+
+  @override
+  String get libraryAutoLogHint =>
+      'Bu etiket ana ekrandan okutulduğunda seçilen deftere otomatik kayıt düşülür (ör. kapıdaki etiket → mesai girişi/çıkışı).';
+
+  @override
+  String autoLogged(String book) {
+    return '\"$book\" defterine kaydedildi';
+  }
 }

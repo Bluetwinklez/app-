@@ -1,6 +1,7 @@
 import 'dart:convert';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import '../domain/logbook.dart';
 import '../domain/ndef_record.dart';
 import '../domain/nfc_tag_info.dart';
 import '../domain/storage_models.dart';
@@ -47,6 +48,11 @@ class NfcStateController extends ChangeNotifier {
   NfcWriteResult? get lastWriteResult => _lastWriteResult;
   NdefClipboardSnapshot? get clipboardSnapshot => _clipboardSnapshot;
   TagRule? get matchingRuleForLastScan => _matchingRuleForLastScan;
+
+  /// Logbook entry written automatically by the last scan (library tag with
+  /// an auto-log book), with the book's name.
+  ({String book, LogEntry entry})? _lastAutoLog;
+  ({String book, LogEntry entry})? get lastAutoLog => _lastAutoLog;
 
   bool get hapticsEnabled => _storage.hapticsEnabled;
   bool get soundsEnabled => _storage.soundsEnabled;
@@ -161,7 +167,9 @@ class NfcStateController extends ChangeNotifier {
   }
 
   /// Start scan
-  Future<void> scanTag() async {
+  /// [autoLog] false skips library auto-logging (the logbook page logs the
+  /// scan itself).
+  Future<void> scanTag({bool autoLog = true}) async {
     if (_availability == NfcAvailability.notSupported) {
       _statusMessage = L10n.current.statusNfcNotSupported;
       notifyListeners();
@@ -198,7 +206,7 @@ class NfcStateController extends ChangeNotifier {
         _statusMessage = L10n.current.statusScanSuccess(info.identifier);
         _feedback(success: true);
 
-        await _markLibrarySeen(info.identifier);
+        await _markLibrarySeen(info.identifier, autoLog: autoLog);
 
         // Check if there is an in-app tag rule matching exact NDEF bytes SHA-256
         if (info.records.isNotEmpty) {
@@ -233,12 +241,23 @@ class NfcStateController extends ChangeNotifier {
   }
 
   /// Remembers when a saved library tag was last scanned (health tracking).
-  Future<void> _markLibrarySeen(String uid) async {
+  Future<void> _markLibrarySeen(String uid, {bool autoLog = true}) async {
+    _lastAutoLog = null;
     if (uid.isEmpty) return;
     for (final entry in _storage.getLibrary()) {
       if (entry.uid != null && entry.uid!.toUpperCase() == uid.toUpperCase()) {
+        final now = DateTime.now();
         try {
-          await _storage.saveLibraryEntry(entry.copyWith(lastSeenAt: DateTime.now()));
+          await _storage.saveLibraryEntry(entry.copyWith(lastSeenAt: now));
+          final bookId = entry.autoLogBookId;
+          if (autoLog && bookId != null) {
+            for (final book in _storage.getLogBooks()) {
+              if (book.id != bookId) continue;
+              final updated = book.add(LogEntry(time: now, uid: uid, label: entry.name));
+              await _storage.saveLogBook(updated);
+              _lastAutoLog = (book: book.name, entry: updated.entries.first);
+            }
+          }
         } catch (_) {
           // Best effort; the scan itself succeeded.
         }

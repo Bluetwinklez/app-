@@ -4394,4 +4394,16 @@ class AppLocalizationsEs extends AppLocalizations {
 
   @override
   String get manualLink => 'Enlace a vídeo / manual (opcional)';
+
+  @override
+  String get libraryAutoLog => 'Registrar en un cuaderno al escanear';
+
+  @override
+  String get libraryAutoLogHint =>
+      'Al escanear esta etiqueta desde la pantalla principal se añade una entrada al cuaderno elegido (p. ej. etiqueta de la puerta → fichaje).';
+
+  @override
+  String autoLogged(String book) {
+    return 'Registrado en \"$book\"';
+  }
 }

@@ -35,6 +35,9 @@ class TagLibraryEntry {
   /// every this many days (fire extinguisher, filter, plant…). Null = none.
   final int? checkEveryDays;
 
+  /// Logbook that gets an entry whenever this tag is scanned. Null = none.
+  final String? autoLogBookId;
+
   static const List<int> checkIntervals = [1, 7, 14, 30, 90, 180, 365];
 
   const TagLibraryEntry({
@@ -51,6 +54,7 @@ class TagLibraryEntry {
     required this.updatedAt,
     this.lastSeenAt,
     this.checkEveryDays,
+    this.autoLogBookId,
   });
 
   /// Has an interval and was not scanned within it (counting from creation
@@ -86,6 +90,8 @@ class TagLibraryEntry {
     DateTime? lastSeenAt,
     int? checkEveryDays,
     bool clearCheck = false,
+    String? autoLogBookId,
+    bool clearAutoLog = false,
   }) {
     return TagLibraryEntry(
       id: id,
@@ -101,6 +107,7 @@ class TagLibraryEntry {
       updatedAt: updatedAt ?? this.updatedAt,
       lastSeenAt: lastSeenAt ?? this.lastSeenAt,
       checkEveryDays: clearCheck ? null : (checkEveryDays ?? this.checkEveryDays),
+      autoLogBookId: clearAutoLog ? null : (autoLogBookId ?? this.autoLogBookId),
     );
   }
 
@@ -191,6 +198,7 @@ class TagLibraryEntry {
         'updatedAt': updatedAt.toIso8601String(),
         if (lastSeenAt != null) 'lastSeenAt': lastSeenAt!.toIso8601String(),
         if (checkEveryDays != null) 'checkEveryDays': checkEveryDays,
+        if (autoLogBookId != null) 'autoLogBookId': autoLogBookId,
       };
 
   factory TagLibraryEntry.fromJsonMap(Map<String, dynamic> map) {
@@ -215,6 +223,7 @@ class TagLibraryEntry {
       updatedAt: DateTime.tryParse(map['updatedAt'] as String? ?? '') ?? created,
       lastSeenAt: DateTime.tryParse(map['lastSeenAt'] as String? ?? ''),
       checkEveryDays: (map['checkEveryDays'] as num?)?.toInt(),
+      autoLogBookId: map['autoLogBookId'] as String?,
     );
   }
 }

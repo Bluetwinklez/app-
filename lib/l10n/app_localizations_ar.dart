@@ -4313,4 +4313,16 @@ class AppLocalizationsAr extends AppLocalizations {
 
   @override
   String get manualLink => 'رابط فيديو / دليل (اختياري)';
+
+  @override
+  String get libraryAutoLog => 'التسجيل في دفتر عند المسح';
+
+  @override
+  String get libraryAutoLogHint =>
+      'عند مسح هذا الوسم من الشاشة الرئيسية تُضاف تلقائيًا قيد إلى الدفتر المختار (مثل وسم الباب ← الدوام).';
+
+  @override
+  String autoLogged(String book) {
+    return 'سُجِّل في \"$book\"';
+  }
 }

@@ -204,7 +204,7 @@ class _LogBookDetailPageState extends State<LogBookDetailPage> {
     final loc = AppLocalizations.of(context) ?? L10n.current;
     final book = _book;
     if (book == null) return;
-    await widget.controller.scanTag();
+    await widget.controller.scanTag(autoLog: false);
     if (!mounted) return;
     final tag = widget.controller.lastScannedTag;
     if (tag == null || tag.error != null) {

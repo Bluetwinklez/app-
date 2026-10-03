@@ -7449,6 +7449,24 @@ abstract class AppLocalizations {
   /// In tr, this message translates to:
   /// **'Video / kılavuz bağlantısı (isteğe bağlı)'**
   String get manualLink;
+
+  /// No description provided for @libraryAutoLog.
+  ///
+  /// In tr, this message translates to:
+  /// **'Okutunca deftere kaydet'**
+  String get libraryAutoLog;
+
+  /// No description provided for @libraryAutoLogHint.
+  ///
+  /// In tr, this message translates to:
+  /// **'Bu etiket ana ekrandan okutulduğunda seçilen deftere otomatik kayıt düşülür (ör. kapıdaki etiket → mesai girişi/çıkışı).'**
+  String get libraryAutoLogHint;
+
+  /// No description provided for @autoLogged.
+  ///
+  /// In tr, this message translates to:
+  /// **'\"{book}\" defterine kaydedildi'**
+  String autoLogged(String book);
 }
 
 class _AppLocalizationsDelegate

@@ -4190,4 +4190,16 @@ class AppLocalizationsKo extends AppLocalizations {
 
   @override
   String get manualLink => '영상/설명서 링크(선택)';
+
+  @override
+  String get libraryAutoLog => '스캔 시 기록부에 기록';
+
+  @override
+  String get libraryAutoLogHint =>
+      '메인 화면에서 이 태그를 스캔하면 선택한 기록부에 자동 기록됩니다(예: 문 태그 → 출퇴근).';
+
+  @override
+  String autoLogged(String book) {
+    return '\"$book\"에 기록됨';
+  }
 }

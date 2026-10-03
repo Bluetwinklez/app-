@@ -9,6 +9,7 @@ import 'package:path_provider/path_provider.dart';
 import 'package:share_plus/share_plus.dart';
 import '../domain/csv_export.dart';
 import '../domain/library_import.dart';
+import '../domain/logbook.dart';
 import '../domain/ndef_record.dart';
 import '../domain/tag_library.dart';
 import '../l10n/app_localizations.dart';
@@ -310,7 +311,7 @@ class _TagLibraryPageState extends State<TagLibraryPage> {
       context: context,
       isScrollControlled: true,
       builder: (_) =>
-          _EntryEditor(entry: entry, docsDir: _docsDir, isNew: isNew),
+          _EntryEditor(entry: entry, docsDir: _docsDir, isNew: isNew, logBooks: widget.storage.getLogBooks()),
     );
     if (result == null) return;
     try {
@@ -718,9 +719,10 @@ class _EntryEditor extends StatefulWidget {
   final TagLibraryEntry entry;
   final Directory? docsDir;
   final bool isNew;
+  final List<LogBook> logBooks;
 
   const _EntryEditor(
-      {required this.entry, required this.docsDir, required this.isNew});
+      {required this.entry, required this.docsDir, required this.isNew, this.logBooks = const []});
 
   @override
   State<_EntryEditor> createState() => _EntryEditorState();
@@ -736,6 +738,9 @@ class _EntryEditorState extends State<_EntryEditor> {
   late TagCategory _category = widget.entry.category;
   late String? _photoPath = widget.entry.photoPath;
   late int? _checkEvery = widget.entry.checkEveryDays;
+  late String? _autoLog = widget.logBooks.any((b) => b.id == widget.entry.autoLogBookId)
+      ? widget.entry.autoLogBookId
+      : null;
   String? _error;
 
   @override
@@ -795,6 +800,8 @@ class _EntryEditorState extends State<_EntryEditor> {
       clearPhoto: _photoPath == null,
       checkEveryDays: _checkEvery,
       clearCheck: _checkEvery == null,
+      autoLogBookId: _autoLog,
+      clearAutoLog: _autoLog == null,
       updatedAt: DateTime.now(),
     ));
   }
@@ -913,6 +920,25 @@ class _EntryEditorState extends State<_EntryEditor> {
               ],
               onChanged: (v) => setState(() => _checkEvery = v),
             ),
+            if (widget.logBooks.isNotEmpty) ...[
+              const SizedBox(height: 12),
+              DropdownButtonFormField<String?>(
+                initialValue: _autoLog,
+                isExpanded: true,
+                decoration: InputDecoration(
+                  labelText: loc.libraryAutoLog,
+                  helperText: loc.libraryAutoLogHint,
+                  helperMaxLines: 3,
+                  prefixIcon: const Icon(Icons.event_note_outlined),
+                ),
+                items: [
+                  DropdownMenuItem<String?>(value: null, child: Text(loc.libraryCheckNone)),
+                  for (final b in widget.logBooks)
+                    DropdownMenuItem<String?>(value: b.id, child: Text(b.name, overflow: TextOverflow.ellipsis)),
+                ],
+                onChanged: (v) => setState(() => _autoLog = v),
+              ),
+            ],
             const SizedBox(height: 12),
             Text(
               widget.entry.records.isEmpty

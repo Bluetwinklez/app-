@@ -1220,5 +1220,8 @@
   "presetManualDesc": "Attrezzo da palestra, macchina del caffè, affitto: istruzioni brevi e link a video o manuale.",
   "manualItem": "Dispositivo / oggetto",
   "manualSteps": "Istruzioni brevi",
-  "manualLink": "Link video / manuale (facoltativo)"
+  "manualLink": "Link video / manuale (facoltativo)",
+  "libraryAutoLog": "Registra in un registro alla lettura",
+  "libraryAutoLogHint": "Leggendo questo tag dalla schermata principale si aggiunge una voce al registro scelto (es. tag della porta → presenze).",
+  "autoLogged": "Registrato in \"{book}\""
 }

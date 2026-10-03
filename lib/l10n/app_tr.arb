@@ -2982,5 +2982,15 @@
   "presetManualDesc": "Spor aleti, kahve makinesi, kiralık ev cihazı: kısa talimat ve video/kılavuz bağlantısı.",
   "manualItem": "Cihaz / eşya",
   "manualSteps": "Kısa talimat",
-  "manualLink": "Video / kılavuz bağlantısı (isteğe bağlı)"
+  "manualLink": "Video / kılavuz bağlantısı (isteğe bağlı)",
+  "libraryAutoLog": "Okutunca deftere kaydet",
+  "libraryAutoLogHint": "Bu etiket ana ekrandan okutulduğunda seçilen deftere otomatik kayıt düşülür (ör. kapıdaki etiket → mesai girişi/çıkışı).",
+  "autoLogged": "\"{book}\" defterine kaydedildi",
+  "@autoLogged": {
+    "placeholders": {
+      "book": {
+        "type": "String"
+      }
+    }
+  }
 }
