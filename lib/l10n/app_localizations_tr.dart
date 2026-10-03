@@ -3528,4 +3528,89 @@ class AppLocalizationsTr extends AppLocalizations {
 
   @override
   String get wifiSsidExampleHint => 'Ev_Interneti_5G';
+
+  @override
+  String get nfcErrUnavailable => 'Bu cihazda NFC yok ya da kapalı.';
+
+  @override
+  String get nfcErrBusy => 'Devam eden bir NFC işlemi var; bitmesini bekleyin.';
+
+  @override
+  String get nfcErrCancelled => 'İşlem iptal edildi.';
+
+  @override
+  String get nfcErrAppPaused =>
+      'Uygulama arka plana geçtiği için işlem iptal edildi.';
+
+  @override
+  String get nfcErrUnsupportedTag => 'Bu etiket türü desteklenmiyor.';
+
+  @override
+  String get nfcErrNtagOnly =>
+      'Bu araç yalnızca NTAG / MIFARE Ultralight etiketlerde çalışır.';
+
+  @override
+  String get nfcErrNotNdefRead => 'Etiket algılandı ama NDEF biçiminde değil.';
+
+  @override
+  String get nfcErrNotNdefWrite =>
+      'Etiket NDEF biçiminde değil; bu telefon ona doğrudan NDEF yazamıyor.';
+
+  @override
+  String get nfcErrReadOnly => 'Etiket salt okunur (kilitli); yazılamaz.';
+
+  @override
+  String get nfcErrNoData => 'Yazılacak veri yok.';
+
+  @override
+  String nfcErrCapacity(String required, String max) {
+    return 'Etiket kapasitesi yetersiz: $required bayt gerekli, en fazla $max bayt.';
+  }
+
+  @override
+  String get nfcErrCapacityShort => 'Etiket kapasitesi yetersiz.';
+
+  @override
+  String get nfcErrVerify =>
+      'Doğrulama başarısız: etiketten okunan veri yazılanla eşleşmiyor.';
+
+  @override
+  String get nfcErrConnectionLost =>
+      'Etiket bağlantısı koptu; etiketi sabit tutup tekrar deneyin.';
+
+  @override
+  String get nfcErrAlreadyLocked => 'Etiket zaten kilitli (salt okunur).';
+
+  @override
+  String get nfcErrLockNotNdef =>
+      'Etiket NDEF biçiminde değil; kilitlemeden önce bir kayıt yazın.';
+
+  @override
+  String get nfcErrLockNotSupported =>
+      'Bu etiket türü kilitlemeyi desteklemiyor.';
+
+  @override
+  String get nfcSheetConnected => 'Etiket bağlandı, işlem yapılıyor...';
+
+  @override
+  String get nfcSheetReadOk => 'Etiket okundu!';
+
+  @override
+  String get nfcSheetEmptyRead => 'Boş etiket okundu!';
+
+  @override
+  String get nfcSheetMultipleTags =>
+      'Birden fazla etiket algılandı. Yalnızca bir etiket yaklaştırın.';
+
+  @override
+  String get nfcSheetWriteVerified => 'Yazıldı ve doğrulandı!';
+
+  @override
+  String get nfcSheetWritten => 'Etikete yazıldı!';
+
+  @override
+  String get nfcSheetLocked => 'Etiket kalıcı olarak kilitlendi!';
+
+  @override
+  String get nfcWriteDone => 'Etikete başarıyla yazıldı.';
 }

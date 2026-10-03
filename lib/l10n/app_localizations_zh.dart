@@ -3352,4 +3352,81 @@ class AppLocalizationsZh extends AppLocalizations {
 
   @override
   String get wifiSsidExampleHint => 'Home_WiFi_5G';
+
+  @override
+  String get nfcErrUnavailable => '此设备不支持 NFC 或 NFC 已关闭。';
+
+  @override
+  String get nfcErrBusy => '另一个 NFC 操作正在进行，请等待完成。';
+
+  @override
+  String get nfcErrCancelled => '操作已取消。';
+
+  @override
+  String get nfcErrAppPaused => '应用转入后台，操作已取消。';
+
+  @override
+  String get nfcErrUnsupportedTag => '不支持此类型的标签。';
+
+  @override
+  String get nfcErrNtagOnly => '此工具仅适用于 NTAG / MIFARE Ultralight 标签。';
+
+  @override
+  String get nfcErrNotNdefRead => '检测到标签，但不是 NDEF 格式。';
+
+  @override
+  String get nfcErrNotNdefWrite => '标签不是 NDEF 格式，此手机无法直接写入 NDEF。';
+
+  @override
+  String get nfcErrReadOnly => '标签为只读（已锁定），无法写入。';
+
+  @override
+  String get nfcErrNoData => '没有可写入的数据。';
+
+  @override
+  String nfcErrCapacity(String required, String max) {
+    return '标签空间不足：需要 $required 字节，可用 $max 字节。';
+  }
+
+  @override
+  String get nfcErrCapacityShort => '标签空间不足。';
+
+  @override
+  String get nfcErrVerify => '校验失败：读回的数据与写入的不一致。';
+
+  @override
+  String get nfcErrConnectionLost => '与标签的连接中断，请保持不动后重试。';
+
+  @override
+  String get nfcErrAlreadyLocked => '标签已锁定（只读）。';
+
+  @override
+  String get nfcErrLockNotNdef => '标签不是 NDEF 格式，请先写入记录再锁定。';
+
+  @override
+  String get nfcErrLockNotSupported => '此类型的标签不支持锁定。';
+
+  @override
+  String get nfcSheetConnected => '标签已连接，正在处理...';
+
+  @override
+  String get nfcSheetReadOk => '标签已读取！';
+
+  @override
+  String get nfcSheetEmptyRead => '已读取空标签！';
+
+  @override
+  String get nfcSheetMultipleTags => '检测到多个标签，请只靠近一个。';
+
+  @override
+  String get nfcSheetWriteVerified => '已写入并校验！';
+
+  @override
+  String get nfcSheetWritten => '已写入标签！';
+
+  @override
+  String get nfcSheetLocked => '标签已永久锁定！';
+
+  @override
+  String get nfcWriteDone => '已成功写入标签。';
 }

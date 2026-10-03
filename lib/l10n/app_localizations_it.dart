@@ -3532,4 +3532,89 @@ class AppLocalizationsIt extends AppLocalizations {
 
   @override
   String get wifiSsidExampleHint => 'Casa_WiFi_5G';
+
+  @override
+  String get nfcErrUnavailable =>
+      'L\'NFC non è disponibile o è disattivato su questo dispositivo.';
+
+  @override
+  String get nfcErrBusy => 'È in corso un\'altra operazione NFC; attendi.';
+
+  @override
+  String get nfcErrCancelled => 'L\'operazione è stata annullata.';
+
+  @override
+  String get nfcErrAppPaused =>
+      'L\'operazione è stata annullata perché l\'app è passata in background.';
+
+  @override
+  String get nfcErrUnsupportedTag => 'Questo tipo di tag non è supportato.';
+
+  @override
+  String get nfcErrNtagOnly =>
+      'Questo strumento funziona solo con tag NTAG / MIFARE Ultralight.';
+
+  @override
+  String get nfcErrNotNdefRead => 'Tag rilevato, ma non è in formato NDEF.';
+
+  @override
+  String get nfcErrNotNdefWrite =>
+      'Il tag non è in formato NDEF; questo telefono non può scriverci direttamente.';
+
+  @override
+  String get nfcErrReadOnly => 'Il tag è di sola lettura (bloccato).';
+
+  @override
+  String get nfcErrNoData => 'Nessun dato da scrivere.';
+
+  @override
+  String nfcErrCapacity(String required, String max) {
+    return 'Spazio insufficiente: servono $required byte, disponibili $max.';
+  }
+
+  @override
+  String get nfcErrCapacityShort => 'Spazio insufficiente sul tag.';
+
+  @override
+  String get nfcErrVerify =>
+      'Verifica non riuscita: i dati letti non corrispondono.';
+
+  @override
+  String get nfcErrConnectionLost =>
+      'Connessione al tag persa; tienilo fermo e riprova.';
+
+  @override
+  String get nfcErrAlreadyLocked => 'Il tag è già bloccato (sola lettura).';
+
+  @override
+  String get nfcErrLockNotNdef =>
+      'Il tag non è in formato NDEF; scrivi un record prima di bloccarlo.';
+
+  @override
+  String get nfcErrLockNotSupported =>
+      'Questo tipo di tag non supporta il blocco.';
+
+  @override
+  String get nfcSheetConnected => 'Tag collegato, elaborazione...';
+
+  @override
+  String get nfcSheetReadOk => 'Tag letto!';
+
+  @override
+  String get nfcSheetEmptyRead => 'Tag vuoto letto!';
+
+  @override
+  String get nfcSheetMultipleTags => 'Rilevati più tag. Avvicina un solo tag.';
+
+  @override
+  String get nfcSheetWriteVerified => 'Scritto e verificato!';
+
+  @override
+  String get nfcSheetWritten => 'Scritto sul tag!';
+
+  @override
+  String get nfcSheetLocked => 'Il tag è ora bloccato in modo permanente!';
+
+  @override
+  String get nfcWriteDone => 'Scritto sul tag con successo.';
 }

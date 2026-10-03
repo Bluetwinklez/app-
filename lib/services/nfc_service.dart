@@ -3,6 +3,7 @@ import 'package:flutter/services.dart';
 import '../domain/ndef_record.dart';
 import '../domain/nfc_tag_info.dart';
 import '../l10n/l10n.dart';
+import 'native_messages.dart';
 
 /// Clean interface abstracting platform-specific NFC functionality
 abstract class NfcPlatformService {
@@ -88,10 +89,25 @@ class MethodChannelNfcService implements NfcPlatformService {
     try {
       final dynamic result = await _channel.invokeMethod('scanTag', {
         'promptMessage': promptMessage ?? L10n.current.nfcPromptScan,
+        'ui': NativeMessages.sheet(),
       });
 
       if (result is Map) {
-        return NfcTagInfo.fromMap(result);
+        final info = NfcTagInfo.fromMap(result);
+        // Android reports non-NDEF tags with a native (Turkish) error text.
+        if (info.error != null && !info.isNdefSupported) {
+          return NfcTagInfo(
+            identifier: info.identifier,
+            standardTechnologies: info.standardTechnologies,
+            isNdefSupported: false,
+            isWritable: info.isWritable,
+            maxByteCapacity: info.maxByteCapacity,
+            currentBytesUsed: info.currentBytesUsed,
+            records: info.records,
+            error: L10n.current.nfcErrNotNdefRead,
+          );
+        }
+        return info;
       }
       return NfcTagInfo(
         identifier: L10n.current.unknown,
@@ -100,7 +116,8 @@ class MethodChannelNfcService implements NfcPlatformService {
     } on PlatformException catch (e) {
       return NfcTagInfo(
         identifier: L10n.current.error,
-        error: e.message ?? L10n.current.nfcReadError,
+        error: NativeMessages.forError(e.code, e.message,
+            details: e.details, fallback: L10n.current.nfcReadError),
       );
     } catch (e) {
       return NfcTagInfo(
@@ -122,12 +139,15 @@ class MethodChannelNfcService implements NfcPlatformService {
         'records': recordsData,
         'promptMessage': promptMessage ?? L10n.current.nfcPromptWrite,
         'verifyReadAfterWrite': verifyReadAfterWrite,
+        'ui': NativeMessages.sheet(),
       });
 
       if (result is Map) {
         return NfcWriteResult(
           isSuccess: result['isSuccess'] as bool? ?? false,
-          message: result['message'] as String? ?? '',
+          message: (result['isSuccess'] as bool? ?? false)
+              ? L10n.current.nfcWriteDone
+              : result['message'] as String? ?? '',
           bytesWritten: (result['bytesWritten'] as num?)?.toInt() ?? 0,
           verificationPassed: result['verificationPassed'] as bool? ?? false,
         );
@@ -139,7 +159,8 @@ class MethodChannelNfcService implements NfcPlatformService {
     } on PlatformException catch (e) {
       return NfcWriteResult(
         isSuccess: false,
-        message: e.message ?? L10n.current.writeFailed,
+        message: NativeMessages.forError(e.code, e.message,
+            details: e.details, fallback: L10n.current.writeFailed),
         errorCode: e.code,
       );
     } catch (e) {
@@ -176,11 +197,13 @@ class MethodChannelNfcService implements NfcPlatformService {
     try {
       final dynamic result = await _channel.invokeMethod('lockTag', {
         'promptMessage': promptMessage ?? L10n.current.nfcPromptLock,
+        'ui': NativeMessages.sheet(),
       });
       if (result is Map) {
+        final ok = result['isSuccess'] as bool? ?? false;
         return NfcWriteResult(
-          isSuccess: result['isSuccess'] as bool? ?? false,
-          message: result['message'] as String? ?? '',
+          isSuccess: ok,
+          message: ok ? L10n.current.statusLockSuccess : result['message'] as String? ?? '',
         );
       }
       return NfcWriteResult(
@@ -190,7 +213,9 @@ class MethodChannelNfcService implements NfcPlatformService {
     } on PlatformException catch (e) {
       return NfcWriteResult(
         isSuccess: false,
-        message: e.message ?? L10n.current.lockFailed,
+        message: NativeMessages.forError(e.code, e.message,
+            details: e.details, fallback: L10n.current.lockFailed, locking: true),
+        errorCode: e.code,
       );
     } catch (e) {
       return NfcWriteResult(isSuccess: false, message: e.toString());
@@ -202,13 +227,15 @@ class MethodChannelNfcService implements NfcPlatformService {
     try {
       final dynamic result = await _channel.invokeMethod('startRawSession', {
         'promptMessage': promptMessage ?? L10n.current.nfcPromptReady,
+        'ui': NativeMessages.sheet(),
       });
       if (result is Map) {
         return result['identifier'] as String? ?? '';
       }
       throw NfcOperationException(L10n.current.invalidPlatformResponse);
     } on PlatformException catch (e) {
-      throw NfcOperationException(e.message ?? L10n.current.failedToConnectTag);
+      throw NfcOperationException(NativeMessages.forError(e.code, e.message,
+          details: e.details, fallback: L10n.current.failedToConnectTag));
     }
   }
 
@@ -219,7 +246,8 @@ class MethodChannelNfcService implements NfcPlatformService {
       if (result is Uint8List) return result;
       throw NfcOperationException(L10n.current.invalidTagResponse);
     } on PlatformException catch (e) {
-      throw NfcOperationException(e.message ?? L10n.current.commandFailed);
+      throw NfcOperationException(NativeMessages.forError(e.code, e.message,
+          details: e.details, fallback: L10n.current.commandFailed));
     }
   }
 

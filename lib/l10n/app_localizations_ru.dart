@@ -3533,4 +3533,91 @@ class AppLocalizationsRu extends AppLocalizations {
 
   @override
   String get wifiSsidExampleHint => 'Home_WiFi_5G';
+
+  @override
+  String get nfcErrUnavailable =>
+      'NFC недоступен или выключен на этом устройстве.';
+
+  @override
+  String get nfcErrBusy =>
+      'Выполняется другая NFC-операция; дождитесь её завершения.';
+
+  @override
+  String get nfcErrCancelled => 'Операция отменена.';
+
+  @override
+  String get nfcErrAppPaused => 'Операция отменена: приложение ушло в фон.';
+
+  @override
+  String get nfcErrUnsupportedTag => 'Этот тип метки не поддерживается.';
+
+  @override
+  String get nfcErrNtagOnly =>
+      'Этот инструмент работает только с метками NTAG / MIFARE Ultralight.';
+
+  @override
+  String get nfcErrNotNdefRead =>
+      'Метка найдена, но не отформатирована в NDEF.';
+
+  @override
+  String get nfcErrNotNdefWrite =>
+      'Метка не в формате NDEF; телефон не может записать NDEF напрямую.';
+
+  @override
+  String get nfcErrReadOnly => 'Метка только для чтения (заблокирована).';
+
+  @override
+  String get nfcErrNoData => 'Нет данных для записи.';
+
+  @override
+  String nfcErrCapacity(String required, String max) {
+    return 'Недостаточно места: нужно $required байт, доступно $max.';
+  }
+
+  @override
+  String get nfcErrCapacityShort => 'Недостаточно места на метке.';
+
+  @override
+  String get nfcErrVerify =>
+      'Проверка не пройдена: прочитанные данные не совпадают.';
+
+  @override
+  String get nfcErrConnectionLost =>
+      'Связь с меткой потеряна; держите её неподвижно и повторите.';
+
+  @override
+  String get nfcErrAlreadyLocked => 'Метка уже заблокирована (только чтение).';
+
+  @override
+  String get nfcErrLockNotNdef =>
+      'Метка не в формате NDEF; запишите запись перед блокировкой.';
+
+  @override
+  String get nfcErrLockNotSupported =>
+      'Этот тип метки не поддерживает блокировку.';
+
+  @override
+  String get nfcSheetConnected => 'Метка подключена, выполняется...';
+
+  @override
+  String get nfcSheetReadOk => 'Метка прочитана!';
+
+  @override
+  String get nfcSheetEmptyRead => 'Прочитана пустая метка!';
+
+  @override
+  String get nfcSheetMultipleTags =>
+      'Обнаружено несколько меток. Поднесите только одну.';
+
+  @override
+  String get nfcSheetWriteVerified => 'Записано и проверено!';
+
+  @override
+  String get nfcSheetWritten => 'Записано на метку!';
+
+  @override
+  String get nfcSheetLocked => 'Метка заблокирована навсегда!';
+
+  @override
+  String get nfcWriteDone => 'Успешно записано на метку.';
 }

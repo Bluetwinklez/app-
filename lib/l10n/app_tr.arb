@@ -2341,5 +2341,40 @@
   "lastNameLabel": "Soyad",
   "wifiPasswordMinHint": "En az 8 karakter",
   "emailExampleHint": "ornek@alanadi.com",
-  "wifiSsidExampleHint": "Ev_Interneti_5G"
+  "wifiSsidExampleHint": "Ev_Interneti_5G",
+  "nfcErrUnavailable": "Bu cihazda NFC yok ya da kapalı.",
+  "nfcErrBusy": "Devam eden bir NFC işlemi var; bitmesini bekleyin.",
+  "nfcErrCancelled": "İşlem iptal edildi.",
+  "nfcErrAppPaused": "Uygulama arka plana geçtiği için işlem iptal edildi.",
+  "nfcErrUnsupportedTag": "Bu etiket türü desteklenmiyor.",
+  "nfcErrNtagOnly": "Bu araç yalnızca NTAG / MIFARE Ultralight etiketlerde çalışır.",
+  "nfcErrNotNdefRead": "Etiket algılandı ama NDEF biçiminde değil.",
+  "nfcErrNotNdefWrite": "Etiket NDEF biçiminde değil; bu telefon ona doğrudan NDEF yazamıyor.",
+  "nfcErrReadOnly": "Etiket salt okunur (kilitli); yazılamaz.",
+  "nfcErrNoData": "Yazılacak veri yok.",
+  "nfcErrCapacity": "Etiket kapasitesi yetersiz: {required} bayt gerekli, en fazla {max} bayt.",
+  "@nfcErrCapacity": {
+    "placeholders": {
+      "required": {
+        "type": "String"
+      },
+      "max": {
+        "type": "String"
+      }
+    }
+  },
+  "nfcErrCapacityShort": "Etiket kapasitesi yetersiz.",
+  "nfcErrVerify": "Doğrulama başarısız: etiketten okunan veri yazılanla eşleşmiyor.",
+  "nfcErrConnectionLost": "Etiket bağlantısı koptu; etiketi sabit tutup tekrar deneyin.",
+  "nfcErrAlreadyLocked": "Etiket zaten kilitli (salt okunur).",
+  "nfcErrLockNotNdef": "Etiket NDEF biçiminde değil; kilitlemeden önce bir kayıt yazın.",
+  "nfcErrLockNotSupported": "Bu etiket türü kilitlemeyi desteklemiyor.",
+  "nfcSheetConnected": "Etiket bağlandı, işlem yapılıyor...",
+  "nfcSheetReadOk": "Etiket okundu!",
+  "nfcSheetEmptyRead": "Boş etiket okundu!",
+  "nfcSheetMultipleTags": "Birden fazla etiket algılandı. Yalnızca bir etiket yaklaştırın.",
+  "nfcSheetWriteVerified": "Yazıldı ve doğrulandı!",
+  "nfcSheetWritten": "Etikete yazıldı!",
+  "nfcSheetLocked": "Etiket kalıcı olarak kilitlendi!",
+  "nfcWriteDone": "Etikete başarıyla yazıldı."
 }

@@ -10,7 +10,7 @@ extension Notification.Name {
 /// Siri / Shortcuts: "Scan a tag" opens the app and starts a scan.
 @available(iOS 16.0, *)
 struct ScanTagIntent: AppIntent {
-    static let title: LocalizedStringResource = "Etiketi Tara"
+    static let title: LocalizedStringResource = "Scan Tag"
     static let openAppWhenRun: Bool = true
 
     @MainActor
@@ -23,7 +23,7 @@ struct ScanTagIntent: AppIntent {
 /// Siri / Shortcuts: opens the write screen.
 @available(iOS 16.0, *)
 struct WriteTagIntent: AppIntent {
-    static let title: LocalizedStringResource = "Etikete Yaz"
+    static let title: LocalizedStringResource = "Write Tag"
     static let openAppWhenRun: Bool = true
 
     @MainActor
@@ -33,25 +33,25 @@ struct WriteTagIntent: AppIntent {
     }
 }
 
+/// Phrases and titles are English keys; translations live in
+/// <lang>.lproj/AppShortcuts.strings and Localizable.strings.
 @available(iOS 16.0, *)
 struct NfcTagMasterShortcuts: AppShortcutsProvider {
     static var appShortcuts: [AppShortcut] {
         AppShortcut(
             intent: ScanTagIntent(),
             phrases: [
-                "\(.applicationName) ile etiket tara",
                 "Scan a tag with \(.applicationName)"
             ],
-            shortTitle: "Etiketi Tara",
+            shortTitle: "Scan Tag",
             systemImageName: "wave.3.right"
         )
         AppShortcut(
             intent: WriteTagIntent(),
             phrases: [
-                "\(.applicationName) ile etikete yaz",
                 "Write a tag with \(.applicationName)"
             ],
-            shortTitle: "Etikete Yaz",
+            shortTitle: "Write Tag",
             systemImageName: "square.and.pencil"
         )
     }
@@ -77,6 +77,14 @@ struct NfcTagMasterShortcuts: AppShortcutsProvider {
     private var launchChannel: FlutterMethodChannel?
     private var pendingLaunchAction: String?
 
+    // Texts for the system NFC sheet in the app's chosen language, sent by
+    // Flutter with each call; the Turkish fallbacks are only used if missing.
+    private var ui: [String: String] = [:]
+
+    private func t(_ key: String, _ fallback: String) -> String {
+        return ui[key] ?? fallback
+    }
+
     override func application(
         _ application: UIApplication,
         didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?
@@ -86,6 +94,10 @@ struct NfcTagMasterShortcuts: AppShortcutsProvider {
 
         nfcChannel.setMethodCallHandler({ [weak self] (call: FlutterMethodCall, result: @escaping FlutterResult) -> Void in
             guard let self = self else { return }
+
+            if let ui = (call.arguments as? [String: Any])?["ui"] as? [String: String] {
+                self.ui = ui
+            }
 
             switch call.method {
             case "checkAvailability":
@@ -309,7 +321,7 @@ struct NfcTagMasterShortcuts: AppShortcutsProvider {
 
     func tagReaderSession(_ session: NFCTagReaderSession, didDetect tags: [NFCTag]) {
         guard tags.count == 1, let tag = tags.first else {
-            session.alertMessage = "Birden fazla etiket algılandı. Yalnızca bir etiket yaklaştırın."
+            session.alertMessage = self.t("multipleTags", "Birden fazla etiket algılandı. Yalnızca bir etiket yaklaştırın.")
             session.restartPolling()
             return
         }
@@ -339,7 +351,7 @@ struct NfcTagMasterShortcuts: AppShortcutsProvider {
             tagIdentifier = value.currentIDm
         @unknown default:
             finishWithResult(FlutterError(code: "UNSUPPORTED_TAG", message: "Bu NFC etiket türü desteklenmiyor", details: nil))
-            session.invalidate(errorMessage: "Etiket türü desteklenmiyor")
+            session.invalidate(errorMessage: self.t("unsupportedTag", "Etiket türü desteklenmiyor"))
             return
         }
 
@@ -348,14 +360,14 @@ struct NfcTagMasterShortcuts: AppShortcutsProvider {
 
             if let error = error {
                 self.finishWithResult(FlutterError(code: "CONNECT_FAILED", message: error.localizedDescription, details: nil))
-                session.invalidate(errorMessage: "Bağlantı hatası: \(error.localizedDescription)")
+                session.invalidate(errorMessage: self.t("connectFailed", "Bağlantı hatası"))
                 return
             }
 
             ndefTag.queryNDEFStatus { (status: NFCNDEFStatus, capacity: Int, error: Error?) in
                 if let error = error {
                     self.finishWithResult(FlutterError(code: "QUERY_FAILED", message: error.localizedDescription, details: nil))
-                    session.invalidate(errorMessage: "Durum okunamadı: \(error.localizedDescription)")
+                    session.invalidate(errorMessage: self.t("readFailed", "Etiket okunamadı"))
                     return
                 }
 
@@ -376,7 +388,7 @@ struct NfcTagMasterShortcuts: AppShortcutsProvider {
 
     private func handleRawTag(session: NFCTagReaderSession, tag: NFCTag) {
         guard case .miFare(let mifare) = tag, mifare.mifareFamily == .ultralight else {
-            let message = "Bu araç yalnızca NTAG / MIFARE Ultralight etiketlerde çalışır"
+            let message = self.t("ntagOnly", "Bu araç yalnızca NTAG / MIFARE Ultralight etiketlerde çalışır")
             finishWithResult(FlutterError(code: "UNSUPPORTED_TAG", message: message, details: nil))
             session.invalidate(errorMessage: message)
             return
@@ -385,13 +397,13 @@ struct NfcTagMasterShortcuts: AppShortcutsProvider {
             guard let self = self else { return }
             if let error = error {
                 self.finishWithResult(FlutterError(code: "CONNECT_FAILED", message: error.localizedDescription, details: nil))
-                session.invalidate(errorMessage: "Bağlantı hatası: \(error.localizedDescription)")
+                session.invalidate(errorMessage: self.t("connectFailed", "Bağlantı hatası"))
                 return
             }
             self.lock.lock()
             self.rawTag = mifare
             self.lock.unlock()
-            session.alertMessage = "Etiket bağlandı, işlem yapılıyor..."
+            session.alertMessage = self.t("connected", "Etiket bağlandı, işlem yapılıyor...")
             self.finishWithResult([
                 "identifier": mifare.identifier.map { String(format: "%02X", $0) }.joined(separator: ":")
             ] as [String: Any])
@@ -401,7 +413,7 @@ struct NfcTagMasterShortcuts: AppShortcutsProvider {
     private func handleTagScan(session: NFCTagReaderSession, tag: NFCNDEFTag, identifier: Data, status: NFCNDEFStatus, capacity: Int) {
         if status == .notSupported {
             finishWithResult(tagInfo(identifier: identifier, status: status, capacity: capacity, message: nil))
-            session.alertMessage = "Etiket algılandı; NDEF biçiminde değil."
+            session.alertMessage = self.t("notNdefRead", "Etiket algılandı; NDEF biçiminde değil.")
             session.invalidate()
             return
         }
@@ -412,17 +424,17 @@ struct NfcTagMasterShortcuts: AppShortcutsProvider {
             if let error = error {
                 if let nfcError = error as? NFCReaderError,
                    nfcError.code == .ndefReaderSessionErrorZeroLengthMessage {
-                    session.alertMessage = "Boş etiket başarıyla okundu!"
+                    session.alertMessage = self.t("emptyRead", "Boş etiket başarıyla okundu!")
                     self.finishWithResult(self.tagInfo(identifier: identifier, status: status, capacity: capacity, message: nil))
                     session.invalidate()
                     return
                 }
                 self.finishWithResult(FlutterError(code: "READ_FAILED", message: error.localizedDescription, details: nil))
-                session.invalidate(errorMessage: "Etiket okunamadı: \(error.localizedDescription)")
+                session.invalidate(errorMessage: self.t("readFailed", "Etiket okunamadı"))
                 return
             }
 
-            session.alertMessage = "Etiket başarıyla okundu!"
+            session.alertMessage = self.t("readOk", "Etiket başarıyla okundu!")
             self.finishWithResult(self.tagInfo(identifier: identifier, status: status, capacity: capacity, message: message))
             session.invalidate()
         }
@@ -450,7 +462,7 @@ struct NfcTagMasterShortcuts: AppShortcutsProvider {
 
     private func handleTagWrite(session: NFCTagReaderSession, tag: NFCNDEFTag, status: NFCNDEFStatus, capacity: Int) {
         guard status == .readWrite else {
-            let message = status == .notSupported ? "Etiket NDEF biçiminde değil; iPhone bu etikete NDEF yazamıyor" : "Etiket salt okunur, yazılamaz"
+            let message = status == .notSupported ? self.t("notNdefWrite", "Etiket NDEF biçiminde değil; iPhone bu etikete NDEF yazamıyor") : self.t("readOnly", "Etiket salt okunur, yazılamaz")
             let code = status == .notSupported ? "NOT_NDEF_FORMATTED" : "TAG_NOT_WRITABLE"
             self.finishWithResult(FlutterError(code: code, message: message, details: nil))
             session.invalidate(errorMessage: message)
@@ -464,7 +476,7 @@ struct NfcTagMasterShortcuts: AppShortcutsProvider {
 
         guard let recordsData = recordsData else {
             self.finishWithResult(FlutterError(code: "NO_DATA", message: "Yazılacak NDEF verisi yok", details: nil))
-            session.invalidate(errorMessage: "Yazılacak veri bulunamadı")
+            session.invalidate(errorMessage: self.t("noData", "Yazılacak veri bulunamadı"))
             return
         }
 
@@ -484,8 +496,10 @@ struct NfcTagMasterShortcuts: AppShortcutsProvider {
         let totalSize = messageToWrite.length
 
         if totalSize > capacity {
-            self.finishWithResult(FlutterError(code: "CAPACITY_EXCEEDED", message: "Etiket boyutu yetersiz (\(totalSize) > \(capacity))", details: nil))
-            session.invalidate(errorMessage: "Kapasite yetersiz! Gerekli: \(totalSize)B, Maks: \(capacity)B")
+            self.finishWithResult(FlutterError(code: "CAPACITY_EXCEEDED", message: "Etiket boyutu yetersiz (\(totalSize) > \(capacity))", details: ["required": totalSize, "capacity": capacity]))
+            session.invalidate(errorMessage: self.t("capacity", "Kapasite yetersiz! Gerekli: {required} B, Maks: {max} B")
+                .replacingOccurrences(of: "{required}", with: "\(totalSize)")
+                .replacingOccurrences(of: "{max}", with: "\(capacity)"))
             return
         }
 
@@ -494,7 +508,7 @@ struct NfcTagMasterShortcuts: AppShortcutsProvider {
 
             if let error = error {
                 self.finishWithResult(FlutterError(code: "WRITE_ERROR", message: error.localizedDescription, details: nil))
-                session.invalidate(errorMessage: "Yazma başarısız: \(error.localizedDescription)")
+                session.invalidate(errorMessage: self.t("writeFailed", "Yazma başarısız"))
                 return
             }
 
@@ -505,17 +519,17 @@ struct NfcTagMasterShortcuts: AppShortcutsProvider {
 
                     if let readErr = readErr {
                         self.finishWithResult(FlutterError(code: "VERIFICATION_FAILED", message: "Yazma sonrası etiket okunamadı: \(readErr.localizedDescription)", details: nil))
-                        session.invalidate(errorMessage: "Doğrulama okuması başarısız: \(readErr.localizedDescription)")
+                        session.invalidate(errorMessage: self.t("verifyFailed", "Doğrulama başarısız"))
                         return
                     }
 
                     guard let readMsg = readMsg, self.recordsMatch(expected: ndefRecords, actual: readMsg.records) else {
                         self.finishWithResult(FlutterError(code: "VERIFICATION_FAILED", message: "Doğrulama başarısız: Yazılan veri etiketteki veriyle eşleşmiyor", details: nil))
-                        session.invalidate(errorMessage: "Doğrulama başarısız: Etiket içeriği uyuşmuyor")
+                        session.invalidate(errorMessage: self.t("verifyFailed", "Doğrulama başarısız"))
                         return
                     }
 
-                    session.alertMessage = "Yazma ve doğrulama başarılı!"
+                    session.alertMessage = self.t("writeVerified", "Yazma ve doğrulama başarılı!")
                     let res: [String: Any] = [
                         "isSuccess": true,
                         "message": "Etikete başarıyla yazıldı",
@@ -526,7 +540,7 @@ struct NfcTagMasterShortcuts: AppShortcutsProvider {
                     session.invalidate()
                 }
             } else {
-                session.alertMessage = "Etikete yazıldı!"
+                session.alertMessage = self.t("written", "Etikete yazıldı!")
                 let res: [String: Any] = [
                     "isSuccess": true,
                     "message": "Etikete başarıyla yazıldı",
@@ -541,13 +555,13 @@ struct NfcTagMasterShortcuts: AppShortcutsProvider {
 
     private func handleTagLock(session: NFCTagReaderSession, tag: NFCNDEFTag, status: NFCNDEFStatus) {
         if status == .readOnly {
-            let message = "Etiket zaten kilitli (salt okunur)"
+            let message = self.t("alreadyLocked", "Etiket zaten kilitli (salt okunur)")
             finishWithResult(FlutterError(code: "ALREADY_LOCKED", message: message, details: nil))
             session.invalidate(errorMessage: message)
             return
         }
         guard status == .readWrite else {
-            let message = "Etiket NDEF biçiminde değil; önce bir kayıt yazın"
+            let message = self.t("lockNotNdef", "Etiket NDEF biçiminde değil; önce bir kayıt yazın")
             finishWithResult(FlutterError(code: "TAG_NOT_WRITABLE", message: message, details: nil))
             session.invalidate(errorMessage: message)
             return
@@ -557,10 +571,10 @@ struct NfcTagMasterShortcuts: AppShortcutsProvider {
             guard let self = self else { return }
             if let error = error {
                 self.finishWithResult(FlutterError(code: "LOCK_FAILED", message: error.localizedDescription, details: nil))
-                session.invalidate(errorMessage: "Kilitleme başarısız: \(error.localizedDescription)")
+                session.invalidate(errorMessage: self.t("lockFailed", "Kilitleme başarısız"))
                 return
             }
-            session.alertMessage = "Etiket kalıcı olarak kilitlendi!"
+            session.alertMessage = self.t("locked", "Etiket kalıcı olarak kilitlendi!")
             self.finishWithResult([
                 "isSuccess": true,
                 "message": "Etiket kalıcı olarak kilitlendi"

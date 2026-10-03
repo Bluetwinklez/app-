@@ -6087,6 +6087,156 @@ abstract class AppLocalizations {
   /// In tr, this message translates to:
   /// **'Ev_Interneti_5G'**
   String get wifiSsidExampleHint;
+
+  /// No description provided for @nfcErrUnavailable.
+  ///
+  /// In tr, this message translates to:
+  /// **'Bu cihazda NFC yok ya da kapalı.'**
+  String get nfcErrUnavailable;
+
+  /// No description provided for @nfcErrBusy.
+  ///
+  /// In tr, this message translates to:
+  /// **'Devam eden bir NFC işlemi var; bitmesini bekleyin.'**
+  String get nfcErrBusy;
+
+  /// No description provided for @nfcErrCancelled.
+  ///
+  /// In tr, this message translates to:
+  /// **'İşlem iptal edildi.'**
+  String get nfcErrCancelled;
+
+  /// No description provided for @nfcErrAppPaused.
+  ///
+  /// In tr, this message translates to:
+  /// **'Uygulama arka plana geçtiği için işlem iptal edildi.'**
+  String get nfcErrAppPaused;
+
+  /// No description provided for @nfcErrUnsupportedTag.
+  ///
+  /// In tr, this message translates to:
+  /// **'Bu etiket türü desteklenmiyor.'**
+  String get nfcErrUnsupportedTag;
+
+  /// No description provided for @nfcErrNtagOnly.
+  ///
+  /// In tr, this message translates to:
+  /// **'Bu araç yalnızca NTAG / MIFARE Ultralight etiketlerde çalışır.'**
+  String get nfcErrNtagOnly;
+
+  /// No description provided for @nfcErrNotNdefRead.
+  ///
+  /// In tr, this message translates to:
+  /// **'Etiket algılandı ama NDEF biçiminde değil.'**
+  String get nfcErrNotNdefRead;
+
+  /// No description provided for @nfcErrNotNdefWrite.
+  ///
+  /// In tr, this message translates to:
+  /// **'Etiket NDEF biçiminde değil; bu telefon ona doğrudan NDEF yazamıyor.'**
+  String get nfcErrNotNdefWrite;
+
+  /// No description provided for @nfcErrReadOnly.
+  ///
+  /// In tr, this message translates to:
+  /// **'Etiket salt okunur (kilitli); yazılamaz.'**
+  String get nfcErrReadOnly;
+
+  /// No description provided for @nfcErrNoData.
+  ///
+  /// In tr, this message translates to:
+  /// **'Yazılacak veri yok.'**
+  String get nfcErrNoData;
+
+  /// No description provided for @nfcErrCapacity.
+  ///
+  /// In tr, this message translates to:
+  /// **'Etiket kapasitesi yetersiz: {required} bayt gerekli, en fazla {max} bayt.'**
+  String nfcErrCapacity(String required, String max);
+
+  /// No description provided for @nfcErrCapacityShort.
+  ///
+  /// In tr, this message translates to:
+  /// **'Etiket kapasitesi yetersiz.'**
+  String get nfcErrCapacityShort;
+
+  /// No description provided for @nfcErrVerify.
+  ///
+  /// In tr, this message translates to:
+  /// **'Doğrulama başarısız: etiketten okunan veri yazılanla eşleşmiyor.'**
+  String get nfcErrVerify;
+
+  /// No description provided for @nfcErrConnectionLost.
+  ///
+  /// In tr, this message translates to:
+  /// **'Etiket bağlantısı koptu; etiketi sabit tutup tekrar deneyin.'**
+  String get nfcErrConnectionLost;
+
+  /// No description provided for @nfcErrAlreadyLocked.
+  ///
+  /// In tr, this message translates to:
+  /// **'Etiket zaten kilitli (salt okunur).'**
+  String get nfcErrAlreadyLocked;
+
+  /// No description provided for @nfcErrLockNotNdef.
+  ///
+  /// In tr, this message translates to:
+  /// **'Etiket NDEF biçiminde değil; kilitlemeden önce bir kayıt yazın.'**
+  String get nfcErrLockNotNdef;
+
+  /// No description provided for @nfcErrLockNotSupported.
+  ///
+  /// In tr, this message translates to:
+  /// **'Bu etiket türü kilitlemeyi desteklemiyor.'**
+  String get nfcErrLockNotSupported;
+
+  /// No description provided for @nfcSheetConnected.
+  ///
+  /// In tr, this message translates to:
+  /// **'Etiket bağlandı, işlem yapılıyor...'**
+  String get nfcSheetConnected;
+
+  /// No description provided for @nfcSheetReadOk.
+  ///
+  /// In tr, this message translates to:
+  /// **'Etiket okundu!'**
+  String get nfcSheetReadOk;
+
+  /// No description provided for @nfcSheetEmptyRead.
+  ///
+  /// In tr, this message translates to:
+  /// **'Boş etiket okundu!'**
+  String get nfcSheetEmptyRead;
+
+  /// No description provided for @nfcSheetMultipleTags.
+  ///
+  /// In tr, this message translates to:
+  /// **'Birden fazla etiket algılandı. Yalnızca bir etiket yaklaştırın.'**
+  String get nfcSheetMultipleTags;
+
+  /// No description provided for @nfcSheetWriteVerified.
+  ///
+  /// In tr, this message translates to:
+  /// **'Yazıldı ve doğrulandı!'**
+  String get nfcSheetWriteVerified;
+
+  /// No description provided for @nfcSheetWritten.
+  ///
+  /// In tr, this message translates to:
+  /// **'Etikete yazıldı!'**
+  String get nfcSheetWritten;
+
+  /// No description provided for @nfcSheetLocked.
+  ///
+  /// In tr, this message translates to:
+  /// **'Etiket kalıcı olarak kilitlendi!'**
+  String get nfcSheetLocked;
+
+  /// No description provided for @nfcWriteDone.
+  ///
+  /// In tr, this message translates to:
+  /// **'Etikete başarıyla yazıldı.'**
+  String get nfcWriteDone;
 }
 
 class _AppLocalizationsDelegate

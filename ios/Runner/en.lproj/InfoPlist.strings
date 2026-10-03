@@ -1,0 +1,4 @@
+"CFBundleDisplayName" = "NFC Tag Master";
+"NSCameraUsageDescription" = "The camera is used to scan QR codes and add photos to your tag library.";
+"NSPhotoLibraryUsageDescription" = "Your photos are used to add pictures to tags in your tag library.";
+"NFCReaderUsageDescription" = "NFC access is needed to read NFC tags and write NDEF messages.";
