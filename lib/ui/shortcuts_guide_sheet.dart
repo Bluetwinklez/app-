@@ -24,6 +24,10 @@ class ShortcutsGuideSheet extends StatelessWidget {
     );
   }
 
+  /// URL that makes iOS run the Shortcut called [name].
+  static String runShortcutLink(String name) =>
+      'shortcuts://run-shortcut?name=${Uri.encodeComponent(name)}';
+
   @override
   Widget build(BuildContext context) {
     final loc = AppLocalizations.of(context)!;
@@ -65,6 +69,49 @@ class ShortcutsGuideSheet extends StatelessWidget {
                 style: TextStyle(fontSize: 12.5, color: AppColors.secondary),
               ),
             ),
+            SectionHeader(title: loc.recipesSection),
+            Text(
+              loc.recipesIntro,
+              style: TextStyle(color: AppColors.secondary, height: 1.4),
+            ),
+            const SizedBox(height: 10),
+            for (final (icon, title, actions) in [
+              (Icons.bedtime_outlined, loc.recipeBedTitle, loc.recipeBedActions),
+              (Icons.directions_car_outlined, loc.recipeCarTitle, loc.recipeCarActions),
+              (Icons.door_front_door_outlined, loc.recipeDoorTitle, loc.recipeDoorActions),
+              (Icons.desk_outlined, loc.recipeDeskTitle, loc.recipeDeskActions),
+              (Icons.fitness_center_outlined, loc.recipeGymTitle, loc.recipeGymActions),
+              (Icons.kitchen_outlined, loc.recipeKitchenTitle, loc.recipeKitchenActions),
+            ])
+              Padding(
+                padding: const EdgeInsets.only(bottom: 8),
+                child: SoftCard(
+                  padding: const EdgeInsetsDirectional.fromSTEB(14, 10, 6, 10),
+                  child: Row(
+                    children: [
+                      Icon(icon, color: AppColors.accent),
+                      const SizedBox(width: 12),
+                      Expanded(
+                        child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            Text(title, style: const TextStyle(fontWeight: FontWeight.w700)),
+                            Text(actions, style: TextStyle(fontSize: 12.5, color: AppColors.secondary, height: 1.35)),
+                          ],
+                        ),
+                      ),
+                      IconButton(
+                        tooltip: loc.recipeAddToTag,
+                        icon: Icon(Icons.add_circle_outline_rounded, size: 22, color: AppColors.accent),
+                        onPressed: () {
+                          onAddRecord(NdefCodec.encodeUri(runShortcutLink(title)), title);
+                          Navigator.of(context).pop();
+                        },
+                      ),
+                    ],
+                  ),
+                ),
+              ),
             SectionHeader(title: loc.appLinksSection),
             Text(
               loc.appLinksDesc,

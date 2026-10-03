@@ -969,5 +969,20 @@
   "presetCallMeDesc": "Le téléphone appelle votre numéro.",
   "presetRunShortcutTitle": "Exécuter un raccourci",
   "presetRunShortcutDesc": "Exécute le raccourci iPhone indiqué : allumer, lancer la musique, changer de Concentration...",
-  "shortcutNameLabel": "Nom du raccourci"
+  "shortcutNameLabel": "Nom du raccourci",
+  "recipesSection": "Recettes d'automatisation",
+  "recipesIntro": "Créez dans Raccourcis un raccourci portant le nom ci-dessous et ajoutez les actions. Liez-le ensuite à une automatisation NFC ou utilisez « Ajouter au tag » pour écrire un lien qui le lance.",
+  "recipeAddToTag": "Ajouter au tag",
+  "recipeBedTitle": "Bonne nuit",
+  "recipeBedActions": "Chevet : Concentration Sommeil · régler une alarme · éteindre",
+  "recipeCarTitle": "Mode voiture",
+  "recipeCarActions": "Support voiture : Concentration Conduite · itinéraire maison · musique",
+  "recipeDoorTitle": "Je suis rentré",
+  "recipeDoorActions": "Porte d'entrée : allumer · Wi-Fi activé · SMS « Je suis rentré » à la famille",
+  "recipeDeskTitle": "Mode travail",
+  "recipeDeskActions": "Bureau : Concentration Travail · minuteur 25 min · playlist",
+  "recipeGymTitle": "Entraînement",
+  "recipeGymActions": "Sac de sport : démarrer une séance · playlist sport · Ne pas déranger",
+  "recipeKitchenTitle": "Minuteur cuisine",
+  "recipeKitchenActions": "Cuisine : minuteur 10 min · ouvrir la liste de courses"
 }

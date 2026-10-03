@@ -969,5 +969,20 @@
   "presetCallMeDesc": "Il telefono chiama il tuo numero.",
   "presetRunShortcutTitle": "Esegui comando rapido",
   "presetRunShortcutDesc": "Esegue il comando rapido indicato: luci, musica, modalità Full immersion...",
-  "shortcutNameLabel": "Nome del comando"
+  "shortcutNameLabel": "Nome del comando",
+  "recipesSection": "Ricette di automazione",
+  "recipesIntro": "Crea in Comandi un comando con il nome qui sotto e aggiungi le azioni. Poi collegalo a un'automazione NFC o usa \"Aggiungi al tag\" per scrivere un link che lo avvia.",
+  "recipeAddToTag": "Aggiungi al tag",
+  "recipeBedTitle": "Buonanotte",
+  "recipeBedActions": "Comodino: Full immersion Sonno · sveglia · luci spente",
+  "recipeCarTitle": "Modalità auto",
+  "recipeCarActions": "Supporto auto: Full immersion Guida · indicazioni casa · musica",
+  "recipeDoorTitle": "Sono a casa",
+  "recipeDoorActions": "Ingresso: luci accese · Wi-Fi attivo · messaggio \"Sono a casa\" alla famiglia",
+  "recipeDeskTitle": "Modalità lavoro",
+  "recipeDeskActions": "Scrivania: Full immersion Lavoro · timer 25 min · playlist",
+  "recipeGymTitle": "Allenamento",
+  "recipeGymActions": "Borsa palestra: avvia allenamento · playlist · Non disturbare",
+  "recipeKitchenTitle": "Timer da cucina",
+  "recipeKitchenActions": "Cucina: timer 10 min · apri la lista della spesa"
 }

@@ -969,5 +969,20 @@
   "presetCallMeDesc": "かざしたスマホからあなたに発信します。",
   "presetRunShortcutTitle": "ショートカットを実行",
   "presetRunShortcutDesc": "指定したiPhoneのショートカットを実行: 照明オン、音楽再生、集中モード変更など",
-  "shortcutNameLabel": "ショートカット名"
+  "shortcutNameLabel": "ショートカット名",
+  "recipesSection": "オートメーションのレシピ",
+  "recipesIntro": "ショートカットAppで下の名前のショートカットを作り、アクションを追加します。NFCオートメーションに設定するか、「タグに追加」で実行用リンクを書き込みます。",
+  "recipeAddToTag": "タグに追加",
+  "recipeBedTitle": "おやすみ",
+  "recipeBedActions": "枕元: 睡眠集中モード · アラーム設定 · 消灯",
+  "recipeCarTitle": "カーモード",
+  "recipeCarActions": "車載ホルダー: 運転集中モード · 自宅への経路 · 音楽再生",
+  "recipeDoorTitle": "ただいま",
+  "recipeDoorActions": "玄関: 照明オン · Wi-Fiオン · 家族に「ただいま」と送信",
+  "recipeDeskTitle": "集中タイム",
+  "recipeDeskActions": "デスク: 仕事集中モード · 25分タイマー · 集中用プレイリスト",
+  "recipeGymTitle": "ワークアウト",
+  "recipeGymActions": "ジムバッグ: ワークアウト開始 · プレイリスト · おやすみモード",
+  "recipeKitchenTitle": "キッチンタイマー",
+  "recipeKitchenActions": "キッチン: 10分タイマー · 買い物リストを開く"
 }

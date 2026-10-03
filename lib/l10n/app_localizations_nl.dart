@@ -3452,4 +3452,56 @@ class AppLocalizationsNl extends AppLocalizations {
 
   @override
   String get shortcutNameLabel => 'Naam van opdracht';
+
+  @override
+  String get recipesSection => 'Kant-en-klare automatiseringen';
+
+  @override
+  String get recipesIntro =>
+      'Maak in Opdrachten een opdracht met de naam hieronder en voeg de acties toe. Koppel die daarna aan een NFC-automatisering of gebruik \"Aan tag toevoegen\" om een startlink te schrijven.';
+
+  @override
+  String get recipeAddToTag => 'Aan tag toevoegen';
+
+  @override
+  String get recipeBedTitle => 'Welterusten';
+
+  @override
+  String get recipeBedActions =>
+      'Nachtkastje: Slaapfocus aan · wekker zetten · lampen uit';
+
+  @override
+  String get recipeCarTitle => 'Automodus';
+
+  @override
+  String get recipeCarActions =>
+      'Autohouder: Rijfocus · route naar huis · muziek starten';
+
+  @override
+  String get recipeDoorTitle => 'Ik ben thuis';
+
+  @override
+  String get recipeDoorActions =>
+      'Voordeur: lampen aan · wifi aan · familie \"Ik ben thuis\" sturen';
+
+  @override
+  String get recipeDeskTitle => 'Focustijd';
+
+  @override
+  String get recipeDeskActions =>
+      'Bureau: Werkfocus · timer van 25 min · focusafspeellijst';
+
+  @override
+  String get recipeGymTitle => 'Training';
+
+  @override
+  String get recipeGymActions =>
+      'Sporttas: training starten · afspeellijst · Niet storen';
+
+  @override
+  String get recipeKitchenTitle => 'Keukentimer';
+
+  @override
+  String get recipeKitchenActions =>
+      'Keuken: timer van 10 min · boodschappenlijst openen';
 }

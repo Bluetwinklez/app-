@@ -969,5 +969,20 @@
   "presetCallMeDesc": "El teléfono llama a tu número.",
   "presetRunShortcutTitle": "Ejecutar un atajo",
   "presetRunShortcutDesc": "Ejecuta el atajo de iPhone indicado: encender luces, poner música, cambiar Concentración...",
-  "shortcutNameLabel": "Nombre del atajo"
+  "shortcutNameLabel": "Nombre del atajo",
+  "recipesSection": "Recetas de automatización",
+  "recipesIntro": "Crea en Atajos un atajo con el nombre indicado y añade las acciones. Luego vincúlalo a una automatización NFC o usa «Añadir a la etiqueta» para escribir un enlace que lo ejecute.",
+  "recipeAddToTag": "Añadir a la etiqueta",
+  "recipeBedTitle": "Buenas noches",
+  "recipeBedActions": "Mesilla: Concentración Dormir · poner alarma · apagar luces",
+  "recipeCarTitle": "Modo coche",
+  "recipeCarActions": "Soporte coche: Concentración Conducción · ruta a casa · música",
+  "recipeDoorTitle": "Ya estoy en casa",
+  "recipeDoorActions": "Entrada: luces · Wi-Fi activado · mensaje «Ya llegué» a la familia",
+  "recipeDeskTitle": "Modo trabajo",
+  "recipeDeskActions": "Escritorio: Concentración Trabajo · temporizador 25 min · lista de música",
+  "recipeGymTitle": "Entreno",
+  "recipeGymActions": "Bolsa de deporte: iniciar entreno · lista de música · No molestar",
+  "recipeKitchenTitle": "Temporizador de cocina",
+  "recipeKitchenActions": "Cocina: temporizador 10 min · abrir la lista de la compra"
 }
