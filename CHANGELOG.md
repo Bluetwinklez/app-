@@ -1,5 +1,25 @@
 # Değişiklik Günlüğü
 
+## 1.4.0
+
+**Güvenlik ve gizlilik**
+- Ayarlar'da yeni "Güvenlik ve gizlilik" bölümü ve güvenlik kontrolü puanı
+- Yeniden kilitleme gecikmesi (hemen – 15 dk)
+- Uygulama değiştiricide ekranı gizleme (iOS bulanıklaştırma, Android'de ekran görüntüsü engeli); NFC ve Face ID sırasında devreye girmez
+- Kopyalanan imza anahtarı 60 sn sonra panodan silinir
+- Kilidi kapatmak, yedek dışa aktarmak, anahtar kopyalamak ve verileri silmek Face ID / parola ister
+- İmza anahtarı Anahtar Zinciri'nde (yalnızca bu cihaz); eski sürümlerdeki anahtar otomatik taşınır
+- "Tüm verileri sil" (fotoğraflar dahil)
+- Android: bulut yedeği ve şifresiz bağlantılar kapalı
+
+**Yeni özellikler**
+- Etiket haritası: etikete "Şu anki konumu ekle" ya da üzerindeki konum kaydı; Haritalar'da aç
+- Ekip paketi: görünen etiketler ve şablonlar tek dosyada, isteğe bağlı parolayla
+- Alternatif uygulama simgeleri (Mavi, Yeşil, Mor, Turuncu, Gece)
+
+**Düzenleme**
+- Dil seçimi tek satıra indirildi; kütüphane işlemleri tek menüde
+
 ## 1.3.0
 
 **Kayıt Defteri**

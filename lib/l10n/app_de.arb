@@ -1270,5 +1270,6 @@
   "mapAddCurrent": "Aktuellen Ort hinzufügen",
   "mapPositionSaved": "Ort: {lat}, {lng}",
   "mapLocationDenied": "Standortzugriff nicht erlaubt. Unter Einstellungen → Datenschutz → Ortungsdienste freigeben.",
-  "mapLocationFailed": "Standort nicht verfügbar: {error}"
+  "mapLocationFailed": "Standort nicht verfügbar: {error}",
+  "whatsNew140": "• Bereich Sicherheit & Datenschutz: Sicherheitscheck, Sperrverzögerung, im App-Umschalter ausblenden, Zwischenablage leeren, alle Daten löschen\n• Signaturschlüssel jetzt im Schlüsselbund; sensible Aktionen fragen nach Face ID\n• Tag-Karte und Ort eines Tags speichern\n• Team-Pakete: Tags und Vorlagen in einer Datei teilen\n• Alternative App-Symbole\n• Aufgeräumte Einstellungen und Bibliotheksmenü"
 }

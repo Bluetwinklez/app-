@@ -4536,4 +4536,8 @@ class AppLocalizationsEn extends AppLocalizations {
   String mapLocationFailed(String error) {
     return 'Could not get the location: $error';
   }
+
+  @override
+  String get whatsNew140 =>
+      '• Security & privacy section: security check, lock delay, hide in app switcher, clipboard clearing, erase all data\n• Signing key now in the Keychain; sensitive actions ask for Face ID\n• Tag map and saving a tag\'s location\n• Team packs: share tags and templates in one file\n• Alternate app icons\n• Tidier settings and library menu';
 }

@@ -1270,5 +1270,6 @@
   "mapAddCurrent": "Ajouter la position actuelle",
   "mapPositionSaved": "Position : {lat}, {lng}",
   "mapLocationDenied": "Accès à la position refusé. Autorisez-le dans Réglages → Confidentialité → Service de localisation.",
-  "mapLocationFailed": "Position indisponible : {error}"
+  "mapLocationFailed": "Position indisponible : {error}",
+  "whatsNew140": "• Section Sécurité et confidentialité : bilan, délai de verrouillage, masquage dans le sélecteur, effacement du presse-papiers, tout effacer\n• Clé de signature dans le trousseau ; Face ID pour les actions sensibles\n• Carte des tags et position d'un tag\n• Packs d'équipe : tags et modèles dans un seul fichier\n• Icônes alternatives\n• Réglages et menu de bibliothèque simplifiés"
 }

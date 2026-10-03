@@ -1270,5 +1270,6 @@
   "mapAddCurrent": "Adicionar local atual",
   "mapPositionSaved": "Local: {lat}, {lng}",
   "mapLocationDenied": "Permissão de localização negada. Permita em Ajustes → Privacidade → Serviços de Localização.",
-  "mapLocationFailed": "Não foi possível obter o local: {error}"
+  "mapLocationFailed": "Não foi possível obter o local: {error}",
+  "whatsNew140": "• Seção Segurança e privacidade: verificação, atraso do bloqueio, ocultar no seletor, limpar área de transferência, apagar tudo\n• Chave de assinatura nas Chaves; Face ID para ações sensíveis\n• Mapa de tags e local de uma tag\n• Pacotes de equipe: tags e modelos em um arquivo\n• Ícones alternativos\n• Ajustes e menu da biblioteca mais organizados"
 }

@@ -1270,5 +1270,6 @@
   "mapAddCurrent": "Add current location",
   "mapPositionSaved": "Location: {lat}, {lng}",
   "mapLocationDenied": "Location permission was not granted. You can allow it in Settings → Privacy → Location Services.",
-  "mapLocationFailed": "Could not get the location: {error}"
+  "mapLocationFailed": "Could not get the location: {error}",
+  "whatsNew140": "• Security & privacy section: security check, lock delay, hide in app switcher, clipboard clearing, erase all data\n• Signing key now in the Keychain; sensitive actions ask for Face ID\n• Tag map and saving a tag's location\n• Team packs: share tags and templates in one file\n• Alternate app icons\n• Tidier settings and library menu"
 }

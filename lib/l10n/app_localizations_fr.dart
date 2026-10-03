@@ -4584,4 +4584,8 @@ class AppLocalizationsFr extends AppLocalizations {
   String mapLocationFailed(String error) {
     return 'Position indisponible : $error';
   }
+
+  @override
+  String get whatsNew140 =>
+      '• Section Sécurité et confidentialité : bilan, délai de verrouillage, masquage dans le sélecteur, effacement du presse-papiers, tout effacer\n• Clé de signature dans le trousseau ; Face ID pour les actions sensibles\n• Carte des tags et position d\'un tag\n• Packs d\'équipe : tags et modèles dans un seul fichier\n• Icônes alternatives\n• Réglages et menu de bibliothèque simplifiés';
 }

@@ -4551,4 +4551,8 @@ class AppLocalizationsNl extends AppLocalizations {
   String mapLocationFailed(String error) {
     return 'Locatie niet beschikbaar: $error';
   }
+
+  @override
+  String get whatsNew140 =>
+      '• Beveiliging en privacy: check, vergrendelvertraging, verbergen in appkiezer, klembord wissen, alles wissen\n• Ondertekeningssleutel nu in de sleutelhanger; Face ID voor gevoelige acties\n• Tagkaart en locatie van een tag opslaan\n• Teampakketten: tags en sjablonen in één bestand\n• Alternatieve app-iconen\n• Overzichtelijkere instellingen en bibliotheekmenu';
 }

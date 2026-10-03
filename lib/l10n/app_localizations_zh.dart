@@ -4315,4 +4315,8 @@ class AppLocalizationsZh extends AppLocalizations {
   String mapLocationFailed(String error) {
     return '无法获取位置：$error';
   }
+
+  @override
+  String get whatsNew140 =>
+      '• 安全与隐私：安全检查、锁定延迟、在应用切换器中隐藏、清除剪贴板、清除所有数据\n• 签名密钥改存钥匙串；敏感操作需 Face ID\n• 标签地图与保存标签位置\n• 团队包：一个文件分享标签和模板\n• 备用应用图标\n• 更简洁的设置和标签库菜单';
 }

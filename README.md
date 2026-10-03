@@ -2,7 +2,7 @@
 
 iPhone ve Android için NFC etiketlerini okuma, yazma ve yönetme uygulaması. Flutter ile yazıldı; NFC erişimi platform kanalları üzerinden doğrudan Core NFC (iOS) ve `android.nfc` (Android) ile yapılır.
 
-- **Sürüm:** 1.3.0 — değişiklikler için [CHANGELOG.md](CHANGELOG.md)
+- **Sürüm:** 1.4.0 — değişiklikler için [CHANGELOG.md](CHANGELOG.md)
 - **Gereksinimler:** iOS 16+ (iPhone 8 ve sonrası), Android 7.0+ (NFC donanımı)
 - **Diller:** Türkçe, English, Deutsch, Français, Español, Italiano, Português, Русский, العربية, 日本語, 简体中文, 한국어, Nederlands, Українська
 - **Gizlilik:** Hesap, sunucu, reklam veya takip yok — [docs/PRIVACY.md](docs/PRIVACY.md)
@@ -47,6 +47,10 @@ iPhone ve Android için NFC etiketlerini okuma, yazma ve yönetme uygulaması. F
 - Kontrol aralığı / bakım hatırlatıcısı, tablodan toplu içe aktarma
 - Kopya etiket uyarısı, NDEF Doktoru
 
+**1.4.0**
+- Güvenlik ve gizlilik bölümü, Anahtar Zinciri'nde imza anahtarı, Tüm verileri sil
+- Etiket haritası, ekip paketleri, alternatif uygulama simgeleri
+
 **Görünüm**
 - Açık/koyu tema, tanıtım rehberi, titreşim ve ses ayarları
 
@@ -55,7 +59,8 @@ iPhone ve Android için NFC etiketlerini okuma, yazma ve yönetme uygulaması. F
 - UID ve şifreli sektörler kopyalanamaz; kopyalama yalnızca NDEF içeriğini kapsar.
 - iPhone bazı içerikleri (metin, vCard, Wi-Fi, `geo:`) arka planda kendiliğinden açmaz; uygulama bunu yazmadan önce gösterir.
 - Ödeme kartı, kimlik kartı veya erişim kartı klonlama/emülasyonu desteklenmez.
-- Yedek dosyaları düz JSON'dur ve Wi-Fi şifreleri içerebilir.
+- Parolasız yedek dosyaları düz JSON'dur ve Wi-Fi şifreleri içerebilir; dışa aktarırken parola koruması önerilir.
+- Etiket haritası açıldığında harita görüntüleri OpenStreetMap'ten indirilir.
 
 ## Geliştirme
 

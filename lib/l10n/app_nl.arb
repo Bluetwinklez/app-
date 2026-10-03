@@ -1270,5 +1270,6 @@
   "mapAddCurrent": "Huidige locatie toevoegen",
   "mapPositionSaved": "Locatie: {lat}, {lng}",
   "mapLocationDenied": "Locatietoestemming niet gegeven. Sta het toe via Instellingen → Privacy → Locatievoorzieningen.",
-  "mapLocationFailed": "Locatie niet beschikbaar: {error}"
+  "mapLocationFailed": "Locatie niet beschikbaar: {error}",
+  "whatsNew140": "• Beveiliging en privacy: check, vergrendelvertraging, verbergen in appkiezer, klembord wissen, alles wissen\n• Ondertekeningssleutel nu in de sleutelhanger; Face ID voor gevoelige acties\n• Tagkaart en locatie van een tag opslaan\n• Teampakketten: tags en sjablonen in één bestand\n• Alternatieve app-iconen\n• Overzichtelijkere instellingen en bibliotheekmenu"
 }

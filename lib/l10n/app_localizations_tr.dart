@@ -4549,4 +4549,8 @@ class AppLocalizationsTr extends AppLocalizations {
   String mapLocationFailed(String error) {
     return 'Konum alınamadı: $error';
   }
+
+  @override
+  String get whatsNew140 =>
+      '• Güvenlik ve gizlilik bölümü: güvenlik kontrolü, kilit gecikmesi, uygulama değiştiricide gizleme, pano temizleme, tüm verileri sil\n• İmza anahtarı artık Anahtar Zinciri\'nde; hassas işlemler Face ID ister\n• Etiket haritası ve etikete konum kaydetme\n• Ekip paketi: etiket ve şablonları tek dosyayla paylaşın\n• Alternatif uygulama simgeleri\n• Daha sade ayarlar ve kütüphane menüsü';
 }
