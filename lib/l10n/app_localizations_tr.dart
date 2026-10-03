@@ -4975,4 +4975,15 @@ class AppLocalizationsTr extends AppLocalizations {
 
   @override
   String get reminderWarrantyBody => 'Bugün garanti süresi doluyor.';
+
+  @override
+  String get templateShareQr => 'QR ile paylaş';
+
+  @override
+  String templateReceived(String name) {
+    return 'Şablon eklendi: $name';
+  }
+
+  @override
+  String get templateCodeInvalid => 'Bu QR kodundaki şablon okunamadı';
 }

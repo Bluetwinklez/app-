@@ -8488,6 +8488,24 @@ abstract class AppLocalizations {
   /// In tr, this message translates to:
   /// **'Bugün garanti süresi doluyor.'**
   String get reminderWarrantyBody;
+
+  /// No description provided for @templateShareQr.
+  ///
+  /// In tr, this message translates to:
+  /// **'QR ile paylaş'**
+  String get templateShareQr;
+
+  /// No description provided for @templateReceived.
+  ///
+  /// In tr, this message translates to:
+  /// **'Şablon eklendi: {name}'**
+  String templateReceived(String name);
+
+  /// No description provided for @templateCodeInvalid.
+  ///
+  /// In tr, this message translates to:
+  /// **'Bu QR kodundaki şablon okunamadı'**
+  String get templateCodeInvalid;
 }
 
 class _AppLocalizationsDelegate

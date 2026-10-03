@@ -4976,4 +4976,15 @@ class AppLocalizationsRu extends AppLocalizations {
 
   @override
   String get reminderWarrantyBody => 'Гарантия заканчивается сегодня.';
+
+  @override
+  String get templateShareQr => 'Поделиться QR-кодом';
+
+  @override
+  String templateReceived(String name) {
+    return 'Шаблон добавлен: $name';
+  }
+
+  @override
+  String get templateCodeInvalid => 'Не удалось прочитать шаблон из QR-кода';
 }

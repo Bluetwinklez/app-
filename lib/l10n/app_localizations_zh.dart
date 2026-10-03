@@ -4722,4 +4722,15 @@ class AppLocalizationsZh extends AppLocalizations {
 
   @override
   String get reminderWarrantyBody => '保修今天到期。';
+
+  @override
+  String get templateShareQr => '以二维码分享';
+
+  @override
+  String templateReceived(String name) {
+    return '已添加模板：$name';
+  }
+
+  @override
+  String get templateCodeInvalid => '无法读取此二维码中的模板';
 }

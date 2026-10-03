@@ -1393,5 +1393,8 @@
   "warrantyUntilText": "الضمان: {date}",
   "assigneeText": "مُسند: {name}",
   "reminderWarrantyTitle": "ينتهي الضمان: {name}",
-  "reminderWarrantyBody": "ينتهي الضمان اليوم."
+  "reminderWarrantyBody": "ينتهي الضمان اليوم.",
+  "templateShareQr": "مشاركة كرمز QR",
+  "templateReceived": "أُضيف القالب: {name}",
+  "templateCodeInvalid": "تعذرت قراءة القالب من رمز QR هذا"
 }

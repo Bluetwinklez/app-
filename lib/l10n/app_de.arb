@@ -1393,5 +1393,8 @@
   "warrantyUntilText": "Garantie: {date}",
   "assigneeText": "Zugewiesen: {name}",
   "reminderWarrantyTitle": "Garantie endet: {name}",
-  "reminderWarrantyBody": "Die Garantie endet heute."
+  "reminderWarrantyBody": "Die Garantie endet heute.",
+  "templateShareQr": "Als QR teilen",
+  "templateReceived": "Vorlage hinzugefügt: {name}",
+  "templateCodeInvalid": "Die Vorlage in diesem QR-Code ist unlesbar"
 }
