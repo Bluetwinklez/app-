@@ -150,7 +150,7 @@ class AppLocalizationsPt extends AppLocalizations {
   String get catHome => 'Casa';
 
   @override
-  String get catOther => 'Outro';
+  String get catOther => 'Outros';
 
   @override
   String get catPersonal => 'Pessoal';
@@ -4826,4 +4826,89 @@ class AppLocalizationsPt extends AppLocalizations {
 
   @override
   String get iconRainbow => 'Arco-íris';
+
+  @override
+  String get catWebText => 'Web e texto';
+
+  @override
+  String get catContact => 'Contato e negócios';
+
+  @override
+  String get catNetwork => 'Rede e local';
+
+  @override
+  String get catSocial => 'Redes sociais';
+
+  @override
+  String get catEmpty => 'Vazia';
+
+  @override
+  String get analyticsTitle => 'Estatísticas';
+
+  @override
+  String get analyticsSubtitle => 'Tendências e tags mais lidas';
+
+  @override
+  String get analyticsTotal => 'Leituras totais';
+
+  @override
+  String get analyticsUnique => 'Tags diferentes';
+
+  @override
+  String get analyticsLast14 => 'Últimos 14 dias';
+
+  @override
+  String get analyticsTop => 'Mais lidas';
+
+  @override
+  String get analyticsByType => 'Tipos de conteúdo';
+
+  @override
+  String get analyticsEmpty =>
+      'Ative o histórico nos Ajustes e leia algumas tags.';
+
+  @override
+  String analyticsTimes(String count) {
+    return '$count×';
+  }
+
+  @override
+  String get codeScannerTitle => 'Leitor de códigos';
+
+  @override
+  String get codeScannerSubtitle =>
+      'Leia QR e códigos de barras; grave, salve ou compartilhe';
+
+  @override
+  String codeResultTitle(String format) {
+    return 'Código lido ($format)';
+  }
+
+  @override
+  String get codeSearchWeb => 'Pesquisar na web';
+
+  @override
+  String get codeToTag => 'Gravar em tag';
+
+  @override
+  String get codeSaveLibrary => 'Salvar na biblioteca';
+
+  @override
+  String get mergeTitle => 'Combinar registros';
+
+  @override
+  String get mergeSubtitle =>
+      'Escolha da biblioteca, modelos e última leitura para uma tag';
+
+  @override
+  String mergeButton(String count) {
+    return 'Combinar ($count)';
+  }
+
+  @override
+  String get mergeEmpty =>
+      'Nada para combinar. Salve tags ou modelos primeiro.';
+
+  @override
+  String get mergeLastScan => 'Última tag lida';
 }

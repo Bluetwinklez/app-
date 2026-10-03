@@ -72,6 +72,98 @@ extension _ClipboardAndRewriteFlows on _HomeScreenState {
     _appendImportedRecords([QrRecordImporter.fromQr(value)], loc.sourceQr);
   }
 
+  Future<void> _mergeRecords() async {
+    final loc = AppLocalizations.of(context) ?? L10n.current;
+    final last = _controller.lastScannedTag;
+    final sources = <(String, List<NdefRecordModel>)>[
+      if (last != null && last.error == null && last.records.isNotEmpty) (loc.mergeLastScan, last.records),
+      for (final e in _controller.storage.getLibrary())
+        if (e.records.isNotEmpty) (e.name, e.records),
+      for (final t in _controller.storage.getTemplates())
+        if (t.records.isNotEmpty) (t.name, t.records),
+    ];
+    final records = await MergeRecordsPage.open(context, sources);
+    if (records == null || records.isEmpty || !mounted) return;
+    _appendImportedRecords(records, loc.mergeTitle);
+  }
+
+  Future<void> _scanCode() async {
+    final loc = AppLocalizations.of(context) ?? L10n.current;
+    final result = await QrScanPage.scanCode(context);
+    if (result == null || !mounted) return;
+    final (value, format) = result;
+    final isLink = Uri.tryParse(value)?.hasScheme == true && !value.contains(' ');
+    await showModalBottomSheet<void>(
+      context: context,
+      showDragHandle: true,
+      builder: (ctx) => SafeArea(
+        child: Padding(
+          padding: const EdgeInsets.fromLTRB(20, 0, 20, 12),
+          child: Column(
+            mainAxisSize: MainAxisSize.min,
+            crossAxisAlignment: CrossAxisAlignment.stretch,
+            children: [
+              Text(loc.codeResultTitle(format), style: TextStyle(color: AppColors.secondary)),
+              const SizedBox(height: 6),
+              SelectableText(value, style: const TextStyle(fontSize: 20, fontWeight: FontWeight.w700)),
+              const SizedBox(height: 12),
+              ListTile(
+                leading: Icon(Icons.nfc_rounded, color: AppColors.accent),
+                title: Text(loc.codeToTag),
+                onTap: () {
+                  Navigator.of(ctx).pop();
+                  _appendImportedRecords([QrRecordImporter.fromQr(value)], format);
+                },
+              ),
+              ListTile(
+                leading: Icon(Icons.bookmark_add_outlined, color: AppColors.accent),
+                title: Text(loc.codeSaveLibrary),
+                onTap: () {
+                  Navigator.of(ctx).pop();
+                  Navigator.of(context).push(MaterialPageRoute(
+                    builder: (_) => TagLibraryPage(
+                      storage: _controller.storage,
+                      lastScanRecords: [QrRecordImporter.fromQr(value)],
+                      startWithLastScan: true,
+                      lastScanUid: null,
+                      composerRecords: const [],
+                      onUseRecords: (records, title) => _appendImportedRecords(records, title),
+                    ),
+                  ));
+                },
+              ),
+              ListTile(
+                leading: Icon(Icons.copy_rounded, color: AppColors.accent),
+                title: Text(loc.copy),
+                onTap: () {
+                  Clipboard.setData(ClipboardData(text: value));
+                  Navigator.of(ctx).pop();
+                },
+              ),
+              ListTile(
+                leading: Icon(Icons.ios_share_rounded, color: AppColors.accent),
+                title: Text(loc.shareTag),
+                onTap: () {
+                  Navigator.of(ctx).pop();
+                  SharePlus.instance.share(ShareParams(text: value));
+                },
+              ),
+              ListTile(
+                leading: Icon(isLink ? Icons.open_in_new_rounded : Icons.search_rounded, color: AppColors.accent),
+                title: Text(isLink ? loc.simpleOpen : loc.codeSearchWeb),
+                onTap: () {
+                  Navigator.of(ctx).pop();
+                  LaunchActionService.openUrl(
+                      isLink ? value : 'https://www.google.com/search?q=${Uri.encodeQueryComponent(value)}');
+                },
+              ),
+            ],
+          ),
+        ),
+      ),
+    );
+  }
+
   Future<void> _importFromJsonFile() async {
     XFile? file;
     try {

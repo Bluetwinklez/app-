@@ -4813,4 +4813,89 @@ class AppLocalizationsUk extends AppLocalizations {
 
   @override
   String get iconRainbow => 'Веселка';
+
+  @override
+  String get catWebText => 'Веб і текст';
+
+  @override
+  String get catContact => 'Контакти й бізнес';
+
+  @override
+  String get catNetwork => 'Мережа й місце';
+
+  @override
+  String get catSocial => 'Соцмережі';
+
+  @override
+  String get catEmpty => 'Порожні';
+
+  @override
+  String get analyticsTitle => 'Статистика міток';
+
+  @override
+  String get analyticsSubtitle => 'Динаміка й найчастіші мітки';
+
+  @override
+  String get analyticsTotal => 'Усього сканувань';
+
+  @override
+  String get analyticsUnique => 'Різних міток';
+
+  @override
+  String get analyticsLast14 => 'Останні 14 днів';
+
+  @override
+  String get analyticsTop => 'Найчастіше';
+
+  @override
+  String get analyticsByType => 'Типи вмісту';
+
+  @override
+  String get analyticsEmpty =>
+      'Увімкніть історію в Налаштуваннях і відскануйте кілька міток.';
+
+  @override
+  String analyticsTimes(String count) {
+    return '$count×';
+  }
+
+  @override
+  String get codeScannerTitle => 'Сканер кодів';
+
+  @override
+  String get codeScannerSubtitle =>
+      'Скануйте QR і штрихкоди; запис, збереження, надсилання';
+
+  @override
+  String codeResultTitle(String format) {
+    return 'Зчитаний код ($format)';
+  }
+
+  @override
+  String get codeSearchWeb => 'Шукати в інтернеті';
+
+  @override
+  String get codeToTag => 'Записати на мітку';
+
+  @override
+  String get codeSaveLibrary => 'Зберегти в бібліотеку';
+
+  @override
+  String get mergeTitle => 'Об\'єднати записи';
+
+  @override
+  String get mergeSubtitle =>
+      'Оберіть записи з бібліотеки, шаблонів і останнього скану для однієї мітки';
+
+  @override
+  String mergeButton(String count) {
+    return 'Об\'єднати ($count)';
+  }
+
+  @override
+  String get mergeEmpty =>
+      'Немає що об\'єднувати. Спершу збережіть мітки або шаблони.';
+
+  @override
+  String get mergeLastScan => 'Остання мітка';
 }

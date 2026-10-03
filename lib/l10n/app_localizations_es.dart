@@ -150,7 +150,7 @@ class AppLocalizationsEs extends AppLocalizations {
   String get catHome => 'Casa';
 
   @override
-  String get catOther => 'Otro';
+  String get catOther => 'Otros';
 
   @override
   String get catPersonal => 'Personal';
@@ -4846,4 +4846,89 @@ class AppLocalizationsEs extends AppLocalizations {
 
   @override
   String get iconRainbow => 'Arcoíris';
+
+  @override
+  String get catWebText => 'Web y texto';
+
+  @override
+  String get catContact => 'Contacto y negocio';
+
+  @override
+  String get catNetwork => 'Red y ubicación';
+
+  @override
+  String get catSocial => 'Redes sociales';
+
+  @override
+  String get catEmpty => 'Vacía';
+
+  @override
+  String get analyticsTitle => 'Estadísticas';
+
+  @override
+  String get analyticsSubtitle => 'Tendencias y etiquetas más leídas';
+
+  @override
+  String get analyticsTotal => 'Lecturas totales';
+
+  @override
+  String get analyticsUnique => 'Etiquetas distintas';
+
+  @override
+  String get analyticsLast14 => 'Últimos 14 días';
+
+  @override
+  String get analyticsTop => 'Más escaneadas';
+
+  @override
+  String get analyticsByType => 'Tipos de contenido';
+
+  @override
+  String get analyticsEmpty =>
+      'Activa el historial en Ajustes y escanea algunas etiquetas.';
+
+  @override
+  String analyticsTimes(String count) {
+    return '$count×';
+  }
+
+  @override
+  String get codeScannerTitle => 'Escáner de códigos';
+
+  @override
+  String get codeScannerSubtitle =>
+      'Escanea QR y códigos de barras; escribe, guarda o comparte';
+
+  @override
+  String codeResultTitle(String format) {
+    return 'Código escaneado ($format)';
+  }
+
+  @override
+  String get codeSearchWeb => 'Buscar en la web';
+
+  @override
+  String get codeToTag => 'Escribir en etiqueta';
+
+  @override
+  String get codeSaveLibrary => 'Guardar en la biblioteca';
+
+  @override
+  String get mergeTitle => 'Combinar registros';
+
+  @override
+  String get mergeSubtitle =>
+      'Elige registros de la biblioteca, plantillas y el último escaneo para una etiqueta';
+
+  @override
+  String mergeButton(String count) {
+    return 'Combinar ($count)';
+  }
+
+  @override
+  String get mergeEmpty =>
+      'Nada que combinar. Guarda primero etiquetas o plantillas.';
+
+  @override
+  String get mergeLastScan => 'Última etiqueta';
 }

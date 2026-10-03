@@ -14,6 +14,7 @@ import '../domain/ndef_record.dart';
 import 'app_theme.dart';
 import '../domain/amiibo.dart';
 import '../services/launch_action_service.dart';
+import 'analytics_page.dart';
 import 'logbook_page.dart';
 import 'signed_tags_page.dart';
 
@@ -23,6 +24,8 @@ class ToolsTab extends StatelessWidget {
   final VoidCallback onClearTag;
   final VoidCallback onLockTag;
   final VoidCallback? onCloneTag;
+  final VoidCallback? onScanCode;
+  final VoidCallback? onMergeRecords;
 
   const ToolsTab({
     super.key,
@@ -30,6 +33,8 @@ class ToolsTab extends StatelessWidget {
     required this.onClearTag,
     required this.onLockTag,
     this.onCloneTag,
+    this.onScanCode,
+    this.onMergeRecords,
   });
 
   bool get _idle => !controller.isBusy;
@@ -62,6 +67,26 @@ class ToolsTab extends StatelessWidget {
             subtitle: loc.cloneTagSubtitle,
             onTap: _idle ? onCloneTag : null,
           ),
+        if (onScanCode != null)
+          ToolTile(
+            icon: Icons.qr_code_scanner_rounded,
+            title: loc.codeScannerTitle,
+            subtitle: loc.codeScannerSubtitle,
+            onTap: onScanCode,
+          ),
+        if (onMergeRecords != null)
+          ToolTile(
+            icon: Icons.merge_rounded,
+            title: loc.mergeTitle,
+            subtitle: loc.mergeSubtitle,
+            onTap: onMergeRecords,
+          ),
+        ToolTile(
+          icon: Icons.insights_rounded,
+          title: loc.analyticsTitle,
+          subtitle: loc.analyticsSubtitle,
+          onTap: () => AnalyticsPage.open(context, controller.storage),
+        ),
         ToolTile(
           icon: Icons.event_note_outlined,
           title: loc.logbookTitle,

@@ -4800,4 +4800,89 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get iconRainbow => 'Rainbow';
+
+  @override
+  String get catWebText => 'Web & text';
+
+  @override
+  String get catContact => 'Contact & business';
+
+  @override
+  String get catNetwork => 'Network & location';
+
+  @override
+  String get catSocial => 'Social media';
+
+  @override
+  String get catEmpty => 'Empty';
+
+  @override
+  String get analyticsTitle => 'Tag analytics';
+
+  @override
+  String get analyticsSubtitle => 'Scan trends and most-read tags';
+
+  @override
+  String get analyticsTotal => 'Total scans';
+
+  @override
+  String get analyticsUnique => 'Different tags';
+
+  @override
+  String get analyticsLast14 => 'Last 14 days';
+
+  @override
+  String get analyticsTop => 'Most scanned';
+
+  @override
+  String get analyticsByType => 'Content types';
+
+  @override
+  String get analyticsEmpty =>
+      'Turn on scan history in Settings and scan a few tags to see statistics.';
+
+  @override
+  String analyticsTimes(String count) {
+    return '$count×';
+  }
+
+  @override
+  String get codeScannerTitle => 'Code scanner';
+
+  @override
+  String get codeScannerSubtitle =>
+      'Scan QR codes and barcodes; write, save or share';
+
+  @override
+  String codeResultTitle(String format) {
+    return 'Scanned code ($format)';
+  }
+
+  @override
+  String get codeSearchWeb => 'Search the web';
+
+  @override
+  String get codeToTag => 'Write to a tag';
+
+  @override
+  String get codeSaveLibrary => 'Save to library';
+
+  @override
+  String get mergeTitle => 'Merge records';
+
+  @override
+  String get mergeSubtitle =>
+      'Pick records from the library, templates and the last scan for one tag';
+
+  @override
+  String mergeButton(String count) {
+    return 'Merge ($count)';
+  }
+
+  @override
+  String get mergeEmpty =>
+      'Nothing to merge yet. Save tags or templates first.';
+
+  @override
+  String get mergeLastScan => 'Last scanned tag';
 }

@@ -4621,4 +4621,85 @@ class AppLocalizationsKo extends AppLocalizations {
 
   @override
   String get iconRainbow => '무지개';
+
+  @override
+  String get catWebText => '웹 및 텍스트';
+
+  @override
+  String get catContact => '연락처 및 비즈니스';
+
+  @override
+  String get catNetwork => '네트워크 및 위치';
+
+  @override
+  String get catSocial => '소셜 미디어';
+
+  @override
+  String get catEmpty => '비어 있음';
+
+  @override
+  String get analyticsTitle => '태그 통계';
+
+  @override
+  String get analyticsSubtitle => '스캔 추이와 자주 읽은 태그';
+
+  @override
+  String get analyticsTotal => '총 스캔';
+
+  @override
+  String get analyticsUnique => '서로 다른 태그';
+
+  @override
+  String get analyticsLast14 => '최근 14일';
+
+  @override
+  String get analyticsTop => '가장 많이 스캔';
+
+  @override
+  String get analyticsByType => '콘텐츠 유형';
+
+  @override
+  String get analyticsEmpty => '설정에서 스캔 기록을 켜고 태그를 몇 개 스캔하세요.';
+
+  @override
+  String analyticsTimes(String count) {
+    return '$count회';
+  }
+
+  @override
+  String get codeScannerTitle => '코드 스캐너';
+
+  @override
+  String get codeScannerSubtitle => 'QR과 바코드 스캔 후 쓰기·저장·공유';
+
+  @override
+  String codeResultTitle(String format) {
+    return '스캔한 코드($format)';
+  }
+
+  @override
+  String get codeSearchWeb => '웹에서 검색';
+
+  @override
+  String get codeToTag => '태그에 쓰기';
+
+  @override
+  String get codeSaveLibrary => '보관함에 저장';
+
+  @override
+  String get mergeTitle => '레코드 합치기';
+
+  @override
+  String get mergeSubtitle => '보관함·템플릿·최근 스캔에서 골라 태그 하나로';
+
+  @override
+  String mergeButton(String count) {
+    return '합치기($count)';
+  }
+
+  @override
+  String get mergeEmpty => '합칠 항목이 없습니다. 먼저 태그나 템플릿을 저장하세요.';
+
+  @override
+  String get mergeLastScan => '마지막 스캔 태그';
 }

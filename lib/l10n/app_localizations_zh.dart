@@ -4565,4 +4565,85 @@ class AppLocalizationsZh extends AppLocalizations {
 
   @override
   String get iconRainbow => '彩虹';
+
+  @override
+  String get catWebText => '网页与文字';
+
+  @override
+  String get catContact => '联系与商务';
+
+  @override
+  String get catNetwork => '网络与位置';
+
+  @override
+  String get catSocial => '社交媒体';
+
+  @override
+  String get catEmpty => '空';
+
+  @override
+  String get analyticsTitle => '标签统计';
+
+  @override
+  String get analyticsSubtitle => '扫描趋势与最常读取的标签';
+
+  @override
+  String get analyticsTotal => '总扫描';
+
+  @override
+  String get analyticsUnique => '不同标签';
+
+  @override
+  String get analyticsLast14 => '最近 14 天';
+
+  @override
+  String get analyticsTop => '最常扫描';
+
+  @override
+  String get analyticsByType => '内容类型';
+
+  @override
+  String get analyticsEmpty => '请在设置中开启扫描历史并扫描几个标签。';
+
+  @override
+  String analyticsTimes(String count) {
+    return '$count 次';
+  }
+
+  @override
+  String get codeScannerTitle => '扫码器';
+
+  @override
+  String get codeScannerSubtitle => '扫描二维码和条形码；写入、保存或分享';
+
+  @override
+  String codeResultTitle(String format) {
+    return '扫描的码（$format）';
+  }
+
+  @override
+  String get codeSearchWeb => '网上搜索';
+
+  @override
+  String get codeToTag => '写入标签';
+
+  @override
+  String get codeSaveLibrary => '保存到标签库';
+
+  @override
+  String get mergeTitle => '合并记录';
+
+  @override
+  String get mergeSubtitle => '从标签库、模板和最近扫描中挑选，合并到一个标签';
+
+  @override
+  String mergeButton(String count) {
+    return '合并（$count）';
+  }
+
+  @override
+  String get mergeEmpty => '暂无可合并内容，请先保存标签或模板。';
+
+  @override
+  String get mergeLastScan => '最近扫描的标签';
 }

@@ -4813,4 +4813,90 @@ class AppLocalizationsTr extends AppLocalizations {
 
   @override
   String get iconRainbow => 'Gökkuşağı';
+
+  @override
+  String get catWebText => 'Web ve metin';
+
+  @override
+  String get catContact => 'İletişim ve iş';
+
+  @override
+  String get catNetwork => 'Ağ ve konum';
+
+  @override
+  String get catSocial => 'Sosyal medya';
+
+  @override
+  String get catEmpty => 'Boş';
+
+  @override
+  String get analyticsTitle => 'Etiket istatistikleri';
+
+  @override
+  String get analyticsSubtitle =>
+      'Tarama eğilimleri ve en çok okunan etiketler';
+
+  @override
+  String get analyticsTotal => 'Toplam okuma';
+
+  @override
+  String get analyticsUnique => 'Farklı etiket';
+
+  @override
+  String get analyticsLast14 => 'Son 14 gün';
+
+  @override
+  String get analyticsTop => 'En çok okunanlar';
+
+  @override
+  String get analyticsByType => 'İçerik türleri';
+
+  @override
+  String get analyticsEmpty =>
+      'İstatistikler için Ayarlar\'dan tarama geçmişini açın ve birkaç etiket okutun.';
+
+  @override
+  String analyticsTimes(String count) {
+    return '$count kez';
+  }
+
+  @override
+  String get codeScannerTitle => 'Kod tarayıcı';
+
+  @override
+  String get codeScannerSubtitle =>
+      'QR ve barkodları tara; etikete yaz, kaydet veya paylaş';
+
+  @override
+  String codeResultTitle(String format) {
+    return 'Okunan kod ($format)';
+  }
+
+  @override
+  String get codeSearchWeb => 'Web\'de ara';
+
+  @override
+  String get codeToTag => 'Etikete yaz';
+
+  @override
+  String get codeSaveLibrary => 'Kütüphaneye kaydet';
+
+  @override
+  String get mergeTitle => 'Kayıtları birleştir';
+
+  @override
+  String get mergeSubtitle =>
+      'Kütüphane, şablon ve son okunan etiketten seçip tek etikette birleştir';
+
+  @override
+  String mergeButton(String count) {
+    return 'Birleştir ($count)';
+  }
+
+  @override
+  String get mergeEmpty =>
+      'Birleştirilecek kayıt yok. Önce kütüphaneye etiket ya da şablon kaydedin.';
+
+  @override
+  String get mergeLastScan => 'Son okunan etiket';
 }

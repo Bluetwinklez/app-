@@ -4816,4 +4816,88 @@ class AppLocalizationsIt extends AppLocalizations {
 
   @override
   String get iconRainbow => 'Arcobaleno';
+
+  @override
+  String get catWebText => 'Web e testo';
+
+  @override
+  String get catContact => 'Contatti e lavoro';
+
+  @override
+  String get catNetwork => 'Rete e posizione';
+
+  @override
+  String get catSocial => 'Social';
+
+  @override
+  String get catEmpty => 'Vuoto';
+
+  @override
+  String get analyticsTitle => 'Statistiche tag';
+
+  @override
+  String get analyticsSubtitle => 'Andamento e tag più letti';
+
+  @override
+  String get analyticsTotal => 'Letture totali';
+
+  @override
+  String get analyticsUnique => 'Tag diversi';
+
+  @override
+  String get analyticsLast14 => 'Ultimi 14 giorni';
+
+  @override
+  String get analyticsTop => 'Più lette';
+
+  @override
+  String get analyticsByType => 'Tipi di contenuto';
+
+  @override
+  String get analyticsEmpty =>
+      'Attiva la cronologia nelle Impostazioni e leggi qualche tag.';
+
+  @override
+  String analyticsTimes(String count) {
+    return '$count×';
+  }
+
+  @override
+  String get codeScannerTitle => 'Scanner di codici';
+
+  @override
+  String get codeScannerSubtitle =>
+      'Scansiona QR e codici a barre; scrivi, salva o condividi';
+
+  @override
+  String codeResultTitle(String format) {
+    return 'Codice letto ($format)';
+  }
+
+  @override
+  String get codeSearchWeb => 'Cerca sul web';
+
+  @override
+  String get codeToTag => 'Scrivi su tag';
+
+  @override
+  String get codeSaveLibrary => 'Salva nella libreria';
+
+  @override
+  String get mergeTitle => 'Unisci record';
+
+  @override
+  String get mergeSubtitle =>
+      'Scegli dalla libreria, dai modelli e dall\'ultima lettura per un solo tag';
+
+  @override
+  String mergeButton(String count) {
+    return 'Unisci ($count)';
+  }
+
+  @override
+  String get mergeEmpty => 'Niente da unire. Salva prima tag o modelli.';
+
+  @override
+  String get mergeLastScan => 'Ultimo tag letto';
 }
