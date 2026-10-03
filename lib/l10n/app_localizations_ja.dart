@@ -3942,4 +3942,9 @@ class AppLocalizationsJa extends AppLocalizations {
 
   @override
   String get simpleNothing => 'このタグには表示する内容がありません。';
+
+  @override
+  String whatsNew120(String date, String time, String counter) {
+    return '• 記録帳: 出欠・服薬・在庫の記録\n• セキュリティ: Face IDロック、暗号化バックアップ、署名付きタグ、偽サイト警告\n• テンプレート変数 ($date, $time, $counter) とライブラリからの書き込み\n• 新テンプレート: スマートカード、落とし物タグ、ボイスメッセージ\n• QRコード付き印刷用ラベルシート (PDF)\n• シンプルモード、amiibo情報、バイトエディター、NFCチップガイド\n• ドラッグで並べ替え、互換性モード';
+  }
 }

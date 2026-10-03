@@ -1157,5 +1157,6 @@
   "simpleEmail": "Escrever e-mail",
   "simpleMap": "Abrir no Mapas",
   "simpleExit": "Mantenha pressionado para voltar à visão normal",
-  "simpleNothing": "Não há nada para mostrar nesta tag."
+  "simpleNothing": "Não há nada para mostrar nesta tag.",
+  "whatsNew120": "• Registro: presença, remédios e inventário\n• Segurança: bloqueio com Face ID, backups criptografados, tags assinadas, alerta de sites falsos\n• Variáveis de modelo ({date}, {time}, {counter}) e gravar a partir da biblioteca\n• Novos modelos: Cartão inteligente, Achados e perdidos, Mensagem de voz\n• Folha de etiquetas com QR (PDF)\n• Modo simples, info de amiibo, editor de bytes, guia de chips NFC\n• Reordenar arrastando e modo Compatibilidade"
 }
