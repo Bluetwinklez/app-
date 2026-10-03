@@ -1374,5 +1374,10 @@
   "mergeEmpty": "結合するものがありません。先にタグやテンプレートを保存してください。",
   "mergeLastScan": "最後に読んだタグ",
   "locationSearchHint": "住所や場所を検索",
-  "locationNotFound": "住所が見つかりません"
+  "locationNotFound": "住所が見つかりません",
+  "cardCall": "電話",
+  "cardEmail": "メール",
+  "cardWeb": "ウェブ",
+  "cardAddContact": "連絡先に追加",
+  "cardTitle": "デジタル名刺"
 }

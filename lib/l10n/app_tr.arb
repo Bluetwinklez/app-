@@ -3340,5 +3340,10 @@
   "mergeEmpty": "Birleştirilecek kayıt yok. Önce kütüphaneye etiket ya da şablon kaydedin.",
   "mergeLastScan": "Son okunan etiket",
   "locationSearchHint": "Adres veya yer adı ara",
-  "locationNotFound": "Adres bulunamadı"
+  "locationNotFound": "Adres bulunamadı",
+  "cardCall": "Ara",
+  "cardEmail": "E-posta",
+  "cardWeb": "Web",
+  "cardAddContact": "Rehbere ekle",
+  "cardTitle": "Dijital kartvizit"
 }

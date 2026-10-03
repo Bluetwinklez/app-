@@ -4905,4 +4905,19 @@ class AppLocalizationsNl extends AppLocalizations {
 
   @override
   String get locationNotFound => 'Adres niet gevonden';
+
+  @override
+  String get cardCall => 'Bellen';
+
+  @override
+  String get cardEmail => 'E-mail';
+
+  @override
+  String get cardWeb => 'Website';
+
+  @override
+  String get cardAddContact => 'Aan contacten toevoegen';
+
+  @override
+  String get cardTitle => 'Digitaal visitekaartje';
 }
