@@ -1302,5 +1302,13 @@
   "feedingNever": "아직 급식 기록 없음",
   "visitorsToday": "오늘 방문자 {count}명",
   "visitorNamePrompt": "방문자 이름",
-  "visitorNameHint": "이름, 회사(선택)"
+  "visitorNameHint": "이름, 회사(선택)",
+  "reminderBody": "태그 스캔을 잊지 마세요 📲",
+  "reminderInspectionTitle": "점검 시기: {name}",
+  "reminderInspectionBody": "점검 후 태그를 스캔하세요.",
+  "reminderTitle": "매일 알림",
+  "reminderOff": "끔",
+  "reminderAt": "매일 {time}",
+  "reminderDenied": "알림이 허용되지 않았습니다. 설정에서 허용하세요.",
+  "inspectionRemindersNote": "점검일 10:00에 알림이 옵니다(허용한 경우)."
 }

@@ -1302,5 +1302,13 @@
   "feedingNever": "尚无喂食记录",
   "visitorsToday": "今天 {count} 位访客",
   "visitorNamePrompt": "访客姓名",
-  "visitorNameHint": "姓名、公司（可选）"
+  "visitorNameHint": "姓名、公司（可选）",
+  "reminderBody": "别忘了扫描标签 📲",
+  "reminderInspectionTitle": "需要检查：{name}",
+  "reminderInspectionBody": "检查后请扫描标签。",
+  "reminderTitle": "每日提醒",
+  "reminderOff": "关闭",
+  "reminderAt": "每天 {time}",
+  "reminderDenied": "未允许通知。可在设置中开启。",
+  "inspectionRemindersNote": "到期标签会在当天 10:00 提醒（若已允许）。"
 }

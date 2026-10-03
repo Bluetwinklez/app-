@@ -1302,5 +1302,13 @@
   "feedingNever": "Nenhuma refeição registrada",
   "visitorsToday": "{count} visitantes hoje",
   "visitorNamePrompt": "Nome do visitante",
-  "visitorNameHint": "Nome, empresa (opcional)"
+  "visitorNameHint": "Nome, empresa (opcional)",
+  "reminderBody": "Não esqueça de ler a tag 📲",
+  "reminderInspectionTitle": "Verificação pendente: {name}",
+  "reminderInspectionBody": "Leia a tag depois de verificar.",
+  "reminderTitle": "Lembrete diário",
+  "reminderOff": "Desativado",
+  "reminderAt": "Todos os dias às {time}",
+  "reminderDenied": "Notificações não permitidas. Permita em Ajustes.",
+  "inspectionRemindersNote": "Tags pendentes avisam às 10:00 do dia previsto (se permitido)."
 }

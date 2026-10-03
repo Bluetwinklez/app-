@@ -4659,4 +4659,34 @@ class AppLocalizationsNl extends AppLocalizations {
 
   @override
   String get visitorNameHint => 'Naam, bedrijf (optioneel)';
+
+  @override
+  String get reminderBody => 'Vergeet de tag niet te scannen 📲';
+
+  @override
+  String reminderInspectionTitle(String name) {
+    return 'Controle nodig: $name';
+  }
+
+  @override
+  String get reminderInspectionBody => 'Scan de tag na de controle.';
+
+  @override
+  String get reminderTitle => 'Dagelijkse herinnering';
+
+  @override
+  String get reminderOff => 'Uit';
+
+  @override
+  String reminderAt(String time) {
+    return 'Elke dag om $time';
+  }
+
+  @override
+  String get reminderDenied =>
+      'Meldingen niet toegestaan. Sta ze toe in Instellingen.';
+
+  @override
+  String get inspectionRemindersNote =>
+      'Tags die gecontroleerd moeten worden melden zich om 10:00 op de dag (indien toegestaan).';
 }

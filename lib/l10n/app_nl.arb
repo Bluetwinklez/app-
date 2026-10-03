@@ -1302,5 +1302,13 @@
   "feedingNever": "Nog geen voeding gelogd",
   "visitorsToday": "{count} bezoekers vandaag",
   "visitorNamePrompt": "Naam bezoeker",
-  "visitorNameHint": "Naam, bedrijf (optioneel)"
+  "visitorNameHint": "Naam, bedrijf (optioneel)",
+  "reminderBody": "Vergeet de tag niet te scannen 📲",
+  "reminderInspectionTitle": "Controle nodig: {name}",
+  "reminderInspectionBody": "Scan de tag na de controle.",
+  "reminderTitle": "Dagelijkse herinnering",
+  "reminderOff": "Uit",
+  "reminderAt": "Elke dag om {time}",
+  "reminderDenied": "Meldingen niet toegestaan. Sta ze toe in Instellingen.",
+  "inspectionRemindersNote": "Tags die gecontroleerd moeten worden melden zich om 10:00 op de dag (indien toegestaan)."
 }

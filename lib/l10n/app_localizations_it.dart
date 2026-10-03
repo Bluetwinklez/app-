@@ -4658,4 +4658,34 @@ class AppLocalizationsIt extends AppLocalizations {
 
   @override
   String get visitorNameHint => 'Nome, azienda (facoltativo)';
+
+  @override
+  String get reminderBody => 'Non dimenticare di leggere il tag 📲';
+
+  @override
+  String reminderInspectionTitle(String name) {
+    return 'Controllo da fare: $name';
+  }
+
+  @override
+  String get reminderInspectionBody => 'Leggi il tag dopo il controllo.';
+
+  @override
+  String get reminderTitle => 'Promemoria giornaliero';
+
+  @override
+  String get reminderOff => 'Disattivato';
+
+  @override
+  String reminderAt(String time) {
+    return 'Ogni giorno alle $time';
+  }
+
+  @override
+  String get reminderDenied =>
+      'Notifiche non consentite. Puoi abilitarle in Impostazioni.';
+
+  @override
+  String get inspectionRemindersNote =>
+      'I tag da controllare avvisano alle 10:00 del giorno previsto (se consentito).';
 }

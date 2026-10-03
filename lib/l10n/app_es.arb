@@ -1302,5 +1302,13 @@
   "feedingNever": "Aún no hay comidas",
   "visitorsToday": "{count} visitas hoy",
   "visitorNamePrompt": "Nombre del visitante",
-  "visitorNameHint": "Nombre, empresa (opcional)"
+  "visitorNameHint": "Nombre, empresa (opcional)",
+  "reminderBody": "No olvides escanear la etiqueta 📲",
+  "reminderInspectionTitle": "Revisión pendiente: {name}",
+  "reminderInspectionBody": "Escanea la etiqueta tras revisarla.",
+  "reminderTitle": "Recordatorio diario",
+  "reminderOff": "Desactivado",
+  "reminderAt": "Todos los días a las {time}",
+  "reminderDenied": "Notificaciones no permitidas. Puedes permitirlas en Ajustes.",
+  "inspectionRemindersNote": "Las etiquetas pendientes avisan a las 10:00 del día previsto (si se permite)."
 }

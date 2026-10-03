@@ -16,6 +16,7 @@ import '../services/nfc_service.dart';
 import '../services/app_storage_service.dart';
 import '../services/backup_codec.dart';
 import '../services/speech_service.dart';
+import '../services/notification_service.dart';
 
 /// App state controller managing NFC lifecycle, active scans, composing, writes, history, templates, and tag rules
 class NfcStateController extends ChangeNotifier {
@@ -268,6 +269,8 @@ class NfcStateController extends ChangeNotifier {
         final now = DateTime.now();
         try {
           await _storage.saveLibraryEntry(entry.copyWith(lastSeenAt: now));
+          // The next inspection date moved; reschedule its reminder.
+          if (entry.checkEveryDays != null) NotificationService.sync(_storage);
           final bookId = entry.autoLogBookId;
           if (autoLog && bookId != null) {
             for (final book in _storage.getLogBooks()) {
