@@ -4274,4 +4274,51 @@ class AppLocalizationsKo extends AppLocalizations {
   @override
   String get secCheckEncryptedNote =>
       '백업에 Wi-Fi 비밀번호가 있을 수 있으니 비밀번호 보호를 권장합니다.';
+
+  @override
+  String get packShare => '팀 팩으로 공유';
+
+  @override
+  String get packImport => '팀 팩 가져오기';
+
+  @override
+  String get packHint =>
+      '보이는 태그(필터 기준)를 파일 하나로 공유합니다. 팀원은 보관함 → 가져오기로 추가합니다. 사진은 공유되지 않습니다.';
+
+  @override
+  String get packName => '팩 이름';
+
+  @override
+  String packIncludeTemplates(String count) {
+    return '저장된 템플릿 포함($count)';
+  }
+
+  @override
+  String packCount(String count) {
+    return '태그 $count개를 공유합니다';
+  }
+
+  @override
+  String get packPassword => '비밀번호(선택, 6자 이상)';
+
+  @override
+  String get packPasswordShort => '비밀번호는 6자 이상이어야 합니다';
+
+  @override
+  String packPreview(String name, String tags, String templates) {
+    return '\"$name\": 태그 $tags개, 템플릿 $templates개. 가져올까요?';
+  }
+
+  @override
+  String packImported(String tags, String templates, String skipped) {
+    return '태그 $tags개, 템플릿 $templates개 추가 · $skipped개는 이미 있음';
+  }
+
+  @override
+  String packInvalid(String reason) {
+    return '올바른 팀 팩 파일이 아닙니다($reason)';
+  }
+
+  @override
+  String get libraryMoreActions => '기타 작업';
 }

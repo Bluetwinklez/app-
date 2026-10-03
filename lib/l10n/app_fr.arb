@@ -1243,5 +1243,17 @@
   "secCheckTitle": "Bilan de sécurité",
   "secCheckScore": "{ok}/{total} réglages recommandés actifs",
   "secCheckBackup": "Sauvegarde de moins de 30 jours",
-  "secCheckEncryptedNote": "Les sauvegardes peuvent contenir des mots de passe Wi-Fi ; protégez-les par mot de passe."
+  "secCheckEncryptedNote": "Les sauvegardes peuvent contenir des mots de passe Wi-Fi ; protégez-les par mot de passe.",
+  "packShare": "Partager en pack d'équipe",
+  "packImport": "Importer un pack d'équipe",
+  "packHint": "Les tags visibles (selon le filtre) sont partagés dans un fichier ; vos collègues l'ajoutent via Bibliothèque → Importer. Les photos ne sont pas partagées.",
+  "packName": "Nom du pack",
+  "packIncludeTemplates": "Inclure les modèles enregistrés ({count})",
+  "packCount": "{count} tags seront partagés",
+  "packPassword": "Mot de passe (facultatif, 6 caractères min.)",
+  "packPasswordShort": "Le mot de passe doit faire au moins 6 caractères",
+  "packPreview": "« {name} » : {tags} tags, {templates} modèles. Importer ?",
+  "packImported": "{tags} tags et {templates} modèles ajoutés · {skipped} existaient déjà",
+  "packInvalid": "Ce fichier n'est pas un pack d'équipe valide ({reason})",
+  "libraryMoreActions": "Autres actions"
 }

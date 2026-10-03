@@ -4438,4 +4438,51 @@ class AppLocalizationsEn extends AppLocalizations {
   @override
   String get secCheckEncryptedNote =>
       'Backups can contain Wi-Fi passwords; password protection is recommended when exporting.';
+
+  @override
+  String get packShare => 'Share as team pack';
+
+  @override
+  String get packImport => 'Import team pack';
+
+  @override
+  String get packHint =>
+      'The visible tags (as filtered) are shared in one file; teammates add it via Library → Import. Photos are not shared.';
+
+  @override
+  String get packName => 'Pack name';
+
+  @override
+  String packIncludeTemplates(String count) {
+    return 'Include saved templates ($count)';
+  }
+
+  @override
+  String packCount(String count) {
+    return '$count tags will be shared';
+  }
+
+  @override
+  String get packPassword => 'Password (optional, at least 6 characters)';
+
+  @override
+  String get packPasswordShort => 'Password must be at least 6 characters';
+
+  @override
+  String packPreview(String name, String tags, String templates) {
+    return '\"$name\": $tags tags, $templates templates. Import?';
+  }
+
+  @override
+  String packImported(String tags, String templates, String skipped) {
+    return 'Added $tags tags and $templates templates · $skipped already existed';
+  }
+
+  @override
+  String packInvalid(String reason) {
+    return 'This file is not a valid team pack ($reason)';
+  }
+
+  @override
+  String get libraryMoreActions => 'More actions';
 }

@@ -4453,4 +4453,51 @@ class AppLocalizationsNl extends AppLocalizations {
   @override
   String get secCheckEncryptedNote =>
       'Back-ups kunnen wifi-wachtwoorden bevatten; beveiliging met wachtwoord wordt aangeraden.';
+
+  @override
+  String get packShare => 'Delen als teampakket';
+
+  @override
+  String get packImport => 'Teampakket importeren';
+
+  @override
+  String get packHint =>
+      'De zichtbare tags (volgens filter) worden in één bestand gedeeld; collega\'s voegen het toe via Bibliotheek → Importeren. Foto\'s worden niet gedeeld.';
+
+  @override
+  String get packName => 'Pakketnaam';
+
+  @override
+  String packIncludeTemplates(String count) {
+    return 'Opgeslagen sjablonen meenemen ($count)';
+  }
+
+  @override
+  String packCount(String count) {
+    return '$count tags worden gedeeld';
+  }
+
+  @override
+  String get packPassword => 'Wachtwoord (optioneel, minstens 6 tekens)';
+
+  @override
+  String get packPasswordShort => 'Wachtwoord moet minstens 6 tekens hebben';
+
+  @override
+  String packPreview(String name, String tags, String templates) {
+    return '\"$name\": $tags tags, $templates sjablonen. Importeren?';
+  }
+
+  @override
+  String packImported(String tags, String templates, String skipped) {
+    return '$tags tags en $templates sjablonen toegevoegd · $skipped bestonden al';
+  }
+
+  @override
+  String packInvalid(String reason) {
+    return 'Dit bestand is geen geldig teampakket ($reason)';
+  }
+
+  @override
+  String get libraryMoreActions => 'Meer acties';
 }

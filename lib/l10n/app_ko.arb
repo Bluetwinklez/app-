@@ -1243,5 +1243,17 @@
   "secCheckTitle": "보안 점검",
   "secCheckScore": "권장 설정 {ok}/{total}개 켜짐",
   "secCheckBackup": "최근 30일 내 백업함",
-  "secCheckEncryptedNote": "백업에 Wi-Fi 비밀번호가 있을 수 있으니 비밀번호 보호를 권장합니다."
+  "secCheckEncryptedNote": "백업에 Wi-Fi 비밀번호가 있을 수 있으니 비밀번호 보호를 권장합니다.",
+  "packShare": "팀 팩으로 공유",
+  "packImport": "팀 팩 가져오기",
+  "packHint": "보이는 태그(필터 기준)를 파일 하나로 공유합니다. 팀원은 보관함 → 가져오기로 추가합니다. 사진은 공유되지 않습니다.",
+  "packName": "팩 이름",
+  "packIncludeTemplates": "저장된 템플릿 포함({count})",
+  "packCount": "태그 {count}개를 공유합니다",
+  "packPassword": "비밀번호(선택, 6자 이상)",
+  "packPasswordShort": "비밀번호는 6자 이상이어야 합니다",
+  "packPreview": "\"{name}\": 태그 {tags}개, 템플릿 {templates}개. 가져올까요?",
+  "packImported": "태그 {tags}개, 템플릿 {templates}개 추가 · {skipped}개는 이미 있음",
+  "packInvalid": "올바른 팀 팩 파일이 아닙니다({reason})",
+  "libraryMoreActions": "기타 작업"
 }

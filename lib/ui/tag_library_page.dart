@@ -1,6 +1,7 @@
 import 'dart:convert';
 import 'dart:io';
 import 'package:flutter/material.dart';
+import 'package:file_selector/file_selector.dart';
 import 'package:flutter/services.dart';
 import 'package:pdf/widgets.dart' as pw;
 import 'package:image_picker/image_picker.dart';
@@ -9,6 +10,9 @@ import 'package:path_provider/path_provider.dart';
 import 'package:share_plus/share_plus.dart';
 import '../domain/csv_export.dart';
 import '../domain/library_import.dart';
+import '../domain/team_pack.dart';
+import '../services/backup_crypto.dart';
+import 'password_prompt.dart';
 import '../domain/logbook.dart';
 import '../domain/ndef_record.dart';
 import '../domain/tag_library.dart';
@@ -54,6 +58,55 @@ IconData tagCategoryIcon(TagCategory c) {
 }
 
 /// Named physical tags with notes and photos.
+/// Shows what a team pack contains, asks to confirm and merges it into the
+/// library and templates. [content] may still be encrypted. Returns true when
+/// something was added.
+Future<bool> importTeamPack(BuildContext context, AppStorageService storage, String content) async {
+  final loc = AppLocalizations.of(context) ?? L10n.current;
+  if (BackupCrypto.isEncrypted(content)) {
+    final plain = await askPasswordAndDecrypt(context, content);
+    if (plain == null || !context.mounted) return false;
+    content = plain;
+  }
+  final TeamPack pack;
+  try {
+    pack = TeamPack.decode(content);
+  } on TeamPackException catch (e) {
+    ScaffoldMessenger.of(context).showSnackBar(SnackBar(
+      content: Text(loc.packInvalid(e.message)),
+      backgroundColor: AppColors.danger,
+    ));
+    return false;
+  }
+  final ok = await showDialog<bool>(
+    context: context,
+    builder: (ctx) => AlertDialog(
+      title: Text(loc.packImport),
+      content: Text(loc.packPreview(pack.name, '${pack.entries.length}', '${pack.templates.length}')),
+      actions: [
+        TextButton(onPressed: () => Navigator.of(ctx).pop(false), child: Text(loc.cancel)),
+        ElevatedButton(onPressed: () => Navigator.of(ctx).pop(true), child: Text(loc.libraryImportAdd)),
+      ],
+    ),
+  );
+  if (ok != true) return false;
+  final merged = pack.mergeInto(storage.getLibrary(), storage.getTemplates());
+  for (final e in merged.entries.reversed) {
+    await storage.saveLibraryEntry(e);
+  }
+  for (final t in merged.templates) {
+    await storage.saveTemplate(t);
+  }
+  if (context.mounted) {
+    ScaffoldMessenger.of(context).showSnackBar(SnackBar(
+      content: Text(loc.packImported(
+          '${merged.entries.length}', '${merged.templates.length}', '${merged.skipped}')),
+      backgroundColor: AppColors.success,
+    ));
+  }
+  return merged.entries.isNotEmpty || merged.templates.isNotEmpty;
+}
+
 class TagLibraryPage extends StatefulWidget {
   final AppStorageService storage;
 
@@ -147,6 +200,105 @@ class _TagLibraryPageState extends State<TagLibraryPage> {
       });
     }
     return list;
+  }
+
+  Future<void> _sharePack() async {
+    final loc = AppLocalizations.of(context) ?? L10n.current;
+    final entries = _visible;
+    final templates = widget.storage.getTemplates();
+    final name = TextEditingController(text: loc.tagLibraryTitle);
+    final password = TextEditingController();
+    var withTemplates = false;
+    String? error;
+    final go = await showDialog<bool>(
+      context: context,
+      builder: (ctx) => StatefulBuilder(
+        builder: (ctx, setDlg) => AlertDialog(
+          title: Text(loc.packShare),
+          content: SingleChildScrollView(
+            child: Column(
+              mainAxisSize: MainAxisSize.min,
+              crossAxisAlignment: CrossAxisAlignment.stretch,
+              children: [
+                Text(loc.packHint, style: TextStyle(fontSize: 13, color: AppColors.secondary, height: 1.35)),
+                const SizedBox(height: 8),
+                Text(loc.packCount('${entries.length}'),
+                    style: TextStyle(fontWeight: FontWeight.w600, color: AppColors.accent)),
+                TextField(
+                  controller: name,
+                  maxLength: 60,
+                  decoration: InputDecoration(labelText: loc.packName, counterText: ''),
+                ),
+                if (templates.isNotEmpty)
+                  CheckboxListTile(
+                    contentPadding: EdgeInsets.zero,
+                    value: withTemplates,
+                    title: Text(loc.packIncludeTemplates('${templates.length}')),
+                    onChanged: (v) => setDlg(() => withTemplates = v ?? false),
+                  ),
+                TextField(
+                  controller: password,
+                  obscureText: true,
+                  decoration: InputDecoration(labelText: loc.packPassword, errorText: error),
+                ),
+              ],
+            ),
+          ),
+          actions: [
+            TextButton(onPressed: () => Navigator.of(ctx).pop(false), child: Text(loc.cancel)),
+            ElevatedButton(
+              onPressed: entries.isEmpty && !withTemplates
+                  ? null
+                  : () {
+                      final p = password.text;
+                      if (p.isNotEmpty && p.length < BackupCrypto.minPasswordLength) {
+                        setDlg(() => error = loc.packPasswordShort);
+                        return;
+                      }
+                      Navigator.of(ctx).pop(true);
+                    },
+              child: Text(loc.shareTag),
+            ),
+          ],
+        ),
+      ),
+    );
+    final packName = name.text.trim();
+    final pass = password.text;
+    name.dispose();
+    password.dispose();
+    if (go != true) return;
+    var content = TeamPack(
+      name: packName.isEmpty ? loc.tagLibraryTitle : packName,
+      createdAt: DateTime.now(),
+      entries: entries,
+      templates: withTemplates ? templates : const [],
+    ).encode();
+    if (pass.isNotEmpty) content = await BackupCrypto.encrypt(content, pass);
+    final safe = (packName.isEmpty ? 'pack' : packName).replaceAll(RegExp(r'[^\w\-]+'), '_');
+    final file = 'nfc_pack_$safe.json';
+    await SharePlus.instance.share(ShareParams(
+      files: [XFile.fromData(Uint8List.fromList(utf8.encode(content)), mimeType: 'application/json', name: file)],
+      fileNameOverrides: [file],
+    ));
+  }
+
+  Future<void> _importPackFile() async {
+    final loc = AppLocalizations.of(context) ?? L10n.current;
+    try {
+      final file = await openFile();
+      if (file == null || !mounted) return;
+      if (await file.length() > 5 * 1024 * 1024) throw const FormatException('> 5 MB');
+      final content = utf8.decode(await file.readAsBytes());
+      if (!mounted) return;
+      if (await importTeamPack(context, widget.storage, content) && mounted) setState(() {});
+    } catch (e) {
+      if (!mounted) return;
+      ScaffoldMessenger.of(context).showSnackBar(SnackBar(
+        content: Text(loc.fileReadError('$e')),
+        backgroundColor: AppColors.danger,
+      ));
+    }
   }
 
   Future<void> _importCsv() async {
@@ -423,23 +575,44 @@ class _TagLibraryPageState extends State<TagLibraryPage> {
         appBar: AppBar(
           title: Text(loc.tagLibraryTitle),
           actions: [
-            IconButton(
-              tooltip: loc.libraryImportTitle,
-              icon: const Icon(Icons.table_view_outlined),
-              onPressed: _importCsv,
+            PopupMenuButton<String>(
+              tooltip: loc.libraryMoreActions,
+              icon: const Icon(Icons.more_horiz_rounded),
+              onSelected: (v) {
+                switch (v) {
+                  case 'import_table':
+                    _importCsv();
+                  case 'import_pack':
+                    _importPackFile();
+                  case 'share_pack':
+                    _sharePack();
+                  case 'csv':
+                    _exportCsv();
+                  case 'print':
+                    _printSheet();
+                }
+              },
+              itemBuilder: (_) {
+                final hasEntries = widget.storage.getLibrary().isNotEmpty;
+                PopupMenuItem<String> item(String value, IconData icon, String label, {bool enabled = true}) =>
+                    PopupMenuItem(
+                      value: value,
+                      enabled: enabled,
+                      child: Row(children: [
+                        Icon(icon, size: 20, color: AppColors.accent),
+                        const SizedBox(width: 12),
+                        Expanded(child: Text(label)),
+                      ]),
+                    );
+                return [
+                  item('import_table', Icons.table_view_outlined, loc.libraryImportTitle),
+                  item('import_pack', Icons.group_add_outlined, loc.packImport),
+                  item('share_pack', Icons.groups_outlined, loc.packShare, enabled: hasEntries || widget.storage.getTemplates().isNotEmpty),
+                  item('csv', Icons.ios_share_rounded, loc.exportCsv, enabled: hasEntries),
+                  item('print', Icons.print_outlined, loc.printSheet, enabled: hasEntries),
+                ];
+              },
             ),
-            if (widget.storage.getLibrary().isNotEmpty)
-              IconButton(
-                tooltip: loc.printSheet,
-                icon: const Icon(Icons.print_outlined),
-                onPressed: _printSheet,
-              ),
-            if (widget.storage.getLibrary().isNotEmpty)
-              IconButton(
-                tooltip: loc.exportCsv,
-                icon: const Icon(Icons.ios_share_rounded),
-                onPressed: _exportCsv,
-              ),
           ],
         ),
         floatingActionButton: FloatingActionButton.extended(

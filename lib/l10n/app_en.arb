@@ -1243,5 +1243,17 @@
   "secCheckTitle": "Security check",
   "secCheckScore": "{ok}/{total} recommended settings on",
   "secCheckBackup": "Backed up in the last 30 days",
-  "secCheckEncryptedNote": "Backups can contain Wi-Fi passwords; password protection is recommended when exporting."
+  "secCheckEncryptedNote": "Backups can contain Wi-Fi passwords; password protection is recommended when exporting.",
+  "packShare": "Share as team pack",
+  "packImport": "Import team pack",
+  "packHint": "The visible tags (as filtered) are shared in one file; teammates add it via Library → Import. Photos are not shared.",
+  "packName": "Pack name",
+  "packIncludeTemplates": "Include saved templates ({count})",
+  "packCount": "{count} tags will be shared",
+  "packPassword": "Password (optional, at least 6 characters)",
+  "packPasswordShort": "Password must be at least 6 characters",
+  "packPreview": "\"{name}\": {tags} tags, {templates} templates. Import?",
+  "packImported": "Added {tags} tags and {templates} templates · {skipped} already existed",
+  "packInvalid": "This file is not a valid team pack ({reason})",
+  "libraryMoreActions": "More actions"
 }

@@ -1243,5 +1243,17 @@
   "secCheckTitle": "Verificação de segurança",
   "secCheckScore": "{ok}/{total} ajustes recomendados ativos",
   "secCheckBackup": "Backup nos últimos 30 dias",
-  "secCheckEncryptedNote": "Backups podem conter senhas de Wi-Fi; recomenda-se proteção por senha."
+  "secCheckEncryptedNote": "Backups podem conter senhas de Wi-Fi; recomenda-se proteção por senha.",
+  "packShare": "Compartilhar como pacote de equipe",
+  "packImport": "Importar pacote de equipe",
+  "packHint": "As tags visíveis (conforme o filtro) são compartilhadas em um arquivo; colegas adicionam em Biblioteca → Importar. Fotos não são compartilhadas.",
+  "packName": "Nome do pacote",
+  "packIncludeTemplates": "Incluir modelos salvos ({count})",
+  "packCount": "{count} tags serão compartilhadas",
+  "packPassword": "Senha (opcional, no mínimo 6 caracteres)",
+  "packPasswordShort": "A senha deve ter pelo menos 6 caracteres",
+  "packPreview": "\"{name}\": {tags} tags, {templates} modelos. Importar?",
+  "packImported": "{tags} tags e {templates} modelos adicionados · {skipped} já existiam",
+  "packInvalid": "Este arquivo não é um pacote de equipe válido ({reason})",
+  "libraryMoreActions": "Mais ações"
 }

@@ -4466,4 +4466,51 @@ class AppLocalizationsDe extends AppLocalizations {
   @override
   String get secCheckEncryptedNote =>
       'Backups können WLAN-Passwörter enthalten; beim Export wird ein Passwortschutz empfohlen.';
+
+  @override
+  String get packShare => 'Als Team-Paket teilen';
+
+  @override
+  String get packImport => 'Team-Paket importieren';
+
+  @override
+  String get packHint =>
+      'Die sichtbaren Tags (gefiltert) werden in einer Datei geteilt; Kollegen fügen sie über Bibliothek → Importieren hinzu. Fotos werden nicht geteilt.';
+
+  @override
+  String get packName => 'Paketname';
+
+  @override
+  String packIncludeTemplates(String count) {
+    return 'Gespeicherte Vorlagen einschließen ($count)';
+  }
+
+  @override
+  String packCount(String count) {
+    return '$count Tags werden geteilt';
+  }
+
+  @override
+  String get packPassword => 'Passwort (optional, mind. 6 Zeichen)';
+
+  @override
+  String get packPasswordShort => 'Passwort muss mind. 6 Zeichen haben';
+
+  @override
+  String packPreview(String name, String tags, String templates) {
+    return '„$name\": $tags Tags, $templates Vorlagen. Importieren?';
+  }
+
+  @override
+  String packImported(String tags, String templates, String skipped) {
+    return '$tags Tags und $templates Vorlagen hinzugefügt · $skipped schon vorhanden';
+  }
+
+  @override
+  String packInvalid(String reason) {
+    return 'Diese Datei ist kein gültiges Team-Paket ($reason)';
+  }
+
+  @override
+  String get libraryMoreActions => 'Weitere Aktionen';
 }
