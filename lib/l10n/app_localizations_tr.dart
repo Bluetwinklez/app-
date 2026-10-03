@@ -3152,4 +3152,10 @@ class AppLocalizationsTr extends AppLocalizations {
   @override
   String get shareAsFileSubtitle =>
       'Kayıtlar başka bir cihazda aynen yazılabilir';
+
+  @override
+  String get importFromJsonFile => 'Etiket dosyasından (.json)';
+
+  @override
+  String get invalidTagFile => 'Geçersiz etiket dosyası.';
 }

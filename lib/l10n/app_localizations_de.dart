@@ -3158,4 +3158,10 @@ class AppLocalizationsDe extends AppLocalizations {
   @override
   String get shareAsFileSubtitle =>
       'Einträge lassen sich auf einem anderen Gerät exakt schreiben';
+
+  @override
+  String get importFromJsonFile => 'Aus Tag-Datei (.json)';
+
+  @override
+  String get invalidTagFile => 'Ungültige Tag-Datei.';
 }

@@ -2994,4 +2994,10 @@ class AppLocalizationsZh extends AppLocalizations {
 
   @override
   String get shareAsFileSubtitle => '可在其他设备上原样写入';
+
+  @override
+  String get importFromJsonFile => '从标签文件（.json）';
+
+  @override
+  String get invalidTagFile => '标签文件无效。';
 }

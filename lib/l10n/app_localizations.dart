@@ -5451,6 +5451,18 @@ abstract class AppLocalizations {
   /// In tr, this message translates to:
   /// **'Kayıtlar başka bir cihazda aynen yazılabilir'**
   String get shareAsFileSubtitle;
+
+  /// No description provided for @importFromJsonFile.
+  ///
+  /// In tr, this message translates to:
+  /// **'Etiket dosyasından (.json)'**
+  String get importFromJsonFile;
+
+  /// No description provided for @invalidTagFile.
+  ///
+  /// In tr, this message translates to:
+  /// **'Geçersiz etiket dosyası.'**
+  String get invalidTagFile;
 }
 
 class _AppLocalizationsDelegate
