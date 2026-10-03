@@ -1020,5 +1020,10 @@
   "nfcSheetLocked": "A tag foi bloqueada permanentemente!",
   "nfcWriteDone": "Gravado na tag com sucesso.",
   "errorWidgetMessage": "Não foi possível mostrar esta parte. Volte e tente novamente.",
-  "nfcErrTimeout": "O tempo acabou sem detectar tag. Aproxime-a da parte de cima do telefone e tente de novo."
+  "nfcErrTimeout": "O tempo acabou sem detectar tag. Aproxime-a da parte de cima do telefone e tente de novo.",
+  "aboutTitle": "Sobre",
+  "aboutVersion": "Versão {version}",
+  "privacySummary": "Seus dados ficam neste aparelho: sem conta, sem servidor, sem anúncios ou rastreamento.",
+  "whatsNewTitle": "Novidades",
+  "whatsNew110": "• 14 idiomas, modo escuro e novo design\n• Modelos com categorias, busca e favoritos\n• Gravação em lote: números de série, CSV e clonagem\n• Prévia \"O que acontece ao tocar?\" e avisos de capacidade\n• Biblioteca de tags com fotos, notas e rótulos\n• Relatório, comparação, leitura contínua e exportação CSV\n• Siri, Atalhos e receitas de automação"
 }

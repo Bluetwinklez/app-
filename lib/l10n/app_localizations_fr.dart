@@ -3651,4 +3651,23 @@ class AppLocalizationsFr extends AppLocalizations {
   @override
   String get nfcErrTimeout =>
       'Délai dépassé, aucun tag détecté. Approchez le tag du haut du téléphone et réessayez.';
+
+  @override
+  String get aboutTitle => 'À propos';
+
+  @override
+  String aboutVersion(String version) {
+    return 'Version $version';
+  }
+
+  @override
+  String get privacySummary =>
+      'Vos données restent sur cet appareil : pas de compte, pas de serveur, ni pub ni pistage.';
+
+  @override
+  String get whatsNewTitle => 'Nouveautés';
+
+  @override
+  String get whatsNew110 =>
+      '• 14 langues, mode sombre et nouveau design\n• Modèles prêts avec catégories, recherche et favoris\n• Écriture par lot : numéros de série, CSV et clonage\n• Aperçu « Que se passe-t-il au contact ? » et alertes de capacité\n• Bibliothèque de tags avec photos, notes et libellés\n• Rapport de tag, comparaison, scan continu et export CSV\n• Siri, Raccourcis et recettes d\'automatisation';
 }

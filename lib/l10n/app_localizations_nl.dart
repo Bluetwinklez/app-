@@ -3627,4 +3627,23 @@ class AppLocalizationsNl extends AppLocalizations {
   @override
   String get nfcErrTimeout =>
       'De tijd is om, geen tag gevonden. Houd de tag bij de bovenkant van de telefoon en probeer opnieuw.';
+
+  @override
+  String get aboutTitle => 'Over';
+
+  @override
+  String aboutVersion(String version) {
+    return 'Versie $version';
+  }
+
+  @override
+  String get privacySummary =>
+      'Je gegevens blijven op dit apparaat: geen account, geen server, geen advertenties of tracking.';
+
+  @override
+  String get whatsNewTitle => 'Wat is er nieuw';
+
+  @override
+  String get whatsNew110 =>
+      '• 14 talen, donkere modus en nieuw ontwerp\n• Sjablonen met categorieën, zoeken en favorieten\n• Batchgewijs schrijven met serienummers, CSV en klonen\n• Voorbeeld \"Wat gebeurt er bij tikken?\" en capaciteitswaarschuwingen\n• Tagbibliotheek met foto\'s, notities en labels\n• Tagrapport, vergelijken, continu scannen en CSV-export\n• Siri, Opdrachten en automatiseringsrecepten';
 }

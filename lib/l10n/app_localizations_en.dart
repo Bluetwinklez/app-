@@ -3611,4 +3611,23 @@ class AppLocalizationsEn extends AppLocalizations {
   @override
   String get nfcErrTimeout =>
       'Time ran out before a tag was found. Hold the tag near the top of the phone and try again.';
+
+  @override
+  String get aboutTitle => 'About';
+
+  @override
+  String aboutVersion(String version) {
+    return 'Version $version';
+  }
+
+  @override
+  String get privacySummary =>
+      'Your data stays on this device: no account, no server, no ads or tracking.';
+
+  @override
+  String get whatsNewTitle => 'What\'s new';
+
+  @override
+  String get whatsNew110 =>
+      '• 14 languages, dark mode and a new design\n• Ready-made templates with categories, search and favourites\n• Batch writing with serial numbers, CSV and tag cloning\n• \"What happens on tap?\" preview and capacity warnings\n• Tag library with photos, notes and labels\n• Tag report, compare, continuous scan and CSV export\n• Siri, Shortcuts and ready-made automation recipes';
 }

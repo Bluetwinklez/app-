@@ -3625,4 +3625,23 @@ class AppLocalizationsIt extends AppLocalizations {
   @override
   String get nfcErrTimeout =>
       'Tempo scaduto, nessun tag rilevato. Avvicina il tag alla parte alta del telefono e riprova.';
+
+  @override
+  String get aboutTitle => 'Informazioni';
+
+  @override
+  String aboutVersion(String version) {
+    return 'Versione $version';
+  }
+
+  @override
+  String get privacySummary =>
+      'I tuoi dati restano su questo dispositivo: nessun account, nessun server, niente pubblicità o tracciamento.';
+
+  @override
+  String get whatsNewTitle => 'Novità';
+
+  @override
+  String get whatsNew110 =>
+      '• 14 lingue, modalità scura e nuovo design\n• Modelli con categorie, ricerca e preferiti\n• Scrittura in serie: numeri di serie, CSV e clonazione\n• Anteprima \"Cosa succede al tocco?\" e avvisi di capacità\n• Libreria tag con foto, note ed etichette\n• Report, confronto, scansione continua ed export CSV\n• Siri, Comandi rapidi e ricette di automazione';
 }
