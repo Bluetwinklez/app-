@@ -22,6 +22,9 @@ class NfcTagInfo {
   final List<NdefRecordModel> records;
   final String? error;
 
+  /// Native error code when [error] is set (not persisted).
+  final String? errorCode;
+
   const NfcTagInfo({
     required this.identifier,
     this.standardTechnologies = const [],
@@ -31,7 +34,14 @@ class NfcTagInfo {
     this.currentBytesUsed = 0,
     this.records = const [],
     this.error,
+    this.errorCode,
   });
+
+  /// The user (or the app) stopped the NFC session; not a real failure.
+  bool get wasCancelled => isCancelCode(errorCode);
+
+  static bool isCancelCode(String? code) =>
+      code == 'USER_CANCELLED' || code == 'SESSION_CANCELLED';
 
   Map<String, dynamic> toMap() {
     return {

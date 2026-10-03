@@ -1019,5 +1019,6 @@
   "nfcSheetWritten": "已写入标签！",
   "nfcSheetLocked": "标签已永久锁定！",
   "nfcWriteDone": "已成功写入标签。",
-  "errorWidgetMessage": "无法显示此部分，请返回后重试。"
+  "errorWidgetMessage": "无法显示此部分，请返回后重试。",
+  "nfcErrTimeout": "超时未检测到标签。请将标签靠近手机顶部后重试。"
 }

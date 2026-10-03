@@ -54,6 +54,8 @@ class NativeMessages {
       case 'SESSION_CANCELLED':
       case 'USER_CANCELLED':
         return l.nfcErrCancelled;
+      case 'SESSION_TIMEOUT':
+        return l.nfcErrTimeout;
       case 'ACTIVITY_PAUSED':
         return l.nfcErrAppPaused;
       case 'UNSUPPORTED_TAG':

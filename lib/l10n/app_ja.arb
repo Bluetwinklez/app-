@@ -1019,5 +1019,6 @@
   "nfcSheetWritten": "タグに書き込みました!",
   "nfcSheetLocked": "タグは完全にロックされました!",
   "nfcWriteDone": "タグへの書き込みに成功しました。",
-  "errorWidgetMessage": "この部分を表示できませんでした。戻ってもう一度お試しください。"
+  "errorWidgetMessage": "この部分を表示できませんでした。戻ってもう一度お試しください。",
+  "nfcErrTimeout": "時間内にタグが見つかりませんでした。スマホの上部にかざしてもう一度お試しください。"
 }

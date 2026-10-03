@@ -3432,4 +3432,7 @@ class AppLocalizationsZh extends AppLocalizations {
 
   @override
   String get errorWidgetMessage => '无法显示此部分，请返回后重试。';
+
+  @override
+  String get nfcErrTimeout => '超时未检测到标签。请将标签靠近手机顶部后重试。';
 }

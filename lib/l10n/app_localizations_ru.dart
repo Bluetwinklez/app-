@@ -3624,4 +3624,8 @@ class AppLocalizationsRu extends AppLocalizations {
   @override
   String get errorWidgetMessage =>
       'Не удалось показать этот раздел. Вернитесь и попробуйте снова.';
+
+  @override
+  String get nfcErrTimeout =>
+      'Время вышло, метка не найдена. Поднесите её к верхней части телефона и повторите.';
 }

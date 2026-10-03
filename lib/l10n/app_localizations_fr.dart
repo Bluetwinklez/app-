@@ -3647,4 +3647,8 @@ class AppLocalizationsFr extends AppLocalizations {
   @override
   String get errorWidgetMessage =>
       'Cette partie n\'a pas pu s\'afficher. Revenez en arrière et réessayez.';
+
+  @override
+  String get nfcErrTimeout =>
+      'Délai dépassé, aucun tag détecté. Approchez le tag du haut du téléphone et réessayez.';
 }

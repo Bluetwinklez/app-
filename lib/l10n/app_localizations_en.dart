@@ -3607,4 +3607,8 @@ class AppLocalizationsEn extends AppLocalizations {
   @override
   String get errorWidgetMessage =>
       'This part could not be shown. Go back and try again.';
+
+  @override
+  String get nfcErrTimeout =>
+      'Time ran out before a tag was found. Hold the tag near the top of the phone and try again.';
 }

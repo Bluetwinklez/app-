@@ -3462,4 +3462,7 @@ class AppLocalizationsJa extends AppLocalizations {
 
   @override
   String get errorWidgetMessage => 'この部分を表示できませんでした。戻ってもう一度お試しください。';
+
+  @override
+  String get nfcErrTimeout => '時間内にタグが見つかりませんでした。スマホの上部にかざしてもう一度お試しください。';
 }
