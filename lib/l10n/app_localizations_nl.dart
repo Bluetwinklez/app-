@@ -2978,4 +2978,7 @@ class AppLocalizationsNl extends AppLocalizations {
 
   @override
   String get addToWriteListShort => 'Naar schrijflijst';
+
+  @override
+  String get mimeTypeHint => 'application/json of text/plain';
 }

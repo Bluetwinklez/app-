@@ -2982,4 +2982,7 @@ class AppLocalizationsDe extends AppLocalizations {
 
   @override
   String get addToWriteListShort => 'Zur Schreibliste';
+
+  @override
+  String get mimeTypeHint => 'application/json oder text/plain';
 }

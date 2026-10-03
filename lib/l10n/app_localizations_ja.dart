@@ -2851,4 +2851,7 @@ class AppLocalizationsJa extends AppLocalizations {
 
   @override
   String get addToWriteListShort => '書き込みリストへ';
+
+  @override
+  String get mimeTypeHint => 'application/json または text/plain';
 }

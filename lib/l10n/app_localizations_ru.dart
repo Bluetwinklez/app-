@@ -2980,4 +2980,7 @@ class AppLocalizationsRu extends AppLocalizations {
 
   @override
   String get addToWriteListShort => 'В список записи';
+
+  @override
+  String get mimeTypeHint => 'application/json или text/plain';
 }

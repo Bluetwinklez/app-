@@ -5139,6 +5139,12 @@ abstract class AppLocalizations {
   /// In tr, this message translates to:
   /// **'Yazma listesine aktar'**
   String get addToWriteListShort;
+
+  /// No description provided for @mimeTypeHint.
+  ///
+  /// In tr, this message translates to:
+  /// **'application/json veya text/plain'**
+  String get mimeTypeHint;
 }
 
 class _AppLocalizationsDelegate

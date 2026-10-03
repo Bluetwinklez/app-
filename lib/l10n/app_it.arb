@@ -835,5 +835,6 @@
   "readOnlyLocked": "Sola lettura (bloccato)",
   "redoTooltip": "Ripeti",
   "historyFoundCount": "Trovati: {found} / {total}",
-  "addToWriteListShort": "Aggiungi all'elenco"
+  "addToWriteListShort": "Aggiungi all'elenco",
+  "mimeTypeHint": "application/json o text/plain"
 }

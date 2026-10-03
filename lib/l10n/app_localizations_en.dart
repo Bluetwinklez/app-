@@ -2963,4 +2963,7 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get addToWriteListShort => 'Add to write list';
+
+  @override
+  String get mimeTypeHint => 'application/json or text/plain';
 }

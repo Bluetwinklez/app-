@@ -2981,4 +2981,7 @@ class AppLocalizationsUk extends AppLocalizations {
 
   @override
   String get addToWriteListShort => 'До списку запису';
+
+  @override
+  String get mimeTypeHint => 'application/json або text/plain';
 }

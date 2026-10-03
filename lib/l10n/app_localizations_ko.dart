@@ -2860,4 +2860,7 @@ class AppLocalizationsKo extends AppLocalizations {
 
   @override
   String get addToWriteListShort => '쓰기 목록에 추가';
+
+  @override
+  String get mimeTypeHint => 'application/json 또는 text/plain';
 }

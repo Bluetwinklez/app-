@@ -2978,4 +2978,7 @@ class AppLocalizationsTr extends AppLocalizations {
 
   @override
   String get addToWriteListShort => 'Yazma listesine aktar';
+
+  @override
+  String get mimeTypeHint => 'application/json veya text/plain';
 }

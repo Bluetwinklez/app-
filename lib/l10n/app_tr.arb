@@ -1993,5 +1993,6 @@
       }
     }
   },
-  "addToWriteListShort": "Yazma listesine aktar"
+  "addToWriteListShort": "Yazma listesine aktar",
+  "mimeTypeHint": "application/json veya text/plain"
 }
