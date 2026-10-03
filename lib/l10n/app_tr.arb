@@ -2433,5 +2433,42 @@
   "chipUseAccess": "Kapı / turnike kartları, otel kartları",
   "chipUseIndustrial": "Kütüphane, depo ve endüstriyel etiketler; uzun okuma mesafesi",
   "chipUseJapan": "Japonya'da yaygın (ulaşım, ödeme)",
-  "chipUseLegacy": "Eski tip; yeni projeler için önerilmez"
+  "chipUseLegacy": "Eski tip; yeni projeler için önerilmez",
+  "templateVarsHint": "İpucu: Metin ya da bağlantıya {date}, {time}, {counter} yazarsanız yazarken otomatik doldurulur.",
+  "@templateVarsHint": {
+    "placeholders": {
+      "date": {
+        "type": "String"
+      },
+      "time": {
+        "type": "String"
+      },
+      "counter": {
+        "type": "String"
+      }
+    }
+  },
+  "templateVarsPreview": "Yazarken: {date} · {time} · sayaç {counter}",
+  "@templateVarsPreview": {
+    "placeholders": {
+      "date": {
+        "type": "String"
+      },
+      "time": {
+        "type": "String"
+      },
+      "counter": {
+        "type": "String"
+      }
+    }
+  },
+  "libraryWriteToTag": "Etikete yaz",
+  "libraryWritePrompt": "\"{name}\" içeriğini yazmak için etiketi yaklaştırın",
+  "@libraryWritePrompt": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  }
 }

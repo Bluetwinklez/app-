@@ -1054,5 +1054,9 @@
   "chipUseAccess": "门禁卡、酒店房卡",
   "chipUseIndustrial": "图书馆、仓库与工业标签；读取距离更远",
   "chipUseJapan": "在日本常见（交通、支付）",
-  "chipUseLegacy": "旧型号；不建议用于新项目"
+  "chipUseLegacy": "旧型号；不建议用于新项目",
+  "templateVarsHint": "提示：在文本或链接中写入 {date}、{time}、{counter}，写入时会自动填充。",
+  "templateVarsPreview": "写入时：{date} · {time} · 计数 {counter}",
+  "libraryWriteToTag": "写入标签",
+  "libraryWritePrompt": "靠近标签以写入“{name}”"
 }

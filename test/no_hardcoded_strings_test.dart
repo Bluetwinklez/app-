@@ -10,6 +10,8 @@ const Map<String, Set<String>> _allowed = {
   'lib/domain/csv_records.dart': {'tür', 'e-posta', 'tur', 'metin', 'telefon', 'eposta', 'konum', r'metin,Merhaba dünya\n', r'sms,+905551112233,Mesaj\n', r'telefon,+905551112233\n'},
   // Storage model serialization fallback values (file excluded from edits)
   'lib/domain/storage_models.dart': {'Bilinmiyor', 'Şablon'},
+  // Turkish spellings of write-time placeholders (data, not UI text)
+  'lib/domain/template_variables.dart': {'{sayaç}'},
   // Turkish character normalization mapping for search indexing
   'lib/util/text_search.dart': {'İ', 'ı'},
 };

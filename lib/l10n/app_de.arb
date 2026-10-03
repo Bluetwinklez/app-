@@ -1054,5 +1054,9 @@
   "chipUseAccess": "Tür-/Drehkreuz- und Hotelkarten",
   "chipUseIndustrial": "Bibliotheks-, Lager- und Industrie-Tags; größere Reichweite",
   "chipUseJapan": "Verbreitet in Japan (ÖPNV, Bezahlen)",
-  "chipUseLegacy": "Veralteter Typ; für neue Projekte nicht empfohlen"
+  "chipUseLegacy": "Veralteter Typ; für neue Projekte nicht empfohlen",
+  "templateVarsHint": "Tipp: {date}, {time} oder {counter} in Text oder Link werden beim Schreiben ausgefüllt.",
+  "templateVarsPreview": "Beim Schreiben: {date} · {time} · Zähler {counter}",
+  "libraryWriteToTag": "Auf Tag schreiben",
+  "libraryWritePrompt": "Tag annähern, um „{name}“ zu schreiben"
 }

@@ -1054,5 +1054,9 @@
   "chipUseAccess": "Tarjetas de acceso y de hotel",
   "chipUseIndustrial": "Bibliotecas, almacenes e industria; mayor alcance",
   "chipUseJapan": "Común en Japón (transporte, pagos)",
-  "chipUseLegacy": "Tipo antiguo; no recomendado"
+  "chipUseLegacy": "Tipo antiguo; no recomendado",
+  "templateVarsHint": "Consejo: {date}, {time} o {counter} en un texto o enlace se rellenan al escribir.",
+  "templateVarsPreview": "Al escribir: {date} · {time} · contador {counter}",
+  "libraryWriteToTag": "Escribir en una etiqueta",
+  "libraryWritePrompt": "Acerca una etiqueta para escribir «{name}»"
 }

@@ -3771,4 +3771,22 @@ class AppLocalizationsEs extends AppLocalizations {
 
   @override
   String get chipUseLegacy => 'Tipo antiguo; no recomendado';
+
+  @override
+  String templateVarsHint(String date, String time, String counter) {
+    return 'Consejo: $date, $time o $counter en un texto o enlace se rellenan al escribir.';
+  }
+
+  @override
+  String templateVarsPreview(String date, String time, String counter) {
+    return 'Al escribir: $date · $time · contador $counter';
+  }
+
+  @override
+  String get libraryWriteToTag => 'Escribir en una etiqueta';
+
+  @override
+  String libraryWritePrompt(String name) {
+    return 'Acerca una etiqueta para escribir «$name»';
+  }
 }

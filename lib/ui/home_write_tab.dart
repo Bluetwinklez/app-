@@ -141,6 +141,20 @@ extension _WriteTab on _HomeScreenState {
                 ),
                 if (_recordsToWrite.isNotEmpty) _buildCapacityChips(),
                 if (_recordsToWrite.isNotEmpty) TapPreviewCard(records: _recordsToWrite),
+                Padding(
+                  padding: const EdgeInsets.only(top: 8),
+                  child: Text(
+                    TemplateVariables.hasAny(_recordsToWrite)
+                        ? _templateVarsPreview()
+                        : L10n.current.templateVarsHint('{date}', '{time}', '{counter}'),
+                    style: TextStyle(
+                      fontSize: 12,
+                      color: TemplateVariables.hasAny(_recordsToWrite)
+                          ? AppColors.accent
+                          : AppColors.secondary,
+                    ),
+                  ),
+                ),
                 const Divider(),
                 if (_recordsToWrite.isEmpty)
                   Padding(
@@ -467,6 +481,16 @@ extension _WriteTab on _HomeScreenState {
           ),
         ],
       ),
+    );
+  }
+
+  String _templateVarsPreview() {
+    final now = DateTime.now();
+    String two(int v) => v.toString().padLeft(2, '0');
+    return L10n.current.templateVarsPreview(
+      '${now.year}-${two(now.month)}-${two(now.day)}',
+      '${two(now.hour)}:${two(now.minute)}',
+      '${_controller.storage.writeCounter + 1}',
     );
   }
 }

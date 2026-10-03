@@ -3743,4 +3743,22 @@ class AppLocalizationsUk extends AppLocalizations {
 
   @override
   String get chipUseLegacy => 'Застарілий тип; не рекомендується';
+
+  @override
+  String templateVarsHint(String date, String time, String counter) {
+    return 'Порада: $date, $time або $counter у тексті чи посиланні заповнюються під час запису.';
+  }
+
+  @override
+  String templateVarsPreview(String date, String time, String counter) {
+    return 'Під час запису: $date · $time · лічильник $counter';
+  }
+
+  @override
+  String get libraryWriteToTag => 'Записати на мітку';
+
+  @override
+  String libraryWritePrompt(String name) {
+    return 'Піднесіть мітку, щоб записати «$name»';
+  }
 }

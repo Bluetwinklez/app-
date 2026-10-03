@@ -1054,5 +1054,9 @@
   "chipUseAccess": "출입 카드, 호텔 키",
   "chipUseIndustrial": "도서관·창고·산업용, 인식 거리 김",
   "chipUseJapan": "일본에서 흔함(교통, 결제)",
-  "chipUseLegacy": "구형, 새 프로젝트에 비추천"
+  "chipUseLegacy": "구형, 새 프로젝트에 비추천",
+  "templateVarsHint": "팁: 텍스트나 링크에 {date}, {time}, {counter}를 넣으면 쓸 때 자동으로 채워집니다.",
+  "templateVarsPreview": "쓸 때: {date} · {time} · 카운터 {counter}",
+  "libraryWriteToTag": "태그에 쓰기",
+  "libraryWritePrompt": "\"{name}\"을(를) 쓰려면 태그를 대세요"
 }

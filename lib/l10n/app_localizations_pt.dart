@@ -3756,4 +3756,22 @@ class AppLocalizationsPt extends AppLocalizations {
 
   @override
   String get chipUseLegacy => 'Tipo antigo; não recomendado';
+
+  @override
+  String templateVarsHint(String date, String time, String counter) {
+    return 'Dica: $date, $time ou $counter num texto ou link são preenchidos ao gravar.';
+  }
+
+  @override
+  String templateVarsPreview(String date, String time, String counter) {
+    return 'Ao gravar: $date · $time · contador $counter';
+  }
+
+  @override
+  String get libraryWriteToTag => 'Gravar numa tag';
+
+  @override
+  String libraryWritePrompt(String name) {
+    return 'Aproxime uma tag para gravar \"$name\"';
+  }
 }

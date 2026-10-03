@@ -6453,6 +6453,30 @@ abstract class AppLocalizations {
   /// In tr, this message translates to:
   /// **'Eski tip; yeni projeler için önerilmez'**
   String get chipUseLegacy;
+
+  /// No description provided for @templateVarsHint.
+  ///
+  /// In tr, this message translates to:
+  /// **'İpucu: Metin ya da bağlantıya {date}, {time}, {counter} yazarsanız yazarken otomatik doldurulur.'**
+  String templateVarsHint(String date, String time, String counter);
+
+  /// No description provided for @templateVarsPreview.
+  ///
+  /// In tr, this message translates to:
+  /// **'Yazarken: {date} · {time} · sayaç {counter}'**
+  String templateVarsPreview(String date, String time, String counter);
+
+  /// No description provided for @libraryWriteToTag.
+  ///
+  /// In tr, this message translates to:
+  /// **'Etikete yaz'**
+  String get libraryWriteToTag;
+
+  /// No description provided for @libraryWritePrompt.
+  ///
+  /// In tr, this message translates to:
+  /// **'\"{name}\" içeriğini yazmak için etiketi yaklaştırın'**
+  String libraryWritePrompt(String name);
 }
 
 class _AppLocalizationsDelegate

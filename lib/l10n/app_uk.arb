@@ -1054,5 +1054,9 @@
   "chipUseAccess": "Перепустки й готельні ключі",
   "chipUseIndustrial": "Бібліотеки, склади, промисловість; більша дальність",
   "chipUseJapan": "Поширений у Японії (транспорт, оплата)",
-  "chipUseLegacy": "Застарілий тип; не рекомендується"
+  "chipUseLegacy": "Застарілий тип; не рекомендується",
+  "templateVarsHint": "Порада: {date}, {time} або {counter} у тексті чи посиланні заповнюються під час запису.",
+  "templateVarsPreview": "Під час запису: {date} · {time} · лічильник {counter}",
+  "libraryWriteToTag": "Записати на мітку",
+  "libraryWritePrompt": "Піднесіть мітку, щоб записати «{name}»"
 }
