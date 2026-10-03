@@ -3215,4 +3215,103 @@ class AppLocalizationsAr extends AppLocalizations {
 
   @override
   String get cloneEditFirst => 'عدّل أولاً';
+
+  @override
+  String get tapPreviewTitle => 'ماذا يحدث عند لمس الهاتف؟';
+
+  @override
+  String get tapPreviewIphone => 'iPhone';
+
+  @override
+  String get tapPreviewAndroid => 'Android';
+
+  @override
+  String get tapNone => 'الوسم فارغ؛ لن يحدث شيء.';
+
+  @override
+  String tapIosUrl(String target) {
+    return 'يظهر إشعار؛ وعند لمسه يُفتح $target في Safari أو التطبيق المناسب.';
+  }
+
+  @override
+  String tapAndroidUrl(String target) {
+    return 'يُفتح $target مباشرة في المتصفح أو التطبيق المناسب.';
+  }
+
+  @override
+  String tapIosApp(String target) {
+    return 'يظهر إشعار؛ ويُفتح التطبيق عبر \"$target\" إن كان مثبتًا.';
+  }
+
+  @override
+  String tapAndroidApp(String target) {
+    return 'يُفتح التطبيق عبر \"$target\" إن كان مثبتًا.';
+  }
+
+  @override
+  String tapIosCall(String target) {
+    return 'يظهر إشعار؛ وعند لمسه يتم الاتصال بـ $target.';
+  }
+
+  @override
+  String tapAndroidCall(String target) {
+    return 'يُفتح تطبيق الهاتف بالرقم $target.';
+  }
+
+  @override
+  String tapIosSms(String target) {
+    return 'يظهر إشعار؛ ويفتح تطبيق الرسائل رسالة جديدة إلى $target.';
+  }
+
+  @override
+  String tapAndroidSms(String target) {
+    return 'يُفتح تطبيق الرسائل إلى $target.';
+  }
+
+  @override
+  String tapIosEmail(String target) {
+    return 'يظهر إشعار؛ ويفتح Mail رسالة جديدة إلى $target.';
+  }
+
+  @override
+  String tapAndroidEmail(String target) {
+    return 'يُفتح تطبيق البريد إلى $target.';
+  }
+
+  @override
+  String get tapIosMap =>
+      'لا يفتح iPhone مواقع \"geo:\" تلقائيًا. استخدم رابط خرائط Apple أو Google (الروابط السريعة).';
+
+  @override
+  String get tapAndroidMap => 'يُفتح تطبيق الخرائط على هذا الموقع.';
+
+  @override
+  String get tapIosNeedsApp =>
+      'لا يفعل iPhone شيئًا بهذا المحتوى تلقائيًا؛ يجب قراءته بتطبيق NFC.';
+
+  @override
+  String get tapAndroidText =>
+      'في معظم الهواتف لا يحدث شيء أو يظهر النص في شاشة النظام.';
+
+  @override
+  String get tapAndroidContact => 'يعرض إضافة جهة الاتصال.';
+
+  @override
+  String get tapAndroidWifi => 'يعرض الانضمام إلى الشبكة (Android 10 والأحدث).';
+
+  @override
+  String get tapAndroidCalendar =>
+      'إذا كان تطبيق التقويم يدعم ذلك، فسيعرض إضافة الحدث.';
+
+  @override
+  String get tapAndroidOther => 'لا يُفتح إلا إذا كان هناك تطبيق متوافق مثبت.';
+
+  @override
+  String tapIgnoredRecords(String count) {
+    return 'تنفّذ الهواتف السجل الأول فقط؛ وتظهر السجلات الأخرى ($count) في تطبيقات NFC.';
+  }
+
+  @override
+  String get tapIosRequirement =>
+      'يقرأ iPhone XS والأحدث في الخلفية عند فتح القفل وعدم فتح الكاميرا/المحفظة.';
 }

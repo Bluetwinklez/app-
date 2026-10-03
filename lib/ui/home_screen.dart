@@ -18,6 +18,7 @@ import 'qr_preview_dialog.dart';
 import 'tag_rules_manager_sheet.dart';
 import 'app_theme.dart';
 import 'tools_tab.dart';
+import 'tap_preview_card.dart';
 import 'onboarding_page.dart';
 import 'template_gallery_page.dart';
 import 'tag_library_page.dart';
@@ -3810,6 +3811,7 @@ class _HomeScreenState extends State<HomeScreen>
                   style: TextStyle(color: AppColors.secondary, fontSize: 13),
                 ),
                 if (_recordsToWrite.isNotEmpty) _buildCapacityChips(),
+                if (_recordsToWrite.isNotEmpty) TapPreviewCard(records: _recordsToWrite),
                 const Divider(),
                 if (_recordsToWrite.isEmpty)
                   Padding(

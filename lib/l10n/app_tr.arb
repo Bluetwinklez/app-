@@ -2170,5 +2170,106 @@
       }
     }
   },
-  "cloneEditFirst": "Önce düzenle"
+  "cloneEditFirst": "Önce düzenle",
+  "tapPreviewTitle": "Telefon dokununca ne olur?",
+  "tapPreviewIphone": "iPhone",
+  "tapPreviewAndroid": "Android",
+  "tapNone": "Etiket boş; dokununca hiçbir şey olmaz.",
+  "tapIosUrl": "Bildirim çıkar; dokununca {target} Safari'de ya da ilgili uygulamada açılır.",
+  "@tapIosUrl": {
+    "placeholders": {
+      "target": {
+        "type": "String"
+      }
+    }
+  },
+  "tapAndroidUrl": "{target} doğrudan tarayıcıda ya da ilgili uygulamada açılır.",
+  "@tapAndroidUrl": {
+    "placeholders": {
+      "target": {
+        "type": "String"
+      }
+    }
+  },
+  "tapIosApp": "Bildirim çıkar; uygulama yüklüyse \"{target}\" bağlantısıyla açılır.",
+  "@tapIosApp": {
+    "placeholders": {
+      "target": {
+        "type": "String"
+      }
+    }
+  },
+  "tapAndroidApp": "Uygulama yüklüyse \"{target}\" bağlantısıyla açılır.",
+  "@tapAndroidApp": {
+    "placeholders": {
+      "target": {
+        "type": "String"
+      }
+    }
+  },
+  "tapIosCall": "Bildirim çıkar; dokununca {target} aranır.",
+  "@tapIosCall": {
+    "placeholders": {
+      "target": {
+        "type": "String"
+      }
+    }
+  },
+  "tapAndroidCall": "Telefon uygulaması {target} numarasıyla açılır.",
+  "@tapAndroidCall": {
+    "placeholders": {
+      "target": {
+        "type": "String"
+      }
+    }
+  },
+  "tapIosSms": "Bildirim çıkar; Mesajlar {target} için yeni mesajla açılır.",
+  "@tapIosSms": {
+    "placeholders": {
+      "target": {
+        "type": "String"
+      }
+    }
+  },
+  "tapAndroidSms": "Mesajlaşma uygulaması {target} için açılır.",
+  "@tapAndroidSms": {
+    "placeholders": {
+      "target": {
+        "type": "String"
+      }
+    }
+  },
+  "tapIosEmail": "Bildirim çıkar; Mail {target} adresine yeni e-postayla açılır.",
+  "@tapIosEmail": {
+    "placeholders": {
+      "target": {
+        "type": "String"
+      }
+    }
+  },
+  "tapAndroidEmail": "E-posta uygulaması {target} için açılır.",
+  "@tapAndroidEmail": {
+    "placeholders": {
+      "target": {
+        "type": "String"
+      }
+    }
+  },
+  "tapIosMap": "iPhone \"geo:\" konumlarını kendiliğinden açmaz. Apple ya da Google Haritalar bağlantısı kullanın (Hızlı bağlantılar).",
+  "tapAndroidMap": "Harita uygulaması bu konumda açılır.",
+  "tapIosNeedsApp": "iPhone bu içerikle kendiliğinden bir şey yapmaz; görmek için bir NFC uygulamasıyla okutulmalı.",
+  "tapAndroidText": "Çoğu telefonda bir şey olmaz ya da metin sistem ekranında gösterilir.",
+  "tapAndroidContact": "Kişiyi rehbere ekleme önerilir.",
+  "tapAndroidWifi": "Ağa bağlanma önerilir (Android 10 ve sonrası).",
+  "tapAndroidCalendar": "Takvim uygulaması destekliyorsa etkinlik eklenmesi önerilir.",
+  "tapAndroidOther": "Yalnızca bu içeriği tanıyan bir uygulama yüklüyse açılır.",
+  "tapIgnoredRecords": "Telefonlar yalnızca ilk kaydı çalıştırır; diğer {count} kayıt NFC uygulamalarında görünür.",
+  "@tapIgnoredRecords": {
+    "placeholders": {
+      "count": {
+        "type": "String"
+      }
+    }
+  },
+  "tapIosRequirement": "iPhone XS ve sonrası, ekran kilidi açıkken ve kamera/Cüzdan açık değilken arka planda okur."
 }

@@ -3130,4 +3130,100 @@ class AppLocalizationsKo extends AppLocalizations {
 
   @override
   String get cloneEditFirst => '먼저 편집';
+
+  @override
+  String get tapPreviewTitle => '휴대폰을 대면 어떻게 되나요?';
+
+  @override
+  String get tapPreviewIphone => 'iPhone';
+
+  @override
+  String get tapPreviewAndroid => 'Android';
+
+  @override
+  String get tapNone => '태그가 비어 있어 아무 일도 일어나지 않습니다.';
+
+  @override
+  String tapIosUrl(String target) {
+    return '알림이 뜨고, 누르면 $target이(가) Safari나 해당 앱에서 열립니다.';
+  }
+
+  @override
+  String tapAndroidUrl(String target) {
+    return '$target이(가) 브라우저나 해당 앱에서 바로 열립니다.';
+  }
+
+  @override
+  String tapIosApp(String target) {
+    return '알림이 뜨고, 앱이 설치되어 있으면 \"$target\"(으)로 열립니다.';
+  }
+
+  @override
+  String tapAndroidApp(String target) {
+    return '앱이 설치되어 있으면 \"$target\"(으)로 열립니다.';
+  }
+
+  @override
+  String tapIosCall(String target) {
+    return '알림이 뜨고, 누르면 $target(으)로 전화합니다.';
+  }
+
+  @override
+  String tapAndroidCall(String target) {
+    return '전화 앱이 $target 번호로 열립니다.';
+  }
+
+  @override
+  String tapIosSms(String target) {
+    return '알림이 뜨고, 메시지 앱이 $target에게 보낼 새 메시지로 열립니다.';
+  }
+
+  @override
+  String tapAndroidSms(String target) {
+    return '메시지 앱이 $target에게 열립니다.';
+  }
+
+  @override
+  String tapIosEmail(String target) {
+    return '알림이 뜨고, Mail이 $target에게 보낼 새 이메일로 열립니다.';
+  }
+
+  @override
+  String tapAndroidEmail(String target) {
+    return '이메일 앱이 $target에게 열립니다.';
+  }
+
+  @override
+  String get tapIosMap =>
+      'iPhone은 \"geo:\" 위치를 자동으로 열지 않습니다. Apple 또는 Google 지도 링크를 사용하세요(빠른 링크).';
+
+  @override
+  String get tapAndroidMap => '지도 앱이 이 위치로 열립니다.';
+
+  @override
+  String get tapIosNeedsApp => 'iPhone은 이 내용을 자동으로 처리하지 않습니다. NFC 앱으로 읽어야 합니다.';
+
+  @override
+  String get tapAndroidText => '대부분의 휴대폰에서는 아무 일도 없거나 시스템 화면에 텍스트가 표시됩니다.';
+
+  @override
+  String get tapAndroidContact => '연락처 추가를 제안합니다.';
+
+  @override
+  String get tapAndroidWifi => '네트워크 연결을 제안합니다(Android 10 이상).';
+
+  @override
+  String get tapAndroidCalendar => '캘린더 앱이 지원하면 일정 추가를 제안합니다.';
+
+  @override
+  String get tapAndroidOther => '이 내용을 지원하는 앱이 설치된 경우에만 열립니다.';
+
+  @override
+  String tapIgnoredRecords(String count) {
+    return '휴대폰은 첫 레코드만 실행합니다. 나머지 $count개는 NFC 앱에서 보입니다.';
+  }
+
+  @override
+  String get tapIosRequirement =>
+      'iPhone XS 이상은 잠금 해제 상태이고 카메라/지갑이 열려 있지 않을 때 백그라운드로 읽습니다.';
 }

@@ -3256,4 +3256,105 @@ class AppLocalizationsNl extends AppLocalizations {
 
   @override
   String get cloneEditFirst => 'Eerst bewerken';
+
+  @override
+  String get tapPreviewTitle => 'Wat gebeurt er als een telefoon tikt?';
+
+  @override
+  String get tapPreviewIphone => 'iPhone';
+
+  @override
+  String get tapPreviewAndroid => 'Android';
+
+  @override
+  String get tapNone => 'De tag is leeg; er gebeurt niets.';
+
+  @override
+  String tapIosUrl(String target) {
+    return 'Er verschijnt een melding; tikken opent $target in Safari of de bijbehorende app.';
+  }
+
+  @override
+  String tapAndroidUrl(String target) {
+    return '$target opent direct in de browser of de bijbehorende app.';
+  }
+
+  @override
+  String tapIosApp(String target) {
+    return 'Er verschijnt een melding; de app opent via \"$target\" als die geïnstalleerd is.';
+  }
+
+  @override
+  String tapAndroidApp(String target) {
+    return 'De app opent via \"$target\" als die geïnstalleerd is.';
+  }
+
+  @override
+  String tapIosCall(String target) {
+    return 'Er verschijnt een melding; tikken belt $target.';
+  }
+
+  @override
+  String tapAndroidCall(String target) {
+    return 'De telefoon-app opent met $target.';
+  }
+
+  @override
+  String tapIosSms(String target) {
+    return 'Er verschijnt een melding; Berichten opent een nieuw bericht aan $target.';
+  }
+
+  @override
+  String tapAndroidSms(String target) {
+    return 'De berichten-app opent voor $target.';
+  }
+
+  @override
+  String tapIosEmail(String target) {
+    return 'Er verschijnt een melding; Mail opent een nieuwe e-mail aan $target.';
+  }
+
+  @override
+  String tapAndroidEmail(String target) {
+    return 'De e-mailapp opent voor $target.';
+  }
+
+  @override
+  String get tapIosMap =>
+      'De iPhone opent \"geo:\"-locaties niet vanzelf. Gebruik een Apple- of Google Maps-link (Snelle links).';
+
+  @override
+  String get tapAndroidMap => 'De kaarten-app opent op deze locatie.';
+
+  @override
+  String get tapIosNeedsApp =>
+      'De iPhone doet hier zelf niets mee; lees het met een NFC-app.';
+
+  @override
+  String get tapAndroidText =>
+      'Op de meeste telefoons gebeurt er niets of verschijnt de tekst op een systeemscherm.';
+
+  @override
+  String get tapAndroidContact => 'Het biedt aan het contact toe te voegen.';
+
+  @override
+  String get tapAndroidWifi =>
+      'Het biedt aan verbinding te maken met het netwerk (Android 10 en hoger).';
+
+  @override
+  String get tapAndroidCalendar =>
+      'Als de agenda-app het ondersteunt, biedt die aan het evenement toe te voegen.';
+
+  @override
+  String get tapAndroidOther =>
+      'Opent alleen als er een geschikte app is geïnstalleerd.';
+
+  @override
+  String tapIgnoredRecords(String count) {
+    return 'Telefoons voeren alleen het eerste record uit; de andere $count zijn zichtbaar in NFC-apps.';
+  }
+
+  @override
+  String get tapIosRequirement =>
+      'iPhone XS en nieuwer lezen op de achtergrond als ze ontgrendeld zijn en Camera/Wallet niet open is.';
 }
