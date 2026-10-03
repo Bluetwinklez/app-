@@ -1313,7 +1313,7 @@ class _ComposeRecordSheetState extends State<ComposeRecordSheet> {
               controller: _mimeTypeController,
               decoration: InputDecoration(
                 labelText: loc.composeMimeTypeLabel,
-                hintText: 'application/json veya text/plain',
+                hintText: L10n.current.mimeTypeHint,
                 errorText: _mimeTypeError,
                 border: const OutlineInputBorder(),
               ),

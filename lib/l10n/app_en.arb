@@ -835,5 +835,6 @@
   "readOnlyLocked": "Read-only (locked)",
   "redoTooltip": "Redo",
   "historyFoundCount": "Found: {found} / {total}",
-  "addToWriteListShort": "Add to write list"
+  "addToWriteListShort": "Add to write list",
+  "mimeTypeHint": "application/json or text/plain"
 }

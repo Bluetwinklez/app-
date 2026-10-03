@@ -835,5 +835,6 @@
   "readOnlyLocked": "Schreibgeschützt (gesperrt)",
   "redoTooltip": "Wiederholen",
   "historyFoundCount": "Gefunden: {found} / {total}",
-  "addToWriteListShort": "Zur Schreibliste"
+  "addToWriteListShort": "Zur Schreibliste",
+  "mimeTypeHint": "application/json oder text/plain"
 }

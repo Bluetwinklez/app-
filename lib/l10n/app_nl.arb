@@ -835,5 +835,6 @@
   "readOnlyLocked": "Alleen-lezen (vergrendeld)",
   "redoTooltip": "Opnieuw",
   "historyFoundCount": "Gevonden: {found} / {total}",
-  "addToWriteListShort": "Naar schrijflijst"
+  "addToWriteListShort": "Naar schrijflijst",
+  "mimeTypeHint": "application/json of text/plain"
 }

@@ -835,5 +835,6 @@
   "readOnlyLocked": "只读（已锁定）",
   "redoTooltip": "重做",
   "historyFoundCount": "找到：{found} / {total}",
-  "addToWriteListShort": "加入写入列表"
+  "addToWriteListShort": "加入写入列表",
+  "mimeTypeHint": "application/json 或 text/plain"
 }

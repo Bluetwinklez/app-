@@ -2825,4 +2825,7 @@ class AppLocalizationsZh extends AppLocalizations {
 
   @override
   String get addToWriteListShort => '加入写入列表';
+
+  @override
+  String get mimeTypeHint => 'application/json 或 text/plain';
 }
