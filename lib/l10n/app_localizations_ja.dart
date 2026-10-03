@@ -3059,4 +3059,66 @@ class AppLocalizationsJa extends AppLocalizations {
 
   @override
   String get csvColumnUsed => '使用 (B)';
+
+  @override
+  String get batchSerialToggle => '連番を追加';
+
+  @override
+  String batchSerialHint(String token) {
+    return 'レコードに $token を入れるとそこに番号が入ります。ない場合は番号入りのテキストレコードが各タグに追加されます。';
+  }
+
+  @override
+  String get batchSerialPrefix => '接頭辞';
+
+  @override
+  String get batchSerialStart => '開始';
+
+  @override
+  String get batchSerialDigits => '桁数';
+
+  @override
+  String batchSerialPreview(String first, String last) {
+    return '最初: $first · 最後: $last';
+  }
+
+  @override
+  String get batchFromCsvButton => 'CSVから (1行=1タグ)';
+
+  @override
+  String get batchCsvTitle => 'CSVから一括書き込み';
+
+  @override
+  String batchCsvSummary(String count) {
+    return '$count枚のタグに書き込みます。各タグにCSVの1行が順番に書き込まれます。';
+  }
+
+  @override
+  String batchCsvTruncated(String max) {
+    return '一括書き込みでは最大$max行まで使用します。残りはスキップしました。';
+  }
+
+  @override
+  String get cloneTagTitle => 'タグを複製';
+
+  @override
+  String get cloneTagSubtitle => 'タグを読み取り、内容を他のタグに書き込みます';
+
+  @override
+  String get cloneSourceStep =>
+      'ステップ1: コピー元のタグを読み取ります。複製されるのはNDEF内容のみで、UIDは複製できません。';
+
+  @override
+  String get cloneSourceEmpty => 'コピー元のタグにNDEFレコードがありません。';
+
+  @override
+  String get cloneReadyTitle => '読み取り完了';
+
+  @override
+  String cloneReadySummary(String count, String bytes) {
+    return '$count件のレコード ($bytesバイト) をコピーします。書き込むタグの数を選んでください。';
+  }
+
+  @override
+  String get cloneEditFirst => '先に編集';
 }

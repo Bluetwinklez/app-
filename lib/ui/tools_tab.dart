@@ -17,12 +17,14 @@ class ToolsTab extends StatelessWidget {
   final NfcStateController controller;
   final VoidCallback onClearTag;
   final VoidCallback onLockTag;
+  final VoidCallback? onCloneTag;
 
   const ToolsTab({
     super.key,
     required this.controller,
     required this.onClearTag,
     required this.onLockTag,
+    this.onCloneTag,
   });
 
   bool get _idle => !controller.isBusy;
@@ -48,6 +50,13 @@ class ToolsTab extends StatelessWidget {
           color: AppColors.warning,
           onTap: _idle ? onLockTag : null,
         ),
+        if (onCloneTag != null)
+          ToolTile(
+            icon: Icons.copy_all_rounded,
+            title: loc.cloneTagTitle,
+            subtitle: loc.cloneTagSubtitle,
+            onTap: _idle ? onCloneTag : null,
+          ),
         SectionHeader(title: loc.toolsMemorySection),
         ToolTile(
           icon: Icons.health_and_safety_outlined,

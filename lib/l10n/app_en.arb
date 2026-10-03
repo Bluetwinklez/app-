@@ -899,5 +899,22 @@
   "csvColumnRecords": "Records",
   "csvColumnContent": "Content",
   "csvColumnCapacity": "Capacity (B)",
-  "csvColumnUsed": "Used (B)"
+  "csvColumnUsed": "Used (B)",
+  "batchSerialToggle": "Add serial numbers",
+  "batchSerialHint": "Put {token} in a record to place the number there; otherwise a separate text record with the number is added to each tag.",
+  "batchSerialPrefix": "Prefix",
+  "batchSerialStart": "Start",
+  "batchSerialDigits": "Digits",
+  "batchSerialPreview": "First: {first} · Last: {last}",
+  "batchFromCsvButton": "From a CSV file (one row per tag)",
+  "batchCsvTitle": "Batch write from CSV",
+  "batchCsvSummary": "{count} tags will be written. Each tag gets one row of the CSV file, in order.",
+  "batchCsvTruncated": "Batch writing uses at most {max} rows; the rest were skipped.",
+  "cloneTagTitle": "Clone Tag",
+  "cloneTagSubtitle": "Read a tag and write its content to other tags",
+  "cloneSourceStep": "Step 1: Scan the source tag. Only the NDEF content is copied; the UID cannot be cloned.",
+  "cloneSourceEmpty": "The source tag has no NDEF records to copy.",
+  "cloneReadyTitle": "Source read",
+  "cloneReadySummary": "{count} records ({bytes} bytes) will be copied. Now choose how many tags to write.",
+  "cloneEditFirst": "Edit first"
 }

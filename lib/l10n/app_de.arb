@@ -899,5 +899,22 @@
   "csvColumnRecords": "Einträge",
   "csvColumnContent": "Inhalt",
   "csvColumnCapacity": "Kapazität (B)",
-  "csvColumnUsed": "Belegt (B)"
+  "csvColumnUsed": "Belegt (B)",
+  "batchSerialToggle": "Seriennummern hinzufügen",
+  "batchSerialHint": "Steht {token} in einem Eintrag, kommt die Nummer dorthin; sonst wird jedem Tag ein eigener Texteintrag mit der Nummer hinzugefügt.",
+  "batchSerialPrefix": "Präfix",
+  "batchSerialStart": "Start",
+  "batchSerialDigits": "Stellen",
+  "batchSerialPreview": "Erste: {first} · Letzte: {last}",
+  "batchFromCsvButton": "Aus CSV-Datei (eine Zeile pro Tag)",
+  "batchCsvTitle": "Stapelschreiben aus CSV",
+  "batchCsvSummary": "{count} Tags werden beschrieben. Jeder Tag erhält der Reihe nach eine Zeile der CSV-Datei.",
+  "batchCsvTruncated": "Beim Stapelschreiben werden höchstens {max} Zeilen verwendet; der Rest wurde übersprungen.",
+  "cloneTagTitle": "Tag klonen",
+  "cloneTagSubtitle": "Tag lesen und Inhalt auf andere Tags schreiben",
+  "cloneSourceStep": "Schritt 1: Quell-Tag scannen. Nur der NDEF-Inhalt wird kopiert; die UID lässt sich nicht klonen.",
+  "cloneSourceEmpty": "Der Quell-Tag enthält keine NDEF-Einträge zum Kopieren.",
+  "cloneReadyTitle": "Quelle gelesen",
+  "cloneReadySummary": "{count} Einträge ({bytes} Byte) werden kopiert. Wählen Sie nun die Anzahl der Tags.",
+  "cloneEditFirst": "Erst bearbeiten"
 }

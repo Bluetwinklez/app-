@@ -899,5 +899,22 @@
   "csvColumnRecords": "Registros",
   "csvColumnContent": "Contenido",
   "csvColumnCapacity": "Capacidad (B)",
-  "csvColumnUsed": "Usado (B)"
+  "csvColumnUsed": "Usado (B)",
+  "batchSerialToggle": "Añadir números de serie",
+  "batchSerialHint": "Escribe {token} en un registro para colocar ahí el número; si no, se añade a cada etiqueta un registro de texto con el número.",
+  "batchSerialPrefix": "Prefijo",
+  "batchSerialStart": "Inicio",
+  "batchSerialDigits": "Dígitos",
+  "batchSerialPreview": "Primero: {first} · Último: {last}",
+  "batchFromCsvButton": "Desde un CSV (una fila por etiqueta)",
+  "batchCsvTitle": "Escritura por lotes desde CSV",
+  "batchCsvSummary": "Se escribirán {count} etiquetas. Cada una recibe una fila del CSV, en orden.",
+  "batchCsvTruncated": "La escritura por lotes usa como máximo {max} filas; el resto se omitió.",
+  "cloneTagTitle": "Clonar etiqueta",
+  "cloneTagSubtitle": "Lee una etiqueta y escribe su contenido en otras",
+  "cloneSourceStep": "Paso 1: escanea la etiqueta de origen. Solo se copia el contenido NDEF; el UID no se puede clonar.",
+  "cloneSourceEmpty": "La etiqueta de origen no tiene registros NDEF.",
+  "cloneReadyTitle": "Origen leído",
+  "cloneReadySummary": "Se copiarán {count} registros ({bytes} bytes). Elige cuántas etiquetas escribir.",
+  "cloneEditFirst": "Editar primero"
 }

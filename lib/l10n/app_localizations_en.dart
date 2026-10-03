@@ -3175,4 +3175,67 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get csvColumnUsed => 'Used (B)';
+
+  @override
+  String get batchSerialToggle => 'Add serial numbers';
+
+  @override
+  String batchSerialHint(String token) {
+    return 'Put $token in a record to place the number there; otherwise a separate text record with the number is added to each tag.';
+  }
+
+  @override
+  String get batchSerialPrefix => 'Prefix';
+
+  @override
+  String get batchSerialStart => 'Start';
+
+  @override
+  String get batchSerialDigits => 'Digits';
+
+  @override
+  String batchSerialPreview(String first, String last) {
+    return 'First: $first · Last: $last';
+  }
+
+  @override
+  String get batchFromCsvButton => 'From a CSV file (one row per tag)';
+
+  @override
+  String get batchCsvTitle => 'Batch write from CSV';
+
+  @override
+  String batchCsvSummary(String count) {
+    return '$count tags will be written. Each tag gets one row of the CSV file, in order.';
+  }
+
+  @override
+  String batchCsvTruncated(String max) {
+    return 'Batch writing uses at most $max rows; the rest were skipped.';
+  }
+
+  @override
+  String get cloneTagTitle => 'Clone Tag';
+
+  @override
+  String get cloneTagSubtitle =>
+      'Read a tag and write its content to other tags';
+
+  @override
+  String get cloneSourceStep =>
+      'Step 1: Scan the source tag. Only the NDEF content is copied; the UID cannot be cloned.';
+
+  @override
+  String get cloneSourceEmpty => 'The source tag has no NDEF records to copy.';
+
+  @override
+  String get cloneReadyTitle => 'Source read';
+
+  @override
+  String cloneReadySummary(String count, String bytes) {
+    return '$count records ($bytes bytes) will be copied. Now choose how many tags to write.';
+  }
+
+  @override
+  String get cloneEditFirst => 'Edit first';
 }

@@ -899,5 +899,22 @@
   "csvColumnRecords": "السجلات",
   "csvColumnContent": "المحتوى",
   "csvColumnCapacity": "السعة (ب)",
-  "csvColumnUsed": "المستخدم (ب)"
+  "csvColumnUsed": "المستخدم (ب)",
+  "batchSerialToggle": "إضافة أرقام تسلسلية",
+  "batchSerialHint": "اكتب {token} في سجل لوضع الرقم فيه؛ وإلا يُضاف إلى كل وسم سجل نصي منفصل يحمل الرقم.",
+  "batchSerialPrefix": "البادئة",
+  "batchSerialStart": "البداية",
+  "batchSerialDigits": "الخانات",
+  "batchSerialPreview": "الأول: {first} · الأخير: {last}",
+  "batchFromCsvButton": "من ملف CSV (سطر لكل وسم)",
+  "batchCsvTitle": "كتابة دفعية من CSV",
+  "batchCsvSummary": "ستتم كتابة {count} وسمًا. يحصل كل وسم على سطر من ملف CSV بالترتيب.",
+  "batchCsvTruncated": "تستخدم الكتابة الدفعية {max} سطرًا كحد أقصى؛ وتم تخطي الباقي.",
+  "cloneTagTitle": "نسخ وسم",
+  "cloneTagSubtitle": "اقرأ وسمًا واكتب محتواه على وسوم أخرى",
+  "cloneSourceStep": "الخطوة 1: امسح الوسم المصدر. يُنسخ محتوى NDEF فقط؛ ولا يمكن نسخ UID.",
+  "cloneSourceEmpty": "لا يحتوي الوسم المصدر على سجلات NDEF للنسخ.",
+  "cloneReadyTitle": "تمت قراءة المصدر",
+  "cloneReadySummary": "سيتم نسخ {count} سجل ({bytes} بايت). اختر عدد الوسوم.",
+  "cloneEditFirst": "عدّل أولاً"
 }

@@ -3192,4 +3192,68 @@ class AppLocalizationsNl extends AppLocalizations {
 
   @override
   String get csvColumnUsed => 'Gebruikt (B)';
+
+  @override
+  String get batchSerialToggle => 'Serienummers toevoegen';
+
+  @override
+  String batchSerialHint(String token) {
+    return 'Zet $token in een record om het nummer daar te plaatsen; anders krijgt elke tag een apart tekstrecord met het nummer.';
+  }
+
+  @override
+  String get batchSerialPrefix => 'Voorvoegsel';
+
+  @override
+  String get batchSerialStart => 'Start';
+
+  @override
+  String get batchSerialDigits => 'Cijfers';
+
+  @override
+  String batchSerialPreview(String first, String last) {
+    return 'Eerste: $first · Laatste: $last';
+  }
+
+  @override
+  String get batchFromCsvButton => 'Uit CSV-bestand (één rij per tag)';
+
+  @override
+  String get batchCsvTitle => 'Batchgewijs schrijven uit CSV';
+
+  @override
+  String batchCsvSummary(String count) {
+    return 'Er worden $count tags beschreven. Elke tag krijgt op volgorde één rij uit de CSV.';
+  }
+
+  @override
+  String batchCsvTruncated(String max) {
+    return 'Batchgewijs schrijven gebruikt maximaal $max rijen; de rest is overgeslagen.';
+  }
+
+  @override
+  String get cloneTagTitle => 'Tag klonen';
+
+  @override
+  String get cloneTagSubtitle =>
+      'Lees een tag en schrijf de inhoud naar andere tags';
+
+  @override
+  String get cloneSourceStep =>
+      'Stap 1: scan de brontag. Alleen de NDEF-inhoud wordt gekopieerd; de UID kan niet worden gekloond.';
+
+  @override
+  String get cloneSourceEmpty =>
+      'De brontag heeft geen NDEF-records om te kopiëren.';
+
+  @override
+  String get cloneReadyTitle => 'Bron gelezen';
+
+  @override
+  String cloneReadySummary(String count, String bytes) {
+    return '$count records ($bytes bytes) worden gekopieerd. Kies hoeveel tags.';
+  }
+
+  @override
+  String get cloneEditFirst => 'Eerst bewerken';
 }

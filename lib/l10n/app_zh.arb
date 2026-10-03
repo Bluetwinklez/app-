@@ -899,5 +899,22 @@
   "csvColumnRecords": "记录",
   "csvColumnContent": "内容",
   "csvColumnCapacity": "容量（B）",
-  "csvColumnUsed": "已用（B）"
+  "csvColumnUsed": "已用（B）",
+  "batchSerialToggle": "添加序列号",
+  "batchSerialHint": "在记录中写入 {token}，编号会填入该处；否则会为每个标签另加一条带编号的文本记录。",
+  "batchSerialPrefix": "前缀",
+  "batchSerialStart": "起始",
+  "batchSerialDigits": "位数",
+  "batchSerialPreview": "首个：{first} · 末个：{last}",
+  "batchFromCsvButton": "从 CSV 文件（每行一个标签）",
+  "batchCsvTitle": "从 CSV 批量写入",
+  "batchCsvSummary": "将写入 {count} 个标签，每个标签按顺序写入 CSV 的一行。",
+  "batchCsvTruncated": "批量写入最多使用 {max} 行，其余已跳过。",
+  "cloneTagTitle": "克隆标签",
+  "cloneTagSubtitle": "读取一个标签并将内容写入其他标签",
+  "cloneSourceStep": "第 1 步：扫描源标签。仅复制 NDEF 内容，UID 无法克隆。",
+  "cloneSourceEmpty": "源标签没有可复制的 NDEF 记录。",
+  "cloneReadyTitle": "已读取源标签",
+  "cloneReadySummary": "将复制 {count} 条记录（{bytes} 字节）。请选择要写入的标签数量。",
+  "cloneEditFirst": "先编辑"
 }
