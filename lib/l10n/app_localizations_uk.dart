@@ -3867,4 +3867,21 @@ class AppLocalizationsUk extends AppLocalizations {
   String logbookEntries(String count) {
     return 'Записів: $count';
   }
+
+  @override
+  String lastSeenAt(String date) {
+    return 'Востаннє: $date';
+  }
+
+  @override
+  String get neverSeen => 'Ще не сканувалася';
+
+  @override
+  String get sortLongestUnseen => 'Найдовше не бачили';
+
+  @override
+  String get unseen30Days => 'Не бачили 30+ днів';
+
+  @override
+  String get inventoryCardTitle => 'Ця мітка є в бібліотеці';
 }

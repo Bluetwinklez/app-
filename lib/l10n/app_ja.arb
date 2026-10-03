@@ -1086,5 +1086,10 @@
   "logbookMedNotTaken": "今日はまだ服用していません",
   "logbookInventorySummary": "{count}種類のタグを確認",
   "logbookDeleteConfirm": "記録帳「{name}」とすべての記録を削除しますか？",
-  "logbookEntries": "{count}件"
+  "logbookEntries": "{count}件",
+  "lastSeenAt": "最終確認: {date}",
+  "neverSeen": "未読み取り",
+  "sortLongestUnseen": "長く未確認の順",
+  "unseen30Days": "30日以上未確認",
+  "inventoryCardTitle": "このタグはライブラリにあります"
 }

@@ -1086,5 +1086,10 @@
   "logbookMedNotTaken": "لم يُتناول اليوم بعد",
   "logbookInventorySummary": "تم عدّ {count} وسومًا مختلفة",
   "logbookDeleteConfirm": "حذف السجل \"{name}\" وكل إدخالاته؟",
-  "logbookEntries": "{count} إدخال"
+  "logbookEntries": "{count} إدخال",
+  "lastSeenAt": "آخر ظهور: {date}",
+  "neverSeen": "لم يُمسح بعد",
+  "sortLongestUnseen": "الأطول دون مسح",
+  "unseen30Days": "لم يُرَ منذ 30+ يومًا",
+  "inventoryCardTitle": "هذا الوسم في مكتبتك"
 }

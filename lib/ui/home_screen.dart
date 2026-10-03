@@ -532,9 +532,44 @@ class _HomeScreenState extends State<HomeScreen>
       if (identity.manufacturer != null)
         _infoChip(Icons.factory_outlined, L10n.current.tagManufacturerLabel(identity.manufacturer!), AppColors.secondary),
     ];
+    final inventory = match == null ||
+            (match.locationNote.isEmpty && match.note.isEmpty && match.labels.isEmpty)
+        ? null
+        : Container(
+            width: double.infinity,
+            margin: const EdgeInsets.only(top: 8),
+            padding: const EdgeInsets.all(12),
+            decoration: BoxDecoration(
+              color: AppColors.successSoft,
+              borderRadius: BorderRadius.circular(12),
+            ),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Text(L10n.current.inventoryCardTitle,
+                    style: TextStyle(fontSize: 12, color: AppColors.success, fontWeight: FontWeight.w600)),
+                const SizedBox(height: 2),
+                Text(match.name, style: const TextStyle(fontSize: 16, fontWeight: FontWeight.w700)),
+                if (match.locationNote.isNotEmpty)
+                  Row(children: [
+                    Icon(Icons.place_outlined, size: 15, color: AppColors.secondary),
+                    const SizedBox(width: 4),
+                    Expanded(child: Text(match.locationNote)),
+                  ]),
+                if (match.note.isNotEmpty)
+                  Text(match.note, style: TextStyle(color: AppColors.secondary)),
+                if (match.labels.isNotEmpty)
+                  Text(match.labels.map((l) => '#$l').join(' '),
+                      style: TextStyle(fontSize: 12, color: AppColors.accent)),
+              ],
+            ),
+          );
     return Padding(
       padding: const EdgeInsets.symmetric(vertical: 6),
-      child: Wrap(
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+      Wrap(
         spacing: 6,
         runSpacing: 6,
         crossAxisAlignment: WrapCrossAlignment.center,
@@ -552,6 +587,9 @@ class _HomeScreenState extends State<HomeScreen>
               label: Text(L10n.current.saveToLibrary),
               onPressed: () => _openTagLibrary(saveLastScan: tag.records.isNotEmpty),
             ),
+        ],
+      ),
+      if (inventory != null) inventory,
         ],
       ),
     );

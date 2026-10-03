@@ -3,6 +3,7 @@ import 'dart:io';
 import 'dart:typed_data';
 import 'package:flutter/material.dart';
 import 'package:image_picker/image_picker.dart';
+import 'package:intl/intl.dart';
 import 'package:path_provider/path_provider.dart';
 import 'package:share_plus/share_plus.dart';
 import '../domain/csv_export.dart';
@@ -87,6 +88,7 @@ class _TagLibraryPageState extends State<TagLibraryPage> {
   String _query = '';
   TagCategory? _filter;
   String? _labelFilter;
+  bool _sortUnseen = false;
   Directory? _docsDir;
 
   @override
@@ -121,13 +123,25 @@ class _TagLibraryPageState extends State<TagLibraryPage> {
     return file.existsSync() ? file : null;
   }
 
-  List<TagLibraryEntry> get _visible => widget.storage
-      .getLibrary()
-      .where((e) =>
-          (_filter == null || e.category == _filter) &&
-          (_labelFilter == null || e.hasLabel(_labelFilter!)) &&
-          e.matches(_query))
-      .toList();
+  List<TagLibraryEntry> get _visible {
+    final list = widget.storage
+        .getLibrary()
+        .where((e) =>
+            (_filter == null || e.category == _filter) &&
+            (_labelFilter == null || e.hasLabel(_labelFilter!)) &&
+            e.matches(_query))
+        .toList();
+    if (_sortUnseen) {
+      // Never seen first, then the oldest sighting.
+      list.sort((a, b) {
+        final x = a.lastSeenAt, y = b.lastSeenAt;
+        if (x == null) return y == null ? 0 : -1;
+        if (y == null) return 1;
+        return x.compareTo(y);
+      });
+    }
+    return list;
+  }
 
   Future<void> _exportCsv() async {
     final loc = AppLocalizations.of(context) ?? L10n.current;
@@ -361,6 +375,16 @@ class _TagLibraryPageState extends State<TagLibraryPage> {
                 ),
               ),
             ],
+            const SizedBox(height: 8),
+            Align(
+              alignment: AlignmentDirectional.centerStart,
+              child: FilterChip(
+                avatar: Icon(Icons.history_toggle_off_rounded, size: 16, color: AppColors.secondary),
+                label: Text(loc.sortLongestUnseen),
+                selected: _sortUnseen,
+                onSelected: (v) => setState(() => _sortUnseen = v),
+              ),
+            ),
             const SizedBox(height: 12),
             if (entries.isEmpty)
               Padding(
@@ -474,6 +498,20 @@ class _EntryCard extends StatelessWidget {
                   maxLines: 1,
                   overflow: TextOverflow.ellipsis,
                   style: TextStyle(fontSize: 12.5, color: AppColors.secondary),
+                ),                const SizedBox(height: 2),
+                Text(
+                  entry.lastSeenAt == null
+                      ? loc.neverSeen
+                      : entry.unseenFor(30, DateTime.now())
+                          ? loc.unseen30Days
+                          : loc.lastSeenAt(DateFormat.yMMMd(Localizations.localeOf(context).toLanguageTag())
+                              .format(entry.lastSeenAt!.toLocal())),
+                  style: TextStyle(
+                    fontSize: 12,
+                    color: entry.lastSeenAt != null && entry.unseenFor(30, DateTime.now())
+                        ? AppColors.warning
+                        : AppColors.secondary,
+                  ),
                 ),
               ],
             ),
