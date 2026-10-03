@@ -4204,4 +4204,64 @@ class AppLocalizationsUk extends AppLocalizations {
   String cloneWarning(String name) {
     return 'Цей вміст збережено в бібліотеці на «$name» з іншим UID. Мітка може бути копією.';
   }
+
+  @override
+  String get doctorTitle => 'NDEF-лікар';
+
+  @override
+  String get doctorButton => 'Перевірка';
+
+  @override
+  String get doctorTooShort =>
+      'Пам\'ять прочитано не повністю; потримайте мітку довше й повторіть.';
+
+  @override
+  String get doctorNoCc =>
+      'Мітку не підготовлено для NDEF (порожня). Інструменти → «Форматувати NDEF» або просто запишіть.';
+
+  @override
+  String get doctorVersion =>
+      'Незвичний байт версії NDEF; деякі телефони можуть не прочитати мітку.';
+
+  @override
+  String get doctorReadRestricted =>
+      'Доступ на читання обмежено; телефони можуть не показати вміст.';
+
+  @override
+  String get doctorReadOnly =>
+      'Мітка лише для читання (заблокована); вміст змінити не можна.';
+
+  @override
+  String get doctorNoNdef =>
+      'У пам\'яті немає блоку NDEF. Повторний запис мітки це виправить.';
+
+  @override
+  String get doctorEmpty => 'Мітку підготовлено, але вона порожня.';
+
+  @override
+  String get doctorOverflow =>
+      'Поле довжини виходить за межі пам\'яті; вміст пошкоджено. Перезапишіть мітку.';
+
+  @override
+  String doctorExceeds(String bytes) {
+    return 'Повідомлення ($bytes байт) більше заявленої ємності; може читатися обрізаним.';
+  }
+
+  @override
+  String get doctorNoTerminator =>
+      'Немає маркера кінця (FE). Більшість телефонів усе одно читають; перезапис виправить.';
+
+  @override
+  String get doctorUnknownTlv =>
+      'У пам\'яті невідомий блок даних; читання може на ньому зупинитися.';
+
+  @override
+  String doctorBadRecord(String n) {
+    return 'Запис $n пошкоджено (заголовок або довжина). Перезапишіть мітку.';
+  }
+
+  @override
+  String doctorHealthy(String count) {
+    return 'Усе гаразд: $count записів записано правильно.';
+  }
 }

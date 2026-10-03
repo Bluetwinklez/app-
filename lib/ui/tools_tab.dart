@@ -5,6 +5,7 @@ import 'package:flutter/services.dart';
 import '../l10n/app_localizations.dart';
 import 'package:share_plus/share_plus.dart';
 import '../controllers/nfc_controller.dart';
+import '../domain/ndef_doctor.dart';
 import '../domain/ntag_tools.dart';
 import '../l10n/l10n.dart';
 import '../domain/tag_compare.dart';
@@ -531,6 +532,57 @@ class _MemoryViewerState extends State<_MemoryViewer> {
     warning: widget.dump.warning,
   );
 
+  String _doctorText(DoctorResult r, AppLocalizations loc) => switch (r.finding) {
+        DoctorFinding.tooShort => loc.doctorTooShort,
+        DoctorFinding.noCapabilityContainer => loc.doctorNoCc,
+        DoctorFinding.unsupportedVersion => loc.doctorVersion,
+        DoctorFinding.readRestricted => loc.doctorReadRestricted,
+        DoctorFinding.readOnly => loc.doctorReadOnly,
+        DoctorFinding.noNdefTlv => loc.doctorNoNdef,
+        DoctorFinding.emptyMessage => loc.doctorEmpty,
+        DoctorFinding.lengthOverflow => loc.doctorOverflow,
+        DoctorFinding.exceedsCapacity => loc.doctorExceeds('${r.value}'),
+        DoctorFinding.missingTerminator => loc.doctorNoTerminator,
+        DoctorFinding.unknownTlv => loc.doctorUnknownTlv,
+        DoctorFinding.badRecordStructure => loc.doctorBadRecord('${r.value + 1}'),
+        DoctorFinding.healthy => loc.doctorHealthy('${r.value}'),
+      };
+
+  void _showDoctor(BuildContext context, AppLocalizations loc) {
+    final results = NdefDoctor.diagnose(dump.bytes);
+    showDialog<void>(
+      context: context,
+      builder: (ctx) => AlertDialog(
+        title: Text(loc.doctorTitle),
+        content: SingleChildScrollView(
+          child: Column(
+            mainAxisSize: MainAxisSize.min,
+            children: [
+              for (final r in results)
+                Padding(
+                  padding: const EdgeInsets.only(bottom: 10),
+                  child: Row(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      switch (r.severity) {
+                        DoctorSeverity.ok => Icon(Icons.check_circle, color: AppColors.success),
+                        DoctorSeverity.info => Icon(Icons.info_outline, color: AppColors.accent),
+                        DoctorSeverity.warning => Icon(Icons.warning_amber_rounded, color: AppColors.warning),
+                        DoctorSeverity.error => Icon(Icons.error_outline, color: AppColors.danger),
+                      },
+                      const SizedBox(width: 10),
+                      Expanded(child: Text(_doctorText(r, loc), style: const TextStyle(height: 1.35))),
+                    ],
+                  ),
+                ),
+            ],
+          ),
+        ),
+        actions: [TextButton(onPressed: () => Navigator.of(ctx).pop(), child: Text(loc.ok))],
+      ),
+    );
+  }
+
   bool _editable(int page) {
     final chip = dump.chip;
     return chip != null && page >= chip.userStartPage && page <= chip.userEndPage;
@@ -608,6 +660,12 @@ class _MemoryViewerState extends State<_MemoryViewer> {
                     ),
                   if (dump.chip != null)
                     Text(loc.memoryEditHint, style: TextStyle(fontSize: 12, color: AppColors.accent)),
+                  const SizedBox(height: 6),
+                  OutlinedButton.icon(
+                    onPressed: () => _showDoctor(context, loc),
+                    icon: const Icon(Icons.health_and_safety_outlined, size: 18),
+                    label: Text(loc.doctorButton),
+                  ),
                   if (dump.warning != null)
                     Padding(
                       padding: const EdgeInsets.only(top: 6),

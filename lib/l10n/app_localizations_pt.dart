@@ -4216,4 +4216,64 @@ class AppLocalizationsPt extends AppLocalizations {
   String cloneWarning(String name) {
     return 'Este conteúdo está salvo na biblioteca em \"$name\" com outro UID. Esta tag pode ser uma cópia.';
   }
+
+  @override
+  String get doctorTitle => 'Doutor NDEF';
+
+  @override
+  String get doctorButton => 'Diagnóstico';
+
+  @override
+  String get doctorTooShort =>
+      'A memória não foi lida por completo; segure a tag por mais tempo e tente de novo.';
+
+  @override
+  String get doctorNoCc =>
+      'A tag não está preparada para NDEF (vazia). Use Ferramentas → \"Formatar NDEF\" ou grave nela.';
+
+  @override
+  String get doctorVersion =>
+      'Byte de versão NDEF incomum; alguns celulares podem não ler a tag.';
+
+  @override
+  String get doctorReadRestricted =>
+      'O acesso de leitura está restrito; os celulares podem não mostrar o conteúdo.';
+
+  @override
+  String get doctorReadOnly =>
+      'A tag é somente leitura (bloqueada); o conteúdo não pode ser alterado.';
+
+  @override
+  String get doctorNoNdef =>
+      'Não há bloco NDEF na memória. Gravar a tag de novo resolve.';
+
+  @override
+  String get doctorEmpty => 'A tag está preparada, mas vazia.';
+
+  @override
+  String get doctorOverflow =>
+      'Um campo de tamanho ultrapassa a memória; conteúdo corrompido. Grave a tag de novo.';
+
+  @override
+  String doctorExceeds(String bytes) {
+    return 'A mensagem ($bytes bytes) excede a capacidade declarada; pode ser lida cortada.';
+  }
+
+  @override
+  String get doctorNoTerminator =>
+      'Falta o marcador de fim (FE). A maioria dos celulares lê mesmo assim; gravar de novo corrige.';
+
+  @override
+  String get doctorUnknownTlv =>
+      'Bloco de dados desconhecido na memória; a leitura pode parar ali.';
+
+  @override
+  String doctorBadRecord(String n) {
+    return 'O registro $n está malformado (cabeçalho ou tamanho). Grave a tag de novo.';
+  }
+
+  @override
+  String doctorHealthy(String count) {
+    return 'Tudo certo: $count registro(s) gravado(s) corretamente.';
+  }
 }

@@ -1177,5 +1177,20 @@
   "libraryCheckNext": "Nächste Prüfung: {date}",
   "libraryDueFilter": "Prüfung fällig ({count})",
   "libraryCheckRecorded": "Prüfung erfasst · nächste: {date}",
-  "cloneWarning": "Dieser Inhalt ist in Ihrer Bibliothek unter „{name}\" mit anderer UID gespeichert. Dieser Tag könnte eine Kopie sein."
+  "cloneWarning": "Dieser Inhalt ist in Ihrer Bibliothek unter „{name}\" mit anderer UID gespeichert. Dieser Tag könnte eine Kopie sein.",
+  "doctorTitle": "NDEF-Doktor",
+  "doctorButton": "Prüfen",
+  "doctorTooShort": "Speicher nicht vollständig gelesen; Tag länger halten und erneut versuchen.",
+  "doctorNoCc": "Der Tag ist nicht für NDEF vorbereitet (leer). Werkzeuge → „NDEF formatieren\" oder einfach beschreiben.",
+  "doctorVersion": "Ungewöhnliches NDEF-Versionsbyte; manche Telefone lesen den Tag evtl. nicht.",
+  "doctorReadRestricted": "Lesezugriff ist eingeschränkt markiert; Telefone zeigen den Inhalt evtl. nicht.",
+  "doctorReadOnly": "Der Tag ist schreibgeschützt (gesperrt); Inhalt nicht änderbar.",
+  "doctorNoNdef": "Kein NDEF-Block im Speicher. Erneutes Beschreiben behebt das.",
+  "doctorEmpty": "Der Tag ist vorbereitet, aber leer.",
+  "doctorOverflow": "Ein Längenfeld reicht über den Speicher hinaus; Inhalt beschädigt. Tag neu beschreiben.",
+  "doctorExceeds": "Die Nachricht ({bytes} Bytes) ist größer als die angegebene Kapazität; Telefone lesen sie evtl. abgeschnitten.",
+  "doctorNoTerminator": "Endmarke (FE) fehlt. Die meisten Telefone lesen trotzdem; neu beschreiben behebt es.",
+  "doctorUnknownTlv": "Unbekannter Datenblock im Speicher; Telefone brechen dort evtl. ab.",
+  "doctorBadRecord": "Datensatz {n} ist fehlerhaft (Kopf oder Länge). Tag neu beschreiben.",
+  "doctorHealthy": "Alles in Ordnung: {count} Datensätze korrekt geschrieben."
 }

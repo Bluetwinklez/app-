@@ -4236,4 +4236,64 @@ class AppLocalizationsFr extends AppLocalizations {
   String cloneWarning(String name) {
     return 'Ce contenu est enregistré dans votre bibliothèque sur « $name » avec un autre UID. Ce tag est peut-être une copie.';
   }
+
+  @override
+  String get doctorTitle => 'Docteur NDEF';
+
+  @override
+  String get doctorButton => 'Diagnostic';
+
+  @override
+  String get doctorTooShort =>
+      'Mémoire lue partiellement ; tenez le tag plus longtemps et réessayez.';
+
+  @override
+  String get doctorNoCc =>
+      'Le tag n\'est pas préparé pour NDEF (vierge). Utilisez Outils → « Formater NDEF » ou écrivez dessus.';
+
+  @override
+  String get doctorVersion =>
+      'Octet de version NDEF inhabituel ; certains téléphones peuvent ne pas lire le tag.';
+
+  @override
+  String get doctorReadRestricted =>
+      'L\'accès en lecture est restreint ; les téléphones peuvent ne pas afficher le contenu.';
+
+  @override
+  String get doctorReadOnly =>
+      'Le tag est en lecture seule (verrouillé) ; contenu non modifiable.';
+
+  @override
+  String get doctorNoNdef =>
+      'Aucun bloc NDEF en mémoire. Réécrire le tag corrige le problème.';
+
+  @override
+  String get doctorEmpty => 'Le tag est préparé mais vide.';
+
+  @override
+  String get doctorOverflow =>
+      'Un champ de longueur dépasse la mémoire ; contenu corrompu. Réécrivez le tag.';
+
+  @override
+  String doctorExceeds(String bytes) {
+    return 'Le message ($bytes octets) dépasse la capacité déclarée ; lecture possiblement tronquée.';
+  }
+
+  @override
+  String get doctorNoTerminator =>
+      'Le marqueur de fin (FE) manque. La plupart des téléphones lisent quand même ; réécrire corrige.';
+
+  @override
+  String get doctorUnknownTlv =>
+      'Bloc de données inconnu en mémoire ; la lecture peut s\'arrêter là.';
+
+  @override
+  String doctorBadRecord(String n) {
+    return 'L\'enregistrement $n est malformé (en-tête ou longueur). Réécrivez le tag.';
+  }
+
+  @override
+  String doctorHealthy(String count) {
+    return 'Tout va bien : $count enregistrement(s) correctement écrit(s).';
+  }
 }

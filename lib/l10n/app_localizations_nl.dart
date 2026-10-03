@@ -4204,4 +4204,64 @@ class AppLocalizationsNl extends AppLocalizations {
   String cloneWarning(String name) {
     return 'Deze inhoud staat in je bibliotheek op \"$name\" met een andere UID. Deze tag kan een kopie zijn.';
   }
+
+  @override
+  String get doctorTitle => 'NDEF-dokter';
+
+  @override
+  String get doctorButton => 'Controle';
+
+  @override
+  String get doctorTooShort =>
+      'Geheugen niet volledig gelezen; houd de tag langer vast en probeer opnieuw.';
+
+  @override
+  String get doctorNoCc =>
+      'De tag is niet voorbereid voor NDEF (leeg). Gebruik Tools → \"NDEF formatteren\" of schrijf er gewoon op.';
+
+  @override
+  String get doctorVersion =>
+      'Ongebruikelijke NDEF-versiebyte; sommige telefoons lezen de tag mogelijk niet.';
+
+  @override
+  String get doctorReadRestricted =>
+      'Leestoegang is beperkt; telefoons tonen de inhoud mogelijk niet.';
+
+  @override
+  String get doctorReadOnly =>
+      'De tag is alleen-lezen (vergrendeld); inhoud kan niet worden gewijzigd.';
+
+  @override
+  String get doctorNoNdef =>
+      'Geen NDEF-blok in het geheugen. Opnieuw schrijven lost dit op.';
+
+  @override
+  String get doctorEmpty => 'De tag is voorbereid maar leeg.';
+
+  @override
+  String get doctorOverflow =>
+      'Een lengteveld loopt buiten het geheugen; inhoud beschadigd. Schrijf de tag opnieuw.';
+
+  @override
+  String doctorExceeds(String bytes) {
+    return 'Het bericht ($bytes bytes) is groter dan de opgegeven capaciteit; kan afgekapt worden gelezen.';
+  }
+
+  @override
+  String get doctorNoTerminator =>
+      'De eindmarkering (FE) ontbreekt. De meeste telefoons lezen het toch; opnieuw schrijven lost het op.';
+
+  @override
+  String get doctorUnknownTlv =>
+      'Onbekend datablok in het geheugen; lezen kan daar stoppen.';
+
+  @override
+  String doctorBadRecord(String n) {
+    return 'Record $n is misvormd (kop of lengte). Schrijf de tag opnieuw.';
+  }
+
+  @override
+  String doctorHealthy(String count) {
+    return 'Alles in orde: $count record(s) correct geschreven.';
+  }
 }

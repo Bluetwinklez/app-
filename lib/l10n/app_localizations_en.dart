@@ -4190,4 +4190,64 @@ class AppLocalizationsEn extends AppLocalizations {
   String cloneWarning(String name) {
     return 'This content is saved in your library on \"$name\" with a different UID. This tag may be a copy.';
   }
+
+  @override
+  String get doctorTitle => 'NDEF Doctor';
+
+  @override
+  String get doctorButton => 'Health check';
+
+  @override
+  String get doctorTooShort =>
+      'Memory was not fully read; hold the tag longer and try again.';
+
+  @override
+  String get doctorNoCc =>
+      'The tag is not prepared for NDEF (blank). Use Tools → \"Format NDEF\" or simply write to it.';
+
+  @override
+  String get doctorVersion =>
+      'Unusual NDEF version byte; some phones may not read the tag.';
+
+  @override
+  String get doctorReadRestricted =>
+      'Read access is marked restricted; phones may not show the content.';
+
+  @override
+  String get doctorReadOnly =>
+      'The tag is read-only (locked); its content cannot be changed.';
+
+  @override
+  String get doctorNoNdef =>
+      'No NDEF block in memory. Writing to the tag again fixes this.';
+
+  @override
+  String get doctorEmpty => 'The tag is prepared but empty.';
+
+  @override
+  String get doctorOverflow =>
+      'A length field runs past the memory; the content is corrupt. Write the tag again.';
+
+  @override
+  String doctorExceeds(String bytes) {
+    return 'The message ($bytes bytes) is larger than the capacity the tag declares; phones may read it truncated.';
+  }
+
+  @override
+  String get doctorNoTerminator =>
+      'The end marker (FE) is missing. Most phones still read it; writing again fixes it.';
+
+  @override
+  String get doctorUnknownTlv =>
+      'Unrecognised data block in memory; phones may stop reading there.';
+
+  @override
+  String doctorBadRecord(String n) {
+    return 'Record $n is malformed (bad header or length). Write the tag again.';
+  }
+
+  @override
+  String doctorHealthy(String count) {
+    return 'All good: $count record(s) correctly written.';
+  }
 }

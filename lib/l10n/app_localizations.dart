@@ -7191,6 +7191,96 @@ abstract class AppLocalizations {
   /// In tr, this message translates to:
   /// **'Bu içerik kütüphanenizde \"{name}\" adlı etikette farklı bir UID ile kayıtlı. Bu etiket bir kopya olabilir.'**
   String cloneWarning(String name);
+
+  /// No description provided for @doctorTitle.
+  ///
+  /// In tr, this message translates to:
+  /// **'NDEF Doktoru'**
+  String get doctorTitle;
+
+  /// No description provided for @doctorButton.
+  ///
+  /// In tr, this message translates to:
+  /// **'Sağlık kontrolü'**
+  String get doctorButton;
+
+  /// No description provided for @doctorTooShort.
+  ///
+  /// In tr, this message translates to:
+  /// **'Bellek tam okunamadı; etiketi telefona daha uzun süre tutup tekrar deneyin.'**
+  String get doctorTooShort;
+
+  /// No description provided for @doctorNoCc.
+  ///
+  /// In tr, this message translates to:
+  /// **'Etiket NDEF için hazırlanmamış (boş). Araçlar → \"NDEF biçimlendir\" ile hazırlayabilir ya da doğrudan yazabilirsiniz.'**
+  String get doctorNoCc;
+
+  /// No description provided for @doctorVersion.
+  ///
+  /// In tr, this message translates to:
+  /// **'NDEF sürüm baytı alışılmadık; bazı telefonlar etiketi okumayabilir.'**
+  String get doctorVersion;
+
+  /// No description provided for @doctorReadRestricted.
+  ///
+  /// In tr, this message translates to:
+  /// **'Okuma erişimi kısıtlı olarak işaretli; telefonlar içeriği göstermeyebilir.'**
+  String get doctorReadRestricted;
+
+  /// No description provided for @doctorReadOnly.
+  ///
+  /// In tr, this message translates to:
+  /// **'Etiket salt okunur (kilitli); içerik değiştirilemez.'**
+  String get doctorReadOnly;
+
+  /// No description provided for @doctorNoNdef.
+  ///
+  /// In tr, this message translates to:
+  /// **'Bellekte NDEF bloğu yok. Etikete yeniden yazmak sorunu giderir.'**
+  String get doctorNoNdef;
+
+  /// No description provided for @doctorEmpty.
+  ///
+  /// In tr, this message translates to:
+  /// **'Etiket hazır ama içi boş.'**
+  String get doctorEmpty;
+
+  /// No description provided for @doctorOverflow.
+  ///
+  /// In tr, this message translates to:
+  /// **'Uzunluk alanı belleğin dışına taşıyor; içerik bozuk. Etikete yeniden yazın.'**
+  String get doctorOverflow;
+
+  /// No description provided for @doctorExceeds.
+  ///
+  /// In tr, this message translates to:
+  /// **'Mesaj ({bytes} bayt) etiketin bildirdiği kapasiteden büyük; telefonlar kesik okuyabilir.'**
+  String doctorExceeds(String bytes);
+
+  /// No description provided for @doctorNoTerminator.
+  ///
+  /// In tr, this message translates to:
+  /// **'Bitiş işareti (FE) yok. Çoğu telefon yine okur; yeniden yazmak düzeltir.'**
+  String get doctorNoTerminator;
+
+  /// No description provided for @doctorUnknownTlv.
+  ///
+  /// In tr, this message translates to:
+  /// **'Bellekte tanınmayan veri bloğu var; telefonlar okurken takılabilir.'**
+  String get doctorUnknownTlv;
+
+  /// No description provided for @doctorBadRecord.
+  ///
+  /// In tr, this message translates to:
+  /// **'{n}. kayıt bozuk (başlık veya uzunluk hatalı). Etikete yeniden yazın.'**
+  String doctorBadRecord(String n);
+
+  /// No description provided for @doctorHealthy.
+  ///
+  /// In tr, this message translates to:
+  /// **'Her şey yolunda: {count} kayıt doğru biçimde yazılmış.'**
+  String doctorHealthy(String count);
 }
 
 class _AppLocalizationsDelegate

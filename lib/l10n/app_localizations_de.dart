@@ -4217,4 +4217,64 @@ class AppLocalizationsDe extends AppLocalizations {
   String cloneWarning(String name) {
     return 'Dieser Inhalt ist in Ihrer Bibliothek unter „$name\" mit anderer UID gespeichert. Dieser Tag könnte eine Kopie sein.';
   }
+
+  @override
+  String get doctorTitle => 'NDEF-Doktor';
+
+  @override
+  String get doctorButton => 'Prüfen';
+
+  @override
+  String get doctorTooShort =>
+      'Speicher nicht vollständig gelesen; Tag länger halten und erneut versuchen.';
+
+  @override
+  String get doctorNoCc =>
+      'Der Tag ist nicht für NDEF vorbereitet (leer). Werkzeuge → „NDEF formatieren\" oder einfach beschreiben.';
+
+  @override
+  String get doctorVersion =>
+      'Ungewöhnliches NDEF-Versionsbyte; manche Telefone lesen den Tag evtl. nicht.';
+
+  @override
+  String get doctorReadRestricted =>
+      'Lesezugriff ist eingeschränkt markiert; Telefone zeigen den Inhalt evtl. nicht.';
+
+  @override
+  String get doctorReadOnly =>
+      'Der Tag ist schreibgeschützt (gesperrt); Inhalt nicht änderbar.';
+
+  @override
+  String get doctorNoNdef =>
+      'Kein NDEF-Block im Speicher. Erneutes Beschreiben behebt das.';
+
+  @override
+  String get doctorEmpty => 'Der Tag ist vorbereitet, aber leer.';
+
+  @override
+  String get doctorOverflow =>
+      'Ein Längenfeld reicht über den Speicher hinaus; Inhalt beschädigt. Tag neu beschreiben.';
+
+  @override
+  String doctorExceeds(String bytes) {
+    return 'Die Nachricht ($bytes Bytes) ist größer als die angegebene Kapazität; Telefone lesen sie evtl. abgeschnitten.';
+  }
+
+  @override
+  String get doctorNoTerminator =>
+      'Endmarke (FE) fehlt. Die meisten Telefone lesen trotzdem; neu beschreiben behebt es.';
+
+  @override
+  String get doctorUnknownTlv =>
+      'Unbekannter Datenblock im Speicher; Telefone brechen dort evtl. ab.';
+
+  @override
+  String doctorBadRecord(String n) {
+    return 'Datensatz $n ist fehlerhaft (Kopf oder Länge). Tag neu beschreiben.';
+  }
+
+  @override
+  String doctorHealthy(String count) {
+    return 'Alles in Ordnung: $count Datensätze korrekt geschrieben.';
+  }
 }

@@ -4233,4 +4233,64 @@ class AppLocalizationsEs extends AppLocalizations {
   String cloneWarning(String name) {
     return 'Este contenido está guardado en tu biblioteca en \"$name\" con otro UID. Esta etiqueta puede ser una copia.';
   }
+
+  @override
+  String get doctorTitle => 'Doctor NDEF';
+
+  @override
+  String get doctorButton => 'Diagnóstico';
+
+  @override
+  String get doctorTooShort =>
+      'La memoria no se leyó completa; mantén la etiqueta más tiempo e inténtalo de nuevo.';
+
+  @override
+  String get doctorNoCc =>
+      'La etiqueta no está preparada para NDEF (vacía). Usa Herramientas → \"Formatear NDEF\" o escribe en ella.';
+
+  @override
+  String get doctorVersion =>
+      'Byte de versión NDEF inusual; algunos teléfonos podrían no leer la etiqueta.';
+
+  @override
+  String get doctorReadRestricted =>
+      'El acceso de lectura está restringido; los teléfonos podrían no mostrar el contenido.';
+
+  @override
+  String get doctorReadOnly =>
+      'La etiqueta es de solo lectura (bloqueada); no se puede cambiar.';
+
+  @override
+  String get doctorNoNdef =>
+      'No hay bloque NDEF en la memoria. Volver a escribir la etiqueta lo soluciona.';
+
+  @override
+  String get doctorEmpty => 'La etiqueta está preparada pero vacía.';
+
+  @override
+  String get doctorOverflow =>
+      'Un campo de longitud excede la memoria; contenido dañado. Vuelve a escribir la etiqueta.';
+
+  @override
+  String doctorExceeds(String bytes) {
+    return 'El mensaje ($bytes bytes) supera la capacidad declarada; puede leerse cortado.';
+  }
+
+  @override
+  String get doctorNoTerminator =>
+      'Falta el marcador de fin (FE). La mayoría de teléfonos lo leen igual; reescribir lo corrige.';
+
+  @override
+  String get doctorUnknownTlv =>
+      'Bloque de datos desconocido en memoria; la lectura puede detenerse ahí.';
+
+  @override
+  String doctorBadRecord(String n) {
+    return 'El registro $n está mal formado (cabecera o longitud). Vuelve a escribir la etiqueta.';
+  }
+
+  @override
+  String doctorHealthy(String count) {
+    return 'Todo bien: $count registro(s) escrito(s) correctamente.';
+  }
 }

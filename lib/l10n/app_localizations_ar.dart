@@ -4152,4 +4152,64 @@ class AppLocalizationsAr extends AppLocalizations {
   String cloneWarning(String name) {
     return 'هذا المحتوى محفوظ في مكتبتك على \"$name\" بمعرّف UID مختلف. قد يكون هذا الوسم نسخة.';
   }
+
+  @override
+  String get doctorTitle => 'طبيب NDEF';
+
+  @override
+  String get doctorButton => 'فحص';
+
+  @override
+  String get doctorTooShort =>
+      'لم تُقرأ الذاكرة كاملة؛ أبقِ الوسم مدة أطول وحاول مجددًا.';
+
+  @override
+  String get doctorNoCc =>
+      'الوسم غير مهيأ لـ NDEF (فارغ). استخدم الأدوات ← \"تهيئة NDEF\" أو اكتب عليه مباشرة.';
+
+  @override
+  String get doctorVersion =>
+      'بايت إصدار NDEF غير مألوف؛ قد لا تقرأ بعض الهواتف الوسم.';
+
+  @override
+  String get doctorReadRestricted =>
+      'الوصول للقراءة مقيَّد؛ قد لا تعرض الهواتف المحتوى.';
+
+  @override
+  String get doctorReadOnly =>
+      'الوسم للقراءة فقط (مقفل)؛ لا يمكن تغيير محتواه.';
+
+  @override
+  String get doctorNoNdef =>
+      'لا توجد كتلة NDEF في الذاكرة. إعادة الكتابة على الوسم تحل المشكلة.';
+
+  @override
+  String get doctorEmpty => 'الوسم مهيأ لكنه فارغ.';
+
+  @override
+  String get doctorOverflow =>
+      'حقل الطول يتجاوز الذاكرة؛ المحتوى تالف. أعد الكتابة على الوسم.';
+
+  @override
+  String doctorExceeds(String bytes) {
+    return 'الرسالة ($bytes بايت) أكبر من السعة المعلنة؛ قد تُقرأ مقطوعة.';
+  }
+
+  @override
+  String get doctorNoTerminator =>
+      'علامة النهاية (FE) مفقودة. معظم الهواتف تقرؤه رغم ذلك؛ إعادة الكتابة تصلحه.';
+
+  @override
+  String get doctorUnknownTlv =>
+      'كتلة بيانات غير معروفة في الذاكرة؛ قد تتوقف القراءة عندها.';
+
+  @override
+  String doctorBadRecord(String n) {
+    return 'السجل $n تالف (رأس أو طول خاطئ). أعد الكتابة على الوسم.';
+  }
+
+  @override
+  String doctorHealthy(String count) {
+    return 'كل شيء سليم: $count سجل مكتوب بشكل صحيح.';
+  }
 }
