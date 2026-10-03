@@ -7,6 +7,10 @@ on:
         description: 'Upload to TestFlight (off = build and sign only)'
         type: boolean
         default: true
+      provision_only:
+        description: 'Only run the signing setup (no build)'
+        type: boolean
+        default: false
   push:
     tags:
       - 'ios-v*'
@@ -95,6 +99,7 @@ jobs:
           set -euo pipefail
           python3 -m pip install --break-system-packages --quiet pyjwt cryptography
           key="$RUNNER_TEMP/asc_key.p8"
+          echo "Admin key secrets: id=$([[ -n "$ASC_ADMIN_KEY_ID" ]] && echo set || echo missing) key=$([[ -n "$ASC_ADMIN_PRIVATE_KEY" ]] && echo set || echo missing)"
           if [[ -n "$ASC_ADMIN_KEY_ID" && -n "$ASC_ADMIN_PRIVATE_KEY" ]]; then
             echo "Using the Admin key for signing setup"
             printf '%s\n' "$ASC_ADMIN_PRIVATE_KEY" > "$key"
@@ -104,14 +109,16 @@ jobs:
           fi
           export ASC_API_PRIVATE_KEY_PATH="$key"
           export PROFILE_DIR="$HOME/Library/MobileDevice/Provisioning Profiles:$HOME/Library/Developer/Xcode/UserData/Provisioning Profiles"
-          python3 tool/asc_provision.py
+          python3 tool/asc_provision.py 2>&1 | tee "$RUNNER_TEMP/provision.log"
           rm -f "$key"
+          { echo '### Signing setup'; echo '```'; cat "$RUNNER_TEMP/provision.log"; echo '```'; } >> "$GITHUB_STEP_SUMMARY"
+          if [[ "${{ inputs.provision_only }}" == "true" ]]; then echo "STOP_AFTER_PROVISION=1" >> "$GITHUB_ENV"; fi
 
       # Without an Admin API key no profiles can be created: sign the app
       # alone with the App Store profile from the repository secrets and
       # leave the widgets and the watch app out of this build.
       - name: Fall back to the stored App Store profile
-        if: env.SIGNING_MODE == 'legacy'
+        if: env.SIGNING_MODE == 'legacy' && env.STOP_AFTER_PROVISION != '1'
         env:
           IOS_APPSTORE_PROFILE_BASE64: ${{ secrets.IOS_APPSTORE_PROFILE_BASE64 }}
           IOS_BUNDLE_ID: ${{ secrets.IOS_BUNDLE_ID }}
@@ -140,6 +147,7 @@ jobs:
       # iCloud backup ships only when the profile allows it (enabling the
       # capability needs an Admin API key); otherwise the app hides it.
       - name: Match iCloud entitlement to the profile
+        if: env.STOP_AFTER_PROVISION != '1'
         run: |
           set -euo pipefail
           if [[ "${ICLOUD_ENABLED:-0}" == "1" ]]; then
@@ -149,6 +157,7 @@ jobs:
           fi
 
       - name: Archive and export signed IPA
+        if: env.STOP_AFTER_PROVISION != '1'
         env:
           IOS_BUNDLE_ID: ${{ secrets.IOS_BUNDLE_ID }}
           IOS_TEAM_ID: ${{ secrets.IOS_TEAM_ID }}
@@ -183,7 +192,7 @@ jobs:
           find build/ios/ipa -maxdepth 1 -name '*.ipa' -type f | grep -q .
 
       - name: Upload to App Store Connect for TestFlight
-        if: ${{ github.event_name != 'workflow_dispatch' || inputs.upload }}
+        if: ${{ env.STOP_AFTER_PROVISION != '1' && (github.event_name != 'workflow_dispatch' || inputs.upload) }}
         env:
           ASC_API_KEY_ID: ${{ secrets.ASC_API_KEY_ID }}
           ASC_API_ISSUER_ID: ${{ secrets.ASC_API_ISSUER_ID }}
