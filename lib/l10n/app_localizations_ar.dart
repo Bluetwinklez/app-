@@ -2942,4 +2942,7 @@ class AppLocalizationsAr extends AppLocalizations {
 
   @override
   String get addToWriteListShort => 'إضافة إلى القائمة';
+
+  @override
+  String get mimeTypeHint => 'application/json أو text/plain';
 }

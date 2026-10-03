@@ -835,5 +835,6 @@
   "readOnlyLocked": "Только чтение (заблокирована)",
   "redoTooltip": "Повторить",
   "historyFoundCount": "Найдено: {found} / {total}",
-  "addToWriteListShort": "В список записи"
+  "addToWriteListShort": "В список записи",
+  "mimeTypeHint": "application/json или text/plain"
 }

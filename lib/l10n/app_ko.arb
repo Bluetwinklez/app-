@@ -835,5 +835,6 @@
   "readOnlyLocked": "읽기 전용 (잠김)",
   "redoTooltip": "다시 실행",
   "historyFoundCount": "찾음: {found} / {total}",
-  "addToWriteListShort": "쓰기 목록에 추가"
+  "addToWriteListShort": "쓰기 목록에 추가",
+  "mimeTypeHint": "application/json 또는 text/plain"
 }
