@@ -3062,4 +3062,10 @@ class AppLocalizationsKo extends AppLocalizations {
 
   @override
   String get csvColumnContent => '내용';
+
+  @override
+  String get csvColumnCapacity => '용량 (B)';
+
+  @override
+  String get csvColumnUsed => '사용 (B)';
 }
