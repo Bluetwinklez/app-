@@ -2325,5 +2325,16 @@
   "recipeGymTitle": "Antrenman",
   "recipeGymActions": "Spor çantası: antrenmanı başlat · spor çalma listesi · rahatsız etme",
   "recipeKitchenTitle": "Mutfak Zamanlayıcı",
-  "recipeKitchenActions": "Mutfak: 10 dk zamanlayıcı · alışveriş listesini aç"
+  "recipeKitchenActions": "Mutfak: 10 dk zamanlayıcı · alışveriş listesini aç",
+  "libraryLabelsField": "Etiketler / klasörler (virgülle ayırın)",
+  "libraryLabelsHint": "ofis, 2. kat",
+  "librarySaveFailed": "Kaydedilemedi: {error}",
+  "@librarySaveFailed": {
+    "placeholders": {
+      "error": {
+        "type": "String"
+      }
+    }
+  },
+  "csvColumnLabels": "Etiketler"
 }

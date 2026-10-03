@@ -82,6 +82,7 @@ class TagLibraryPage extends StatefulWidget {
 class _TagLibraryPageState extends State<TagLibraryPage> {
   String _query = '';
   TagCategory? _filter;
+  String? _labelFilter;
   Directory? _docsDir;
 
   @override
@@ -119,7 +120,9 @@ class _TagLibraryPageState extends State<TagLibraryPage> {
   List<TagLibraryEntry> get _visible => widget.storage
       .getLibrary()
       .where((e) =>
-          (_filter == null || e.category == _filter) && e.matches(_query))
+          (_filter == null || e.category == _filter) &&
+          (_labelFilter == null || e.hasLabel(_labelFilter!)) &&
+          e.matches(_query))
       .toList();
 
   Future<void> _exportCsv() async {
@@ -128,6 +131,7 @@ class _TagLibraryPageState extends State<TagLibraryPage> {
       loc.name,
       loc.categoryLabel,
       loc.locationLabel,
+      loc.csvColumnLabels,
       loc.noteLabel,
       'UID',
       loc.csvColumnContent,
@@ -206,11 +210,18 @@ class _TagLibraryPageState extends State<TagLibraryPage> {
     if (result == null) return;
     try {
       await widget.storage.saveLibraryEntry(result);
+      // The editor copies a new photo; drop the one it replaced.
+      final old = entry.photoPath;
+      if (old != null && old != result.photoPath && _docsDir != null) {
+        final file = File('${_docsDir!.path}/$old');
+        if (await file.exists()) await file.delete();
+      }
     } catch (e) {
       if (mounted) {
+        final loc = AppLocalizations.of(context) ?? L10n.current;
         ScaffoldMessenger.of(context).showSnackBar(
           SnackBar(
-              content: Text('Kaydedilemedi: $e'),
+              content: Text(loc.librarySaveFailed('$e')),
               backgroundColor: AppColors.danger),
         );
       }
@@ -313,6 +324,29 @@ class _TagLibraryPageState extends State<TagLibraryPage> {
                 ],
               ),
             ),
+            if (TagLibraryEntry.allLabels(widget.storage.getLibrary()) case final labels
+                when labels.isNotEmpty) ...[
+              const SizedBox(height: 8),
+              SingleChildScrollView(
+                scrollDirection: Axis.horizontal,
+                child: Row(
+                  children: [
+                    for (final label in labels)
+                      Padding(
+                        padding: const EdgeInsetsDirectional.only(end: 8),
+                        child: FilterChip(
+                          avatar: Icon(Icons.label_outline_rounded,
+                              size: 16, color: AppColors.secondary),
+                          label: Text(label),
+                          selected: _labelFilter == label,
+                          onSelected: (_) => setState(() =>
+                              _labelFilter = _labelFilter == label ? null : label),
+                        ),
+                      ),
+                  ],
+                ),
+              ),
+            ],
             const SizedBox(height: 12),
             if (entries.isEmpty)
               Padding(
@@ -409,7 +443,10 @@ class _EntryCard extends StatelessWidget {
                   [
                     tagCategoryLabel(entry.category, loc),
                     if (entry.locationNote.isNotEmpty) entry.locationNote,
+                    ...entry.labels.map((l) => '#$l'),
                   ].join(' · '),
+                  maxLines: 2,
+                  overflow: TextOverflow.ellipsis,
                   style: TextStyle(fontSize: 12.5, color: AppColors.secondary),
                 ),
                 const SizedBox(height: 2),
@@ -459,6 +496,9 @@ class _EntryEditorState extends State<_EntryEditor> {
   late final _name = TextEditingController(text: widget.entry.name);
   late final _note = TextEditingController(text: widget.entry.note);
   late final _location = TextEditingController(text: widget.entry.locationNote);
+  late final _labels = TextEditingController(text: widget.entry.labels.join(', '));
+  final _pickedPhotos = <String>[];
+  bool _saved = false;
   late TagCategory _category = widget.entry.category;
   late String? _photoPath = widget.entry.photoPath;
   String? _error;
@@ -468,6 +508,16 @@ class _EntryEditorState extends State<_EntryEditor> {
     _name.dispose();
     _note.dispose();
     _location.dispose();
+    _labels.dispose();
+    // Photos picked in this editor but not kept are orphans; remove them.
+    final keep = _saved ? _photoPath : null;
+    final docs = widget.docsDir;
+    if (docs != null) {
+      for (final rel in _pickedPhotos) {
+        if (rel == keep) continue;
+        File('${docs.path}/$rel').delete().ignore();
+      }
+    }
     super.dispose();
   }
 
@@ -483,6 +533,7 @@ class _EntryEditorState extends State<_EntryEditor> {
       final relative =
           'tag_photos/${widget.entry.id}_${DateTime.now().millisecondsSinceEpoch}.jpg';
       await File(picked.path).copy('${docs.path}/$relative');
+      _pickedPhotos.add(relative);
       setState(() => _photoPath = relative);
     } catch (e) {
       if (!mounted) return;
@@ -498,8 +549,10 @@ class _EntryEditorState extends State<_EntryEditor> {
       setState(() => _error = loc.tagLibraryNamePrompt);
       return;
     }
+    _saved = true;
     Navigator.of(context).pop(widget.entry.copyWith(
       name: name,
+      labels: TagLibraryEntry.parseLabels(_labels.text),
       note: _note.text.trim(),
       locationNote: _location.text.trim(),
       category: _category,
@@ -590,6 +643,15 @@ class _EntryEditorState extends State<_EntryEditor> {
               decoration: InputDecoration(
                   labelText: loc.locationLabel,
                   hintText: loc.tagLibraryLocationHint),
+            ),
+            const SizedBox(height: 12),
+            TextField(
+              controller: _labels,
+              decoration: InputDecoration(
+                labelText: loc.libraryLabelsField,
+                hintText: loc.libraryLabelsHint,
+                prefixIcon: const Icon(Icons.label_outline_rounded),
+              ),
             ),
             const SizedBox(height: 12),
             TextField(

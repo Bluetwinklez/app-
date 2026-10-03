@@ -984,5 +984,9 @@
   "recipeGymTitle": "Allenamento",
   "recipeGymActions": "Borsa palestra: avvia allenamento · playlist · Non disturbare",
   "recipeKitchenTitle": "Timer da cucina",
-  "recipeKitchenActions": "Cucina: timer 10 min · apri la lista della spesa"
+  "recipeKitchenActions": "Cucina: timer 10 min · apri la lista della spesa",
+  "libraryLabelsField": "Etichette / cartelle (separate da virgole)",
+  "libraryLabelsHint": "ufficio, piano 2",
+  "librarySaveFailed": "Impossibile salvare: {error}",
+  "csvColumnLabels": "Etichette"
 }

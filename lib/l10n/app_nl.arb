@@ -984,5 +984,9 @@
   "recipeGymTitle": "Training",
   "recipeGymActions": "Sporttas: training starten · afspeellijst · Niet storen",
   "recipeKitchenTitle": "Keukentimer",
-  "recipeKitchenActions": "Keuken: timer van 10 min · boodschappenlijst openen"
+  "recipeKitchenActions": "Keuken: timer van 10 min · boodschappenlijst openen",
+  "libraryLabelsField": "Labels / mappen (komma-gescheiden)",
+  "libraryLabelsHint": "kantoor, 2e verdieping",
+  "librarySaveFailed": "Opslaan mislukt: {error}",
+  "csvColumnLabels": "Labels"
 }

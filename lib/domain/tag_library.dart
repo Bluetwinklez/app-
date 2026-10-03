@@ -13,6 +13,9 @@ class TagLibraryEntry {
   final TagCategory category;
   final String locationNote;
 
+  /// Free-form labels ("office", "floor 2") used like folders for filtering.
+  final List<String> labels;
+
   /// Photo path relative to the app documents folder (the absolute container
   /// path changes between iOS app updates).
   final String? photoPath;
@@ -29,6 +32,7 @@ class TagLibraryEntry {
     this.note = '',
     this.category = TagCategory.other,
     this.locationNote = '',
+    this.labels = const [],
     this.photoPath,
     this.uid,
     this.records = const [],
@@ -41,6 +45,7 @@ class TagLibraryEntry {
     String? note,
     TagCategory? category,
     String? locationNote,
+    List<String>? labels,
     String? photoPath,
     bool clearPhoto = false,
     String? uid,
@@ -53,6 +58,7 @@ class TagLibraryEntry {
       note: note ?? this.note,
       category: category ?? this.category,
       locationNote: locationNote ?? this.locationNote,
+      labels: labels ?? this.labels,
       photoPath: clearPhoto ? null : (photoPath ?? this.photoPath),
       uid: uid ?? this.uid,
       records: records ?? this.records,
@@ -65,11 +71,48 @@ class TagLibraryEntry {
   bool matches(String query) {
     final q = foldForSearch(query.trim());
     if (q.isEmpty) return true;
-    if (foldForSearch('$name $note $locationNote ${uid ?? ''}').contains(q)) return true;
+    if (foldForSearch('$name $note $locationNote ${labels.join(' ')} ${uid ?? ''}').contains(q)) {
+      return true;
+    }
     for (final record in records) {
       if (foldForSearch(NdefCodec.parseRecord(record).content).contains(q)) return true;
     }
     return false;
+  }
+
+  static const int maxLabels = 10;
+  static const int maxLabelLength = 30;
+
+  /// "Office, floor 2 ,office" → ["Office", "floor 2"]: trimmed, de-duplicated
+  /// ignoring case, capped in count and length.
+  static List<String> parseLabels(String input) {
+    final out = <String>[];
+    final seen = <String>{};
+    for (final raw in input.split(',')) {
+      var label = raw.trim().replaceAll(RegExp(r'\s+'), ' ');
+      if (label.isEmpty) continue;
+      if (label.length > maxLabelLength) label = label.substring(0, maxLabelLength).trim();
+      if (seen.add(TextSearch.fold(label))) out.add(label);
+      if (out.length == maxLabels) break;
+    }
+    return out;
+  }
+
+  /// All labels across [entries], sorted, case-insensitively unique.
+  static List<String> allLabels(Iterable<TagLibraryEntry> entries) {
+    final byKey = <String, String>{};
+    for (final e in entries) {
+      for (final l in e.labels) {
+        byKey.putIfAbsent(TextSearch.fold(l), () => l);
+      }
+    }
+    final keys = byKey.keys.toList()..sort();
+    return [for (final k in keys) byKey[k]!];
+  }
+
+  bool hasLabel(String label) {
+    final key = TextSearch.fold(label);
+    return labels.any((l) => TextSearch.fold(l) == key);
   }
 
   /// Kept for callers; see [TextSearch.fold].
@@ -81,6 +124,7 @@ class TagLibraryEntry {
         'note': note,
         'category': category.name,
         'locationNote': locationNote,
+        if (labels.isNotEmpty) 'labels': labels,
         'photoPath': photoPath,
         'uid': uid,
         'records': records.map((r) => r.toJsonMap()).toList(),
@@ -100,6 +144,7 @@ class TagLibraryEntry {
         orElse: () => TagCategory.other,
       ),
       locationNote: map['locationNote'] as String? ?? '',
+      labels: parseLabels((map['labels'] as List<dynamic>? ?? const []).whereType<String>().join(',')),
       photoPath: map['photoPath'] as String?,
       uid: map['uid'] as String?,
       records: rawRecords

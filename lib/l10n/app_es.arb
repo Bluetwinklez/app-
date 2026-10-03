@@ -984,5 +984,9 @@
   "recipeGymTitle": "Entreno",
   "recipeGymActions": "Bolsa de deporte: iniciar entreno · lista de música · No molestar",
   "recipeKitchenTitle": "Temporizador de cocina",
-  "recipeKitchenActions": "Cocina: temporizador 10 min · abrir la lista de la compra"
+  "recipeKitchenActions": "Cocina: temporizador 10 min · abrir la lista de la compra",
+  "libraryLabelsField": "Etiquetas / carpetas (separadas por comas)",
+  "libraryLabelsHint": "oficina, planta 2",
+  "librarySaveFailed": "No se pudo guardar: {error}",
+  "csvColumnLabels": "Etiquetas"
 }

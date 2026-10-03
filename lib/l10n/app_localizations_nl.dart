@@ -3504,4 +3504,18 @@ class AppLocalizationsNl extends AppLocalizations {
   @override
   String get recipeKitchenActions =>
       'Keuken: timer van 10 min · boodschappenlijst openen';
+
+  @override
+  String get libraryLabelsField => 'Labels / mappen (komma-gescheiden)';
+
+  @override
+  String get libraryLabelsHint => 'kantoor, 2e verdieping';
+
+  @override
+  String librarySaveFailed(String error) {
+    return 'Opslaan mislukt: $error';
+  }
+
+  @override
+  String get csvColumnLabels => 'Labels';
 }

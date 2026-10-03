@@ -984,5 +984,9 @@
   "recipeGymTitle": "Treino",
   "recipeGymActions": "Bolsa de academia: iniciar treino · playlist · Não perturbe",
   "recipeKitchenTitle": "Timer de cozinha",
-  "recipeKitchenActions": "Cozinha: timer de 10 min · abrir lista de compras"
+  "recipeKitchenActions": "Cozinha: timer de 10 min · abrir lista de compras",
+  "libraryLabelsField": "Rótulos / pastas (separados por vírgula)",
+  "libraryLabelsHint": "escritório, 2º andar",
+  "librarySaveFailed": "Não foi possível salvar: {error}",
+  "csvColumnLabels": "Rótulos"
 }

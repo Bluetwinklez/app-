@@ -3363,4 +3363,18 @@ class AppLocalizationsKo extends AppLocalizations {
 
   @override
   String get recipeKitchenActions => '주방: 10분 타이머 · 장보기 목록 열기';
+
+  @override
+  String get libraryLabelsField => '라벨 / 폴더 (쉼표로 구분)';
+
+  @override
+  String get libraryLabelsHint => '사무실, 2층';
+
+  @override
+  String librarySaveFailed(String error) {
+    return '저장하지 못했습니다: $error';
+  }
+
+  @override
+  String get csvColumnLabels => '라벨';
 }

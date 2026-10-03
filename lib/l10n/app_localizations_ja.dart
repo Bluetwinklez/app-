@@ -3353,4 +3353,18 @@ class AppLocalizationsJa extends AppLocalizations {
 
   @override
   String get recipeKitchenActions => 'キッチン: 10分タイマー · 買い物リストを開く';
+
+  @override
+  String get libraryLabelsField => 'ラベル / フォルダ (カンマ区切り)';
+
+  @override
+  String get libraryLabelsHint => 'オフィス, 2階';
+
+  @override
+  String librarySaveFailed(String error) {
+    return '保存できませんでした: $error';
+  }
+
+  @override
+  String get csvColumnLabels => 'ラベル';
 }

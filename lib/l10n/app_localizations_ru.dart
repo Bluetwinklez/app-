@@ -3504,4 +3504,18 @@ class AppLocalizationsRu extends AppLocalizations {
   @override
   String get recipeKitchenActions =>
       'Кухня: таймер 10 мин · открыть список покупок';
+
+  @override
+  String get libraryLabelsField => 'Метки / папки (через запятую)';
+
+  @override
+  String get libraryLabelsHint => 'офис, 2 этаж';
+
+  @override
+  String librarySaveFailed(String error) {
+    return 'Не удалось сохранить: $error';
+  }
+
+  @override
+  String get csvColumnLabels => 'Метки';
 }

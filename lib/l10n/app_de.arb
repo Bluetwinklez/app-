@@ -984,5 +984,9 @@
   "recipeGymTitle": "Training",
   "recipeGymActions": "Sporttasche: Training starten · Trainings-Playlist · Nicht stören",
   "recipeKitchenTitle": "Küchentimer",
-  "recipeKitchenActions": "Küche: 10-Minuten-Timer · Einkaufsliste öffnen"
+  "recipeKitchenActions": "Küche: 10-Minuten-Timer · Einkaufsliste öffnen",
+  "libraryLabelsField": "Labels / Ordner (durch Komma getrennt)",
+  "libraryLabelsHint": "Büro, 2. Stock",
+  "librarySaveFailed": "Speichern fehlgeschlagen: {error}",
+  "csvColumnLabels": "Labels"
 }

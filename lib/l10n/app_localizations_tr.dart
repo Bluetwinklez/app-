@@ -3499,4 +3499,18 @@ class AppLocalizationsTr extends AppLocalizations {
   @override
   String get recipeKitchenActions =>
       'Mutfak: 10 dk zamanlayıcı · alışveriş listesini aç';
+
+  @override
+  String get libraryLabelsField => 'Etiketler / klasörler (virgülle ayırın)';
+
+  @override
+  String get libraryLabelsHint => 'ofis, 2. kat';
+
+  @override
+  String librarySaveFailed(String error) {
+    return 'Kaydedilemedi: $error';
+  }
+
+  @override
+  String get csvColumnLabels => 'Etiketler';
 }

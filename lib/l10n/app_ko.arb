@@ -984,5 +984,9 @@
   "recipeGymTitle": "운동",
   "recipeGymActions": "운동 가방: 운동 시작 · 운동 플레이리스트 · 방해 금지",
   "recipeKitchenTitle": "주방 타이머",
-  "recipeKitchenActions": "주방: 10분 타이머 · 장보기 목록 열기"
+  "recipeKitchenActions": "주방: 10분 타이머 · 장보기 목록 열기",
+  "libraryLabelsField": "라벨 / 폴더 (쉼표로 구분)",
+  "libraryLabelsHint": "사무실, 2층",
+  "librarySaveFailed": "저장하지 못했습니다: {error}",
+  "csvColumnLabels": "라벨"
 }

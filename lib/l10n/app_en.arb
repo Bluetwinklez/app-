@@ -984,5 +984,9 @@
   "recipeGymTitle": "Workout",
   "recipeGymActions": "Gym bag: start a workout · workout playlist · Do Not Disturb",
   "recipeKitchenTitle": "Kitchen Timer",
-  "recipeKitchenActions": "Kitchen: 10-minute timer · open the shopping list"
+  "recipeKitchenActions": "Kitchen: 10-minute timer · open the shopping list",
+  "libraryLabelsField": "Labels / folders (comma separated)",
+  "libraryLabelsHint": "office, floor 2",
+  "librarySaveFailed": "Could not save: {error}",
+  "csvColumnLabels": "Labels"
 }

@@ -3323,4 +3323,18 @@ class AppLocalizationsZh extends AppLocalizations {
 
   @override
   String get recipeKitchenActions => '厨房：10 分钟计时 · 打开购物清单';
+
+  @override
+  String get libraryLabelsField => '标签/文件夹（用逗号分隔）';
+
+  @override
+  String get libraryLabelsHint => '办公室, 2楼';
+
+  @override
+  String librarySaveFailed(String error) {
+    return '无法保存：$error';
+  }
+
+  @override
+  String get csvColumnLabels => '标签';
 }

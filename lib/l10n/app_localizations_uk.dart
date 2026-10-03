@@ -3504,4 +3504,18 @@ class AppLocalizationsUk extends AppLocalizations {
   @override
   String get recipeKitchenActions =>
       'Кухня: таймер 10 хв · відкрити список покупок';
+
+  @override
+  String get libraryLabelsField => 'Мітки / теки (через кому)';
+
+  @override
+  String get libraryLabelsHint => 'офіс, 2 поверх';
+
+  @override
+  String librarySaveFailed(String error) {
+    return 'Не вдалося зберегти: $error';
+  }
+
+  @override
+  String get csvColumnLabels => 'Мітки';
 }

@@ -984,5 +984,9 @@
   "recipeGymTitle": "Entraînement",
   "recipeGymActions": "Sac de sport : démarrer une séance · playlist sport · Ne pas déranger",
   "recipeKitchenTitle": "Minuteur cuisine",
-  "recipeKitchenActions": "Cuisine : minuteur 10 min · ouvrir la liste de courses"
+  "recipeKitchenActions": "Cuisine : minuteur 10 min · ouvrir la liste de courses",
+  "libraryLabelsField": "Libellés / dossiers (séparés par des virgules)",
+  "libraryLabelsHint": "bureau, 2e étage",
+  "librarySaveFailed": "Enregistrement impossible : {error}",
+  "csvColumnLabels": "Libellés"
 }

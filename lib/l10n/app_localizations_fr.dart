@@ -3524,4 +3524,19 @@ class AppLocalizationsFr extends AppLocalizations {
   @override
   String get recipeKitchenActions =>
       'Cuisine : minuteur 10 min · ouvrir la liste de courses';
+
+  @override
+  String get libraryLabelsField =>
+      'Libellés / dossiers (séparés par des virgules)';
+
+  @override
+  String get libraryLabelsHint => 'bureau, 2e étage';
+
+  @override
+  String librarySaveFailed(String error) {
+    return 'Enregistrement impossible : $error';
+  }
+
+  @override
+  String get csvColumnLabels => 'Libellés';
 }

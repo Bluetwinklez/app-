@@ -984,5 +984,9 @@
   "recipeGymTitle": "Тренування",
   "recipeGymActions": "Спортивна сумка: почати тренування · плейлист · «Не турбувати»",
   "recipeKitchenTitle": "Кухонний таймер",
-  "recipeKitchenActions": "Кухня: таймер 10 хв · відкрити список покупок"
+  "recipeKitchenActions": "Кухня: таймер 10 хв · відкрити список покупок",
+  "libraryLabelsField": "Мітки / теки (через кому)",
+  "libraryLabelsHint": "офіс, 2 поверх",
+  "librarySaveFailed": "Не вдалося зберегти: {error}",
+  "csvColumnLabels": "Мітки"
 }
