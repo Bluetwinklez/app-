@@ -439,6 +439,74 @@ class TemplateGallery {
       build: (v) => [NdefCodec.encodeUri(QuickLinkBuilder.httpsUrl(v['url']!, emptyMessage: L10n.current.voiceLinkLabel))],
     ),
     GalleryPreset(
+      id: 'gift_message',
+      title: L10n.current.presetGiftTitle,
+      description: L10n.current.presetGiftDesc,
+      icon: 'gift',
+      category: GalleryCategory.personal,
+      fields: [
+        GalleryField('to', L10n.current.giftTo, hint: 'Emma'),
+        GalleryField('message', L10n.current.smsMessage, hint: 'Happy birthday!', kind: GalleryFieldKind.multiline),
+        GalleryField('from', L10n.current.giftFrom, hint: 'Alex'),
+        GalleryField('video', L10n.current.giftVideo, hint: 'https://youtu.be/...', kind: GalleryFieldKind.url, required: false),
+      ],
+      build: (v) {
+        final video = _opt(v, 'video');
+        return [
+          NdefCodec.encodeText(L10n.current.giftText(v['to']!, v['message']!, v['from']!)),
+          if (video != null) NdefCodec.encodeUri(QuickLinkBuilder.httpsUrl(video, emptyMessage: L10n.current.giftVideo)),
+        ];
+      },
+    ),
+    GalleryPreset(
+      id: 'plant_care',
+      title: L10n.current.presetPlantTitle,
+      description: L10n.current.presetPlantDesc,
+      icon: 'plant',
+      category: GalleryCategory.home,
+      fields: [
+        GalleryField('plant', L10n.current.plantName, hint: 'Monstera'),
+        GalleryField('water', L10n.current.plantWater, hint: '1× / week'),
+        GalleryField('light', L10n.current.plantLight, hint: 'Bright, indirect'),
+      ],
+      build: (v) => [NdefCodec.encodeText(L10n.current.plantText(v['plant']!, v['water']!, v['light']!))],
+    ),
+    GalleryPreset(
+      id: 'child_wristband',
+      title: L10n.current.presetChildTitle,
+      description: L10n.current.presetChildDesc,
+      icon: 'child',
+      category: GalleryCategory.personal,
+      fields: [
+        GalleryField('name', L10n.current.childName, hint: 'Ela'),
+        GalleryField('phone', L10n.current.contactPhone, hint: '+1 555 111 22 33', kind: GalleryFieldKind.phone),
+      ],
+      build: (v) => [
+        // Phone first: Android dials straight away; iPhone shows the text.
+        NdefCodec.encodePhone(_phoneDigits(v['phone']!)),
+        NdefCodec.encodeText(L10n.current.childText(v['name']!, v['phone']!)),
+      ],
+    ),
+    GalleryPreset(
+      id: 'how_to',
+      title: L10n.current.presetManualTitle,
+      description: L10n.current.presetManualDesc,
+      icon: 'manual',
+      category: GalleryCategory.business,
+      fields: [
+        GalleryField('item', L10n.current.manualItem, hint: 'Espresso machine'),
+        GalleryField('steps', L10n.current.manualSteps, hint: '1. Fill water  2. Press ☕', kind: GalleryFieldKind.multiline),
+        GalleryField('url', L10n.current.manualLink, hint: 'https://...', kind: GalleryFieldKind.url, required: false),
+      ],
+      build: (v) {
+        final url = _opt(v, 'url');
+        return [
+          if (url != null) NdefCodec.encodeUri(QuickLinkBuilder.httpsUrl(url, emptyMessage: L10n.current.manualLink)),
+          NdefCodec.encodeText('${v['item']!}\n${v['steps']!}'),
+        ];
+      },
+    ),
+    GalleryPreset(
       id: 'shortcut_trigger',
       title: L10n.current.presetShortcutTitle,
       description: L10n.current.presetShortcutDesc,

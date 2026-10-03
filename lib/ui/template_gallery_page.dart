@@ -68,6 +68,14 @@ class TemplateGalleryPage extends StatefulWidget {
         return Icons.travel_explore_rounded;
       case 'mic':
         return Icons.mic_none_rounded;
+      case 'gift':
+        return Icons.card_giftcard_rounded;
+      case 'plant':
+        return Icons.local_florist_outlined;
+      case 'child':
+        return Icons.child_care_rounded;
+      case 'manual':
+        return Icons.menu_book_outlined;
       default:
         return Icons.nfc_rounded;
     }

@@ -4290,4 +4290,77 @@ class AppLocalizationsTr extends AppLocalizations {
   String libraryImportDone(String count) {
     return '$count etiket kütüphaneye eklendi';
   }
+
+  @override
+  String get presetGiftTitle => 'Hediye mesajı';
+
+  @override
+  String get presetGiftDesc =>
+      'Hediyeye yapıştırın: dokununca mesajınız ve isterseniz bir video bağlantısı açılır.';
+
+  @override
+  String get giftTo => 'Kime';
+
+  @override
+  String get giftFrom => 'Kimden';
+
+  @override
+  String get giftVideo => 'Video bağlantısı (isteğe bağlı)';
+
+  @override
+  String giftText(String to, String message, String from) {
+    return '🎁 $to,\n$message\n— $from';
+  }
+
+  @override
+  String get presetPlantTitle => 'Bitki bakım kartı';
+
+  @override
+  String get presetPlantDesc =>
+      'Saksıya yapıştırın: sulama ve ışık bilgisi. Kütüphanede kontrol aralığı vererek sulama hatırlatıcısı da yapabilirsiniz.';
+
+  @override
+  String get plantName => 'Bitki adı';
+
+  @override
+  String get plantWater => 'Sulama';
+
+  @override
+  String get plantLight => 'Işık';
+
+  @override
+  String plantText(String plant, String water, String light) {
+    return '🌱 $plant\n💧 $water\n☀️ $light';
+  }
+
+  @override
+  String get presetChildTitle => 'Çocuk güvenlik bilekliği';
+
+  @override
+  String get presetChildDesc =>
+      'Kalabalık yerlerde: dokunan kişi çocuğun adını görür ve ailesini tek dokunuşla arar.';
+
+  @override
+  String get childName => 'Çocuğun adı';
+
+  @override
+  String childText(String name, String phone) {
+    return 'Merhaba, ben $name. Kaybolduysam lütfen ailemi arayın: $phone';
+  }
+
+  @override
+  String get presetManualTitle => 'Kullanım talimatı';
+
+  @override
+  String get presetManualDesc =>
+      'Spor aleti, kahve makinesi, kiralık ev cihazı: kısa talimat ve video/kılavuz bağlantısı.';
+
+  @override
+  String get manualItem => 'Cihaz / eşya';
+
+  @override
+  String get manualSteps => 'Kısa talimat';
+
+  @override
+  String get manualLink => 'Video / kılavuz bağlantısı (isteğe bağlı)';
 }

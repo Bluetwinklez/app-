@@ -4240,4 +4240,77 @@ class AppLocalizationsAr extends AppLocalizations {
   String libraryImportDone(String count) {
     return 'تمت إضافة $count وسوم إلى المكتبة';
   }
+
+  @override
+  String get presetGiftTitle => 'رسالة هدية';
+
+  @override
+  String get presetGiftDesc =>
+      'ألصقه على الهدية: لمسة تعرض رسالتك ورابط فيديو اختياريًا.';
+
+  @override
+  String get giftTo => 'إلى';
+
+  @override
+  String get giftFrom => 'من';
+
+  @override
+  String get giftVideo => 'رابط فيديو (اختياري)';
+
+  @override
+  String giftText(String to, String message, String from) {
+    return '🎁 $to،\n$message\n— $from';
+  }
+
+  @override
+  String get presetPlantTitle => 'بطاقة العناية بالنبات';
+
+  @override
+  String get presetPlantDesc =>
+      'على الأصيص: الري والإضاءة. مع فترة فحص في المكتبة يصبح تذكيرًا بالري.';
+
+  @override
+  String get plantName => 'اسم النبات';
+
+  @override
+  String get plantWater => 'الري';
+
+  @override
+  String get plantLight => 'الإضاءة';
+
+  @override
+  String plantText(String plant, String water, String light) {
+    return '🌱 $plant\n💧 $water\n☀️ $light';
+  }
+
+  @override
+  String get presetChildTitle => 'سوار أمان للطفل';
+
+  @override
+  String get presetChildDesc =>
+      'في الأماكن المزدحمة: من يلمسه يرى اسم الطفل ويتصل بالوالدين بلمسة.';
+
+  @override
+  String get childName => 'اسم الطفل';
+
+  @override
+  String childText(String name, String phone) {
+    return 'مرحبًا، أنا $name. إذا كنت تائهًا فاتصل بعائلتي: $phone';
+  }
+
+  @override
+  String get presetManualTitle => 'بطاقة إرشادات';
+
+  @override
+  String get presetManualDesc =>
+      'جهاز رياضي، آلة قهوة، جهاز في سكن مؤجر: تعليمات قصيرة ورابط فيديو أو دليل.';
+
+  @override
+  String get manualItem => 'الجهاز / الغرض';
+
+  @override
+  String get manualSteps => 'تعليمات قصيرة';
+
+  @override
+  String get manualLink => 'رابط فيديو / دليل (اختياري)';
 }

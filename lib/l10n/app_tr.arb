@@ -2925,5 +2925,62 @@
         "type": "String"
       }
     }
-  }
+  },
+  "presetGiftTitle": "Hediye mesajı",
+  "presetGiftDesc": "Hediyeye yapıştırın: dokununca mesajınız ve isterseniz bir video bağlantısı açılır.",
+  "giftTo": "Kime",
+  "giftFrom": "Kimden",
+  "giftVideo": "Video bağlantısı (isteğe bağlı)",
+  "giftText": "🎁 {to},\n{message}\n— {from}",
+  "@giftText": {
+    "placeholders": {
+      "to": {
+        "type": "String"
+      },
+      "message": {
+        "type": "String"
+      },
+      "from": {
+        "type": "String"
+      }
+    }
+  },
+  "presetPlantTitle": "Bitki bakım kartı",
+  "presetPlantDesc": "Saksıya yapıştırın: sulama ve ışık bilgisi. Kütüphanede kontrol aralığı vererek sulama hatırlatıcısı da yapabilirsiniz.",
+  "plantName": "Bitki adı",
+  "plantWater": "Sulama",
+  "plantLight": "Işık",
+  "plantText": "🌱 {plant}\n💧 {water}\n☀️ {light}",
+  "@plantText": {
+    "placeholders": {
+      "plant": {
+        "type": "String"
+      },
+      "water": {
+        "type": "String"
+      },
+      "light": {
+        "type": "String"
+      }
+    }
+  },
+  "presetChildTitle": "Çocuk güvenlik bilekliği",
+  "presetChildDesc": "Kalabalık yerlerde: dokunan kişi çocuğun adını görür ve ailesini tek dokunuşla arar.",
+  "childName": "Çocuğun adı",
+  "childText": "Merhaba, ben {name}. Kaybolduysam lütfen ailemi arayın: {phone}",
+  "@childText": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      },
+      "phone": {
+        "type": "String"
+      }
+    }
+  },
+  "presetManualTitle": "Kullanım talimatı",
+  "presetManualDesc": "Spor aleti, kahve makinesi, kiralık ev cihazı: kısa talimat ve video/kılavuz bağlantısı.",
+  "manualItem": "Cihaz / eşya",
+  "manualSteps": "Kısa talimat",
+  "manualLink": "Video / kılavuz bağlantısı (isteğe bağlı)"
 }

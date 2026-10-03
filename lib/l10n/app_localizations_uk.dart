@@ -4292,4 +4292,77 @@ class AppLocalizationsUk extends AppLocalizations {
   String libraryImportDone(String count) {
     return 'До бібліотеки додано міток: $count';
   }
+
+  @override
+  String get presetGiftTitle => 'Подарункове послання';
+
+  @override
+  String get presetGiftDesc =>
+      'Наклейте на подарунок: дотик покаже послання та, за бажанням, відео.';
+
+  @override
+  String get giftTo => 'Кому';
+
+  @override
+  String get giftFrom => 'Від кого';
+
+  @override
+  String get giftVideo => 'Посилання на відео (необов\'язково)';
+
+  @override
+  String giftText(String to, String message, String from) {
+    return '🎁 $to,\n$message\n— $from';
+  }
+
+  @override
+  String get presetPlantTitle => 'Картка догляду за рослиною';
+
+  @override
+  String get presetPlantDesc =>
+      'На вазон: полив і світло. З інтервалом перевірки в бібліотеці — ще й нагадування про полив.';
+
+  @override
+  String get plantName => 'Назва рослини';
+
+  @override
+  String get plantWater => 'Полив';
+
+  @override
+  String get plantLight => 'Світло';
+
+  @override
+  String plantText(String plant, String water, String light) {
+    return '🌱 $plant\n💧 $water\n☀️ $light';
+  }
+
+  @override
+  String get presetChildTitle => 'Дитячий браслет безпеки';
+
+  @override
+  String get presetChildDesc =>
+      'У людних місцях: той, хто торкнеться, побачить ім\'я дитини й зателефонує батькам одним дотиком.';
+
+  @override
+  String get childName => 'Ім\'я дитини';
+
+  @override
+  String childText(String name, String phone) {
+    return 'Привіт, я $name. Якщо я загубився, зателефонуйте моїй родині: $phone';
+  }
+
+  @override
+  String get presetManualTitle => 'Картка-інструкція';
+
+  @override
+  String get presetManualDesc =>
+      'Тренажер, кавоварка, техніка в оренді: коротка інструкція та посилання на відео чи посібник.';
+
+  @override
+  String get manualItem => 'Пристрій / предмет';
+
+  @override
+  String get manualSteps => 'Коротка інструкція';
+
+  @override
+  String get manualLink => 'Посилання на відео / посібник (необов\'язково)';
 }

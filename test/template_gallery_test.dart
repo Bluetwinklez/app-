@@ -98,4 +98,18 @@ void main() {
       expect(NdefCodec.decodeUri(r), 'shortcuts://run-shortcut?name=Good%20Night');
     });
   });
+
+  test('gift, plant, wristband and how-to presets', () {
+    final gift = preset('gift_message').create({'to': 'Ece', 'message': 'İyi ki doğdun', 'from': 'Can', 'video': ''});
+    expect(gift, hasLength(1));
+    expect(NdefCodec.parseRecord(gift.single).content, contains('İyi ki doğdun'));
+    expect(preset('gift_message').create({'to': 'a', 'message': 'b', 'from': 'c', 'video': 'youtu.be/x'}), hasLength(2));
+
+    final child = preset('child_wristband').create({'name': 'Ela', 'phone': '+90 555 111 22 33'});
+    expect(NdefCodec.parseRecord(child.first).content, contains('+905551112233'));
+
+    final howTo = preset('how_to').create({'item': 'Kahve', 'steps': '1. Su', 'url': ''});
+    expect(howTo, hasLength(1));
+    expect(preset('plant_care').create({'plant': 'Monstera', 'water': 'Haftada 1', 'light': 'Yarı gölge'}), hasLength(1));
+  });
 }

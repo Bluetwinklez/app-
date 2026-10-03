@@ -4292,4 +4292,77 @@ class AppLocalizationsNl extends AppLocalizations {
   String libraryImportDone(String count) {
     return '$count tags toegevoegd aan de bibliotheek';
   }
+
+  @override
+  String get presetGiftTitle => 'Cadeaubericht';
+
+  @override
+  String get presetGiftDesc =>
+      'Plak het op een cadeau: een tik toont je bericht en eventueel een videolink.';
+
+  @override
+  String get giftTo => 'Voor';
+
+  @override
+  String get giftFrom => 'Van';
+
+  @override
+  String get giftVideo => 'Videolink (optioneel)';
+
+  @override
+  String giftText(String to, String message, String from) {
+    return '🎁 $to,\n$message\n— $from';
+  }
+
+  @override
+  String get presetPlantTitle => 'Plantverzorgingskaart';
+
+  @override
+  String get presetPlantDesc =>
+      'Op de pot: water en licht. Met een controle-interval in de bibliotheek ook een gietherinnering.';
+
+  @override
+  String get plantName => 'Plantnaam';
+
+  @override
+  String get plantWater => 'Water geven';
+
+  @override
+  String get plantLight => 'Licht';
+
+  @override
+  String plantText(String plant, String water, String light) {
+    return '🌱 $plant\n💧 $water\n☀️ $light';
+  }
+
+  @override
+  String get presetChildTitle => 'Veiligheidsbandje voor kinderen';
+
+  @override
+  String get presetChildDesc =>
+      'Op drukke plekken: wie tikt ziet de naam van het kind en belt de ouders met één tik.';
+
+  @override
+  String get childName => 'Naam van het kind';
+
+  @override
+  String childText(String name, String phone) {
+    return 'Hoi, ik ben $name. Ben ik verdwaald, bel dan mijn familie: $phone';
+  }
+
+  @override
+  String get presetManualTitle => 'Instructiekaart';
+
+  @override
+  String get presetManualDesc =>
+      'Fitnesstoestel, koffiezetapparaat, vakantiewoning: korte uitleg plus video- of handleidinglink.';
+
+  @override
+  String get manualItem => 'Apparaat / voorwerp';
+
+  @override
+  String get manualSteps => 'Korte uitleg';
+
+  @override
+  String get manualLink => 'Video-/handleidinglink (optioneel)';
 }
