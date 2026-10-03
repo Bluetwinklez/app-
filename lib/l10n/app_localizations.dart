@@ -5211,6 +5211,114 @@ abstract class AppLocalizations {
   /// In tr, this message translates to:
   /// **'İçerik yaygın etiketlere sığmıyor; metni kısaltın veya kısa bağlantı kullanın.'**
   String get contentTooLargeForChips;
+
+  /// No description provided for @tagReportTitle.
+  ///
+  /// In tr, this message translates to:
+  /// **'Etiket Raporu'**
+  String get tagReportTitle;
+
+  /// No description provided for @tagReportSubtitle.
+  ///
+  /// In tr, this message translates to:
+  /// **'Çip, kilit, şifre ve doluluk durumu'**
+  String get tagReportSubtitle;
+
+  /// No description provided for @tagReportPrompt.
+  ///
+  /// In tr, this message translates to:
+  /// **'Raporu çıkarılacak etiketi yaklaştırın'**
+  String get tagReportPrompt;
+
+  /// No description provided for @tagReportBusy.
+  ///
+  /// In tr, this message translates to:
+  /// **'Etiket inceleniyor...'**
+  String get tagReportBusy;
+
+  /// No description provided for @tagReportDone.
+  ///
+  /// In tr, this message translates to:
+  /// **'Rapor hazır: {chip}'**
+  String tagReportDone(String chip);
+
+  /// No description provided for @unknownChip.
+  ///
+  /// In tr, this message translates to:
+  /// **'Bilinmeyen çip'**
+  String get unknownChip;
+
+  /// No description provided for @yes.
+  ///
+  /// In tr, this message translates to:
+  /// **'Evet'**
+  String get yes;
+
+  /// No description provided for @reportChip.
+  ///
+  /// In tr, this message translates to:
+  /// **'Çip'**
+  String get reportChip;
+
+  /// No description provided for @reportNdefFormatted.
+  ///
+  /// In tr, this message translates to:
+  /// **'NDEF biçimli'**
+  String get reportNdefFormatted;
+
+  /// No description provided for @reportWritable.
+  ///
+  /// In tr, this message translates to:
+  /// **'Yazılabilir'**
+  String get reportWritable;
+
+  /// No description provided for @reportStaticLock.
+  ///
+  /// In tr, this message translates to:
+  /// **'Sabit kilit'**
+  String get reportStaticLock;
+
+  /// No description provided for @reportDynamicLock.
+  ///
+  /// In tr, this message translates to:
+  /// **'Dinamik kilit'**
+  String get reportDynamicLock;
+
+  /// No description provided for @reportPassword.
+  ///
+  /// In tr, this message translates to:
+  /// **'Şifre koruması'**
+  String get reportPassword;
+
+  /// No description provided for @reportReadProtected.
+  ///
+  /// In tr, this message translates to:
+  /// **'Okuma korumalı'**
+  String get reportReadProtected;
+
+  /// No description provided for @reportNdefUsage.
+  ///
+  /// In tr, this message translates to:
+  /// **'NDEF doluluk'**
+  String get reportNdefUsage;
+
+  /// No description provided for @reportVerdictWritable.
+  ///
+  /// In tr, this message translates to:
+  /// **'Etiket yazmaya hazır'**
+  String get reportVerdictWritable;
+
+  /// No description provided for @reportVerdictRestricted.
+  ///
+  /// In tr, this message translates to:
+  /// **'Etikette kısıtlama var'**
+  String get reportVerdictRestricted;
+
+  /// No description provided for @reportCopied.
+  ///
+  /// In tr, this message translates to:
+  /// **'Rapor kopyalandı'**
+  String get reportCopied;
 }
 
 class _AppLocalizationsDelegate

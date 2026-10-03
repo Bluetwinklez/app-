@@ -3029,4 +3029,60 @@ class AppLocalizationsDe extends AppLocalizations {
   @override
   String get contentTooLargeForChips =>
       'Zu groß für gängige Tags; Text kürzen oder Kurzlink nutzen.';
+
+  @override
+  String get tagReportTitle => 'Tag-Bericht';
+
+  @override
+  String get tagReportSubtitle => 'Chip, Sperren, Passwort und Belegung';
+
+  @override
+  String get tagReportPrompt => 'Zu prüfenden Tag anhalten';
+
+  @override
+  String get tagReportBusy => 'Tag wird geprüft...';
+
+  @override
+  String tagReportDone(String chip) {
+    return 'Bericht fertig: $chip';
+  }
+
+  @override
+  String get unknownChip => 'Unbekannter Chip';
+
+  @override
+  String get yes => 'Ja';
+
+  @override
+  String get reportChip => 'Chip';
+
+  @override
+  String get reportNdefFormatted => 'NDEF-formatiert';
+
+  @override
+  String get reportWritable => 'Beschreibbar';
+
+  @override
+  String get reportStaticLock => 'Statische Sperre';
+
+  @override
+  String get reportDynamicLock => 'Dynamische Sperre';
+
+  @override
+  String get reportPassword => 'Passwortschutz';
+
+  @override
+  String get reportReadProtected => 'Lesegeschützt';
+
+  @override
+  String get reportNdefUsage => 'NDEF-Belegung';
+
+  @override
+  String get reportVerdictWritable => 'Tag ist bereit zum Schreiben';
+
+  @override
+  String get reportVerdictRestricted => 'Tag ist eingeschränkt';
+
+  @override
+  String get reportCopied => 'Bericht kopiert';
 }

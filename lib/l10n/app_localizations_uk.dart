@@ -3027,4 +3027,60 @@ class AppLocalizationsUk extends AppLocalizations {
   @override
   String get contentTooLargeForChips =>
       'Завеликий для звичайних міток: скоротіть текст або використайте коротке посилання.';
+
+  @override
+  String get tagReportTitle => 'Звіт про мітку';
+
+  @override
+  String get tagReportSubtitle => 'Чип, блокування, пароль і заповнення';
+
+  @override
+  String get tagReportPrompt => 'Піднесіть мітку для перевірки';
+
+  @override
+  String get tagReportBusy => 'Перевірка мітки...';
+
+  @override
+  String tagReportDone(String chip) {
+    return 'Звіт готовий: $chip';
+  }
+
+  @override
+  String get unknownChip => 'Невідомий чип';
+
+  @override
+  String get yes => 'Так';
+
+  @override
+  String get reportChip => 'Чип';
+
+  @override
+  String get reportNdefFormatted => 'Формат NDEF';
+
+  @override
+  String get reportWritable => 'Доступний запис';
+
+  @override
+  String get reportStaticLock => 'Статичне блокування';
+
+  @override
+  String get reportDynamicLock => 'Динамічне блокування';
+
+  @override
+  String get reportPassword => 'Захист паролем';
+
+  @override
+  String get reportReadProtected => 'Захист читання';
+
+  @override
+  String get reportNdefUsage => 'Заповнення NDEF';
+
+  @override
+  String get reportVerdictWritable => 'Мітка готова до запису';
+
+  @override
+  String get reportVerdictRestricted => 'Мітка обмежена';
+
+  @override
+  String get reportCopied => 'Звіт скопійовано';
 }

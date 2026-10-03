@@ -3009,4 +3009,60 @@ class AppLocalizationsEn extends AppLocalizations {
   @override
   String get contentTooLargeForChips =>
       'Too large for common tags; shorten the text or use a short link.';
+
+  @override
+  String get tagReportTitle => 'Tag Report';
+
+  @override
+  String get tagReportSubtitle => 'Chip, locks, password and usage';
+
+  @override
+  String get tagReportPrompt => 'Hold the tag to check';
+
+  @override
+  String get tagReportBusy => 'Checking the tag...';
+
+  @override
+  String tagReportDone(String chip) {
+    return 'Report ready: $chip';
+  }
+
+  @override
+  String get unknownChip => 'Unknown chip';
+
+  @override
+  String get yes => 'Yes';
+
+  @override
+  String get reportChip => 'Chip';
+
+  @override
+  String get reportNdefFormatted => 'NDEF formatted';
+
+  @override
+  String get reportWritable => 'Writable';
+
+  @override
+  String get reportStaticLock => 'Static lock';
+
+  @override
+  String get reportDynamicLock => 'Dynamic lock';
+
+  @override
+  String get reportPassword => 'Password protection';
+
+  @override
+  String get reportReadProtected => 'Read protected';
+
+  @override
+  String get reportNdefUsage => 'NDEF usage';
+
+  @override
+  String get reportVerdictWritable => 'Tag is ready to write';
+
+  @override
+  String get reportVerdictRestricted => 'Tag has restrictions';
+
+  @override
+  String get reportCopied => 'Report copied';
 }

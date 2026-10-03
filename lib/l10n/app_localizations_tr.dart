@@ -3024,4 +3024,60 @@ class AppLocalizationsTr extends AppLocalizations {
   @override
   String get contentTooLargeForChips =>
       'İçerik yaygın etiketlere sığmıyor; metni kısaltın veya kısa bağlantı kullanın.';
+
+  @override
+  String get tagReportTitle => 'Etiket Raporu';
+
+  @override
+  String get tagReportSubtitle => 'Çip, kilit, şifre ve doluluk durumu';
+
+  @override
+  String get tagReportPrompt => 'Raporu çıkarılacak etiketi yaklaştırın';
+
+  @override
+  String get tagReportBusy => 'Etiket inceleniyor...';
+
+  @override
+  String tagReportDone(String chip) {
+    return 'Rapor hazır: $chip';
+  }
+
+  @override
+  String get unknownChip => 'Bilinmeyen çip';
+
+  @override
+  String get yes => 'Evet';
+
+  @override
+  String get reportChip => 'Çip';
+
+  @override
+  String get reportNdefFormatted => 'NDEF biçimli';
+
+  @override
+  String get reportWritable => 'Yazılabilir';
+
+  @override
+  String get reportStaticLock => 'Sabit kilit';
+
+  @override
+  String get reportDynamicLock => 'Dinamik kilit';
+
+  @override
+  String get reportPassword => 'Şifre koruması';
+
+  @override
+  String get reportReadProtected => 'Okuma korumalı';
+
+  @override
+  String get reportNdefUsage => 'NDEF doluluk';
+
+  @override
+  String get reportVerdictWritable => 'Etiket yazmaya hazır';
+
+  @override
+  String get reportVerdictRestricted => 'Etikette kısıtlama var';
+
+  @override
+  String get reportCopied => 'Rapor kopyalandı';
 }

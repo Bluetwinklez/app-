@@ -2869,4 +2869,60 @@ class AppLocalizationsZh extends AppLocalizations {
 
   @override
   String get contentTooLargeForChips => '内容超出常见标签容量；请缩短文本或使用短链接。';
+
+  @override
+  String get tagReportTitle => '标签报告';
+
+  @override
+  String get tagReportSubtitle => '芯片、锁定、密码和占用';
+
+  @override
+  String get tagReportPrompt => '请靠近要检查的标签';
+
+  @override
+  String get tagReportBusy => '正在检查标签...';
+
+  @override
+  String tagReportDone(String chip) {
+    return '报告已生成：$chip';
+  }
+
+  @override
+  String get unknownChip => '未知芯片';
+
+  @override
+  String get yes => '是';
+
+  @override
+  String get reportChip => '芯片';
+
+  @override
+  String get reportNdefFormatted => '已格式化为 NDEF';
+
+  @override
+  String get reportWritable => '可写入';
+
+  @override
+  String get reportStaticLock => '静态锁';
+
+  @override
+  String get reportDynamicLock => '动态锁';
+
+  @override
+  String get reportPassword => '密码保护';
+
+  @override
+  String get reportReadProtected => '读取受保护';
+
+  @override
+  String get reportNdefUsage => 'NDEF 占用';
+
+  @override
+  String get reportVerdictWritable => '标签可写入';
+
+  @override
+  String get reportVerdictRestricted => '标签有限制';
+
+  @override
+  String get reportCopied => '报告已复制';
 }

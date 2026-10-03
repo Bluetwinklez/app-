@@ -22,6 +22,9 @@ class NtagChip {
   final int cfg0Page;
   final int ccSizeByte;
 
+  /// Page holding the dynamic lock bytes, or null when the chip has none.
+  final int? dynamicLockPage;
+
   const NtagChip({
     required this.name,
     required this.totalPages,
@@ -29,6 +32,7 @@ class NtagChip {
     required this.userEndPage,
     required this.cfg0Page,
     required this.ccSizeByte,
+    this.dynamicLockPage,
   });
 
   int get cfg1Page => cfg0Page + 1;
@@ -37,11 +41,11 @@ class NtagChip {
   int get userBytes => (userEndPage - userStartPage + 1) * 4;
 
   static const ntag213 = NtagChip(
-      name: 'NTAG213', totalPages: 45, userStartPage: 4, userEndPage: 39, cfg0Page: 41, ccSizeByte: 0x12);
+      name: 'NTAG213', totalPages: 45, userStartPage: 4, userEndPage: 39, cfg0Page: 41, ccSizeByte: 0x12, dynamicLockPage: 40);
   static const ntag215 = NtagChip(
-      name: 'NTAG215', totalPages: 135, userStartPage: 4, userEndPage: 129, cfg0Page: 131, ccSizeByte: 0x3E);
+      name: 'NTAG215', totalPages: 135, userStartPage: 4, userEndPage: 129, cfg0Page: 131, ccSizeByte: 0x3E, dynamicLockPage: 130);
   static const ntag216 = NtagChip(
-      name: 'NTAG216', totalPages: 231, userStartPage: 4, userEndPage: 225, cfg0Page: 227, ccSizeByte: 0x6D);
+      name: 'NTAG216', totalPages: 231, userStartPage: 4, userEndPage: 225, cfg0Page: 227, ccSizeByte: 0x6D, dynamicLockPage: 226);
   static const ultralightEv1Small = NtagChip(
       name: 'MIFARE Ultralight EV1 (48 B)',
       totalPages: 20,
@@ -55,7 +59,8 @@ class NtagChip {
       userStartPage: 4,
       userEndPage: 35,
       cfg0Page: 37,
-      ccSizeByte: 0x10);
+      ccSizeByte: 0x10,
+      dynamicLockPage: 36);
 
   /// Identifies the chip from an 8-byte GET_VERSION response.
   static NtagChip? fromVersion(Uint8List? version) {
@@ -94,6 +99,45 @@ class NtagChip {
     if (page == packPage) return 'PACK';
     return L10n.current.pageLock;
   }
+}
+
+/// Summary of a tag's protection and NDEF state from one raw session.
+class TagHealth {
+  final NtagChip? chip;
+  final String uidHex;
+
+  /// Capability container says NDEF (0xE1 magic).
+  final bool ndefFormatted;
+
+  /// CC access byte allows writing (0x00).
+  final bool ccWritable;
+  final bool staticLockBitsSet;
+
+  /// Null when the chip has no dynamic lock bytes or they could not be read.
+  final bool? dynamicLockBitsSet;
+
+  /// Null when the configuration pages could not be read.
+  final bool? passwordProtected;
+  final bool? readProtected;
+  final int? ndefMessageLength;
+
+  const TagHealth({
+    required this.chip,
+    required this.uidHex,
+    required this.ndefFormatted,
+    required this.ccWritable,
+    required this.staticLockBitsSet,
+    this.dynamicLockBitsSet,
+    this.passwordProtected,
+    this.readProtected,
+    this.ndefMessageLength,
+  });
+
+  /// Writable for normal NDEF writes (no CC, static or dynamic locks, no password).
+  bool get writable =>
+      ccWritable && !staticLockBitsSet && dynamicLockBitsSet != true && passwordProtected != true;
+
+  int? get userCapacity => chip?.userBytes;
 }
 
 class NtagMemoryDump {
@@ -189,6 +233,62 @@ class NtagTools {
       }
     }
     return NtagMemoryDump(chip: chip, bytes: builder.toBytes(), warning: warning);
+  }
+
+  /// Reads UID, lock bytes, capability container, configuration and the NDEF
+  /// TLV header in one session.
+  static Future<TagHealth> healthReport(RawTransceive transceive) async {
+    final chip = NtagChip.fromVersion(await getVersion(transceive));
+    final head = await readPages(transceive, 0); // pages 0-3
+    final uid = [...head.sublist(0, 3), ...head.sublist(4, 8)];
+    final cc = head.sublist(12, 16);
+
+    bool? dynamicLocked;
+    bool? passwordProtected;
+    bool? readProtected;
+    int? ndefLength;
+
+    if (chip != null) {
+      final dynPage = chip.dynamicLockPage;
+      if (dynPage != null) {
+        try {
+          final dyn = await readPages(transceive, dynPage);
+          dynamicLocked = dyn[0] != 0 || dyn[1] != 0 || dyn[2] != 0;
+        } on NtagException {
+          dynamicLocked = null;
+        }
+      }
+      try {
+        final cfg = await readPages(transceive, chip.cfg0Page);
+        final auth0 = cfg[3];
+        passwordProtected = auth0 <= chip.cfg0Page + 3;
+        readProtected = passwordProtected && (cfg[4] & 0x80) != 0;
+      } on NtagException {
+        passwordProtected = true;
+        readProtected = true;
+      }
+    }
+
+    try {
+      final first = await readPages(transceive, chip?.userStartPage ?? 4);
+      if (first[0] == 0x03) {
+        ndefLength = first[1] == 0xFF ? (first[2] << 8) | first[3] : first[1];
+      }
+    } on NtagException {
+      ndefLength = null;
+    }
+
+    return TagHealth(
+      chip: chip,
+      uidHex: toHex(uid).replaceAll(' ', ':'),
+      ndefFormatted: cc[0] == 0xE1,
+      ccWritable: (cc[3] & 0x0F) == 0x00,
+      staticLockBitsSet: head[10] != 0 || head[11] != 0,
+      dynamicLockBitsSet: dynamicLocked,
+      passwordProtected: passwordProtected,
+      readProtected: readProtected,
+      ndefMessageLength: ndefLength,
+    );
   }
 
   /// Protects the user memory against writes with a 4-byte password.
