@@ -2884,4 +2884,98 @@ class AppLocalizationsTr extends AppLocalizations {
 
   @override
   String get notSupportedValue => 'Desteklenmiyor';
+
+  @override
+  String get nfcUnsupportedDesc => 'Bu cihazda NFC desteklenmiyor';
+
+  @override
+  String get ndefTrailingData => 'NDEF sonunda fazladan veri var';
+
+  @override
+  String get ndefMissingEnd => 'NDEF mesaj sonu eksik';
+
+  @override
+  String vcardPhoneShort(String value) {
+    return 'Tel: $value';
+  }
+
+  @override
+  String vcardEmailShort(String value) {
+    return 'E-posta: $value';
+  }
+
+  @override
+  String vcardOrgShort(String value) {
+    return 'Kurum: $value';
+  }
+
+  @override
+  String get pageUidLock => 'UID / Kilit';
+
+  @override
+  String get pageData => 'Veri';
+
+  @override
+  String get pageLock => 'Kilit';
+
+  @override
+  String memoryPageLine(String page) {
+    return 'Sayfa $page';
+  }
+
+  @override
+  String get socialWhatsappPhone => 'WhatsApp (telefon)';
+
+  @override
+  String get mapApple => 'Apple Haritalar';
+
+  @override
+  String get mapGoogle => 'Google Haritalar';
+
+  @override
+  String get whatsappMessageHint => 'Merhaba, bilgi almak istiyorum';
+
+  @override
+  String get facetimeTargetHint => '+905551112233 veya ad@icloud.com';
+
+  @override
+  String get bluetoothMacLabel => 'Bluetooth MAC adresi';
+
+  @override
+  String get webAddressUrlLabel => 'Web adresi (URL)';
+
+  @override
+  String get latitudeLabel => 'Enlem (Lat)';
+
+  @override
+  String get longitudeLabel => 'Boylam (Lng)';
+
+  @override
+  String get emailAddressLabel => 'E-posta adresi';
+
+  @override
+  String get websiteLabel => 'Web sitesi';
+
+  @override
+  String get wifiAuthWpa2Home => 'WPA2 Personal (ev/ofis standardı)';
+
+  @override
+  String get wifiAuthMixed => 'WPA/WPA2 Personal (karma)';
+
+  @override
+  String get hostLabel => 'Sunucu / Host:';
+
+  @override
+  String get readOnlyLocked => 'Salt okunur (kilitli)';
+
+  @override
+  String get redoTooltip => 'Yinele';
+
+  @override
+  String historyFoundCount(String found, String total) {
+    return 'Bulunan: $found / $total';
+  }
+
+  @override
+  String get addToWriteListShort => 'Yazma listesine aktar';
 }

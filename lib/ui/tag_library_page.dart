@@ -214,7 +214,7 @@ class _TagLibraryPageState extends State<TagLibraryPage> {
     final loc = AppLocalizations.of(context) ?? L10n.current;
     final entries = _visible;
     return DecoratedBox(
-      decoration: const BoxDecoration(gradient: AppColors.canvasGradient),
+      decoration: BoxDecoration(gradient: AppColors.canvasGradient),
       child: Scaffold(
         backgroundColor: Colors.transparent,
         appBar: AppBar(title: Text(loc.tagLibraryTitle)),
@@ -268,14 +268,14 @@ class _TagLibraryPageState extends State<TagLibraryPage> {
                 padding: const EdgeInsets.symmetric(vertical: 48),
                 child: Column(
                   children: [
-                    const Icon(Icons.collections_bookmark_outlined, size: 48, color: AppColors.secondary),
+                    Icon(Icons.collections_bookmark_outlined, size: 48, color: AppColors.secondary),
                     const SizedBox(height: 12),
                     Text(
                       widget.storage.getLibrary().isEmpty
                           ? loc.tagLibraryEmpty
                           : loc.tagLibraryNoMatch,
                       textAlign: TextAlign.center,
-                      style: const TextStyle(color: AppColors.secondary, height: 1.4),
+                      style: TextStyle(color: AppColors.secondary, height: 1.4),
                     ),
                   ],
                 ),
@@ -355,20 +355,20 @@ class _EntryCard extends StatelessWidget {
                     tagCategoryLabel(entry.category, loc),
                     if (entry.locationNote.isNotEmpty) entry.locationNote,
                   ].join(' · '),
-                  style: const TextStyle(fontSize: 12.5, color: AppColors.secondary),
+                  style: TextStyle(fontSize: 12.5, color: AppColors.secondary),
                 ),
                 const SizedBox(height: 2),
                 Text(
                   summary,
                   maxLines: 1,
                   overflow: TextOverflow.ellipsis,
-                  style: const TextStyle(fontSize: 12.5, color: AppColors.secondary),
+                  style: TextStyle(fontSize: 12.5, color: AppColors.secondary),
                 ),
               ],
             ),
           ),
           PopupMenuButton<String>(
-            icon: const Icon(Icons.more_vert_rounded, color: AppColors.secondary),
+            icon: Icon(Icons.more_vert_rounded, color: AppColors.secondary),
             onSelected: (v) {
               if (v == 'use') onUse?.call();
               if (v == 'delete') onDelete();
@@ -537,15 +537,15 @@ class _EntryEditorState extends State<_EntryEditor> {
                       '${NdefCodec.parseRecord(widget.entry.records.first).content}',
               maxLines: 2,
               overflow: TextOverflow.ellipsis,
-              style: const TextStyle(color: AppColors.secondary, fontSize: 13),
+              style: TextStyle(color: AppColors.secondary, fontSize: 13),
             ),
             if (widget.entry.uid != null && widget.entry.uid!.isNotEmpty)
               Text('UID: ${widget.entry.uid}',
-                  style: const TextStyle(color: AppColors.secondary, fontSize: 13)),
+                  style: TextStyle(color: AppColors.secondary, fontSize: 13)),
             if (_error != null)
               Padding(
                 padding: const EdgeInsets.only(top: 10),
-                child: Text(_error!, style: const TextStyle(color: AppColors.danger)),
+                child: Text(_error!, style: TextStyle(color: AppColors.danger)),
               ),
             const SizedBox(height: 16),
             ElevatedButton(onPressed: _save, child: Text(loc.save)),

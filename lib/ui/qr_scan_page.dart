@@ -98,7 +98,7 @@ class _QrScanPageState extends State<QrScanPage> {
               child: Text(
                 loc.qrFrameInstructions,
                 textAlign: TextAlign.center,
-                style: const TextStyle(color: AppColors.ink),
+                style: TextStyle(color: AppColors.ink),
               ),
             ),
           ),

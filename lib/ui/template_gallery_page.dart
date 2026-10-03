@@ -55,7 +55,7 @@ class TemplateGalleryPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return DecoratedBox(
-      decoration: const BoxDecoration(gradient: AppColors.canvasGradient),
+      decoration: BoxDecoration(gradient: AppColors.canvasGradient),
       child: Scaffold(
         backgroundColor: Colors.transparent,
         appBar: AppBar(title: Text(AppLocalizations.of(context)!.readyTemplates)),
@@ -130,7 +130,7 @@ class _PresetCard extends StatelessWidget {
               preset.description,
               maxLines: 3,
               overflow: TextOverflow.ellipsis,
-              style: const TextStyle(fontSize: 12.5, color: AppColors.secondary, height: 1.3),
+              style: TextStyle(fontSize: 12.5, color: AppColors.secondary, height: 1.3),
             ),
           ),
         ],
@@ -205,7 +205,7 @@ class _PresetFormState extends State<_PresetForm> {
               ],
             ),
             const SizedBox(height: 6),
-            Text(preset.description, style: const TextStyle(color: AppColors.secondary)),
+            Text(preset.description, style: TextStyle(color: AppColors.secondary)),
             const SizedBox(height: 16),
             for (final field in preset.fields) ...[
               TextField(
@@ -227,7 +227,7 @@ class _PresetFormState extends State<_PresetForm> {
             if (_error != null)
               Padding(
                 padding: const EdgeInsets.only(bottom: 12),
-                child: Text(_error!, style: const TextStyle(color: AppColors.danger)),
+                child: Text(_error!, style: TextStyle(color: AppColors.danger)),
               ),
             ElevatedButton.icon(
               onPressed: _submit,

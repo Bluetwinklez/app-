@@ -19,7 +19,8 @@ final _turkishLetters = RegExp('[çğıöşüÇĞİÖŞÜ]');
 final _turkishWords = RegExp(
   r'\b(Etiket|etiket|Etiketi|Kayıt|kayıt|Kaydet|Sil|Tamam|Hata|Ekle|Kapat|Vazgeç|Yaz|Oku|Okunuyor|Tara|Bilinmiyor|Lütfen|bir|ve|ile|için|'
   r'Toplam|Kapasite|Bayt|bayt|Ham|bellek|Boyut|Seri|Evet|Hayır|Kimlik|Teknolojiler|Var|Yok|Dil|Kaynak|Hedef|Panoya|Kopyala|'
-  r'Temizle|Geri|Besteyi|Mesaj|Yer|Konum|Metin|Kural|Hazır|Not|Mevcut|Riskli)\b',
+  r'Temizle|Geri|Besteyi|Mesaj|Yer|Konum|Metin|Kural|Hazır|Not|Mevcut|Riskli|veya|adresi|Adresi|Sitesi|Enlem|Boylam|Sunucu|'
+  r'Salt|Okunur|Yinele|Bulunan|Aktar|Haritalar|telefon|Kilit|Veri|Sayfa|Kurum|sonunda|eksik|Destekleniyor|cihazda)\b',
 );
 
 /// Returns `path:line: 'literal'` for every string literal that still looks Turkish.

@@ -2904,4 +2904,99 @@ class AppLocalizationsFr extends AppLocalizations {
 
   @override
   String get notSupportedValue => 'Non pris en charge';
+
+  @override
+  String get nfcUnsupportedDesc =>
+      'Le NFC n\'est pas pris en charge sur cet appareil';
+
+  @override
+  String get ndefTrailingData => 'Données en trop après le message NDEF';
+
+  @override
+  String get ndefMissingEnd => 'Fin du message NDEF manquante';
+
+  @override
+  String vcardPhoneShort(String value) {
+    return 'Tél. : $value';
+  }
+
+  @override
+  String vcardEmailShort(String value) {
+    return 'E-mail : $value';
+  }
+
+  @override
+  String vcardOrgShort(String value) {
+    return 'Société : $value';
+  }
+
+  @override
+  String get pageUidLock => 'UID / Verrou';
+
+  @override
+  String get pageData => 'Données';
+
+  @override
+  String get pageLock => 'Verrou';
+
+  @override
+  String memoryPageLine(String page) {
+    return 'Page $page';
+  }
+
+  @override
+  String get socialWhatsappPhone => 'WhatsApp (téléphone)';
+
+  @override
+  String get mapApple => 'Plans d\'Apple';
+
+  @override
+  String get mapGoogle => 'Google Maps';
+
+  @override
+  String get whatsappMessageHint => 'Bonjour, je voudrais des informations';
+
+  @override
+  String get facetimeTargetHint => '+33612345678 ou nom@icloud.com';
+
+  @override
+  String get bluetoothMacLabel => 'Adresse MAC Bluetooth';
+
+  @override
+  String get webAddressUrlLabel => 'Adresse web (URL)';
+
+  @override
+  String get latitudeLabel => 'Latitude (Lat)';
+
+  @override
+  String get longitudeLabel => 'Longitude (Lng)';
+
+  @override
+  String get emailAddressLabel => 'Adresse e-mail';
+
+  @override
+  String get websiteLabel => 'Site web';
+
+  @override
+  String get wifiAuthWpa2Home => 'WPA2 Personnel (standard maison/bureau)';
+
+  @override
+  String get wifiAuthMixed => 'WPA/WPA2 Personnel (mixte)';
+
+  @override
+  String get hostLabel => 'Hôte :';
+
+  @override
+  String get readOnlyLocked => 'Lecture seule (verrouillé)';
+
+  @override
+  String get redoTooltip => 'Rétablir';
+
+  @override
+  String historyFoundCount(String found, String total) {
+    return 'Trouvés : $found / $total';
+  }
+
+  @override
+  String get addToWriteListShort => 'Ajouter à la liste';
 }

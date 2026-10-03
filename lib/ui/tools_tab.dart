@@ -89,7 +89,7 @@ class ToolsTab extends StatelessWidget {
           padding: const EdgeInsets.fromLTRB(4, 8, 4, 0),
           child: Text(
             loc.toolsFooterNote,
-            style: const TextStyle(fontSize: 12, color: AppColors.secondary, height: 1.4),
+            style: TextStyle(fontSize: 12, color: AppColors.secondary, height: 1.4),
           ),
         ),
       ],
@@ -289,7 +289,7 @@ class _PasswordDialogState extends State<_PasswordDialog> {
         mainAxisSize: MainAxisSize.min,
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          Text(widget.warning, style: const TextStyle(color: AppColors.secondary)),
+          Text(widget.warning, style: TextStyle(color: AppColors.secondary)),
           const SizedBox(height: 14),
           TextField(
             controller: _controller,
@@ -345,12 +345,12 @@ class _MemoryViewer extends StatelessWidget {
                   const SizedBox(height: 4),
                   Text(
                     loc.pagesAndBytes(dump.pageCount, dump.bytes.length),
-                    style: const TextStyle(color: AppColors.secondary),
+                    style: TextStyle(color: AppColors.secondary),
                   ),
                   if (dump.warning != null)
                     Padding(
                       padding: const EdgeInsets.only(top: 6),
-                      child: Text(dump.warning!, style: const TextStyle(color: AppColors.warning)),
+                      child: Text(dump.warning!, style: TextStyle(color: AppColors.warning)),
                     ),
                 ],
               ),
@@ -486,7 +486,7 @@ class _AdvancedCommandsSheetState extends State<_AdvancedCommandsSheet> {
             const SizedBox(height: 6),
             Text(
               loc.advancedCommandsDesc,
-              style: const TextStyle(color: AppColors.secondary, height: 1.4),
+              style: TextStyle(color: AppColors.secondary, height: 1.4),
             ),
             const SizedBox(height: 14),
             TextField(

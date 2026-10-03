@@ -4971,6 +4971,174 @@ abstract class AppLocalizations {
   /// In tr, this message translates to:
   /// **'Desteklenmiyor'**
   String get notSupportedValue;
+
+  /// No description provided for @nfcUnsupportedDesc.
+  ///
+  /// In tr, this message translates to:
+  /// **'Bu cihazda NFC desteklenmiyor'**
+  String get nfcUnsupportedDesc;
+
+  /// No description provided for @ndefTrailingData.
+  ///
+  /// In tr, this message translates to:
+  /// **'NDEF sonunda fazladan veri var'**
+  String get ndefTrailingData;
+
+  /// No description provided for @ndefMissingEnd.
+  ///
+  /// In tr, this message translates to:
+  /// **'NDEF mesaj sonu eksik'**
+  String get ndefMissingEnd;
+
+  /// No description provided for @vcardPhoneShort.
+  ///
+  /// In tr, this message translates to:
+  /// **'Tel: {value}'**
+  String vcardPhoneShort(String value);
+
+  /// No description provided for @vcardEmailShort.
+  ///
+  /// In tr, this message translates to:
+  /// **'E-posta: {value}'**
+  String vcardEmailShort(String value);
+
+  /// No description provided for @vcardOrgShort.
+  ///
+  /// In tr, this message translates to:
+  /// **'Kurum: {value}'**
+  String vcardOrgShort(String value);
+
+  /// No description provided for @pageUidLock.
+  ///
+  /// In tr, this message translates to:
+  /// **'UID / Kilit'**
+  String get pageUidLock;
+
+  /// No description provided for @pageData.
+  ///
+  /// In tr, this message translates to:
+  /// **'Veri'**
+  String get pageData;
+
+  /// No description provided for @pageLock.
+  ///
+  /// In tr, this message translates to:
+  /// **'Kilit'**
+  String get pageLock;
+
+  /// No description provided for @memoryPageLine.
+  ///
+  /// In tr, this message translates to:
+  /// **'Sayfa {page}'**
+  String memoryPageLine(String page);
+
+  /// No description provided for @socialWhatsappPhone.
+  ///
+  /// In tr, this message translates to:
+  /// **'WhatsApp (telefon)'**
+  String get socialWhatsappPhone;
+
+  /// No description provided for @mapApple.
+  ///
+  /// In tr, this message translates to:
+  /// **'Apple Haritalar'**
+  String get mapApple;
+
+  /// No description provided for @mapGoogle.
+  ///
+  /// In tr, this message translates to:
+  /// **'Google Haritalar'**
+  String get mapGoogle;
+
+  /// No description provided for @whatsappMessageHint.
+  ///
+  /// In tr, this message translates to:
+  /// **'Merhaba, bilgi almak istiyorum'**
+  String get whatsappMessageHint;
+
+  /// No description provided for @facetimeTargetHint.
+  ///
+  /// In tr, this message translates to:
+  /// **'+905551112233 veya ad@icloud.com'**
+  String get facetimeTargetHint;
+
+  /// No description provided for @bluetoothMacLabel.
+  ///
+  /// In tr, this message translates to:
+  /// **'Bluetooth MAC adresi'**
+  String get bluetoothMacLabel;
+
+  /// No description provided for @webAddressUrlLabel.
+  ///
+  /// In tr, this message translates to:
+  /// **'Web adresi (URL)'**
+  String get webAddressUrlLabel;
+
+  /// No description provided for @latitudeLabel.
+  ///
+  /// In tr, this message translates to:
+  /// **'Enlem (Lat)'**
+  String get latitudeLabel;
+
+  /// No description provided for @longitudeLabel.
+  ///
+  /// In tr, this message translates to:
+  /// **'Boylam (Lng)'**
+  String get longitudeLabel;
+
+  /// No description provided for @emailAddressLabel.
+  ///
+  /// In tr, this message translates to:
+  /// **'E-posta adresi'**
+  String get emailAddressLabel;
+
+  /// No description provided for @websiteLabel.
+  ///
+  /// In tr, this message translates to:
+  /// **'Web sitesi'**
+  String get websiteLabel;
+
+  /// No description provided for @wifiAuthWpa2Home.
+  ///
+  /// In tr, this message translates to:
+  /// **'WPA2 Personal (ev/ofis standardı)'**
+  String get wifiAuthWpa2Home;
+
+  /// No description provided for @wifiAuthMixed.
+  ///
+  /// In tr, this message translates to:
+  /// **'WPA/WPA2 Personal (karma)'**
+  String get wifiAuthMixed;
+
+  /// No description provided for @hostLabel.
+  ///
+  /// In tr, this message translates to:
+  /// **'Sunucu / Host:'**
+  String get hostLabel;
+
+  /// No description provided for @readOnlyLocked.
+  ///
+  /// In tr, this message translates to:
+  /// **'Salt okunur (kilitli)'**
+  String get readOnlyLocked;
+
+  /// No description provided for @redoTooltip.
+  ///
+  /// In tr, this message translates to:
+  /// **'Yinele'**
+  String get redoTooltip;
+
+  /// No description provided for @historyFoundCount.
+  ///
+  /// In tr, this message translates to:
+  /// **'Bulunan: {found} / {total}'**
+  String historyFoundCount(String found, String total);
+
+  /// No description provided for @addToWriteListShort.
+  ///
+  /// In tr, this message translates to:
+  /// **'Yazma listesine aktar'**
+  String get addToWriteListShort;
 }
 
 class _AppLocalizationsDelegate
