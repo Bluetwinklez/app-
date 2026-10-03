@@ -3015,4 +3015,25 @@ class AppLocalizationsFr extends AppLocalizations {
 
   @override
   String get soundsToggleSubtitle => 'Jouer un court son système';
+
+  @override
+  String get backupLibraryMustBeList => 'La bibliothèque doit être une liste.';
+
+  @override
+  String get backupInvalidLibraryEntry => 'Entrée de bibliothèque invalide.';
+
+  @override
+  String backupMaxLibraryExceeded(String max) {
+    return 'La bibliothèque peut contenir au plus $max entrées.';
+  }
+
+  @override
+  String backupSummaryLibrary(String added) {
+    return 'Bibliothèque : $added ajoutés';
+  }
+
+  @override
+  String backupLibraryCount(String count) {
+    return '• Bibliothèque : $count (sans photos)';
+  }
 }

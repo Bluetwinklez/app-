@@ -2979,4 +2979,25 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get soundsToggleSubtitle => 'Play a short system sound on the result';
+
+  @override
+  String get backupLibraryMustBeList => 'The tag library must be a list.';
+
+  @override
+  String get backupInvalidLibraryEntry => 'Invalid tag library entry.';
+
+  @override
+  String backupMaxLibraryExceeded(String max) {
+    return 'The tag library can contain at most $max entries.';
+  }
+
+  @override
+  String backupSummaryLibrary(String added) {
+    return 'Library: $added added';
+  }
+
+  @override
+  String backupLibraryCount(String count) {
+    return '• Tag library: $count (without photos)';
+  }
 }

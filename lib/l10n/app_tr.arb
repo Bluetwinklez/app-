@@ -1998,5 +1998,31 @@
   "hapticsToggle": "Titreşim",
   "hapticsToggleSubtitle": "Okuma ve yazma bitince hafif titreşim",
   "soundsToggle": "Ses",
-  "soundsToggleSubtitle": "Sonuçta kısa bir sistem sesi çal"
+  "soundsToggleSubtitle": "Sonuçta kısa bir sistem sesi çal",
+  "backupLibraryMustBeList": "Etiket kütüphanesi bir liste olmalıdır.",
+  "backupInvalidLibraryEntry": "Geçersiz etiket kütüphanesi kaydı.",
+  "backupMaxLibraryExceeded": "Etiket kütüphanesi en fazla {max} kayıt içerebilir.",
+  "@backupMaxLibraryExceeded": {
+    "placeholders": {
+      "max": {
+        "type": "String"
+      }
+    }
+  },
+  "backupSummaryLibrary": "Kütüphane: {added} eklendi",
+  "@backupSummaryLibrary": {
+    "placeholders": {
+      "added": {
+        "type": "String"
+      }
+    }
+  },
+  "backupLibraryCount": "• Etiket kütüphanesi: {count} (fotoğraflar hariç)",
+  "@backupLibraryCount": {
+    "placeholders": {
+      "count": {
+        "type": "String"
+      }
+    }
+  }
 }

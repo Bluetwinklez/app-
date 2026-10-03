@@ -840,5 +840,10 @@
   "hapticsToggle": "触覚フィードバック",
   "hapticsToggleSubtitle": "読み取り・書き込み完了時に短く振動",
   "soundsToggle": "サウンド",
-  "soundsToggleSubtitle": "結果時に短いシステム音を鳴らす"
+  "soundsToggleSubtitle": "結果時に短いシステム音を鳴らす",
+  "backupLibraryMustBeList": "タグライブラリはリストである必要があります。",
+  "backupInvalidLibraryEntry": "無効なライブラリ項目です。",
+  "backupMaxLibraryExceeded": "ライブラリは最大{max}件です。",
+  "backupSummaryLibrary": "ライブラリ: {added}件追加",
+  "backupLibraryCount": "• タグライブラリ: {count} (写真を除く)"
 }

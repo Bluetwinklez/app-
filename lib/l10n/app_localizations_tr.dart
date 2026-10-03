@@ -2993,4 +2993,26 @@ class AppLocalizationsTr extends AppLocalizations {
 
   @override
   String get soundsToggleSubtitle => 'Sonuçta kısa bir sistem sesi çal';
+
+  @override
+  String get backupLibraryMustBeList =>
+      'Etiket kütüphanesi bir liste olmalıdır.';
+
+  @override
+  String get backupInvalidLibraryEntry => 'Geçersiz etiket kütüphanesi kaydı.';
+
+  @override
+  String backupMaxLibraryExceeded(String max) {
+    return 'Etiket kütüphanesi en fazla $max kayıt içerebilir.';
+  }
+
+  @override
+  String backupSummaryLibrary(String added) {
+    return 'Kütüphane: $added eklendi';
+  }
+
+  @override
+  String backupLibraryCount(String count) {
+    return '• Etiket kütüphanesi: $count (fotoğraflar hariç)';
+  }
 }

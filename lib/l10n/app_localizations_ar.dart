@@ -2958,4 +2958,25 @@ class AppLocalizationsAr extends AppLocalizations {
 
   @override
   String get soundsToggleSubtitle => 'تشغيل صوت نظام قصير عند النتيجة';
+
+  @override
+  String get backupLibraryMustBeList => 'يجب أن تكون مكتبة الوسوم قائمة.';
+
+  @override
+  String get backupInvalidLibraryEntry => 'إدخال مكتبة غير صالح.';
+
+  @override
+  String backupMaxLibraryExceeded(String max) {
+    return 'يمكن أن تحتوي المكتبة على $max إدخال كحد أقصى.';
+  }
+
+  @override
+  String backupSummaryLibrary(String added) {
+    return 'المكتبة: أضيف $added';
+  }
+
+  @override
+  String backupLibraryCount(String count) {
+    return '• المكتبة: $count (بدون صور)';
+  }
 }
