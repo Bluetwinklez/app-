@@ -31,7 +31,11 @@ jobs:
           echo "$RUNNER_TEMP/flutter/bin" >> "$GITHUB_PATH"
 
       - name: Install dependencies
-        run: flutter pub get
+        run: |
+          flutter pub get
+          flutter precache --ios
+          cd ios
+          pod install
 
       - name: Build for the iOS simulator
         run: flutter build ios --simulator --debug --no-codesign
