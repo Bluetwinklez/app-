@@ -87,6 +87,14 @@ extension _SettingsTab on _HomeScreenState {
                   L10n.current.writeTemplatesSubtitle,
                   style: TextStyle(fontSize: 12, color: AppColors.secondary),
                 ),
+                Align(
+                  alignment: AlignmentDirectional.centerStart,
+                  child: TextButton.icon(
+                    onPressed: _importTemplatesCsv,
+                    icon: const Icon(Icons.table_view_outlined, size: 18),
+                    label: Text(L10n.current.templateImportTitle),
+                  ),
+                ),
                 const Divider(),
                 if (templates.isEmpty)
                   Padding(
@@ -250,6 +258,73 @@ extension _SettingsTab on _HomeScreenState {
         ),
       ],
     );
+  }
+
+  Future<void> _importTemplatesCsv() async {
+    final loc = L10n.current;
+    final text = TextEditingController();
+    final result = await showDialog<TemplateImportResult>(
+      context: context,
+      builder: (ctx) => StatefulBuilder(builder: (ctx, setDlg) {
+        final r = TemplateCsvImporter.parse(text.text);
+        return AlertDialog(
+          title: Text(loc.templateImportTitle),
+          content: SingleChildScrollView(
+            child: Column(
+              mainAxisSize: MainAxisSize.min,
+              crossAxisAlignment: CrossAxisAlignment.stretch,
+              children: [
+                Text(loc.templateImportHint, style: TextStyle(fontSize: 13, color: AppColors.secondary, height: 1.35)),
+                const SizedBox(height: 10),
+                TextField(
+                  controller: text,
+                  minLines: 4,
+                  maxLines: 8,
+                  style: const TextStyle(fontFamily: 'monospace', fontSize: 12.5),
+                  onChanged: (_) => setDlg(() {}),
+                ),
+                Align(
+                  alignment: AlignmentDirectional.centerStart,
+                  child: TextButton.icon(
+                    icon: const Icon(Icons.content_paste_rounded, size: 18),
+                    label: Text(loc.libraryImportPaste),
+                    onPressed: () async {
+                      final data = await Clipboard.getData(Clipboard.kTextPlain);
+                      if (data?.text != null) setDlg(() => text.text = data!.text!);
+                    },
+                  ),
+                ),
+                if (text.text.trim().isNotEmpty) ...[
+                  Text(loc.templateImportPreview('${r.templates.length}'),
+                      style: TextStyle(fontWeight: FontWeight.w600, color: AppColors.accent)),
+                  if (r.errors.isNotEmpty)
+                    Text(loc.templateImportSkipped(r.errors.join(', ')),
+                        style: TextStyle(fontSize: 12.5, color: AppColors.warning)),
+                ],
+              ],
+            ),
+          ),
+          actions: [
+            TextButton(onPressed: () => Navigator.of(ctx).pop(), child: Text(loc.cancel)),
+            ElevatedButton(
+              onPressed: r.templates.isEmpty ? null : () => Navigator.of(ctx).pop(r),
+              child: Text(loc.libraryImportAdd),
+            ),
+          ],
+        );
+      }),
+    );
+    text.dispose();
+    if (result == null) return;
+    for (final t in result.templates) {
+      await _controller.storage.saveTemplate(t);
+    }
+    if (!mounted) return;
+    _refresh(() {});
+    ScaffoldMessenger.of(context).showSnackBar(SnackBar(
+      content: Text(loc.templateImportDone('${result.templates.length}')),
+      backgroundColor: AppColors.success,
+    ));
   }
 
   Future<void> _pickLanguage(List<(String, String)> languages, String? current) async {

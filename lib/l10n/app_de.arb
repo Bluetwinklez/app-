@@ -1379,5 +1379,10 @@
   "cardEmail": "E-Mail",
   "cardWeb": "Website",
   "cardAddContact": "Zu Kontakten",
-  "cardTitle": "Digitale Visitenkarte"
+  "cardTitle": "Digitale Visitenkarte",
+  "templateImportTitle": "Vorlagen aus Tabelle importieren",
+  "templateImportHint": "Jede Zeile: Name, Typ, Wert, Extra. Typen: url, text, phone, email, sms, location, wifi. Gleichnamige Zeilen ergeben eine Vorlage.",
+  "templateImportPreview": "{count} Vorlagen werden hinzugefügt",
+  "templateImportSkipped": "Übersprungene Zeilen: {rows}",
+  "templateImportDone": "{count} Vorlagen hinzugefügt"
 }

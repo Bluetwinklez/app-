@@ -4920,4 +4920,26 @@ class AppLocalizationsNl extends AppLocalizations {
 
   @override
   String get cardTitle => 'Digitaal visitekaartje';
+
+  @override
+  String get templateImportTitle => 'Sjablonen importeren uit spreadsheet';
+
+  @override
+  String get templateImportHint =>
+      'Elke rij: naam, type, waarde, extra. Types: url, text, phone, email, sms, location, wifi. Rijen met dezelfde naam worden één sjabloon.';
+
+  @override
+  String templateImportPreview(String count) {
+    return '$count sjablonen worden toegevoegd';
+  }
+
+  @override
+  String templateImportSkipped(String rows) {
+    return 'Overgeslagen rijen: $rows';
+  }
+
+  @override
+  String templateImportDone(String count) {
+    return '$count sjablonen toegevoegd';
+  }
 }

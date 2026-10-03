@@ -4919,4 +4919,26 @@ class AppLocalizationsUk extends AppLocalizations {
 
   @override
   String get cardTitle => 'Цифрова візитка';
+
+  @override
+  String get templateImportTitle => 'Імпорт шаблонів із таблиці';
+
+  @override
+  String get templateImportHint =>
+      'Кожен рядок: назва, тип, значення, дод. Типи: url, text, phone, email, sms, location, wifi. Рядки з однаковою назвою об\'єднуються.';
+
+  @override
+  String templateImportPreview(String count) {
+    return 'Буде додано шаблонів: $count';
+  }
+
+  @override
+  String templateImportSkipped(String rows) {
+    return 'Пропущено рядки: $rows';
+  }
+
+  @override
+  String templateImportDone(String count) {
+    return 'Додано шаблонів: $count';
+  }
 }

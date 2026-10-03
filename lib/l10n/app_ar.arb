@@ -1379,5 +1379,10 @@
   "cardEmail": "بريد",
   "cardWeb": "الموقع",
   "cardAddContact": "إضافة إلى جهات الاتصال",
-  "cardTitle": "بطاقة عمل رقمية"
+  "cardTitle": "بطاقة عمل رقمية",
+  "templateImportTitle": "استيراد القوالب من جدول",
+  "templateImportHint": "كل صف: الاسم، النوع، القيمة، إضافي. الأنواع: url وtext وphone وemail وsms وlocation وwifi. الصفوف ذات الاسم نفسه تصبح قالبًا واحدًا.",
+  "templateImportPreview": "ستُضاف {count} قوالب",
+  "templateImportSkipped": "صفوف متخطاة: {rows}",
+  "templateImportDone": "أُضيفت {count} قوالب"
 }

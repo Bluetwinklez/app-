@@ -8404,6 +8404,36 @@ abstract class AppLocalizations {
   /// In tr, this message translates to:
   /// **'Dijital kartvizit'**
   String get cardTitle;
+
+  /// No description provided for @templateImportTitle.
+  ///
+  /// In tr, this message translates to:
+  /// **'Şablonları tablodan içe aktar'**
+  String get templateImportTitle;
+
+  /// No description provided for @templateImportHint.
+  ///
+  /// In tr, this message translates to:
+  /// **'Her satır: ad, tür, değer, ek. Türler: url, metin, telefon, eposta, sms, konum, wifi. Aynı adlı satırlar tek şablonda birleşir.'**
+  String get templateImportHint;
+
+  /// No description provided for @templateImportPreview.
+  ///
+  /// In tr, this message translates to:
+  /// **'{count} şablon eklenecek'**
+  String templateImportPreview(String count);
+
+  /// No description provided for @templateImportSkipped.
+  ///
+  /// In tr, this message translates to:
+  /// **'Atlanan satırlar: {rows}'**
+  String templateImportSkipped(String rows);
+
+  /// No description provided for @templateImportDone.
+  ///
+  /// In tr, this message translates to:
+  /// **'{count} şablon eklendi'**
+  String templateImportDone(String count);
 }
 
 class _AppLocalizationsDelegate

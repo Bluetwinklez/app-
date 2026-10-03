@@ -4933,4 +4933,26 @@ class AppLocalizationsDe extends AppLocalizations {
 
   @override
   String get cardTitle => 'Digitale Visitenkarte';
+
+  @override
+  String get templateImportTitle => 'Vorlagen aus Tabelle importieren';
+
+  @override
+  String get templateImportHint =>
+      'Jede Zeile: Name, Typ, Wert, Extra. Typen: url, text, phone, email, sms, location, wifi. Gleichnamige Zeilen ergeben eine Vorlage.';
+
+  @override
+  String templateImportPreview(String count) {
+    return '$count Vorlagen werden hinzugefügt';
+  }
+
+  @override
+  String templateImportSkipped(String rows) {
+    return 'Übersprungene Zeilen: $rows';
+  }
+
+  @override
+  String templateImportDone(String count) {
+    return '$count Vorlagen hinzugefügt';
+  }
 }
