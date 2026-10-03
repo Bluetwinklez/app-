@@ -2074,5 +2074,20 @@
   "compareRecordChanged": "Farklı",
   "compareRecordOnlyFirst": "Sadece A'da",
   "compareRecordOnlySecond": "Sadece B'de",
-  "compareBothEmpty": "İki etiket de boş."
+  "compareBothEmpty": "İki etiket de boş.",
+  "capacityExceededShort": "İçerik çok büyük: {needed} / {max} bayt",
+  "@capacityExceededShort": {
+    "placeholders": {
+      "needed": {
+        "type": "String"
+      },
+      "max": {
+        "type": "String"
+      }
+    }
+  },
+  "verifyFailedAfterWrite": "Yazılan veri doğrulanamadı; etiketi daha uzun süre yakın tutun.",
+  "blankTagTitle": "Etiket henüz hazır değil",
+  "blankTagBody": "Bu etiket yeni ve NDEF için biçimlendirilmemiş. Uygulama etiketi hazırlayıp içeriği tek dokunuşta yazabilir (NTAG ve MIFARE Ultralight).",
+  "blankTagAction": "Hazırla ve yaz"
 }

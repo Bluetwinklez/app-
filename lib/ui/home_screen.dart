@@ -3617,6 +3617,29 @@ class _HomeScreenState extends State<HomeScreen>
     );
   }
 
+  /// Writes the list; if the tag is blank and not yet NDEF formatted, offers
+  /// to prepare it and write in a single tap.
+  Future<void> _writeWithSmartFormat() async {
+    final ok = await _controller.writeRecords(_recordsToWrite);
+    if (ok || !mounted) return;
+    final result = _controller.lastWriteResult;
+    if (result == null || !result.needsFormatting) return;
+    final prepare = await showDialog<bool>(
+      context: context,
+      builder: (ctx) => AlertDialog(
+        title: Text(L10n.current.blankTagTitle),
+        content: Text(L10n.current.blankTagBody),
+        actions: [
+          TextButton(onPressed: () => Navigator.of(ctx).pop(false), child: Text(L10n.current.cancel)),
+          ElevatedButton(onPressed: () => Navigator.of(ctx).pop(true), child: Text(L10n.current.blankTagAction)),
+        ],
+      ),
+    );
+    if (prepare == true && mounted) {
+      await _controller.formatAndWriteRecords(_recordsToWrite);
+    }
+  }
+
   void _confirmAndWriteSingleTag() {
     showDialog(
       context: context,
@@ -3649,7 +3672,7 @@ class _HomeScreenState extends State<HomeScreen>
             style: ElevatedButton.styleFrom(backgroundColor: AppColors.accent),
             onPressed: () {
               Navigator.of(ctx).pop();
-              _controller.writeRecords(_recordsToWrite);
+              _writeWithSmartFormat();
             },
             child:
                 Text(L10n.current.yesWrite, style: const TextStyle(color: Colors.white)),

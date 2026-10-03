@@ -3121,4 +3121,23 @@ class AppLocalizationsNl extends AppLocalizations {
 
   @override
   String get compareBothEmpty => 'Beide tags zijn leeg.';
+
+  @override
+  String capacityExceededShort(String needed, String max) {
+    return 'Inhoud te groot: $needed / $max bytes';
+  }
+
+  @override
+  String get verifyFailedAfterWrite =>
+      'Geschreven data niet bevestigd; houd de tag langer vast.';
+
+  @override
+  String get blankTagTitle => 'Tag is nog niet klaar';
+
+  @override
+  String get blankTagBody =>
+      'Deze tag is nieuw en niet geformatteerd voor NDEF. De app kan hem voorbereiden en de inhoud in één keer schrijven (NTAG en MIFARE Ultralight).';
+
+  @override
+  String get blankTagAction => 'Voorbereiden en schrijven';
 }

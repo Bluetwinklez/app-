@@ -878,5 +878,10 @@
   "compareRecordChanged": "Відрізняється",
   "compareRecordOnlyFirst": "Лише на A",
   "compareRecordOnlySecond": "Лише на B",
-  "compareBothEmpty": "Обидві мітки порожні."
+  "compareBothEmpty": "Обидві мітки порожні.",
+  "capacityExceededShort": "Забагато даних: {needed} / {max} байт",
+  "verifyFailedAfterWrite": "Дані не підтверджено — тримайте мітку довше.",
+  "blankTagTitle": "Мітка ще не підготовлена",
+  "blankTagBody": "Мітка нова й не відформатована під NDEF. Застосунок може підготувати її й записати дані одним дотиком (NTAG і MIFARE Ultralight).",
+  "blankTagAction": "Підготувати й записати"
 }

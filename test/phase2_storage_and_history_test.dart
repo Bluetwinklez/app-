@@ -316,4 +316,32 @@ void main() {
       expect(storage.getTemplates(), isEmpty);
     });
   });
+
+  test('blank tag write offers formatting and writes in one raw session', () async {
+    final mock = MockNfcPlatformService();
+    final controller = NfcStateController(service: mock, storage: InMemoryAppStorageService());
+    await controller.init();
+
+    mock.nextWriteResult = const NfcWriteResult(
+      isSuccess: false,
+      message: 'not formatted',
+      errorCode: 'NOT_NDEF_FORMATTED',
+    );
+    final ok = await controller.writeRecords([NdefCodec.encodeText('Merhaba')]);
+    expect(ok, isFalse);
+    expect(controller.lastWriteResult!.needsFormatting, isTrue);
+
+    // GET_VERSION -> NTAG213, every READ returns zeros, WRITE acks
+    mock.rawResponder = (cmd) {
+      if (cmd[0] == 0x60) return Uint8List.fromList([0, 4, 4, 2, 1, 0, 0x0F, 3]);
+      if (cmd[0] == 0x30) return Uint8List(16);
+      return Uint8List.fromList([0x0A]);
+    };
+    // Verification will fail because the mock memory does not store writes
+    final written = await controller.formatAndWriteRecords([NdefCodec.encodeText('Merhaba')]);
+    expect(written, isFalse);
+    expect(mock.sentCommands.any((c) => c[0] == 0xA2 && c[1] == 3), isTrue, reason: 'CC written');
+    expect(mock.sentCommands.any((c) => c[0] == 0xA2 && c[1] == 4), isTrue, reason: 'TLV written');
+    expect(mock.rawSessionOpen, isFalse);
+  });
 }

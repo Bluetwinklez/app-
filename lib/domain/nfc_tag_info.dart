@@ -74,10 +74,18 @@ class NfcWriteResult {
   final int bytesWritten;
   final bool verificationPassed;
 
+  /// Platform error code when the write failed (e.g. NOT_NDEF_FORMATTED).
+  final String? errorCode;
+
   const NfcWriteResult({
     required this.isSuccess,
     required this.message,
     this.bytesWritten = 0,
     this.verificationPassed = false,
+    this.errorCode,
   });
+
+  /// The tag has no NDEF capability container yet (blank NTAG on iPhone,
+  /// or an unformattable tag on Android) and may be prepared via raw commands.
+  bool get needsFormatting => errorCode == 'NOT_NDEF_FORMATTED' || errorCode == 'TAG_NOT_SUPPORTED';
 }

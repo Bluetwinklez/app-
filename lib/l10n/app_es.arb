@@ -878,5 +878,10 @@
   "compareRecordChanged": "Distinto",
   "compareRecordOnlyFirst": "Solo en A",
   "compareRecordOnlySecond": "Solo en B",
-  "compareBothEmpty": "Ambas etiquetas están vacías."
+  "compareBothEmpty": "Ambas etiquetas están vacías.",
+  "capacityExceededShort": "Contenido demasiado grande: {needed} / {max} bytes",
+  "verifyFailedAfterWrite": "No se pudo verificar; mantén la etiqueta más tiempo.",
+  "blankTagTitle": "La etiqueta aún no está lista",
+  "blankTagBody": "Esta etiqueta es nueva y no tiene formato NDEF. La app puede prepararla y escribir el contenido en un solo toque (NTAG y MIFARE Ultralight).",
+  "blankTagAction": "Preparar y escribir"
 }

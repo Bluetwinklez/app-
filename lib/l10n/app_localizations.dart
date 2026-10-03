@@ -5397,6 +5397,36 @@ abstract class AppLocalizations {
   /// In tr, this message translates to:
   /// **'İki etiket de boş.'**
   String get compareBothEmpty;
+
+  /// No description provided for @capacityExceededShort.
+  ///
+  /// In tr, this message translates to:
+  /// **'İçerik çok büyük: {needed} / {max} bayt'**
+  String capacityExceededShort(String needed, String max);
+
+  /// No description provided for @verifyFailedAfterWrite.
+  ///
+  /// In tr, this message translates to:
+  /// **'Yazılan veri doğrulanamadı; etiketi daha uzun süre yakın tutun.'**
+  String get verifyFailedAfterWrite;
+
+  /// No description provided for @blankTagTitle.
+  ///
+  /// In tr, this message translates to:
+  /// **'Etiket henüz hazır değil'**
+  String get blankTagTitle;
+
+  /// No description provided for @blankTagBody.
+  ///
+  /// In tr, this message translates to:
+  /// **'Bu etiket yeni ve NDEF için biçimlendirilmemiş. Uygulama etiketi hazırlayıp içeriği tek dokunuşta yazabilir (NTAG ve MIFARE Ultralight).'**
+  String get blankTagBody;
+
+  /// No description provided for @blankTagAction.
+  ///
+  /// In tr, this message translates to:
+  /// **'Hazırla ve yaz'**
+  String get blankTagAction;
 }
 
 class _AppLocalizationsDelegate

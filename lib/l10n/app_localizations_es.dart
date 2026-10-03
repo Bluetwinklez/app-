@@ -3142,4 +3142,23 @@ class AppLocalizationsEs extends AppLocalizations {
 
   @override
   String get compareBothEmpty => 'Ambas etiquetas están vacías.';
+
+  @override
+  String capacityExceededShort(String needed, String max) {
+    return 'Contenido demasiado grande: $needed / $max bytes';
+  }
+
+  @override
+  String get verifyFailedAfterWrite =>
+      'No se pudo verificar; mantén la etiqueta más tiempo.';
+
+  @override
+  String get blankTagTitle => 'La etiqueta aún no está lista';
+
+  @override
+  String get blankTagBody =>
+      'Esta etiqueta es nueva y no tiene formato NDEF. La app puede prepararla y escribir el contenido en un solo toque (NTAG y MIFARE Ultralight).';
+
+  @override
+  String get blankTagAction => 'Preparar y escribir';
 }
