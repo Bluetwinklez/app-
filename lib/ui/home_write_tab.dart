@@ -141,6 +141,7 @@ extension _WriteTab on _HomeScreenState {
                 ),
                 if (_recordsToWrite.isNotEmpty) _buildCapacityChips(),
                 if (_recordsToWrite.isNotEmpty) TapPreviewCard(records: _recordsToWrite),
+                if (PhishingBanner.forRecords(_recordsToWrite) case final banner?) banner,
                 Padding(
                   padding: const EdgeInsets.only(top: 8),
                   child: Text(

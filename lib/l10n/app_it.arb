@@ -1093,5 +1093,13 @@
   "unseen30Days": "Non visto da 30+ giorni",
   "inventoryCardTitle": "Questo tag è nella tua libreria",
   "scanReportLine": "{unique} tag diversi · {dup} riletti · {empty} vuoti",
-  "printSheet": "Foglio etichette stampabile (PDF)"
+  "printSheet": "Foglio etichette stampabile (PDF)",
+  "phishDangerTitle": "Attenzione: potrebbe essere un sito falso",
+  "phishCautionTitle": "Controlla il link prima di aprirlo",
+  "phishLookalike": "L'indirizzo somiglia a {brand} ma non è il dominio ufficiale.",
+  "phishBrandInSubdomain": "\"{brand}\" è messo davanti a un altro dominio; il sito reale è diverso.",
+  "phishBrandInName": "Il dominio contiene \"{brand}\" ma non è il sito ufficiale.",
+  "phishShortener": "Link abbreviato ({host}): l'indirizzo reale è nascosto.",
+  "phishRiskyTld": "L'estensione \".{tld}\" è spesso usata per il phishing.",
+  "phishDisclaimer": "Questo controllo usa indizi offline; non garantisce la sicurezza."
 }

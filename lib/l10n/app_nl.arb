@@ -1093,5 +1093,13 @@
   "unseen30Days": "30+ dagen niet gezien",
   "inventoryCardTitle": "Deze tag staat in je bibliotheek",
   "scanReportLine": "{unique} verschillende tags · {dup} opnieuw gelezen · {empty} leeg",
-  "printSheet": "Afdrukbaar etiketvel (PDF)"
+  "printSheet": "Afdrukbaar etiketvel (PDF)",
+  "phishDangerTitle": "Let op: mogelijk een nepsite",
+  "phishCautionTitle": "Controleer de link voordat je hem opent",
+  "phishLookalike": "Het adres lijkt op {brand} maar is niet het officiële domein.",
+  "phishBrandInSubdomain": "\"{brand}\" staat voor een ander domein; de echte site is een andere.",
+  "phishBrandInName": "Het domein bevat \"{brand}\" maar is niet de officiële site.",
+  "phishShortener": "Verkorte link ({host}): het echte adres is verborgen.",
+  "phishRiskyTld": "De extensie \".{tld}\" wordt vaak voor phishing gebruikt.",
+  "phishDisclaimer": "Deze controle gebruikt offline aanwijzingen en garandeert geen veiligheid."
 }

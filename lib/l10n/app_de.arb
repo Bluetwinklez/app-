@@ -1093,5 +1093,13 @@
   "unseen30Days": "Seit 30+ Tagen nicht gesehen",
   "inventoryCardTitle": "Dieser Tag ist in Ihrer Bibliothek",
   "scanReportLine": "{unique} verschiedene Tags · {dup} doppelt · {empty} leer",
-  "printSheet": "Druckbarer Etikettenbogen (PDF)"
+  "printSheet": "Druckbarer Etikettenbogen (PDF)",
+  "phishDangerTitle": "Achtung: möglicherweise gefälschte Seite",
+  "phishCautionTitle": "Link vor dem Öffnen prüfen",
+  "phishLookalike": "Die Adresse ähnelt {brand}, ist aber nicht die offizielle Domain.",
+  "phishBrandInSubdomain": "„{brand}“ steht vor einer anderen Domain; die echte Seite ist eine andere.",
+  "phishBrandInName": "Die Domain enthält „{brand}“, ist aber nicht die offizielle Seite.",
+  "phishShortener": "Gekürzter Link ({host}): die echte Adresse ist verborgen.",
+  "phishRiskyTld": "Die Endung „.{tld}“ wird oft für Phishing genutzt.",
+  "phishDisclaimer": "Diese Prüfung nutzt Offline-Hinweise und garantiert keine Sicherheit."
 }

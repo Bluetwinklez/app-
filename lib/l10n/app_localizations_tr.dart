@@ -3890,4 +3890,39 @@ class AppLocalizationsTr extends AppLocalizations {
 
   @override
   String get printSheet => 'Yazdırılabilir etiket sayfası (PDF)';
+
+  @override
+  String get phishDangerTitle => 'Dikkat: sahte site olabilir';
+
+  @override
+  String get phishCautionTitle => 'Bağlantıyı açmadan önce kontrol edin';
+
+  @override
+  String phishLookalike(String brand) {
+    return 'Adres $brand sitesine benziyor ama resmi alan adı değil.';
+  }
+
+  @override
+  String phishBrandInSubdomain(String brand) {
+    return '\"$brand\" başka bir sitenin önüne eklenmiş; asıl site farklı.';
+  }
+
+  @override
+  String phishBrandInName(String brand) {
+    return 'Alan adında \"$brand\" geçiyor ama resmi site değil.';
+  }
+
+  @override
+  String phishShortener(String host) {
+    return 'Kısaltılmış bağlantı ($host): gerçek adres gizli.';
+  }
+
+  @override
+  String phishRiskyTld(String tld) {
+    return '\".$tld\" uzantısı oltalama sitelerinde sık kullanılır.';
+  }
+
+  @override
+  String get phishDisclaimer =>
+      'Bu kontrol çevrimdışı ipuçlarına dayanır; bir sitenin güvenli olduğunu garanti etmez.';
 }

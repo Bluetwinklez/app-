@@ -3890,4 +3890,39 @@ class AppLocalizationsIt extends AppLocalizations {
 
   @override
   String get printSheet => 'Foglio etichette stampabile (PDF)';
+
+  @override
+  String get phishDangerTitle => 'Attenzione: potrebbe essere un sito falso';
+
+  @override
+  String get phishCautionTitle => 'Controlla il link prima di aprirlo';
+
+  @override
+  String phishLookalike(String brand) {
+    return 'L\'indirizzo somiglia a $brand ma non è il dominio ufficiale.';
+  }
+
+  @override
+  String phishBrandInSubdomain(String brand) {
+    return '\"$brand\" è messo davanti a un altro dominio; il sito reale è diverso.';
+  }
+
+  @override
+  String phishBrandInName(String brand) {
+    return 'Il dominio contiene \"$brand\" ma non è il sito ufficiale.';
+  }
+
+  @override
+  String phishShortener(String host) {
+    return 'Link abbreviato ($host): l\'indirizzo reale è nascosto.';
+  }
+
+  @override
+  String phishRiskyTld(String tld) {
+    return 'L\'estensione \".$tld\" è spesso usata per il phishing.';
+  }
+
+  @override
+  String get phishDisclaimer =>
+      'Questo controllo usa indizi offline; non garantisce la sicurezza.';
 }

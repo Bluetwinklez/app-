@@ -3893,4 +3893,39 @@ class AppLocalizationsRu extends AppLocalizations {
 
   @override
   String get printSheet => 'Лист этикеток для печати (PDF)';
+
+  @override
+  String get phishDangerTitle => 'Внимание: возможно, поддельный сайт';
+
+  @override
+  String get phishCautionTitle => 'Проверьте ссылку перед открытием';
+
+  @override
+  String phishLookalike(String brand) {
+    return 'Адрес похож на $brand, но это не официальный домен.';
+  }
+
+  @override
+  String phishBrandInSubdomain(String brand) {
+    return '«$brand» стоит перед другим доменом; настоящий сайт — другой.';
+  }
+
+  @override
+  String phishBrandInName(String brand) {
+    return 'Домен содержит «$brand», но это не официальный сайт.';
+  }
+
+  @override
+  String phishShortener(String host) {
+    return 'Сокращённая ссылка ($host): настоящий адрес скрыт.';
+  }
+
+  @override
+  String phishRiskyTld(String tld) {
+    return 'Окончание «.$tld» часто используют для фишинга.';
+  }
+
+  @override
+  String get phishDisclaimer =>
+      'Проверка офлайн-эвристическая и не гарантирует безопасность.';
 }

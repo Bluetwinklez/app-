@@ -3892,4 +3892,39 @@ class AppLocalizationsUk extends AppLocalizations {
 
   @override
   String get printSheet => 'Аркуш етикеток для друку (PDF)';
+
+  @override
+  String get phishDangerTitle => 'Увага: можливо, підробний сайт';
+
+  @override
+  String get phishCautionTitle => 'Перевірте посилання перед відкриттям';
+
+  @override
+  String phishLookalike(String brand) {
+    return 'Адреса схожа на $brand, але це не офіційний домен.';
+  }
+
+  @override
+  String phishBrandInSubdomain(String brand) {
+    return '«$brand» стоїть перед іншим доменом; справжній сайт — інший.';
+  }
+
+  @override
+  String phishBrandInName(String brand) {
+    return 'Домен містить «$brand», але це не офіційний сайт.';
+  }
+
+  @override
+  String phishShortener(String host) {
+    return 'Скорочене посилання ($host): справжню адресу приховано.';
+  }
+
+  @override
+  String phishRiskyTld(String tld) {
+    return 'Закінчення «.$tld» часто використовують для фішингу.';
+  }
+
+  @override
+  String get phishDisclaimer =>
+      'Перевірка офлайн-евристична й не гарантує безпеку.';
 }

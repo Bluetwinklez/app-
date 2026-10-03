@@ -2587,5 +2587,48 @@
       }
     }
   },
-  "printSheet": "Yazdırılabilir etiket sayfası (PDF)"
+  "printSheet": "Yazdırılabilir etiket sayfası (PDF)",
+  "phishDangerTitle": "Dikkat: sahte site olabilir",
+  "phishCautionTitle": "Bağlantıyı açmadan önce kontrol edin",
+  "phishLookalike": "Adres {brand} sitesine benziyor ama resmi alan adı değil.",
+  "@phishLookalike": {
+    "placeholders": {
+      "brand": {
+        "type": "String"
+      }
+    }
+  },
+  "phishBrandInSubdomain": "\"{brand}\" başka bir sitenin önüne eklenmiş; asıl site farklı.",
+  "@phishBrandInSubdomain": {
+    "placeholders": {
+      "brand": {
+        "type": "String"
+      }
+    }
+  },
+  "phishBrandInName": "Alan adında \"{brand}\" geçiyor ama resmi site değil.",
+  "@phishBrandInName": {
+    "placeholders": {
+      "brand": {
+        "type": "String"
+      }
+    }
+  },
+  "phishShortener": "Kısaltılmış bağlantı ({host}): gerçek adres gizli.",
+  "@phishShortener": {
+    "placeholders": {
+      "host": {
+        "type": "String"
+      }
+    }
+  },
+  "phishRiskyTld": "\".{tld}\" uzantısı oltalama sitelerinde sık kullanılır.",
+  "@phishRiskyTld": {
+    "placeholders": {
+      "tld": {
+        "type": "String"
+      }
+    }
+  },
+  "phishDisclaimer": "Bu kontrol çevrimdışı ipuçlarına dayanır; bir sitenin güvenli olduğunu garanti etmez."
 }

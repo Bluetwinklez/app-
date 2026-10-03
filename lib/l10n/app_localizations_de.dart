@@ -3902,4 +3902,39 @@ class AppLocalizationsDe extends AppLocalizations {
 
   @override
   String get printSheet => 'Druckbarer Etikettenbogen (PDF)';
+
+  @override
+  String get phishDangerTitle => 'Achtung: möglicherweise gefälschte Seite';
+
+  @override
+  String get phishCautionTitle => 'Link vor dem Öffnen prüfen';
+
+  @override
+  String phishLookalike(String brand) {
+    return 'Die Adresse ähnelt $brand, ist aber nicht die offizielle Domain.';
+  }
+
+  @override
+  String phishBrandInSubdomain(String brand) {
+    return '„$brand“ steht vor einer anderen Domain; die echte Seite ist eine andere.';
+  }
+
+  @override
+  String phishBrandInName(String brand) {
+    return 'Die Domain enthält „$brand“, ist aber nicht die offizielle Seite.';
+  }
+
+  @override
+  String phishShortener(String host) {
+    return 'Gekürzter Link ($host): die echte Adresse ist verborgen.';
+  }
+
+  @override
+  String phishRiskyTld(String tld) {
+    return 'Die Endung „.$tld“ wird oft für Phishing genutzt.';
+  }
+
+  @override
+  String get phishDisclaimer =>
+      'Diese Prüfung nutzt Offline-Hinweise und garantiert keine Sicherheit.';
 }

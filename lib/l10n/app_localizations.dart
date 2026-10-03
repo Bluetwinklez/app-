@@ -6687,6 +6687,54 @@ abstract class AppLocalizations {
   /// In tr, this message translates to:
   /// **'Yazdırılabilir etiket sayfası (PDF)'**
   String get printSheet;
+
+  /// No description provided for @phishDangerTitle.
+  ///
+  /// In tr, this message translates to:
+  /// **'Dikkat: sahte site olabilir'**
+  String get phishDangerTitle;
+
+  /// No description provided for @phishCautionTitle.
+  ///
+  /// In tr, this message translates to:
+  /// **'Bağlantıyı açmadan önce kontrol edin'**
+  String get phishCautionTitle;
+
+  /// No description provided for @phishLookalike.
+  ///
+  /// In tr, this message translates to:
+  /// **'Adres {brand} sitesine benziyor ama resmi alan adı değil.'**
+  String phishLookalike(String brand);
+
+  /// No description provided for @phishBrandInSubdomain.
+  ///
+  /// In tr, this message translates to:
+  /// **'\"{brand}\" başka bir sitenin önüne eklenmiş; asıl site farklı.'**
+  String phishBrandInSubdomain(String brand);
+
+  /// No description provided for @phishBrandInName.
+  ///
+  /// In tr, this message translates to:
+  /// **'Alan adında \"{brand}\" geçiyor ama resmi site değil.'**
+  String phishBrandInName(String brand);
+
+  /// No description provided for @phishShortener.
+  ///
+  /// In tr, this message translates to:
+  /// **'Kısaltılmış bağlantı ({host}): gerçek adres gizli.'**
+  String phishShortener(String host);
+
+  /// No description provided for @phishRiskyTld.
+  ///
+  /// In tr, this message translates to:
+  /// **'\".{tld}\" uzantısı oltalama sitelerinde sık kullanılır.'**
+  String phishRiskyTld(String tld);
+
+  /// No description provided for @phishDisclaimer.
+  ///
+  /// In tr, this message translates to:
+  /// **'Bu kontrol çevrimdışı ipuçlarına dayanır; bir sitenin güvenli olduğunu garanti etmez.'**
+  String get phishDisclaimer;
 }
 
 class _AppLocalizationsDelegate
