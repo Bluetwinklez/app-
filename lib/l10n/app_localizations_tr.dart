@@ -4119,4 +4119,9 @@ class AppLocalizationsTr extends AppLocalizations {
 
   @override
   String get simpleNothing => 'Bu etikette gösterilecek bir şey yok.';
+
+  @override
+  String whatsNew120(String date, String time, String counter) {
+    return '• Kayıt Defteri: yoklama, ilaç ve envanter takibi\n• Güvenlik: Face ID kilidi, şifreli yedek, imzalı etiket, sahte site uyarısı\n• Şablon değişkenleri ($date, $time, $counter) ve kütüphaneden etikete yazma\n• Yeni şablonlar: Akıllı Kart, Kayıp Eşya, Sesli Mesaj\n• QR kodlu yazdırılabilir etiket sayfası (PDF)\n• Basit mod, amiibo bilgisi, bayt düzenleyici, NFC çipleri rehberi\n• Sürükle-bırak sıralama ve Uyumluluk modu';
+  }
 }

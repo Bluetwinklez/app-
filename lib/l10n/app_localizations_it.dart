@@ -4121,4 +4121,9 @@ class AppLocalizationsIt extends AppLocalizations {
 
   @override
   String get simpleNothing => 'Niente da mostrare su questo tag.';
+
+  @override
+  String whatsNew120(String date, String time, String counter) {
+    return '• Registro: presenze, farmaci e inventario\n• Sicurezza: blocco Face ID, backup cifrati, tag firmati, avviso siti falsi\n• Variabili dei modelli ($date, $time, $counter) e scrittura dalla libreria\n• Nuovi modelli: Smart card, Oggetto smarrito, Messaggio vocale\n• Foglio etichette stampabile con QR (PDF)\n• Modalità semplice, info amiibo, editor di byte, guida ai chip NFC\n• Riordino trascinando e modalità Compatibilità';
+  }
 }

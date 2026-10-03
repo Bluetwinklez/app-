@@ -4153,4 +4153,9 @@ class AppLocalizationsFr extends AppLocalizations {
 
   @override
   String get simpleNothing => 'Rien à afficher sur ce tag.';
+
+  @override
+  String whatsNew120(String date, String time, String counter) {
+    return '• Registre : présence, médicaments et inventaire\n• Sécurité : verrou Face ID, sauvegardes chiffrées, tags signés, alerte faux sites\n• Variables de modèle ($date, $time, $counter) et écriture depuis la bibliothèque\n• Nouveaux modèles : Carte intelligente, Objet perdu, Message vocal\n• Planche d\'étiquettes avec QR codes (PDF)\n• Mode simple, infos amiibo, éditeur d\'octets, guide des puces NFC\n• Tri par glisser-déposer et mode Compatibilité';
+  }
 }
