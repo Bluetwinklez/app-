@@ -2854,4 +2854,16 @@ class AppLocalizationsJa extends AppLocalizations {
 
   @override
   String get mimeTypeHint => 'application/json または text/plain';
+
+  @override
+  String get hapticsToggle => '触覚フィードバック';
+
+  @override
+  String get hapticsToggleSubtitle => '読み取り・書き込み完了時に短く振動';
+
+  @override
+  String get soundsToggle => 'サウンド';
+
+  @override
+  String get soundsToggleSubtitle => '結果時に短いシステム音を鳴らす';
 }

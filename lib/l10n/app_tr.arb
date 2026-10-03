@@ -1994,5 +1994,9 @@
     }
   },
   "addToWriteListShort": "Yazma listesine aktar",
-  "mimeTypeHint": "application/json veya text/plain"
+  "mimeTypeHint": "application/json veya text/plain",
+  "hapticsToggle": "Titreşim",
+  "hapticsToggleSubtitle": "Okuma ve yazma bitince hafif titreşim",
+  "soundsToggle": "Ses",
+  "soundsToggleSubtitle": "Sonuçta kısa bir sistem sesi çal"
 }

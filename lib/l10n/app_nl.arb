@@ -836,5 +836,9 @@
   "redoTooltip": "Opnieuw",
   "historyFoundCount": "Gevonden: {found} / {total}",
   "addToWriteListShort": "Naar schrijflijst",
-  "mimeTypeHint": "application/json of text/plain"
+  "mimeTypeHint": "application/json of text/plain",
+  "hapticsToggle": "Trillen",
+  "hapticsToggleSubtitle": "Korte trilling na lezen of schrijven",
+  "soundsToggle": "Geluiden",
+  "soundsToggleSubtitle": "Kort systeemgeluid bij het resultaat"
 }

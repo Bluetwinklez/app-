@@ -26,6 +26,12 @@ abstract class AppStorageService {
   bool get onboardingDone;
   Future<void> setOnboardingDone(bool done);
 
+  /// Haptic and sound feedback after scans and writes.
+  bool get hapticsEnabled;
+  Future<void> setHapticsEnabled(bool enabled);
+  bool get soundsEnabled;
+  Future<void> setSoundsEnabled(bool enabled);
+
   // Scan History
   List<ScanHistoryEntry> getHistory();
   Future<void> addHistoryEntry(ScanHistoryEntry entry);
@@ -66,6 +72,8 @@ class InMemoryAppStorageService implements AppStorageService {
   String? _localeCode;
   String _themeMode = 'system';
   bool _onboardingDone = false;
+  bool _hapticsEnabled = true;
+  bool _soundsEnabled = false;
   final List<ScanHistoryEntry> _history = [];
   final List<WriteTemplate> _templates = [];
   final Map<String, TagRule> _rules = {};
@@ -73,6 +81,18 @@ class InMemoryAppStorageService implements AppStorageService {
 
   @override
   Future<void> init() async {}
+
+  @override
+  bool get hapticsEnabled => _hapticsEnabled;
+
+  @override
+  Future<void> setHapticsEnabled(bool enabled) async => _hapticsEnabled = enabled;
+
+  @override
+  bool get soundsEnabled => _soundsEnabled;
+
+  @override
+  Future<void> setSoundsEnabled(bool enabled) async => _soundsEnabled = enabled;
 
   @override
   List<TagLibraryEntry> getLibrary() => List.unmodifiable(_library);
@@ -270,6 +290,8 @@ class LocalFileAppStorageService implements AppStorageService {
   String? _localeCode;
   String _themeMode = 'system';
   bool _onboardingDone = false;
+  bool _hapticsEnabled = true;
+  bool _soundsEnabled = false;
   final List<ScanHistoryEntry> _history = [];
   final List<WriteTemplate> _templates = [];
   final Map<String, TagRule> _rules = {};
@@ -301,6 +323,8 @@ class LocalFileAppStorageService implements AppStorageService {
           _localeCode = data['localeCode'] as String?;
           _themeMode = data['themeMode'] as String? ?? 'system';
           _onboardingDone = data['onboardingDone'] as bool? ?? false;
+          _hapticsEnabled = data['hapticsEnabled'] as bool? ?? true;
+          _soundsEnabled = data['soundsEnabled'] as bool? ?? false;
         }
       }
     } catch (e) {
@@ -437,6 +461,8 @@ class LocalFileAppStorageService implements AppStorageService {
       'localeCode': _localeCode,
       'themeMode': _themeMode,
       'onboardingDone': _onboardingDone,
+      'hapticsEnabled': _hapticsEnabled,
+      'soundsEnabled': _soundsEnabled,
     });
     await _atomicWrite(_settingsFile, data);
   }
@@ -465,6 +491,24 @@ class LocalFileAppStorageService implements AppStorageService {
   @override
   Future<void> setOnboardingDone(bool done) async {
     _onboardingDone = done;
+    await _saveSettings();
+  }
+
+  @override
+  bool get hapticsEnabled => _hapticsEnabled;
+
+  @override
+  Future<void> setHapticsEnabled(bool enabled) async {
+    _hapticsEnabled = enabled;
+    await _saveSettings();
+  }
+
+  @override
+  bool get soundsEnabled => _soundsEnabled;
+
+  @override
+  Future<void> setSoundsEnabled(bool enabled) async {
+    _soundsEnabled = enabled;
     await _saveSettings();
   }
 

@@ -2828,4 +2828,16 @@ class AppLocalizationsZh extends AppLocalizations {
 
   @override
   String get mimeTypeHint => 'application/json 或 text/plain';
+
+  @override
+  String get hapticsToggle => '触感反馈';
+
+  @override
+  String get hapticsToggleSubtitle => '读取或写入完成时短暂振动';
+
+  @override
+  String get soundsToggle => '声音';
+
+  @override
+  String get soundsToggleSubtitle => '结果时播放短促系统音';
 }
