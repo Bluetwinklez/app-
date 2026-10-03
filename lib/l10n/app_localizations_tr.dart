@@ -3925,4 +3925,35 @@ class AppLocalizationsTr extends AppLocalizations {
   @override
   String get phishDisclaimer =>
       'Bu kontrol çevrimdışı ipuçlarına dayanır; bir sitenin güvenli olduğunu garanti etmez.';
+
+  @override
+  String get backupEncrypt => 'Parolayla şifrele';
+
+  @override
+  String get backupEncryptHint =>
+      'Yedek AES-256 ile şifrelenir. Parolayı unutursanız dosya açılamaz.';
+
+  @override
+  String get backupPassword => 'Parola';
+
+  @override
+  String get backupPasswordRepeat => 'Parola (tekrar)';
+
+  @override
+  String backupPasswordTooShort(String min) {
+    return 'Parola en az $min karakter olmalı.';
+  }
+
+  @override
+  String get backupPasswordMismatch => 'Parolalar eşleşmiyor.';
+
+  @override
+  String get backupEncryptedPrompt =>
+      'Bu yedek parolayla korunuyor. Açmak için parolayı girin.';
+
+  @override
+  String get backupWrongPassword => 'Parola yanlış.';
+
+  @override
+  String get backupDecryptFailed => 'Yedek çözülemedi; dosya bozuk olabilir.';
 }

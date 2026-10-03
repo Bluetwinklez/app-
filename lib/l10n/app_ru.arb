@@ -1101,5 +1101,14 @@
   "phishBrandInName": "Домен содержит «{brand}», но это не официальный сайт.",
   "phishShortener": "Сокращённая ссылка ({host}): настоящий адрес скрыт.",
   "phishRiskyTld": "Окончание «.{tld}» часто используют для фишинга.",
-  "phishDisclaimer": "Проверка офлайн-эвристическая и не гарантирует безопасность."
+  "phishDisclaimer": "Проверка офлайн-эвристическая и не гарантирует безопасность.",
+  "backupEncrypt": "Защитить паролем",
+  "backupEncryptHint": "Копия шифруется AES-256. Без пароля её не открыть.",
+  "backupPassword": "Пароль",
+  "backupPasswordRepeat": "Пароль (ещё раз)",
+  "backupPasswordTooShort": "Пароль должен быть не короче {min} символов.",
+  "backupPasswordMismatch": "Пароли не совпадают.",
+  "backupEncryptedPrompt": "Копия защищена паролем. Введите пароль.",
+  "backupWrongPassword": "Неверный пароль.",
+  "backupDecryptFailed": "Не удалось расшифровать; файл может быть повреждён."
 }
