@@ -1058,5 +1058,15 @@
   "templateVarsHint": "Consejo: {date}, {time} o {counter} en un texto o enlace se rellenan al escribir.",
   "templateVarsPreview": "Al escribir: {date} · {time} · contador {counter}",
   "libraryWriteToTag": "Escribir en una etiqueta",
-  "libraryWritePrompt": "Acerca una etiqueta para escribir «{name}»"
+  "libraryWritePrompt": "Acerca una etiqueta para escribir «{name}»",
+  "presetSmartCardTitle": "Tarjeta inteligente",
+  "presetSmartCardDesc": "Tu web, tarjeta de contacto y Wi-Fi opcional en una etiqueta. El teléfono abre primero la web.",
+  "presetLostItemTitle": "Objeto perdido",
+  "presetLostItemDesc": "Quien lo encuentre abre un SMS listo para ti.",
+  "lostItemNameLabel": "Objeto (p. ej. llaves, cartera)",
+  "lostItemSms": "Hola, encontré tu {item}.",
+  "lostItemText": "Este {item} es de {name}. Si lo encontraste, avísame.",
+  "presetVoiceTitle": "Mensaje de voz",
+  "presetVoiceDesc": "En un regalo o caja: al tocar suena tu nota de voz o canción.",
+  "voiceLinkLabel": "Enlace de audio (iCloud, Drive, SoundCloud…)"
 }

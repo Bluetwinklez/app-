@@ -6477,6 +6477,66 @@ abstract class AppLocalizations {
   /// In tr, this message translates to:
   /// **'\"{name}\" içeriğini yazmak için etiketi yaklaştırın'**
   String libraryWritePrompt(String name);
+
+  /// No description provided for @presetSmartCardTitle.
+  ///
+  /// In tr, this message translates to:
+  /// **'Akıllı Kart'**
+  String get presetSmartCardTitle;
+
+  /// No description provided for @presetSmartCardDesc.
+  ///
+  /// In tr, this message translates to:
+  /// **'Tek etikette web siteniz, kartvizitiniz ve isteğe bağlı Wi-Fi. Telefon önce siteyi açar.'**
+  String get presetSmartCardDesc;
+
+  /// No description provided for @presetLostItemTitle.
+  ///
+  /// In tr, this message translates to:
+  /// **'Kayıp Eşya'**
+  String get presetLostItemTitle;
+
+  /// No description provided for @presetLostItemDesc.
+  ///
+  /// In tr, this message translates to:
+  /// **'Bulan kişi dokununca size hazır bir SMS taslağı açılır.'**
+  String get presetLostItemDesc;
+
+  /// No description provided for @lostItemNameLabel.
+  ///
+  /// In tr, this message translates to:
+  /// **'Eşya (ör. Anahtar, Cüzdan)'**
+  String get lostItemNameLabel;
+
+  /// No description provided for @lostItemSms.
+  ///
+  /// In tr, this message translates to:
+  /// **'Merhaba, {item} eşyanızı buldum.'**
+  String lostItemSms(String item);
+
+  /// No description provided for @lostItemText.
+  ///
+  /// In tr, this message translates to:
+  /// **'Bu {item} {name} kişisine aittir. Bulduysanız lütfen haber verin.'**
+  String lostItemText(String item, String name);
+
+  /// No description provided for @presetVoiceTitle.
+  ///
+  /// In tr, this message translates to:
+  /// **'Sesli Mesaj'**
+  String get presetVoiceTitle;
+
+  /// No description provided for @presetVoiceDesc.
+  ///
+  /// In tr, this message translates to:
+  /// **'Hediye ya da kutu üzerine: dokununca sesli notunuz veya şarkınız açılır.'**
+  String get presetVoiceDesc;
+
+  /// No description provided for @voiceLinkLabel.
+  ///
+  /// In tr, this message translates to:
+  /// **'Ses dosyası bağlantısı (iCloud, Drive, SoundCloud…)'**
+  String get voiceLinkLabel;
 }
 
 class _AppLocalizationsDelegate

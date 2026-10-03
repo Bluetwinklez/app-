@@ -1058,5 +1058,15 @@
   "templateVarsHint": "Порада: {date}, {time} або {counter} у тексті чи посиланні заповнюються під час запису.",
   "templateVarsPreview": "Під час запису: {date} · {time} · лічильник {counter}",
   "libraryWriteToTag": "Записати на мітку",
-  "libraryWritePrompt": "Піднесіть мітку, щоб записати «{name}»"
+  "libraryWritePrompt": "Піднесіть мітку, щоб записати «{name}»",
+  "presetSmartCardTitle": "Розумна візитка",
+  "presetSmartCardDesc": "Сайт, візитка й Wi-Fi на одній мітці. Телефон спершу відкриє сайт.",
+  "presetLostItemTitle": "Загублена річ",
+  "presetLostItemDesc": "Той, хто знайде, відкриє готове SMS для вас.",
+  "lostItemNameLabel": "Річ (напр. ключі, гаманець)",
+  "lostItemSms": "Вітаю, я знайшов вашу річ: {item}.",
+  "lostItemText": "Ця річ ({item}) належить: {name}. Будь ласка, зв'яжіться.",
+  "presetVoiceTitle": "Голосове повідомлення",
+  "presetVoiceDesc": "На подарунку чи коробці: дотик увімкне голосову нотатку або пісню.",
+  "voiceLinkLabel": "Посилання на аудіо (iCloud, Drive, SoundCloud…)"
 }

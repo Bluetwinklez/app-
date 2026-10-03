@@ -1058,5 +1058,15 @@
   "templateVarsHint": "نصيحة: ضع {date} أو {time} أو {counter} في نص أو رابط لتُملأ عند الكتابة.",
   "templateVarsPreview": "عند الكتابة: {date} · {time} · العداد {counter}",
   "libraryWriteToTag": "اكتب على وسم",
-  "libraryWritePrompt": "قرّب وسمًا لكتابة \"{name}\""
+  "libraryWritePrompt": "قرّب وسمًا لكتابة \"{name}\"",
+  "presetSmartCardTitle": "بطاقة ذكية",
+  "presetSmartCardDesc": "موقعك وبطاقة الاتصال وWi-Fi اختياري في وسم واحد. يفتح الهاتف الموقع أولاً.",
+  "presetLostItemTitle": "مفقودات",
+  "presetLostItemDesc": "عند اللمس يفتح لمن يجده رسالة SMS جاهزة إليك.",
+  "lostItemNameLabel": "الغرض (مثل المفاتيح، المحفظة)",
+  "lostItemSms": "مرحبًا، وجدت {item} الخاص بك.",
+  "lostItemText": "هذا {item} يخص {name}. إذا وجدته فيرجى التواصل.",
+  "presetVoiceTitle": "رسالة صوتية",
+  "presetVoiceDesc": "على هدية أو علبة: لمسة تشغّل ملاحظتك الصوتية أو أغنيتك.",
+  "voiceLinkLabel": "رابط الصوت (iCloud وDrive وSoundCloud…)"
 }

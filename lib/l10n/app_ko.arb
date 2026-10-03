@@ -1058,5 +1058,15 @@
   "templateVarsHint": "팁: 텍스트나 링크에 {date}, {time}, {counter}를 넣으면 쓸 때 자동으로 채워집니다.",
   "templateVarsPreview": "쓸 때: {date} · {time} · 카운터 {counter}",
   "libraryWriteToTag": "태그에 쓰기",
-  "libraryWritePrompt": "\"{name}\"을(를) 쓰려면 태그를 대세요"
+  "libraryWritePrompt": "\"{name}\"을(를) 쓰려면 태그를 대세요",
+  "presetSmartCardTitle": "스마트 카드",
+  "presetSmartCardDesc": "태그 하나에 웹사이트, 명함, Wi-Fi(선택). 휴대폰은 먼저 웹사이트를 엽니다.",
+  "presetLostItemTitle": "분실물 태그",
+  "presetLostItemDesc": "습득자가 태그하면 내게 보낼 SMS가 준비됩니다.",
+  "lostItemNameLabel": "물건(예: 열쇠, 지갑)",
+  "lostItemSms": "안녕하세요, {item}을(를) 찾았습니다.",
+  "lostItemText": "이 {item}은(는) {name}의 것입니다. 찾으시면 연락 주세요.",
+  "presetVoiceTitle": "음성 메시지",
+  "presetVoiceDesc": "선물이나 상자에: 태그하면 음성 메모나 노래가 재생됩니다.",
+  "voiceLinkLabel": "오디오 링크(iCloud, Drive, SoundCloud…)"
 }

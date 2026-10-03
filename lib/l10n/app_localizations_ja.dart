@@ -3595,4 +3595,39 @@ class AppLocalizationsJa extends AppLocalizations {
   String libraryWritePrompt(String name) {
     return '「$name」を書き込むタグをかざしてください';
   }
+
+  @override
+  String get presetSmartCardTitle => 'スマートカード';
+
+  @override
+  String get presetSmartCardDesc =>
+      '1枚のタグにWebサイト・名刺・Wi-Fi (任意)。スマホはまずサイトを開きます。';
+
+  @override
+  String get presetLostItemTitle => '落とし物タグ';
+
+  @override
+  String get presetLostItemDesc => '拾った人がかざすと、あなた宛てのSMSが用意されます。';
+
+  @override
+  String get lostItemNameLabel => '品物 (例: 鍵、財布)';
+
+  @override
+  String lostItemSms(String item) {
+    return 'こんにちは。あなたの$itemを拾いました。';
+  }
+
+  @override
+  String lostItemText(String item, String name) {
+    return 'この$itemは$nameのものです。見つけたらご連絡ください。';
+  }
+
+  @override
+  String get presetVoiceTitle => 'ボイスメッセージ';
+
+  @override
+  String get presetVoiceDesc => 'プレゼントや箱に。かざすとボイスメモや曲が再生されます。';
+
+  @override
+  String get voiceLinkLabel => '音声リンク (iCloud、Drive、SoundCloud…)';
 }

@@ -3774,4 +3774,41 @@ class AppLocalizationsPt extends AppLocalizations {
   String libraryWritePrompt(String name) {
     return 'Aproxime uma tag para gravar \"$name\"';
   }
+
+  @override
+  String get presetSmartCardTitle => 'Cartão inteligente';
+
+  @override
+  String get presetSmartCardDesc =>
+      'Site, cartão de contato e Wi-Fi opcional numa tag. O telefone abre primeiro o site.';
+
+  @override
+  String get presetLostItemTitle => 'Achados e perdidos';
+
+  @override
+  String get presetLostItemDesc =>
+      'Quem encontrar abre um SMS pronto para você.';
+
+  @override
+  String get lostItemNameLabel => 'Item (ex.: chaves, carteira)';
+
+  @override
+  String lostItemSms(String item) {
+    return 'Olá, encontrei seu $item.';
+  }
+
+  @override
+  String lostItemText(String item, String name) {
+    return 'Este $item pertence a $name. Se encontrou, entre em contato.';
+  }
+
+  @override
+  String get presetVoiceTitle => 'Mensagem de voz';
+
+  @override
+  String get presetVoiceDesc =>
+      'Num presente ou caixa: um toque toca sua nota de voz ou música.';
+
+  @override
+  String get voiceLinkLabel => 'Link do áudio (iCloud, Drive, SoundCloud…)';
 }
