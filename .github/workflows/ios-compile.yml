@@ -1,0 +1,37 @@
+name: iOS compile check
+
+# Builds the iOS app for the simulator (no signing, nothing is published)
+# whenever native iOS code or dependencies change.
+on:
+  workflow_dispatch:
+  push:
+    paths:
+      - 'ios/**'
+      - 'pubspec.yaml'
+      - 'pubspec.lock'
+      - '.github/workflows/ios-compile.yml'
+
+permissions:
+  contents: read
+
+concurrency:
+  group: ios-compile-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  compile:
+    runs-on: macos-latest
+    timeout-minutes: 45
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Install Flutter 3.47.5
+        run: |
+          git clone --depth 1 --branch 3.47.5 https://github.com/flutter/flutter.git "$RUNNER_TEMP/flutter"
+          echo "$RUNNER_TEMP/flutter/bin" >> "$GITHUB_PATH"
+
+      - name: Install dependencies
+        run: flutter pub get
+
+      - name: Build for the iOS simulator
+        run: flutter build ios --simulator --debug --no-codesign
