@@ -3468,4 +3468,81 @@ class AppLocalizationsZh extends AppLocalizations {
 
   @override
   String get backupICloudTip => '提示：在共享菜单中选择“存储到文件”→ iCloud 云盘即可保存到 iCloud。';
+
+  @override
+  String get dragToReorder => '拖动以排序';
+
+  @override
+  String get modeTitle => '模式';
+
+  @override
+  String get modeNormal => '标准';
+
+  @override
+  String get modeCompat => '兼容';
+
+  @override
+  String get modeNormalDesc => '标准：全部功能开启；写入后会回读校验。';
+
+  @override
+  String get modeCompatDesc => '兼容：写入后不回读。在部分老旧或不稳定的标签上更可靠。';
+
+  @override
+  String get rateApp => '为应用评分';
+
+  @override
+  String get rateAppUnavailable => '暂时无法显示评分窗口（TestFlight 中不会出现）。';
+
+  @override
+  String get chipsTitle => 'NFC 芯片';
+
+  @override
+  String get chipsSubtitle => '该买哪种标签？容量与手机支持';
+
+  @override
+  String get chipsIntro => '可用字节是可写入的 NDEF 内容上限。新手推荐 NTAG215。';
+
+  @override
+  String chipsUsable(String bytes) {
+    return '可用：$bytes 字节';
+  }
+
+  @override
+  String get chipsReadWrite => '读写';
+
+  @override
+  String get chipsReadOnlyNdef => '仅限 NDEF 格式';
+
+  @override
+  String get chipsNotSupported => '不支持';
+
+  @override
+  String get chipsNxpOnly => '仅限 NXP 芯片手机';
+
+  @override
+  String get chipUseSmall => '单个链接、短文本、Wi-Fi；最便宜';
+
+  @override
+  String get chipUseMedium => '名片、多条记录；amiibo 手办';
+
+  @override
+  String get chipUseLarge => '长内容、详细名片';
+
+  @override
+  String get chipUseSecure => '防伪认证（商品、票务）';
+
+  @override
+  String get chipUseTicket => '交通与活动票';
+
+  @override
+  String get chipUseAccess => '门禁卡、酒店房卡';
+
+  @override
+  String get chipUseIndustrial => '图书馆、仓库与工业标签；读取距离更远';
+
+  @override
+  String get chipUseJapan => '在日本常见（交通、支付）';
+
+  @override
+  String get chipUseLegacy => '旧型号；不建议用于新项目';
 }

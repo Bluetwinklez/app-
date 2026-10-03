@@ -2,6 +2,7 @@ import UIKit
 import Flutter
 import CoreNFC
 import AppIntents
+import StoreKit
 
 extension Notification.Name {
     static let nfcLaunchAction = Notification.Name("NfcTagMasterLaunchAction")
@@ -260,6 +261,22 @@ struct NfcTagMasterShortcuts: AppShortcutsProvider {
                 let action = self.pendingLaunchAction
                 self.pendingLaunchAction = nil
                 result(action)
+            } else if call.method == "requestReview" {
+                // Apple decides whether the prompt is shown (never in TestFlight).
+                if let scene = UIApplication.shared.connectedScenes
+                    .first(where: { $0.activationState == .foregroundActive }) as? UIWindowScene {
+                    SKStoreReviewController.requestReview(in: scene)
+                    result(true)
+                } else {
+                    result(false)
+                }
+            } else if call.method == "openUrl" {
+                guard let text = (call.arguments as? [String: Any])?["url"] as? String,
+                      let url = URL(string: text) else {
+                    result(false)
+                    return
+                }
+                UIApplication.shared.open(url, options: [:]) { ok in result(ok) }
             } else {
                 result(FlutterMethodNotImplemented)
             }

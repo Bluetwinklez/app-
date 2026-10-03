@@ -275,7 +275,7 @@ class NfcStateController extends ChangeNotifier {
       final result = await _service.writeTag(
         records: records,
         promptMessage: promptMessage ?? L10n.current.nfcPromptWrite,
-        verifyReadAfterWrite: true,
+        verifyReadAfterWrite: !_storage.compatibilityMode,
       );
 
       _lastWriteResult = result;

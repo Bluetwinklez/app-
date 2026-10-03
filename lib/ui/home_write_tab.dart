@@ -164,6 +164,12 @@ extension _WriteTab on _HomeScreenState {
                     ),
                   )
                 else
+                  ReorderableListView(
+                    shrinkWrap: true,
+                    physics: const NeverScrollableScrollPhysics(),
+                    buildDefaultDragHandles: false,
+                    onReorderItem: _reorderComposerRecord,
+                    children: [
                   ..._recordsToWrite.asMap().entries.map((entry) {
                     final index = entry.key;
                     final rec = entry.value;
@@ -181,6 +187,7 @@ extension _WriteTab on _HomeScreenState {
                     }
 
                     return Card(
+                      key: ValueKey('${identityHashCode(rec)}_${_recordsToWrite.take(index).where((r) => identical(r, rec)).length}'),
                       margin: const EdgeInsets.only(bottom: 6),
                       color: AppColors.subtleFill,
                       child: Column(
@@ -190,6 +197,15 @@ extension _WriteTab on _HomeScreenState {
                             leading: Row(
                               mainAxisSize: MainAxisSize.min,
                               children: [
+                                ReorderableDragStartListener(
+                                  index: index,
+                                  child: Padding(
+                                    padding: const EdgeInsetsDirectional.only(end: 4),
+                                    child: Icon(Icons.drag_handle_rounded,
+                                        color: AppColors.secondary,
+                                        semanticLabel: L10n.current.dragToReorder),
+                                  ),
+                                ),
                                 Text('#${index + 1}',
                                     style: const TextStyle(
                                         fontWeight: FontWeight.bold)),
@@ -332,6 +348,8 @@ extension _WriteTab on _HomeScreenState {
                       ),
                     );
                   }),
+                    ],
+                  ),
               ],
             ),
           ),

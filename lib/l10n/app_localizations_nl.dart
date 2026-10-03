@@ -3662,4 +3662,87 @@ class AppLocalizationsNl extends AppLocalizations {
   @override
   String get backupICloudTip =>
       'Tip: kies in het deelmenu \"Bewaar in Bestanden\" → iCloud Drive.';
+
+  @override
+  String get dragToReorder => 'Sleep om te ordenen';
+
+  @override
+  String get modeTitle => 'Modus';
+
+  @override
+  String get modeNormal => 'Normaal';
+
+  @override
+  String get modeCompat => 'Compatibiliteit';
+
+  @override
+  String get modeNormalDesc =>
+      'Normaal: alles aan; elke geschreven tag wordt teruggelezen en gecontroleerd.';
+
+  @override
+  String get modeCompatDesc =>
+      'Compatibiliteit: geen terugleescontrole na schrijven. Betrouwbaarder bij sommige oude of lastige tags.';
+
+  @override
+  String get rateApp => 'App beoordelen';
+
+  @override
+  String get rateAppUnavailable =>
+      'De beoordeling kon nu niet worden getoond (nooit in TestFlight).';
+
+  @override
+  String get chipsTitle => 'NFC-chips';
+
+  @override
+  String get chipsSubtitle => 'Welke tag kopen? Capaciteit en ondersteuning';
+
+  @override
+  String get chipsIntro =>
+      'Bruikbare bytes = maximale NDEF-inhoud. NTAG215 is een goede keuze voor beginners.';
+
+  @override
+  String chipsUsable(String bytes) {
+    return 'Bruikbaar: $bytes bytes';
+  }
+
+  @override
+  String get chipsReadWrite => 'Lezen en schrijven';
+
+  @override
+  String get chipsReadOnlyNdef => 'Alleen als NDEF';
+
+  @override
+  String get chipsNotSupported => 'Niet ondersteund';
+
+  @override
+  String get chipsNxpOnly => 'Alleen telefoons met NXP-chip';
+
+  @override
+  String get chipUseSmall => 'Eén link, korte tekst, wifi; goedkoopst';
+
+  @override
+  String get chipUseMedium =>
+      'Visitekaartjes, meerdere records; amiibo-figuren';
+
+  @override
+  String get chipUseLarge => 'Lange inhoud, uitgebreide visitekaartjes';
+
+  @override
+  String get chipUseSecure => 'Echtheidscontrole (producten, tickets)';
+
+  @override
+  String get chipUseTicket => 'Ov- en evenementtickets';
+
+  @override
+  String get chipUseAccess => 'Toegangs- en hotelpassen';
+
+  @override
+  String get chipUseIndustrial =>
+      'Bibliotheek-, magazijn- en industriële tags; groter bereik';
+
+  @override
+  String get chipUseJapan => 'Gangbaar in Japan (ov, betalen)';
+
+  @override
+  String get chipUseLegacy => 'Verouderd type; niet aanbevolen';
 }

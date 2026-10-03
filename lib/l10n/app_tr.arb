@@ -2401,5 +2401,37 @@
   },
   "noBackupYet": "Henüz yedek alınmadı.",
   "backupStale": "Son yedek 30 günden eski; yeni bir yedek almanız önerilir.",
-  "backupICloudTip": "İpucu: Paylaş menüsünde \"Dosyalara Kaydet\" → iCloud Drive seçerek yedeği iCloud'a saklayabilirsiniz."
+  "backupICloudTip": "İpucu: Paylaş menüsünde \"Dosyalara Kaydet\" → iCloud Drive seçerek yedeği iCloud'a saklayabilirsiniz.",
+  "dragToReorder": "Sıralamak için sürükleyin",
+  "modeTitle": "Mod",
+  "modeNormal": "Normal",
+  "modeCompat": "Uyumluluk",
+  "modeNormalDesc": "Normal: Tüm özellikler açık; yazılan her etiket geri okunup doğrulanır.",
+  "modeCompatDesc": "Uyumluluk: Yazdıktan sonra geri okuma yapılmaz. Bazı eski ya da sorunlu etiketlerde yazma daha güvenilir olur.",
+  "rateApp": "Uygulamayı değerlendirin",
+  "rateAppUnavailable": "Değerlendirme penceresi şu an açılamadı (TestFlight'ta gösterilmez).",
+  "chipsTitle": "NFC çipleri",
+  "chipsSubtitle": "Hangi etiketi almalı? Kapasite ve telefon desteği",
+  "chipsIntro": "Kullanılabilir bayt, etikete yazılabilecek NDEF içeriğinin üst sınırıdır. Yeni başlayanlar için NTAG215 iyi bir seçimdir.",
+  "chipsUsable": "Kullanılabilir: {bytes} bayt",
+  "@chipsUsable": {
+    "placeholders": {
+      "bytes": {
+        "type": "String"
+      }
+    }
+  },
+  "chipsReadWrite": "Okuma ve yazma",
+  "chipsReadOnlyNdef": "Yalnızca NDEF ise",
+  "chipsNotSupported": "Desteklenmez",
+  "chipsNxpOnly": "Yalnızca NXP çipli telefonlar",
+  "chipUseSmall": "Tek bağlantı, kısa metin, Wi-Fi; en ucuzu",
+  "chipUseMedium": "Kartvizit, birden çok kayıt; amiibo figürleri",
+  "chipUseLarge": "Uzun içerik, ayrıntılı kartvizit",
+  "chipUseSecure": "Sahteciliğe karşı güvenli doğrulama (ürün, bilet)",
+  "chipUseTicket": "Toplu taşıma ve etkinlik biletleri",
+  "chipUseAccess": "Kapı / turnike kartları, otel kartları",
+  "chipUseIndustrial": "Kütüphane, depo ve endüstriyel etiketler; uzun okuma mesafesi",
+  "chipUseJapan": "Japonya'da yaygın (ulaşım, ödeme)",
+  "chipUseLegacy": "Eski tip; yeni projeler için önerilmez"
 }

@@ -24,6 +24,18 @@ extension _ComposerHelpers on _HomeScreenState {
     });
   }
 
+  /// Drag-and-drop reordering (onReorderItem: newIndex is already the final
+  /// position after removing the dragged item).
+  void _reorderComposerRecord(int oldIndex, int newIndex) {
+    if (oldIndex == newIndex) return;
+    _refresh(() {
+      _composerHistory.push(_recordsToWrite);
+      final item = _recordsToWrite.removeAt(oldIndex);
+      _recordsToWrite.insert(newIndex, item);
+      _expandedComposerIndices.clear();
+    });
+  }
+
   // -------------------------------------------------------------
   // Workflow 5: Offline URL Safety Dialog
   // -------------------------------------------------------------

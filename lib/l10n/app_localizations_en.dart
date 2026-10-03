@@ -3646,4 +3646,87 @@ class AppLocalizationsEn extends AppLocalizations {
   @override
   String get backupICloudTip =>
       'Tip: choose \"Save to Files\" → iCloud Drive in the share sheet to keep the backup in iCloud.';
+
+  @override
+  String get dragToReorder => 'Drag to reorder';
+
+  @override
+  String get modeTitle => 'Mode';
+
+  @override
+  String get modeNormal => 'Normal';
+
+  @override
+  String get modeCompat => 'Compatibility';
+
+  @override
+  String get modeNormalDesc =>
+      'Normal: all features on; every written tag is read back and verified.';
+
+  @override
+  String get modeCompatDesc =>
+      'Compatibility: no read-back after writing. Writing can be more reliable on some old or troublesome tags.';
+
+  @override
+  String get rateApp => 'Rate the app';
+
+  @override
+  String get rateAppUnavailable =>
+      'The rating prompt could not be shown right now (it never appears in TestFlight).';
+
+  @override
+  String get chipsTitle => 'NFC chips';
+
+  @override
+  String get chipsSubtitle => 'Which tag to buy? Capacity and phone support';
+
+  @override
+  String get chipsIntro =>
+      'Usable bytes is the most NDEF content the tag can hold. NTAG215 is a good choice for beginners.';
+
+  @override
+  String chipsUsable(String bytes) {
+    return 'Usable: $bytes bytes';
+  }
+
+  @override
+  String get chipsReadWrite => 'Read and write';
+
+  @override
+  String get chipsReadOnlyNdef => 'Only if NDEF formatted';
+
+  @override
+  String get chipsNotSupported => 'Not supported';
+
+  @override
+  String get chipsNxpOnly => 'Only phones with an NXP chipset';
+
+  @override
+  String get chipUseSmall => 'One link, short text, Wi-Fi; cheapest';
+
+  @override
+  String get chipUseMedium => 'Contact cards, several records; amiibo figures';
+
+  @override
+  String get chipUseLarge => 'Long content, detailed contact cards';
+
+  @override
+  String get chipUseSecure =>
+      'Anti-counterfeit authentication (products, tickets)';
+
+  @override
+  String get chipUseTicket => 'Transit and event tickets';
+
+  @override
+  String get chipUseAccess => 'Door/turnstile and hotel key cards';
+
+  @override
+  String get chipUseIndustrial =>
+      'Library, warehouse and industrial tags; longer read range';
+
+  @override
+  String get chipUseJapan => 'Common in Japan (transit, payments)';
+
+  @override
+  String get chipUseLegacy => 'Legacy type; not recommended for new projects';
 }

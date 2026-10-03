@@ -50,4 +50,20 @@ class LaunchActionService {
     _channel.setMethodCallHandler(null);
     _actions.close();
   }
+
+  /// Asks the store for the system review prompt (shown at the OS's discretion).
+  static Future<bool> requestReview() => _invokeBool('requestReview');
+
+  /// Opens a URL (sms:, tel:, https:, maps…) in the matching system app.
+  static Future<bool> openUrl(String url) => _invokeBool('openUrl', {'url': url});
+
+  static Future<bool> _invokeBool(String method, [Map<String, Object?>? args]) async {
+    try {
+      return await _channel.invokeMethod<bool>(method, args) ?? false;
+    } on MissingPluginException {
+      return false;
+    } on PlatformException {
+      return false;
+    }
+  }
 }

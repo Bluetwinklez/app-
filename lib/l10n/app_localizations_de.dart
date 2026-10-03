@@ -3669,4 +3669,89 @@ class AppLocalizationsDe extends AppLocalizations {
   @override
   String get backupICloudTip =>
       'Tipp: Wählen Sie im Teilen-Menü „In Dateien sichern“ → iCloud Drive, um die Sicherung in iCloud abzulegen.';
+
+  @override
+  String get dragToReorder => 'Zum Sortieren ziehen';
+
+  @override
+  String get modeTitle => 'Modus';
+
+  @override
+  String get modeNormal => 'Normal';
+
+  @override
+  String get modeCompat => 'Kompatibilität';
+
+  @override
+  String get modeNormalDesc =>
+      'Normal: alle Funktionen aktiv; jeder Tag wird nach dem Schreiben geprüft.';
+
+  @override
+  String get modeCompatDesc =>
+      'Kompatibilität: kein Zurücklesen nach dem Schreiben. Bei manchen alten oder schwierigen Tags zuverlässiger.';
+
+  @override
+  String get rateApp => 'App bewerten';
+
+  @override
+  String get rateAppUnavailable =>
+      'Die Bewertung konnte gerade nicht angezeigt werden (in TestFlight nie).';
+
+  @override
+  String get chipsTitle => 'NFC-Chips';
+
+  @override
+  String get chipsSubtitle =>
+      'Welchen Tag kaufen? Kapazität und Telefon-Unterstützung';
+
+  @override
+  String get chipsIntro =>
+      'Nutzbare Bytes = maximaler NDEF-Inhalt. Für Einsteiger ist NTAG215 eine gute Wahl.';
+
+  @override
+  String chipsUsable(String bytes) {
+    return 'Nutzbar: $bytes Byte';
+  }
+
+  @override
+  String get chipsReadWrite => 'Lesen und Schreiben';
+
+  @override
+  String get chipsReadOnlyNdef => 'Nur NDEF-formatiert';
+
+  @override
+  String get chipsNotSupported => 'Nicht unterstützt';
+
+  @override
+  String get chipsNxpOnly => 'Nur Telefone mit NXP-Chipsatz';
+
+  @override
+  String get chipUseSmall => 'Ein Link, kurzer Text, WLAN; am günstigsten';
+
+  @override
+  String get chipUseMedium => 'Visitenkarten, mehrere Einträge; amiibo-Figuren';
+
+  @override
+  String get chipUseLarge => 'Lange Inhalte, ausführliche Visitenkarten';
+
+  @override
+  String get chipUseSecure =>
+      'Fälschungssichere Authentifizierung (Produkte, Tickets)';
+
+  @override
+  String get chipUseTicket => 'Fahr- und Eintrittskarten';
+
+  @override
+  String get chipUseAccess => 'Tür-/Drehkreuz- und Hotelkarten';
+
+  @override
+  String get chipUseIndustrial =>
+      'Bibliotheks-, Lager- und Industrie-Tags; größere Reichweite';
+
+  @override
+  String get chipUseJapan => 'Verbreitet in Japan (ÖPNV, Bezahlen)';
+
+  @override
+  String get chipUseLegacy =>
+      'Veralteter Typ; für neue Projekte nicht empfohlen';
 }

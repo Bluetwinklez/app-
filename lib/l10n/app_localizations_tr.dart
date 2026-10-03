@@ -3657,4 +3657,88 @@ class AppLocalizationsTr extends AppLocalizations {
   @override
   String get backupICloudTip =>
       'İpucu: Paylaş menüsünde \"Dosyalara Kaydet\" → iCloud Drive seçerek yedeği iCloud\'a saklayabilirsiniz.';
+
+  @override
+  String get dragToReorder => 'Sıralamak için sürükleyin';
+
+  @override
+  String get modeTitle => 'Mod';
+
+  @override
+  String get modeNormal => 'Normal';
+
+  @override
+  String get modeCompat => 'Uyumluluk';
+
+  @override
+  String get modeNormalDesc =>
+      'Normal: Tüm özellikler açık; yazılan her etiket geri okunup doğrulanır.';
+
+  @override
+  String get modeCompatDesc =>
+      'Uyumluluk: Yazdıktan sonra geri okuma yapılmaz. Bazı eski ya da sorunlu etiketlerde yazma daha güvenilir olur.';
+
+  @override
+  String get rateApp => 'Uygulamayı değerlendirin';
+
+  @override
+  String get rateAppUnavailable =>
+      'Değerlendirme penceresi şu an açılamadı (TestFlight\'ta gösterilmez).';
+
+  @override
+  String get chipsTitle => 'NFC çipleri';
+
+  @override
+  String get chipsSubtitle =>
+      'Hangi etiketi almalı? Kapasite ve telefon desteği';
+
+  @override
+  String get chipsIntro =>
+      'Kullanılabilir bayt, etikete yazılabilecek NDEF içeriğinin üst sınırıdır. Yeni başlayanlar için NTAG215 iyi bir seçimdir.';
+
+  @override
+  String chipsUsable(String bytes) {
+    return 'Kullanılabilir: $bytes bayt';
+  }
+
+  @override
+  String get chipsReadWrite => 'Okuma ve yazma';
+
+  @override
+  String get chipsReadOnlyNdef => 'Yalnızca NDEF ise';
+
+  @override
+  String get chipsNotSupported => 'Desteklenmez';
+
+  @override
+  String get chipsNxpOnly => 'Yalnızca NXP çipli telefonlar';
+
+  @override
+  String get chipUseSmall => 'Tek bağlantı, kısa metin, Wi-Fi; en ucuzu';
+
+  @override
+  String get chipUseMedium => 'Kartvizit, birden çok kayıt; amiibo figürleri';
+
+  @override
+  String get chipUseLarge => 'Uzun içerik, ayrıntılı kartvizit';
+
+  @override
+  String get chipUseSecure =>
+      'Sahteciliğe karşı güvenli doğrulama (ürün, bilet)';
+
+  @override
+  String get chipUseTicket => 'Toplu taşıma ve etkinlik biletleri';
+
+  @override
+  String get chipUseAccess => 'Kapı / turnike kartları, otel kartları';
+
+  @override
+  String get chipUseIndustrial =>
+      'Kütüphane, depo ve endüstriyel etiketler; uzun okuma mesafesi';
+
+  @override
+  String get chipUseJapan => 'Japonya\'da yaygın (ulaşım, ödeme)';
+
+  @override
+  String get chipUseLegacy => 'Eski tip; yeni projeler için önerilmez';
 }

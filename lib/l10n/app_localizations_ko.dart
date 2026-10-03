@@ -3510,4 +3510,84 @@ class AppLocalizationsKo extends AppLocalizations {
   @override
   String get backupICloudTip =>
       '팁: 공유 메뉴에서 \"파일에 저장\" → iCloud Drive를 선택하면 iCloud에 보관됩니다.';
+
+  @override
+  String get dragToReorder => '드래그하여 순서 변경';
+
+  @override
+  String get modeTitle => '모드';
+
+  @override
+  String get modeNormal => '일반';
+
+  @override
+  String get modeCompat => '호환성';
+
+  @override
+  String get modeNormalDesc => '일반: 모든 기능 사용, 쓴 태그는 다시 읽어 검증합니다.';
+
+  @override
+  String get modeCompatDesc =>
+      '호환성: 쓰기 후 다시 읽지 않습니다. 일부 오래되거나 까다로운 태그에서 더 안정적입니다.';
+
+  @override
+  String get rateApp => '앱 평가하기';
+
+  @override
+  String get rateAppUnavailable =>
+      '지금은 평가 창을 표시할 수 없습니다(TestFlight에서는 표시되지 않음).';
+
+  @override
+  String get chipsTitle => 'NFC 칩';
+
+  @override
+  String get chipsSubtitle => '어떤 태그를 살까? 용량과 휴대폰 지원';
+
+  @override
+  String get chipsIntro =>
+      '사용 가능 바이트는 쓸 수 있는 NDEF 최대량입니다. 처음이라면 NTAG215를 추천합니다.';
+
+  @override
+  String chipsUsable(String bytes) {
+    return '사용 가능: $bytes바이트';
+  }
+
+  @override
+  String get chipsReadWrite => '읽기·쓰기';
+
+  @override
+  String get chipsReadOnlyNdef => 'NDEF 형식일 때만';
+
+  @override
+  String get chipsNotSupported => '지원 안 됨';
+
+  @override
+  String get chipsNxpOnly => 'NXP 칩셋 휴대폰만';
+
+  @override
+  String get chipUseSmall => '링크 하나, 짧은 글, Wi-Fi. 가장 저렴';
+
+  @override
+  String get chipUseMedium => '명함, 여러 레코드, amiibo 피규어';
+
+  @override
+  String get chipUseLarge => '긴 내용, 자세한 명함';
+
+  @override
+  String get chipUseSecure => '위조 방지 인증(제품, 티켓)';
+
+  @override
+  String get chipUseTicket => '교통·행사 티켓';
+
+  @override
+  String get chipUseAccess => '출입 카드, 호텔 키';
+
+  @override
+  String get chipUseIndustrial => '도서관·창고·산업용, 인식 거리 김';
+
+  @override
+  String get chipUseJapan => '일본에서 흔함(교통, 결제)';
+
+  @override
+  String get chipUseLegacy => '구형, 새 프로젝트에 비추천';
 }

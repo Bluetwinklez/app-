@@ -3499,4 +3499,82 @@ class AppLocalizationsJa extends AppLocalizations {
   @override
   String get backupICloudTip =>
       'ヒント: 共有メニューで「\"ファイル\"に保存」→ iCloud Driveを選ぶとiCloudに保管できます。';
+
+  @override
+  String get dragToReorder => 'ドラッグで並べ替え';
+
+  @override
+  String get modeTitle => 'モード';
+
+  @override
+  String get modeNormal => '通常';
+
+  @override
+  String get modeCompat => '互換性';
+
+  @override
+  String get modeNormalDesc => '通常: すべて有効。書き込んだタグは読み戻して検証します。';
+
+  @override
+  String get modeCompatDesc =>
+      '互換性: 書き込み後の読み戻しを行いません。古いタグや不安定なタグで書き込みが安定する場合があります。';
+
+  @override
+  String get rateApp => 'アプリを評価';
+
+  @override
+  String get rateAppUnavailable => '今は評価画面を表示できません (TestFlightでは表示されません)。';
+
+  @override
+  String get chipsTitle => 'NFCチップ';
+
+  @override
+  String get chipsSubtitle => 'どのタグを買う？容量と対応状況';
+
+  @override
+  String get chipsIntro => '使用可能バイトはNDEFで書ける最大量です。初めてならNTAG215がおすすめです。';
+
+  @override
+  String chipsUsable(String bytes) {
+    return '使用可能: $bytesバイト';
+  }
+
+  @override
+  String get chipsReadWrite => '読み書き';
+
+  @override
+  String get chipsReadOnlyNdef => 'NDEF形式のみ';
+
+  @override
+  String get chipsNotSupported => '非対応';
+
+  @override
+  String get chipsNxpOnly => 'NXPチップ搭載機のみ';
+
+  @override
+  String get chipUseSmall => 'リンク1つ、短文、Wi-Fi。最安';
+
+  @override
+  String get chipUseMedium => '名刺、複数レコード。amiiboフィギュア';
+
+  @override
+  String get chipUseLarge => '長い内容、詳しい名刺';
+
+  @override
+  String get chipUseSecure => '偽造防止の認証 (商品、チケット)';
+
+  @override
+  String get chipUseTicket => '交通・イベントのチケット';
+
+  @override
+  String get chipUseAccess => '入退室カード、ホテルのカードキー';
+
+  @override
+  String get chipUseIndustrial => '図書館・倉庫・産業用。読取距離が長い';
+
+  @override
+  String get chipUseJapan => '日本で一般的 (交通、決済)';
+
+  @override
+  String get chipUseLegacy => '旧式。新規には非推奨';
 }

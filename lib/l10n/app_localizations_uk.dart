@@ -3660,4 +3660,87 @@ class AppLocalizationsUk extends AppLocalizations {
   @override
   String get backupICloudTip =>
       'Порада: у меню «Поділитися» виберіть «Зберегти у Файли» → iCloud Drive.';
+
+  @override
+  String get dragToReorder => 'Перетягніть для сортування';
+
+  @override
+  String get modeTitle => 'Режим';
+
+  @override
+  String get modeNormal => 'Звичайний';
+
+  @override
+  String get modeCompat => 'Сумісність';
+
+  @override
+  String get modeNormalDesc =>
+      'Звичайний: усе ввімкнено; кожну записану мітку перечитують і перевіряють.';
+
+  @override
+  String get modeCompatDesc =>
+      'Сумісність: без перечитування після запису. Надійніше на деяких старих чи проблемних мітках.';
+
+  @override
+  String get rateApp => 'Оцінити застосунок';
+
+  @override
+  String get rateAppUnavailable =>
+      'Вікно оцінки зараз недоступне (у TestFlight не з\'являється).';
+
+  @override
+  String get chipsTitle => 'NFC-чипи';
+
+  @override
+  String get chipsSubtitle => 'Яку мітку купити? Ємність і підтримка';
+
+  @override
+  String get chipsIntro =>
+      'Корисні байти — максимум NDEF-вмісту. Для початку підійде NTAG215.';
+
+  @override
+  String chipsUsable(String bytes) {
+    return 'Доступно: $bytes байт';
+  }
+
+  @override
+  String get chipsReadWrite => 'Читання й запис';
+
+  @override
+  String get chipsReadOnlyNdef => 'Лише якщо NDEF';
+
+  @override
+  String get chipsNotSupported => 'Не підтримується';
+
+  @override
+  String get chipsNxpOnly => 'Лише телефони з чипом NXP';
+
+  @override
+  String get chipUseSmall =>
+      'Одне посилання, короткий текст, Wi-Fi; найдешевша';
+
+  @override
+  String get chipUseMedium => 'Візитки, кілька записів; фігурки amiibo';
+
+  @override
+  String get chipUseLarge => 'Довгий вміст, детальні візитки';
+
+  @override
+  String get chipUseSecure => 'Захист від підробок (товари, квитки)';
+
+  @override
+  String get chipUseTicket => 'Проїзні й квитки на події';
+
+  @override
+  String get chipUseAccess => 'Перепустки й готельні ключі';
+
+  @override
+  String get chipUseIndustrial =>
+      'Бібліотеки, склади, промисловість; більша дальність';
+
+  @override
+  String get chipUseJapan => 'Поширений у Японії (транспорт, оплата)';
+
+  @override
+  String get chipUseLegacy => 'Застарілий тип; не рекомендується';
 }

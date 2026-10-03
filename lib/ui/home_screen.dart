@@ -18,6 +18,7 @@ import 'qr_preview_dialog.dart';
 import 'tag_rules_manager_sheet.dart';
 import 'app_theme.dart';
 import 'tools_tab.dart';
+import 'nfc_chips_page.dart';
 import '../app_info.dart';
 import 'tap_preview_card.dart';
 import 'onboarding_page.dart';
@@ -392,6 +393,62 @@ class _HomeScreenState extends State<HomeScreen>
               trailing: const Icon(Icons.chevron_right),
               onTap: () => setState(() => _showOnboarding = true),
             ),
+            ListTile(
+              leading: Icon(Icons.memory_rounded, color: AppColors.accent),
+              title: Text(L10n.current.chipsTitle),
+              subtitle: Text(L10n.current.chipsSubtitle),
+              trailing: const Icon(Icons.chevron_right),
+              onTap: () => NfcChipsPage.open(context),
+            ),
+            ListTile(
+              leading: Icon(Icons.star_rate_rounded, color: AppColors.accent),
+              title: Text(L10n.current.rateApp),
+              trailing: const Icon(Icons.chevron_right),
+              onTap: () async {
+                final shown = await LaunchActionService.requestReview();
+                if (!shown && mounted) {
+                  ScaffoldMessenger.of(context).showSnackBar(
+                    SnackBar(content: Text(L10n.current.rateAppUnavailable)),
+                  );
+                }
+              },
+            ),
+            const Divider(height: 24),
+            Padding(
+              padding: const EdgeInsets.fromLTRB(16, 0, 16, 8),
+              child: Row(
+                children: [
+                  Icon(Icons.tune_rounded, color: AppColors.accent),
+                  const SizedBox(width: 10),
+                  Text(L10n.current.modeTitle,
+                      style: const TextStyle(fontSize: 16, fontWeight: FontWeight.bold)),
+                ],
+              ),
+            ),
+            Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 16),
+              child: SegmentedButton<bool>(
+                segments: [
+                  ButtonSegment(value: false, label: Text(L10n.current.modeNormal)),
+                  ButtonSegment(value: true, label: Text(L10n.current.modeCompat)),
+                ],
+                selected: {_controller.storage.compatibilityMode},
+                onSelectionChanged: (v) async {
+                  await _controller.storage.setCompatibilityMode(v.first);
+                  if (mounted) setState(() {});
+                },
+              ),
+            ),
+            Padding(
+              padding: const EdgeInsets.fromLTRB(16, 8, 16, 8),
+              child: Text(
+                _controller.storage.compatibilityMode
+                    ? L10n.current.modeCompatDesc
+                    : L10n.current.modeNormalDesc,
+                style: TextStyle(fontSize: 12.5, color: AppColors.secondary),
+              ),
+            ),
+            const Divider(height: 24),
             ListTile(
               leading: Icon(Icons.info_outline_rounded, color: AppColors.accent),
               title: Text(L10n.current.aboutTitle),
