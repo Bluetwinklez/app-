@@ -3877,4 +3877,39 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get printSheet => 'Printable label sheet (PDF)';
+
+  @override
+  String get phishDangerTitle => 'Warning: this may be a fake site';
+
+  @override
+  String get phishCautionTitle => 'Check this link before opening it';
+
+  @override
+  String phishLookalike(String brand) {
+    return 'The address looks like $brand but is not its official domain.';
+  }
+
+  @override
+  String phishBrandInSubdomain(String brand) {
+    return '\"$brand\" is placed in front of a different site; the real site is something else.';
+  }
+
+  @override
+  String phishBrandInName(String brand) {
+    return 'The domain contains \"$brand\" but is not the official site.';
+  }
+
+  @override
+  String phishShortener(String host) {
+    return 'Shortened link ($host): the real address is hidden.';
+  }
+
+  @override
+  String phishRiskyTld(String tld) {
+    return 'The \".$tld\" ending is often used by phishing sites.';
+  }
+
+  @override
+  String get phishDisclaimer =>
+      'This check uses offline hints; it cannot guarantee a site is safe.';
 }

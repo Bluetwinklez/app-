@@ -3735,4 +3735,38 @@ class AppLocalizationsKo extends AppLocalizations {
 
   @override
   String get printSheet => '인쇄용 라벨 시트(PDF)';
+
+  @override
+  String get phishDangerTitle => '주의: 가짜 사이트일 수 있습니다';
+
+  @override
+  String get phishCautionTitle => '열기 전에 링크를 확인하세요';
+
+  @override
+  String phishLookalike(String brand) {
+    return '$brand와 비슷하지만 공식 도메인이 아닙니다.';
+  }
+
+  @override
+  String phishBrandInSubdomain(String brand) {
+    return '\"$brand\"이(가) 다른 도메인 앞에 붙어 있습니다. 실제 사이트는 다릅니다.';
+  }
+
+  @override
+  String phishBrandInName(String brand) {
+    return '도메인에 \"$brand\"이(가) 있지만 공식 사이트가 아닙니다.';
+  }
+
+  @override
+  String phishShortener(String host) {
+    return '단축 링크($host): 실제 주소가 숨겨져 있습니다.';
+  }
+
+  @override
+  String phishRiskyTld(String tld) {
+    return '\".$tld\" 도메인은 피싱에 자주 쓰입니다.';
+  }
+
+  @override
+  String get phishDisclaimer => '오프라인 단서를 이용한 검사로 안전을 보장하지 않습니다.';
 }

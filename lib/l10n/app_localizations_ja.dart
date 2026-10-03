@@ -3721,4 +3721,38 @@ class AppLocalizationsJa extends AppLocalizations {
 
   @override
   String get printSheet => '印刷用ラベルシート (PDF)';
+
+  @override
+  String get phishDangerTitle => '注意: 偽サイトの可能性があります';
+
+  @override
+  String get phishCautionTitle => '開く前にリンクを確認してください';
+
+  @override
+  String phishLookalike(String brand) {
+    return '$brandに似ていますが公式ドメインではありません。';
+  }
+
+  @override
+  String phishBrandInSubdomain(String brand) {
+    return '「$brand」が別ドメインの前に付けられています。実際のサイトは別物です。';
+  }
+
+  @override
+  String phishBrandInName(String brand) {
+    return 'ドメインに「$brand」を含みますが公式サイトではありません。';
+  }
+
+  @override
+  String phishShortener(String host) {
+    return '短縮リンク ($host): 本当のアドレスが隠れています。';
+  }
+
+  @override
+  String phishRiskyTld(String tld) {
+    return '「.$tld」はフィッシングでよく使われます。';
+  }
+
+  @override
+  String get phishDisclaimer => 'オフラインの手がかりによる確認で、安全を保証するものではありません。';
 }

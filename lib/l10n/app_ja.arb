@@ -1093,5 +1093,13 @@
   "unseen30Days": "30日以上未確認",
   "inventoryCardTitle": "このタグはライブラリにあります",
   "scanReportLine": "{unique}種類 · 再読取 {dup} · 空 {empty}",
-  "printSheet": "印刷用ラベルシート (PDF)"
+  "printSheet": "印刷用ラベルシート (PDF)",
+  "phishDangerTitle": "注意: 偽サイトの可能性があります",
+  "phishCautionTitle": "開く前にリンクを確認してください",
+  "phishLookalike": "{brand}に似ていますが公式ドメインではありません。",
+  "phishBrandInSubdomain": "「{brand}」が別ドメインの前に付けられています。実際のサイトは別物です。",
+  "phishBrandInName": "ドメインに「{brand}」を含みますが公式サイトではありません。",
+  "phishShortener": "短縮リンク ({host}): 本当のアドレスが隠れています。",
+  "phishRiskyTld": "「.{tld}」はフィッシングでよく使われます。",
+  "phishDisclaimer": "オフラインの手がかりによる確認で、安全を保証するものではありません。"
 }

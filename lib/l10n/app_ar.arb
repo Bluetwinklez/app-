@@ -1093,5 +1093,13 @@
   "unseen30Days": "لم يُرَ منذ 30+ يومًا",
   "inventoryCardTitle": "هذا الوسم في مكتبتك",
   "scanReportLine": "{unique} وسوم مختلفة · {dup} مكررة · {empty} فارغة",
-  "printSheet": "ورقة ملصقات للطباعة (PDF)"
+  "printSheet": "ورقة ملصقات للطباعة (PDF)",
+  "phishDangerTitle": "تحذير: قد يكون موقعًا مزيفًا",
+  "phishCautionTitle": "تحقق من الرابط قبل فتحه",
+  "phishLookalike": "العنوان يشبه {brand} لكنه ليس النطاق الرسمي.",
+  "phishBrandInSubdomain": "وُضع \"{brand}\" أمام نطاق آخر؛ والموقع الحقيقي مختلف.",
+  "phishBrandInName": "يحتوي النطاق على \"{brand}\" لكنه ليس الموقع الرسمي.",
+  "phishShortener": "رابط مختصر ({host}): العنوان الحقيقي مخفي.",
+  "phishRiskyTld": "يُستخدم الامتداد \".{tld}\" كثيرًا في التصيّد.",
+  "phishDisclaimer": "يعتمد هذا الفحص على مؤشرات دون اتصال ولا يضمن أمان الموقع."
 }

@@ -3893,4 +3893,39 @@ class AppLocalizationsNl extends AppLocalizations {
 
   @override
   String get printSheet => 'Afdrukbaar etiketvel (PDF)';
+
+  @override
+  String get phishDangerTitle => 'Let op: mogelijk een nepsite';
+
+  @override
+  String get phishCautionTitle => 'Controleer de link voordat je hem opent';
+
+  @override
+  String phishLookalike(String brand) {
+    return 'Het adres lijkt op $brand maar is niet het officiële domein.';
+  }
+
+  @override
+  String phishBrandInSubdomain(String brand) {
+    return '\"$brand\" staat voor een ander domein; de echte site is een andere.';
+  }
+
+  @override
+  String phishBrandInName(String brand) {
+    return 'Het domein bevat \"$brand\" maar is niet de officiële site.';
+  }
+
+  @override
+  String phishShortener(String host) {
+    return 'Verkorte link ($host): het echte adres is verborgen.';
+  }
+
+  @override
+  String phishRiskyTld(String tld) {
+    return 'De extensie \".$tld\" wordt vaak voor phishing gebruikt.';
+  }
+
+  @override
+  String get phishDisclaimer =>
+      'Deze controle gebruikt offline aanwijzingen en garandeert geen veiligheid.';
 }

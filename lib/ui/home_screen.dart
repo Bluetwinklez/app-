@@ -18,6 +18,7 @@ import 'qr_preview_dialog.dart';
 import 'tag_rules_manager_sheet.dart';
 import 'app_theme.dart';
 import 'tools_tab.dart';
+import 'phishing_banner.dart';
 import 'nfc_chips_page.dart';
 import '../app_info.dart';
 import 'tap_preview_card.dart';
@@ -603,6 +604,9 @@ class _HomeScreenState extends State<HomeScreen>
         ],
       ),
       if (inventory != null) inventory,
+      if (tag.error == null) ...[
+        if (PhishingBanner.forRecords(tag.records) case final banner?) banner,
+      ],
         ],
       ),
     );
