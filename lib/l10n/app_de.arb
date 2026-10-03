@@ -1341,5 +1341,11 @@
   "ideaInventoryDesc": "Lager- und Inventurzählung: wo jeder Tag zuletzt war.",
   "firstTagTitle": "Erstelle deinen ersten Tag",
   "firstTagSubtitle": "Eins wählen, Felder ausfüllen, Tag heranhalten. Dauert 30 Sekunden.",
-  "firstTagMore": "Mehr Ideen"
+  "firstTagMore": "Mehr Ideen",
+  "iconRed": "Rot",
+  "iconTeal": "Türkis",
+  "iconGold": "Gold",
+  "iconIndigo": "Indigo",
+  "iconLight": "Weiß",
+  "iconRainbow": "Regenbogen"
 }

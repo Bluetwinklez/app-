@@ -462,6 +462,7 @@ class _HomeScreenState extends State<HomeScreen>
               padding: const EdgeInsets.fromLTRB(16, 8, 16, 4),
               child: Wrap(
                 spacing: 12,
+                runSpacing: 10,
                 children: [
                   for (int i = 0; i < AppColors.accentPresets.length; i++)
                     Semantics(
@@ -473,6 +474,10 @@ class _HomeScreenState extends State<HomeScreen>
                         L10n.current.iconPurple,
                         L10n.current.iconOrange,
                         L10n.current.colorPink,
+                        L10n.current.iconRed,
+                        L10n.current.iconTeal,
+                        L10n.current.iconGold,
+                        L10n.current.iconIndigo,
                       ][i],
                       child: GestureDetector(
                         onTap: () => _controller.setAccentIndex(i),

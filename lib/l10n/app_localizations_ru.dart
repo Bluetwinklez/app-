@@ -4797,4 +4797,22 @@ class AppLocalizationsRu extends AppLocalizations {
 
   @override
   String get firstTagMore => 'Больше идей';
+
+  @override
+  String get iconRed => 'Красный';
+
+  @override
+  String get iconTeal => 'Бирюзовый';
+
+  @override
+  String get iconGold => 'Золотой';
+
+  @override
+  String get iconIndigo => 'Индиго';
+
+  @override
+  String get iconLight => 'Белый';
+
+  @override
+  String get iconRainbow => 'Радуга';
 }

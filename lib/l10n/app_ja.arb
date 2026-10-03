@@ -1341,5 +1341,11 @@
   "ideaInventoryDesc": "在庫・備品の棚卸し：各タグを最後に見た場所。",
   "firstTagTitle": "最初のタグを作ろう",
   "firstTagSubtitle": "1つ選んで入力し、タグを近づけるだけ。30秒です。",
-  "firstTagMore": "もっと見る"
+  "firstTagMore": "もっと見る",
+  "iconRed": "レッド",
+  "iconTeal": "ティール",
+  "iconGold": "ゴールド",
+  "iconIndigo": "インディゴ",
+  "iconLight": "ホワイト",
+  "iconRainbow": "レインボー"
 }

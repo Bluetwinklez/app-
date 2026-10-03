@@ -4603,4 +4603,22 @@ class AppLocalizationsKo extends AppLocalizations {
 
   @override
   String get firstTagMore => '더 많은 아이디어';
+
+  @override
+  String get iconRed => '빨강';
+
+  @override
+  String get iconTeal => '청록';
+
+  @override
+  String get iconGold => '골드';
+
+  @override
+  String get iconIndigo => '인디고';
+
+  @override
+  String get iconLight => '화이트';
+
+  @override
+  String get iconRainbow => '무지개';
 }

@@ -1341,5 +1341,11 @@
   "ideaInventoryDesc": "Stock and asset counts: where each tag was last seen.",
   "firstTagTitle": "Make your first tag",
   "firstTagSubtitle": "Pick one, fill in the fields, hold the tag near. Takes 30 seconds.",
-  "firstTagMore": "More ideas"
+  "firstTagMore": "More ideas",
+  "iconRed": "Red",
+  "iconTeal": "Teal",
+  "iconGold": "Gold",
+  "iconIndigo": "Indigo",
+  "iconLight": "White",
+  "iconRainbow": "Rainbow"
 }

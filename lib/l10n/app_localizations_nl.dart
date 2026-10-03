@@ -4796,4 +4796,22 @@ class AppLocalizationsNl extends AppLocalizations {
 
   @override
   String get firstTagMore => 'Meer ideeën';
+
+  @override
+  String get iconRed => 'Rood';
+
+  @override
+  String get iconTeal => 'Turquoise';
+
+  @override
+  String get iconGold => 'Goud';
+
+  @override
+  String get iconIndigo => 'Indigo';
+
+  @override
+  String get iconLight => 'Wit';
+
+  @override
+  String get iconRainbow => 'Regenboog';
 }

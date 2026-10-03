@@ -1341,5 +1341,11 @@
   "ideaInventoryDesc": "재고·비품 조사: 각 태그를 마지막으로 본 위치.",
   "firstTagTitle": "첫 태그 만들기",
   "firstTagSubtitle": "하나 고르고 입력한 뒤 태그를 대세요. 30초면 됩니다.",
-  "firstTagMore": "더 많은 아이디어"
+  "firstTagMore": "더 많은 아이디어",
+  "iconRed": "빨강",
+  "iconTeal": "청록",
+  "iconGold": "골드",
+  "iconIndigo": "인디고",
+  "iconLight": "화이트",
+  "iconRainbow": "무지개"
 }

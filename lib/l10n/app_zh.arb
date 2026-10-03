@@ -1341,5 +1341,11 @@
   "ideaInventoryDesc": "库存与资产盘点：每个标签最后出现的位置。",
   "firstTagTitle": "制作你的第一个标签",
   "firstTagSubtitle": "选一个、填写内容、靠近标签，30 秒搞定。",
-  "firstTagMore": "更多创意"
+  "firstTagMore": "更多创意",
+  "iconRed": "红色",
+  "iconTeal": "青绿色",
+  "iconGold": "金色",
+  "iconIndigo": "靛蓝",
+  "iconLight": "白色",
+  "iconRainbow": "彩虹"
 }

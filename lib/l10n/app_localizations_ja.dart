@@ -4587,4 +4587,22 @@ class AppLocalizationsJa extends AppLocalizations {
 
   @override
   String get firstTagMore => 'もっと見る';
+
+  @override
+  String get iconRed => 'レッド';
+
+  @override
+  String get iconTeal => 'ティール';
+
+  @override
+  String get iconGold => 'ゴールド';
+
+  @override
+  String get iconIndigo => 'インディゴ';
+
+  @override
+  String get iconLight => 'ホワイト';
+
+  @override
+  String get iconRainbow => 'レインボー';
 }

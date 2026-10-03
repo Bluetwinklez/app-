@@ -87,6 +87,10 @@ class AppColors {
     (Color(0xFF7A3FD1), Color(0xFFBF5AF2), Color(0xFFF1EAFB), Color(0xFF2E1847)),
     (Color(0xFFC65A00), Color(0xFFFF9F0A), Color(0xFFFCEFE3), Color(0xFF3F2508)),
     (Color(0xFFC2185B), Color(0xFFFF375F), Color(0xFFFCE8EF), Color(0xFF451425)),
+    (Color(0xFFC62828), Color(0xFFFF453A), Color(0xFFFCE9E9), Color(0xFF4A1414)),
+    (Color(0xFF00897B), Color(0xFF40C8E0), Color(0xFFE0F4F2), Color(0xFF0B3A36)),
+    (Color(0xFFA67C00), Color(0xFFFFD60A), Color(0xFFFBF3DC), Color(0xFF3D2F06)),
+    (Color(0xFF3F51B5), Color(0xFF5E5CE6), Color(0xFFE8EAF6), Color(0xFF1A1F4A)),
   ];
 
   static _Palette get _p => _withAccent(_isDark ? _dark : _light, _isDark);

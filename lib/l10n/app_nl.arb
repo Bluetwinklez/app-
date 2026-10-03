@@ -1341,5 +1341,11 @@
   "ideaInventoryDesc": "Voorraad en inventaris: waar elke tag het laatst was.",
   "firstTagTitle": "Maak je eerste tag",
   "firstTagSubtitle": "Kies er een, vul de velden in en houd de tag erbij. 30 seconden.",
-  "firstTagMore": "Meer ideeën"
+  "firstTagMore": "Meer ideeën",
+  "iconRed": "Rood",
+  "iconTeal": "Turquoise",
+  "iconGold": "Goud",
+  "iconIndigo": "Indigo",
+  "iconLight": "Wit",
+  "iconRainbow": "Regenboog"
 }

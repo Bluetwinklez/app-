@@ -8176,6 +8176,42 @@ abstract class AppLocalizations {
   /// In tr, this message translates to:
   /// **'Daha fazla fikir'**
   String get firstTagMore;
+
+  /// No description provided for @iconRed.
+  ///
+  /// In tr, this message translates to:
+  /// **'Kırmızı'**
+  String get iconRed;
+
+  /// No description provided for @iconTeal.
+  ///
+  /// In tr, this message translates to:
+  /// **'Turkuaz'**
+  String get iconTeal;
+
+  /// No description provided for @iconGold.
+  ///
+  /// In tr, this message translates to:
+  /// **'Altın'**
+  String get iconGold;
+
+  /// No description provided for @iconIndigo.
+  ///
+  /// In tr, this message translates to:
+  /// **'Lacivert'**
+  String get iconIndigo;
+
+  /// No description provided for @iconLight.
+  ///
+  /// In tr, this message translates to:
+  /// **'Beyaz'**
+  String get iconLight;
+
+  /// No description provided for @iconRainbow.
+  ///
+  /// In tr, this message translates to:
+  /// **'Gökkuşağı'**
+  String get iconRainbow;
 }
 
 class _AppLocalizationsDelegate
