@@ -126,8 +126,7 @@ def ensure_capabilities(api, bundle_id, target, dry):
         return
     present = set()
     if bundle_id:
-        res = api.call("GET", f"/bundleIds/{bundle_id}/bundleIdCapabilities",
-                       query={"limit": "200"})
+        res = api.call("GET", f"/bundleIds/{bundle_id}/bundleIdCapabilities")
         present = {c["attributes"]["capabilityType"]
                    for c in res.get("data", [])}
     for cap, settings in target["capabilities"]:
