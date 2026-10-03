@@ -46,6 +46,12 @@ class MainActivity : FlutterActivity(), NfcAdapter.ReaderCallback {
                     val action = pendingLaunchAction
                     pendingLaunchAction = null
                     result.success(action)
+                } else if (call.method == "requestReview") {
+                    result.success(openUri("market://details?id=$packageName") ||
+                        openUri("https://play.google.com/store/apps/details?id=$packageName"))
+                } else if (call.method == "openUrl") {
+                    val url = call.argument<String>("url")
+                    result.success(url != null && openUri(url))
                 } else {
                     result.notImplemented()
                 }
@@ -556,6 +562,15 @@ class MainActivity : FlutterActivity(), NfcAdapter.ReaderCallback {
             postError(result, "LOCK_FAILED", e.message ?: "", null)
         } finally {
             try { ndef.close() } catch (_: Exception) {}
+        }
+    }
+
+    private fun openUri(uri: String): Boolean {
+        return try {
+            startActivity(Intent(Intent.ACTION_VIEW, android.net.Uri.parse(uri)).addFlags(Intent.FLAG_ACTIVITY_NEW_TASK))
+            true
+        } catch (_: Exception) {
+            false
         }
     }
 

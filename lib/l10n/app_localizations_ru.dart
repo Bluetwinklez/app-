@@ -3663,4 +3663,87 @@ class AppLocalizationsRu extends AppLocalizations {
   @override
   String get backupICloudTip =>
       'Совет: в меню «Поделиться» выберите «Сохранить в Файлы» → iCloud Drive.';
+
+  @override
+  String get dragToReorder => 'Перетащите для сортировки';
+
+  @override
+  String get modeTitle => 'Режим';
+
+  @override
+  String get modeNormal => 'Обычный';
+
+  @override
+  String get modeCompat => 'Совместимость';
+
+  @override
+  String get modeNormalDesc =>
+      'Обычный: всё включено; каждая записанная метка перечитывается и проверяется.';
+
+  @override
+  String get modeCompatDesc =>
+      'Совместимость: без перечитывания после записи. Надёжнее на некоторых старых или капризных метках.';
+
+  @override
+  String get rateApp => 'Оценить приложение';
+
+  @override
+  String get rateAppUnavailable =>
+      'Окно оценки сейчас недоступно (в TestFlight не показывается).';
+
+  @override
+  String get chipsTitle => 'NFC-чипы';
+
+  @override
+  String get chipsSubtitle => 'Какую метку купить? Ёмкость и поддержка';
+
+  @override
+  String get chipsIntro =>
+      'Полезные байты — максимум NDEF-содержимого. Для начала подойдёт NTAG215.';
+
+  @override
+  String chipsUsable(String bytes) {
+    return 'Доступно: $bytes байт';
+  }
+
+  @override
+  String get chipsReadWrite => 'Чтение и запись';
+
+  @override
+  String get chipsReadOnlyNdef => 'Только если NDEF';
+
+  @override
+  String get chipsNotSupported => 'Не поддерживается';
+
+  @override
+  String get chipsNxpOnly => 'Только телефоны с чипом NXP';
+
+  @override
+  String get chipUseSmall =>
+      'Одна ссылка, короткий текст, Wi-Fi; самый дешёвый';
+
+  @override
+  String get chipUseMedium => 'Визитки, несколько записей; фигурки amiibo';
+
+  @override
+  String get chipUseLarge => 'Длинное содержимое, подробные визитки';
+
+  @override
+  String get chipUseSecure => 'Защита от подделок (товары, билеты)';
+
+  @override
+  String get chipUseTicket => 'Проездные и билеты на события';
+
+  @override
+  String get chipUseAccess => 'Пропуска и гостиничные ключи';
+
+  @override
+  String get chipUseIndustrial =>
+      'Библиотеки, склады, промышленность; большая дальность';
+
+  @override
+  String get chipUseJapan => 'Распространён в Японии (транспорт, оплата)';
+
+  @override
+  String get chipUseLegacy => 'Устаревший тип; не рекомендуется';
 }

@@ -3613,4 +3613,86 @@ class AppLocalizationsAr extends AppLocalizations {
   @override
   String get backupICloudTip =>
       'نصيحة: اختر \"حفظ في الملفات\" ← iCloud Drive من قائمة المشاركة.';
+
+  @override
+  String get dragToReorder => 'اسحب لإعادة الترتيب';
+
+  @override
+  String get modeTitle => 'الوضع';
+
+  @override
+  String get modeNormal => 'عادي';
+
+  @override
+  String get modeCompat => 'التوافق';
+
+  @override
+  String get modeNormalDesc =>
+      'عادي: كل الميزات مفعّلة؛ ويُعاد قراءة كل وسم مكتوب للتحقق.';
+
+  @override
+  String get modeCompatDesc =>
+      'التوافق: لا تُعاد القراءة بعد الكتابة. تصبح الكتابة أكثر موثوقية مع بعض الوسوم القديمة أو المتعبة.';
+
+  @override
+  String get rateApp => 'قيّم التطبيق';
+
+  @override
+  String get rateAppUnavailable =>
+      'تعذّر عرض نافذة التقييم الآن (لا تظهر في TestFlight).';
+
+  @override
+  String get chipsTitle => 'شرائح NFC';
+
+  @override
+  String get chipsSubtitle => 'أي وسم تشتري؟ السعة ودعم الهاتف';
+
+  @override
+  String get chipsIntro =>
+      'البايتات القابلة للاستخدام هي أقصى محتوى NDEF. ‏NTAG215 خيار جيد للمبتدئين.';
+
+  @override
+  String chipsUsable(String bytes) {
+    return 'قابل للاستخدام: $bytes بايت';
+  }
+
+  @override
+  String get chipsReadWrite => 'قراءة وكتابة';
+
+  @override
+  String get chipsReadOnlyNdef => 'فقط إن كان NDEF';
+
+  @override
+  String get chipsNotSupported => 'غير مدعوم';
+
+  @override
+  String get chipsNxpOnly => 'الهواتف ذات شريحة NXP فقط';
+
+  @override
+  String get chipUseSmall => 'رابط واحد، نص قصير، Wi-Fi؛ الأرخص';
+
+  @override
+  String get chipUseMedium => 'بطاقات الاتصال، سجلات متعددة؛ مجسمات amiibo';
+
+  @override
+  String get chipUseLarge => 'محتوى طويل، بطاقات اتصال مفصلة';
+
+  @override
+  String get chipUseSecure => 'مصادقة ضد التزوير (منتجات، تذاكر)';
+
+  @override
+  String get chipUseTicket => 'تذاكر النقل والفعاليات';
+
+  @override
+  String get chipUseAccess => 'بطاقات الأبواب والفنادق';
+
+  @override
+  String get chipUseIndustrial =>
+      'المكتبات والمستودعات والصناعة؛ مدى قراءة أطول';
+
+  @override
+  String get chipUseJapan => 'شائع في اليابان (النقل، الدفع)';
+
+  @override
+  String get chipUseLegacy => 'نوع قديم؛ غير مستحسن للمشاريع الجديدة';
 }

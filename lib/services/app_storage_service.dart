@@ -40,6 +40,10 @@ abstract class AppStorageService {
   DateTime? get lastBackupAt;
   Future<void> setLastBackupAt(DateTime time);
 
+  /// Compatibility mode: skip read-back verification after writes.
+  bool get compatibilityMode;
+  Future<void> setCompatibilityMode(bool enabled);
+
   // Scan History
   List<ScanHistoryEntry> getHistory();
   Future<void> addHistoryEntry(ScanHistoryEntry entry);
@@ -118,6 +122,14 @@ class InMemoryAppStorageService implements AppStorageService {
 
   @override
   Future<void> setLastBackupAt(DateTime time) async => _lastBackupAt = time;
+
+  bool _compatibilityMode = false;
+
+  @override
+  bool get compatibilityMode => _compatibilityMode;
+
+  @override
+  Future<void> setCompatibilityMode(bool enabled) async => _compatibilityMode = enabled;
 
   @override
   List<TagLibraryEntry> getLibrary() => List.unmodifiable(_library);
@@ -365,6 +377,7 @@ class LocalFileAppStorageService implements AppStorageService {
               ? List.unmodifiable(favs.whereType<String>().take(100))
               : const [];
           _lastBackupAt = DateTime.tryParse(data['lastBackupAt'] as String? ?? '');
+          _compatibilityMode = data['compatibilityMode'] as bool? ?? false;
         }
       }
     } catch (e) {
@@ -505,6 +518,7 @@ class LocalFileAppStorageService implements AppStorageService {
       'soundsEnabled': _soundsEnabled,
       'favoritePresets': _favoritePresets,
       if (_lastBackupAt != null) 'lastBackupAt': _lastBackupAt!.toIso8601String(),
+      'compatibilityMode': _compatibilityMode,
     });
     await _atomicWrite(_settingsFile, data);
   }
@@ -564,6 +578,17 @@ class LocalFileAppStorageService implements AppStorageService {
   @override
   Future<void> setLastBackupAt(DateTime time) async {
     _lastBackupAt = time;
+    await _saveSettings();
+  }
+
+  bool _compatibilityMode = false;
+
+  @override
+  bool get compatibilityMode => _compatibilityMode;
+
+  @override
+  Future<void> setCompatibilityMode(bool enabled) async {
+    _compatibilityMode = enabled;
     await _saveSettings();
   }
 

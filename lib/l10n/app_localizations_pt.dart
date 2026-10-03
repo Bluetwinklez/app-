@@ -3672,4 +3672,88 @@ class AppLocalizationsPt extends AppLocalizations {
   @override
   String get backupICloudTip =>
       'Dica: no menu Compartilhar, escolha \"Salvar em Arquivos\" → iCloud Drive.';
+
+  @override
+  String get dragToReorder => 'Arraste para reordenar';
+
+  @override
+  String get modeTitle => 'Modo';
+
+  @override
+  String get modeNormal => 'Normal';
+
+  @override
+  String get modeCompat => 'Compatibilidade';
+
+  @override
+  String get modeNormalDesc =>
+      'Normal: tudo ativado; cada tag gravada é relida e verificada.';
+
+  @override
+  String get modeCompatDesc =>
+      'Compatibilidade: sem releitura após gravar. Mais confiável em algumas tags antigas ou problemáticas.';
+
+  @override
+  String get rateApp => 'Avaliar o app';
+
+  @override
+  String get rateAppUnavailable =>
+      'Não foi possível mostrar a avaliação agora (nunca aparece no TestFlight).';
+
+  @override
+  String get chipsTitle => 'Chips NFC';
+
+  @override
+  String get chipsSubtitle => 'Qual tag comprar? Capacidade e compatibilidade';
+
+  @override
+  String get chipsIntro =>
+      'Bytes úteis são o máximo de conteúdo NDEF. NTAG215 é uma boa escolha para começar.';
+
+  @override
+  String chipsUsable(String bytes) {
+    return 'Útil: $bytes bytes';
+  }
+
+  @override
+  String get chipsReadWrite => 'Leitura e gravação';
+
+  @override
+  String get chipsReadOnlyNdef => 'Só se NDEF';
+
+  @override
+  String get chipsNotSupported => 'Não compatível';
+
+  @override
+  String get chipsNxpOnly => 'Só telefones com chip NXP';
+
+  @override
+  String get chipUseSmall => 'Um link, texto curto, Wi-Fi; o mais barato';
+
+  @override
+  String get chipUseMedium =>
+      'Cartões de contato, vários registros; figuras amiibo';
+
+  @override
+  String get chipUseLarge => 'Conteúdo longo, cartões detalhados';
+
+  @override
+  String get chipUseSecure =>
+      'Autenticação antifalsificação (produtos, ingressos)';
+
+  @override
+  String get chipUseTicket => 'Bilhetes de transporte e eventos';
+
+  @override
+  String get chipUseAccess => 'Cartões de acesso e de hotel';
+
+  @override
+  String get chipUseIndustrial =>
+      'Bibliotecas, armazéns e indústria; maior alcance';
+
+  @override
+  String get chipUseJapan => 'Comum no Japão (transporte, pagamentos)';
+
+  @override
+  String get chipUseLegacy => 'Tipo antigo; não recomendado';
 }
