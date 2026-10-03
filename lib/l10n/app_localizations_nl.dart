@@ -4814,4 +4814,89 @@ class AppLocalizationsNl extends AppLocalizations {
 
   @override
   String get iconRainbow => 'Regenboog';
+
+  @override
+  String get catWebText => 'Web en tekst';
+
+  @override
+  String get catContact => 'Contact en zakelijk';
+
+  @override
+  String get catNetwork => 'Netwerk en locatie';
+
+  @override
+  String get catSocial => 'Sociale media';
+
+  @override
+  String get catEmpty => 'Leeg';
+
+  @override
+  String get analyticsTitle => 'Tagstatistieken';
+
+  @override
+  String get analyticsSubtitle => 'Scantrends en meest gelezen tags';
+
+  @override
+  String get analyticsTotal => 'Totaal scans';
+
+  @override
+  String get analyticsUnique => 'Verschillende tags';
+
+  @override
+  String get analyticsLast14 => 'Laatste 14 dagen';
+
+  @override
+  String get analyticsTop => 'Meest gescand';
+
+  @override
+  String get analyticsByType => 'Inhoudstypen';
+
+  @override
+  String get analyticsEmpty =>
+      'Zet de scangeschiedenis aan in Instellingen en scan een paar tags.';
+
+  @override
+  String analyticsTimes(String count) {
+    return '$count×';
+  }
+
+  @override
+  String get codeScannerTitle => 'Codescanner';
+
+  @override
+  String get codeScannerSubtitle =>
+      'Scan QR-codes en barcodes; schrijven, bewaren of delen';
+
+  @override
+  String codeResultTitle(String format) {
+    return 'Gescande code ($format)';
+  }
+
+  @override
+  String get codeSearchWeb => 'Zoeken op het web';
+
+  @override
+  String get codeToTag => 'Naar tag schrijven';
+
+  @override
+  String get codeSaveLibrary => 'Opslaan in bibliotheek';
+
+  @override
+  String get mergeTitle => 'Records samenvoegen';
+
+  @override
+  String get mergeSubtitle =>
+      'Kies records uit bibliotheek, sjablonen en laatste scan voor één tag';
+
+  @override
+  String mergeButton(String count) {
+    return 'Samenvoegen ($count)';
+  }
+
+  @override
+  String get mergeEmpty =>
+      'Nog niets om samen te voegen. Bewaar eerst tags of sjablonen.';
+
+  @override
+  String get mergeLastScan => 'Laatst gescande tag';
 }

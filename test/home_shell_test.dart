@@ -33,8 +33,9 @@ void main() {
     await tester.tap(find.text('Araçlar').last);
     await tester.pumpAndSettle();
     expect(find.text('Etiket Kopyala'), findsOneWidget);
-    final toolsList =
-        find.ancestor(of: find.text('Etiket Kopyala'), matching: find.byType(Scrollable)).first;
+    // Resolve the list once: the anchor text scrolls out of view.
+    final toolsList = find.byWidget(tester.widget<Scrollable>(
+        find.ancestor(of: find.text('Etiket Kopyala'), matching: find.byType(Scrollable)).first));
     await tester.scrollUntilVisible(find.text('Belleği Oku'), 200, scrollable: toolsList);
     expect(find.text('Belleği Oku'), findsOneWidget);
     await tester.scrollUntilVisible(find.text('Şifre Belirle'), 200, scrollable: toolsList);

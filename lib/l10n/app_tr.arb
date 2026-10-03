@@ -3292,5 +3292,51 @@
   "iconGold": "Altın",
   "iconIndigo": "Lacivert",
   "iconLight": "Beyaz",
-  "iconRainbow": "Gökkuşağı"
+  "iconRainbow": "Gökkuşağı",
+  "catWebText": "Web ve metin",
+  "catContact": "İletişim ve iş",
+  "catNetwork": "Ağ ve konum",
+  "catSocial": "Sosyal medya",
+  "catEmpty": "Boş",
+  "analyticsTitle": "Etiket istatistikleri",
+  "analyticsSubtitle": "Tarama eğilimleri ve en çok okunan etiketler",
+  "analyticsTotal": "Toplam okuma",
+  "analyticsUnique": "Farklı etiket",
+  "analyticsLast14": "Son 14 gün",
+  "analyticsTop": "En çok okunanlar",
+  "analyticsByType": "İçerik türleri",
+  "analyticsEmpty": "İstatistikler için Ayarlar'dan tarama geçmişini açın ve birkaç etiket okutun.",
+  "analyticsTimes": "{count} kez",
+  "@analyticsTimes": {
+    "placeholders": {
+      "count": {
+        "type": "String"
+      }
+    }
+  },
+  "codeScannerTitle": "Kod tarayıcı",
+  "codeScannerSubtitle": "QR ve barkodları tara; etikete yaz, kaydet veya paylaş",
+  "codeResultTitle": "Okunan kod ({format})",
+  "@codeResultTitle": {
+    "placeholders": {
+      "format": {
+        "type": "String"
+      }
+    }
+  },
+  "codeSearchWeb": "Web'de ara",
+  "codeToTag": "Etikete yaz",
+  "codeSaveLibrary": "Kütüphaneye kaydet",
+  "mergeTitle": "Kayıtları birleştir",
+  "mergeSubtitle": "Kütüphane, şablon ve son okunan etiketten seçip tek etikette birleştir",
+  "mergeButton": "Birleştir ({count})",
+  "@mergeButton": {
+    "placeholders": {
+      "count": {
+        "type": "String"
+      }
+    }
+  },
+  "mergeEmpty": "Birleştirilecek kayıt yok. Önce kütüphaneye etiket ya da şablon kaydedin.",
+  "mergeLastScan": "Son okunan etiket"
 }

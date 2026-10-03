@@ -4815,4 +4815,89 @@ class AppLocalizationsRu extends AppLocalizations {
 
   @override
   String get iconRainbow => 'Радуга';
+
+  @override
+  String get catWebText => 'Веб и текст';
+
+  @override
+  String get catContact => 'Контакты и бизнес';
+
+  @override
+  String get catNetwork => 'Сеть и место';
+
+  @override
+  String get catSocial => 'Соцсети';
+
+  @override
+  String get catEmpty => 'Пустые';
+
+  @override
+  String get analyticsTitle => 'Статистика меток';
+
+  @override
+  String get analyticsSubtitle => 'Динамика и самые читаемые метки';
+
+  @override
+  String get analyticsTotal => 'Всего сканирований';
+
+  @override
+  String get analyticsUnique => 'Разных меток';
+
+  @override
+  String get analyticsLast14 => 'Последние 14 дней';
+
+  @override
+  String get analyticsTop => 'Чаще всего';
+
+  @override
+  String get analyticsByType => 'Типы содержимого';
+
+  @override
+  String get analyticsEmpty =>
+      'Включите историю в Настройках и отсканируйте несколько меток.';
+
+  @override
+  String analyticsTimes(String count) {
+    return '$count×';
+  }
+
+  @override
+  String get codeScannerTitle => 'Сканер кодов';
+
+  @override
+  String get codeScannerSubtitle =>
+      'Сканируйте QR и штрихкоды; запись, сохранение, отправка';
+
+  @override
+  String codeResultTitle(String format) {
+    return 'Считанный код ($format)';
+  }
+
+  @override
+  String get codeSearchWeb => 'Искать в интернете';
+
+  @override
+  String get codeToTag => 'Записать на метку';
+
+  @override
+  String get codeSaveLibrary => 'Сохранить в библиотеку';
+
+  @override
+  String get mergeTitle => 'Объединить записи';
+
+  @override
+  String get mergeSubtitle =>
+      'Выберите записи из библиотеки, шаблонов и последнего скана для одной метки';
+
+  @override
+  String mergeButton(String count) {
+    return 'Объединить ($count)';
+  }
+
+  @override
+  String get mergeEmpty =>
+      'Нечего объединять. Сначала сохраните метки или шаблоны.';
+
+  @override
+  String get mergeLastScan => 'Последняя метка';
 }
