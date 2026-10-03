@@ -6825,6 +6825,84 @@ abstract class AppLocalizations {
   /// In tr, this message translates to:
   /// **'Etiket kütüphanenizi ve geçmişinizi açmak için'**
   String get appLockReason;
+
+  /// No description provided for @sigTitle.
+  ///
+  /// In tr, this message translates to:
+  /// **'İmzalı etiketler'**
+  String get sigTitle;
+
+  /// No description provided for @sigSubtitle.
+  ///
+  /// In tr, this message translates to:
+  /// **'Etiket içeriği değiştirilirse fark edin'**
+  String get sigSubtitle;
+
+  /// No description provided for @sigExplain.
+  ///
+  /// In tr, this message translates to:
+  /// **'Yazdığınız etiketlere gizli anahtarınızla bir imza kaydı eklenir. Bu uygulamayla okununca içerik değiştirilmişse uyarı verir. Anahtarı ekip arkadaşlarınızla paylaşabilirsiniz; anahtarı olmayan kişi imzayı taklit edemez. Etiketi okumayı engellemez.'**
+  String get sigExplain;
+
+  /// No description provided for @sigCreateKey.
+  ///
+  /// In tr, this message translates to:
+  /// **'Anahtar oluştur'**
+  String get sigCreateKey;
+
+  /// No description provided for @sigCopyKey.
+  ///
+  /// In tr, this message translates to:
+  /// **'Anahtarı kopyala (ekiple paylaş)'**
+  String get sigCopyKey;
+
+  /// No description provided for @sigImportKey.
+  ///
+  /// In tr, this message translates to:
+  /// **'Anahtar yapıştır'**
+  String get sigImportKey;
+
+  /// No description provided for @sigImportInvalid.
+  ///
+  /// In tr, this message translates to:
+  /// **'Panodaki metin geçerli bir anahtar değil.'**
+  String get sigImportInvalid;
+
+  /// No description provided for @sigKeyReady.
+  ///
+  /// In tr, this message translates to:
+  /// **'Anahtar hazır ({id})'**
+  String sigKeyReady(String id);
+
+  /// No description provided for @sigSignOnWrite.
+  ///
+  /// In tr, this message translates to:
+  /// **'Yazdığım etiketleri imzala'**
+  String get sigSignOnWrite;
+
+  /// No description provided for @sigValid.
+  ///
+  /// In tr, this message translates to:
+  /// **'İmza geçerli'**
+  String get sigValid;
+
+  /// No description provided for @sigInvalid.
+  ///
+  /// In tr, this message translates to:
+  /// **'İmza geçersiz: içerik değiştirilmiş'**
+  String get sigInvalid;
+
+  /// No description provided for @sigOtherKey.
+  ///
+  /// In tr, this message translates to:
+  /// **'Başka bir anahtarla imzalanmış'**
+  String get sigOtherKey;
+
+  /// No description provided for @sigReplaceKeyConfirm.
+  ///
+  /// In tr, this message translates to:
+  /// **'Mevcut anahtar değiştirilsin mi? Eski anahtarla imzalanan etiketler artık \"başka anahtar\" olarak görünür.'**
+  String get sigReplaceKeyConfirm;
 }
 
 class _AppLocalizationsDelegate

@@ -3990,4 +3990,48 @@ class AppLocalizationsPt extends AppLocalizations {
 
   @override
   String get appLockReason => 'Para abrir sua biblioteca e histórico';
+
+  @override
+  String get sigTitle => 'Tags assinadas';
+
+  @override
+  String get sigSubtitle => 'Saiba se alguém alterar o conteúdo';
+
+  @override
+  String get sigExplain =>
+      'Um registro de assinatura feito com sua chave secreta é adicionado às tags. Lidas com este app, qualquer alteração é sinalizada. Compartilhe a chave com a equipe; sem ela ninguém falsifica a assinatura. Não impede a leitura.';
+
+  @override
+  String get sigCreateKey => 'Criar chave';
+
+  @override
+  String get sigCopyKey => 'Copiar chave (compartilhar)';
+
+  @override
+  String get sigImportKey => 'Colar chave';
+
+  @override
+  String get sigImportInvalid =>
+      'A área de transferência não tem uma chave válida.';
+
+  @override
+  String sigKeyReady(String id) {
+    return 'Chave pronta ($id)';
+  }
+
+  @override
+  String get sigSignOnWrite => 'Assinar as tags que gravo';
+
+  @override
+  String get sigValid => 'Assinatura válida';
+
+  @override
+  String get sigInvalid => 'Assinatura inválida: conteúdo alterado';
+
+  @override
+  String get sigOtherKey => 'Assinada com outra chave';
+
+  @override
+  String get sigReplaceKeyConfirm =>
+      'Substituir a chave atual? Tags assinadas com a antiga aparecerão como \"outra chave\".';
 }

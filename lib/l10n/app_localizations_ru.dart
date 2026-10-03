@@ -3979,4 +3979,47 @@ class AppLocalizationsRu extends AppLocalizations {
 
   @override
   String get appLockReason => 'Чтобы открыть библиотеку меток и историю';
+
+  @override
+  String get sigTitle => 'Подписанные метки';
+
+  @override
+  String get sigSubtitle => 'Узнайте, если содержимое изменят';
+
+  @override
+  String get sigExplain =>
+      'К записываемым меткам добавляется подпись вашим секретным ключом. При чтении этим приложением любое изменение будет замечено. Ключ можно передать команде; без него подпись не подделать. Читать метку это не мешает.';
+
+  @override
+  String get sigCreateKey => 'Создать ключ';
+
+  @override
+  String get sigCopyKey => 'Скопировать ключ (поделиться)';
+
+  @override
+  String get sigImportKey => 'Вставить ключ';
+
+  @override
+  String get sigImportInvalid => 'В буфере нет действительного ключа.';
+
+  @override
+  String sigKeyReady(String id) {
+    return 'Ключ готов ($id)';
+  }
+
+  @override
+  String get sigSignOnWrite => 'Подписывать записываемые метки';
+
+  @override
+  String get sigValid => 'Подпись верна';
+
+  @override
+  String get sigInvalid => 'Подпись неверна: содержимое изменено';
+
+  @override
+  String get sigOtherKey => 'Подписано другим ключом';
+
+  @override
+  String get sigReplaceKeyConfirm =>
+      'Заменить текущий ключ? Метки со старой подписью будут «подписаны другим ключом».';
 }

@@ -4008,4 +4008,48 @@ class AppLocalizationsFr extends AppLocalizations {
   @override
   String get appLockReason =>
       'Pour ouvrir votre bibliothèque et votre historique';
+
+  @override
+  String get sigTitle => 'Tags signés';
+
+  @override
+  String get sigSubtitle => 'Détecter si quelqu\'un modifie le contenu';
+
+  @override
+  String get sigExplain =>
+      'Un enregistrement de signature créé avec votre clé secrète est ajouté aux tags écrits. Lu avec cette app, toute modification est signalée. Partagez la clé avec votre équipe ; sans elle, impossible de falsifier la signature. La lecture reste possible pour tous.';
+
+  @override
+  String get sigCreateKey => 'Créer une clé';
+
+  @override
+  String get sigCopyKey => 'Copier la clé (partager)';
+
+  @override
+  String get sigImportKey => 'Coller une clé';
+
+  @override
+  String get sigImportInvalid =>
+      'Le presse-papiers ne contient pas de clé valide.';
+
+  @override
+  String sigKeyReady(String id) {
+    return 'Clé prête ($id)';
+  }
+
+  @override
+  String get sigSignOnWrite => 'Signer les tags que j\'écris';
+
+  @override
+  String get sigValid => 'Signature valide';
+
+  @override
+  String get sigInvalid => 'Signature invalide : contenu modifié';
+
+  @override
+  String get sigOtherKey => 'Signé avec une autre clé';
+
+  @override
+  String get sigReplaceKeyConfirm =>
+      'Remplacer la clé actuelle ? Les tags signés avec l\'ancienne apparaîtront « autre clé ».';
 }

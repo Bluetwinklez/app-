@@ -3977,4 +3977,48 @@ class AppLocalizationsIt extends AppLocalizations {
 
   @override
   String get appLockReason => 'Per aprire libreria e cronologia';
+
+  @override
+  String get sigTitle => 'Tag firmati';
+
+  @override
+  String get sigSubtitle => 'Scopri se qualcuno modifica il contenuto';
+
+  @override
+  String get sigExplain =>
+      'Ai tag scritti si aggiunge un record di firma creato con la tua chiave segreta. Letti con questa app, ogni modifica viene segnalata. Puoi condividere la chiave con il team; senza di essa nessuno può falsificare la firma. Non impedisce la lettura.';
+
+  @override
+  String get sigCreateKey => 'Crea chiave';
+
+  @override
+  String get sigCopyKey => 'Copia chiave (condividi)';
+
+  @override
+  String get sigImportKey => 'Incolla chiave';
+
+  @override
+  String get sigImportInvalid =>
+      'Gli appunti non contengono una chiave valida.';
+
+  @override
+  String sigKeyReady(String id) {
+    return 'Chiave pronta ($id)';
+  }
+
+  @override
+  String get sigSignOnWrite => 'Firma i tag che scrivo';
+
+  @override
+  String get sigValid => 'Firma valida';
+
+  @override
+  String get sigInvalid => 'Firma non valida: contenuto modificato';
+
+  @override
+  String get sigOtherKey => 'Firmato con un\'altra chiave';
+
+  @override
+  String get sigReplaceKeyConfirm =>
+      'Sostituire la chiave attuale? I tag firmati con la vecchia risulteranno \"altra chiave\".';
 }

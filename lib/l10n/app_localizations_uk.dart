@@ -3979,4 +3979,47 @@ class AppLocalizationsUk extends AppLocalizations {
 
   @override
   String get appLockReason => 'Щоб відкрити бібліотеку міток та історію';
+
+  @override
+  String get sigTitle => 'Підписані мітки';
+
+  @override
+  String get sigSubtitle => 'Дізнайтеся, якщо вміст змінять';
+
+  @override
+  String get sigExplain =>
+      'До записаних міток додається підпис вашим секретним ключем. Під час читання цим застосунком будь-яку зміну буде помічено. Ключ можна передати команді; без нього підпис не підробити. Читати мітку це не заважає.';
+
+  @override
+  String get sigCreateKey => 'Створити ключ';
+
+  @override
+  String get sigCopyKey => 'Скопіювати ключ (поділитися)';
+
+  @override
+  String get sigImportKey => 'Вставити ключ';
+
+  @override
+  String get sigImportInvalid => 'У буфері немає дійсного ключа.';
+
+  @override
+  String sigKeyReady(String id) {
+    return 'Ключ готовий ($id)';
+  }
+
+  @override
+  String get sigSignOnWrite => 'Підписувати записувані мітки';
+
+  @override
+  String get sigValid => 'Підпис дійсний';
+
+  @override
+  String get sigInvalid => 'Підпис недійсний: вміст змінено';
+
+  @override
+  String get sigOtherKey => 'Підписано іншим ключем';
+
+  @override
+  String get sigReplaceKeyConfirm =>
+      'Замінити поточний ключ? Мітки зі старим підписом показуватимуться як «інший ключ».';
 }

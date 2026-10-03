@@ -3802,4 +3802,46 @@ class AppLocalizationsJa extends AppLocalizations {
 
   @override
   String get appLockReason => 'タグライブラリと履歴を開くため';
+
+  @override
+  String get sigTitle => '署名付きタグ';
+
+  @override
+  String get sigSubtitle => '誰かが内容を書き換えたら分かります';
+
+  @override
+  String get sigExplain =>
+      '書き込むタグに秘密鍵で作った署名レコードを追加します。このアプリで読むと内容の改ざんを検出します。鍵はチームと共有できます。鍵がなければ署名は偽造できません。読み取り自体は防ぎません。';
+
+  @override
+  String get sigCreateKey => '鍵を作成';
+
+  @override
+  String get sigCopyKey => '鍵をコピー (共有)';
+
+  @override
+  String get sigImportKey => '鍵を貼り付け';
+
+  @override
+  String get sigImportInvalid => 'クリップボードに有効な鍵がありません。';
+
+  @override
+  String sigKeyReady(String id) {
+    return '鍵の準備完了 ($id)';
+  }
+
+  @override
+  String get sigSignOnWrite => '書き込むタグに署名する';
+
+  @override
+  String get sigValid => '署名は有効';
+
+  @override
+  String get sigInvalid => '署名が無効: 内容が変更されています';
+
+  @override
+  String get sigOtherKey => '別の鍵で署名されています';
+
+  @override
+  String get sigReplaceKeyConfirm => '現在の鍵を置き換えますか？古い鍵で署名したタグは「別の鍵」と表示されます。';
 }

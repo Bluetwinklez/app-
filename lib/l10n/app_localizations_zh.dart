@@ -3769,4 +3769,46 @@ class AppLocalizationsZh extends AppLocalizations {
 
   @override
   String get appLockReason => '以打开标签库和历史记录';
+
+  @override
+  String get sigTitle => '签名标签';
+
+  @override
+  String get sigSubtitle => '有人改动内容时能察觉';
+
+  @override
+  String get sigExplain =>
+      '写入的标签会附加用你的密钥生成的签名记录。用本应用读取时，任何改动都会被发现。可与同事共享密钥；没有密钥就无法伪造签名。不会阻止他人读取。';
+
+  @override
+  String get sigCreateKey => '创建密钥';
+
+  @override
+  String get sigCopyKey => '复制密钥（共享）';
+
+  @override
+  String get sigImportKey => '粘贴密钥';
+
+  @override
+  String get sigImportInvalid => '剪贴板中没有有效密钥。';
+
+  @override
+  String sigKeyReady(String id) {
+    return '密钥已就绪（$id）';
+  }
+
+  @override
+  String get sigSignOnWrite => '签名我写入的标签';
+
+  @override
+  String get sigValid => '签名有效';
+
+  @override
+  String get sigInvalid => '签名无效：内容已被改动';
+
+  @override
+  String get sigOtherKey => '由其他密钥签名';
+
+  @override
+  String get sigReplaceKeyConfirm => '替换当前密钥？用旧密钥签名的标签将显示为“其他密钥”。';
 }

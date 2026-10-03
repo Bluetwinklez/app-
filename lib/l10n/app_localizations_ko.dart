@@ -3816,4 +3816,47 @@ class AppLocalizationsKo extends AppLocalizations {
 
   @override
   String get appLockReason => '태그 보관함과 기록을 열기 위해';
+
+  @override
+  String get sigTitle => '서명된 태그';
+
+  @override
+  String get sigSubtitle => '누군가 내용을 바꾸면 알 수 있습니다';
+
+  @override
+  String get sigExplain =>
+      '쓰는 태그에 비밀 키로 만든 서명 레코드가 추가됩니다. 이 앱으로 읽으면 내용 변경을 감지합니다. 키는 팀과 공유할 수 있고, 키 없이는 서명을 위조할 수 없습니다. 읽기를 막지는 않습니다.';
+
+  @override
+  String get sigCreateKey => '키 만들기';
+
+  @override
+  String get sigCopyKey => '키 복사(팀 공유)';
+
+  @override
+  String get sigImportKey => '키 붙여넣기';
+
+  @override
+  String get sigImportInvalid => '클립보드에 올바른 키가 없습니다.';
+
+  @override
+  String sigKeyReady(String id) {
+    return '키 준비됨($id)';
+  }
+
+  @override
+  String get sigSignOnWrite => '쓰는 태그에 서명';
+
+  @override
+  String get sigValid => '서명 유효';
+
+  @override
+  String get sigInvalid => '서명 무효: 내용이 변경됨';
+
+  @override
+  String get sigOtherKey => '다른 키로 서명됨';
+
+  @override
+  String get sigReplaceKeyConfirm =>
+      '현재 키를 바꿀까요? 이전 키로 서명한 태그는 \"다른 키\"로 표시됩니다.';
 }

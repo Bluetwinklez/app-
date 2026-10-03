@@ -1116,5 +1116,18 @@
   "appLockUnavailable": "Auf diesem Gerät ist keine Bildschirmsperre eingerichtet.",
   "appLockLocked": "App gesperrt",
   "appLockUnlock": "Entsperren",
-  "appLockReason": "Um Ihre Tag-Bibliothek und den Verlauf zu öffnen"
+  "appLockReason": "Um Ihre Tag-Bibliothek und den Verlauf zu öffnen",
+  "sigTitle": "Signierte Tags",
+  "sigSubtitle": "Erkennen, wenn jemand den Inhalt ändert",
+  "sigExplain": "Ihre Tags erhalten einen Signatur-Eintrag mit Ihrem geheimen Schlüssel. Beim Lesen mit dieser App wird jede Änderung erkannt. Teilen Sie den Schlüssel mit Ihrem Team; ohne ihn lässt sich die Signatur nicht fälschen. Lesen bleibt für alle möglich.",
+  "sigCreateKey": "Schlüssel erstellen",
+  "sigCopyKey": "Schlüssel kopieren (mit Team teilen)",
+  "sigImportKey": "Schlüssel einfügen",
+  "sigImportInvalid": "Die Zwischenablage enthält keinen gültigen Schlüssel.",
+  "sigKeyReady": "Schlüssel bereit ({id})",
+  "sigSignOnWrite": "Geschriebene Tags signieren",
+  "sigValid": "Signatur gültig",
+  "sigInvalid": "Signatur ungültig: Inhalt geändert",
+  "sigOtherKey": "Mit einem anderen Schlüssel signiert",
+  "sigReplaceKeyConfirm": "Aktuellen Schlüssel ersetzen? Mit dem alten signierte Tags gelten dann als „anderer Schlüssel“."
 }

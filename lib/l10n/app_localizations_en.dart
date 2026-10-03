@@ -3964,4 +3964,47 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get appLockReason => 'To open your tag library and history';
+
+  @override
+  String get sigTitle => 'Signed tags';
+
+  @override
+  String get sigSubtitle => 'Notice when someone changes a tag\'s content';
+
+  @override
+  String get sigExplain =>
+      'A signature record made with your secret key is added to tags you write. When read with this app, any change to the content is flagged. You can share the key with teammates; without it nobody can forge the signature. It does not stop anyone from reading the tag.';
+
+  @override
+  String get sigCreateKey => 'Create key';
+
+  @override
+  String get sigCopyKey => 'Copy key (share with team)';
+
+  @override
+  String get sigImportKey => 'Paste a key';
+
+  @override
+  String get sigImportInvalid => 'The clipboard does not contain a valid key.';
+
+  @override
+  String sigKeyReady(String id) {
+    return 'Key ready ($id)';
+  }
+
+  @override
+  String get sigSignOnWrite => 'Sign the tags I write';
+
+  @override
+  String get sigValid => 'Signature valid';
+
+  @override
+  String get sigInvalid => 'Signature invalid: content was changed';
+
+  @override
+  String get sigOtherKey => 'Signed with a different key';
+
+  @override
+  String get sigReplaceKeyConfirm =>
+      'Replace the current key? Tags signed with the old key will show as \"different key\".';
 }

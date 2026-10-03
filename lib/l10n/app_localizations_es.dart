@@ -4005,4 +4005,48 @@ class AppLocalizationsEs extends AppLocalizations {
 
   @override
   String get appLockReason => 'Para abrir tu biblioteca e historial';
+
+  @override
+  String get sigTitle => 'Etiquetas firmadas';
+
+  @override
+  String get sigSubtitle => 'Detecta si alguien cambia el contenido';
+
+  @override
+  String get sigExplain =>
+      'Se añade a tus etiquetas un registro de firma hecho con tu clave secreta. Al leerlas con esta app, cualquier cambio se detecta. Puedes compartir la clave con tu equipo; sin ella nadie puede falsificar la firma. No impide leer la etiqueta.';
+
+  @override
+  String get sigCreateKey => 'Crear clave';
+
+  @override
+  String get sigCopyKey => 'Copiar clave (compartir)';
+
+  @override
+  String get sigImportKey => 'Pegar clave';
+
+  @override
+  String get sigImportInvalid =>
+      'El portapapeles no contiene una clave válida.';
+
+  @override
+  String sigKeyReady(String id) {
+    return 'Clave lista ($id)';
+  }
+
+  @override
+  String get sigSignOnWrite => 'Firmar las etiquetas que escribo';
+
+  @override
+  String get sigValid => 'Firma válida';
+
+  @override
+  String get sigInvalid => 'Firma no válida: contenido cambiado';
+
+  @override
+  String get sigOtherKey => 'Firmada con otra clave';
+
+  @override
+  String get sigReplaceKeyConfirm =>
+      '¿Reemplazar la clave actual? Las etiquetas firmadas con la anterior aparecerán como «otra clave».';
 }

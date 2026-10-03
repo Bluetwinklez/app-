@@ -3976,4 +3976,47 @@ class AppLocalizationsTr extends AppLocalizations {
 
   @override
   String get appLockReason => 'Etiket kütüphanenizi ve geçmişinizi açmak için';
+
+  @override
+  String get sigTitle => 'İmzalı etiketler';
+
+  @override
+  String get sigSubtitle => 'Etiket içeriği değiştirilirse fark edin';
+
+  @override
+  String get sigExplain =>
+      'Yazdığınız etiketlere gizli anahtarınızla bir imza kaydı eklenir. Bu uygulamayla okununca içerik değiştirilmişse uyarı verir. Anahtarı ekip arkadaşlarınızla paylaşabilirsiniz; anahtarı olmayan kişi imzayı taklit edemez. Etiketi okumayı engellemez.';
+
+  @override
+  String get sigCreateKey => 'Anahtar oluştur';
+
+  @override
+  String get sigCopyKey => 'Anahtarı kopyala (ekiple paylaş)';
+
+  @override
+  String get sigImportKey => 'Anahtar yapıştır';
+
+  @override
+  String get sigImportInvalid => 'Panodaki metin geçerli bir anahtar değil.';
+
+  @override
+  String sigKeyReady(String id) {
+    return 'Anahtar hazır ($id)';
+  }
+
+  @override
+  String get sigSignOnWrite => 'Yazdığım etiketleri imzala';
+
+  @override
+  String get sigValid => 'İmza geçerli';
+
+  @override
+  String get sigInvalid => 'İmza geçersiz: içerik değiştirilmiş';
+
+  @override
+  String get sigOtherKey => 'Başka bir anahtarla imzalanmış';
+
+  @override
+  String get sigReplaceKeyConfirm =>
+      'Mevcut anahtar değiştirilsin mi? Eski anahtarla imzalanan etiketler artık \"başka anahtar\" olarak görünür.';
 }

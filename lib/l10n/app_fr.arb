@@ -1116,5 +1116,18 @@
   "appLockUnavailable": "Aucun verrouillage d'écran n'est configuré sur cet appareil.",
   "appLockLocked": "App verrouillée",
   "appLockUnlock": "Déverrouiller",
-  "appLockReason": "Pour ouvrir votre bibliothèque et votre historique"
+  "appLockReason": "Pour ouvrir votre bibliothèque et votre historique",
+  "sigTitle": "Tags signés",
+  "sigSubtitle": "Détecter si quelqu'un modifie le contenu",
+  "sigExplain": "Un enregistrement de signature créé avec votre clé secrète est ajouté aux tags écrits. Lu avec cette app, toute modification est signalée. Partagez la clé avec votre équipe ; sans elle, impossible de falsifier la signature. La lecture reste possible pour tous.",
+  "sigCreateKey": "Créer une clé",
+  "sigCopyKey": "Copier la clé (partager)",
+  "sigImportKey": "Coller une clé",
+  "sigImportInvalid": "Le presse-papiers ne contient pas de clé valide.",
+  "sigKeyReady": "Clé prête ({id})",
+  "sigSignOnWrite": "Signer les tags que j'écris",
+  "sigValid": "Signature valide",
+  "sigInvalid": "Signature invalide : contenu modifié",
+  "sigOtherKey": "Signé avec une autre clé",
+  "sigReplaceKeyConfirm": "Remplacer la clé actuelle ? Les tags signés avec l'ancienne apparaîtront « autre clé »."
 }
