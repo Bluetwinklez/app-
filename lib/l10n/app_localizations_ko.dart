@@ -3924,4 +3924,37 @@ class AppLocalizationsKo extends AppLocalizations {
   String memoryReadSpeed(String ms, String rate) {
     return '읽기 시간: ${ms}ms ($rate바이트/초)';
   }
+
+  @override
+  String get simpleModeTitle => '간편 모드';
+
+  @override
+  String get simpleModeSubtitle => '큰 버튼, 아이와 어르신도 한 번에 읽기';
+
+  @override
+  String get simpleScan => '태그 읽기';
+
+  @override
+  String get simpleHint => '태그를 휴대폰 위쪽에 대세요.';
+
+  @override
+  String get simpleCall => '전화';
+
+  @override
+  String get simpleMessage => '메시지 보내기';
+
+  @override
+  String get simpleOpen => '열기';
+
+  @override
+  String get simpleEmail => '이메일 쓰기';
+
+  @override
+  String get simpleMap => '지도에서 열기';
+
+  @override
+  String get simpleExit => '길게 눌러 일반 화면으로 돌아가기';
+
+  @override
+  String get simpleNothing => '이 태그에는 표시할 내용이 없습니다.';
 }

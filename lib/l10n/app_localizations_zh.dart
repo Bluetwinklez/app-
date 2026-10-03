@@ -3876,4 +3876,37 @@ class AppLocalizationsZh extends AppLocalizations {
   String memoryReadSpeed(String ms, String rate) {
     return '读取耗时：$ms 毫秒（$rate 字节/秒）';
   }
+
+  @override
+  String get simpleModeTitle => '简易模式';
+
+  @override
+  String get simpleModeSubtitle => '大按钮；儿童和老人一碰即读';
+
+  @override
+  String get simpleScan => '读取标签';
+
+  @override
+  String get simpleHint => '将标签靠近手机顶部。';
+
+  @override
+  String get simpleCall => '拨打';
+
+  @override
+  String get simpleMessage => '发送信息';
+
+  @override
+  String get simpleOpen => '打开';
+
+  @override
+  String get simpleEmail => '写邮件';
+
+  @override
+  String get simpleMap => '在地图中打开';
+
+  @override
+  String get simpleExit => '长按返回普通视图';
+
+  @override
+  String get simpleNothing => '此标签没有可显示的内容。';
 }

@@ -4089,4 +4089,38 @@ class AppLocalizationsRu extends AppLocalizations {
   String memoryReadSpeed(String ms, String rate) {
     return 'Время чтения: $ms мс ($rate байт/с)';
   }
+
+  @override
+  String get simpleModeTitle => 'Простой режим';
+
+  @override
+  String get simpleModeSubtitle =>
+      'Крупные кнопки; чтение в одно касание для детей и пожилых';
+
+  @override
+  String get simpleScan => 'Прочитать метку';
+
+  @override
+  String get simpleHint => 'Поднесите метку к верхней части телефона.';
+
+  @override
+  String get simpleCall => 'Позвонить';
+
+  @override
+  String get simpleMessage => 'Отправить сообщение';
+
+  @override
+  String get simpleOpen => 'Открыть';
+
+  @override
+  String get simpleEmail => 'Написать письмо';
+
+  @override
+  String get simpleMap => 'Открыть на карте';
+
+  @override
+  String get simpleExit => 'Удерживайте, чтобы вернуться в обычный вид';
+
+  @override
+  String get simpleNothing => 'На этой метке нечего показать.';
 }

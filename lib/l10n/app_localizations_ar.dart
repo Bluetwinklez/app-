@@ -4035,4 +4035,38 @@ class AppLocalizationsAr extends AppLocalizations {
   String memoryReadSpeed(String ms, String rate) {
     return 'زمن القراءة: $ms مللي ث ($rate بايت/ث)';
   }
+
+  @override
+  String get simpleModeTitle => 'الوضع البسيط';
+
+  @override
+  String get simpleModeSubtitle =>
+      'أزرار كبيرة؛ قراءة بلمسة واحدة للأطفال وكبار السن';
+
+  @override
+  String get simpleScan => 'اقرأ الوسم';
+
+  @override
+  String get simpleHint => 'قرّب الوسم من أعلى الهاتف.';
+
+  @override
+  String get simpleCall => 'اتصال';
+
+  @override
+  String get simpleMessage => 'إرسال رسالة';
+
+  @override
+  String get simpleOpen => 'فتح';
+
+  @override
+  String get simpleEmail => 'كتابة بريد';
+
+  @override
+  String get simpleMap => 'فتح في الخرائط';
+
+  @override
+  String get simpleExit => 'اضغط مطولًا للعودة إلى العرض العادي';
+
+  @override
+  String get simpleNothing => 'لا يوجد ما يُعرض في هذا الوسم.';
 }

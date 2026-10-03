@@ -1146,5 +1146,16 @@
   "memoryEditPrompt": "Acerca la misma etiqueta para escribir la página {page}",
   "memoryPageWritten": "Página {page} escrita.",
   "memoryUidMismatch": "Se detectó otra etiqueta; no se escribió nada.",
-  "memoryReadSpeed": "Tiempo de lectura: {ms} ms ({rate} B/s)"
+  "memoryReadSpeed": "Tiempo de lectura: {ms} ms ({rate} B/s)",
+  "simpleModeTitle": "Modo sencillo",
+  "simpleModeSubtitle": "Botones grandes; lectura con un toque para niños y mayores",
+  "simpleScan": "Leer etiqueta",
+  "simpleHint": "Acerca la etiqueta a la parte superior del teléfono.",
+  "simpleCall": "Llamar",
+  "simpleMessage": "Enviar mensaje",
+  "simpleOpen": "Abrir",
+  "simpleEmail": "Escribir correo",
+  "simpleMap": "Abrir en Mapas",
+  "simpleExit": "Mantén pulsado para volver a la vista normal",
+  "simpleNothing": "No hay nada que mostrar en esta etiqueta."
 }

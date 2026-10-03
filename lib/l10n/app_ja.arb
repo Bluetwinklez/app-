@@ -1146,5 +1146,16 @@
   "memoryEditPrompt": "ページ{page}を書き込むため同じタグをかざしてください",
   "memoryPageWritten": "ページ{page}を書き込みました。",
   "memoryUidMismatch": "別のタグを検出したため書き込みませんでした。",
-  "memoryReadSpeed": "読み取り時間: {ms} ms ({rate} B/秒)"
+  "memoryReadSpeed": "読み取り時間: {ms} ms ({rate} B/秒)",
+  "simpleModeTitle": "シンプルモード",
+  "simpleModeSubtitle": "大きなボタン。子どもや高齢者もワンタップで読み取り",
+  "simpleScan": "タグを読む",
+  "simpleHint": "タグをスマホの上部にかざしてください。",
+  "simpleCall": "電話する",
+  "simpleMessage": "メッセージを送る",
+  "simpleOpen": "開く",
+  "simpleEmail": "メールを書く",
+  "simpleMap": "マップで開く",
+  "simpleExit": "長押しで通常表示に戻ります",
+  "simpleNothing": "このタグには表示する内容がありません。"
 }
