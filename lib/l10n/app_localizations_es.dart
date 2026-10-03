@@ -3643,4 +3643,8 @@ class AppLocalizationsEs extends AppLocalizations {
 
   @override
   String get nfcWriteDone => 'Escrito en la etiqueta correctamente.';
+
+  @override
+  String get errorWidgetMessage =>
+      'No se pudo mostrar esta parte. Vuelve atrás e inténtalo de nuevo.';
 }

@@ -3629,4 +3629,8 @@ class AppLocalizationsPt extends AppLocalizations {
 
   @override
   String get nfcWriteDone => 'Gravado na tag com sucesso.';
+
+  @override
+  String get errorWidgetMessage =>
+      'Não foi possível mostrar esta parte. Volte e tente novamente.';
 }

@@ -3620,4 +3620,8 @@ class AppLocalizationsRu extends AppLocalizations {
 
   @override
   String get nfcWriteDone => 'Успешно записано на метку.';
+
+  @override
+  String get errorWidgetMessage =>
+      'Не удалось показать этот раздел. Вернитесь и попробуйте снова.';
 }

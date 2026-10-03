@@ -3618,4 +3618,8 @@ class AppLocalizationsUk extends AppLocalizations {
 
   @override
   String get nfcWriteDone => 'Успішно записано на мітку.';
+
+  @override
+  String get errorWidgetMessage =>
+      'Не вдалося показати цей розділ. Поверніться й спробуйте ще раз.';
 }

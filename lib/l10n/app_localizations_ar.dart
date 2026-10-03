@@ -3571,4 +3571,7 @@ class AppLocalizationsAr extends AppLocalizations {
 
   @override
   String get nfcWriteDone => 'تمت الكتابة على الوسم بنجاح.';
+
+  @override
+  String get errorWidgetMessage => 'تعذّر عرض هذا الجزء. ارجع وحاول مجددًا.';
 }

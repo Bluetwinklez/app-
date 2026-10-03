@@ -3603,4 +3603,8 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get nfcWriteDone => 'Written to the tag successfully.';
+
+  @override
+  String get errorWidgetMessage =>
+      'This part could not be shown. Go back and try again.';
 }
