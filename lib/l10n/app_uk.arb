@@ -1092,5 +1092,6 @@
   "sortLongestUnseen": "Найдовше не бачили",
   "unseen30Days": "Не бачили 30+ днів",
   "inventoryCardTitle": "Ця мітка є в бібліотеці",
-  "scanReportLine": "{unique} різних міток · {dup} повторно · {empty} порожніх"
+  "scanReportLine": "{unique} різних міток · {dup} повторно · {empty} порожніх",
+  "printSheet": "Аркуш етикеток для друку (PDF)"
 }

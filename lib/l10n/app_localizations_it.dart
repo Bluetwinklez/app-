@@ -3887,4 +3887,7 @@ class AppLocalizationsIt extends AppLocalizations {
   String scanReportLine(String unique, String dup, String empty) {
     return '$unique tag diversi · $dup riletti · $empty vuoti';
   }
+
+  @override
+  String get printSheet => 'Foglio etichette stampabile (PDF)';
 }

@@ -3889,4 +3889,7 @@ class AppLocalizationsUk extends AppLocalizations {
   String scanReportLine(String unique, String dup, String empty) {
     return '$unique різних міток · $dup повторно · $empty порожніх';
   }
+
+  @override
+  String get printSheet => 'Аркуш етикеток для друку (PDF)';
 }

@@ -3839,4 +3839,7 @@ class AppLocalizationsAr extends AppLocalizations {
   String scanReportLine(String unique, String dup, String empty) {
     return '$unique وسوم مختلفة · $dup مكررة · $empty فارغة';
   }
+
+  @override
+  String get printSheet => 'ورقة ملصقات للطباعة (PDF)';
 }

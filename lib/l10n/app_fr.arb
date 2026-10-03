@@ -1092,5 +1092,6 @@
   "sortLongestUnseen": "Non vus depuis le plus longtemps",
   "unseen30Days": "Non vu depuis 30+ jours",
   "inventoryCardTitle": "Ce tag est dans votre bibliothèque",
-  "scanReportLine": "{unique} tags différents · {dup} relus · {empty} vides"
+  "scanReportLine": "{unique} tags différents · {dup} relus · {empty} vides",
+  "printSheet": "Planche d'étiquettes (PDF)"
 }

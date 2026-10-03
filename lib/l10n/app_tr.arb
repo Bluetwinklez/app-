@@ -2586,5 +2586,6 @@
         "type": "String"
       }
     }
-  }
+  },
+  "printSheet": "Yazdırılabilir etiket sayfası (PDF)"
 }

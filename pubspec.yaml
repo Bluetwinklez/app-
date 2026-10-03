@@ -20,6 +20,7 @@ dependencies:
   qr_flutter: ^4.1.0
   mobile_scanner: ^7.4.2
   image_picker: ^1.2.3
+  pdf: ^3.13.1
 
 dev_dependencies:
   flutter_test:
@@ -29,3 +30,5 @@ dev_dependencies:
 flutter:
   uses-material-design: true
   generate: true
+  assets:
+    - assets/fonts/NotoSans-Regular.ttf
