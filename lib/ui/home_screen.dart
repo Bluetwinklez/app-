@@ -25,6 +25,7 @@ import 'shortcuts_guide_sheet.dart';
 import '../services/launch_action_service.dart';
 import '../domain/tag_identity.dart';
 import '../domain/tag_library.dart';
+import '../util/text_search.dart';
 import 'dart:async';
 import 'qr_scan_page.dart';
 import 'package:intl/intl.dart';
@@ -3653,18 +3654,18 @@ class _HomeScreenState extends State<HomeScreen>
     }
 
     final allHistory = _controller.storage.getHistory();
-    final query = _historySearchQuery.trim().toLowerCase();
+    final query = TextSearch.fold(_historySearchQuery.trim());
 
     final filteredHistory = allHistory.where((entry) {
       if (query.isEmpty) return true;
       // Search in UID / identifier
-      if (entry.identifier.toLowerCase().contains(query)) return true;
+      if (TextSearch.fold(entry.identifier).contains(query)) return true;
       // Search in records content, title, or type
       for (final rec in entry.records) {
         final parsed = NdefCodec.parseRecord(rec);
-        if (parsed.title.toLowerCase().contains(query)) return true;
-        if (parsed.content.toLowerCase().contains(query)) return true;
-        if (parsed.type.name.toLowerCase().contains(query)) return true;
+        if (TextSearch.fold(parsed.title).contains(query)) return true;
+        if (TextSearch.fold(parsed.content).contains(query)) return true;
+        if (TextSearch.fold(parsed.type.name).contains(query)) return true;
       }
       return false;
     }).toList();
