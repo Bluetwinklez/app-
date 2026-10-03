@@ -25,6 +25,7 @@ import 'shortcuts_guide_sheet.dart';
 import '../services/launch_action_service.dart';
 import '../domain/tag_identity.dart';
 import '../domain/capacity.dart';
+import '../domain/csv_export.dart';
 import '../domain/tag_library.dart';
 import '../util/text_search.dart';
 import 'dart:async';
@@ -73,6 +74,10 @@ class _HomeScreenState extends State<HomeScreen>
       TextEditingController();
   String _historySearchQuery = '';
 
+  // Continuous scanning (inventory)
+  bool _continuousScan = false;
+  final List<ScanLogEntry> _scanLog = [];
+
   final LaunchActionService _launchActions = LaunchActionService();
   StreamSubscription<LaunchAction>? _launchSubscription;
   bool _showOnboarding = false;
@@ -114,6 +119,110 @@ class _HomeScreenState extends State<HomeScreen>
         _tabController.animateTo(4);
         break;
     }
+  }
+
+  Future<void> _runContinuousScan() async {
+    setState(() => _continuousScan = true);
+    while (_continuousScan && mounted) {
+      await _controller.scanTag();
+      final tag = _controller.lastScannedTag;
+      if (!mounted || tag == null || tag.error != null) break;
+      final duplicate = _scanLog.isNotEmpty &&
+          _scanLog.first.uid == tag.identifier &&
+          DateTime.now().difference(_scanLog.first.time).inSeconds < 3;
+      if (!duplicate) {
+        setState(() => _scanLog.insert(0, ScanLogEntry(DateTime.now(), tag.identifier, List.of(tag.records))));
+      }
+      await Future<void>.delayed(const Duration(milliseconds: 700));
+    }
+    if (mounted) setState(() => _continuousScan = false);
+  }
+
+  Future<void> _exportScanLog() async {
+    final csv = CsvExport.scans(_scanLog, header: [
+      L10n.current.csvColumnTime,
+      'UID',
+      L10n.current.csvColumnRecords,
+      L10n.current.csvColumnContent,
+    ]);
+    final name = 'nfc_scans_${DateTime.now().toIso8601String().substring(0, 10)}.csv';
+    await SharePlus.instance.share(ShareParams(
+      files: [XFile.fromData(Uint8List.fromList(utf8.encode(csv)), mimeType: 'text/csv', name: name)],
+      fileNameOverrides: [name],
+    ));
+  }
+
+  Widget _buildContinuousScanCard() {
+    return SoftCard(
+      padding: const EdgeInsets.fromLTRB(16, 8, 8, 12),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.stretch,
+        children: [
+          SwitchListTile(
+            contentPadding: EdgeInsets.zero,
+            secondary: Icon(Icons.all_inclusive_rounded, color: AppColors.accent),
+            title: Text(L10n.current.continuousScanTitle,
+                style: const TextStyle(fontWeight: FontWeight.w600)),
+            subtitle: Text(L10n.current.continuousScanSubtitle),
+            value: _continuousScan,
+            onChanged: _controller.isBusy && !_continuousScan
+                ? null
+                : (on) {
+                    if (on) {
+                      _runContinuousScan();
+                    } else {
+                      setState(() => _continuousScan = false);
+                      _controller.cancelSession();
+                    }
+                  },
+          ),
+          if (_scanLog.isNotEmpty) ...[
+            Padding(
+              padding: const EdgeInsetsDirectional.only(end: 8, bottom: 4),
+              child: Row(
+                children: [
+                  Expanded(
+                    child: Text(L10n.current.continuousScanCount('${_scanLog.length}'),
+                        style: const TextStyle(fontWeight: FontWeight.w600)),
+                  ),
+                  IconButton(
+                    tooltip: L10n.current.exportCsv,
+                    icon: Icon(Icons.ios_share_rounded, color: AppColors.accent),
+                    onPressed: _exportScanLog,
+                  ),
+                  IconButton(
+                    tooltip: L10n.current.clearList,
+                    icon: Icon(Icons.delete_outline, color: AppColors.danger),
+                    onPressed: () => setState(_scanLog.clear),
+                  ),
+                ],
+              ),
+            ),
+            for (final e in _scanLog.take(20))
+              Padding(
+                padding: const EdgeInsetsDirectional.only(end: 8, bottom: 4),
+                child: Row(
+                  children: [
+                    Text(e.time.toLocal().toIso8601String().substring(11, 19),
+                        style: TextStyle(fontSize: 12, color: AppColors.secondary)),
+                    const SizedBox(width: 10),
+                    Expanded(
+                      child: Text(
+                        e.records.isEmpty
+                            ? e.uid
+                            : '${e.uid} · ${NdefCodec.parseRecord(e.records.first).content}',
+                        maxLines: 1,
+                        overflow: TextOverflow.ellipsis,
+                        style: const TextStyle(fontSize: 13),
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+          ],
+        ],
+      ),
+    );
   }
 
   void _finishOnboarding() {
@@ -2746,6 +2855,8 @@ class _HomeScreenState extends State<HomeScreen>
               ),
             ),
           ),
+          const SizedBox(height: 16),
+          _buildContinuousScanCard(),
           const SizedBox(height: 16),
           if (tag?.error != null)
             Card(

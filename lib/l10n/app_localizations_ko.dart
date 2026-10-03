@@ -3036,4 +3036,30 @@ class AppLocalizationsKo extends AppLocalizations {
 
   @override
   String get invalidTagFile => '잘못된 태그 파일입니다.';
+
+  @override
+  String get continuousScanTitle => '연속 스캔';
+
+  @override
+  String get continuousScanSubtitle => '태그를 연달아 스캔하고 목록을 CSV로 공유';
+
+  @override
+  String continuousScanCount(String count) {
+    return '태그 $count개 스캔';
+  }
+
+  @override
+  String get exportCsv => 'CSV로 공유';
+
+  @override
+  String get clearList => '목록 지우기';
+
+  @override
+  String get csvColumnTime => '시간';
+
+  @override
+  String get csvColumnRecords => '레코드';
+
+  @override
+  String get csvColumnContent => '내용';
 }

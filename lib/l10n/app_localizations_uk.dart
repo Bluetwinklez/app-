@@ -3161,4 +3161,31 @@ class AppLocalizationsUk extends AppLocalizations {
 
   @override
   String get invalidTagFile => 'Недійсний файл мітки.';
+
+  @override
+  String get continuousScanTitle => 'Безперервне сканування';
+
+  @override
+  String get continuousScanSubtitle =>
+      'Зчитуйте мітки поспіль і діліться списком у CSV';
+
+  @override
+  String continuousScanCount(String count) {
+    return 'Зчитано міток: $count';
+  }
+
+  @override
+  String get exportCsv => 'Поділитися CSV';
+
+  @override
+  String get clearList => 'Очистити список';
+
+  @override
+  String get csvColumnTime => 'Час';
+
+  @override
+  String get csvColumnRecords => 'Записи';
+
+  @override
+  String get csvColumnContent => 'Вміст';
 }

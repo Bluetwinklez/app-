@@ -3160,4 +3160,31 @@ class AppLocalizationsRu extends AppLocalizations {
 
   @override
   String get invalidTagFile => 'Недопустимый файл метки.';
+
+  @override
+  String get continuousScanTitle => 'Непрерывное сканирование';
+
+  @override
+  String get continuousScanSubtitle =>
+      'Считывайте метки подряд и делитесь списком в CSV';
+
+  @override
+  String continuousScanCount(String count) {
+    return 'Считано меток: $count';
+  }
+
+  @override
+  String get exportCsv => 'Поделиться CSV';
+
+  @override
+  String get clearList => 'Очистить список';
+
+  @override
+  String get csvColumnTime => 'Время';
+
+  @override
+  String get csvColumnRecords => 'Записи';
+
+  @override
+  String get csvColumnContent => 'Содержимое';
 }

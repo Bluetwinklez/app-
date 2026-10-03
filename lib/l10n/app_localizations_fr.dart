@@ -3179,4 +3179,31 @@ class AppLocalizationsFr extends AppLocalizations {
 
   @override
   String get invalidTagFile => 'Fichier de tag invalide.';
+
+  @override
+  String get continuousScanTitle => 'Lecture continue';
+
+  @override
+  String get continuousScanSubtitle =>
+      'Scannez les tags à la suite et partagez la liste en CSV';
+
+  @override
+  String continuousScanCount(String count) {
+    return '$count tags lus';
+  }
+
+  @override
+  String get exportCsv => 'Partager en CSV';
+
+  @override
+  String get clearList => 'Vider la liste';
+
+  @override
+  String get csvColumnTime => 'Heure';
+
+  @override
+  String get csvColumnRecords => 'Enregistrements';
+
+  @override
+  String get csvColumnContent => 'Contenu';
 }

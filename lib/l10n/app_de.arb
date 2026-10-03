@@ -889,5 +889,13 @@
   "shareAsFile": "Als Datei teilen (.json)",
   "shareAsFileSubtitle": "Einträge lassen sich auf einem anderen Gerät exakt schreiben",
   "importFromJsonFile": "Aus Tag-Datei (.json)",
-  "invalidTagFile": "Ungültige Tag-Datei."
+  "invalidTagFile": "Ungültige Tag-Datei.",
+  "continuousScanTitle": "Dauerscan",
+  "continuousScanSubtitle": "Tags nacheinander scannen und Liste als CSV teilen",
+  "continuousScanCount": "{count} Tags gescannt",
+  "exportCsv": "Als CSV teilen",
+  "clearList": "Liste leeren",
+  "csvColumnTime": "Zeit",
+  "csvColumnRecords": "Einträge",
+  "csvColumnContent": "Inhalt"
 }
