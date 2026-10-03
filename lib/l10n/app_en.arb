@@ -1129,5 +1129,22 @@
   "sigValid": "Signature valid",
   "sigInvalid": "Signature invalid: content was changed",
   "sigOtherKey": "Signed with a different key",
-  "sigReplaceKeyConfirm": "Replace the current key? Tags signed with the old key will show as \"different key\"."
+  "sigReplaceKeyConfirm": "Replace the current key? Tags signed with the old key will show as \"different key\".",
+  "amiiboTitle": "Amiibo info",
+  "amiiboSubtitle": "Figure/card ID and series (read only)",
+  "amiiboPrompt": "Hold the amiibo figure or card near",
+  "amiiboNotNtag215": "This is not an amiibo ({chip}); amiibo use NTAG215.",
+  "amiiboNotFound": "NTAG215 read, but no amiibo data was found.",
+  "amiiboSeries": "Series: {series}",
+  "amiiboType": "Type: {type}",
+  "amiiboFigure": "Figure",
+  "amiiboCard": "Card",
+  "amiiboYarn": "Yarn",
+  "amiiboLookup": "Look up its name online (amiiboapi.com)",
+  "memoryEditPage": "Edit page {page} (4 hex bytes)",
+  "memoryEditHint": "Tap a user page to edit it.",
+  "memoryEditPrompt": "Hold the same tag near to write page {page}",
+  "memoryPageWritten": "Page {page} written.",
+  "memoryUidMismatch": "A different tag was detected; nothing was written.",
+  "memoryReadSpeed": "Read time: {ms} ms ({rate} bytes/s)"
 }

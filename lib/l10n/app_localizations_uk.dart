@@ -4022,4 +4022,69 @@ class AppLocalizationsUk extends AppLocalizations {
   @override
   String get sigReplaceKeyConfirm =>
       'Замінити поточний ключ? Мітки зі старим підписом показуватимуться як «інший ключ».';
+
+  @override
+  String get amiiboTitle => 'Відомості про amiibo';
+
+  @override
+  String get amiiboSubtitle => 'ID і серія фігурки/картки (лише читання)';
+
+  @override
+  String get amiiboPrompt => 'Піднесіть фігурку чи картку amiibo';
+
+  @override
+  String amiiboNotNtag215(String chip) {
+    return 'Це не amiibo ($chip); amiibo використовують NTAG215.';
+  }
+
+  @override
+  String get amiiboNotFound => 'NTAG215 прочитано, але даних amiibo немає.';
+
+  @override
+  String amiiboSeries(String series) {
+    return 'Серія: $series';
+  }
+
+  @override
+  String amiiboType(String type) {
+    return 'Тип: $type';
+  }
+
+  @override
+  String get amiiboFigure => 'Фігурка';
+
+  @override
+  String get amiiboCard => 'Картка';
+
+  @override
+  String get amiiboYarn => 'Пряжа';
+
+  @override
+  String get amiiboLookup => 'Знайти назву онлайн (amiiboapi.com)';
+
+  @override
+  String memoryEditPage(String page) {
+    return 'Редагувати сторінку $page (4 байти hex)';
+  }
+
+  @override
+  String get memoryEditHint => 'Торкніться сторінки користувача, щоб змінити.';
+
+  @override
+  String memoryEditPrompt(String page) {
+    return 'Піднесіть ту саму мітку для запису сторінки $page';
+  }
+
+  @override
+  String memoryPageWritten(String page) {
+    return 'Сторінку $page записано.';
+  }
+
+  @override
+  String get memoryUidMismatch => 'Виявлено іншу мітку; нічого не записано.';
+
+  @override
+  String memoryReadSpeed(String ms, String rate) {
+    return 'Час читання: $ms мс ($rate байт/с)';
+  }
 }

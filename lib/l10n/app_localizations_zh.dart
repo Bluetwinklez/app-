@@ -3811,4 +3811,69 @@ class AppLocalizationsZh extends AppLocalizations {
 
   @override
   String get sigReplaceKeyConfirm => '替换当前密钥？用旧密钥签名的标签将显示为“其他密钥”。';
+
+  @override
+  String get amiiboTitle => 'amiibo 信息';
+
+  @override
+  String get amiiboSubtitle => '手办/卡片 ID 与系列（只读）';
+
+  @override
+  String get amiiboPrompt => '请靠近 amiibo 手办或卡片';
+
+  @override
+  String amiiboNotNtag215(String chip) {
+    return '这不是 amiibo（$chip）；amiibo 使用 NTAG215。';
+  }
+
+  @override
+  String get amiiboNotFound => '已读取 NTAG215，但没有 amiibo 数据。';
+
+  @override
+  String amiiboSeries(String series) {
+    return '系列：$series';
+  }
+
+  @override
+  String amiiboType(String type) {
+    return '类型：$type';
+  }
+
+  @override
+  String get amiiboFigure => '手办';
+
+  @override
+  String get amiiboCard => '卡片';
+
+  @override
+  String get amiiboYarn => '毛线';
+
+  @override
+  String get amiiboLookup => '在线查询名称（amiiboapi.com）';
+
+  @override
+  String memoryEditPage(String page) {
+    return '编辑第 $page 页（4 字节十六进制）';
+  }
+
+  @override
+  String get memoryEditHint => '点按用户页即可编辑。';
+
+  @override
+  String memoryEditPrompt(String page) {
+    return '靠近同一标签以写入第 $page 页';
+  }
+
+  @override
+  String memoryPageWritten(String page) {
+    return '第 $page 页已写入。';
+  }
+
+  @override
+  String get memoryUidMismatch => '检测到不同标签，未写入。';
+
+  @override
+  String memoryReadSpeed(String ms, String rate) {
+    return '读取耗时：$ms 毫秒（$rate 字节/秒）';
+  }
 }

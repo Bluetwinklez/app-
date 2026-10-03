@@ -4022,4 +4022,69 @@ class AppLocalizationsNl extends AppLocalizations {
   @override
   String get sigReplaceKeyConfirm =>
       'Huidige sleutel vervangen? Tags met de oude sleutel tonen dan \"andere sleutel\".';
+
+  @override
+  String get amiiboTitle => 'Amiibo-info';
+
+  @override
+  String get amiiboSubtitle => 'Figuur-/kaart-ID en serie (alleen lezen)';
+
+  @override
+  String get amiiboPrompt => 'Houd de amiibo-figuur of -kaart bij';
+
+  @override
+  String amiiboNotNtag215(String chip) {
+    return 'Geen amiibo ($chip); amiibo gebruiken NTAG215.';
+  }
+
+  @override
+  String get amiiboNotFound => 'NTAG215 gelezen, maar geen amiibo-gegevens.';
+
+  @override
+  String amiiboSeries(String series) {
+    return 'Serie: $series';
+  }
+
+  @override
+  String amiiboType(String type) {
+    return 'Type: $type';
+  }
+
+  @override
+  String get amiiboFigure => 'Figuur';
+
+  @override
+  String get amiiboCard => 'Kaart';
+
+  @override
+  String get amiiboYarn => 'Wol';
+
+  @override
+  String get amiiboLookup => 'Naam online opzoeken (amiiboapi.com)';
+
+  @override
+  String memoryEditPage(String page) {
+    return 'Pagina $page bewerken (4 hex-bytes)';
+  }
+
+  @override
+  String get memoryEditHint => 'Tik op een gebruikerspagina om te bewerken.';
+
+  @override
+  String memoryEditPrompt(String page) {
+    return 'Houd dezelfde tag bij om pagina $page te schrijven';
+  }
+
+  @override
+  String memoryPageWritten(String page) {
+    return 'Pagina $page geschreven.';
+  }
+
+  @override
+  String get memoryUidMismatch => 'Andere tag gevonden; niets geschreven.';
+
+  @override
+  String memoryReadSpeed(String ms, String rate) {
+    return 'Leestijd: $ms ms ($rate bytes/s)';
+  }
 }

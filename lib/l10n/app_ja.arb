@@ -1129,5 +1129,22 @@
   "sigValid": "署名は有効",
   "sigInvalid": "署名が無効: 内容が変更されています",
   "sigOtherKey": "別の鍵で署名されています",
-  "sigReplaceKeyConfirm": "現在の鍵を置き換えますか？古い鍵で署名したタグは「別の鍵」と表示されます。"
+  "sigReplaceKeyConfirm": "現在の鍵を置き換えますか？古い鍵で署名したタグは「別の鍵」と表示されます。",
+  "amiiboTitle": "amiibo情報",
+  "amiiboSubtitle": "フィギュア/カードのIDとシリーズ (読み取りのみ)",
+  "amiiboPrompt": "amiiboフィギュアかカードをかざしてください",
+  "amiiboNotNtag215": "amiiboではありません ({chip})。amiiboはNTAG215です。",
+  "amiiboNotFound": "NTAG215を読み取りましたがamiiboデータはありません。",
+  "amiiboSeries": "シリーズ: {series}",
+  "amiiboType": "種類: {type}",
+  "amiiboFigure": "フィギュア",
+  "amiiboCard": "カード",
+  "amiiboYarn": "毛糸",
+  "amiiboLookup": "名前をオンラインで調べる (amiiboapi.com)",
+  "memoryEditPage": "ページ{page}を編集 (16進4バイト)",
+  "memoryEditHint": "ユーザーページをタップして編集できます。",
+  "memoryEditPrompt": "ページ{page}を書き込むため同じタグをかざしてください",
+  "memoryPageWritten": "ページ{page}を書き込みました。",
+  "memoryUidMismatch": "別のタグを検出したため書き込みませんでした。",
+  "memoryReadSpeed": "読み取り時間: {ms} ms ({rate} B/秒)"
 }

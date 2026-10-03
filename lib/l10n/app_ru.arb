@@ -1129,5 +1129,22 @@
   "sigValid": "Подпись верна",
   "sigInvalid": "Подпись неверна: содержимое изменено",
   "sigOtherKey": "Подписано другим ключом",
-  "sigReplaceKeyConfirm": "Заменить текущий ключ? Метки со старой подписью будут «подписаны другим ключом»."
+  "sigReplaceKeyConfirm": "Заменить текущий ключ? Метки со старой подписью будут «подписаны другим ключом».",
+  "amiiboTitle": "Сведения об amiibo",
+  "amiiboSubtitle": "ID и серия фигурки/карты (только чтение)",
+  "amiiboPrompt": "Поднесите фигурку или карту amiibo",
+  "amiiboNotNtag215": "Это не amiibo ({chip}); amiibo используют NTAG215.",
+  "amiiboNotFound": "NTAG215 прочитан, но данных amiibo нет.",
+  "amiiboSeries": "Серия: {series}",
+  "amiiboType": "Тип: {type}",
+  "amiiboFigure": "Фигурка",
+  "amiiboCard": "Карта",
+  "amiiboYarn": "Пряжа",
+  "amiiboLookup": "Найти название онлайн (amiiboapi.com)",
+  "memoryEditPage": "Изменить страницу {page} (4 байта hex)",
+  "memoryEditHint": "Нажмите на пользовательскую страницу, чтобы изменить.",
+  "memoryEditPrompt": "Поднесите ту же метку для записи страницы {page}",
+  "memoryPageWritten": "Страница {page} записана.",
+  "memoryUidMismatch": "Обнаружена другая метка; ничего не записано.",
+  "memoryReadSpeed": "Время чтения: {ms} мс ({rate} байт/с)"
 }

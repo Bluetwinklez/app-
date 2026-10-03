@@ -3844,4 +3844,69 @@ class AppLocalizationsJa extends AppLocalizations {
 
   @override
   String get sigReplaceKeyConfirm => '現在の鍵を置き換えますか？古い鍵で署名したタグは「別の鍵」と表示されます。';
+
+  @override
+  String get amiiboTitle => 'amiibo情報';
+
+  @override
+  String get amiiboSubtitle => 'フィギュア/カードのIDとシリーズ (読み取りのみ)';
+
+  @override
+  String get amiiboPrompt => 'amiiboフィギュアかカードをかざしてください';
+
+  @override
+  String amiiboNotNtag215(String chip) {
+    return 'amiiboではありません ($chip)。amiiboはNTAG215です。';
+  }
+
+  @override
+  String get amiiboNotFound => 'NTAG215を読み取りましたがamiiboデータはありません。';
+
+  @override
+  String amiiboSeries(String series) {
+    return 'シリーズ: $series';
+  }
+
+  @override
+  String amiiboType(String type) {
+    return '種類: $type';
+  }
+
+  @override
+  String get amiiboFigure => 'フィギュア';
+
+  @override
+  String get amiiboCard => 'カード';
+
+  @override
+  String get amiiboYarn => '毛糸';
+
+  @override
+  String get amiiboLookup => '名前をオンラインで調べる (amiiboapi.com)';
+
+  @override
+  String memoryEditPage(String page) {
+    return 'ページ$pageを編集 (16進4バイト)';
+  }
+
+  @override
+  String get memoryEditHint => 'ユーザーページをタップして編集できます。';
+
+  @override
+  String memoryEditPrompt(String page) {
+    return 'ページ$pageを書き込むため同じタグをかざしてください';
+  }
+
+  @override
+  String memoryPageWritten(String page) {
+    return 'ページ$pageを書き込みました。';
+  }
+
+  @override
+  String get memoryUidMismatch => '別のタグを検出したため書き込みませんでした。';
+
+  @override
+  String memoryReadSpeed(String ms, String rate) {
+    return '読み取り時間: $ms ms ($rate B/秒)';
+  }
 }

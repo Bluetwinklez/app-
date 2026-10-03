@@ -11,6 +11,8 @@ import '../domain/tag_compare.dart';
 import '../domain/nfc_tag_info.dart';
 import '../domain/ndef_record.dart';
 import 'app_theme.dart';
+import '../domain/amiibo.dart';
+import '../services/launch_action_service.dart';
 import 'logbook_page.dart';
 import 'signed_tags_page.dart';
 
@@ -85,6 +87,12 @@ class ToolsTab extends StatelessWidget {
           title: loc.readMemoryTitle,
           subtitle: loc.readMemorySubtitle,
           onTap: _idle ? () => _readMemory(context) : null,
+        ),
+        ToolTile(
+          icon: Icons.videogame_asset_outlined,
+          title: loc.amiiboTitle,
+          subtitle: loc.amiiboSubtitle,
+          onTap: _idle ? () => _amiibo(context) : null,
         ),
         ToolTile(
           icon: Icons.storage_outlined,
@@ -228,10 +236,17 @@ class ToolsTab extends StatelessWidget {
 
   Future<void> _readMemory(BuildContext context) async {
     final loc = AppLocalizations.of(context) ?? L10n.current;
+    var elapsed = Duration.zero;
     final dump = await controller.runRawTask<NtagMemoryDump>(
       promptMessage: loc.readTagMemoryPrompt,
       busyMessage: loc.readingTagMemoryStatus,
-      task: NtagTools.readMemory,
+      task: (t) async {
+        // Only the transfer is timed, not the time spent bringing the tag near.
+        final watch = Stopwatch()..start();
+        final d = await NtagTools.readMemory(t);
+        elapsed = watch.elapsed;
+        return d;
+      },
       successMessage: (d) => loc.ntagPagesRead(d.chipName, d.pageCount),
     );
     if (!context.mounted) return;
@@ -242,7 +257,82 @@ class ToolsTab extends StatelessWidget {
     await showModalBottomSheet<void>(
       context: context,
       isScrollControlled: true,
-      builder: (ctx) => _MemoryViewer(dump: dump),
+      builder: (ctx) => _MemoryViewer(
+        dump: dump,
+        elapsed: elapsed,
+        onEditPage: (page, bytes) => _writeMemoryPage(context, dump, page, bytes),
+      ),
+    );
+  }
+
+  /// Writes one user page back to the same tag (checked by UID).
+  Future<bool> _writeMemoryPage(BuildContext context, NtagMemoryDump dump, int page, List<int> bytes) async {
+    final loc = AppLocalizations.of(context) ?? L10n.current;
+    final ok = await controller.runRawTask<bool>(
+      promptMessage: loc.memoryEditPrompt('$page'),
+      busyMessage: loc.writeHeroWriting,
+      task: (t) async {
+        final head = await NtagTools.readPages(t, 0);
+        for (int i = 0; i < 8; i++) {
+          if (head[i] != dump.bytes[i]) throw NtagException(loc.memoryUidMismatch);
+        }
+        await NtagTools.writePage(t, page, bytes);
+        return true;
+      },
+      successMessage: (_) => loc.memoryPageWritten('$page'),
+    );
+    if (context.mounted) _snack(context, controller.statusMessage, error: ok != true);
+    return ok == true;
+  }
+
+  Future<void> _amiibo(BuildContext context) async {
+    final loc = AppLocalizations.of(context) ?? L10n.current;
+    final raw = await controller.runRawTask<Uint8List>(
+      promptMessage: loc.amiiboPrompt,
+      busyMessage: loc.readingTagMemoryStatus,
+      task: NtagTools.readAmiiboId,
+      successMessage: (_) => loc.amiiboTitle,
+    );
+    if (!context.mounted) return;
+    if (raw == null) {
+      _snack(context, controller.statusMessage, error: true);
+      return;
+    }
+    final info = AmiiboInfo.parse(raw);
+    if (info == null) {
+      _snack(context, loc.amiiboNotFound, error: true);
+      return;
+    }
+    final type = switch (info.figureType) {
+      0 => loc.amiiboFigure,
+      1 => loc.amiiboCard,
+      2 => loc.amiiboYarn,
+      _ => '0x${info.figureType.toRadixString(16)}',
+    };
+    await showModalBottomSheet<void>(
+      context: context,
+      builder: (ctx) => SafeArea(
+        child: Padding(
+          padding: const EdgeInsets.fromLTRB(20, 4, 20, 20),
+          child: Column(
+            mainAxisSize: MainAxisSize.min,
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Text(loc.amiiboTitle, style: Theme.of(ctx).textTheme.titleLarge),
+              const SizedBox(height: 8),
+              SelectableText('ID: ${info.idHex}', style: const TextStyle(fontFamily: 'Courier', fontSize: 15)),
+              Text(loc.amiiboSeries(info.seriesName)),
+              Text(loc.amiiboType(type)),
+              const SizedBox(height: 12),
+              OutlinedButton.icon(
+                icon: const Icon(Icons.travel_explore_rounded),
+                label: Text(loc.amiiboLookup),
+                onPressed: () => LaunchActionService.openUrl(info.lookupUrl),
+              ),
+            ],
+          ),
+        ),
+      ),
     );
   }
 
@@ -423,10 +513,69 @@ class _PasswordDialogState extends State<_PasswordDialog> {
   }
 }
 
-class _MemoryViewer extends StatelessWidget {
+class _MemoryViewer extends StatefulWidget {
   final NtagMemoryDump dump;
+  final Duration elapsed;
+  final Future<bool> Function(int page, List<int> bytes) onEditPage;
 
-  const _MemoryViewer({required this.dump});
+  const _MemoryViewer({required this.dump, required this.elapsed, required this.onEditPage});
+
+  @override
+  State<_MemoryViewer> createState() => _MemoryViewerState();
+}
+
+class _MemoryViewerState extends State<_MemoryViewer> {
+  late final NtagMemoryDump dump = NtagMemoryDump(
+    chip: widget.dump.chip,
+    bytes: Uint8List.fromList(widget.dump.bytes),
+    warning: widget.dump.warning,
+  );
+
+  bool _editable(int page) {
+    final chip = dump.chip;
+    return chip != null && page >= chip.userStartPage && page <= chip.userEndPage;
+  }
+
+  Future<void> _edit(int page) async {
+    final loc = AppLocalizations.of(context) ?? L10n.current;
+    final current = dump.bytes.sublist(page * 4, page * 4 + 4);
+    final field = TextEditingController(text: NtagTools.toHex(current));
+    String? error;
+    final bytes = await showDialog<List<int>>(
+      context: context,
+      builder: (ctx) => StatefulBuilder(
+        builder: (ctx, setDlg) => AlertDialog(
+          title: Text(loc.memoryEditPage('$page')),
+          content: TextField(
+            controller: field,
+            autofocus: true,
+            style: const TextStyle(fontFamily: 'Courier'),
+            decoration: InputDecoration(hintText: '00 11 22 33', errorText: error),
+          ),
+          actions: [
+            TextButton(onPressed: () => Navigator.of(ctx).pop(), child: Text(loc.cancel)),
+            ElevatedButton(
+              onPressed: () {
+                try {
+                  final b = NtagTools.parseHex(field.text);
+                  if (b.length != 4) throw NtagException(loc.memoryEditPage('$page'));
+                  Navigator.of(ctx).pop(b);
+                } on NtagException catch (e) {
+                  setDlg(() => error = e.message);
+                }
+              },
+              child: Text(loc.writeButton),
+            ),
+          ],
+        ),
+      ),
+    );
+    field.dispose();
+    if (bytes == null) return;
+    if (await widget.onEditPage(page, bytes) && mounted) {
+      setState(() => dump.bytes.setRange(page * 4, page * 4 + 4, bytes));
+    }
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -449,6 +598,16 @@ class _MemoryViewer extends StatelessWidget {
                     loc.pagesAndBytes(dump.pageCount, dump.bytes.length),
                     style: TextStyle(color: AppColors.secondary),
                   ),
+                  if (widget.elapsed > Duration.zero)
+                    Text(
+                      loc.memoryReadSpeed(
+                        '${widget.elapsed.inMilliseconds}',
+                        '${(dump.bytes.length * 1000 / widget.elapsed.inMilliseconds.clamp(1, 1 << 30)).round()}',
+                      ),
+                      style: TextStyle(fontSize: 12, color: AppColors.secondary),
+                    ),
+                  if (dump.chip != null)
+                    Text(loc.memoryEditHint, style: TextStyle(fontSize: 12, color: AppColors.accent)),
                   if (dump.warning != null)
                     Padding(
                       padding: const EdgeInsets.only(top: 6),
@@ -467,9 +626,17 @@ class _MemoryViewer extends StatelessWidget {
                 child: ListView.builder(
                   padding: const EdgeInsets.all(12),
                   itemCount: lines.length,
-                  itemBuilder: (_, i) => Text(
-                    lines[i],
-                    style: const TextStyle(fontFamily: 'Courier', fontSize: 12.5, height: 1.5),
+                  itemBuilder: (_, i) => InkWell(
+                    onTap: _editable(i) ? () => _edit(i) : null,
+                    child: Text(
+                      lines[i],
+                      style: TextStyle(
+                        fontFamily: 'Courier',
+                        fontSize: 12.5,
+                        height: 1.5,
+                        color: _editable(i) ? AppColors.ink : AppColors.secondary,
+                      ),
+                    ),
                   ),
                 ),
               ),

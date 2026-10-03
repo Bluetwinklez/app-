@@ -2672,5 +2672,74 @@
   "sigValid": "İmza geçerli",
   "sigInvalid": "İmza geçersiz: içerik değiştirilmiş",
   "sigOtherKey": "Başka bir anahtarla imzalanmış",
-  "sigReplaceKeyConfirm": "Mevcut anahtar değiştirilsin mi? Eski anahtarla imzalanan etiketler artık \"başka anahtar\" olarak görünür."
+  "sigReplaceKeyConfirm": "Mevcut anahtar değiştirilsin mi? Eski anahtarla imzalanan etiketler artık \"başka anahtar\" olarak görünür.",
+  "amiiboTitle": "Amiibo bilgisi",
+  "amiiboSubtitle": "Figür/kart kimliği ve serisi (yalnızca okuma)",
+  "amiiboPrompt": "Amiibo figürünü veya kartını yaklaştırın",
+  "amiiboNotNtag215": "Bu bir amiibo değil ({chip}); amiibo'lar NTAG215 kullanır.",
+  "@amiiboNotNtag215": {
+    "placeholders": {
+      "chip": {
+        "type": "String"
+      }
+    }
+  },
+  "amiiboNotFound": "NTAG215 okundu ama amiibo verisi bulunamadı.",
+  "amiiboSeries": "Seri: {series}",
+  "@amiiboSeries": {
+    "placeholders": {
+      "series": {
+        "type": "String"
+      }
+    }
+  },
+  "amiiboType": "Tür: {type}",
+  "@amiiboType": {
+    "placeholders": {
+      "type": {
+        "type": "String"
+      }
+    }
+  },
+  "amiiboFigure": "Figür",
+  "amiiboCard": "Kart",
+  "amiiboYarn": "Örgü",
+  "amiiboLookup": "Adını çevrimiçi ara (amiiboapi.com)",
+  "memoryEditPage": "Sayfa {page} düzenle (4 bayt hex)",
+  "@memoryEditPage": {
+    "placeholders": {
+      "page": {
+        "type": "String"
+      }
+    }
+  },
+  "memoryEditHint": "Kullanıcı sayfalarına dokunup düzenleyebilirsiniz.",
+  "memoryEditPrompt": "Sayfa {page} için aynı etiketi yaklaştırın",
+  "@memoryEditPrompt": {
+    "placeholders": {
+      "page": {
+        "type": "String"
+      }
+    }
+  },
+  "memoryPageWritten": "Sayfa {page} yazıldı.",
+  "@memoryPageWritten": {
+    "placeholders": {
+      "page": {
+        "type": "String"
+      }
+    }
+  },
+  "memoryUidMismatch": "Farklı bir etiket algılandı; yazılmadı.",
+  "memoryReadSpeed": "Okuma süresi: {ms} ms ({rate} bayt/sn)",
+  "@memoryReadSpeed": {
+    "placeholders": {
+      "ms": {
+        "type": "String"
+      },
+      "rate": {
+        "type": "String"
+      }
+    }
+  }
 }

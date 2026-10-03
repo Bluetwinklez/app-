@@ -4007,4 +4007,70 @@ class AppLocalizationsEn extends AppLocalizations {
   @override
   String get sigReplaceKeyConfirm =>
       'Replace the current key? Tags signed with the old key will show as \"different key\".';
+
+  @override
+  String get amiiboTitle => 'Amiibo info';
+
+  @override
+  String get amiiboSubtitle => 'Figure/card ID and series (read only)';
+
+  @override
+  String get amiiboPrompt => 'Hold the amiibo figure or card near';
+
+  @override
+  String amiiboNotNtag215(String chip) {
+    return 'This is not an amiibo ($chip); amiibo use NTAG215.';
+  }
+
+  @override
+  String get amiiboNotFound => 'NTAG215 read, but no amiibo data was found.';
+
+  @override
+  String amiiboSeries(String series) {
+    return 'Series: $series';
+  }
+
+  @override
+  String amiiboType(String type) {
+    return 'Type: $type';
+  }
+
+  @override
+  String get amiiboFigure => 'Figure';
+
+  @override
+  String get amiiboCard => 'Card';
+
+  @override
+  String get amiiboYarn => 'Yarn';
+
+  @override
+  String get amiiboLookup => 'Look up its name online (amiiboapi.com)';
+
+  @override
+  String memoryEditPage(String page) {
+    return 'Edit page $page (4 hex bytes)';
+  }
+
+  @override
+  String get memoryEditHint => 'Tap a user page to edit it.';
+
+  @override
+  String memoryEditPrompt(String page) {
+    return 'Hold the same tag near to write page $page';
+  }
+
+  @override
+  String memoryPageWritten(String page) {
+    return 'Page $page written.';
+  }
+
+  @override
+  String get memoryUidMismatch =>
+      'A different tag was detected; nothing was written.';
+
+  @override
+  String memoryReadSpeed(String ms, String rate) {
+    return 'Read time: $ms ms ($rate bytes/s)';
+  }
 }

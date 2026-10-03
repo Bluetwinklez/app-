@@ -1129,5 +1129,22 @@
   "sigValid": "Assinatura válida",
   "sigInvalid": "Assinatura inválida: conteúdo alterado",
   "sigOtherKey": "Assinada com outra chave",
-  "sigReplaceKeyConfirm": "Substituir a chave atual? Tags assinadas com a antiga aparecerão como \"outra chave\"."
+  "sigReplaceKeyConfirm": "Substituir a chave atual? Tags assinadas com a antiga aparecerão como \"outra chave\".",
+  "amiiboTitle": "Informações do amiibo",
+  "amiiboSubtitle": "ID e série da figura/cartão (só leitura)",
+  "amiiboPrompt": "Aproxime a figura ou cartão amiibo",
+  "amiiboNotNtag215": "Não é um amiibo ({chip}); amiibos usam NTAG215.",
+  "amiiboNotFound": "NTAG215 lido, mas sem dados de amiibo.",
+  "amiiboSeries": "Série: {series}",
+  "amiiboType": "Tipo: {type}",
+  "amiiboFigure": "Figura",
+  "amiiboCard": "Cartão",
+  "amiiboYarn": "Lã",
+  "amiiboLookup": "Buscar o nome online (amiiboapi.com)",
+  "memoryEditPage": "Editar página {page} (4 bytes hex)",
+  "memoryEditHint": "Toque numa página de usuário para editar.",
+  "memoryEditPrompt": "Aproxime a mesma tag para gravar a página {page}",
+  "memoryPageWritten": "Página {page} gravada.",
+  "memoryUidMismatch": "Outra tag foi detectada; nada foi gravado.",
+  "memoryReadSpeed": "Tempo de leitura: {ms} ms ({rate} B/s)"
 }

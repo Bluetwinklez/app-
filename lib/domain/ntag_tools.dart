@@ -216,6 +216,15 @@ class NtagTools {
     }
   }
 
+  /// Pages 21–22 of an NTAG215 (the amiibo identification block).
+  static Future<Uint8List> readAmiiboId(RawTransceive transceive) async {
+    final chip = await requireChip(transceive);
+    if (chip.name != NtagChip.ntag215.name) {
+      throw NtagException(L10n.current.amiiboNotNtag215(chip.name));
+    }
+    return Uint8List.fromList((await readPages(transceive, 21)).sublist(0, 8));
+  }
+
   static Future<NtagMemoryDump> readMemory(RawTransceive transceive) async {
     final chip = NtagChip.fromVersion(await getVersion(transceive));
     final totalPages = chip?.totalPages ?? 16;

@@ -1129,5 +1129,22 @@
   "sigValid": "Handtekening geldig",
   "sigInvalid": "Handtekening ongeldig: inhoud gewijzigd",
   "sigOtherKey": "Ondertekend met een andere sleutel",
-  "sigReplaceKeyConfirm": "Huidige sleutel vervangen? Tags met de oude sleutel tonen dan \"andere sleutel\"."
+  "sigReplaceKeyConfirm": "Huidige sleutel vervangen? Tags met de oude sleutel tonen dan \"andere sleutel\".",
+  "amiiboTitle": "Amiibo-info",
+  "amiiboSubtitle": "Figuur-/kaart-ID en serie (alleen lezen)",
+  "amiiboPrompt": "Houd de amiibo-figuur of -kaart bij",
+  "amiiboNotNtag215": "Geen amiibo ({chip}); amiibo gebruiken NTAG215.",
+  "amiiboNotFound": "NTAG215 gelezen, maar geen amiibo-gegevens.",
+  "amiiboSeries": "Serie: {series}",
+  "amiiboType": "Type: {type}",
+  "amiiboFigure": "Figuur",
+  "amiiboCard": "Kaart",
+  "amiiboYarn": "Wol",
+  "amiiboLookup": "Naam online opzoeken (amiiboapi.com)",
+  "memoryEditPage": "Pagina {page} bewerken (4 hex-bytes)",
+  "memoryEditHint": "Tik op een gebruikerspagina om te bewerken.",
+  "memoryEditPrompt": "Houd dezelfde tag bij om pagina {page} te schrijven",
+  "memoryPageWritten": "Pagina {page} geschreven.",
+  "memoryUidMismatch": "Andere tag gevonden; niets geschreven.",
+  "memoryReadSpeed": "Leestijd: {ms} ms ({rate} bytes/s)"
 }

@@ -1129,5 +1129,22 @@
   "sigValid": "签名有效",
   "sigInvalid": "签名无效：内容已被改动",
   "sigOtherKey": "由其他密钥签名",
-  "sigReplaceKeyConfirm": "替换当前密钥？用旧密钥签名的标签将显示为“其他密钥”。"
+  "sigReplaceKeyConfirm": "替换当前密钥？用旧密钥签名的标签将显示为“其他密钥”。",
+  "amiiboTitle": "amiibo 信息",
+  "amiiboSubtitle": "手办/卡片 ID 与系列（只读）",
+  "amiiboPrompt": "请靠近 amiibo 手办或卡片",
+  "amiiboNotNtag215": "这不是 amiibo（{chip}）；amiibo 使用 NTAG215。",
+  "amiiboNotFound": "已读取 NTAG215，但没有 amiibo 数据。",
+  "amiiboSeries": "系列：{series}",
+  "amiiboType": "类型：{type}",
+  "amiiboFigure": "手办",
+  "amiiboCard": "卡片",
+  "amiiboYarn": "毛线",
+  "amiiboLookup": "在线查询名称（amiiboapi.com）",
+  "memoryEditPage": "编辑第 {page} 页（4 字节十六进制）",
+  "memoryEditHint": "点按用户页即可编辑。",
+  "memoryEditPrompt": "靠近同一标签以写入第 {page} 页",
+  "memoryPageWritten": "第 {page} 页已写入。",
+  "memoryUidMismatch": "检测到不同标签，未写入。",
+  "memoryReadSpeed": "读取耗时：{ms} 毫秒（{rate} 字节/秒）"
 }

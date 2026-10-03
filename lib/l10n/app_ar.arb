@@ -1129,5 +1129,22 @@
   "sigValid": "التوقيع صالح",
   "sigInvalid": "التوقيع غير صالح: تم تغيير المحتوى",
   "sigOtherKey": "موقّع بمفتاح آخر",
-  "sigReplaceKeyConfirm": "استبدال المفتاح الحالي؟ ستظهر الوسوم الموقّعة بالقديم كـ\"مفتاح آخر\"."
+  "sigReplaceKeyConfirm": "استبدال المفتاح الحالي؟ ستظهر الوسوم الموقّعة بالقديم كـ\"مفتاح آخر\".",
+  "amiiboTitle": "معلومات amiibo",
+  "amiiboSubtitle": "معرّف المجسم/البطاقة وسلسلته (قراءة فقط)",
+  "amiiboPrompt": "قرّب مجسم أو بطاقة amiibo",
+  "amiiboNotNtag215": "هذا ليس amiibo ‏({chip})؛ تستخدم amiibo شريحة NTAG215.",
+  "amiiboNotFound": "تمت قراءة NTAG215 لكن لم توجد بيانات amiibo.",
+  "amiiboSeries": "السلسلة: {series}",
+  "amiiboType": "النوع: {type}",
+  "amiiboFigure": "مجسم",
+  "amiiboCard": "بطاقة",
+  "amiiboYarn": "صوف",
+  "amiiboLookup": "ابحث عن اسمه عبر الإنترنت (amiiboapi.com)",
+  "memoryEditPage": "تعديل الصفحة {page} ‏(4 بايت hex)",
+  "memoryEditHint": "المس صفحة مستخدم لتعديلها.",
+  "memoryEditPrompt": "قرّب الوسم نفسه لكتابة الصفحة {page}",
+  "memoryPageWritten": "تمت كتابة الصفحة {page}.",
+  "memoryUidMismatch": "تم اكتشاف وسم مختلف؛ لم يُكتب شيء.",
+  "memoryReadSpeed": "زمن القراءة: {ms} مللي ث ({rate} بايت/ث)"
 }

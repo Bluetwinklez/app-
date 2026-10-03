@@ -6903,6 +6903,108 @@ abstract class AppLocalizations {
   /// In tr, this message translates to:
   /// **'Mevcut anahtar değiştirilsin mi? Eski anahtarla imzalanan etiketler artık \"başka anahtar\" olarak görünür.'**
   String get sigReplaceKeyConfirm;
+
+  /// No description provided for @amiiboTitle.
+  ///
+  /// In tr, this message translates to:
+  /// **'Amiibo bilgisi'**
+  String get amiiboTitle;
+
+  /// No description provided for @amiiboSubtitle.
+  ///
+  /// In tr, this message translates to:
+  /// **'Figür/kart kimliği ve serisi (yalnızca okuma)'**
+  String get amiiboSubtitle;
+
+  /// No description provided for @amiiboPrompt.
+  ///
+  /// In tr, this message translates to:
+  /// **'Amiibo figürünü veya kartını yaklaştırın'**
+  String get amiiboPrompt;
+
+  /// No description provided for @amiiboNotNtag215.
+  ///
+  /// In tr, this message translates to:
+  /// **'Bu bir amiibo değil ({chip}); amiibo\'lar NTAG215 kullanır.'**
+  String amiiboNotNtag215(String chip);
+
+  /// No description provided for @amiiboNotFound.
+  ///
+  /// In tr, this message translates to:
+  /// **'NTAG215 okundu ama amiibo verisi bulunamadı.'**
+  String get amiiboNotFound;
+
+  /// No description provided for @amiiboSeries.
+  ///
+  /// In tr, this message translates to:
+  /// **'Seri: {series}'**
+  String amiiboSeries(String series);
+
+  /// No description provided for @amiiboType.
+  ///
+  /// In tr, this message translates to:
+  /// **'Tür: {type}'**
+  String amiiboType(String type);
+
+  /// No description provided for @amiiboFigure.
+  ///
+  /// In tr, this message translates to:
+  /// **'Figür'**
+  String get amiiboFigure;
+
+  /// No description provided for @amiiboCard.
+  ///
+  /// In tr, this message translates to:
+  /// **'Kart'**
+  String get amiiboCard;
+
+  /// No description provided for @amiiboYarn.
+  ///
+  /// In tr, this message translates to:
+  /// **'Örgü'**
+  String get amiiboYarn;
+
+  /// No description provided for @amiiboLookup.
+  ///
+  /// In tr, this message translates to:
+  /// **'Adını çevrimiçi ara (amiiboapi.com)'**
+  String get amiiboLookup;
+
+  /// No description provided for @memoryEditPage.
+  ///
+  /// In tr, this message translates to:
+  /// **'Sayfa {page} düzenle (4 bayt hex)'**
+  String memoryEditPage(String page);
+
+  /// No description provided for @memoryEditHint.
+  ///
+  /// In tr, this message translates to:
+  /// **'Kullanıcı sayfalarına dokunup düzenleyebilirsiniz.'**
+  String get memoryEditHint;
+
+  /// No description provided for @memoryEditPrompt.
+  ///
+  /// In tr, this message translates to:
+  /// **'Sayfa {page} için aynı etiketi yaklaştırın'**
+  String memoryEditPrompt(String page);
+
+  /// No description provided for @memoryPageWritten.
+  ///
+  /// In tr, this message translates to:
+  /// **'Sayfa {page} yazıldı.'**
+  String memoryPageWritten(String page);
+
+  /// No description provided for @memoryUidMismatch.
+  ///
+  /// In tr, this message translates to:
+  /// **'Farklı bir etiket algılandı; yazılmadı.'**
+  String get memoryUidMismatch;
+
+  /// No description provided for @memoryReadSpeed.
+  ///
+  /// In tr, this message translates to:
+  /// **'Okuma süresi: {ms} ms ({rate} bayt/sn)'**
+  String memoryReadSpeed(String ms, String rate);
 }
 
 class _AppLocalizationsDelegate
