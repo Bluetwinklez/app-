@@ -1,6 +1,7 @@
 import 'dart:convert';
 import 'dart:io';
 import 'package:flutter/foundation.dart';
+import 'secret_store.dart';
 import '../domain/storage_models.dart';
 import '../domain/tag_rule.dart';
 import '../domain/tag_library.dart';
@@ -464,7 +465,12 @@ class LocalFileAppStorageService implements AppStorageService {
   final Map<String, TagRule> _rules = {};
   final List<TagLibraryEntry> _library = [];
 
-  LocalFileAppStorageService({required this.baseDirectoryPath});
+  /// When set, the signing key lives here (Keychain) instead of the settings
+  /// file; a key found in an older settings file is moved over on init.
+  final SecretStore? secrets;
+  static const String signingKeySecret = 'signing_key';
+
+  LocalFileAppStorageService({required this.baseDirectoryPath, this.secrets});
 
   File get _settingsFile => File('$baseDirectoryPath/nfc_app_settings.json');
   File get _historyFile => File('$baseDirectoryPath/nfc_scan_history.json');
@@ -512,6 +518,22 @@ class LocalFileAppStorageService implements AppStorageService {
       }
     } catch (e) {
       debugPrint('LocalFileAppStorageService error loading settings: $e');
+    }
+
+    final secretStore = secrets;
+    if (secretStore != null) {
+      try {
+        final fromFile = _signingKey;
+        final stored = await secretStore.read(signingKeySecret);
+        if (stored != null) {
+          _signingKey = stored;
+        } else if (fromFile != null) {
+          await secretStore.write(signingKeySecret, fromFile);
+        }
+        if (fromFile != null) await _saveSettings(); // drops it from the file
+      } catch (e) {
+        debugPrint('LocalFileAppStorageService secret store unavailable: $e');
+      }
     }
 
     // Load History
@@ -671,7 +693,7 @@ class LocalFileAppStorageService implements AppStorageService {
       'lockAfterSeconds': _lockAfterSeconds,
       'simpleMode': _simpleMode,
       'signOnWrite': _signOnWrite,
-      'signingKey': _signingKey,
+      if (secrets == null) 'signingKey': _signingKey,
       'appLockEnabled': _appLockEnabled,
       'writeCounter': _writeCounter,
     });
@@ -809,6 +831,8 @@ class LocalFileAppStorageService implements AppStorageService {
 
   @override
   Future<void> setSigningKey(String? value) async {
+    final secretStore = secrets;
+    if (secretStore != null) await secretStore.write(signingKeySecret, value);
     _signingKey = value;
     await _saveSettings();
   }
