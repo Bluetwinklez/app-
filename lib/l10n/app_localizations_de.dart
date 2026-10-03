@@ -4702,4 +4702,111 @@ class AppLocalizationsDe extends AppLocalizations {
   @override
   String get inspectionRemindersNote =>
       'Fällige Tags melden sich am Fälligkeitstag um 10:00 (falls erlaubt).';
+
+  @override
+  String get presetTableTitle => 'Restauranttisch';
+
+  @override
+  String get presetTableDesc =>
+      'Menülink, Tischnummer und Kellner rufen per SMS.';
+
+  @override
+  String get tableNumber => 'Tischnummer';
+
+  @override
+  String get menuLink => 'Menülink';
+
+  @override
+  String get waiterPhone => 'Nummer für Kellnerruf (optional)';
+
+  @override
+  String tableText(String table) {
+    return 'Tisch $table';
+  }
+
+  @override
+  String tableSms(String table) {
+    return 'Tisch $table: bitte Bedienung 🙋';
+  }
+
+  @override
+  String get presetRentalTitle => 'Ferienwohnungskarte';
+
+  @override
+  String get presetRentalDesc =>
+      'Gäste tippen und sind im WLAN und sehen die Hausregeln.';
+
+  @override
+  String get houseRules => 'Hausregeln';
+
+  @override
+  String get checkoutTime => 'Check-out-Zeit';
+
+  @override
+  String rentalText(String rules, String checkout) {
+    return '🏠 $rules\nCheck-out: $checkout';
+  }
+
+  @override
+  String get ideasTitle => 'Ideen';
+
+  @override
+  String get ideasSubtitle => 'Entdecken Sie, was mit Tags möglich ist';
+
+  @override
+  String get ideasHome => 'Zuhause';
+
+  @override
+  String get ideasFamily => 'Familie';
+
+  @override
+  String get ideasHealth => 'Gesundheit & Gewohnheiten';
+
+  @override
+  String get ideasWork => 'Arbeit';
+
+  @override
+  String get ideasAutomation => 'Automatisierung';
+
+  @override
+  String get ideaRoutinesTitle => 'Routinen (Kurzbefehle)';
+
+  @override
+  String get ideaRoutinesDesc =>
+      'Nachttisch, Auto, Tür, Schreibtisch: mehrere Aktionen mit einem Tippen.';
+
+  @override
+  String get ideaHabitDesc =>
+      'Täglich scannen und die 🔥 Serie halten (Wasser, Vitamine, Sport).';
+
+  @override
+  String get ideaChoresDesc => 'Kinder sammeln Sterne mit Aufgaben-Tags.';
+
+  @override
+  String get ideaFeedingDesc => 'Tag am Napf: „Wann zuletzt gefüttert?\"';
+
+  @override
+  String get ideaMedicationDesc =>
+      'Tag an der Pillendose: heute genommen, wann?';
+
+  @override
+  String get ideaClockDesc => 'Türtag: Kommen/Gehen und Arbeitszeit pro Tag.';
+
+  @override
+  String get ideaVisitorsDesc =>
+      'Besucherkarten am Empfang: Namen, Zeiten, CSV.';
+
+  @override
+  String get ideaInventoryDesc =>
+      'Lager- und Inventurzählung: wo jeder Tag zuletzt war.';
+
+  @override
+  String get firstTagTitle => 'Erstelle deinen ersten Tag';
+
+  @override
+  String get firstTagSubtitle =>
+      'Eins wählen, Felder ausfüllen, Tag heranhalten. Dauert 30 Sekunden.';
+
+  @override
+  String get firstTagMore => 'Mehr Ideen';
 }

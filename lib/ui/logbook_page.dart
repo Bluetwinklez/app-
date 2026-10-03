@@ -43,20 +43,35 @@ IconData logBookKindIcon(LogBookKind kind) => switch (kind) {
 class LogBooksPage extends StatefulWidget {
   final NfcStateController controller;
 
-  const LogBooksPage({super.key, required this.controller});
+  /// Opens the "new logbook" dialog with this kind preselected.
+  final LogBookKind? createKind;
 
-  static Future<void> open(BuildContext context, NfcStateController controller) =>
-      Navigator.of(context).push(MaterialPageRoute(builder: (_) => LogBooksPage(controller: controller)));
+  const LogBooksPage({super.key, required this.controller, this.createKind});
+
+  static Future<void> open(BuildContext context, NfcStateController controller, {LogBookKind? createKind}) =>
+      Navigator.of(context).push(
+          MaterialPageRoute(builder: (_) => LogBooksPage(controller: controller, createKind: createKind)));
 
   @override
   State<LogBooksPage> createState() => _LogBooksPageState();
 }
 
 class _LogBooksPageState extends State<LogBooksPage> {
-  Future<void> _create() async {
+  @override
+  void initState() {
+    super.initState();
+    if (widget.createKind != null) {
+      WidgetsBinding.instance.addPostFrameCallback((_) {
+        if (mounted) _create(widget.createKind!);
+      });
+    }
+  }
+
+  Future<void> _create([LogBookKind initialKind = LogBookKind.attendance]) async {
     final loc = AppLocalizations.of(context) ?? L10n.current;
-    final name = TextEditingController();
-    var kind = LogBookKind.attendance;
+    final name = TextEditingController(
+        text: initialKind == LogBookKind.attendance ? '' : logBookKindLabel(initialKind, loc));
+    var kind = initialKind;
     final created = await showDialog<LogBook>(
       context: context,
       builder: (ctx) => StatefulBuilder(
@@ -122,7 +137,7 @@ class _LogBooksPageState extends State<LogBooksPage> {
         backgroundColor: Colors.transparent,
         appBar: AppBar(title: Text(loc.logbookTitle)),
         floatingActionButton: FloatingActionButton.extended(
-          onPressed: _create,
+          onPressed: () => _create(),
           backgroundColor: AppColors.accent,
           foregroundColor: Colors.white,
           icon: const Icon(Icons.add_rounded),

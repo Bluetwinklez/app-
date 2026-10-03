@@ -4448,4 +4448,103 @@ class AppLocalizationsZh extends AppLocalizations {
 
   @override
   String get inspectionRemindersNote => '到期标签会在当天 10:00 提醒（若已允许）。';
+
+  @override
+  String get presetTableTitle => '餐厅餐桌';
+
+  @override
+  String get presetTableDesc => '菜单链接、桌号，一键短信呼叫服务员。';
+
+  @override
+  String get tableNumber => '桌号';
+
+  @override
+  String get menuLink => '菜单链接';
+
+  @override
+  String get waiterPhone => '呼叫服务员号码（可选）';
+
+  @override
+  String tableText(String table) {
+    return '$table 号桌';
+  }
+
+  @override
+  String tableSms(String table) {
+    return '$table 号桌：请服务员过来 🙋';
+  }
+
+  @override
+  String get presetRentalTitle => '民宿卡';
+
+  @override
+  String get presetRentalDesc => '房客轻触即可连 Wi-Fi 并查看入住须知。';
+
+  @override
+  String get houseRules => '入住须知';
+
+  @override
+  String get checkoutTime => '退房时间';
+
+  @override
+  String rentalText(String rules, String checkout) {
+    return '🏠 $rules\n退房：$checkout';
+  }
+
+  @override
+  String get ideasTitle => '创意';
+
+  @override
+  String get ideasSubtitle => '发现标签的各种玩法';
+
+  @override
+  String get ideasHome => '家居';
+
+  @override
+  String get ideasFamily => '家庭';
+
+  @override
+  String get ideasHealth => '健康与习惯';
+
+  @override
+  String get ideasWork => '工作';
+
+  @override
+  String get ideasAutomation => '自动化';
+
+  @override
+  String get ideaRoutinesTitle => '例行程序（快捷指令）';
+
+  @override
+  String get ideaRoutinesDesc => '床头、车里、门口、书桌：一次轻触执行多个操作。';
+
+  @override
+  String get ideaHabitDesc => '每天扫描，保持 🔥 连续（喝水、维生素、运动）。';
+
+  @override
+  String get ideaChoresDesc => '孩子扫描任务标签收集星星。';
+
+  @override
+  String get ideaFeedingDesc => '食盆上的标签：“上次什么时候喂的？”';
+
+  @override
+  String get ideaMedicationDesc => '药盒上的标签：今天吃了吗？几点？';
+
+  @override
+  String get ideaClockDesc => '门上标签：签到/签退和每日工时。';
+
+  @override
+  String get ideaVisitorsDesc => '前台访客卡：姓名、时间、CSV。';
+
+  @override
+  String get ideaInventoryDesc => '库存与资产盘点：每个标签最后出现的位置。';
+
+  @override
+  String get firstTagTitle => '制作你的第一个标签';
+
+  @override
+  String get firstTagSubtitle => '选一个、填写内容、靠近标签，30 秒搞定。';
+
+  @override
+  String get firstTagMore => '更多创意';
 }

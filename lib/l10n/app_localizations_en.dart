@@ -4673,4 +4673,113 @@ class AppLocalizationsEn extends AppLocalizations {
   @override
   String get inspectionRemindersNote =>
       'Tags due for inspection notify you at 10:00 on the due day (if allowed).';
+
+  @override
+  String get presetTableTitle => 'Restaurant table';
+
+  @override
+  String get presetTableDesc =>
+      'Menu link, table number and a one-tap \"call the waiter\" SMS.';
+
+  @override
+  String get tableNumber => 'Table number';
+
+  @override
+  String get menuLink => 'Menu link';
+
+  @override
+  String get waiterPhone => 'Waiter call number (optional)';
+
+  @override
+  String tableText(String table) {
+    return 'Table $table';
+  }
+
+  @override
+  String tableSms(String table) {
+    return 'Table $table: we\'d like a waiter 🙋';
+  }
+
+  @override
+  String get presetRentalTitle => 'Holiday rental card';
+
+  @override
+  String get presetRentalDesc =>
+      'Guests tap to join the Wi-Fi and see the house rules.';
+
+  @override
+  String get houseRules => 'House rules';
+
+  @override
+  String get checkoutTime => 'Check-out time';
+
+  @override
+  String rentalText(String rules, String checkout) {
+    return '🏠 $rules\nCheck-out: $checkout';
+  }
+
+  @override
+  String get ideasTitle => 'Ideas';
+
+  @override
+  String get ideasSubtitle => 'Discover what you can do with tags';
+
+  @override
+  String get ideasHome => 'Home';
+
+  @override
+  String get ideasFamily => 'Family';
+
+  @override
+  String get ideasHealth => 'Health & habits';
+
+  @override
+  String get ideasWork => 'Work';
+
+  @override
+  String get ideasAutomation => 'Automation';
+
+  @override
+  String get ideaRoutinesTitle => 'Routines (Shortcuts)';
+
+  @override
+  String get ideaRoutinesDesc =>
+      'Bedside, car, door, desk: several actions from one tap.';
+
+  @override
+  String get ideaHabitDesc =>
+      'Scan daily and keep your 🔥 streak (water, vitamins, workout).';
+
+  @override
+  String get ideaChoresDesc => 'Kids collect stars by scanning chore tags.';
+
+  @override
+  String get ideaFeedingDesc =>
+      'Tag on the bowl: \"when was the pet last fed?\"';
+
+  @override
+  String get ideaMedicationDesc =>
+      'Tag on the pill box: taken today, and when?';
+
+  @override
+  String get ideaClockDesc =>
+      'Door tag: check-in/out and hours worked per day.';
+
+  @override
+  String get ideaVisitorsDesc =>
+      'Visitor cards at reception: names, times, CSV.';
+
+  @override
+  String get ideaInventoryDesc =>
+      'Stock and asset counts: where each tag was last seen.';
+
+  @override
+  String get firstTagTitle => 'Make your first tag';
+
+  @override
+  String get firstTagSubtitle =>
+      'Pick one, fill in the fields, hold the tag near. Takes 30 seconds.';
+
+  @override
+  String get firstTagMore => 'More ideas';
 }

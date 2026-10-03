@@ -3231,5 +3231,60 @@
     }
   },
   "reminderDenied": "Bildirim izni verilmedi. Ayarlar'dan izin verebilirsiniz.",
-  "inspectionRemindersNote": "Kontrol tarihi gelen etiketler için saat 10:00'da bildirim gelir (izin verdiyseniz)."
+  "inspectionRemindersNote": "Kontrol tarihi gelen etiketler için saat 10:00'da bildirim gelir (izin verdiyseniz).",
+  "presetTableTitle": "Restoran masası",
+  "presetTableDesc": "Menü bağlantısı, masa numarası ve tek dokunuşla garson çağırma (SMS).",
+  "tableNumber": "Masa numarası",
+  "menuLink": "Menü bağlantısı",
+  "waiterPhone": "Garson çağrı numarası (isteğe bağlı)",
+  "tableText": "Masa {table}",
+  "@tableText": {
+    "placeholders": {
+      "table": {
+        "type": "String"
+      }
+    }
+  },
+  "tableSms": "Masa {table}: garson rica ediyoruz 🙋",
+  "@tableSms": {
+    "placeholders": {
+      "table": {
+        "type": "String"
+      }
+    }
+  },
+  "presetRentalTitle": "Kiralık ev kartı",
+  "presetRentalDesc": "Misafirler dokununca Wi-Fi'ye bağlanır ve ev kurallarını görür.",
+  "houseRules": "Ev kuralları",
+  "checkoutTime": "Çıkış saati",
+  "rentalText": "🏠 {rules}\nÇıkış: {checkout}",
+  "@rentalText": {
+    "placeholders": {
+      "rules": {
+        "type": "String"
+      },
+      "checkout": {
+        "type": "String"
+      }
+    }
+  },
+  "ideasTitle": "Fikirler",
+  "ideasSubtitle": "Etiketlerle neler yapabileceğinizi keşfedin",
+  "ideasHome": "Ev",
+  "ideasFamily": "Aile",
+  "ideasHealth": "Sağlık ve alışkanlık",
+  "ideasWork": "İş",
+  "ideasAutomation": "Otomasyon",
+  "ideaRoutinesTitle": "Rutinler (Kısayollar)",
+  "ideaRoutinesDesc": "Yatak başı, araba, kapı, masa: etikete dokununca birden çok işlem.",
+  "ideaHabitDesc": "Her gün etiketi okut, 🔥 seriyi koru (su, vitamin, spor).",
+  "ideaChoresDesc": "Görev etiketlerini okutan çocuk yıldız toplar.",
+  "ideaFeedingDesc": "Mama kabındaki etiket: \"en son ne zaman beslendi?\"",
+  "ideaMedicationDesc": "İlaç kutusundaki etiket: bugün alındı mı, kaçta?",
+  "ideaClockDesc": "Kapıdaki etiket: giriş/çıkış ve günlük çalışma süresi.",
+  "ideaVisitorsDesc": "Ofis girişinde ziyaretçi kartları; isim ve saat kaydı, CSV.",
+  "ideaInventoryDesc": "Depo ve demirbaş sayımı: her etiketin son görüldüğü yer.",
+  "firstTagTitle": "İlk etiketini yap",
+  "firstTagSubtitle": "Birini seç, alanları doldur, etiketi telefona yaklaştır. 30 saniye sürer.",
+  "firstTagMore": "Daha fazla fikir"
 }

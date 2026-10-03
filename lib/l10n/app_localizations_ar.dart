@@ -4635,4 +4635,109 @@ class AppLocalizationsAr extends AppLocalizations {
   @override
   String get inspectionRemindersNote =>
       'تنبّهك الوسوم المستحقة للفحص الساعة 10:00 في يوم الاستحقاق (إن سُمح).';
+
+  @override
+  String get presetTableTitle => 'طاولة مطعم';
+
+  @override
+  String get presetTableDesc =>
+      'رابط القائمة ورقم الطاولة واستدعاء النادل برسالة SMS.';
+
+  @override
+  String get tableNumber => 'رقم الطاولة';
+
+  @override
+  String get menuLink => 'رابط القائمة';
+
+  @override
+  String get waiterPhone => 'رقم استدعاء النادل (اختياري)';
+
+  @override
+  String tableText(String table) {
+    return 'الطاولة $table';
+  }
+
+  @override
+  String tableSms(String table) {
+    return 'الطاولة $table: نرجو حضور النادل 🙋';
+  }
+
+  @override
+  String get presetRentalTitle => 'بطاقة سكن مؤجر';
+
+  @override
+  String get presetRentalDesc =>
+      'يلمس الضيوف للاتصال بالواي فاي ورؤية قواعد المنزل.';
+
+  @override
+  String get houseRules => 'قواعد المنزل';
+
+  @override
+  String get checkoutTime => 'وقت المغادرة';
+
+  @override
+  String rentalText(String rules, String checkout) {
+    return '🏠 $rules\nالمغادرة: $checkout';
+  }
+
+  @override
+  String get ideasTitle => 'أفكار';
+
+  @override
+  String get ideasSubtitle => 'اكتشف ما يمكنك فعله بالوسوم';
+
+  @override
+  String get ideasHome => 'المنزل';
+
+  @override
+  String get ideasFamily => 'العائلة';
+
+  @override
+  String get ideasHealth => 'الصحة والعادات';
+
+  @override
+  String get ideasWork => 'العمل';
+
+  @override
+  String get ideasAutomation => 'الأتمتة';
+
+  @override
+  String get ideaRoutinesTitle => 'الروتين (الاختصارات)';
+
+  @override
+  String get ideaRoutinesDesc =>
+      'بجانب السرير، السيارة، الباب، المكتب: عدة إجراءات بلمسة واحدة.';
+
+  @override
+  String get ideaHabitDesc =>
+      'امسح يوميًا وحافظ على 🔥 السلسلة (ماء، فيتامينات، رياضة).';
+
+  @override
+  String get ideaChoresDesc => 'يجمع الأطفال النجوم بمسح وسوم المهام.';
+
+  @override
+  String get ideaFeedingDesc => 'وسم على الوعاء: \"متى أُطعم آخر مرة؟\"';
+
+  @override
+  String get ideaMedicationDesc => 'وسم على علبة الدواء: هل أُخذ اليوم ومتى؟';
+
+  @override
+  String get ideaClockDesc => 'وسم الباب: الدخول/الخروج وساعات العمل اليومية.';
+
+  @override
+  String get ideaVisitorsDesc =>
+      'بطاقات الزوار في الاستقبال: الأسماء والأوقات وCSV.';
+
+  @override
+  String get ideaInventoryDesc => 'الجرد: أين شوهد كل وسم آخر مرة.';
+
+  @override
+  String get firstTagTitle => 'اصنع وسمك الأول';
+
+  @override
+  String get firstTagSubtitle =>
+      'اختر واحدًا واملأ الحقول وقرّب الوسم. 30 ثانية فقط.';
+
+  @override
+  String get firstTagMore => 'أفكار أكثر';
 }

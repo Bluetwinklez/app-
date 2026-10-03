@@ -4719,4 +4719,113 @@ class AppLocalizationsEs extends AppLocalizations {
   @override
   String get inspectionRemindersNote =>
       'Las etiquetas pendientes avisan a las 10:00 del día previsto (si se permite).';
+
+  @override
+  String get presetTableTitle => 'Mesa de restaurante';
+
+  @override
+  String get presetTableDesc =>
+      'Enlace al menú, número de mesa y llamar al camarero por SMS.';
+
+  @override
+  String get tableNumber => 'Número de mesa';
+
+  @override
+  String get menuLink => 'Enlace al menú';
+
+  @override
+  String get waiterPhone => 'Número para llamar al camarero (opcional)';
+
+  @override
+  String tableText(String table) {
+    return 'Mesa $table';
+  }
+
+  @override
+  String tableSms(String table) {
+    return 'Mesa $table: un camarero, por favor 🙋';
+  }
+
+  @override
+  String get presetRentalTitle => 'Tarjeta de alquiler vacacional';
+
+  @override
+  String get presetRentalDesc =>
+      'Los huéspedes tocan para conectarse al Wi-Fi y ver las normas.';
+
+  @override
+  String get houseRules => 'Normas de la casa';
+
+  @override
+  String get checkoutTime => 'Hora de salida';
+
+  @override
+  String rentalText(String rules, String checkout) {
+    return '🏠 $rules\nSalida: $checkout';
+  }
+
+  @override
+  String get ideasTitle => 'Ideas';
+
+  @override
+  String get ideasSubtitle => 'Descubre lo que puedes hacer con etiquetas';
+
+  @override
+  String get ideasHome => 'Casa';
+
+  @override
+  String get ideasFamily => 'Familia';
+
+  @override
+  String get ideasHealth => 'Salud y hábitos';
+
+  @override
+  String get ideasWork => 'Trabajo';
+
+  @override
+  String get ideasAutomation => 'Automatización';
+
+  @override
+  String get ideaRoutinesTitle => 'Rutinas (Atajos)';
+
+  @override
+  String get ideaRoutinesDesc =>
+      'Mesita, coche, puerta, escritorio: varias acciones con un toque.';
+
+  @override
+  String get ideaHabitDesc =>
+      'Escanea a diario y mantén la 🔥 racha (agua, vitaminas, deporte).';
+
+  @override
+  String get ideaChoresDesc => 'Los niños ganan estrellas escaneando tareas.';
+
+  @override
+  String get ideaFeedingDesc =>
+      'Etiqueta en el cuenco: \"¿cuándo comió por última vez?\"';
+
+  @override
+  String get ideaMedicationDesc =>
+      'Etiqueta en el pastillero: ¿tomado hoy y a qué hora?';
+
+  @override
+  String get ideaClockDesc =>
+      'Etiqueta en la puerta: entrada/salida y horas diarias.';
+
+  @override
+  String get ideaVisitorsDesc =>
+      'Tarjetas de visita en recepción: nombres, horas, CSV.';
+
+  @override
+  String get ideaInventoryDesc =>
+      'Inventario: dónde se vio cada etiqueta por última vez.';
+
+  @override
+  String get firstTagTitle => 'Crea tu primera etiqueta';
+
+  @override
+  String get firstTagSubtitle =>
+      'Elige uno, rellena los campos y acerca la etiqueta. 30 segundos.';
+
+  @override
+  String get firstTagMore => 'Más ideas';
 }

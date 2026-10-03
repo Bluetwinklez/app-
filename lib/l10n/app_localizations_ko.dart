@@ -4504,4 +4504,103 @@ class AppLocalizationsKo extends AppLocalizations {
 
   @override
   String get inspectionRemindersNote => '점검일 10:00에 알림이 옵니다(허용한 경우).';
+
+  @override
+  String get presetTableTitle => '식당 테이블';
+
+  @override
+  String get presetTableDesc => '메뉴 링크, 테이블 번호, SMS로 직원 호출.';
+
+  @override
+  String get tableNumber => '테이블 번호';
+
+  @override
+  String get menuLink => '메뉴 링크';
+
+  @override
+  String get waiterPhone => '직원 호출 번호(선택)';
+
+  @override
+  String tableText(String table) {
+    return '테이블 $table';
+  }
+
+  @override
+  String tableSms(String table) {
+    return '테이블 $table: 직원 불러주세요 🙋';
+  }
+
+  @override
+  String get presetRentalTitle => '숙소 안내 카드';
+
+  @override
+  String get presetRentalDesc => '손님이 터치하면 Wi-Fi 연결과 숙소 규칙을 봅니다.';
+
+  @override
+  String get houseRules => '숙소 규칙';
+
+  @override
+  String get checkoutTime => '체크아웃 시간';
+
+  @override
+  String rentalText(String rules, String checkout) {
+    return '🏠 $rules\n체크아웃: $checkout';
+  }
+
+  @override
+  String get ideasTitle => '아이디어';
+
+  @override
+  String get ideasSubtitle => '태그로 할 수 있는 일을 알아보세요';
+
+  @override
+  String get ideasHome => '집';
+
+  @override
+  String get ideasFamily => '가족';
+
+  @override
+  String get ideasHealth => '건강과 습관';
+
+  @override
+  String get ideasWork => '업무';
+
+  @override
+  String get ideasAutomation => '자동화';
+
+  @override
+  String get ideaRoutinesTitle => '루틴(단축어)';
+
+  @override
+  String get ideaRoutinesDesc => '침대 옆, 차, 문, 책상: 한 번 터치로 여러 동작.';
+
+  @override
+  String get ideaHabitDesc => '매일 스캔하고 🔥 연속 기록 유지(물, 비타민, 운동).';
+
+  @override
+  String get ideaChoresDesc => '아이가 집안일 태그를 스캔해 별을 모읍니다.';
+
+  @override
+  String get ideaFeedingDesc => '밥그릇 태그: \"마지막으로 언제 먹였지?\"';
+
+  @override
+  String get ideaMedicationDesc => '약통 태그: 오늘 먹었나요, 몇 시에?';
+
+  @override
+  String get ideaClockDesc => '문 태그: 출퇴근과 하루 근무 시간.';
+
+  @override
+  String get ideaVisitorsDesc => '안내데스크 방문자 카드: 이름, 시간, CSV.';
+
+  @override
+  String get ideaInventoryDesc => '재고·비품 조사: 각 태그를 마지막으로 본 위치.';
+
+  @override
+  String get firstTagTitle => '첫 태그 만들기';
+
+  @override
+  String get firstTagSubtitle => '하나 고르고 입력한 뒤 태그를 대세요. 30초면 됩니다.';
+
+  @override
+  String get firstTagMore => '더 많은 아이디어';
 }
