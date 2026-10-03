@@ -1393,5 +1393,8 @@
   "warrantyUntilText": "保証: {date}",
   "assigneeText": "担当: {name}",
   "reminderWarrantyTitle": "保証終了: {name}",
-  "reminderWarrantyBody": "本日で保証が終了します。"
+  "reminderWarrantyBody": "本日で保証が終了します。",
+  "templateShareQr": "QRで共有",
+  "templateReceived": "テンプレートを追加: {name}",
+  "templateCodeInvalid": "このQRコードのテンプレートを読み取れません"
 }

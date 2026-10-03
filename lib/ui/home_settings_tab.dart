@@ -129,6 +129,16 @@ extension _SettingsTab on _HomeScreenState {
                           mainAxisSize: MainAxisSize.min,
                           children: [
                             IconButton(
+                              icon: Icon(Icons.qr_code_2_rounded, color: AppColors.accent),
+                              tooltip: L10n.current.templateShareQr,
+                              onPressed: () => QrPreviewDialog.show(
+                                context,
+                                type: ParsedRecordType.text,
+                                title: tpl.name,
+                                contentToEncode: TemplateShareCode.encode(tpl.name, tpl.records),
+                              ),
+                            ),
+                            IconButton(
                               icon: Icon(Icons.file_upload_outlined,
                                   color: AppColors.accent),
                               tooltip: L10n.current.addToWriteListShort,

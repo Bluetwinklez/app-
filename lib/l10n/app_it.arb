@@ -1393,5 +1393,8 @@
   "warrantyUntilText": "Garanzia: {date}",
   "assigneeText": "Assegnato: {name}",
   "reminderWarrantyTitle": "Garanzia in scadenza: {name}",
-  "reminderWarrantyBody": "La garanzia scade oggi."
+  "reminderWarrantyBody": "La garanzia scade oggi.",
+  "templateShareQr": "Condividi come QR",
+  "templateReceived": "Modello aggiunto: {name}",
+  "templateCodeInvalid": "Impossibile leggere il modello da questo QR"
 }

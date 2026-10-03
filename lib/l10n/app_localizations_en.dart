@@ -4961,4 +4961,16 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get reminderWarrantyBody => 'The warranty ends today.';
+
+  @override
+  String get templateShareQr => 'Share as QR';
+
+  @override
+  String templateReceived(String name) {
+    return 'Template added: $name';
+  }
+
+  @override
+  String get templateCodeInvalid =>
+      'The template in this QR code could not be read';
 }
