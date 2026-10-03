@@ -2,7 +2,7 @@
 
 iPhone ve Android için NFC etiketlerini okuma, yazma ve yönetme uygulaması. Flutter ile yazıldı; NFC erişimi platform kanalları üzerinden doğrudan Core NFC (iOS) ve `android.nfc` (Android) ile yapılır.
 
-- **Sürüm:** 1.1.0 — değişiklikler için [CHANGELOG.md](CHANGELOG.md)
+- **Sürüm:** 1.2.0 — değişiklikler için [CHANGELOG.md](CHANGELOG.md)
 - **Gereksinimler:** iOS 16+ (iPhone 8 ve sonrası), Android 7.0+ (NFC donanımı)
 - **Diller:** Türkçe, English, Deutsch, Français, Español, Italiano, Português, Русский, العربية, 日本語, 简体中文, 한국어, Nederlands, Українська
 - **Gizlilik:** Hesap, sunucu, reklam veya takip yok — [docs/PRIVACY.md](docs/PRIVACY.md)
@@ -33,6 +33,14 @@ iPhone ve Android için NFC etiketlerini okuma, yazma ve yönetme uygulaması. F
 - Siri / Kısayollar eylemleri ("Etiketi Tara", "Etikete Yaz") ve `nfctagmaster://scan|write|tools|history|settings` bağlantıları
 - Hazır ev otomasyonu tarifleri
 - JSON yedekleme (şema v2: şablonlar, kurallar, kütüphane, isteğe bağlı geçmiş)
+
+**İşletme ve güvenlik (1.2.0)**
+- Kayıt Defteri (yoklama, ilaç, envanter), son görülme takibi, toplu okuma raporu
+- QR kodlu yazdırılabilir etiket sayfası (PDF)
+- Face ID / cihaz parolası ile uygulama kilidi, parolalı (AES-256) yedekler
+- İmzalı etiketler (HMAC-SHA256) ve çevrimdışı sahte site uyarıları
+- Şablon değişkenleri `{date}` `{time}` `{counter}`, Akıllı Kart / Kayıp Eşya / Sesli Mesaj şablonları
+- Basit mod, amiibo bilgisi, bellek sayfası düzenleyici, NFC çipleri rehberi, Uyumluluk modu
 
 **Görünüm**
 - Açık/koyu tema, tanıtım rehberi, titreşim ve ses ayarları
