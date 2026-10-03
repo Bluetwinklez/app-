@@ -4875,4 +4875,8 @@ class AppLocalizationsKo extends AppLocalizations {
 
   @override
   String get iCloudFailed => 'iCloud 백업을 저장할 수 없습니다';
+
+  @override
+  String get whatsNew160 =>
+      '• 홈 화면 및 잠금 화면 위젯\n• 제어 센터에서 한 번 탭으로 스캔·쓰기 (iOS 18)\n• Apple Watch: 최근 스캔과 한 번 탭 기록\n• iCloud 백업 (템플릿, 규칙, 라이브러리)';
 }

@@ -5080,4 +5080,8 @@ class AppLocalizationsRu extends AppLocalizations {
 
   @override
   String get iCloudFailed => 'Не удалось сохранить копию в iCloud';
+
+  @override
+  String get whatsNew160 =>
+      '• Виджеты для экрана «Домой» и экрана блокировки\n• Сканирование и запись одним касанием из Пункта управления (iOS 18)\n• Apple Watch: недавние сканы и записи в журнал одним касанием\n• Резервная копия в iCloud (шаблоны, правила, библиотека)';
 }

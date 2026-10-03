@@ -5082,4 +5082,8 @@ class AppLocalizationsIt extends AppLocalizations {
 
   @override
   String get iCloudFailed => 'Impossibile salvare il backup iCloud';
+
+  @override
+  String get whatsNew160 =>
+      '• Widget per schermata Home e di blocco\n• Scansiona e scrivi con un tocco dal Centro di Controllo (iOS 18)\n• Apple Watch: letture recenti e voci di registro con un tocco\n• Backup iCloud (modelli, regole, libreria)';
 }

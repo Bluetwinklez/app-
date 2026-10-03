@@ -1423,5 +1423,6 @@
   "iCloudBackedUp": "iCloudにバックアップしました",
   "iCloudNoAccount": "このiPhoneはiCloudにサインインしていません。設定 → Appleアカウント → iCloud を確認してください。",
   "iCloudTooLarge": "バックアップがiCloudの上限(1 MB)を超えています。ファイルへのバックアップを使ってください。",
-  "iCloudFailed": "iCloudバックアップを保存できませんでした"
+  "iCloudFailed": "iCloudバックアップを保存できませんでした",
+  "whatsNew160": "• ホーム画面とロック画面のウィジェット\n• コントロールセンターからワンタップでスキャン・書き込み（iOS 18）\n• Apple Watch：最近のスキャンとワンタップ記録\n• iCloudバックアップ（テンプレート、ルール、ライブラリ）"
 }

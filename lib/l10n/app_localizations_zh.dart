@@ -4819,4 +4819,8 @@ class AppLocalizationsZh extends AppLocalizations {
 
   @override
   String get iCloudFailed => '无法保存 iCloud 备份';
+
+  @override
+  String get whatsNew160 =>
+      '• 主屏幕和锁定屏幕小组件\n• 在控制中心轻点即可扫描和写入（iOS 18）\n• Apple Watch：最近扫描和轻点记录\n• iCloud 备份（模板、规则、标签库）';
 }

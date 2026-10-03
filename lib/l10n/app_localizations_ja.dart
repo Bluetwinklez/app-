@@ -4860,4 +4860,8 @@ class AppLocalizationsJa extends AppLocalizations {
 
   @override
   String get iCloudFailed => 'iCloudバックアップを保存できませんでした';
+
+  @override
+  String get whatsNew160 =>
+      '• ホーム画面とロック画面のウィジェット\n• コントロールセンターからワンタップでスキャン・書き込み（iOS 18）\n• Apple Watch：最近のスキャンとワンタップ記録\n• iCloudバックアップ（テンプレート、ルール、ライブラリ）';
 }

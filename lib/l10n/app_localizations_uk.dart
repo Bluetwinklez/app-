@@ -5079,4 +5079,8 @@ class AppLocalizationsUk extends AppLocalizations {
 
   @override
   String get iCloudFailed => 'Не вдалося зберегти копію в iCloud';
+
+  @override
+  String get whatsNew160 =>
+      '• Віджети для початкового екрана й екрана блокування\n• Сканування й запис одним дотиком з Пункту керування (iOS 18)\n• Apple Watch: нещодавні скани й записи в журнал одним дотиком\n• Резервна копія в iCloud (шаблони, правила, бібліотека)';
 }

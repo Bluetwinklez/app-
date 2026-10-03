@@ -5020,4 +5020,8 @@ class AppLocalizationsAr extends AppLocalizations {
 
   @override
   String get iCloudFailed => 'تعذر حفظ نسخة iCloud';
+
+  @override
+  String get whatsNew160 =>
+      '• أدوات مصغّرة للشاشة الرئيسية وشاشة القفل\n• مسح وكتابة بلمسة من مركز التحكم (iOS 18)\n• Apple Watch: القراءات الأخيرة والتسجيل في الدفتر بلمسة\n• نسخ احتياطي على iCloud (القوالب والقواعد والمكتبة)';
 }

@@ -5094,4 +5094,8 @@ class AppLocalizationsDe extends AppLocalizations {
 
   @override
   String get iCloudFailed => 'iCloud-Backup konnte nicht gespeichert werden';
+
+  @override
+  String get whatsNew160 =>
+      '• Widgets für Home- und Sperrbildschirm\n• Mit einem Tippen scannen und schreiben im Kontrollzentrum (iOS 18)\n• Apple Watch: letzte Scans und Logbuch-Einträge mit einem Tippen\n• iCloud-Backup (Vorlagen, Regeln, Bibliothek)';
 }

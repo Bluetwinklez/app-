@@ -5080,4 +5080,8 @@ class AppLocalizationsNl extends AppLocalizations {
 
   @override
   String get iCloudFailed => 'Kon de iCloud-back-up niet opslaan';
+
+  @override
+  String get whatsNew160 =>
+      '• Widgets voor beginscherm en toegangsscherm\n• Scannen en schrijven met één tik vanuit het bedieningspaneel (iOS 18)\n• Apple Watch: recente scans en logboekregels met één tik\n• iCloud-back-up (sjablonen, regels, bibliotheek)';
 }

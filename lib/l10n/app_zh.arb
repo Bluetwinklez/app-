@@ -1423,5 +1423,6 @@
   "iCloudBackedUp": "已备份到 iCloud",
   "iCloudNoAccount": "此 iPhone 未登录 iCloud。请检查 设置 → Apple 账户 → iCloud。",
   "iCloudTooLarge": "备份超出 iCloud 限制（1 MB）。请改用文件备份。",
-  "iCloudFailed": "无法保存 iCloud 备份"
+  "iCloudFailed": "无法保存 iCloud 备份",
+  "whatsNew160": "• 主屏幕和锁定屏幕小组件\n• 在控制中心轻点即可扫描和写入（iOS 18）\n• Apple Watch：最近扫描和轻点记录\n• iCloud 备份（模板、规则、标签库）"
 }

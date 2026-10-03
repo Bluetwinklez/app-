@@ -5111,4 +5111,8 @@ class AppLocalizationsEs extends AppLocalizations {
 
   @override
   String get iCloudFailed => 'No se pudo guardar la copia en iCloud';
+
+  @override
+  String get whatsNew160 =>
+      '• Widgets para la pantalla de inicio y de bloqueo\n• Escanea y escribe con un toque desde el Centro de control (iOS 18)\n• Apple Watch: lecturas recientes y registros con un toque\n• Copia en iCloud (plantillas, reglas, biblioteca)';
 }

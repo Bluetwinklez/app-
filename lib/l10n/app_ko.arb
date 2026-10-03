@@ -1423,5 +1423,6 @@
   "iCloudBackedUp": "iCloud에 백업했습니다",
   "iCloudNoAccount": "이 iPhone은 iCloud에 로그인되어 있지 않습니다. 설정 → Apple 계정 → iCloud를 확인하세요.",
   "iCloudTooLarge": "백업이 iCloud 한도(1MB)를 넘습니다. 파일 백업을 사용하세요.",
-  "iCloudFailed": "iCloud 백업을 저장할 수 없습니다"
+  "iCloudFailed": "iCloud 백업을 저장할 수 없습니다",
+  "whatsNew160": "• 홈 화면 및 잠금 화면 위젯\n• 제어 센터에서 한 번 탭으로 스캔·쓰기 (iOS 18)\n• Apple Watch: 최근 스캔과 한 번 탭 기록\n• iCloud 백업 (템플릿, 규칙, 라이브러리)"
 }

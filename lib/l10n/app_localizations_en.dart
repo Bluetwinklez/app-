@@ -5066,4 +5066,8 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get iCloudFailed => 'Could not save the iCloud backup';
+
+  @override
+  String get whatsNew160 =>
+      '• Home Screen and Lock Screen widgets\n• Scan and write with one tap from Control Center (iOS 18)\n• Apple Watch: recent scans and one-tap logbook entries\n• iCloud backup (templates, rules, library)';
 }

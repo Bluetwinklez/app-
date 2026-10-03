@@ -2,7 +2,7 @@
 
 iPhone ve Android için NFC etiketlerini okuma, yazma ve yönetme uygulaması. Flutter ile yazıldı; NFC erişimi platform kanalları üzerinden doğrudan Core NFC (iOS) ve `android.nfc` (Android) ile yapılır.
 
-- **Sürüm:** 1.5.0 — değişiklikler için [CHANGELOG.md](CHANGELOG.md)
+- **Sürüm:** 1.6.0 — değişiklikler için [CHANGELOG.md](CHANGELOG.md)
 - **Gereksinimler:** iOS 16+ (iPhone 8 ve sonrası), Android 7.0+ (NFC donanımı)
 - **Diller:** Türkçe, English, Deutsch, Français, Español, Italiano, Português, Русский, العربية, 日本語, 简体中文, 한국어, Nederlands, Українська
 - **Gizlilik:** Hesap, sunucu, reklam veya takip yok — [docs/PRIVACY.md](docs/PRIVACY.md)
@@ -55,6 +55,12 @@ iPhone ve Android için NFC etiketlerini okuma, yazma ve yönetme uygulaması. F
 - Fikirler, istatistikler, QR/barkod tarayıcı, kayıt birleştirme, dijital kartvizit
 - Alışkanlık, görev tablosu, besleme ve ziyaretçi defterleri; bildirim hatırlatıcıları
 - Demirbaş/garanti, şablonları QR ile paylaşma, 12 simge ve 9 renk, sesli okuma
+
+**1.6.0**
+- Ana ekran, kilit ekranı ve Kontrol Merkezi widget'ları (`ios/NfcWidgets`)
+- Apple Watch uygulaması: son okumalar ve tek dokunuşla defter girişi (`ios/NfcWatch`)
+- iCloud yedekleme (anahtar-değer deposu; imzalama profili izin verdiğinde)
+- TestFlight iş akışı tüm hedeflerin kimlik ve profillerini App Store Connect API ile oluşturur (Admin anahtarı gerekir; yoksa widget ve saat olmadan derler)
 
 **Görünüm**
 - Açık/koyu tema, tanıtım rehberi, titreşim ve ses ayarları
