@@ -4104,4 +4104,73 @@ class AppLocalizationsJa extends AppLocalizations {
   String libraryImportDone(String count) {
     return '$count件のタグをライブラリに追加しました';
   }
+
+  @override
+  String get presetGiftTitle => 'ギフトメッセージ';
+
+  @override
+  String get presetGiftDesc => 'プレゼントに貼ると、タッチでメッセージと（任意で）動画リンクを表示。';
+
+  @override
+  String get giftTo => '宛先';
+
+  @override
+  String get giftFrom => '差出人';
+
+  @override
+  String get giftVideo => '動画リンク（任意）';
+
+  @override
+  String giftText(String to, String message, String from) {
+    return '🎁 $toへ\n$message\n— $from';
+  }
+
+  @override
+  String get presetPlantTitle => '植物のお世話カード';
+
+  @override
+  String get presetPlantDesc => '鉢に貼る：水やりと日当たり。ライブラリで点検間隔を設定すれば水やりリマインダーにも。';
+
+  @override
+  String get plantName => '植物の名前';
+
+  @override
+  String get plantWater => '水やり';
+
+  @override
+  String get plantLight => '日当たり';
+
+  @override
+  String plantText(String plant, String water, String light) {
+    return '🌱 $plant\n💧 $water\n☀️ $light';
+  }
+
+  @override
+  String get presetChildTitle => '子ども用安全リストバンド';
+
+  @override
+  String get presetChildDesc => '人混みで：タッチした人が子どもの名前を見て、ワンタップで保護者に電話できます。';
+
+  @override
+  String get childName => '子どもの名前';
+
+  @override
+  String childText(String name, String phone) {
+    return 'こんにちは、$nameです。迷子なら家族に電話してください：$phone';
+  }
+
+  @override
+  String get presetManualTitle => '使い方カード';
+
+  @override
+  String get presetManualDesc => 'ジムのマシン、コーヒーメーカー、貸し物件の家電：短い手順と動画・説明書のリンク。';
+
+  @override
+  String get manualItem => '機器 / 物';
+
+  @override
+  String get manualSteps => '簡単な手順';
+
+  @override
+  String get manualLink => '動画・説明書リンク（任意）';
 }

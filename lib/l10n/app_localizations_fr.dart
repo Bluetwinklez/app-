@@ -4324,4 +4324,77 @@ class AppLocalizationsFr extends AppLocalizations {
   String libraryImportDone(String count) {
     return '$count tags ajoutés à la bibliothèque';
   }
+
+  @override
+  String get presetGiftTitle => 'Message cadeau';
+
+  @override
+  String get presetGiftDesc =>
+      'Collez-le sur un cadeau : un geste affiche votre message et, si vous voulez, une vidéo.';
+
+  @override
+  String get giftTo => 'Pour';
+
+  @override
+  String get giftFrom => 'De';
+
+  @override
+  String get giftVideo => 'Lien vidéo (facultatif)';
+
+  @override
+  String giftText(String to, String message, String from) {
+    return '🎁 $to,\n$message\n— $from';
+  }
+
+  @override
+  String get presetPlantTitle => 'Fiche d\'entretien de plante';
+
+  @override
+  String get presetPlantDesc =>
+      'Sur le pot : arrosage et lumière. Avec un intervalle de contrôle dans la bibliothèque, il sert aussi de rappel d\'arrosage.';
+
+  @override
+  String get plantName => 'Nom de la plante';
+
+  @override
+  String get plantWater => 'Arrosage';
+
+  @override
+  String get plantLight => 'Lumière';
+
+  @override
+  String plantText(String plant, String water, String light) {
+    return '🌱 $plant\n💧 $water\n☀️ $light';
+  }
+
+  @override
+  String get presetChildTitle => 'Bracelet de sécurité enfant';
+
+  @override
+  String get presetChildDesc =>
+      'Dans la foule : la personne qui touche voit le prénom de l\'enfant et appelle les parents d\'un geste.';
+
+  @override
+  String get childName => 'Prénom de l\'enfant';
+
+  @override
+  String childText(String name, String phone) {
+    return 'Bonjour, je m\'appelle $name. Si je suis perdu(e), appelez ma famille : $phone';
+  }
+
+  @override
+  String get presetManualTitle => 'Fiche mode d\'emploi';
+
+  @override
+  String get presetManualDesc =>
+      'Appareil de sport, machine à café, location : consignes courtes et lien vidéo ou notice.';
+
+  @override
+  String get manualItem => 'Appareil / objet';
+
+  @override
+  String get manualSteps => 'Consignes courtes';
+
+  @override
+  String get manualLink => 'Lien vidéo / notice (facultatif)';
 }

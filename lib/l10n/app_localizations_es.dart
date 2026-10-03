@@ -4321,4 +4321,77 @@ class AppLocalizationsEs extends AppLocalizations {
   String libraryImportDone(String count) {
     return '$count etiquetas añadidas a la biblioteca';
   }
+
+  @override
+  String get presetGiftTitle => 'Mensaje de regalo';
+
+  @override
+  String get presetGiftDesc =>
+      'Pégala en un regalo: al tocar muestra tu mensaje y, si quieres, un vídeo.';
+
+  @override
+  String get giftTo => 'Para';
+
+  @override
+  String get giftFrom => 'De';
+
+  @override
+  String get giftVideo => 'Enlace de vídeo (opcional)';
+
+  @override
+  String giftText(String to, String message, String from) {
+    return '🎁 $to,\n$message\n— $from';
+  }
+
+  @override
+  String get presetPlantTitle => 'Ficha de cuidado de planta';
+
+  @override
+  String get presetPlantDesc =>
+      'En la maceta: riego y luz. Con un intervalo de revisión en la biblioteca, también recuerda regar.';
+
+  @override
+  String get plantName => 'Nombre de la planta';
+
+  @override
+  String get plantWater => 'Riego';
+
+  @override
+  String get plantLight => 'Luz';
+
+  @override
+  String plantText(String plant, String water, String light) {
+    return '🌱 $plant\n💧 $water\n☀️ $light';
+  }
+
+  @override
+  String get presetChildTitle => 'Pulsera de seguridad infantil';
+
+  @override
+  String get presetChildDesc =>
+      'En lugares concurridos: quien la toque verá el nombre del niño y podrá llamar a los padres.';
+
+  @override
+  String get childName => 'Nombre del niño';
+
+  @override
+  String childText(String name, String phone) {
+    return 'Hola, soy $name. Si estoy perdido/a, llama a mi familia: $phone';
+  }
+
+  @override
+  String get presetManualTitle => 'Ficha de instrucciones';
+
+  @override
+  String get presetManualDesc =>
+      'Máquina de gimnasio, cafetera, alquiler: instrucciones breves y enlace a vídeo o manual.';
+
+  @override
+  String get manualItem => 'Aparato / objeto';
+
+  @override
+  String get manualSteps => 'Instrucciones breves';
+
+  @override
+  String get manualLink => 'Enlace a vídeo / manual (opcional)';
 }

@@ -7323,6 +7323,132 @@ abstract class AppLocalizations {
   /// In tr, this message translates to:
   /// **'{count} etiket kütüphaneye eklendi'**
   String libraryImportDone(String count);
+
+  /// No description provided for @presetGiftTitle.
+  ///
+  /// In tr, this message translates to:
+  /// **'Hediye mesajı'**
+  String get presetGiftTitle;
+
+  /// No description provided for @presetGiftDesc.
+  ///
+  /// In tr, this message translates to:
+  /// **'Hediyeye yapıştırın: dokununca mesajınız ve isterseniz bir video bağlantısı açılır.'**
+  String get presetGiftDesc;
+
+  /// No description provided for @giftTo.
+  ///
+  /// In tr, this message translates to:
+  /// **'Kime'**
+  String get giftTo;
+
+  /// No description provided for @giftFrom.
+  ///
+  /// In tr, this message translates to:
+  /// **'Kimden'**
+  String get giftFrom;
+
+  /// No description provided for @giftVideo.
+  ///
+  /// In tr, this message translates to:
+  /// **'Video bağlantısı (isteğe bağlı)'**
+  String get giftVideo;
+
+  /// No description provided for @giftText.
+  ///
+  /// In tr, this message translates to:
+  /// **'🎁 {to},\n{message}\n— {from}'**
+  String giftText(String to, String message, String from);
+
+  /// No description provided for @presetPlantTitle.
+  ///
+  /// In tr, this message translates to:
+  /// **'Bitki bakım kartı'**
+  String get presetPlantTitle;
+
+  /// No description provided for @presetPlantDesc.
+  ///
+  /// In tr, this message translates to:
+  /// **'Saksıya yapıştırın: sulama ve ışık bilgisi. Kütüphanede kontrol aralığı vererek sulama hatırlatıcısı da yapabilirsiniz.'**
+  String get presetPlantDesc;
+
+  /// No description provided for @plantName.
+  ///
+  /// In tr, this message translates to:
+  /// **'Bitki adı'**
+  String get plantName;
+
+  /// No description provided for @plantWater.
+  ///
+  /// In tr, this message translates to:
+  /// **'Sulama'**
+  String get plantWater;
+
+  /// No description provided for @plantLight.
+  ///
+  /// In tr, this message translates to:
+  /// **'Işık'**
+  String get plantLight;
+
+  /// No description provided for @plantText.
+  ///
+  /// In tr, this message translates to:
+  /// **'🌱 {plant}\n💧 {water}\n☀️ {light}'**
+  String plantText(String plant, String water, String light);
+
+  /// No description provided for @presetChildTitle.
+  ///
+  /// In tr, this message translates to:
+  /// **'Çocuk güvenlik bilekliği'**
+  String get presetChildTitle;
+
+  /// No description provided for @presetChildDesc.
+  ///
+  /// In tr, this message translates to:
+  /// **'Kalabalık yerlerde: dokunan kişi çocuğun adını görür ve ailesini tek dokunuşla arar.'**
+  String get presetChildDesc;
+
+  /// No description provided for @childName.
+  ///
+  /// In tr, this message translates to:
+  /// **'Çocuğun adı'**
+  String get childName;
+
+  /// No description provided for @childText.
+  ///
+  /// In tr, this message translates to:
+  /// **'Merhaba, ben {name}. Kaybolduysam lütfen ailemi arayın: {phone}'**
+  String childText(String name, String phone);
+
+  /// No description provided for @presetManualTitle.
+  ///
+  /// In tr, this message translates to:
+  /// **'Kullanım talimatı'**
+  String get presetManualTitle;
+
+  /// No description provided for @presetManualDesc.
+  ///
+  /// In tr, this message translates to:
+  /// **'Spor aleti, kahve makinesi, kiralık ev cihazı: kısa talimat ve video/kılavuz bağlantısı.'**
+  String get presetManualDesc;
+
+  /// No description provided for @manualItem.
+  ///
+  /// In tr, this message translates to:
+  /// **'Cihaz / eşya'**
+  String get manualItem;
+
+  /// No description provided for @manualSteps.
+  ///
+  /// In tr, this message translates to:
+  /// **'Kısa talimat'**
+  String get manualSteps;
+
+  /// No description provided for @manualLink.
+  ///
+  /// In tr, this message translates to:
+  /// **'Video / kılavuz bağlantısı (isteğe bağlı)'**
+  String get manualLink;
 }
 
 class _AppLocalizationsDelegate

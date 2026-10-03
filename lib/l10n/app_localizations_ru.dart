@@ -4294,4 +4294,77 @@ class AppLocalizationsRu extends AppLocalizations {
   String libraryImportDone(String count) {
     return 'В библиотеку добавлено меток: $count';
   }
+
+  @override
+  String get presetGiftTitle => 'Подарочное послание';
+
+  @override
+  String get presetGiftDesc =>
+      'Наклейте на подарок: касание покажет послание и, при желании, видео.';
+
+  @override
+  String get giftTo => 'Кому';
+
+  @override
+  String get giftFrom => 'От кого';
+
+  @override
+  String get giftVideo => 'Ссылка на видео (необязательно)';
+
+  @override
+  String giftText(String to, String message, String from) {
+    return '🎁 $to,\n$message\n— $from';
+  }
+
+  @override
+  String get presetPlantTitle => 'Карточка ухода за растением';
+
+  @override
+  String get presetPlantDesc =>
+      'На горшок: полив и свет. С интервалом проверки в библиотеке — ещё и напоминание о поливе.';
+
+  @override
+  String get plantName => 'Название растения';
+
+  @override
+  String get plantWater => 'Полив';
+
+  @override
+  String get plantLight => 'Свет';
+
+  @override
+  String plantText(String plant, String water, String light) {
+    return '🌱 $plant\n💧 $water\n☀️ $light';
+  }
+
+  @override
+  String get presetChildTitle => 'Детский браслет безопасности';
+
+  @override
+  String get presetChildDesc =>
+      'В людных местах: коснувшийся увидит имя ребёнка и позвонит родителям одним касанием.';
+
+  @override
+  String get childName => 'Имя ребёнка';
+
+  @override
+  String childText(String name, String phone) {
+    return 'Привет, я $name. Если я потерялся, позвоните моей семье: $phone';
+  }
+
+  @override
+  String get presetManualTitle => 'Карточка-инструкция';
+
+  @override
+  String get presetManualDesc =>
+      'Тренажёр, кофемашина, техника в аренде: краткая инструкция и ссылка на видео или руководство.';
+
+  @override
+  String get manualItem => 'Устройство / предмет';
+
+  @override
+  String get manualSteps => 'Краткая инструкция';
+
+  @override
+  String get manualLink => 'Ссылка на видео / руководство (необязательно)';
 }

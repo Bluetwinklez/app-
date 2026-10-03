@@ -4120,4 +4120,74 @@ class AppLocalizationsKo extends AppLocalizations {
   String libraryImportDone(String count) {
     return '보관함에 태그 $count개 추가됨';
   }
+
+  @override
+  String get presetGiftTitle => '선물 메시지';
+
+  @override
+  String get presetGiftDesc => '선물에 붙이면 터치 시 메시지와 (선택) 영상 링크가 열립니다.';
+
+  @override
+  String get giftTo => '받는 사람';
+
+  @override
+  String get giftFrom => '보내는 사람';
+
+  @override
+  String get giftVideo => '영상 링크(선택)';
+
+  @override
+  String giftText(String to, String message, String from) {
+    return '🎁 $to에게\n$message\n— $from';
+  }
+
+  @override
+  String get presetPlantTitle => '식물 관리 카드';
+
+  @override
+  String get presetPlantDesc =>
+      '화분에 붙이세요: 물 주기와 빛 정보. 보관함에서 점검 주기를 주면 물 주기 알림이 됩니다.';
+
+  @override
+  String get plantName => '식물 이름';
+
+  @override
+  String get plantWater => '물 주기';
+
+  @override
+  String get plantLight => '빛';
+
+  @override
+  String plantText(String plant, String water, String light) {
+    return '🌱 $plant\n💧 $water\n☀️ $light';
+  }
+
+  @override
+  String get presetChildTitle => '어린이 안전 팔찌';
+
+  @override
+  String get presetChildDesc => '붐비는 곳에서: 터치한 사람이 아이 이름을 보고 한 번에 부모에게 전화합니다.';
+
+  @override
+  String get childName => '아이 이름';
+
+  @override
+  String childText(String name, String phone) {
+    return '안녕하세요, 저는 $name이에요. 길을 잃었다면 가족에게 전화해 주세요: $phone';
+  }
+
+  @override
+  String get presetManualTitle => '사용법 카드';
+
+  @override
+  String get presetManualDesc => '운동기구, 커피머신, 숙소 가전: 짧은 사용법과 영상/설명서 링크.';
+
+  @override
+  String get manualItem => '기기 / 물건';
+
+  @override
+  String get manualSteps => '짧은 사용법';
+
+  @override
+  String get manualLink => '영상/설명서 링크(선택)';
 }

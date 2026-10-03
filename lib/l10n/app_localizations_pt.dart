@@ -4304,4 +4304,77 @@ class AppLocalizationsPt extends AppLocalizations {
   String libraryImportDone(String count) {
     return '$count tags adicionadas à biblioteca';
   }
+
+  @override
+  String get presetGiftTitle => 'Mensagem de presente';
+
+  @override
+  String get presetGiftDesc =>
+      'Cole no presente: um toque mostra sua mensagem e, se quiser, um vídeo.';
+
+  @override
+  String get giftTo => 'Para';
+
+  @override
+  String get giftFrom => 'De';
+
+  @override
+  String get giftVideo => 'Link do vídeo (opcional)';
+
+  @override
+  String giftText(String to, String message, String from) {
+    return '🎁 $to,\n$message\n— $from';
+  }
+
+  @override
+  String get presetPlantTitle => 'Cartão de cuidado da planta';
+
+  @override
+  String get presetPlantDesc =>
+      'No vaso: rega e luz. Com intervalo de verificação na biblioteca vira lembrete de rega.';
+
+  @override
+  String get plantName => 'Nome da planta';
+
+  @override
+  String get plantWater => 'Rega';
+
+  @override
+  String get plantLight => 'Luz';
+
+  @override
+  String plantText(String plant, String water, String light) {
+    return '🌱 $plant\n💧 $water\n☀️ $light';
+  }
+
+  @override
+  String get presetChildTitle => 'Pulseira de segurança infantil';
+
+  @override
+  String get presetChildDesc =>
+      'Em lugares cheios: quem tocar vê o nome da criança e liga para os pais com um toque.';
+
+  @override
+  String get childName => 'Nome da criança';
+
+  @override
+  String childText(String name, String phone) {
+    return 'Oi, eu sou $name. Se eu estiver perdido(a), ligue para minha família: $phone';
+  }
+
+  @override
+  String get presetManualTitle => 'Cartão de instruções';
+
+  @override
+  String get presetManualDesc =>
+      'Aparelho de academia, cafeteira, aluguel: instruções curtas e link de vídeo ou manual.';
+
+  @override
+  String get manualItem => 'Aparelho / item';
+
+  @override
+  String get manualSteps => 'Instruções curtas';
+
+  @override
+  String get manualLink => 'Link de vídeo / manual (opcional)';
 }

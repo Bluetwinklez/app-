@@ -4070,4 +4070,73 @@ class AppLocalizationsZh extends AppLocalizations {
   String libraryImportDone(String count) {
     return '已向标签库添加 $count 个标签';
   }
+
+  @override
+  String get presetGiftTitle => '礼物留言';
+
+  @override
+  String get presetGiftDesc => '贴在礼物上：轻触即可显示留言，并可打开视频链接。';
+
+  @override
+  String get giftTo => '给';
+
+  @override
+  String get giftFrom => '来自';
+
+  @override
+  String get giftVideo => '视频链接（可选）';
+
+  @override
+  String giftText(String to, String message, String from) {
+    return '🎁 $to：\n$message\n— $from';
+  }
+
+  @override
+  String get presetPlantTitle => '植物养护卡';
+
+  @override
+  String get presetPlantDesc => '贴在花盆上：浇水和光照信息。在标签库设置检查间隔即可作为浇水提醒。';
+
+  @override
+  String get plantName => '植物名称';
+
+  @override
+  String get plantWater => '浇水';
+
+  @override
+  String get plantLight => '光照';
+
+  @override
+  String plantText(String plant, String water, String light) {
+    return '🌱 $plant\n💧 $water\n☀️ $light';
+  }
+
+  @override
+  String get presetChildTitle => '儿童安全手环';
+
+  @override
+  String get presetChildDesc => '人多的地方：触碰者可看到孩子姓名并一键呼叫家长。';
+
+  @override
+  String get childName => '孩子姓名';
+
+  @override
+  String childText(String name, String phone) {
+    return '你好，我是$name。如果我走丢了，请联系我的家人：$phone';
+  }
+
+  @override
+  String get presetManualTitle => '使用说明卡';
+
+  @override
+  String get presetManualDesc => '健身器械、咖啡机、出租屋电器：简短说明加视频或手册链接。';
+
+  @override
+  String get manualItem => '设备 / 物品';
+
+  @override
+  String get manualSteps => '简要说明';
+
+  @override
+  String get manualLink => '视频 / 手册链接（可选）';
 }

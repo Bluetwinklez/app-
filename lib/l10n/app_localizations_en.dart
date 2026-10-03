@@ -4278,4 +4278,77 @@ class AppLocalizationsEn extends AppLocalizations {
   String libraryImportDone(String count) {
     return '$count tags added to the library';
   }
+
+  @override
+  String get presetGiftTitle => 'Gift message';
+
+  @override
+  String get presetGiftDesc =>
+      'Stick it on a present: a tap shows your message and, optionally, opens a video link.';
+
+  @override
+  String get giftTo => 'To';
+
+  @override
+  String get giftFrom => 'From';
+
+  @override
+  String get giftVideo => 'Video link (optional)';
+
+  @override
+  String giftText(String to, String message, String from) {
+    return '🎁 $to,\n$message\n— $from';
+  }
+
+  @override
+  String get presetPlantTitle => 'Plant care card';
+
+  @override
+  String get presetPlantDesc =>
+      'Stick it on a pot: watering and light info. Give it an inspection interval in the library for a watering reminder.';
+
+  @override
+  String get plantName => 'Plant name';
+
+  @override
+  String get plantWater => 'Watering';
+
+  @override
+  String get plantLight => 'Light';
+
+  @override
+  String plantText(String plant, String water, String light) {
+    return '🌱 $plant\n💧 $water\n☀️ $light';
+  }
+
+  @override
+  String get presetChildTitle => 'Child safety wristband';
+
+  @override
+  String get presetChildDesc =>
+      'For crowded places: whoever taps it sees the child\'s name and can call the parents in one tap.';
+
+  @override
+  String get childName => 'Child\'s name';
+
+  @override
+  String childText(String name, String phone) {
+    return 'Hi, I\'m $name. If I\'m lost, please call my family: $phone';
+  }
+
+  @override
+  String get presetManualTitle => 'How-to card';
+
+  @override
+  String get presetManualDesc =>
+      'Gym machine, coffee maker, rental appliance: short instructions plus a video or manual link.';
+
+  @override
+  String get manualItem => 'Device / item';
+
+  @override
+  String get manualSteps => 'Short instructions';
+
+  @override
+  String get manualLink => 'Video / manual link (optional)';
 }
