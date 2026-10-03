@@ -24,6 +24,9 @@ import 'tools_tab.dart';
 import 'simple_mode_screen.dart';
 import 'phishing_banner.dart';
 import 'nfc_chips_page.dart';
+import 'ideas_page.dart';
+import 'logbook_page.dart';
+import '../domain/template_gallery.dart';
 import 'app_icon_picker.dart';
 import '../app_info.dart';
 import 'tap_preview_card.dart';
@@ -308,6 +311,76 @@ class _HomeScreenState extends State<HomeScreen>
     });
   }
 
+  void _openIdeas() => IdeasPage.open(context, onAction: _handleIdea);
+
+  void _handleIdea(IdeaAction action) {
+    switch (action) {
+      case OpenPreset(:final presetId):
+        TemplateGalleryPage.open(
+          context,
+          onRecordsCreated: (records, title) => _appendImportedRecords(records, title),
+          storage: _controller.storage,
+          initialPresetId: presetId,
+        );
+      case OpenLogbooks(:final kind):
+        LogBooksPage.open(context, _controller, createKind: kind);
+      case OpenRoutines():
+        _openShortcutsGuide();
+    }
+  }
+
+  Widget _buildFirstTagCard() {
+    final loc = L10n.current;
+    return Padding(
+      padding: const EdgeInsets.only(bottom: 16),
+      child: SoftCard(
+        padding: const EdgeInsets.fromLTRB(16, 12, 8, 14),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Row(
+              children: [
+                Icon(Icons.rocket_launch_outlined, color: AppColors.accent),
+                const SizedBox(width: 8),
+                Expanded(
+                  child: Text(loc.firstTagTitle, style: const TextStyle(fontSize: 17, fontWeight: FontWeight.w700)),
+                ),
+                IconButton(
+                  tooltip: MaterialLocalizations.of(context).closeButtonTooltip,
+                  icon: const Icon(Icons.close_rounded, size: 20),
+                  onPressed: () async {
+                    await _controller.storage.setFirstTagDone(true);
+                    _refresh(() {});
+                  },
+                ),
+              ],
+            ),
+            Text(loc.firstTagSubtitle, style: TextStyle(fontSize: 13, color: AppColors.secondary)),
+            const SizedBox(height: 10),
+            Wrap(
+              spacing: 8,
+              runSpacing: 8,
+              children: [
+                for (final id in ['guest_wifi', 'business_card', 'lost_item'])
+                  if (TemplateGallery.byId(id) case final p?)
+                    ActionChip(
+                      avatar: Icon(TemplateGalleryPage.iconFor(p.icon), size: 18, color: AppColors.accent),
+                      label: Text(p.title),
+                      onPressed: () => _handleIdea(OpenPreset(id)),
+                    ),
+                ActionChip(
+                  avatar: Icon(Icons.lightbulb_outline_rounded, size: 18, color: AppColors.accent),
+                  label: Text(loc.firstTagMore),
+                  onPressed: _openIdeas,
+                ),
+              ],
+            ),
+          ],
+        ),
+      ),
+    );
+  }
+
   void _openShortcutsGuide() {
     ShortcutsGuideSheet.show(
       context,
@@ -469,6 +542,13 @@ class _HomeScreenState extends State<HomeScreen>
               onTap: _openTagLibrary,
             ),
             ListTile(
+              leading: Icon(Icons.lightbulb_outline_rounded, color: AppColors.accent),
+              title: Text(L10n.current.ideasTitle),
+              subtitle: Text(L10n.current.ideasSubtitle),
+              trailing: const Icon(Icons.chevron_right),
+              onTap: _openIdeas,
+            ),
+            ListTile(
               leading: Icon(Icons.auto_awesome_rounded, color: AppColors.accent),
               title: Text(L10n.current.readyTemplates),
               subtitle: Text(L10n.current.quickGallerySubtitle),
@@ -572,6 +652,7 @@ class _HomeScreenState extends State<HomeScreen>
     showModalBottomSheet<void>(
       context: context,
       isScrollControlled: true,
+      showDragHandle: true,
       builder: (ctx) => SafeArea(
         child: SingleChildScrollView(
           padding: const EdgeInsets.fromLTRB(20, 4, 20, 24),
@@ -600,6 +681,11 @@ class _HomeScreenState extends State<HomeScreen>
                             style: TextStyle(color: AppColors.secondary)),
                       ],
                     ),
+                  ),
+                  IconButton.filledTonal(
+                    tooltip: MaterialLocalizations.of(ctx).closeButtonTooltip,
+                    icon: const Icon(Icons.close_rounded),
+                    onPressed: () => Navigator.of(ctx).pop(),
                   ),
                 ],
               ),

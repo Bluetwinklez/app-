@@ -4488,4 +4488,103 @@ class AppLocalizationsJa extends AppLocalizations {
 
   @override
   String get inspectionRemindersNote => '点検日の10:00に通知します（許可した場合）。';
+
+  @override
+  String get presetTableTitle => 'レストランのテーブル';
+
+  @override
+  String get presetTableDesc => 'メニューのリンク、テーブル番号、SMSで店員呼び出し。';
+
+  @override
+  String get tableNumber => 'テーブル番号';
+
+  @override
+  String get menuLink => 'メニューのリンク';
+
+  @override
+  String get waiterPhone => '店員呼び出し番号（任意）';
+
+  @override
+  String tableText(String table) {
+    return 'テーブル $table';
+  }
+
+  @override
+  String tableSms(String table) {
+    return 'テーブル$table：店員さんお願いします 🙋';
+  }
+
+  @override
+  String get presetRentalTitle => '民泊カード';
+
+  @override
+  String get presetRentalDesc => 'ゲストがタッチでWi-Fiに接続し、ハウスルールを確認。';
+
+  @override
+  String get houseRules => 'ハウスルール';
+
+  @override
+  String get checkoutTime => 'チェックアウト時間';
+
+  @override
+  String rentalText(String rules, String checkout) {
+    return '🏠 $rules\nチェックアウト: $checkout';
+  }
+
+  @override
+  String get ideasTitle => 'アイデア';
+
+  @override
+  String get ideasSubtitle => 'タグでできることを見つけよう';
+
+  @override
+  String get ideasHome => '家';
+
+  @override
+  String get ideasFamily => '家族';
+
+  @override
+  String get ideasHealth => '健康と習慣';
+
+  @override
+  String get ideasWork => '仕事';
+
+  @override
+  String get ideasAutomation => 'オートメーション';
+
+  @override
+  String get ideaRoutinesTitle => 'ルーティン（ショートカット）';
+
+  @override
+  String get ideaRoutinesDesc => '枕元、車、ドア、デスク：タッチ一つで複数の操作。';
+
+  @override
+  String get ideaHabitDesc => '毎日読み取って🔥連続記録を維持（水、ビタミン、運動）。';
+
+  @override
+  String get ideaChoresDesc => '子どもがお手伝いタグを読んで星を集めます。';
+
+  @override
+  String get ideaFeedingDesc => 'ボウルのタグ：「最後にごはんをあげたのはいつ？」';
+
+  @override
+  String get ideaMedicationDesc => 'ピルケースのタグ：今日飲んだ？何時？';
+
+  @override
+  String get ideaClockDesc => 'ドアのタグ：出退勤と1日の勤務時間。';
+
+  @override
+  String get ideaVisitorsDesc => '受付の来訪者カード：名前、時刻、CSV。';
+
+  @override
+  String get ideaInventoryDesc => '在庫・備品の棚卸し：各タグを最後に見た場所。';
+
+  @override
+  String get firstTagTitle => '最初のタグを作ろう';
+
+  @override
+  String get firstTagSubtitle => '1つ選んで入力し、タグを近づけるだけ。30秒です。';
+
+  @override
+  String get firstTagMore => 'もっと見る';
 }

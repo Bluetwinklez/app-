@@ -11,6 +11,7 @@ void main() {
     final storage = InMemoryAppStorageService();
     await storage.setOnboardingDone(true);
     await storage.setLocaleCode('tr');
+    await storage.setFirstTagDone(true);
     final controller = NfcStateController(service: MockNfcPlatformService(), storage: storage);
     await tester.pumpWidget(NfcTagMasterApp(controller: controller));
     await tester.pumpAndSettle();

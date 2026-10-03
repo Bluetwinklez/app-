@@ -507,6 +507,56 @@ class TemplateGallery {
       },
     ),
     GalleryPreset(
+      id: 'restaurant_table',
+      title: L10n.current.presetTableTitle,
+      description: L10n.current.presetTableDesc,
+      icon: 'menu',
+      category: GalleryCategory.business,
+      fields: [
+        GalleryField('menu', L10n.current.menuLink, hint: 'https://...', kind: GalleryFieldKind.url),
+        GalleryField('table', L10n.current.tableNumber, hint: '12'),
+        GalleryField('phone', L10n.current.waiterPhone, hint: '+1 555 111 22 33', kind: GalleryFieldKind.phone, required: false),
+      ],
+      build: (v) {
+        final phone = _opt(v, 'phone');
+        return [
+          NdefCodec.encodeUri(QuickLinkBuilder.httpsUrl(v['menu']!, emptyMessage: L10n.current.menuLink)),
+          NdefCodec.encodeText(L10n.current.tableText(v['table']!)),
+          if (phone != null)
+            NdefCodec.encodeSms(phoneNumber: _phoneDigits(phone), message: L10n.current.tableSms(v['table']!)),
+        ];
+      },
+    ),
+    GalleryPreset(
+      id: 'rental_home',
+      title: L10n.current.presetRentalTitle,
+      description: L10n.current.presetRentalDesc,
+      icon: 'home',
+      category: GalleryCategory.home,
+      fields: [
+        GalleryField('ssid', L10n.current.wifiSsid, hint: 'Home_WiFi'),
+        GalleryField('password', L10n.current.wifiPassword, hint: '••••••••', kind: GalleryFieldKind.password, required: false),
+        GalleryField('rules', L10n.current.houseRules, hint: 'No smoking · Quiet after 22:00', kind: GalleryFieldKind.multiline),
+        GalleryField('checkout', L10n.current.checkoutTime, hint: '11:00'),
+      ],
+      build: (v) {
+        final password = v['password'] ?? '';
+        if (password.isNotEmpty && (password.length < 8 || password.length > 63)) {
+          throw QuickLinkException(L10n.current.csvWifiPasswordLength);
+        }
+        final open = password.isEmpty;
+        return [
+          NdefCodec.encodeWifiWsc(
+            ssid: v['ssid']!,
+            authType: open ? WifiAuthType.open : WifiAuthType.wpa2Psk,
+            password: password,
+            encryptionType: open ? WifiEncryptionType.none : WifiEncryptionType.aes,
+          ),
+          NdefCodec.encodeText(L10n.current.rentalText(v['rules']!, v['checkout']!)),
+        ];
+      },
+    ),
+    GalleryPreset(
       id: 'shortcut_trigger',
       title: L10n.current.presetShortcutTitle,
       description: L10n.current.presetShortcutDesc,

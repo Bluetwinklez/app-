@@ -12,16 +12,21 @@ class TemplateGalleryPage extends StatefulWidget {
   final void Function(List<NdefRecordModel> records, String title) onRecordsCreated;
   final AppStorageService? storage;
 
-  const TemplateGalleryPage({super.key, required this.onRecordsCreated, this.storage});
+  /// Opens this preset's form right away (from the ideas page / first-tag card).
+  final String? initialPresetId;
+
+  const TemplateGalleryPage({super.key, required this.onRecordsCreated, this.storage, this.initialPresetId});
 
   static Future<void> open(
     BuildContext context, {
     required void Function(List<NdefRecordModel> records, String title) onRecordsCreated,
     AppStorageService? storage,
+    String? initialPresetId,
   }) {
     return Navigator.of(context).push(
       MaterialPageRoute(
-        builder: (_) => TemplateGalleryPage(onRecordsCreated: onRecordsCreated, storage: storage),
+        builder: (_) => TemplateGalleryPage(
+            onRecordsCreated: onRecordsCreated, storage: storage, initialPresetId: initialPresetId),
       ),
     );
   }
@@ -105,6 +110,17 @@ class _TemplateGalleryPageState extends State<TemplateGalleryPage> {
   GalleryCategory? _category;
   bool _favoritesOnly = false;
   late List<String> _favorites = List.of(widget.storage?.favoritePresets ?? const <String>[]);
+
+  @override
+  void initState() {
+    super.initState();
+    final preset = widget.initialPresetId == null ? null : TemplateGallery.byId(widget.initialPresetId!);
+    if (preset != null) {
+      WidgetsBinding.instance.addPostFrameCallback((_) {
+        if (mounted) _openPreset(context, preset);
+      });
+    }
+  }
 
   @override
   void dispose() {

@@ -86,6 +86,10 @@ abstract class AppStorageService {
   bool get speakAfterScan;
   Future<void> setSpeakAfterScan(bool value);
 
+  /// The user wrote a tag or dismissed the first-tag card.
+  bool get firstTagDone;
+  Future<void> setFirstTagDone(bool value);
+
   /// Compatibility mode: skip read-back verification after writes.
   bool get compatibilityMode;
   Future<void> setCompatibilityMode(bool enabled);
@@ -181,6 +185,14 @@ class InMemoryAppStorageService implements AppStorageService {
 
   @override
   Future<void> setCompatibilityMode(bool enabled) async => _compatibilityMode = enabled;
+
+  bool _firstTagDone = false;
+
+  @override
+  bool get firstTagDone => _firstTagDone;
+
+  @override
+  Future<void> setFirstTagDone(bool value) async => _firstTagDone = value;
 
   bool _speakAfterScan = false;
 
@@ -542,6 +554,7 @@ class LocalFileAppStorageService implements AppStorageService {
               : const [];
           _lastBackupAt = DateTime.tryParse(data['lastBackupAt'] as String? ?? '');
           _compatibilityMode = data['compatibilityMode'] as bool? ?? false;
+          _firstTagDone = data['firstTagDone'] as bool? ?? false;
           _speakAfterScan = data['speakAfterScan'] as bool? ?? false;
           _textScalePercent = data['textScalePercent'] as int? ?? 100;
           _accentIndex = data['accentIndex'] as int? ?? 0;
@@ -727,6 +740,7 @@ class LocalFileAppStorageService implements AppStorageService {
       'favoritePresets': _favoritePresets,
       if (_lastBackupAt != null) 'lastBackupAt': _lastBackupAt!.toIso8601String(),
       'compatibilityMode': _compatibilityMode,
+      'firstTagDone': _firstTagDone,
       'speakAfterScan': _speakAfterScan,
       'textScalePercent': _textScalePercent,
       'accentIndex': _accentIndex,
@@ -808,6 +822,17 @@ class LocalFileAppStorageService implements AppStorageService {
   @override
   Future<void> setCompatibilityMode(bool enabled) async {
     _compatibilityMode = enabled;
+    await _saveSettings();
+  }
+
+  bool _firstTagDone = false;
+
+  @override
+  bool get firstTagDone => _firstTagDone;
+
+  @override
+  Future<void> setFirstTagDone(bool value) async {
+    _firstTagDone = value;
     await _saveSettings();
   }
 

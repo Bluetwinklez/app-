@@ -78,6 +78,7 @@ extension _ReadTab on _HomeScreenState {
             ],
           ),
           const SizedBox(height: 16),
+          if (!_controller.storage.firstTagDone) _buildFirstTagCard(),
           HeroActionCard(
             eyebrow: L10n.current.nfcScannerTitle,
             title: L10n.current.scanTagTitle,
@@ -97,6 +98,8 @@ extension _ReadTab on _HomeScreenState {
               child: Row(
                 crossAxisAlignment: CrossAxisAlignment.stretch,
                 children: [
+                  _buildQuickAction(Icons.lightbulb_outline_rounded, L10n.current.ideasTitle,
+                      L10n.current.firstTagMore, _openIdeas),
                   _buildQuickAction(Icons.auto_awesome_rounded, L10n.current.readyTemplates,
                       L10n.current.quickGallerySubtitle, _openTemplateGallery),
                   _buildQuickAction(Icons.collections_bookmark_outlined, L10n.current.quickLibraryTitle,

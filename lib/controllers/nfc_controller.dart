@@ -362,6 +362,7 @@ class NfcStateController extends ChangeNotifier {
         if (usesCounter) {
           await _storage.setWriteCounter(nextCounter);
         }
+        if (!_storage.firstTagDone) await _storage.setFirstTagDone(true);
         _statusMessage = L10n.current.statusWriteSuccess(result.bytesWritten);
       } else {
         _statusMessage = L10n.current.statusWriteFailed(result.message);
