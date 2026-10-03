@@ -1110,5 +1110,11 @@
   "backupPasswordMismatch": "De wachtwoorden komen niet overeen.",
   "backupEncryptedPrompt": "Deze back-up is beveiligd. Voer het wachtwoord in.",
   "backupWrongPassword": "Verkeerd wachtwoord.",
-  "backupDecryptFailed": "Ontsleutelen mislukt; het bestand is mogelijk beschadigd."
+  "backupDecryptFailed": "Ontsleutelen mislukt; het bestand is mogelijk beschadigd.",
+  "appLockTitle": "App-vergrendeling",
+  "appLockSubtitle": "Face ID, Touch ID of toegangscode vragen bij openen",
+  "appLockUnavailable": "Er is geen schermvergrendeling ingesteld.",
+  "appLockLocked": "App vergrendeld",
+  "appLockUnlock": "Ontgrendelen",
+  "appLockReason": "Om je tagbibliotheek en geschiedenis te openen"
 }

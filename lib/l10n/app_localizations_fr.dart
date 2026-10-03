@@ -3987,4 +3987,25 @@ class AppLocalizationsFr extends AppLocalizations {
   @override
   String get backupDecryptFailed =>
       'Déchiffrement impossible ; le fichier est peut-être abîmé.';
+
+  @override
+  String get appLockTitle => 'Verrouillage de l\'app';
+
+  @override
+  String get appLockSubtitle =>
+      'Exiger Face ID, Touch ID ou le code à l\'ouverture';
+
+  @override
+  String get appLockUnavailable =>
+      'Aucun verrouillage d\'écran n\'est configuré sur cet appareil.';
+
+  @override
+  String get appLockLocked => 'App verrouillée';
+
+  @override
+  String get appLockUnlock => 'Déverrouiller';
+
+  @override
+  String get appLockReason =>
+      'Pour ouvrir votre bibliothèque et votre historique';
 }

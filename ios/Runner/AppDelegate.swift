@@ -3,6 +3,7 @@ import Flutter
 import CoreNFC
 import AppIntents
 import StoreKit
+import LocalAuthentication
 
 extension Notification.Name {
     static let nfcLaunchAction = Notification.Name("NfcTagMasterLaunchAction")
@@ -269,6 +270,20 @@ struct NfcTagMasterShortcuts: AppShortcutsProvider {
                     result(true)
                 } else {
                     result(false)
+                }
+            } else if call.method == "canAuthenticate" {
+                var error: NSError?
+                result(LAContext().canEvaluatePolicy(.deviceOwnerAuthentication, error: &error))
+            } else if call.method == "authenticate" {
+                let reason = (call.arguments as? [String: Any])?["reason"] as? String ?? "Unlock"
+                let context = LAContext()
+                var error: NSError?
+                guard context.canEvaluatePolicy(.deviceOwnerAuthentication, error: &error) else {
+                    result(nil)
+                    return
+                }
+                context.evaluatePolicy(.deviceOwnerAuthentication, localizedReason: reason) { ok, _ in
+                    DispatchQueue.main.async { result(ok) }
                 }
             } else if call.method == "openUrl" {
                 guard let text = (call.arguments as? [String: Any])?["url"] as? String,

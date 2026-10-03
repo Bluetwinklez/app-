@@ -1110,5 +1110,11 @@
   "backupPasswordMismatch": "Паролі не збігаються.",
   "backupEncryptedPrompt": "Ця копія захищена паролем. Введіть пароль.",
   "backupWrongPassword": "Неправильний пароль.",
-  "backupDecryptFailed": "Не вдалося розшифрувати; файл може бути пошкоджено."
+  "backupDecryptFailed": "Не вдалося розшифрувати; файл може бути пошкоджено.",
+  "appLockTitle": "Блокування застосунку",
+  "appLockSubtitle": "Вимагати Face ID, Touch ID або код під час відкриття",
+  "appLockUnavailable": "На пристрої не налаштовано блокування екрана.",
+  "appLockLocked": "Застосунок заблоковано",
+  "appLockUnlock": "Розблокувати",
+  "appLockReason": "Щоб відкрити бібліотеку міток та історію"
 }

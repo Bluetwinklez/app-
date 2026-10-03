@@ -3960,4 +3960,23 @@ class AppLocalizationsNl extends AppLocalizations {
   @override
   String get backupDecryptFailed =>
       'Ontsleutelen mislukt; het bestand is mogelijk beschadigd.';
+
+  @override
+  String get appLockTitle => 'App-vergrendeling';
+
+  @override
+  String get appLockSubtitle =>
+      'Face ID, Touch ID of toegangscode vragen bij openen';
+
+  @override
+  String get appLockUnavailable => 'Er is geen schermvergrendeling ingesteld.';
+
+  @override
+  String get appLockLocked => 'App vergrendeld';
+
+  @override
+  String get appLockUnlock => 'Ontgrendelen';
+
+  @override
+  String get appLockReason => 'Om je tagbibliotheek en geschiedenis te openen';
 }

@@ -2646,5 +2646,11 @@
   "backupPasswordMismatch": "Parolalar eşleşmiyor.",
   "backupEncryptedPrompt": "Bu yedek parolayla korunuyor. Açmak için parolayı girin.",
   "backupWrongPassword": "Parola yanlış.",
-  "backupDecryptFailed": "Yedek çözülemedi; dosya bozuk olabilir."
+  "backupDecryptFailed": "Yedek çözülemedi; dosya bozuk olabilir.",
+  "appLockTitle": "Uygulama kilidi",
+  "appLockSubtitle": "Açılışta Face ID, Touch ID veya cihaz parolası iste",
+  "appLockUnavailable": "Bu cihazda ekran kilidi (Face ID / parola) ayarlı değil.",
+  "appLockLocked": "Uygulama kilitli",
+  "appLockUnlock": "Kilidi aç",
+  "appLockReason": "Etiket kütüphanenizi ve geçmişinizi açmak için"
 }

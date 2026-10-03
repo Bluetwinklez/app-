@@ -1110,5 +1110,11 @@
   "backupPasswordMismatch": "As senhas não coincidem.",
   "backupEncryptedPrompt": "Este backup é protegido. Digite a senha.",
   "backupWrongPassword": "Senha incorreta.",
-  "backupDecryptFailed": "Não foi possível descriptografar; o arquivo pode estar danificado."
+  "backupDecryptFailed": "Não foi possível descriptografar; o arquivo pode estar danificado.",
+  "appLockTitle": "Bloqueio do app",
+  "appLockSubtitle": "Exigir Face ID, Touch ID ou senha ao abrir",
+  "appLockUnavailable": "Nenhum bloqueio de tela configurado neste aparelho.",
+  "appLockLocked": "App bloqueado",
+  "appLockUnlock": "Desbloquear",
+  "appLockReason": "Para abrir sua biblioteca e histórico"
 }

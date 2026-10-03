@@ -66,4 +66,18 @@ class LaunchActionService {
       return false;
     }
   }
+
+  /// Whether the device has Face ID / Touch ID / a passcode to unlock with.
+  static Future<bool> canAuthenticate() => _invokeBool('canAuthenticate');
+
+  /// Shows the system unlock prompt. Null when no device lock is set up.
+  static Future<bool?> authenticate({required String reason, String title = ''}) async {
+    try {
+      return await _channel.invokeMethod<bool>('authenticate', {'reason': reason, 'title': title});
+    } on MissingPluginException {
+      return null;
+    } on PlatformException {
+      return false;
+    }
+  }
 }
