@@ -969,5 +969,20 @@
   "presetCallMeDesc": "يتصل الهاتف برقمك.",
   "presetRunShortcutTitle": "تشغيل اختصار",
   "presetRunShortcutDesc": "يشغّل اختصار iPhone الذي تسمّيه: تشغيل الأضواء، الموسيقى، تغيير التركيز...",
-  "shortcutNameLabel": "اسم الاختصار"
+  "shortcutNameLabel": "اسم الاختصار",
+  "recipesSection": "وصفات أتمتة جاهزة",
+  "recipesIntro": "أنشئ في تطبيق الاختصارات اختصارًا بالاسم أدناه وأضف الإجراءات. ثم اربطه بأتمتة NFC أو استخدم \"إضافة إلى الوسم\" لكتابة رابط يشغّله.",
+  "recipeAddToTag": "إضافة إلى الوسم",
+  "recipeBedTitle": "تصبح على خير",
+  "recipeBedActions": "بجانب السرير: تشغيل تركيز النوم · ضبط منبّه · إطفاء الأضواء",
+  "recipeCarTitle": "وضع السيارة",
+  "recipeCarActions": "حامل السيارة: تركيز القيادة · الاتجاهات إلى المنزل · تشغيل الموسيقى",
+  "recipeDoorTitle": "وصلت إلى المنزل",
+  "recipeDoorActions": "الباب الأمامي: تشغيل الأضواء · تفعيل Wi-Fi · رسالة \"وصلت\" للعائلة",
+  "recipeDeskTitle": "وقت التركيز",
+  "recipeDeskActions": "المكتب: تركيز العمل · مؤقت 25 دقيقة · قائمة تشغيل",
+  "recipeGymTitle": "تمرين",
+  "recipeGymActions": "حقيبة الرياضة: بدء تمرين · قائمة تشغيل · عدم الإزعاج",
+  "recipeKitchenTitle": "مؤقت المطبخ",
+  "recipeKitchenActions": "المطبخ: مؤقت 10 دقائق · فتح قائمة التسوق"
 }

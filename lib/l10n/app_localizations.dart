@@ -5943,6 +5943,96 @@ abstract class AppLocalizations {
   /// In tr, this message translates to:
   /// **'Kısayol adı'**
   String get shortcutNameLabel;
+
+  /// No description provided for @recipesSection.
+  ///
+  /// In tr, this message translates to:
+  /// **'Hazır otomasyon tarifleri'**
+  String get recipesSection;
+
+  /// No description provided for @recipesIntro.
+  ///
+  /// In tr, this message translates to:
+  /// **'Kısayollar\'da aşağıdaki adla bir kısayol oluşturup eylemleri ekleyin. Sonra NFC otomasyonuna bağlayın ya da \"Etikete ekle\" ile kısayolu çalıştıran bağlantıyı yazın.'**
+  String get recipesIntro;
+
+  /// No description provided for @recipeAddToTag.
+  ///
+  /// In tr, this message translates to:
+  /// **'Etikete ekle'**
+  String get recipeAddToTag;
+
+  /// No description provided for @recipeBedTitle.
+  ///
+  /// In tr, this message translates to:
+  /// **'İyi Geceler'**
+  String get recipeBedTitle;
+
+  /// No description provided for @recipeBedActions.
+  ///
+  /// In tr, this message translates to:
+  /// **'Komodin: Uyku odağını aç · alarmı kur · ışıkları kapat'**
+  String get recipeBedActions;
+
+  /// No description provided for @recipeCarTitle.
+  ///
+  /// In tr, this message translates to:
+  /// **'Araba Modu'**
+  String get recipeCarTitle;
+
+  /// No description provided for @recipeCarActions.
+  ///
+  /// In tr, this message translates to:
+  /// **'Araç tutucu: Sürüş odağı · eve yol tarifi · müziği başlat'**
+  String get recipeCarActions;
+
+  /// No description provided for @recipeDoorTitle.
+  ///
+  /// In tr, this message translates to:
+  /// **'Eve Geldim'**
+  String get recipeDoorTitle;
+
+  /// No description provided for @recipeDoorActions.
+  ///
+  /// In tr, this message translates to:
+  /// **'Kapı girişi: ışıkları aç · Wi-Fi\'yi aç · aileye \"Geldim\" mesajı'**
+  String get recipeDoorActions;
+
+  /// No description provided for @recipeDeskTitle.
+  ///
+  /// In tr, this message translates to:
+  /// **'Çalışma Modu'**
+  String get recipeDeskTitle;
+
+  /// No description provided for @recipeDeskActions.
+  ///
+  /// In tr, this message translates to:
+  /// **'Masa: İş odağı · 25 dk zamanlayıcı · odak çalma listesi'**
+  String get recipeDeskActions;
+
+  /// No description provided for @recipeGymTitle.
+  ///
+  /// In tr, this message translates to:
+  /// **'Antrenman'**
+  String get recipeGymTitle;
+
+  /// No description provided for @recipeGymActions.
+  ///
+  /// In tr, this message translates to:
+  /// **'Spor çantası: antrenmanı başlat · spor çalma listesi · rahatsız etme'**
+  String get recipeGymActions;
+
+  /// No description provided for @recipeKitchenTitle.
+  ///
+  /// In tr, this message translates to:
+  /// **'Mutfak Zamanlayıcı'**
+  String get recipeKitchenTitle;
+
+  /// No description provided for @recipeKitchenActions.
+  ///
+  /// In tr, this message translates to:
+  /// **'Mutfak: 10 dk zamanlayıcı · alışveriş listesini aç'**
+  String get recipeKitchenActions;
 }
 
 class _AppLocalizationsDelegate

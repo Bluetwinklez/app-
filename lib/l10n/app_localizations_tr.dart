@@ -3447,4 +3447,56 @@ class AppLocalizationsTr extends AppLocalizations {
 
   @override
   String get shortcutNameLabel => 'Kısayol adı';
+
+  @override
+  String get recipesSection => 'Hazır otomasyon tarifleri';
+
+  @override
+  String get recipesIntro =>
+      'Kısayollar\'da aşağıdaki adla bir kısayol oluşturup eylemleri ekleyin. Sonra NFC otomasyonuna bağlayın ya da \"Etikete ekle\" ile kısayolu çalıştıran bağlantıyı yazın.';
+
+  @override
+  String get recipeAddToTag => 'Etikete ekle';
+
+  @override
+  String get recipeBedTitle => 'İyi Geceler';
+
+  @override
+  String get recipeBedActions =>
+      'Komodin: Uyku odağını aç · alarmı kur · ışıkları kapat';
+
+  @override
+  String get recipeCarTitle => 'Araba Modu';
+
+  @override
+  String get recipeCarActions =>
+      'Araç tutucu: Sürüş odağı · eve yol tarifi · müziği başlat';
+
+  @override
+  String get recipeDoorTitle => 'Eve Geldim';
+
+  @override
+  String get recipeDoorActions =>
+      'Kapı girişi: ışıkları aç · Wi-Fi\'yi aç · aileye \"Geldim\" mesajı';
+
+  @override
+  String get recipeDeskTitle => 'Çalışma Modu';
+
+  @override
+  String get recipeDeskActions =>
+      'Masa: İş odağı · 25 dk zamanlayıcı · odak çalma listesi';
+
+  @override
+  String get recipeGymTitle => 'Antrenman';
+
+  @override
+  String get recipeGymActions =>
+      'Spor çantası: antrenmanı başlat · spor çalma listesi · rahatsız etme';
+
+  @override
+  String get recipeKitchenTitle => 'Mutfak Zamanlayıcı';
+
+  @override
+  String get recipeKitchenActions =>
+      'Mutfak: 10 dk zamanlayıcı · alışveriş listesini aç';
 }

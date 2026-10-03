@@ -969,5 +969,20 @@
   "presetCallMeDesc": "The tapping phone calls your number.",
   "presetRunShortcutTitle": "Run a Shortcut",
   "presetRunShortcutDesc": "Runs the iPhone Shortcut you name: lights on, start music, change Focus...",
-  "shortcutNameLabel": "Shortcut name"
+  "shortcutNameLabel": "Shortcut name",
+  "recipesSection": "Ready-made automation recipes",
+  "recipesIntro": "Create a shortcut with the name below in Shortcuts and add the actions. Then link it to an NFC automation, or use \"Add to tag\" to write a link that runs it.",
+  "recipeAddToTag": "Add to tag",
+  "recipeBedTitle": "Good Night",
+  "recipeBedActions": "Bedside: turn on Sleep Focus · set an alarm · lights off",
+  "recipeCarTitle": "Car Mode",
+  "recipeCarActions": "Car mount: Driving Focus · directions home · start music",
+  "recipeDoorTitle": "I'm Home",
+  "recipeDoorActions": "Front door: lights on · Wi-Fi on · text the family \"I'm home\"",
+  "recipeDeskTitle": "Focus Time",
+  "recipeDeskActions": "Desk: Work Focus · 25-minute timer · focus playlist",
+  "recipeGymTitle": "Workout",
+  "recipeGymActions": "Gym bag: start a workout · workout playlist · Do Not Disturb",
+  "recipeKitchenTitle": "Kitchen Timer",
+  "recipeKitchenActions": "Kitchen: 10-minute timer · open the shopping list"
 }

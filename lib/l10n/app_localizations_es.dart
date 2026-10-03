@@ -3473,4 +3473,56 @@ class AppLocalizationsEs extends AppLocalizations {
 
   @override
   String get shortcutNameLabel => 'Nombre del atajo';
+
+  @override
+  String get recipesSection => 'Recetas de automatización';
+
+  @override
+  String get recipesIntro =>
+      'Crea en Atajos un atajo con el nombre indicado y añade las acciones. Luego vincúlalo a una automatización NFC o usa «Añadir a la etiqueta» para escribir un enlace que lo ejecute.';
+
+  @override
+  String get recipeAddToTag => 'Añadir a la etiqueta';
+
+  @override
+  String get recipeBedTitle => 'Buenas noches';
+
+  @override
+  String get recipeBedActions =>
+      'Mesilla: Concentración Dormir · poner alarma · apagar luces';
+
+  @override
+  String get recipeCarTitle => 'Modo coche';
+
+  @override
+  String get recipeCarActions =>
+      'Soporte coche: Concentración Conducción · ruta a casa · música';
+
+  @override
+  String get recipeDoorTitle => 'Ya estoy en casa';
+
+  @override
+  String get recipeDoorActions =>
+      'Entrada: luces · Wi-Fi activado · mensaje «Ya llegué» a la familia';
+
+  @override
+  String get recipeDeskTitle => 'Modo trabajo';
+
+  @override
+  String get recipeDeskActions =>
+      'Escritorio: Concentración Trabajo · temporizador 25 min · lista de música';
+
+  @override
+  String get recipeGymTitle => 'Entreno';
+
+  @override
+  String get recipeGymActions =>
+      'Bolsa de deporte: iniciar entreno · lista de música · No molestar';
+
+  @override
+  String get recipeKitchenTitle => 'Temporizador de cocina';
+
+  @override
+  String get recipeKitchenActions =>
+      'Cocina: temporizador 10 min · abrir la lista de la compra';
 }

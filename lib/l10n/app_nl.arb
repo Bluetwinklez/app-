@@ -969,5 +969,20 @@
   "presetCallMeDesc": "De telefoon belt jouw nummer.",
   "presetRunShortcutTitle": "Opdracht uitvoeren",
   "presetRunShortcutDesc": "Voert de genoemde iPhone-opdracht uit: lampen aan, muziek starten, Focus wijzigen...",
-  "shortcutNameLabel": "Naam van opdracht"
+  "shortcutNameLabel": "Naam van opdracht",
+  "recipesSection": "Kant-en-klare automatiseringen",
+  "recipesIntro": "Maak in Opdrachten een opdracht met de naam hieronder en voeg de acties toe. Koppel die daarna aan een NFC-automatisering of gebruik \"Aan tag toevoegen\" om een startlink te schrijven.",
+  "recipeAddToTag": "Aan tag toevoegen",
+  "recipeBedTitle": "Welterusten",
+  "recipeBedActions": "Nachtkastje: Slaapfocus aan · wekker zetten · lampen uit",
+  "recipeCarTitle": "Automodus",
+  "recipeCarActions": "Autohouder: Rijfocus · route naar huis · muziek starten",
+  "recipeDoorTitle": "Ik ben thuis",
+  "recipeDoorActions": "Voordeur: lampen aan · wifi aan · familie \"Ik ben thuis\" sturen",
+  "recipeDeskTitle": "Focustijd",
+  "recipeDeskActions": "Bureau: Werkfocus · timer van 25 min · focusafspeellijst",
+  "recipeGymTitle": "Training",
+  "recipeGymActions": "Sporttas: training starten · afspeellijst · Niet storen",
+  "recipeKitchenTitle": "Keukentimer",
+  "recipeKitchenActions": "Keuken: timer van 10 min · boodschappenlijst openen"
 }

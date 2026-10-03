@@ -2310,5 +2310,20 @@
   "presetCallMeDesc": "Dokunan telefon numaranızı arar.",
   "presetRunShortcutTitle": "Kısayol Çalıştır",
   "presetRunShortcutDesc": "iPhone'da adını verdiğiniz Kısayolu çalıştırır: ışıkları aç, müzik başlat, odak modunu değiştir...",
-  "shortcutNameLabel": "Kısayol adı"
+  "shortcutNameLabel": "Kısayol adı",
+  "recipesSection": "Hazır otomasyon tarifleri",
+  "recipesIntro": "Kısayollar'da aşağıdaki adla bir kısayol oluşturup eylemleri ekleyin. Sonra NFC otomasyonuna bağlayın ya da \"Etikete ekle\" ile kısayolu çalıştıran bağlantıyı yazın.",
+  "recipeAddToTag": "Etikete ekle",
+  "recipeBedTitle": "İyi Geceler",
+  "recipeBedActions": "Komodin: Uyku odağını aç · alarmı kur · ışıkları kapat",
+  "recipeCarTitle": "Araba Modu",
+  "recipeCarActions": "Araç tutucu: Sürüş odağı · eve yol tarifi · müziği başlat",
+  "recipeDoorTitle": "Eve Geldim",
+  "recipeDoorActions": "Kapı girişi: ışıkları aç · Wi-Fi'yi aç · aileye \"Geldim\" mesajı",
+  "recipeDeskTitle": "Çalışma Modu",
+  "recipeDeskActions": "Masa: İş odağı · 25 dk zamanlayıcı · odak çalma listesi",
+  "recipeGymTitle": "Antrenman",
+  "recipeGymActions": "Spor çantası: antrenmanı başlat · spor çalma listesi · rahatsız etme",
+  "recipeKitchenTitle": "Mutfak Zamanlayıcı",
+  "recipeKitchenActions": "Mutfak: 10 dk zamanlayıcı · alışveriş listesini aç"
 }

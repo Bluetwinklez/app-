@@ -3307,4 +3307,50 @@ class AppLocalizationsJa extends AppLocalizations {
 
   @override
   String get shortcutNameLabel => 'ショートカット名';
+
+  @override
+  String get recipesSection => 'オートメーションのレシピ';
+
+  @override
+  String get recipesIntro =>
+      'ショートカットAppで下の名前のショートカットを作り、アクションを追加します。NFCオートメーションに設定するか、「タグに追加」で実行用リンクを書き込みます。';
+
+  @override
+  String get recipeAddToTag => 'タグに追加';
+
+  @override
+  String get recipeBedTitle => 'おやすみ';
+
+  @override
+  String get recipeBedActions => '枕元: 睡眠集中モード · アラーム設定 · 消灯';
+
+  @override
+  String get recipeCarTitle => 'カーモード';
+
+  @override
+  String get recipeCarActions => '車載ホルダー: 運転集中モード · 自宅への経路 · 音楽再生';
+
+  @override
+  String get recipeDoorTitle => 'ただいま';
+
+  @override
+  String get recipeDoorActions => '玄関: 照明オン · Wi-Fiオン · 家族に「ただいま」と送信';
+
+  @override
+  String get recipeDeskTitle => '集中タイム';
+
+  @override
+  String get recipeDeskActions => 'デスク: 仕事集中モード · 25分タイマー · 集中用プレイリスト';
+
+  @override
+  String get recipeGymTitle => 'ワークアウト';
+
+  @override
+  String get recipeGymActions => 'ジムバッグ: ワークアウト開始 · プレイリスト · おやすみモード';
+
+  @override
+  String get recipeKitchenTitle => 'キッチンタイマー';
+
+  @override
+  String get recipeKitchenActions => 'キッチン: 10分タイマー · 買い物リストを開く';
 }

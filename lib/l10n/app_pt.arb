@@ -969,5 +969,20 @@
   "presetCallMeDesc": "O telefone liga para seu número.",
   "presetRunShortcutTitle": "Executar atalho",
   "presetRunShortcutDesc": "Executa o atalho do iPhone indicado: luzes, música, mudar o Foco...",
-  "shortcutNameLabel": "Nome do atalho"
+  "shortcutNameLabel": "Nome do atalho",
+  "recipesSection": "Receitas de automação",
+  "recipesIntro": "Crie em Atalhos um atalho com o nome abaixo e adicione as ações. Depois vincule a uma automação NFC ou use \"Adicionar à tag\" para gravar um link que o executa.",
+  "recipeAddToTag": "Adicionar à tag",
+  "recipeBedTitle": "Boa noite",
+  "recipeBedActions": "Mesa de cabeceira: Foco Sono · despertador · apagar luzes",
+  "recipeCarTitle": "Modo carro",
+  "recipeCarActions": "Suporte do carro: Foco Direção · rota para casa · música",
+  "recipeDoorTitle": "Cheguei em casa",
+  "recipeDoorActions": "Entrada: luzes · Wi-Fi ligado · mensagem \"Cheguei\" para a família",
+  "recipeDeskTitle": "Modo trabalho",
+  "recipeDeskActions": "Mesa: Foco Trabalho · timer de 25 min · playlist",
+  "recipeGymTitle": "Treino",
+  "recipeGymActions": "Bolsa de academia: iniciar treino · playlist · Não perturbe",
+  "recipeKitchenTitle": "Timer de cozinha",
+  "recipeKitchenActions": "Cozinha: timer de 10 min · abrir lista de compras"
 }

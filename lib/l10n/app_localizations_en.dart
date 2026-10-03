@@ -3434,4 +3434,56 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get shortcutNameLabel => 'Shortcut name';
+
+  @override
+  String get recipesSection => 'Ready-made automation recipes';
+
+  @override
+  String get recipesIntro =>
+      'Create a shortcut with the name below in Shortcuts and add the actions. Then link it to an NFC automation, or use \"Add to tag\" to write a link that runs it.';
+
+  @override
+  String get recipeAddToTag => 'Add to tag';
+
+  @override
+  String get recipeBedTitle => 'Good Night';
+
+  @override
+  String get recipeBedActions =>
+      'Bedside: turn on Sleep Focus · set an alarm · lights off';
+
+  @override
+  String get recipeCarTitle => 'Car Mode';
+
+  @override
+  String get recipeCarActions =>
+      'Car mount: Driving Focus · directions home · start music';
+
+  @override
+  String get recipeDoorTitle => 'I\'m Home';
+
+  @override
+  String get recipeDoorActions =>
+      'Front door: lights on · Wi-Fi on · text the family \"I\'m home\"';
+
+  @override
+  String get recipeDeskTitle => 'Focus Time';
+
+  @override
+  String get recipeDeskActions =>
+      'Desk: Work Focus · 25-minute timer · focus playlist';
+
+  @override
+  String get recipeGymTitle => 'Workout';
+
+  @override
+  String get recipeGymActions =>
+      'Gym bag: start a workout · workout playlist · Do Not Disturb';
+
+  @override
+  String get recipeKitchenTitle => 'Kitchen Timer';
+
+  @override
+  String get recipeKitchenActions =>
+      'Kitchen: 10-minute timer · open the shopping list';
 }

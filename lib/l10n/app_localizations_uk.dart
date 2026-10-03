@@ -3452,4 +3452,56 @@ class AppLocalizationsUk extends AppLocalizations {
 
   @override
   String get shortcutNameLabel => 'Назва команди';
+
+  @override
+  String get recipesSection => 'Готові рецепти автоматизації';
+
+  @override
+  String get recipesIntro =>
+      'Створіть у «Командах» команду з назвою нижче й додайте дії. Потім прив\'яжіть її до NFC-автоматизації або натисніть «Додати на мітку», щоб записати посилання запуску.';
+
+  @override
+  String get recipeAddToTag => 'Додати на мітку';
+
+  @override
+  String get recipeBedTitle => 'На добраніч';
+
+  @override
+  String get recipeBedActions =>
+      'Тумбочка: фокус «Сон» · будильник · вимкнути світло';
+
+  @override
+  String get recipeCarTitle => 'Режим авто';
+
+  @override
+  String get recipeCarActions =>
+      'Тримач в авто: фокус «Водіння» · маршрут додому · музика';
+
+  @override
+  String get recipeDoorTitle => 'Я вдома';
+
+  @override
+  String get recipeDoorActions =>
+      'Вхідні двері: світло · Wi-Fi · повідомлення родині «Я вдома»';
+
+  @override
+  String get recipeDeskTitle => 'Робочий режим';
+
+  @override
+  String get recipeDeskActions =>
+      'Стіл: фокус «Робота» · таймер 25 хв · плейлист';
+
+  @override
+  String get recipeGymTitle => 'Тренування';
+
+  @override
+  String get recipeGymActions =>
+      'Спортивна сумка: почати тренування · плейлист · «Не турбувати»';
+
+  @override
+  String get recipeKitchenTitle => 'Кухонний таймер';
+
+  @override
+  String get recipeKitchenActions =>
+      'Кухня: таймер 10 хв · відкрити список покупок';
 }

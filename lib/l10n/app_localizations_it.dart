@@ -3451,4 +3451,56 @@ class AppLocalizationsIt extends AppLocalizations {
 
   @override
   String get shortcutNameLabel => 'Nome del comando';
+
+  @override
+  String get recipesSection => 'Ricette di automazione';
+
+  @override
+  String get recipesIntro =>
+      'Crea in Comandi un comando con il nome qui sotto e aggiungi le azioni. Poi collegalo a un\'automazione NFC o usa \"Aggiungi al tag\" per scrivere un link che lo avvia.';
+
+  @override
+  String get recipeAddToTag => 'Aggiungi al tag';
+
+  @override
+  String get recipeBedTitle => 'Buonanotte';
+
+  @override
+  String get recipeBedActions =>
+      'Comodino: Full immersion Sonno · sveglia · luci spente';
+
+  @override
+  String get recipeCarTitle => 'Modalità auto';
+
+  @override
+  String get recipeCarActions =>
+      'Supporto auto: Full immersion Guida · indicazioni casa · musica';
+
+  @override
+  String get recipeDoorTitle => 'Sono a casa';
+
+  @override
+  String get recipeDoorActions =>
+      'Ingresso: luci accese · Wi-Fi attivo · messaggio \"Sono a casa\" alla famiglia';
+
+  @override
+  String get recipeDeskTitle => 'Modalità lavoro';
+
+  @override
+  String get recipeDeskActions =>
+      'Scrivania: Full immersion Lavoro · timer 25 min · playlist';
+
+  @override
+  String get recipeGymTitle => 'Allenamento';
+
+  @override
+  String get recipeGymActions =>
+      'Borsa palestra: avvia allenamento · playlist · Non disturbare';
+
+  @override
+  String get recipeKitchenTitle => 'Timer da cucina';
+
+  @override
+  String get recipeKitchenActions =>
+      'Cucina: timer 10 min · apri la lista della spesa';
 }

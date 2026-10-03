@@ -3472,4 +3472,56 @@ class AppLocalizationsFr extends AppLocalizations {
 
   @override
   String get shortcutNameLabel => 'Nom du raccourci';
+
+  @override
+  String get recipesSection => 'Recettes d\'automatisation';
+
+  @override
+  String get recipesIntro =>
+      'Créez dans Raccourcis un raccourci portant le nom ci-dessous et ajoutez les actions. Liez-le ensuite à une automatisation NFC ou utilisez « Ajouter au tag » pour écrire un lien qui le lance.';
+
+  @override
+  String get recipeAddToTag => 'Ajouter au tag';
+
+  @override
+  String get recipeBedTitle => 'Bonne nuit';
+
+  @override
+  String get recipeBedActions =>
+      'Chevet : Concentration Sommeil · régler une alarme · éteindre';
+
+  @override
+  String get recipeCarTitle => 'Mode voiture';
+
+  @override
+  String get recipeCarActions =>
+      'Support voiture : Concentration Conduite · itinéraire maison · musique';
+
+  @override
+  String get recipeDoorTitle => 'Je suis rentré';
+
+  @override
+  String get recipeDoorActions =>
+      'Porte d\'entrée : allumer · Wi-Fi activé · SMS « Je suis rentré » à la famille';
+
+  @override
+  String get recipeDeskTitle => 'Mode travail';
+
+  @override
+  String get recipeDeskActions =>
+      'Bureau : Concentration Travail · minuteur 25 min · playlist';
+
+  @override
+  String get recipeGymTitle => 'Entraînement';
+
+  @override
+  String get recipeGymActions =>
+      'Sac de sport : démarrer une séance · playlist sport · Ne pas déranger';
+
+  @override
+  String get recipeKitchenTitle => 'Minuteur cuisine';
+
+  @override
+  String get recipeKitchenActions =>
+      'Cuisine : minuteur 10 min · ouvrir la liste de courses';
 }

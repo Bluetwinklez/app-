@@ -969,5 +969,20 @@
   "presetCallMeDesc": "触碰的手机会拨打您的号码。",
   "presetRunShortcutTitle": "运行快捷指令",
   "presetRunShortcutDesc": "运行指定的 iPhone 快捷指令：开灯、播放音乐、切换专注模式…",
-  "shortcutNameLabel": "快捷指令名称"
+  "shortcutNameLabel": "快捷指令名称",
+  "recipesSection": "现成的自动化方案",
+  "recipesIntro": "在“快捷指令”中按下方名称创建快捷指令并添加操作，然后关联到 NFC 自动化，或用“添加到标签”写入运行链接。",
+  "recipeAddToTag": "添加到标签",
+  "recipeBedTitle": "晚安",
+  "recipeBedActions": "床头：开启睡眠专注 · 设闹钟 · 关灯",
+  "recipeCarTitle": "驾车模式",
+  "recipeCarActions": "车载支架：驾驶专注 · 导航回家 · 播放音乐",
+  "recipeDoorTitle": "我到家了",
+  "recipeDoorActions": "门口：开灯 · 打开 Wi-Fi · 给家人发“我到家了”",
+  "recipeDeskTitle": "专注时间",
+  "recipeDeskActions": "书桌：工作专注 · 25 分钟计时 · 专注歌单",
+  "recipeGymTitle": "锻炼",
+  "recipeGymActions": "健身包：开始锻炼 · 运动歌单 · 勿扰模式",
+  "recipeKitchenTitle": "厨房计时器",
+  "recipeKitchenActions": "厨房：10 分钟计时 · 打开购物清单"
 }
