@@ -5523,6 +5523,108 @@ abstract class AppLocalizations {
   /// In tr, this message translates to:
   /// **'Kullanılan (B)'**
   String get csvColumnUsed;
+
+  /// No description provided for @batchSerialToggle.
+  ///
+  /// In tr, this message translates to:
+  /// **'Seri numara ekle'**
+  String get batchSerialToggle;
+
+  /// No description provided for @batchSerialHint.
+  ///
+  /// In tr, this message translates to:
+  /// **'Bir kayda {token} yazarsanız numara oraya gelir; yoksa her etikete numarayı taşıyan ayrı bir metin kaydı eklenir.'**
+  String batchSerialHint(String token);
+
+  /// No description provided for @batchSerialPrefix.
+  ///
+  /// In tr, this message translates to:
+  /// **'Ön ek'**
+  String get batchSerialPrefix;
+
+  /// No description provided for @batchSerialStart.
+  ///
+  /// In tr, this message translates to:
+  /// **'Başlangıç'**
+  String get batchSerialStart;
+
+  /// No description provided for @batchSerialDigits.
+  ///
+  /// In tr, this message translates to:
+  /// **'Basamak'**
+  String get batchSerialDigits;
+
+  /// No description provided for @batchSerialPreview.
+  ///
+  /// In tr, this message translates to:
+  /// **'İlk: {first} · Son: {last}'**
+  String batchSerialPreview(String first, String last);
+
+  /// No description provided for @batchFromCsvButton.
+  ///
+  /// In tr, this message translates to:
+  /// **'CSV dosyasından (her satır bir etiket)'**
+  String get batchFromCsvButton;
+
+  /// No description provided for @batchCsvTitle.
+  ///
+  /// In tr, this message translates to:
+  /// **'CSV ile toplu yazım'**
+  String get batchCsvTitle;
+
+  /// No description provided for @batchCsvSummary.
+  ///
+  /// In tr, this message translates to:
+  /// **'{count} etiket yazılacak. Her etikete CSV dosyasındaki bir satır yazılır, sırası korunur.'**
+  String batchCsvSummary(String count);
+
+  /// No description provided for @batchCsvTruncated.
+  ///
+  /// In tr, this message translates to:
+  /// **'Toplu yazımda en fazla {max} satır kullanılır; fazlası atlandı.'**
+  String batchCsvTruncated(String max);
+
+  /// No description provided for @cloneTagTitle.
+  ///
+  /// In tr, this message translates to:
+  /// **'Etiket Kopyala'**
+  String get cloneTagTitle;
+
+  /// No description provided for @cloneTagSubtitle.
+  ///
+  /// In tr, this message translates to:
+  /// **'Bir etiketi okuyun, içeriğini başka etiketlere yazın'**
+  String get cloneTagSubtitle;
+
+  /// No description provided for @cloneSourceStep.
+  ///
+  /// In tr, this message translates to:
+  /// **'1. adım: Kopyalanacak kaynak etiketi okutun. Yalnızca NDEF içeriği kopyalanır; UID kopyalanamaz.'**
+  String get cloneSourceStep;
+
+  /// No description provided for @cloneSourceEmpty.
+  ///
+  /// In tr, this message translates to:
+  /// **'Kaynak etikette kopyalanacak NDEF kaydı yok.'**
+  String get cloneSourceEmpty;
+
+  /// No description provided for @cloneReadyTitle.
+  ///
+  /// In tr, this message translates to:
+  /// **'Kaynak okundu'**
+  String get cloneReadyTitle;
+
+  /// No description provided for @cloneReadySummary.
+  ///
+  /// In tr, this message translates to:
+  /// **'{count} kayıt ({bytes} bayt) kopyalanacak. Şimdi kaç etikete yazılacağını seçin.'**
+  String cloneReadySummary(String count, String bytes);
+
+  /// No description provided for @cloneEditFirst.
+  ///
+  /// In tr, this message translates to:
+  /// **'Önce düzenle'**
+  String get cloneEditFirst;
 }
 
 class _AppLocalizationsDelegate

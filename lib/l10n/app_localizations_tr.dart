@@ -3191,4 +3191,67 @@ class AppLocalizationsTr extends AppLocalizations {
 
   @override
   String get csvColumnUsed => 'Kullanılan (B)';
+
+  @override
+  String get batchSerialToggle => 'Seri numara ekle';
+
+  @override
+  String batchSerialHint(String token) {
+    return 'Bir kayda $token yazarsanız numara oraya gelir; yoksa her etikete numarayı taşıyan ayrı bir metin kaydı eklenir.';
+  }
+
+  @override
+  String get batchSerialPrefix => 'Ön ek';
+
+  @override
+  String get batchSerialStart => 'Başlangıç';
+
+  @override
+  String get batchSerialDigits => 'Basamak';
+
+  @override
+  String batchSerialPreview(String first, String last) {
+    return 'İlk: $first · Son: $last';
+  }
+
+  @override
+  String get batchFromCsvButton => 'CSV dosyasından (her satır bir etiket)';
+
+  @override
+  String get batchCsvTitle => 'CSV ile toplu yazım';
+
+  @override
+  String batchCsvSummary(String count) {
+    return '$count etiket yazılacak. Her etikete CSV dosyasındaki bir satır yazılır, sırası korunur.';
+  }
+
+  @override
+  String batchCsvTruncated(String max) {
+    return 'Toplu yazımda en fazla $max satır kullanılır; fazlası atlandı.';
+  }
+
+  @override
+  String get cloneTagTitle => 'Etiket Kopyala';
+
+  @override
+  String get cloneTagSubtitle =>
+      'Bir etiketi okuyun, içeriğini başka etiketlere yazın';
+
+  @override
+  String get cloneSourceStep =>
+      '1. adım: Kopyalanacak kaynak etiketi okutun. Yalnızca NDEF içeriği kopyalanır; UID kopyalanamaz.';
+
+  @override
+  String get cloneSourceEmpty => 'Kaynak etikette kopyalanacak NDEF kaydı yok.';
+
+  @override
+  String get cloneReadyTitle => 'Kaynak okundu';
+
+  @override
+  String cloneReadySummary(String count, String bytes) {
+    return '$count kayıt ($bytes bayt) kopyalanacak. Şimdi kaç etikete yazılacağını seçin.';
+  }
+
+  @override
+  String get cloneEditFirst => 'Önce düzenle';
 }

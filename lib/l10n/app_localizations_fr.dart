@@ -3212,4 +3212,68 @@ class AppLocalizationsFr extends AppLocalizations {
 
   @override
   String get csvColumnUsed => 'Utilisé (o)';
+
+  @override
+  String get batchSerialToggle => 'Ajouter des numéros de série';
+
+  @override
+  String batchSerialHint(String token) {
+    return 'Mettez $token dans un enregistrement pour y placer le numéro ; sinon un enregistrement texte avec le numéro est ajouté à chaque tag.';
+  }
+
+  @override
+  String get batchSerialPrefix => 'Préfixe';
+
+  @override
+  String get batchSerialStart => 'Début';
+
+  @override
+  String get batchSerialDigits => 'Chiffres';
+
+  @override
+  String batchSerialPreview(String first, String last) {
+    return 'Premier : $first · Dernier : $last';
+  }
+
+  @override
+  String get batchFromCsvButton => 'Depuis un fichier CSV (une ligne par tag)';
+
+  @override
+  String get batchCsvTitle => 'Écriture par lot depuis CSV';
+
+  @override
+  String batchCsvSummary(String count) {
+    return '$count tags seront écrits. Chaque tag reçoit une ligne du fichier CSV, dans l\'ordre.';
+  }
+
+  @override
+  String batchCsvTruncated(String max) {
+    return 'L\'écriture par lot utilise au plus $max lignes ; le reste a été ignoré.';
+  }
+
+  @override
+  String get cloneTagTitle => 'Cloner un tag';
+
+  @override
+  String get cloneTagSubtitle =>
+      'Lire un tag et écrire son contenu sur d\'autres';
+
+  @override
+  String get cloneSourceStep =>
+      'Étape 1 : scannez le tag source. Seul le contenu NDEF est copié ; l\'UID ne peut pas être cloné.';
+
+  @override
+  String get cloneSourceEmpty =>
+      'Le tag source ne contient aucun enregistrement NDEF.';
+
+  @override
+  String get cloneReadyTitle => 'Source lue';
+
+  @override
+  String cloneReadySummary(String count, String bytes) {
+    return '$count enregistrements ($bytes octets) seront copiés. Choisissez le nombre de tags.';
+  }
+
+  @override
+  String get cloneEditFirst => 'Modifier d\'abord';
 }

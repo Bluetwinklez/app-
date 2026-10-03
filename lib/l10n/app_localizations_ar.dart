@@ -3153,4 +3153,66 @@ class AppLocalizationsAr extends AppLocalizations {
 
   @override
   String get csvColumnUsed => 'المستخدم (ب)';
+
+  @override
+  String get batchSerialToggle => 'إضافة أرقام تسلسلية';
+
+  @override
+  String batchSerialHint(String token) {
+    return 'اكتب $token في سجل لوضع الرقم فيه؛ وإلا يُضاف إلى كل وسم سجل نصي منفصل يحمل الرقم.';
+  }
+
+  @override
+  String get batchSerialPrefix => 'البادئة';
+
+  @override
+  String get batchSerialStart => 'البداية';
+
+  @override
+  String get batchSerialDigits => 'الخانات';
+
+  @override
+  String batchSerialPreview(String first, String last) {
+    return 'الأول: $first · الأخير: $last';
+  }
+
+  @override
+  String get batchFromCsvButton => 'من ملف CSV (سطر لكل وسم)';
+
+  @override
+  String get batchCsvTitle => 'كتابة دفعية من CSV';
+
+  @override
+  String batchCsvSummary(String count) {
+    return 'ستتم كتابة $count وسمًا. يحصل كل وسم على سطر من ملف CSV بالترتيب.';
+  }
+
+  @override
+  String batchCsvTruncated(String max) {
+    return 'تستخدم الكتابة الدفعية $max سطرًا كحد أقصى؛ وتم تخطي الباقي.';
+  }
+
+  @override
+  String get cloneTagTitle => 'نسخ وسم';
+
+  @override
+  String get cloneTagSubtitle => 'اقرأ وسمًا واكتب محتواه على وسوم أخرى';
+
+  @override
+  String get cloneSourceStep =>
+      'الخطوة 1: امسح الوسم المصدر. يُنسخ محتوى NDEF فقط؛ ولا يمكن نسخ UID.';
+
+  @override
+  String get cloneSourceEmpty => 'لا يحتوي الوسم المصدر على سجلات NDEF للنسخ.';
+
+  @override
+  String get cloneReadyTitle => 'تمت قراءة المصدر';
+
+  @override
+  String cloneReadySummary(String count, String bytes) {
+    return 'سيتم نسخ $count سجل ($bytes بايت). اختر عدد الوسوم.';
+  }
+
+  @override
+  String get cloneEditFirst => 'عدّل أولاً';
 }

@@ -899,5 +899,22 @@
   "csvColumnRecords": "Registros",
   "csvColumnContent": "Conteúdo",
   "csvColumnCapacity": "Capacidade (B)",
-  "csvColumnUsed": "Usado (B)"
+  "csvColumnUsed": "Usado (B)",
+  "batchSerialToggle": "Adicionar números de série",
+  "batchSerialHint": "Coloque {token} num registro para inserir o número ali; caso contrário, um registro de texto com o número é adicionado a cada tag.",
+  "batchSerialPrefix": "Prefixo",
+  "batchSerialStart": "Início",
+  "batchSerialDigits": "Dígitos",
+  "batchSerialPreview": "Primeiro: {first} · Último: {last}",
+  "batchFromCsvButton": "De um CSV (uma linha por tag)",
+  "batchCsvTitle": "Gravação em lote via CSV",
+  "batchCsvSummary": "Serão gravadas {count} tags. Cada tag recebe uma linha do CSV, na ordem.",
+  "batchCsvTruncated": "A gravação em lote usa no máximo {max} linhas; o restante foi ignorado.",
+  "cloneTagTitle": "Clonar tag",
+  "cloneTagSubtitle": "Leia uma tag e grave o conteúdo em outras",
+  "cloneSourceStep": "Passo 1: leia a tag de origem. Só o conteúdo NDEF é copiado; o UID não pode ser clonado.",
+  "cloneSourceEmpty": "A tag de origem não tem registros NDEF.",
+  "cloneReadyTitle": "Origem lida",
+  "cloneReadySummary": "Serão copiados {count} registros ({bytes} bytes). Escolha quantas tags gravar.",
+  "cloneEditFirst": "Editar antes"
 }

@@ -3193,4 +3193,68 @@ class AppLocalizationsRu extends AppLocalizations {
 
   @override
   String get csvColumnUsed => 'Занято (Б)';
+
+  @override
+  String get batchSerialToggle => 'Добавить серийные номера';
+
+  @override
+  String batchSerialHint(String token) {
+    return 'Укажите $token в записи, и номер встанет туда; иначе к каждой метке добавится отдельная текстовая запись с номером.';
+  }
+
+  @override
+  String get batchSerialPrefix => 'Префикс';
+
+  @override
+  String get batchSerialStart => 'Начало';
+
+  @override
+  String get batchSerialDigits => 'Разрядов';
+
+  @override
+  String batchSerialPreview(String first, String last) {
+    return 'Первый: $first · Последний: $last';
+  }
+
+  @override
+  String get batchFromCsvButton => 'Из CSV-файла (строка на метку)';
+
+  @override
+  String get batchCsvTitle => 'Пакетная запись из CSV';
+
+  @override
+  String batchCsvSummary(String count) {
+    return 'Будет записано меток: $count. Каждая получает одну строку CSV по порядку.';
+  }
+
+  @override
+  String batchCsvTruncated(String max) {
+    return 'Для пакетной записи берётся не более $max строк; остальные пропущены.';
+  }
+
+  @override
+  String get cloneTagTitle => 'Клонировать метку';
+
+  @override
+  String get cloneTagSubtitle =>
+      'Прочитать метку и записать её содержимое на другие';
+
+  @override
+  String get cloneSourceStep =>
+      'Шаг 1: отсканируйте исходную метку. Копируется только NDEF-содержимое; UID клонировать нельзя.';
+
+  @override
+  String get cloneSourceEmpty =>
+      'На исходной метке нет NDEF-записей для копирования.';
+
+  @override
+  String get cloneReadyTitle => 'Источник прочитан';
+
+  @override
+  String cloneReadySummary(String count, String bytes) {
+    return 'Будет скопировано записей: $count ($bytes байт). Выберите количество меток.';
+  }
+
+  @override
+  String get cloneEditFirst => 'Сначала изменить';
 }

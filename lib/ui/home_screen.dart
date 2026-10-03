@@ -1,8 +1,8 @@
 import 'dart:convert';
 import 'dart:math';
-import 'dart:typed_data';
 import 'package:file_selector/file_selector.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:share_plus/share_plus.dart';
 import '../domain/ndef_record.dart';
 import '../domain/nfc_tag_info.dart';
@@ -34,6 +34,7 @@ import 'package:intl/intl.dart';
 import '../l10n/app_localizations.dart';
 import '../l10n/l10n.dart';
 import '../domain/csv_records.dart';
+import '../domain/serial_plan.dart';
 
 class HomeScreen extends StatefulWidget {
   final NfcStateController? controller;
@@ -68,6 +69,8 @@ class _HomeScreenState extends State<HomeScreen>
   int _batchCurrentIndex = 0; // 0-based
   bool _batchActive = false;
   final List<BatchTagAttempt> _batchAttempts = [];
+  List<NdefRecordModel> Function(int index)? _batchRecordsFor;
+  String Function(int index)? _batchLabelFor;
 
   // State for History search & filter
   final TextEditingController _historySearchController =
@@ -762,25 +765,32 @@ class _HomeScreenState extends State<HomeScreen>
   }
 
   Future<void> _importFromCsv() async {
+    final result = await _pickCsvRecords();
+    if (result == null || result.records.isEmpty || !mounted) return;
+    _appendImportedRecords(result.records, 'CSV');
+  }
+
+  /// Lets the user pick a CSV file; shows skipped rows. Null when cancelled.
+  Future<CsvImportResult?> _pickCsvRecords() async {
     final loc = AppLocalizations.of(context) ?? L10n.current;
     XFile? file;
     try {
       file = await openFile();
     } catch (e) {
-      if (!mounted) return;
+      if (!mounted) return null;
       ScaffoldMessenger.of(context).showSnackBar(
         SnackBar(content: Text(loc.filePickerError(e.toString())), backgroundColor: AppColors.danger),
       );
-      return;
+      return null;
     }
-    if (file == null || !mounted) return;
+    if (file == null || !mounted) return null;
     final bytes = await file.readAsBytes();
-    if (!mounted) return;
+    if (!mounted) return null;
     if (bytes.length > 512 * 1024) {
       ScaffoldMessenger.of(context).showSnackBar(
         SnackBar(content: Text(loc.csvFileTooLarge), backgroundColor: AppColors.danger),
       );
-      return;
+      return null;
     }
     final result = CsvRecordImporter.parse(utf8.decode(bytes, allowMalformed: true));
     if (result.errors.isNotEmpty || result.records.isEmpty) {
@@ -809,9 +819,9 @@ class _HomeScreenState extends State<HomeScreen>
           ],
         ),
       );
-      if (!mounted) return;
+      if (!mounted) return null;
     }
-    _appendImportedRecords(result.records, 'CSV');
+    return result;
   }
 
   void _pasteFromClipboard() {
@@ -1282,8 +1292,32 @@ class _HomeScreenState extends State<HomeScreen>
       );
       return;
     }
+    _showBatchSetupDialog(
+      records: List<NdefRecordModel>.from(_recordsToWrite),
+      allowCsv: true,
+    );
+  }
 
+  /// Count + optional serial numbering for writing [records] to many tags.
+  void _showBatchSetupDialog({
+    required List<NdefRecordModel> records,
+    bool allowCsv = false,
+    String? intro,
+  }) {
+    final loc = L10n.current;
     int chosenCount = _batchTargetCount;
+    bool serial = false;
+    int digits = 3;
+    final prefixCtrl = TextEditingController();
+    final startCtrl = TextEditingController(text: '1');
+    final bytes = encodeNdefMessage(records).length;
+
+    SerialPlan plan() => SerialPlan(
+          prefix: prefixCtrl.text.trim(),
+          start: int.tryParse(startCtrl.text.trim())?.clamp(0, 99999999) ?? 1,
+          padding: digits,
+        );
+
     showDialog(
       context: context,
       builder: (ctx) => StatefulBuilder(
@@ -1292,7 +1326,7 @@ class _HomeScreenState extends State<HomeScreen>
             children: [
               Icon(Icons.dynamic_feed, color: AppColors.accent),
               const SizedBox(width: 8),
-              Text(L10n.current.batchWriteTitle),
+              Expanded(child: Text(loc.batchWriteTitle)),
             ],
           ),
           content: SingleChildScrollView(
@@ -1301,7 +1335,7 @@ class _HomeScreenState extends State<HomeScreen>
               mainAxisSize: MainAxisSize.min,
               children: [
                 Text(
-                  L10n.current.batchWriteSubtitle,
+                  intro ?? loc.batchWriteSubtitle,
                   style: const TextStyle(fontSize: 13),
                 ),
                 const SizedBox(height: 12),
@@ -1316,7 +1350,7 @@ class _HomeScreenState extends State<HomeScreen>
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       Text(
-                        L10n.current.attention,
+                        loc.attention,
                         style: TextStyle(
                             fontWeight: FontWeight.bold,
                             fontSize: 12,
@@ -1324,8 +1358,7 @@ class _HomeScreenState extends State<HomeScreen>
                       ),
                       const SizedBox(height: 4),
                       Text(
-                        L10n.current.batchNotice1 +
-                        L10n.current.batchNotice2,
+                        loc.batchNotice1 + loc.batchNotice2,
                         style: TextStyle(fontSize: 12, color: AppColors.ink),
                       ),
                     ],
@@ -1333,7 +1366,7 @@ class _HomeScreenState extends State<HomeScreen>
                 ),
                 const SizedBox(height: 16),
                 Text(
-                  L10n.current.batchTargetCount('$chosenCount'),
+                  loc.batchTargetCount('$chosenCount'),
                   style: const TextStyle(
                       fontWeight: FontWeight.bold, fontSize: 16),
                 ),
@@ -1350,37 +1383,227 @@ class _HomeScreenState extends State<HomeScreen>
                   },
                 ),
                 Text(
-                  L10n.current.composerRecordsSummary('${_recordsToWrite.length}', '$_stagedBytesTotal'),
+                  loc.composerRecordsSummary('${records.length}', '$bytes'),
                   style: TextStyle(fontSize: 12, color: AppColors.secondary),
                 ),
+                const SizedBox(height: 8),
+                SwitchListTile.adaptive(
+                  contentPadding: EdgeInsets.zero,
+                  value: serial,
+                  onChanged: (v) => setDlgState(() => serial = v),
+                  title: Text(loc.batchSerialToggle,
+                      style: const TextStyle(fontWeight: FontWeight.w600)),
+                ),
+                if (serial) ...[
+                  Row(
+                    children: [
+                      Expanded(
+                        flex: 3,
+                        child: TextField(
+                          controller: prefixCtrl,
+                          maxLength: 24,
+                          decoration: InputDecoration(
+                            labelText: loc.batchSerialPrefix,
+                            hintText: 'A-',
+                            counterText: '',
+                          ),
+                          onChanged: (_) => setDlgState(() {}),
+                        ),
+                      ),
+                      const SizedBox(width: 8),
+                      Expanded(
+                        flex: 2,
+                        child: TextField(
+                          controller: startCtrl,
+                          keyboardType: TextInputType.number,
+                          inputFormatters: [FilteringTextInputFormatter.digitsOnly],
+                          maxLength: 8,
+                          decoration: InputDecoration(
+                            labelText: loc.batchSerialStart,
+                            counterText: '',
+                          ),
+                          onChanged: (_) => setDlgState(() {}),
+                        ),
+                      ),
+                      const SizedBox(width: 8),
+                      Expanded(
+                        flex: 2,
+                        child: DropdownButtonFormField<int>(
+                          initialValue: digits,
+                          decoration: InputDecoration(labelText: loc.batchSerialDigits),
+                          items: [
+                            for (int d = 1; d <= 6; d++)
+                              DropdownMenuItem(value: d, child: Text('$d')),
+                          ],
+                          onChanged: (v) => setDlgState(() => digits = v ?? 3),
+                        ),
+                      ),
+                    ],
+                  ),
+                  const SizedBox(height: 8),
+                  Text(
+                    loc.batchSerialPreview(
+                        plan().valueAt(0), plan().valueAt(chosenCount - 1)),
+                    style: TextStyle(
+                        fontSize: 13,
+                        fontWeight: FontWeight.w600,
+                        color: AppColors.accent),
+                  ),
+                  const SizedBox(height: 4),
+                  Text(
+                    loc.batchSerialHint(SerialPlan.placeholder),
+                    style: TextStyle(fontSize: 12, color: AppColors.secondary),
+                  ),
+                ],
+                if (allowCsv) ...[
+                  const Divider(height: 24),
+                  OutlinedButton.icon(
+                    onPressed: () {
+                      Navigator.of(ctx).pop();
+                      _startCsvBatch();
+                    },
+                    icon: const Icon(Icons.table_rows_outlined),
+                    label: Text(loc.batchFromCsvButton),
+                  ),
+                ],
               ],
             ),
           ),
           actions: [
             TextButton(
               onPressed: () => Navigator.of(ctx).pop(),
-              child: Text(L10n.current.dismiss),
+              child: Text(loc.dismiss),
             ),
             ElevatedButton(
               style: ElevatedButton.styleFrom(
                   backgroundColor: AppColors.accent, foregroundColor: Colors.white),
               onPressed: () {
                 Navigator.of(ctx).pop();
-                _initBatchWrite(chosenCount);
+                if (serial) {
+                  final p = plan();
+                  _initBatchWrite(
+                    chosenCount,
+                    recordsFor: (i) => p.apply(records, i),
+                    labelFor: p.valueAt,
+                  );
+                } else {
+                  _initBatchWrite(chosenCount, recordsFor: (_) => records);
+                }
               },
-              child: Text(L10n.current.batchStartButton),
+              child: Text(loc.batchStartButton),
             ),
           ],
         ),
       ),
+    ).whenComplete(() {
+      prefixCtrl.dispose();
+      startCtrl.dispose();
+    });
+  }
+
+  /// Batch where every CSV row becomes the content of one tag.
+  Future<void> _startCsvBatch() async {
+    final result = await _pickCsvRecords();
+    if (result == null || result.records.isEmpty || !mounted) return;
+    final loc = L10n.current;
+    final rows = result.records.take(_maxBatchCount).toList();
+    final go = await showDialog<bool>(
+      context: context,
+      builder: (ctx) => AlertDialog(
+        title: Text(loc.batchCsvTitle),
+        content: Column(
+          mainAxisSize: MainAxisSize.min,
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Text(loc.batchCsvSummary('${rows.length}')),
+            if (result.records.length > rows.length) ...[
+              const SizedBox(height: 8),
+              Text(loc.batchCsvTruncated('$_maxBatchCount'),
+                  style: TextStyle(color: AppColors.warning, fontSize: 12)),
+            ],
+          ],
+        ),
+        actions: [
+          TextButton(onPressed: () => Navigator.of(ctx).pop(false), child: Text(loc.dismiss)),
+          ElevatedButton(
+            onPressed: () => Navigator.of(ctx).pop(true),
+            child: Text(loc.batchStartButton),
+          ),
+        ],
+      ),
+    );
+    if (go != true || !mounted) return;
+    _initBatchWrite(rows.length, recordsFor: (i) => [rows[i]]);
+  }
+
+  /// Reads a tag and offers to write its NDEF content to many tags.
+  Future<void> _cloneTagWizard() async {
+    final loc = L10n.current;
+    final go = await showDialog<bool>(
+      context: context,
+      builder: (ctx) => AlertDialog(
+        title: Text(loc.cloneTagTitle),
+        content: Text(loc.cloneSourceStep),
+        actions: [
+          TextButton(onPressed: () => Navigator.of(ctx).pop(false), child: Text(loc.cancel)),
+          ElevatedButton(onPressed: () => Navigator.of(ctx).pop(true), child: Text(loc.readHeroButton)),
+        ],
+      ),
+    );
+    if (go != true || !mounted) return;
+    await _controller.scanTag();
+    if (!mounted) return;
+    final tag = _controller.lastScannedTag;
+    if (tag == null || tag.error != null) {
+      ScaffoldMessenger.of(context).showSnackBar(
+        SnackBar(content: Text(_controller.statusMessage), backgroundColor: AppColors.danger),
+      );
+      return;
+    }
+    if (tag.records.isEmpty) {
+      ScaffoldMessenger.of(context).showSnackBar(
+        SnackBar(content: Text(loc.cloneSourceEmpty), backgroundColor: AppColors.warning),
+      );
+      return;
+    }
+    final records = List<NdefRecordModel>.from(tag.records);
+    final bytes = encodeNdefMessage(records).length;
+    final next = await showDialog<String>(
+      context: context,
+      builder: (ctx) => AlertDialog(
+        title: Text(loc.cloneReadyTitle),
+        content: Text(loc.cloneReadySummary('${records.length}', '$bytes')),
+        actions: [
+          TextButton(onPressed: () => Navigator.of(ctx).pop(), child: Text(loc.cancel)),
+          TextButton(onPressed: () => Navigator.of(ctx).pop('edit'), child: Text(loc.cloneEditFirst)),
+          ElevatedButton(onPressed: () => Navigator.of(ctx).pop('batch'), child: Text(loc.batchStartButton)),
+        ],
+      ),
+    );
+    if (!mounted || next == null) return;
+    if (next == 'edit') {
+      _appendImportedRecords(records, loc.tagSourceLabel(tag.identifier));
+      return;
+    }
+    _showBatchSetupDialog(
+      records: records,
+      intro: loc.cloneTagSubtitle,
     );
   }
 
-  void _initBatchWrite(int totalCount) {
+  static const int _maxBatchCount = 100;
+
+  void _initBatchWrite(
+    int totalCount, {
+    required List<NdefRecordModel> Function(int index) recordsFor,
+    String Function(int index)? labelFor,
+  }) {
     setState(() {
       _batchTargetCount = totalCount;
       _batchCurrentIndex = 0;
       _batchActive = true;
+      _batchRecordsFor = recordsFor;
+      _batchLabelFor = labelFor;
       _batchAttempts.clear();
       for (int i = 0; i < totalCount; i++) {
         _batchAttempts.add(BatchTagAttempt(index: i));
@@ -1594,21 +1817,24 @@ class _HomeScreenState extends State<HomeScreen>
     });
 
     final currentNum = index + 1;
+    final records = _batchRecordsFor?.call(index) ?? _recordsToWrite;
+    final label = _batchLabelFor?.call(index);
     final success = await _controller.writeRecords(
-      _recordsToWrite,
+      records,
       promptMessage:
           L10n.current.batchPrompt('$currentNum', '$_batchTargetCount'),
     );
     if (!_batchActive || !mounted) return;
 
     final msg = success
-        ? L10n.current.batchWrittenVerified('${_recordsToWrite.length}')
+        ? L10n.current.batchWrittenVerified('${records.length}')
         : (_controller.lastWriteResult?.message ?? L10n.current.writeError);
+    final labelled = label == null ? msg : '$label · $msg';
 
     setSheetState(() {
       _batchAttempts[index] = _batchAttempts[index].copyWith(
         status: success ? BatchTagStatus.success : BatchTagStatus.failed,
-        message: msg,
+        message: labelled,
         completedAt: DateTime.now(),
       );
       _batchCurrentIndex++;
@@ -2453,6 +2679,7 @@ class _HomeScreenState extends State<HomeScreen>
                       controller: _controller,
                       onClearTag: _confirmClearTag,
                       onLockTag: _confirmLockTag,
+                      onCloneTag: _cloneTagWizard,
                     ),
                     _buildHistoryTab(),
                     _buildTemplatesAndSettingsTab(),

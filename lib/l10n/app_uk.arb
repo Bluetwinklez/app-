@@ -899,5 +899,22 @@
   "csvColumnRecords": "Записи",
   "csvColumnContent": "Вміст",
   "csvColumnCapacity": "Ємність (Б)",
-  "csvColumnUsed": "Зайнято (Б)"
+  "csvColumnUsed": "Зайнято (Б)",
+  "batchSerialToggle": "Додати серійні номери",
+  "batchSerialHint": "Вкажіть {token} у записі, і номер стане туди; інакше до кожної мітки додасться окремий текстовий запис із номером.",
+  "batchSerialPrefix": "Префікс",
+  "batchSerialStart": "Початок",
+  "batchSerialDigits": "Розрядів",
+  "batchSerialPreview": "Перший: {first} · Останній: {last}",
+  "batchFromCsvButton": "З CSV-файлу (рядок на мітку)",
+  "batchCsvTitle": "Пакетний запис із CSV",
+  "batchCsvSummary": "Буде записано міток: {count}. Кожна отримує один рядок CSV за порядком.",
+  "batchCsvTruncated": "Для пакетного запису береться не більше {max} рядків; решту пропущено.",
+  "cloneTagTitle": "Клонувати мітку",
+  "cloneTagSubtitle": "Прочитати мітку й записати її вміст на інші",
+  "cloneSourceStep": "Крок 1: відскануйте вихідну мітку. Копіюється лише NDEF-вміст; UID клонувати не можна.",
+  "cloneSourceEmpty": "На вихідній мітці немає NDEF-записів для копіювання.",
+  "cloneReadyTitle": "Джерело прочитано",
+  "cloneReadySummary": "Буде скопійовано записів: {count} ({bytes} байт). Виберіть кількість міток.",
+  "cloneEditFirst": "Спершу змінити"
 }

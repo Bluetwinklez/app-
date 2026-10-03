@@ -899,5 +899,22 @@
   "csvColumnRecords": "レコード",
   "csvColumnContent": "内容",
   "csvColumnCapacity": "容量 (B)",
-  "csvColumnUsed": "使用 (B)"
+  "csvColumnUsed": "使用 (B)",
+  "batchSerialToggle": "連番を追加",
+  "batchSerialHint": "レコードに {token} を入れるとそこに番号が入ります。ない場合は番号入りのテキストレコードが各タグに追加されます。",
+  "batchSerialPrefix": "接頭辞",
+  "batchSerialStart": "開始",
+  "batchSerialDigits": "桁数",
+  "batchSerialPreview": "最初: {first} · 最後: {last}",
+  "batchFromCsvButton": "CSVから (1行=1タグ)",
+  "batchCsvTitle": "CSVから一括書き込み",
+  "batchCsvSummary": "{count}枚のタグに書き込みます。各タグにCSVの1行が順番に書き込まれます。",
+  "batchCsvTruncated": "一括書き込みでは最大{max}行まで使用します。残りはスキップしました。",
+  "cloneTagTitle": "タグを複製",
+  "cloneTagSubtitle": "タグを読み取り、内容を他のタグに書き込みます",
+  "cloneSourceStep": "ステップ1: コピー元のタグを読み取ります。複製されるのはNDEF内容のみで、UIDは複製できません。",
+  "cloneSourceEmpty": "コピー元のタグにNDEFレコードがありません。",
+  "cloneReadyTitle": "読み取り完了",
+  "cloneReadySummary": "{count}件のレコード ({bytes}バイト) をコピーします。書き込むタグの数を選んでください。",
+  "cloneEditFirst": "先に編集"
 }
