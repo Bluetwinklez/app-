@@ -3613,4 +3613,8 @@ class AppLocalizationsTr extends AppLocalizations {
 
   @override
   String get nfcWriteDone => 'Etikete başarıyla yazıldı.';
+
+  @override
+  String get errorWidgetMessage =>
+      'Bu bölüm gösterilemedi. Geri dönüp tekrar deneyin.';
 }

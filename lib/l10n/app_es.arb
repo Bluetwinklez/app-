@@ -1018,5 +1018,6 @@
   "nfcSheetWriteVerified": "¡Escrito y verificado!",
   "nfcSheetWritten": "¡Escrito en la etiqueta!",
   "nfcSheetLocked": "¡La etiqueta quedó bloqueada para siempre!",
-  "nfcWriteDone": "Escrito en la etiqueta correctamente."
+  "nfcWriteDone": "Escrito en la etiqueta correctamente.",
+  "errorWidgetMessage": "No se pudo mostrar esta parte. Vuelve atrás e inténtalo de nuevo."
 }

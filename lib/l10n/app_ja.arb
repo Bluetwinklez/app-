@@ -1018,5 +1018,6 @@
   "nfcSheetWriteVerified": "書き込みと検証が完了しました!",
   "nfcSheetWritten": "タグに書き込みました!",
   "nfcSheetLocked": "タグは完全にロックされました!",
-  "nfcWriteDone": "タグへの書き込みに成功しました。"
+  "nfcWriteDone": "タグへの書き込みに成功しました。",
+  "errorWidgetMessage": "この部分を表示できませんでした。戻ってもう一度お試しください。"
 }

@@ -3459,4 +3459,7 @@ class AppLocalizationsJa extends AppLocalizations {
 
   @override
   String get nfcWriteDone => 'タグへの書き込みに成功しました。';
+
+  @override
+  String get errorWidgetMessage => 'この部分を表示できませんでした。戻ってもう一度お試しください。';
 }

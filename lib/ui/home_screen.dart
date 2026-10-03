@@ -748,8 +748,8 @@ class _HomeScreenState extends State<HomeScreen>
     }
     if (file == null || !mounted) return;
     try {
+      if (await file.length() > 512 * 1024) throw const FormatException('size');
       final bytes = await file.readAsBytes();
-      if (bytes.length > 512 * 1024) throw const FormatException('size');
       final data = jsonDecode(utf8.decode(bytes));
       final raw = data is Map ? data['records'] : data;
       if (raw is! List || raw.isEmpty || raw.length > 100) throw const FormatException('records');
@@ -786,6 +786,13 @@ class _HomeScreenState extends State<HomeScreen>
       return null;
     }
     if (file == null || !mounted) return null;
+    if (await file.length() > 512 * 1024) {
+      if (!mounted) return null;
+      ScaffoldMessenger.of(context).showSnackBar(
+        SnackBar(content: Text(loc.csvFileTooLarge), backgroundColor: AppColors.danger),
+      );
+      return null;
+    }
     final bytes = await file.readAsBytes();
     if (!mounted) return null;
     if (bytes.length > 512 * 1024) {
@@ -2547,6 +2554,9 @@ class _HomeScreenState extends State<HomeScreen>
 
     String content;
     try {
+      if (await file.length() > BackupCodec.maxByteSize) {
+        throw BackupValidationException(L10n.current.backupFileExceedsLimit);
+      }
       final bytes = await file.readAsBytes();
       if (bytes.length > BackupCodec.maxByteSize) {
         throw BackupValidationException(

@@ -3619,4 +3619,8 @@ class AppLocalizationsNl extends AppLocalizations {
 
   @override
   String get nfcWriteDone => 'Succesvol naar de tag geschreven.';
+
+  @override
+  String get errorWidgetMessage =>
+      'Dit onderdeel kon niet worden getoond. Ga terug en probeer het opnieuw.';
 }

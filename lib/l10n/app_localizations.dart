@@ -6237,6 +6237,12 @@ abstract class AppLocalizations {
   /// In tr, this message translates to:
   /// **'Etikete başarıyla yazıldı.'**
   String get nfcWriteDone;
+
+  /// No description provided for @errorWidgetMessage.
+  ///
+  /// In tr, this message translates to:
+  /// **'Bu bölüm gösterilemedi. Geri dönüp tekrar deneyin.'**
+  String get errorWidgetMessage;
 }
 
 class _AppLocalizationsDelegate

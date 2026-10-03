@@ -1018,5 +1018,6 @@
   "nfcSheetWriteVerified": "تمت الكتابة والتحقق!",
   "nfcSheetWritten": "تمت الكتابة على الوسم!",
   "nfcSheetLocked": "تم قفل الوسم نهائيًا!",
-  "nfcWriteDone": "تمت الكتابة على الوسم بنجاح."
+  "nfcWriteDone": "تمت الكتابة على الوسم بنجاح.",
+  "errorWidgetMessage": "تعذّر عرض هذا الجزء. ارجع وحاول مجددًا."
 }
