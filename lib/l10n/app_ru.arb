@@ -1289,5 +1289,18 @@
   "textSizeTitle": "Размер текста",
   "speakTag": "Прочитать вслух",
   "speakAfterScanTitle": "Читать вслух после сканирования",
-  "speakAfterScanSubtitle": "Содержимое озвучивается; удобно при слабом зрении и в простом режиме"
+  "speakAfterScanSubtitle": "Содержимое озвучивается; удобно при слабом зрении и в простом режиме",
+  "logbookKindHabit": "Привычка (серия)",
+  "logbookKindChores": "Таблица дел для детей",
+  "logbookKindFeeding": "Кормление питомца",
+  "logbookKindVisitors": "Журнал посетителей",
+  "habitStreak": "🔥 Серия {current} дн. · рекорд {best}",
+  "habitDoneToday": "Сегодня выполнено ✓",
+  "habitNotToday": "Сегодня ещё нет — не прерывайте серию!",
+  "choresStars": "⭐ Сегодня сделано дел: {count}",
+  "feedingLast": "Последнее кормление {ago} назад ({time})",
+  "feedingNever": "Кормлений пока нет",
+  "visitorsToday": "Посетителей сегодня: {count}",
+  "visitorNamePrompt": "Имя посетителя",
+  "visitorNameHint": "Имя, компания (необязательно)"
 }

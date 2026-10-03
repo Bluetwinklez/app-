@@ -1289,5 +1289,18 @@
   "textSizeTitle": "حجم النص",
   "speakTag": "قراءة بصوت عالٍ",
   "speakAfterScanTitle": "القراءة بصوت عالٍ بعد المسح",
-  "speakAfterScanSubtitle": "يُقرأ المحتوى بصوت عالٍ؛ مفيد لضعاف البصر والوضع البسيط"
+  "speakAfterScanSubtitle": "يُقرأ المحتوى بصوت عالٍ؛ مفيد لضعاف البصر والوضع البسيط",
+  "logbookKindHabit": "عادة (سلسلة)",
+  "logbookKindChores": "جدول مهام الأطفال",
+  "logbookKindFeeding": "إطعام الحيوان الأليف",
+  "logbookKindVisitors": "سجل الزوار",
+  "habitStreak": "🔥 سلسلة {current} يوم · الأفضل {best}",
+  "habitDoneToday": "تم اليوم ✓",
+  "habitNotToday": "لم يُنجز اليوم بعد — حافظ على السلسلة!",
+  "choresStars": "⭐ أُنجزت {count} مهام اليوم",
+  "feedingLast": "آخر إطعام قبل {ago} ({time})",
+  "feedingNever": "لا يوجد إطعام مسجل بعد",
+  "visitorsToday": "{count} زائر اليوم",
+  "visitorNamePrompt": "اسم الزائر",
+  "visitorNameHint": "الاسم، الشركة (اختياري)"
 }

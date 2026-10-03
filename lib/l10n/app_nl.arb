@@ -1289,5 +1289,18 @@
   "textSizeTitle": "Tekstgrootte",
   "speakTag": "Voorlezen",
   "speakAfterScanTitle": "Na scannen voorlezen",
-  "speakAfterScanSubtitle": "De inhoud wordt voorgelezen; handig bij slechtziendheid en eenvoudige modus"
+  "speakAfterScanSubtitle": "De inhoud wordt voorgelezen; handig bij slechtziendheid en eenvoudige modus",
+  "logbookKindHabit": "Gewoonte (reeks)",
+  "logbookKindChores": "Klusjeskaart kinderen",
+  "logbookKindFeeding": "Huisdier voeren",
+  "logbookKindVisitors": "Bezoekersregister",
+  "habitStreak": "🔥 Reeks van {current} dagen · record {best}",
+  "habitDoneToday": "Vandaag gedaan ✓",
+  "habitNotToday": "Vandaag nog niet — houd de reeks vast!",
+  "choresStars": "⭐ {count} klusjes vandaag gedaan",
+  "feedingLast": "Laatst gevoerd {ago} geleden ({time})",
+  "feedingNever": "Nog geen voeding gelogd",
+  "visitorsToday": "{count} bezoekers vandaag",
+  "visitorNamePrompt": "Naam bezoeker",
+  "visitorNameHint": "Naam, bedrijf (optioneel)"
 }

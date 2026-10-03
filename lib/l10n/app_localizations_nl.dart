@@ -4612,4 +4612,51 @@ class AppLocalizationsNl extends AppLocalizations {
   @override
   String get speakAfterScanSubtitle =>
       'De inhoud wordt voorgelezen; handig bij slechtziendheid en eenvoudige modus';
+
+  @override
+  String get logbookKindHabit => 'Gewoonte (reeks)';
+
+  @override
+  String get logbookKindChores => 'Klusjeskaart kinderen';
+
+  @override
+  String get logbookKindFeeding => 'Huisdier voeren';
+
+  @override
+  String get logbookKindVisitors => 'Bezoekersregister';
+
+  @override
+  String habitStreak(String current, String best) {
+    return '🔥 Reeks van $current dagen · record $best';
+  }
+
+  @override
+  String get habitDoneToday => 'Vandaag gedaan ✓';
+
+  @override
+  String get habitNotToday => 'Vandaag nog niet — houd de reeks vast!';
+
+  @override
+  String choresStars(String count) {
+    return '⭐ $count klusjes vandaag gedaan';
+  }
+
+  @override
+  String feedingLast(String ago, String time) {
+    return 'Laatst gevoerd $ago geleden ($time)';
+  }
+
+  @override
+  String get feedingNever => 'Nog geen voeding gelogd';
+
+  @override
+  String visitorsToday(String count) {
+    return '$count bezoekers vandaag';
+  }
+
+  @override
+  String get visitorNamePrompt => 'Naam bezoeker';
+
+  @override
+  String get visitorNameHint => 'Naam, bedrijf (optioneel)';
 }

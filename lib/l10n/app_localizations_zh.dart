@@ -4373,4 +4373,51 @@ class AppLocalizationsZh extends AppLocalizations {
 
   @override
   String get speakAfterScanSubtitle => '朗读标签内容，适合视力不佳者和简易模式';
+
+  @override
+  String get logbookKindHabit => '习惯（连续）';
+
+  @override
+  String get logbookKindChores => '儿童任务表';
+
+  @override
+  String get logbookKindFeeding => '宠物喂食';
+
+  @override
+  String get logbookKindVisitors => '访客登记';
+
+  @override
+  String habitStreak(String current, String best) {
+    return '🔥 连续 $current 天 · 最长 $best 天';
+  }
+
+  @override
+  String get habitDoneToday => '今天已完成 ✓';
+
+  @override
+  String get habitNotToday => '今天还没完成——保持连续！';
+
+  @override
+  String choresStars(String count) {
+    return '⭐ 今天完成 $count 项任务';
+  }
+
+  @override
+  String feedingLast(String ago, String time) {
+    return '上次喂食：$ago前（$time）';
+  }
+
+  @override
+  String get feedingNever => '尚无喂食记录';
+
+  @override
+  String visitorsToday(String count) {
+    return '今天 $count 位访客';
+  }
+
+  @override
+  String get visitorNamePrompt => '访客姓名';
+
+  @override
+  String get visitorNameHint => '姓名、公司（可选）';
 }

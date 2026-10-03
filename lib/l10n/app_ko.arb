@@ -1289,5 +1289,18 @@
   "textSizeTitle": "글자 크기",
   "speakTag": "소리내어 읽기",
   "speakAfterScanTitle": "스캔 후 소리내어 읽기",
-  "speakAfterScanSubtitle": "내용을 읽어 줍니다. 저시력 사용자와 간단 모드에 유용"
+  "speakAfterScanSubtitle": "내용을 읽어 줍니다. 저시력 사용자와 간단 모드에 유용",
+  "logbookKindHabit": "습관(연속 기록)",
+  "logbookKindChores": "어린이 집안일 표",
+  "logbookKindFeeding": "반려동물 급식",
+  "logbookKindVisitors": "방문자 기록",
+  "habitStreak": "🔥 {current}일 연속 · 최고 {best}일",
+  "habitDoneToday": "오늘 완료 ✓",
+  "habitNotToday": "오늘은 아직 — 기록을 이어가세요!",
+  "choresStars": "⭐ 오늘 {count}개 완료",
+  "feedingLast": "마지막 급식: {ago} 전 ({time})",
+  "feedingNever": "아직 급식 기록 없음",
+  "visitorsToday": "오늘 방문자 {count}명",
+  "visitorNamePrompt": "방문자 이름",
+  "visitorNameHint": "이름, 회사(선택)"
 }

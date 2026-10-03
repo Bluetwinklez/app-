@@ -4429,4 +4429,51 @@ class AppLocalizationsKo extends AppLocalizations {
 
   @override
   String get speakAfterScanSubtitle => '내용을 읽어 줍니다. 저시력 사용자와 간단 모드에 유용';
+
+  @override
+  String get logbookKindHabit => '습관(연속 기록)';
+
+  @override
+  String get logbookKindChores => '어린이 집안일 표';
+
+  @override
+  String get logbookKindFeeding => '반려동물 급식';
+
+  @override
+  String get logbookKindVisitors => '방문자 기록';
+
+  @override
+  String habitStreak(String current, String best) {
+    return '🔥 $current일 연속 · 최고 $best일';
+  }
+
+  @override
+  String get habitDoneToday => '오늘 완료 ✓';
+
+  @override
+  String get habitNotToday => '오늘은 아직 — 기록을 이어가세요!';
+
+  @override
+  String choresStars(String count) {
+    return '⭐ 오늘 $count개 완료';
+  }
+
+  @override
+  String feedingLast(String ago, String time) {
+    return '마지막 급식: $ago 전 ($time)';
+  }
+
+  @override
+  String get feedingNever => '아직 급식 기록 없음';
+
+  @override
+  String visitorsToday(String count) {
+    return '오늘 방문자 $count명';
+  }
+
+  @override
+  String get visitorNamePrompt => '방문자 이름';
+
+  @override
+  String get visitorNameHint => '이름, 회사(선택)';
 }

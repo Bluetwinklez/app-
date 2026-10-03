@@ -4609,4 +4609,51 @@ class AppLocalizationsTr extends AppLocalizations {
   @override
   String get speakAfterScanSubtitle =>
       'Etiketin içeriği sesli söylenir; görme güçlüğü olanlar ve basit mod için';
+
+  @override
+  String get logbookKindHabit => 'Alışkanlık (seri)';
+
+  @override
+  String get logbookKindChores => 'Çocuk görev tablosu';
+
+  @override
+  String get logbookKindFeeding => 'Evcil hayvan besleme';
+
+  @override
+  String get logbookKindVisitors => 'Ziyaretçi defteri';
+
+  @override
+  String habitStreak(String current, String best) {
+    return '🔥 $current günlük seri · en uzun $best';
+  }
+
+  @override
+  String get habitDoneToday => 'Bugün yapıldı ✓';
+
+  @override
+  String get habitNotToday => 'Bugün henüz yapılmadı — seriyi bozma!';
+
+  @override
+  String choresStars(String count) {
+    return 'Bugün ⭐ $count görev tamamlandı';
+  }
+
+  @override
+  String feedingLast(String ago, String time) {
+    return 'Son beslenme: $ago önce ($time)';
+  }
+
+  @override
+  String get feedingNever => 'Henüz besleme kaydı yok';
+
+  @override
+  String visitorsToday(String count) {
+    return 'Bugün $count ziyaretçi';
+  }
+
+  @override
+  String get visitorNamePrompt => 'Ziyaretçi adı';
+
+  @override
+  String get visitorNameHint => 'Ad Soyad, firma (isteğe bağlı)';
 }

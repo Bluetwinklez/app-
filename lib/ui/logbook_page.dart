@@ -19,6 +19,10 @@ String logBookKindLabel(LogBookKind kind, AppLocalizations loc) => switch (kind)
       LogBookKind.medication => loc.logbookKindMedication,
       LogBookKind.inventory => loc.logbookKindInventory,
       LogBookKind.timeClock => loc.logbookKindTimeClock,
+      LogBookKind.habit => loc.logbookKindHabit,
+      LogBookKind.chores => loc.logbookKindChores,
+      LogBookKind.feeding => loc.logbookKindFeeding,
+      LogBookKind.visitors => loc.logbookKindVisitors,
       LogBookKind.custom => loc.logbookKindCustom,
     };
 
@@ -27,6 +31,10 @@ IconData logBookKindIcon(LogBookKind kind) => switch (kind) {
       LogBookKind.medication => Icons.medication_outlined,
       LogBookKind.inventory => Icons.inventory_2_outlined,
       LogBookKind.timeClock => Icons.punch_clock_outlined,
+      LogBookKind.habit => Icons.local_fire_department_outlined,
+      LogBookKind.chores => Icons.star_outline_rounded,
+      LogBookKind.feeding => Icons.pets_outlined,
+      LogBookKind.visitors => Icons.badge_outlined,
       LogBookKind.custom => Icons.event_note_outlined,
     };
 
@@ -214,7 +222,33 @@ class _LogBookDetailPageState extends State<LogBookDetailPage> {
       ));
       return;
     }
-    final updated = book.add(LogEntry(time: DateTime.now(), uid: tag.identifier, label: _labelFor(tag)));
+    var note = '';
+    if (book.kind == LogBookKind.visitors) {
+      final field = TextEditingController();
+      final typed = await showDialog<String>(
+        context: context,
+        builder: (ctx) => AlertDialog(
+          title: Text(loc.visitorNamePrompt),
+          content: TextField(
+            controller: field,
+            autofocus: true,
+            maxLength: 80,
+            textCapitalization: TextCapitalization.words,
+            decoration: InputDecoration(hintText: loc.visitorNameHint, counterText: ''),
+            onSubmitted: (v) => Navigator.of(ctx).pop(v),
+          ),
+          actions: [
+            TextButton(onPressed: () => Navigator.of(ctx).pop(''), child: Text(loc.onboardingSkip)),
+            ElevatedButton(onPressed: () => Navigator.of(ctx).pop(field.text), child: Text(loc.save)),
+          ],
+        ),
+      );
+      field.dispose();
+      if (!mounted) return;
+      note = (typed ?? '').trim();
+    }
+    final updated =
+        book.add(LogEntry(time: DateTime.now(), uid: tag.identifier, label: _labelFor(tag), note: note));
     final entry = updated.entries.first;
     await widget.controller.storage.saveLogBook(updated);
     if (!mounted) return;
@@ -254,7 +288,7 @@ class _LogBookDetailPageState extends State<LogBookDetailPage> {
     final loc = AppLocalizations.of(context) ?? L10n.current;
     final clock = book.kind == LogBookKind.timeClock;
     final csv = CsvExport.build(
-      [loc.csvColumnTime, loc.name, 'UID', if (clock) loc.csvColumnDirection],
+      [loc.csvColumnTime, loc.name, 'UID', if (clock) loc.csvColumnDirection, loc.noteLabel],
       [
         for (final e in book.entries)
           [
@@ -262,6 +296,7 @@ class _LogBookDetailPageState extends State<LogBookDetailPage> {
             e.label,
             e.uid,
             if (clock) e.checkIn == false ? loc.logbookCheckOut : loc.logbookCheckIn,
+            e.note,
           ],
       ],
     );
@@ -337,6 +372,20 @@ class _LogBookDetailPageState extends State<LogBookDetailPage> {
               loc.logbookMedTaken(time.format(book.entriesOn(today).first.time.toLocal()))),
       LogBookKind.inventory => (Icons.inventory_2_outlined, AppColors.accent,
           loc.logbookInventorySummary('${book.latestPerTag().length}')),
+      LogBookKind.habit => book.entriesOn(today).isEmpty
+          ? (Icons.local_fire_department_outlined, AppColors.warning,
+              '${loc.habitStreak('${book.streak().current}', '${book.streak().best}')}\n${loc.habitNotToday}')
+          : (Icons.local_fire_department, AppColors.success,
+              '${loc.habitStreak('${book.streak().current}', '${book.streak().best}')}\n${loc.habitDoneToday}'),
+      LogBookKind.chores => (Icons.star_rounded, AppColors.warning,
+          loc.choresStars('${book.distinctTagsOn(today)}')),
+      LogBookKind.feeding => book.last == null
+          ? (Icons.pets_outlined, AppColors.secondary, loc.feedingNever)
+          : (Icons.pets, AppColors.accent, loc.feedingLast(
+              _duration(DateTime.now().difference(book.last!.time.toLocal()), loc),
+              time.format(book.last!.time.toLocal()))),
+      LogBookKind.visitors => (Icons.badge_outlined, AppColors.accent,
+          loc.visitorsToday('${book.entriesOn(today).length}')),
       _ => (Icons.today_outlined, AppColors.accent,
           loc.logbookToday('${book.entriesOn(today).length}', '${book.distinctTagsOn(today)}')),
     };
@@ -426,7 +475,10 @@ class _LogBookDetailPageState extends State<LogBookDetailPage> {
                       false => Icon(Icons.logout_rounded, color: AppColors.warning),
                       null => Icon(logBookKindIcon(book.kind), color: AppColors.secondary),
                     },
-                    title: Text(shown[i].label, maxLines: 2, overflow: TextOverflow.ellipsis),
+                    title: Text(
+                        shown[i].note.isEmpty ? shown[i].label : '${shown[i].note} · ${shown[i].label}',
+                        maxLines: 2,
+                        overflow: TextOverflow.ellipsis),
                     subtitle: Text(
                         [
                           if (shown[i].checkIn != null)
