@@ -36,6 +36,10 @@ abstract class AppStorageService {
   List<String> get favoritePresets;
   Future<void> setFavoritePresets(List<String> ids);
 
+  /// When a backup was last exported successfully.
+  DateTime? get lastBackupAt;
+  Future<void> setLastBackupAt(DateTime time);
+
   // Scan History
   List<ScanHistoryEntry> getHistory();
   Future<void> addHistoryEntry(ScanHistoryEntry entry);
@@ -106,6 +110,14 @@ class InMemoryAppStorageService implements AppStorageService {
   @override
   Future<void> setFavoritePresets(List<String> ids) async =>
       _favoritePresets = List.unmodifiable(ids);
+
+  DateTime? _lastBackupAt;
+
+  @override
+  DateTime? get lastBackupAt => _lastBackupAt;
+
+  @override
+  Future<void> setLastBackupAt(DateTime time) async => _lastBackupAt = time;
 
   @override
   List<TagLibraryEntry> getLibrary() => List.unmodifiable(_library);
@@ -352,6 +364,7 @@ class LocalFileAppStorageService implements AppStorageService {
           _favoritePresets = favs is List
               ? List.unmodifiable(favs.whereType<String>().take(100))
               : const [];
+          _lastBackupAt = DateTime.tryParse(data['lastBackupAt'] as String? ?? '');
         }
       }
     } catch (e) {
@@ -491,6 +504,7 @@ class LocalFileAppStorageService implements AppStorageService {
       'hapticsEnabled': _hapticsEnabled,
       'soundsEnabled': _soundsEnabled,
       'favoritePresets': _favoritePresets,
+      if (_lastBackupAt != null) 'lastBackupAt': _lastBackupAt!.toIso8601String(),
     });
     await _atomicWrite(_settingsFile, data);
   }
@@ -539,6 +553,17 @@ class LocalFileAppStorageService implements AppStorageService {
   @override
   Future<void> setFavoritePresets(List<String> ids) async {
     _favoritePresets = List.unmodifiable(ids);
+    await _saveSettings();
+  }
+
+  DateTime? _lastBackupAt;
+
+  @override
+  DateTime? get lastBackupAt => _lastBackupAt;
+
+  @override
+  Future<void> setLastBackupAt(DateTime time) async {
+    _lastBackupAt = time;
     await _saveSettings();
   }
 

@@ -3597,4 +3597,20 @@ class AppLocalizationsAr extends AppLocalizations {
   @override
   String get whatsNew110 =>
       '• 14 لغة ووضع داكن وتصميم جديد\n• قوالب جاهزة مع فئات وبحث ومفضلة\n• كتابة دفعية بأرقام تسلسلية وCSV ونسخ الوسوم\n• معاينة \"ماذا يحدث عند اللمس؟\" وتحذيرات السعة\n• مكتبة وسوم بالصور والملاحظات والتسميات\n• تقرير الوسم والمقارنة والمسح المستمر وتصدير CSV\n• Siri والاختصارات ووصفات أتمتة جاهزة';
+
+  @override
+  String lastBackupAt(String date) {
+    return 'آخر نسخة احتياطية: $date';
+  }
+
+  @override
+  String get noBackupYet => 'لا توجد نسخة احتياطية بعد.';
+
+  @override
+  String get backupStale =>
+      'مضى على آخر نسخة أكثر من 30 يومًا؛ يُنصح بعمل نسخة جديدة.';
+
+  @override
+  String get backupICloudTip =>
+      'نصيحة: اختر \"حفظ في الملفات\" ← iCloud Drive من قائمة المشاركة.';
 }

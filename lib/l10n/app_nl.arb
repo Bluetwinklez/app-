@@ -1025,5 +1025,9 @@
   "aboutVersion": "Versie {version}",
   "privacySummary": "Je gegevens blijven op dit apparaat: geen account, geen server, geen advertenties of tracking.",
   "whatsNewTitle": "Wat is er nieuw",
-  "whatsNew110": "• 14 talen, donkere modus en nieuw ontwerp\n• Sjablonen met categorieën, zoeken en favorieten\n• Batchgewijs schrijven met serienummers, CSV en klonen\n• Voorbeeld \"Wat gebeurt er bij tikken?\" en capaciteitswaarschuwingen\n• Tagbibliotheek met foto's, notities en labels\n• Tagrapport, vergelijken, continu scannen en CSV-export\n• Siri, Opdrachten en automatiseringsrecepten"
+  "whatsNew110": "• 14 talen, donkere modus en nieuw ontwerp\n• Sjablonen met categorieën, zoeken en favorieten\n• Batchgewijs schrijven met serienummers, CSV en klonen\n• Voorbeeld \"Wat gebeurt er bij tikken?\" en capaciteitswaarschuwingen\n• Tagbibliotheek met foto's, notities en labels\n• Tagrapport, vergelijken, continu scannen en CSV-export\n• Siri, Opdrachten en automatiseringsrecepten",
+  "lastBackupAt": "Laatste back-up: {date}",
+  "noBackupYet": "Nog geen back-up.",
+  "backupStale": "Je laatste back-up is ouder dan 30 dagen; maak een nieuwe.",
+  "backupICloudTip": "Tip: kies in het deelmenu \"Bewaar in Bestanden\" → iCloud Drive."
 }

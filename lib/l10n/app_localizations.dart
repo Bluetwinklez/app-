@@ -6279,6 +6279,30 @@ abstract class AppLocalizations {
   /// In tr, this message translates to:
   /// **'• 14 dil, koyu mod ve yeni tasarım\n• Hazır şablonlar: kategoriler, arama ve favoriler\n• Toplu yazma: seri numara, CSV ve etiket kopyalama\n• \"Dokununca ne olur?\" önizlemesi ve kapasite uyarıları\n• Etiket kütüphanesi: fotoğraf, not ve etiketler\n• Etiket raporu, karşılaştırma, sürekli tarama ve CSV dışa aktarma\n• Siri, Kısayollar ve hazır otomasyon tarifleri'**
   String get whatsNew110;
+
+  /// No description provided for @lastBackupAt.
+  ///
+  /// In tr, this message translates to:
+  /// **'Son yedek: {date}'**
+  String lastBackupAt(String date);
+
+  /// No description provided for @noBackupYet.
+  ///
+  /// In tr, this message translates to:
+  /// **'Henüz yedek alınmadı.'**
+  String get noBackupYet;
+
+  /// No description provided for @backupStale.
+  ///
+  /// In tr, this message translates to:
+  /// **'Son yedek 30 günden eski; yeni bir yedek almanız önerilir.'**
+  String get backupStale;
+
+  /// No description provided for @backupICloudTip.
+  ///
+  /// In tr, this message translates to:
+  /// **'İpucu: Paylaş menüsünde \"Dosyalara Kaydet\" → iCloud Drive seçerek yedeği iCloud\'a saklayabilirsiniz.'**
+  String get backupICloudTip;
 }
 
 class _AppLocalizationsDelegate
