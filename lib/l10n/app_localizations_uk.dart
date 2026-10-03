@@ -3626,4 +3626,23 @@ class AppLocalizationsUk extends AppLocalizations {
   @override
   String get nfcErrTimeout =>
       'Час вичерпано, мітку не знайдено. Піднесіть її до верхньої частини телефона й повторіть.';
+
+  @override
+  String get aboutTitle => 'Про застосунок';
+
+  @override
+  String aboutVersion(String version) {
+    return 'Версія $version';
+  }
+
+  @override
+  String get privacySummary =>
+      'Дані залишаються на цьому пристрої: без акаунта, сервера, реклами й стеження.';
+
+  @override
+  String get whatsNewTitle => 'Що нового';
+
+  @override
+  String get whatsNew110 =>
+      '• 14 мов, темна тема й новий дизайн\n• Шаблони з категоріями, пошуком і обраним\n• Пакетний запис: серійні номери, CSV і клонування\n• Попередній перегляд «Що буде при дотику?» і попередження про ємність\n• Бібліотека міток із фото, нотатками й мітками\n• Звіт, порівняння, безперервне сканування та експорт CSV\n• Siri, Команди й готові рецепти автоматизації';
 }

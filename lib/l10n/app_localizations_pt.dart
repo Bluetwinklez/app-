@@ -3637,4 +3637,23 @@ class AppLocalizationsPt extends AppLocalizations {
   @override
   String get nfcErrTimeout =>
       'O tempo acabou sem detectar tag. Aproxime-a da parte de cima do telefone e tente de novo.';
+
+  @override
+  String get aboutTitle => 'Sobre';
+
+  @override
+  String aboutVersion(String version) {
+    return 'Versão $version';
+  }
+
+  @override
+  String get privacySummary =>
+      'Seus dados ficam neste aparelho: sem conta, sem servidor, sem anúncios ou rastreamento.';
+
+  @override
+  String get whatsNewTitle => 'Novidades';
+
+  @override
+  String get whatsNew110 =>
+      '• 14 idiomas, modo escuro e novo design\n• Modelos com categorias, busca e favoritos\n• Gravação em lote: números de série, CSV e clonagem\n• Prévia \"O que acontece ao tocar?\" e avisos de capacidade\n• Biblioteca de tags com fotos, notas e rótulos\n• Relatório, comparação, leitura contínua e exportação CSV\n• Siri, Atalhos e receitas de automação';
 }

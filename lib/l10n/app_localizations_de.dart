@@ -3634,4 +3634,23 @@ class AppLocalizationsDe extends AppLocalizations {
   @override
   String get nfcErrTimeout =>
       'Zeit abgelaufen, kein Tag erkannt. Halten Sie den Tag an die Oberseite des Telefons und versuchen Sie es erneut.';
+
+  @override
+  String get aboutTitle => 'Über';
+
+  @override
+  String aboutVersion(String version) {
+    return 'Version $version';
+  }
+
+  @override
+  String get privacySummary =>
+      'Ihre Daten bleiben auf diesem Gerät: kein Konto, kein Server, keine Werbung, kein Tracking.';
+
+  @override
+  String get whatsNewTitle => 'Neuigkeiten';
+
+  @override
+  String get whatsNew110 =>
+      '• 14 Sprachen, Dunkelmodus und neues Design\n• Vorlagen mit Kategorien, Suche und Favoriten\n• Stapelschreiben mit Seriennummern, CSV und Klonen\n• Vorschau „Was passiert beim Antippen?“ und Kapazitätswarnungen\n• Tag-Bibliothek mit Fotos, Notizen und Labels\n• Tag-Bericht, Vergleich, Dauerscan und CSV-Export\n• Siri, Kurzbefehle und fertige Automationen';
 }

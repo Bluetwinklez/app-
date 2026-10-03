@@ -18,6 +18,7 @@ import 'qr_preview_dialog.dart';
 import 'tag_rules_manager_sheet.dart';
 import 'app_theme.dart';
 import 'tools_tab.dart';
+import '../app_info.dart';
 import 'tap_preview_card.dart';
 import 'onboarding_page.dart';
 import 'template_gallery_page.dart';
@@ -381,7 +382,68 @@ class _HomeScreenState extends State<HomeScreen>
               trailing: const Icon(Icons.chevron_right),
               onTap: () => setState(() => _showOnboarding = true),
             ),
+            ListTile(
+              leading: Icon(Icons.info_outline_rounded, color: AppColors.accent),
+              title: Text(L10n.current.aboutTitle),
+              subtitle: Text(L10n.current.aboutVersion(AppInfo.version)),
+              trailing: const Icon(Icons.chevron_right),
+              onTap: _showAbout,
+            ),
           ],
+        ),
+      ),
+    );
+  }
+
+  void _showAbout() {
+    final loc = L10n.current;
+    showModalBottomSheet<void>(
+      context: context,
+      isScrollControlled: true,
+      builder: (ctx) => SafeArea(
+        child: SingleChildScrollView(
+          padding: const EdgeInsets.fromLTRB(20, 4, 20, 24),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Row(
+                children: [
+                  Container(
+                    width: 48,
+                    height: 48,
+                    decoration: BoxDecoration(
+                      gradient: AppColors.heroGradient,
+                      borderRadius: BorderRadius.circular(14),
+                    ),
+                    child: const Icon(Icons.nfc_rounded, color: Colors.white),
+                  ),
+                  const SizedBox(width: 12),
+                  Expanded(
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Text(loc.appTitle,
+                            style: const TextStyle(fontSize: 18, fontWeight: FontWeight.w700)),
+                        Text(loc.aboutVersion(AppInfo.version),
+                            style: TextStyle(color: AppColors.secondary)),
+                      ],
+                    ),
+                  ),
+                ],
+              ),
+              const SizedBox(height: 16),
+              Row(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Icon(Icons.lock_outline_rounded, size: 18, color: AppColors.success),
+                  const SizedBox(width: 8),
+                  Expanded(child: Text(loc.privacySummary, style: const TextStyle(height: 1.4))),
+                ],
+              ),
+              SectionHeader(title: loc.whatsNewTitle),
+              Text(loc.whatsNew110, style: const TextStyle(height: 1.6)),
+            ],
+          ),
         ),
       ),
     );
