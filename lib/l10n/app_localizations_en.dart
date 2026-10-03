@@ -3500,4 +3500,19 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get csvColumnLabels => 'Labels';
+
+  @override
+  String get firstNameLabel => 'First name';
+
+  @override
+  String get lastNameLabel => 'Last name';
+
+  @override
+  String get wifiPasswordMinHint => 'At least 8 characters';
+
+  @override
+  String get emailExampleHint => 'name@example.com';
+
+  @override
+  String get wifiSsidExampleHint => 'Home_WiFi_5G';
 }

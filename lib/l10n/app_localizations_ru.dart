@@ -3518,4 +3518,19 @@ class AppLocalizationsRu extends AppLocalizations {
 
   @override
   String get csvColumnLabels => 'Метки';
+
+  @override
+  String get firstNameLabel => 'Имя';
+
+  @override
+  String get lastNameLabel => 'Фамилия';
+
+  @override
+  String get wifiPasswordMinHint => 'Не менее 8 символов';
+
+  @override
+  String get emailExampleHint => 'name@example.com';
+
+  @override
+  String get wifiSsidExampleHint => 'Home_WiFi_5G';
 }

@@ -988,5 +988,10 @@
   "libraryLabelsField": "Rótulos / pastas (separados por vírgula)",
   "libraryLabelsHint": "escritório, 2º andar",
   "librarySaveFailed": "Não foi possível salvar: {error}",
-  "csvColumnLabels": "Rótulos"
+  "csvColumnLabels": "Rótulos",
+  "firstNameLabel": "Nome",
+  "lastNameLabel": "Sobrenome",
+  "wifiPasswordMinHint": "Pelo menos 8 caracteres",
+  "emailExampleHint": "nome@exemplo.com",
+  "wifiSsidExampleHint": "Casa_WiFi_5G"
 }

@@ -988,5 +988,10 @@
   "libraryLabelsField": "Мітки / теки (через кому)",
   "libraryLabelsHint": "офіс, 2 поверх",
   "librarySaveFailed": "Не вдалося зберегти: {error}",
-  "csvColumnLabels": "Мітки"
+  "csvColumnLabels": "Мітки",
+  "firstNameLabel": "Ім'я",
+  "lastNameLabel": "Прізвище",
+  "wifiPasswordMinHint": "Щонайменше 8 символів",
+  "emailExampleHint": "name@example.com",
+  "wifiSsidExampleHint": "Home_WiFi_5G"
 }

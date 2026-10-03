@@ -2336,5 +2336,10 @@
       }
     }
   },
-  "csvColumnLabels": "Etiketler"
+  "csvColumnLabels": "Etiketler",
+  "firstNameLabel": "Ad",
+  "lastNameLabel": "Soyad",
+  "wifiPasswordMinHint": "En az 8 karakter",
+  "emailExampleHint": "ornek@alanadi.com",
+  "wifiSsidExampleHint": "Ev_Interneti_5G"
 }

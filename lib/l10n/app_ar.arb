@@ -988,5 +988,10 @@
   "libraryLabelsField": "التسميات / المجلدات (مفصولة بفواصل)",
   "libraryLabelsHint": "المكتب، الطابق 2",
   "librarySaveFailed": "تعذّر الحفظ: {error}",
-  "csvColumnLabels": "التسميات"
+  "csvColumnLabels": "التسميات",
+  "firstNameLabel": "الاسم الأول",
+  "lastNameLabel": "اسم العائلة",
+  "wifiPasswordMinHint": "8 أحرف على الأقل",
+  "emailExampleHint": "name@example.com",
+  "wifiSsidExampleHint": "Home_WiFi_5G"
 }

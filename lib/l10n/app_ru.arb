@@ -988,5 +988,10 @@
   "libraryLabelsField": "Метки / папки (через запятую)",
   "libraryLabelsHint": "офис, 2 этаж",
   "librarySaveFailed": "Не удалось сохранить: {error}",
-  "csvColumnLabels": "Метки"
+  "csvColumnLabels": "Метки",
+  "firstNameLabel": "Имя",
+  "lastNameLabel": "Фамилия",
+  "wifiPasswordMinHint": "Не менее 8 символов",
+  "emailExampleHint": "name@example.com",
+  "wifiSsidExampleHint": "Home_WiFi_5G"
 }
