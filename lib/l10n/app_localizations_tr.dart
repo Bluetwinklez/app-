@@ -3617,4 +3617,8 @@ class AppLocalizationsTr extends AppLocalizations {
   @override
   String get errorWidgetMessage =>
       'Bu bölüm gösterilemedi. Geri dönüp tekrar deneyin.';
+
+  @override
+  String get nfcErrTimeout =>
+      'Süre doldu; etiket algılanmadı. Etiketi telefonun üst kısmına yaklaştırıp tekrar deneyin.';
 }

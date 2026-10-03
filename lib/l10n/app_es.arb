@@ -1019,5 +1019,6 @@
   "nfcSheetWritten": "¡Escrito en la etiqueta!",
   "nfcSheetLocked": "¡La etiqueta quedó bloqueada para siempre!",
   "nfcWriteDone": "Escrito en la etiqueta correctamente.",
-  "errorWidgetMessage": "No se pudo mostrar esta parte. Vuelve atrás e inténtalo de nuevo."
+  "errorWidgetMessage": "No se pudo mostrar esta parte. Vuelve atrás e inténtalo de nuevo.",
+  "nfcErrTimeout": "Se acabó el tiempo sin detectar etiqueta. Acércala a la parte superior del teléfono e inténtalo de nuevo."
 }

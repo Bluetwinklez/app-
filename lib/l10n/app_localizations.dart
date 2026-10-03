@@ -6243,6 +6243,12 @@ abstract class AppLocalizations {
   /// In tr, this message translates to:
   /// **'Bu bölüm gösterilemedi. Geri dönüp tekrar deneyin.'**
   String get errorWidgetMessage;
+
+  /// No description provided for @nfcErrTimeout.
+  ///
+  /// In tr, this message translates to:
+  /// **'Süre doldu; etiket algılanmadı. Etiketi telefonun üst kısmına yaklaştırıp tekrar deneyin.'**
+  String get nfcErrTimeout;
 }
 
 class _AppLocalizationsDelegate

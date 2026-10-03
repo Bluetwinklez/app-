@@ -631,6 +631,8 @@ struct NfcTagMasterShortcuts: AppShortcutsProvider {
         if !completed {
             if let nfcErr = error as? NFCReaderError, nfcErr.code == .readerSessionInvalidationErrorUserCanceled {
                 finishWithResult(FlutterError(code: "USER_CANCELLED", message: "Kullanıcı taramayı iptal etti", details: nil))
+            } else if let nfcErr = error as? NFCReaderError, nfcErr.code == .readerSessionInvalidationErrorSessionTimeout {
+                finishWithResult(FlutterError(code: "SESSION_TIMEOUT", message: error.localizedDescription, details: nil))
             } else {
                 finishWithResult(FlutterError(code: "SESSION_ERROR", message: error.localizedDescription, details: nil))
             }

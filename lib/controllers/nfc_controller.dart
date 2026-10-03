@@ -180,7 +180,13 @@ class NfcStateController extends ChangeNotifier {
       final info = await _service.scanTag(
         promptMessage: L10n.current.nfcPromptScan,
       );
+      // Keep the result even when cancelled: callers read lastScannedTag
+      // right after this and must not see an older tag.
       _lastScannedTag = info;
+      if (info.wasCancelled) {
+        _statusMessage = L10n.current.statusCancelled;
+        return;
+      }
       if (info.error != null) {
         _statusMessage = L10n.current.statusScanError(info.error!);
         _feedback(success: false);
@@ -273,6 +279,10 @@ class NfcStateController extends ChangeNotifier {
       );
 
       _lastWriteResult = result;
+      if (NfcTagInfo.isCancelCode(result.errorCode)) {
+        _statusMessage = L10n.current.statusCancelled;
+        return false;
+      }
       _feedback(success: result.isSuccess);
       if (result.isSuccess) {
         _statusMessage = L10n.current.statusWriteSuccess(result.bytesWritten);

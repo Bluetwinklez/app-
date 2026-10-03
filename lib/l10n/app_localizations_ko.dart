@@ -3472,4 +3472,7 @@ class AppLocalizationsKo extends AppLocalizations {
 
   @override
   String get errorWidgetMessage => '이 부분을 표시할 수 없습니다. 돌아가서 다시 시도하세요.';
+
+  @override
+  String get nfcErrTimeout => '시간 내에 태그를 찾지 못했습니다. 휴대폰 위쪽에 대고 다시 시도하세요.';
 }

@@ -1019,5 +1019,6 @@
   "nfcSheetWritten": "Auf den Tag geschrieben!",
   "nfcSheetLocked": "Der Tag ist jetzt dauerhaft gesperrt!",
   "nfcWriteDone": "Erfolgreich auf den Tag geschrieben.",
-  "errorWidgetMessage": "Dieser Bereich konnte nicht angezeigt werden. Gehen Sie zurück und versuchen Sie es erneut."
+  "errorWidgetMessage": "Dieser Bereich konnte nicht angezeigt werden. Gehen Sie zurück und versuchen Sie es erneut.",
+  "nfcErrTimeout": "Zeit abgelaufen, kein Tag erkannt. Halten Sie den Tag an die Oberseite des Telefons und versuchen Sie es erneut."
 }

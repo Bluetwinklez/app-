@@ -118,6 +118,7 @@ class MethodChannelNfcService implements NfcPlatformService {
         identifier: L10n.current.error,
         error: NativeMessages.forError(e.code, e.message,
             details: e.details, fallback: L10n.current.nfcReadError),
+        errorCode: e.code,
       );
     } catch (e) {
       return NfcTagInfo(
