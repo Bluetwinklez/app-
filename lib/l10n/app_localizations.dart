@@ -8578,6 +8578,24 @@ abstract class AppLocalizations {
   /// In tr, this message translates to:
   /// **'• Fikirler sayfası ve \"İlk etiketini yap\" kartı\n• Etiket istatistikleri, otomatik kategoriler, QR/barkod tarayıcı\n• Kayıtları birleştir, dijital kartvizit görünümü, adresle konum arama\n• Alışkanlık serisi, çocuk görev tablosu, evcil hayvan besleme, ziyaretçi defteri\n• Bildirim hatırlatıcıları, sesli okuma, demirbaş ve garanti takibi\n• Şablonları QR ile paylaş ve tablodan içe aktar; restoran ve kiralık ev şablonları\n• 12 uygulama simgesi, 9 vurgu rengi, yazı boyutu'**
   String get whatsNew150;
+
+  /// No description provided for @ocrTitle.
+  ///
+  /// In tr, this message translates to:
+  /// **'Fotoğraftan metin (OCR)'**
+  String get ocrTitle;
+
+  /// No description provided for @ocrSubtitle.
+  ///
+  /// In tr, this message translates to:
+  /// **'Belge, tabela veya kartvizitteki yazıyı okuyup etikete yaz'**
+  String get ocrSubtitle;
+
+  /// No description provided for @ocrNothing.
+  ///
+  /// In tr, this message translates to:
+  /// **'Fotoğrafta okunabilir yazı bulunamadı (bu özellik iPhone\'da çalışır).'**
+  String get ocrNothing;
 }
 
 class _AppLocalizationsDelegate

@@ -4,6 +4,7 @@ import 'dart:math';
 import 'package:file_selector/file_selector.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:image_picker/image_picker.dart';
 import 'package:path_provider/path_provider.dart';
 import 'package:share_plus/share_plus.dart';
 import '../domain/ndef_record.dart';
@@ -1175,6 +1176,7 @@ class _HomeScreenState extends State<HomeScreen>
                       onCloneTag: _cloneTagWizard,
                       onScanCode: _scanCode,
                       onMergeRecords: _mergeRecords,
+                      onTextFromPhoto: _textFromPhoto,
                     ),
                     _buildHistoryTab(),
                     _buildTemplatesAndSettingsTab(),

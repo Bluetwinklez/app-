@@ -5042,4 +5042,15 @@ class AppLocalizationsDe extends AppLocalizations {
   @override
   String get whatsNew150 =>
       '• Ideen-Seite und Karte „Erster Tag\"\n• Tag-Statistik, automatische Kategorien, QR-/Barcode-Scanner\n• Datensätze zusammenführen, digitale Visitenkarte, Ort per Adresse\n• Gewohnheitsserien, Kinder-Aufgabenplan, Haustierfütterung, Besucherbuch\n• Erinnerungen, Vorlesen, Inventar und Garantie\n• Vorlagen per QR teilen und aus Tabellen importieren; Restaurant- und Ferienwohnungsvorlagen\n• 12 App-Symbole, 9 Akzentfarben, Textgröße';
+
+  @override
+  String get ocrTitle => 'Text aus Foto (OCR)';
+
+  @override
+  String get ocrSubtitle =>
+      'Text von Dokument, Schild oder Karte lesen und auf einen Tag schreiben';
+
+  @override
+  String get ocrNothing =>
+      'Kein lesbarer Text gefunden (funktioniert auf dem iPhone).';
 }

@@ -67,6 +67,19 @@ class LaunchActionService {
     }
   }
 
+  /// Text found in the image at [path] (iPhone, on-device Vision). Null
+  /// when unsupported or nothing could be read.
+  static Future<String?> recognizeText(String path) async {
+    try {
+      final text = await _channel.invokeMethod<String>('recognizeText', {'path': path});
+      return (text == null || text.trim().isEmpty) ? null : text.trim();
+    } on MissingPluginException {
+      return null;
+    } on PlatformException {
+      return null;
+    }
+  }
+
   /// Switches the iPhone home screen icon; null restores the default.
   static Future<bool> setAppIcon(String? name) => _invokeBool('setAppIcon', {'name': name});
 

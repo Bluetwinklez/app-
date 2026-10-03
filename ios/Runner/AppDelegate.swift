@@ -1,4 +1,5 @@
 import UIKit
+import Vision
 import Flutter
 import CoreNFC
 import AppIntents
@@ -290,6 +291,27 @@ struct NfcTagMasterShortcuts: AppShortcutsProvider {
                     DispatchQueue.main.async {
                         self.authenticating = false
                         result(ok)
+                    }
+                }
+            } else if call.method == "recognizeText" {
+                guard let path = (call.arguments as? [String: Any])?["path"] as? String,
+                      let image = UIImage(contentsOfFile: path)?.cgImage else {
+                    result(nil)
+                    return
+                }
+                let request = VNRecognizeTextRequest { req, _ in
+                    let lines = (req.results as? [VNRecognizedTextObservation] ?? [])
+                        .compactMap { $0.topCandidates(1).first?.string }
+                    DispatchQueue.main.async { result(lines.joined(separator: "\n")) }
+                }
+                request.recognitionLevel = .accurate
+                request.usesLanguageCorrection = true
+                request.automaticallyDetectsLanguage = true
+                DispatchQueue.global(qos: .userInitiated).async {
+                    do {
+                        try VNImageRequestHandler(cgImage: image, options: [:]).perform([request])
+                    } catch {
+                        DispatchQueue.main.async { result(nil) }
                     }
                 }
             } else if call.method == "setAppIcon" {
