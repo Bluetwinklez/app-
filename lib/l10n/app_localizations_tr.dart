@@ -3158,4 +3158,31 @@ class AppLocalizationsTr extends AppLocalizations {
 
   @override
   String get invalidTagFile => 'Geçersiz etiket dosyası.';
+
+  @override
+  String get continuousScanTitle => 'Sürekli tarama';
+
+  @override
+  String get continuousScanSubtitle =>
+      'Etiketleri art arda okutun; liste CSV olarak paylaşılabilir';
+
+  @override
+  String continuousScanCount(String count) {
+    return '$count etiket okundu';
+  }
+
+  @override
+  String get exportCsv => 'CSV olarak paylaş';
+
+  @override
+  String get clearList => 'Listeyi temizle';
+
+  @override
+  String get csvColumnTime => 'Zaman';
+
+  @override
+  String get csvColumnRecords => 'Kayıt';
+
+  @override
+  String get csvColumnContent => 'İçerik';
 }

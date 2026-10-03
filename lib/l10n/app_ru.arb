@@ -889,5 +889,13 @@
   "shareAsFile": "Поделиться файлом (.json)",
   "shareAsFileSubtitle": "Записи можно точно записать на другом устройстве",
   "importFromJsonFile": "Из файла метки (.json)",
-  "invalidTagFile": "Недопустимый файл метки."
+  "invalidTagFile": "Недопустимый файл метки.",
+  "continuousScanTitle": "Непрерывное сканирование",
+  "continuousScanSubtitle": "Считывайте метки подряд и делитесь списком в CSV",
+  "continuousScanCount": "Считано меток: {count}",
+  "exportCsv": "Поделиться CSV",
+  "clearList": "Очистить список",
+  "csvColumnTime": "Время",
+  "csvColumnRecords": "Записи",
+  "csvColumnContent": "Содержимое"
 }

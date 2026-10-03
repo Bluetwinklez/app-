@@ -889,5 +889,13 @@
   "shareAsFile": "Compartir como archivo (.json)",
   "shareAsFileSubtitle": "Los registros se pueden escribir igual en otro dispositivo",
   "importFromJsonFile": "Desde un archivo de etiqueta (.json)",
-  "invalidTagFile": "Archivo de etiqueta no válido."
+  "invalidTagFile": "Archivo de etiqueta no válido.",
+  "continuousScanTitle": "Escaneo continuo",
+  "continuousScanSubtitle": "Escanea etiquetas seguidas y comparte la lista en CSV",
+  "continuousScanCount": "{count} etiquetas escaneadas",
+  "exportCsv": "Compartir como CSV",
+  "clearList": "Vaciar lista",
+  "csvColumnTime": "Hora",
+  "csvColumnRecords": "Registros",
+  "csvColumnContent": "Contenido"
 }

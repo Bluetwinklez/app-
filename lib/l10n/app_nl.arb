@@ -889,5 +889,13 @@
   "shareAsFile": "Delen als bestand (.json)",
   "shareAsFileSubtitle": "Records kunnen exact op een ander apparaat worden geschreven",
   "importFromJsonFile": "Uit tagbestand (.json)",
-  "invalidTagFile": "Ongeldig tagbestand."
+  "invalidTagFile": "Ongeldig tagbestand.",
+  "continuousScanTitle": "Doorlopend scannen",
+  "continuousScanSubtitle": "Scan tags na elkaar en deel de lijst als CSV",
+  "continuousScanCount": "{count} tags gescand",
+  "exportCsv": "Delen als CSV",
+  "clearList": "Lijst wissen",
+  "csvColumnTime": "Tijd",
+  "csvColumnRecords": "Records",
+  "csvColumnContent": "Inhoud"
 }

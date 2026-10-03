@@ -3120,4 +3120,31 @@ class AppLocalizationsAr extends AppLocalizations {
 
   @override
   String get invalidTagFile => 'ملف وسم غير صالح.';
+
+  @override
+  String get continuousScanTitle => 'مسح مستمر';
+
+  @override
+  String get continuousScanSubtitle =>
+      'امسح الوسوم تباعًا وشارك القائمة بصيغة CSV';
+
+  @override
+  String continuousScanCount(String count) {
+    return 'تم مسح $count وسم';
+  }
+
+  @override
+  String get exportCsv => 'مشاركة بصيغة CSV';
+
+  @override
+  String get clearList => 'مسح القائمة';
+
+  @override
+  String get csvColumnTime => 'الوقت';
+
+  @override
+  String get csvColumnRecords => 'السجلات';
+
+  @override
+  String get csvColumnContent => 'المحتوى';
 }
