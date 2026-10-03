@@ -4085,4 +4085,38 @@ class AppLocalizationsTr extends AppLocalizations {
   String memoryReadSpeed(String ms, String rate) {
     return 'Okuma süresi: $ms ms ($rate bayt/sn)';
   }
+
+  @override
+  String get simpleModeTitle => 'Basit mod';
+
+  @override
+  String get simpleModeSubtitle =>
+      'Büyük düğmeler; çocuklar ve yaşlılar için tek dokunuşla okuma';
+
+  @override
+  String get simpleScan => 'Etiketi Okut';
+
+  @override
+  String get simpleHint => 'Etiketi telefonun üst kısmına yaklaştırın.';
+
+  @override
+  String get simpleCall => 'Ara';
+
+  @override
+  String get simpleMessage => 'Mesaj gönder';
+
+  @override
+  String get simpleOpen => 'Aç';
+
+  @override
+  String get simpleEmail => 'E-posta yaz';
+
+  @override
+  String get simpleMap => 'Haritada aç';
+
+  @override
+  String get simpleExit => 'Normal görünüme dönmek için basılı tutun';
+
+  @override
+  String get simpleNothing => 'Bu etikette gösterilecek bir şey yok.';
 }

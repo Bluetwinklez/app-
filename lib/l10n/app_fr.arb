@@ -1146,5 +1146,16 @@
   "memoryEditPrompt": "Approchez le même tag pour écrire la page {page}",
   "memoryPageWritten": "Page {page} écrite.",
   "memoryUidMismatch": "Un autre tag a été détecté ; rien n'a été écrit.",
-  "memoryReadSpeed": "Durée de lecture : {ms} ms ({rate} o/s)"
+  "memoryReadSpeed": "Durée de lecture : {ms} ms ({rate} o/s)",
+  "simpleModeTitle": "Mode simple",
+  "simpleModeSubtitle": "Gros boutons ; lecture en un geste pour enfants et aînés",
+  "simpleScan": "Lire le tag",
+  "simpleHint": "Approchez le tag du haut du téléphone.",
+  "simpleCall": "Appeler",
+  "simpleMessage": "Envoyer un message",
+  "simpleOpen": "Ouvrir",
+  "simpleEmail": "Écrire un e-mail",
+  "simpleMap": "Ouvrir dans Plans",
+  "simpleExit": "Appui long pour revenir à la vue normale",
+  "simpleNothing": "Rien à afficher sur ce tag."
 }

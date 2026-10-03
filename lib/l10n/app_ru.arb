@@ -1146,5 +1146,16 @@
   "memoryEditPrompt": "Поднесите ту же метку для записи страницы {page}",
   "memoryPageWritten": "Страница {page} записана.",
   "memoryUidMismatch": "Обнаружена другая метка; ничего не записано.",
-  "memoryReadSpeed": "Время чтения: {ms} мс ({rate} байт/с)"
+  "memoryReadSpeed": "Время чтения: {ms} мс ({rate} байт/с)",
+  "simpleModeTitle": "Простой режим",
+  "simpleModeSubtitle": "Крупные кнопки; чтение в одно касание для детей и пожилых",
+  "simpleScan": "Прочитать метку",
+  "simpleHint": "Поднесите метку к верхней части телефона.",
+  "simpleCall": "Позвонить",
+  "simpleMessage": "Отправить сообщение",
+  "simpleOpen": "Открыть",
+  "simpleEmail": "Написать письмо",
+  "simpleMap": "Открыть на карте",
+  "simpleExit": "Удерживайте, чтобы вернуться в обычный вид",
+  "simpleNothing": "На этой метке нечего показать."
 }

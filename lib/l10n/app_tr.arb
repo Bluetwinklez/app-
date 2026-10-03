@@ -2741,5 +2741,16 @@
         "type": "String"
       }
     }
-  }
+  },
+  "simpleModeTitle": "Basit mod",
+  "simpleModeSubtitle": "Büyük düğmeler; çocuklar ve yaşlılar için tek dokunuşla okuma",
+  "simpleScan": "Etiketi Okut",
+  "simpleHint": "Etiketi telefonun üst kısmına yaklaştırın.",
+  "simpleCall": "Ara",
+  "simpleMessage": "Mesaj gönder",
+  "simpleOpen": "Aç",
+  "simpleEmail": "E-posta yaz",
+  "simpleMap": "Haritada aç",
+  "simpleExit": "Normal görünüme dönmek için basılı tutun",
+  "simpleNothing": "Bu etikette gösterilecek bir şey yok."
 }

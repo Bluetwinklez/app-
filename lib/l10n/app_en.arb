@@ -1146,5 +1146,16 @@
   "memoryEditPrompt": "Hold the same tag near to write page {page}",
   "memoryPageWritten": "Page {page} written.",
   "memoryUidMismatch": "A different tag was detected; nothing was written.",
-  "memoryReadSpeed": "Read time: {ms} ms ({rate} bytes/s)"
+  "memoryReadSpeed": "Read time: {ms} ms ({rate} bytes/s)",
+  "simpleModeTitle": "Simple mode",
+  "simpleModeSubtitle": "Big buttons; one-tap reading for kids and older people",
+  "simpleScan": "Read Tag",
+  "simpleHint": "Hold the tag near the top of the phone.",
+  "simpleCall": "Call",
+  "simpleMessage": "Send message",
+  "simpleOpen": "Open",
+  "simpleEmail": "Write email",
+  "simpleMap": "Open in Maps",
+  "simpleExit": "Press and hold to return to the normal view",
+  "simpleNothing": "There is nothing to show on this tag."
 }

@@ -1146,5 +1146,16 @@
   "memoryEditPrompt": "Aproxime a mesma tag para gravar a página {page}",
   "memoryPageWritten": "Página {page} gravada.",
   "memoryUidMismatch": "Outra tag foi detectada; nada foi gravado.",
-  "memoryReadSpeed": "Tempo de leitura: {ms} ms ({rate} B/s)"
+  "memoryReadSpeed": "Tempo de leitura: {ms} ms ({rate} B/s)",
+  "simpleModeTitle": "Modo simples",
+  "simpleModeSubtitle": "Botões grandes; leitura com um toque para crianças e idosos",
+  "simpleScan": "Ler tag",
+  "simpleHint": "Aproxime a tag da parte de cima do telefone.",
+  "simpleCall": "Ligar",
+  "simpleMessage": "Enviar mensagem",
+  "simpleOpen": "Abrir",
+  "simpleEmail": "Escrever e-mail",
+  "simpleMap": "Abrir no Mapas",
+  "simpleExit": "Mantenha pressionado para voltar à visão normal",
+  "simpleNothing": "Não há nada para mostrar nesta tag."
 }

@@ -4087,4 +4087,38 @@ class AppLocalizationsNl extends AppLocalizations {
   String memoryReadSpeed(String ms, String rate) {
     return 'Leestijd: $ms ms ($rate bytes/s)';
   }
+
+  @override
+  String get simpleModeTitle => 'Eenvoudige modus';
+
+  @override
+  String get simpleModeSubtitle =>
+      'Grote knoppen; met één tik lezen voor kinderen en ouderen';
+
+  @override
+  String get simpleScan => 'Tag lezen';
+
+  @override
+  String get simpleHint => 'Houd de tag bij de bovenkant van de telefoon.';
+
+  @override
+  String get simpleCall => 'Bellen';
+
+  @override
+  String get simpleMessage => 'Bericht sturen';
+
+  @override
+  String get simpleOpen => 'Openen';
+
+  @override
+  String get simpleEmail => 'E-mail schrijven';
+
+  @override
+  String get simpleMap => 'Openen in Kaarten';
+
+  @override
+  String get simpleExit => 'Houd ingedrukt voor de normale weergave';
+
+  @override
+  String get simpleNothing => 'Er staat niets op deze tag.';
 }

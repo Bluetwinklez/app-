@@ -19,6 +19,7 @@ import 'qr_preview_dialog.dart';
 import 'tag_rules_manager_sheet.dart';
 import 'app_theme.dart';
 import 'tools_tab.dart';
+import 'simple_mode_screen.dart';
 import 'phishing_banner.dart';
 import 'nfc_chips_page.dart';
 import '../app_info.dart';
@@ -471,6 +472,16 @@ class _HomeScreenState extends State<HomeScreen>
             ),
             const Divider(height: 24),
             SwitchListTile.adaptive(
+              secondary: Icon(Icons.accessibility_new_rounded, color: AppColors.accent),
+              title: Text(L10n.current.simpleModeTitle),
+              subtitle: Text(L10n.current.simpleModeSubtitle),
+              value: _controller.storage.simpleMode,
+              onChanged: (on) async {
+                await _controller.storage.setSimpleMode(on);
+                if (mounted) setState(() {});
+              },
+            ),
+            SwitchListTile.adaptive(
               secondary: Icon(Icons.lock_outline_rounded, color: AppColors.accent),
               title: Text(L10n.current.appLockTitle),
               subtitle: Text(L10n.current.appLockSubtitle),
@@ -911,6 +922,15 @@ class _HomeScreenState extends State<HomeScreen>
   Widget build(BuildContext context) {
     if (_showOnboarding) {
       return OnboardingPage(onFinished: _finishOnboarding);
+    }
+    if (_controller.storage.simpleMode) {
+      return SimpleModeScreen(
+        controller: _controller,
+        onExit: () async {
+          await _controller.storage.setSimpleMode(false);
+          if (mounted) setState(() {});
+        },
+      );
     }
     final destinations = _getDestinations(context);
     final current = destinations[_tabController.index];

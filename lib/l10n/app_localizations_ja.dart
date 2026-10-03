@@ -3909,4 +3909,37 @@ class AppLocalizationsJa extends AppLocalizations {
   String memoryReadSpeed(String ms, String rate) {
     return '読み取り時間: $ms ms ($rate B/秒)';
   }
+
+  @override
+  String get simpleModeTitle => 'シンプルモード';
+
+  @override
+  String get simpleModeSubtitle => '大きなボタン。子どもや高齢者もワンタップで読み取り';
+
+  @override
+  String get simpleScan => 'タグを読む';
+
+  @override
+  String get simpleHint => 'タグをスマホの上部にかざしてください。';
+
+  @override
+  String get simpleCall => '電話する';
+
+  @override
+  String get simpleMessage => 'メッセージを送る';
+
+  @override
+  String get simpleOpen => '開く';
+
+  @override
+  String get simpleEmail => 'メールを書く';
+
+  @override
+  String get simpleMap => 'マップで開く';
+
+  @override
+  String get simpleExit => '長押しで通常表示に戻ります';
+
+  @override
+  String get simpleNothing => 'このタグには表示する内容がありません。';
 }

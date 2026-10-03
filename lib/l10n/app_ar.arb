@@ -1146,5 +1146,16 @@
   "memoryEditPrompt": "قرّب الوسم نفسه لكتابة الصفحة {page}",
   "memoryPageWritten": "تمت كتابة الصفحة {page}.",
   "memoryUidMismatch": "تم اكتشاف وسم مختلف؛ لم يُكتب شيء.",
-  "memoryReadSpeed": "زمن القراءة: {ms} مللي ث ({rate} بايت/ث)"
+  "memoryReadSpeed": "زمن القراءة: {ms} مللي ث ({rate} بايت/ث)",
+  "simpleModeTitle": "الوضع البسيط",
+  "simpleModeSubtitle": "أزرار كبيرة؛ قراءة بلمسة واحدة للأطفال وكبار السن",
+  "simpleScan": "اقرأ الوسم",
+  "simpleHint": "قرّب الوسم من أعلى الهاتف.",
+  "simpleCall": "اتصال",
+  "simpleMessage": "إرسال رسالة",
+  "simpleOpen": "فتح",
+  "simpleEmail": "كتابة بريد",
+  "simpleMap": "فتح في الخرائط",
+  "simpleExit": "اضغط مطولًا للعودة إلى العرض العادي",
+  "simpleNothing": "لا يوجد ما يُعرض في هذا الوسم."
 }

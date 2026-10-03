@@ -4087,4 +4087,38 @@ class AppLocalizationsUk extends AppLocalizations {
   String memoryReadSpeed(String ms, String rate) {
     return 'Час читання: $ms мс ($rate байт/с)';
   }
+
+  @override
+  String get simpleModeTitle => 'Простий режим';
+
+  @override
+  String get simpleModeSubtitle =>
+      'Великі кнопки; читання одним дотиком для дітей і літніх';
+
+  @override
+  String get simpleScan => 'Прочитати мітку';
+
+  @override
+  String get simpleHint => 'Піднесіть мітку до верхньої частини телефона.';
+
+  @override
+  String get simpleCall => 'Зателефонувати';
+
+  @override
+  String get simpleMessage => 'Надіслати повідомлення';
+
+  @override
+  String get simpleOpen => 'Відкрити';
+
+  @override
+  String get simpleEmail => 'Написати лист';
+
+  @override
+  String get simpleMap => 'Відкрити на мапі';
+
+  @override
+  String get simpleExit => 'Утримуйте, щоб повернутися до звичайного вигляду';
+
+  @override
+  String get simpleNothing => 'На цій мітці нічого показати.';
 }
