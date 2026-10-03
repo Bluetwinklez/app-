@@ -2893,6 +2893,7 @@ class _HomeScreenState extends State<HomeScreen>
       button: true,
       label: destination.title,
       child: InkResponse(
+        key: ValueKey('nav-$index'),
         onTap: () => _tabController.animateTo(index),
         radius: 32,
         child: Column(
@@ -4205,16 +4206,17 @@ class _HomeScreenState extends State<HomeScreen>
 
     if (!isEnabled) {
       return Center(
-        child: Padding(
+        child: SingleChildScrollView(
           padding: const EdgeInsets.all(24.0),
           child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
+            mainAxisSize: MainAxisSize.min,
             children: [
               Icon(Icons.history_toggle_off,
                   size: 64, color: AppColors.secondary),
               const SizedBox(height: 16),
               Text(
                 L10n.current.scanHistoryDisabledTitle,
+                textAlign: TextAlign.center,
                 style: const TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
               ),
               const SizedBox(height: 8),
@@ -4269,7 +4271,8 @@ class _HomeScreenState extends State<HomeScreen>
               prefixIcon: const Icon(Icons.search, size: 20),
               suffixIcon: _historySearchQuery.isNotEmpty
                   ? IconButton(
-                      icon: const Icon(Icons.clear, size: 18),
+                          tooltip: L10n.current.clearSearch,
+                          icon: const Icon(Icons.clear, size: 18),
                       onPressed: () {
                         setState(() {
                           _historySearchController.clear();
@@ -4562,9 +4565,11 @@ class _HomeScreenState extends State<HomeScreen>
                   children: [
                     Icon(Icons.language, color: AppColors.accent),
                     const SizedBox(width: 8),
-                    Text(
-                      loc.languageTitle,
-                      style: const TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
+                    Expanded(
+                      child: Text(
+                        loc.languageTitle,
+                        style: const TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
+                      ),
                     ),
                   ],
                 ),
