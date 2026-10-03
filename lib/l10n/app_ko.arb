@@ -865,5 +865,18 @@
   "reportNdefUsage": "NDEF 사용량",
   "reportVerdictWritable": "태그에 쓸 수 있습니다",
   "reportVerdictRestricted": "태그에 제한이 있습니다",
-  "reportCopied": "보고서를 복사했습니다"
+  "reportCopied": "보고서를 복사했습니다",
+  "compareTagsTitle": "두 태그 비교",
+  "compareTagsSubtitle": "복사본이 원본과 같은지 확인",
+  "compareStepFirst": "먼저 첫 번째(원본) 태그를 스캔하세요.",
+  "compareStepSecond": "이제 두 번째 태그를 스캔하세요.",
+  "compareIdentical": "내용이 같습니다",
+  "compareDifferent": "내용이 다릅니다",
+  "compareSameTag": "같은 태그를 두 번 스캔했습니다.",
+  "compareDifferentTags": "서로 다른 두 태그입니다.",
+  "compareRecordSame": "같음",
+  "compareRecordChanged": "다름",
+  "compareRecordOnlyFirst": "A에만 있음",
+  "compareRecordOnlySecond": "B에만 있음",
+  "compareBothEmpty": "두 태그 모두 비어 있습니다."
 }

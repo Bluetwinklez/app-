@@ -865,5 +865,18 @@
   "reportNdefUsage": "استخدام NDEF",
   "reportVerdictWritable": "الوسم جاهز للكتابة",
   "reportVerdictRestricted": "الوسم مقيّد",
-  "reportCopied": "تم نسخ التقرير"
+  "reportCopied": "تم نسخ التقرير",
+  "compareTagsTitle": "مقارنة وسمين",
+  "compareTagsSubtitle": "تحقّق من تطابق النسخة مع الأصل",
+  "compareStepFirst": "امسح أولًا الوسم الأول (الأصلي).",
+  "compareStepSecond": "امسح الآن الوسم الثاني.",
+  "compareIdentical": "المحتوى متطابق",
+  "compareDifferent": "المحتوى مختلف",
+  "compareSameTag": "تم مسح الوسم نفسه مرتين.",
+  "compareDifferentTags": "وسمان مختلفان.",
+  "compareRecordSame": "متطابق",
+  "compareRecordChanged": "مختلف",
+  "compareRecordOnlyFirst": "في A فقط",
+  "compareRecordOnlySecond": "في B فقط",
+  "compareBothEmpty": "الوسمان فارغان."
 }

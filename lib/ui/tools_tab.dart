@@ -7,6 +7,9 @@ import 'package:share_plus/share_plus.dart';
 import '../controllers/nfc_controller.dart';
 import '../domain/ntag_tools.dart';
 import '../l10n/l10n.dart';
+import '../domain/tag_compare.dart';
+import '../domain/nfc_tag_info.dart';
+import '../domain/ndef_record.dart';
 import 'app_theme.dart';
 
 /// "Araçlar" screen: chip-level tools for NTAG / MIFARE Ultralight tags.
@@ -52,6 +55,12 @@ class ToolsTab extends StatelessWidget {
           subtitle: loc.tagReportSubtitle,
           color: AppColors.success,
           onTap: _idle ? () => _tagReport(context) : null,
+        ),
+        ToolTile(
+          icon: Icons.compare_arrows_rounded,
+          title: loc.compareTagsTitle,
+          subtitle: loc.compareTagsSubtitle,
+          onTap: _idle ? () => _compareTags(context) : null,
         ),
         ToolTile(
           icon: Icons.layers_outlined,
@@ -133,6 +142,43 @@ class ToolsTab extends StatelessWidget {
       ),
     );
     return result ?? false;
+  }
+
+  Future<NfcTagInfo?> _scanForCompare(BuildContext context, String step) async {
+    final loc = AppLocalizations.of(context) ?? L10n.current;
+    final go = await showDialog<bool>(
+      context: context,
+      builder: (ctx) => AlertDialog(
+        title: Text(loc.compareTagsTitle),
+        content: Text(step),
+        actions: [
+          TextButton(onPressed: () => Navigator.of(ctx).pop(false), child: Text(loc.cancel)),
+          ElevatedButton(onPressed: () => Navigator.of(ctx).pop(true), child: Text(loc.readHeroButton)),
+        ],
+      ),
+    );
+    if (go != true) return null;
+    await controller.scanTag();
+    final tag = controller.lastScannedTag;
+    if (tag == null || tag.error != null) {
+      if (context.mounted) _snack(context, controller.statusMessage, error: true);
+      return null;
+    }
+    return tag;
+  }
+
+  Future<void> _compareTags(BuildContext context) async {
+    final loc = AppLocalizations.of(context) ?? L10n.current;
+    final first = await _scanForCompare(context, loc.compareStepFirst);
+    if (first == null || !context.mounted) return;
+    final second = await _scanForCompare(context, loc.compareStepSecond);
+    if (second == null || !context.mounted) return;
+    final result = TagComparison.compare(first, second);
+    await showModalBottomSheet<void>(
+      context: context,
+      isScrollControlled: true,
+      builder: (ctx) => _CompareSheet(result: result),
+    );
   }
 
   Future<void> _tagReport(BuildContext context) async {
@@ -618,6 +664,92 @@ class _TagHealthSheet extends StatelessWidget {
                 ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Text(loc.reportCopied)));
               },
             ),
+          ],
+        ),
+      ),
+    );
+  }
+}
+
+
+class _CompareSheet extends StatelessWidget {
+  final TagComparison result;
+
+  const _CompareSheet({required this.result});
+
+  @override
+  Widget build(BuildContext context) {
+    final loc = AppLocalizations.of(context) ?? L10n.current;
+    String describe(NdefRecordModel? r) {
+      if (r == null) return '—';
+      final p = NdefCodec.parseRecord(r);
+      return '${p.title}: ${p.content}';
+    }
+
+    return SafeArea(
+      child: SizedBox(
+        height: MediaQuery.of(context).size.height * 0.75,
+        child: ListView(
+          padding: const EdgeInsets.fromLTRB(20, 0, 20, 20),
+          children: [
+            Row(
+              children: [
+                Icon(result.contentIdentical ? Icons.verified_outlined : Icons.difference_outlined,
+                    size: 28, color: result.contentIdentical ? AppColors.success : AppColors.warning),
+                const SizedBox(width: 10),
+                Expanded(
+                  child: Text(
+                    result.contentIdentical ? loc.compareIdentical : loc.compareDifferent,
+                    style: Theme.of(context).textTheme.titleLarge,
+                  ),
+                ),
+              ],
+            ),
+            const SizedBox(height: 8),
+            Text(
+              result.sameUid ? loc.compareSameTag : loc.compareDifferentTags,
+              style: TextStyle(color: AppColors.secondary),
+            ),
+            const SizedBox(height: 4),
+            Text('A: ${result.first.identifier}\nB: ${result.second.identifier}',
+                style: TextStyle(color: AppColors.secondary, fontSize: 12)),
+            const Divider(height: 24),
+            for (final d in result.records)
+              Padding(
+                padding: const EdgeInsets.only(bottom: 10),
+                child: SoftCard(
+                  padding: const EdgeInsets.all(12),
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Row(
+                        children: [
+                          Icon(
+                            d.status == RecordDiffStatus.same ? Icons.check_circle_outline : Icons.error_outline,
+                            size: 18,
+                            color: d.status == RecordDiffStatus.same ? AppColors.success : AppColors.warning,
+                          ),
+                          const SizedBox(width: 6),
+                          Text(
+                            '#${d.index + 1} · ${switch (d.status) {
+                              RecordDiffStatus.same => loc.compareRecordSame,
+                              RecordDiffStatus.changed => loc.compareRecordChanged,
+                              RecordDiffStatus.onlyFirst => loc.compareRecordOnlyFirst,
+                              RecordDiffStatus.onlySecond => loc.compareRecordOnlySecond,
+                            }}',
+                            style: const TextStyle(fontWeight: FontWeight.w600),
+                          ),
+                        ],
+                      ),
+                      const SizedBox(height: 6),
+                      Text('A: ${describe(d.first)}', maxLines: 2, overflow: TextOverflow.ellipsis),
+                      if (d.status != RecordDiffStatus.same)
+                        Text('B: ${describe(d.second)}', maxLines: 2, overflow: TextOverflow.ellipsis),
+                    ],
+                  ),
+                ),
+              ),
+            if (result.records.isEmpty) Text(loc.compareBothEmpty),
           ],
         ),
       ),

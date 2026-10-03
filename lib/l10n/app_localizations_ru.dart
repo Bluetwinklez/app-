@@ -3082,4 +3082,44 @@ class AppLocalizationsRu extends AppLocalizations {
 
   @override
   String get reportCopied => 'Отчёт скопирован';
+
+  @override
+  String get compareTagsTitle => 'Сравнить две метки';
+
+  @override
+  String get compareTagsSubtitle =>
+      'Проверьте, совпадает ли копия с оригиналом';
+
+  @override
+  String get compareStepFirst => 'Сначала считайте первую (исходную) метку.';
+
+  @override
+  String get compareStepSecond => 'Теперь считайте вторую метку.';
+
+  @override
+  String get compareIdentical => 'Содержимое совпадает';
+
+  @override
+  String get compareDifferent => 'Содержимое различается';
+
+  @override
+  String get compareSameTag => 'Одна и та же метка считана дважды.';
+
+  @override
+  String get compareDifferentTags => 'Две разные метки.';
+
+  @override
+  String get compareRecordSame => 'Совпадает';
+
+  @override
+  String get compareRecordChanged => 'Отличается';
+
+  @override
+  String get compareRecordOnlyFirst => 'Только на A';
+
+  @override
+  String get compareRecordOnlySecond => 'Только на B';
+
+  @override
+  String get compareBothEmpty => 'Обе метки пусты.';
 }

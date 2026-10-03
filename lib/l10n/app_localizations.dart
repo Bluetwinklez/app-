@@ -5319,6 +5319,84 @@ abstract class AppLocalizations {
   /// In tr, this message translates to:
   /// **'Rapor kopyalandı'**
   String get reportCopied;
+
+  /// No description provided for @compareTagsTitle.
+  ///
+  /// In tr, this message translates to:
+  /// **'İki Etiketi Karşılaştır'**
+  String get compareTagsTitle;
+
+  /// No description provided for @compareTagsSubtitle.
+  ///
+  /// In tr, this message translates to:
+  /// **'Kopyanın aslıyla aynı olup olmadığını görün'**
+  String get compareTagsSubtitle;
+
+  /// No description provided for @compareStepFirst.
+  ///
+  /// In tr, this message translates to:
+  /// **'Önce birinci (asıl) etiketi okutun.'**
+  String get compareStepFirst;
+
+  /// No description provided for @compareStepSecond.
+  ///
+  /// In tr, this message translates to:
+  /// **'Şimdi ikinci etiketi okutun.'**
+  String get compareStepSecond;
+
+  /// No description provided for @compareIdentical.
+  ///
+  /// In tr, this message translates to:
+  /// **'İçerikler aynı'**
+  String get compareIdentical;
+
+  /// No description provided for @compareDifferent.
+  ///
+  /// In tr, this message translates to:
+  /// **'İçerikler farklı'**
+  String get compareDifferent;
+
+  /// No description provided for @compareSameTag.
+  ///
+  /// In tr, this message translates to:
+  /// **'Aynı fiziksel etiket iki kez okutuldu.'**
+  String get compareSameTag;
+
+  /// No description provided for @compareDifferentTags.
+  ///
+  /// In tr, this message translates to:
+  /// **'İki farklı fiziksel etiket.'**
+  String get compareDifferentTags;
+
+  /// No description provided for @compareRecordSame.
+  ///
+  /// In tr, this message translates to:
+  /// **'Aynı'**
+  String get compareRecordSame;
+
+  /// No description provided for @compareRecordChanged.
+  ///
+  /// In tr, this message translates to:
+  /// **'Farklı'**
+  String get compareRecordChanged;
+
+  /// No description provided for @compareRecordOnlyFirst.
+  ///
+  /// In tr, this message translates to:
+  /// **'Sadece A\'da'**
+  String get compareRecordOnlyFirst;
+
+  /// No description provided for @compareRecordOnlySecond.
+  ///
+  /// In tr, this message translates to:
+  /// **'Sadece B\'de'**
+  String get compareRecordOnlySecond;
+
+  /// No description provided for @compareBothEmpty.
+  ///
+  /// In tr, this message translates to:
+  /// **'İki etiket de boş.'**
+  String get compareBothEmpty;
 }
 
 class _AppLocalizationsDelegate

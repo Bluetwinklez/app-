@@ -865,5 +865,18 @@
   "reportNdefUsage": "Заполнение NDEF",
   "reportVerdictWritable": "Метка готова к записи",
   "reportVerdictRestricted": "Метка ограничена",
-  "reportCopied": "Отчёт скопирован"
+  "reportCopied": "Отчёт скопирован",
+  "compareTagsTitle": "Сравнить две метки",
+  "compareTagsSubtitle": "Проверьте, совпадает ли копия с оригиналом",
+  "compareStepFirst": "Сначала считайте первую (исходную) метку.",
+  "compareStepSecond": "Теперь считайте вторую метку.",
+  "compareIdentical": "Содержимое совпадает",
+  "compareDifferent": "Содержимое различается",
+  "compareSameTag": "Одна и та же метка считана дважды.",
+  "compareDifferentTags": "Две разные метки.",
+  "compareRecordSame": "Совпадает",
+  "compareRecordChanged": "Отличается",
+  "compareRecordOnlyFirst": "Только на A",
+  "compareRecordOnlySecond": "Только на B",
+  "compareBothEmpty": "Обе метки пусты."
 }

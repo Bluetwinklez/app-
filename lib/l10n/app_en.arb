@@ -865,5 +865,18 @@
   "reportNdefUsage": "NDEF usage",
   "reportVerdictWritable": "Tag is ready to write",
   "reportVerdictRestricted": "Tag has restrictions",
-  "reportCopied": "Report copied"
+  "reportCopied": "Report copied",
+  "compareTagsTitle": "Compare Two Tags",
+  "compareTagsSubtitle": "Check whether a copy matches the original",
+  "compareStepFirst": "First, scan the first (original) tag.",
+  "compareStepSecond": "Now scan the second tag.",
+  "compareIdentical": "Contents match",
+  "compareDifferent": "Contents differ",
+  "compareSameTag": "The same physical tag was scanned twice.",
+  "compareDifferentTags": "Two different physical tags.",
+  "compareRecordSame": "Same",
+  "compareRecordChanged": "Different",
+  "compareRecordOnlyFirst": "Only on A",
+  "compareRecordOnlySecond": "Only on B",
+  "compareBothEmpty": "Both tags are empty."
 }
