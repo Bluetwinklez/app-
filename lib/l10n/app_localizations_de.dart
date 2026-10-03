@@ -3626,4 +3626,8 @@ class AppLocalizationsDe extends AppLocalizations {
 
   @override
   String get nfcWriteDone => 'Erfolgreich auf den Tag geschrieben.';
+
+  @override
+  String get errorWidgetMessage =>
+      'Dieser Bereich konnte nicht angezeigt werden. Gehen Sie zurück und versuchen Sie es erneut.';
 }

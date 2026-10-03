@@ -1018,5 +1018,6 @@
   "nfcSheetWriteVerified": "已写入并校验！",
   "nfcSheetWritten": "已写入标签！",
   "nfcSheetLocked": "标签已永久锁定！",
-  "nfcWriteDone": "已成功写入标签。"
+  "nfcWriteDone": "已成功写入标签。",
+  "errorWidgetMessage": "无法显示此部分，请返回后重试。"
 }

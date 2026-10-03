@@ -1018,5 +1018,6 @@
   "nfcSheetWriteVerified": "Écrit et vérifié !",
   "nfcSheetWritten": "Écrit sur le tag !",
   "nfcSheetLocked": "Le tag est verrouillé définitivement !",
-  "nfcWriteDone": "Écrit sur le tag avec succès."
+  "nfcWriteDone": "Écrit sur le tag avec succès.",
+  "errorWidgetMessage": "Cette partie n'a pas pu s'afficher. Revenez en arrière et réessayez."
 }

@@ -1,4 +1,5 @@
 import 'dart:io';
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:path_provider/path_provider.dart';
 import 'controllers/nfc_controller.dart';
@@ -12,6 +13,7 @@ import 'l10n/l10n.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
+  _installErrorHandlers();
 
   // Initialize storage service
   AppStorageService storage;
@@ -32,6 +34,36 @@ void main() async {
   );
 
   runApp(NfcTagMasterApp(controller: controller));
+}
+
+/// Keeps the app running after unexpected errors: async errors are logged
+/// instead of crashing, and a broken widget shows a short message instead of
+/// a red/grey box in release builds.
+void _installErrorHandlers() {
+  final previous = FlutterError.onError;
+  FlutterError.onError = (details) {
+    previous?.call(details);
+    debugPrint('FlutterError: ${details.exceptionAsString()}');
+  };
+  PlatformDispatcher.instance.onError = (error, stack) {
+    debugPrint('Uncaught error: $error\n$stack');
+    return true;
+  };
+  if (kReleaseMode) {
+    ErrorWidget.builder = (details) => Material(
+          color: Colors.transparent,
+          child: Center(
+            child: Padding(
+              padding: const EdgeInsets.all(24),
+              child: Text(
+                L10n.current.errorWidgetMessage,
+                textAlign: TextAlign.center,
+                style: const TextStyle(color: Colors.grey, fontSize: 14),
+              ),
+            ),
+          ),
+        );
+  }
 }
 
 class NfcTagMasterApp extends StatelessWidget {

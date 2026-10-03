@@ -3429,4 +3429,7 @@ class AppLocalizationsZh extends AppLocalizations {
 
   @override
   String get nfcWriteDone => '已成功写入标签。';
+
+  @override
+  String get errorWidgetMessage => '无法显示此部分，请返回后重试。';
 }

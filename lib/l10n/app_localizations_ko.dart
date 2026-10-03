@@ -3469,4 +3469,7 @@ class AppLocalizationsKo extends AppLocalizations {
 
   @override
   String get nfcWriteDone => '태그에 성공적으로 썼습니다.';
+
+  @override
+  String get errorWidgetMessage => '이 부분을 표시할 수 없습니다. 돌아가서 다시 시도하세요.';
 }

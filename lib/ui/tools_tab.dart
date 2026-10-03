@@ -259,6 +259,10 @@ class ToolsTab extends StatelessWidget {
       return;
     }
     if (file == null || !context.mounted) return;
+    if (await file.length() > 1024) {
+      if (context.mounted) _snack(context, loc.ntagInvalidDumpFile, error: true);
+      return;
+    }
     final bytes = await file.readAsBytes();
     if (!context.mounted) return;
     if (bytes.length < 32 || bytes.length > 1024 || bytes.length % 4 != 0) {

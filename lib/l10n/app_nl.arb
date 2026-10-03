@@ -1018,5 +1018,6 @@
   "nfcSheetWriteVerified": "Geschreven en geverifieerd!",
   "nfcSheetWritten": "Naar de tag geschreven!",
   "nfcSheetLocked": "De tag is nu permanent vergrendeld!",
-  "nfcWriteDone": "Succesvol naar de tag geschreven."
+  "nfcWriteDone": "Succesvol naar de tag geschreven.",
+  "errorWidgetMessage": "Dit onderdeel kon niet worden getoond. Ga terug en probeer het opnieuw."
 }
