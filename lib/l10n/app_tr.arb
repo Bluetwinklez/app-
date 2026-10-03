@@ -2378,5 +2378,17 @@
   "nfcSheetLocked": "Etiket kalıcı olarak kilitlendi!",
   "nfcWriteDone": "Etikete başarıyla yazıldı.",
   "errorWidgetMessage": "Bu bölüm gösterilemedi. Geri dönüp tekrar deneyin.",
-  "nfcErrTimeout": "Süre doldu; etiket algılanmadı. Etiketi telefonun üst kısmına yaklaştırıp tekrar deneyin."
+  "nfcErrTimeout": "Süre doldu; etiket algılanmadı. Etiketi telefonun üst kısmına yaklaştırıp tekrar deneyin.",
+  "aboutTitle": "Hakkında",
+  "aboutVersion": "Sürüm {version}",
+  "@aboutVersion": {
+    "placeholders": {
+      "version": {
+        "type": "String"
+      }
+    }
+  },
+  "privacySummary": "Verileriniz yalnızca bu cihazda kalır: hesap yok, sunucu yok, reklam ya da takip yok.",
+  "whatsNewTitle": "Yenilikler",
+  "whatsNew110": "• 14 dil, koyu mod ve yeni tasarım\n• Hazır şablonlar: kategoriler, arama ve favoriler\n• Toplu yazma: seri numara, CSV ve etiket kopyalama\n• \"Dokununca ne olur?\" önizlemesi ve kapasite uyarıları\n• Etiket kütüphanesi: fotoğraf, not ve etiketler\n• Etiket raporu, karşılaştırma, sürekli tarama ve CSV dışa aktarma\n• Siri, Kısayollar ve hazır otomasyon tarifleri"
 }

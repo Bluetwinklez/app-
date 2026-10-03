@@ -3651,4 +3651,23 @@ class AppLocalizationsEs extends AppLocalizations {
   @override
   String get nfcErrTimeout =>
       'Se acabó el tiempo sin detectar etiqueta. Acércala a la parte superior del teléfono e inténtalo de nuevo.';
+
+  @override
+  String get aboutTitle => 'Acerca de';
+
+  @override
+  String aboutVersion(String version) {
+    return 'Versión $version';
+  }
+
+  @override
+  String get privacySummary =>
+      'Tus datos se quedan en este dispositivo: sin cuenta, sin servidor, sin anuncios ni rastreo.';
+
+  @override
+  String get whatsNewTitle => 'Novedades';
+
+  @override
+  String get whatsNew110 =>
+      '• 14 idiomas, modo oscuro y nuevo diseño\n• Plantillas con categorías, búsqueda y favoritos\n• Escritura por lotes: números de serie, CSV y clonado\n• Vista previa «¿Qué pasa al acercarlo?» y avisos de capacidad\n• Biblioteca de etiquetas con fotos, notas y etiquetas\n• Informe, comparación, escaneo continuo y exportación CSV\n• Siri, Atajos y recetas de automatización';
 }

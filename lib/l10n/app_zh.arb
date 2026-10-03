@@ -1020,5 +1020,10 @@
   "nfcSheetLocked": "标签已永久锁定！",
   "nfcWriteDone": "已成功写入标签。",
   "errorWidgetMessage": "无法显示此部分，请返回后重试。",
-  "nfcErrTimeout": "超时未检测到标签。请将标签靠近手机顶部后重试。"
+  "nfcErrTimeout": "超时未检测到标签。请将标签靠近手机顶部后重试。",
+  "aboutTitle": "关于",
+  "aboutVersion": "版本 {version}",
+  "privacySummary": "您的数据只保存在本设备：无账号、无服务器、无广告或跟踪。",
+  "whatsNewTitle": "新功能",
+  "whatsNew110": "• 14 种语言、深色模式和全新设计\n• 带分类、搜索和收藏的现成模板\n• 批量写入：序列号、CSV 和标签克隆\n• “触碰时会发生什么？”预览与容量提醒\n• 带照片、备注和标签的标签库\n• 标签报告、对比、连续扫描和 CSV 导出\n• Siri、快捷指令和现成自动化方案"
 }

@@ -3475,4 +3475,22 @@ class AppLocalizationsKo extends AppLocalizations {
 
   @override
   String get nfcErrTimeout => '시간 내에 태그를 찾지 못했습니다. 휴대폰 위쪽에 대고 다시 시도하세요.';
+
+  @override
+  String get aboutTitle => '정보';
+
+  @override
+  String aboutVersion(String version) {
+    return '버전 $version';
+  }
+
+  @override
+  String get privacySummary => '데이터는 이 기기에만 저장됩니다. 계정, 서버, 광고, 추적이 없습니다.';
+
+  @override
+  String get whatsNewTitle => '새로운 기능';
+
+  @override
+  String get whatsNew110 =>
+      '• 14개 언어, 다크 모드, 새 디자인\n• 카테고리·검색·즐겨찾기가 있는 템플릿\n• 일련번호·CSV·태그 복제로 일괄 쓰기\n• \"대면 어떻게 되나요?\" 미리보기와 용량 경고\n• 사진·메모·라벨이 있는 태그 보관함\n• 태그 리포트, 비교, 연속 스캔, CSV 내보내기\n• Siri, 단축어, 자동화 레시피';
 }

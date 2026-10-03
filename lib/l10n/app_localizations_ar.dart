@@ -3578,4 +3578,23 @@ class AppLocalizationsAr extends AppLocalizations {
   @override
   String get nfcErrTimeout =>
       'انتهى الوقت دون اكتشاف وسم. قرّب الوسم من أعلى الهاتف وحاول مجددًا.';
+
+  @override
+  String get aboutTitle => 'حول';
+
+  @override
+  String aboutVersion(String version) {
+    return 'الإصدار $version';
+  }
+
+  @override
+  String get privacySummary =>
+      'تبقى بياناتك على هذا الجهاز: لا حساب ولا خادم ولا إعلانات أو تتبّع.';
+
+  @override
+  String get whatsNewTitle => 'الجديد';
+
+  @override
+  String get whatsNew110 =>
+      '• 14 لغة ووضع داكن وتصميم جديد\n• قوالب جاهزة مع فئات وبحث ومفضلة\n• كتابة دفعية بأرقام تسلسلية وCSV ونسخ الوسوم\n• معاينة \"ماذا يحدث عند اللمس؟\" وتحذيرات السعة\n• مكتبة وسوم بالصور والملاحظات والتسميات\n• تقرير الوسم والمقارنة والمسح المستمر وتصدير CSV\n• Siri والاختصارات ووصفات أتمتة جاهزة';
 }

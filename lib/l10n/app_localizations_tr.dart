@@ -3621,4 +3621,23 @@ class AppLocalizationsTr extends AppLocalizations {
   @override
   String get nfcErrTimeout =>
       'Süre doldu; etiket algılanmadı. Etiketi telefonun üst kısmına yaklaştırıp tekrar deneyin.';
+
+  @override
+  String get aboutTitle => 'Hakkında';
+
+  @override
+  String aboutVersion(String version) {
+    return 'Sürüm $version';
+  }
+
+  @override
+  String get privacySummary =>
+      'Verileriniz yalnızca bu cihazda kalır: hesap yok, sunucu yok, reklam ya da takip yok.';
+
+  @override
+  String get whatsNewTitle => 'Yenilikler';
+
+  @override
+  String get whatsNew110 =>
+      '• 14 dil, koyu mod ve yeni tasarım\n• Hazır şablonlar: kategoriler, arama ve favoriler\n• Toplu yazma: seri numara, CSV ve etiket kopyalama\n• \"Dokununca ne olur?\" önizlemesi ve kapasite uyarıları\n• Etiket kütüphanesi: fotoğraf, not ve etiketler\n• Etiket raporu, karşılaştırma, sürekli tarama ve CSV dışa aktarma\n• Siri, Kısayollar ve hazır otomasyon tarifleri';
 }

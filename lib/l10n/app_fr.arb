@@ -1020,5 +1020,10 @@
   "nfcSheetLocked": "Le tag est verrouillé définitivement !",
   "nfcWriteDone": "Écrit sur le tag avec succès.",
   "errorWidgetMessage": "Cette partie n'a pas pu s'afficher. Revenez en arrière et réessayez.",
-  "nfcErrTimeout": "Délai dépassé, aucun tag détecté. Approchez le tag du haut du téléphone et réessayez."
+  "nfcErrTimeout": "Délai dépassé, aucun tag détecté. Approchez le tag du haut du téléphone et réessayez.",
+  "aboutTitle": "À propos",
+  "aboutVersion": "Version {version}",
+  "privacySummary": "Vos données restent sur cet appareil : pas de compte, pas de serveur, ni pub ni pistage.",
+  "whatsNewTitle": "Nouveautés",
+  "whatsNew110": "• 14 langues, mode sombre et nouveau design\n• Modèles prêts avec catégories, recherche et favoris\n• Écriture par lot : numéros de série, CSV et clonage\n• Aperçu « Que se passe-t-il au contact ? » et alertes de capacité\n• Bibliothèque de tags avec photos, notes et libellés\n• Rapport de tag, comparaison, scan continu et export CSV\n• Siri, Raccourcis et recettes d'automatisation"
 }

@@ -6249,6 +6249,36 @@ abstract class AppLocalizations {
   /// In tr, this message translates to:
   /// **'Süre doldu; etiket algılanmadı. Etiketi telefonun üst kısmına yaklaştırıp tekrar deneyin.'**
   String get nfcErrTimeout;
+
+  /// No description provided for @aboutTitle.
+  ///
+  /// In tr, this message translates to:
+  /// **'Hakkında'**
+  String get aboutTitle;
+
+  /// No description provided for @aboutVersion.
+  ///
+  /// In tr, this message translates to:
+  /// **'Sürüm {version}'**
+  String aboutVersion(String version);
+
+  /// No description provided for @privacySummary.
+  ///
+  /// In tr, this message translates to:
+  /// **'Verileriniz yalnızca bu cihazda kalır: hesap yok, sunucu yok, reklam ya da takip yok.'**
+  String get privacySummary;
+
+  /// No description provided for @whatsNewTitle.
+  ///
+  /// In tr, this message translates to:
+  /// **'Yenilikler'**
+  String get whatsNewTitle;
+
+  /// No description provided for @whatsNew110.
+  ///
+  /// In tr, this message translates to:
+  /// **'• 14 dil, koyu mod ve yeni tasarım\n• Hazır şablonlar: kategoriler, arama ve favoriler\n• Toplu yazma: seri numara, CSV ve etiket kopyalama\n• \"Dokununca ne olur?\" önizlemesi ve kapasite uyarıları\n• Etiket kütüphanesi: fotoğraf, not ve etiketler\n• Etiket raporu, karşılaştırma, sürekli tarama ve CSV dışa aktarma\n• Siri, Kısayollar ve hazır otomasyon tarifleri'**
+  String get whatsNew110;
 }
 
 class _AppLocalizationsDelegate

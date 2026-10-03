@@ -3628,4 +3628,23 @@ class AppLocalizationsRu extends AppLocalizations {
   @override
   String get nfcErrTimeout =>
       'Время вышло, метка не найдена. Поднесите её к верхней части телефона и повторите.';
+
+  @override
+  String get aboutTitle => 'О приложении';
+
+  @override
+  String aboutVersion(String version) {
+    return 'Версия $version';
+  }
+
+  @override
+  String get privacySummary =>
+      'Данные остаются на этом устройстве: без аккаунта, сервера, рекламы и слежки.';
+
+  @override
+  String get whatsNewTitle => 'Что нового';
+
+  @override
+  String get whatsNew110 =>
+      '• 14 языков, тёмная тема и новый дизайн\n• Шаблоны с категориями, поиском и избранным\n• Пакетная запись: серийные номера, CSV и клонирование\n• Предпросмотр «Что будет при касании?» и предупреждения о ёмкости\n• Библиотека меток с фото, заметками и метками\n• Отчёт, сравнение, непрерывное сканирование и экспорт CSV\n• Siri, Команды и готовые рецепты автоматизации';
 }
