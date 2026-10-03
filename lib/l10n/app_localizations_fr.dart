@@ -4553,4 +4553,35 @@ class AppLocalizationsFr extends AppLocalizations {
 
   @override
   String get iconDark => 'Nuit';
+
+  @override
+  String get mapTitle => 'Carte des tags';
+
+  @override
+  String get mapEmpty =>
+      'Aucun tag à afficher. Modifiez un tag et touchez « Ajouter la position actuelle », ou écrivez une position sur le tag.';
+
+  @override
+  String get mapTilesNote =>
+      'Les images de carte proviennent d\'OpenStreetMap.';
+
+  @override
+  String get mapOpenInMaps => 'Ouvrir dans Plans';
+
+  @override
+  String get mapAddCurrent => 'Ajouter la position actuelle';
+
+  @override
+  String mapPositionSaved(String lat, String lng) {
+    return 'Position : $lat, $lng';
+  }
+
+  @override
+  String get mapLocationDenied =>
+      'Accès à la position refusé. Autorisez-le dans Réglages → Confidentialité → Service de localisation.';
+
+  @override
+  String mapLocationFailed(String error) {
+    return 'Position indisponible : $error';
+  }
 }

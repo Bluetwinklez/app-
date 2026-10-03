@@ -4522,4 +4522,34 @@ class AppLocalizationsRu extends AppLocalizations {
 
   @override
   String get iconDark => 'Ночь';
+
+  @override
+  String get mapTitle => 'Карта меток';
+
+  @override
+  String get mapEmpty =>
+      'Пока нечего показать. Откройте метку и нажмите «Добавить текущее место» или запишите на метку координаты.';
+
+  @override
+  String get mapTilesNote => 'Изображения карты загружаются из OpenStreetMap.';
+
+  @override
+  String get mapOpenInMaps => 'Открыть в Картах';
+
+  @override
+  String get mapAddCurrent => 'Добавить текущее место';
+
+  @override
+  String mapPositionSaved(String lat, String lng) {
+    return 'Место: $lat, $lng';
+  }
+
+  @override
+  String get mapLocationDenied =>
+      'Доступ к геопозиции не разрешён. Разрешите в Настройки → Конфиденциальность → Службы геолокации.';
+
+  @override
+  String mapLocationFailed(String error) {
+    return 'Не удалось определить место: $error';
+  }
 }

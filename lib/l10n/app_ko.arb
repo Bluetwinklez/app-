@@ -1262,5 +1262,13 @@
   "iconGreen": "초록",
   "iconPurple": "보라",
   "iconOrange": "주황",
-  "iconDark": "나이트"
+  "iconDark": "나이트",
+  "mapTitle": "태그 지도",
+  "mapEmpty": "표시할 태그가 없습니다. 태그를 편집해 \"현재 위치 추가\"를 누르거나 태그에 위치를 쓰세요.",
+  "mapTilesNote": "지도 이미지는 OpenStreetMap에서 불러옵니다.",
+  "mapOpenInMaps": "지도에서 열기",
+  "mapAddCurrent": "현재 위치 추가",
+  "mapPositionSaved": "위치: {lat}, {lng}",
+  "mapLocationDenied": "위치 권한이 없습니다. 설정 → 개인정보 보호 → 위치 서비스에서 허용하세요.",
+  "mapLocationFailed": "위치를 가져올 수 없음: {error}"
 }

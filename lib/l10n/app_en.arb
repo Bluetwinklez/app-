@@ -1262,5 +1262,13 @@
   "iconGreen": "Green",
   "iconPurple": "Purple",
   "iconOrange": "Orange",
-  "iconDark": "Night"
+  "iconDark": "Night",
+  "mapTitle": "Tag map",
+  "mapEmpty": "No tags to show yet. Edit a tag and tap \"Add current location\", or write a location to the tag.",
+  "mapTilesNote": "Map images are loaded from OpenStreetMap.",
+  "mapOpenInMaps": "Open in Maps",
+  "mapAddCurrent": "Add current location",
+  "mapPositionSaved": "Location: {lat}, {lng}",
+  "mapLocationDenied": "Location permission was not granted. You can allow it in Settings → Privacy → Location Services.",
+  "mapLocationFailed": "Could not get the location: {error}"
 }

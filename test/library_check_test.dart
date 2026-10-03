@@ -60,4 +60,17 @@ void main() {
       expect(TagLibraryEntry.cloneSuspect(library, '04:BB', records), isNull);
     });
   });
+
+  group('position', () {
+    test('saved coordinates win, else a geo record is used', () {
+      final geo = entry(records: [NdefCodec.encodeLocation(latitude: 41.0082, longitude: 28.9784)]);
+      expect(geo.position, (lat: 41.0082, lng: 28.9784));
+      final saved = geo.copyWith(latitude: 39.9, longitude: 32.8);
+      expect(saved.position, (lat: 39.9, lng: 32.8));
+      expect(entry(records: [NdefCodec.encodeText('x')]).position, isNull);
+      final back = TagLibraryEntry.fromJsonMap(saved.toJsonMap());
+      expect((back.latitude, back.longitude), (39.9, 32.8));
+      expect(saved.copyWith(clearPosition: true).latitude, isNull);
+    });
+  });
 }

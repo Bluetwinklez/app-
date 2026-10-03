@@ -4532,4 +4532,34 @@ class AppLocalizationsPt extends AppLocalizations {
 
   @override
   String get iconDark => 'Noite';
+
+  @override
+  String get mapTitle => 'Mapa de tags';
+
+  @override
+  String get mapEmpty =>
+      'Nenhuma tag para mostrar. Edite uma tag e toque em \"Adicionar local atual\" ou grave um local na tag.';
+
+  @override
+  String get mapTilesNote => 'As imagens do mapa vêm do OpenStreetMap.';
+
+  @override
+  String get mapOpenInMaps => 'Abrir no Mapas';
+
+  @override
+  String get mapAddCurrent => 'Adicionar local atual';
+
+  @override
+  String mapPositionSaved(String lat, String lng) {
+    return 'Local: $lat, $lng';
+  }
+
+  @override
+  String get mapLocationDenied =>
+      'Permissão de localização negada. Permita em Ajustes → Privacidade → Serviços de Localização.';
+
+  @override
+  String mapLocationFailed(String error) {
+    return 'Não foi possível obter o local: $error';
+  }
 }

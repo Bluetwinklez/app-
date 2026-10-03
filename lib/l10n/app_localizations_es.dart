@@ -4550,4 +4550,35 @@ class AppLocalizationsEs extends AppLocalizations {
 
   @override
   String get iconDark => 'Noche';
+
+  @override
+  String get mapTitle => 'Mapa de etiquetas';
+
+  @override
+  String get mapEmpty =>
+      'Aún no hay etiquetas. Edita una y toca \"Añadir ubicación actual\", o escribe una ubicación en la etiqueta.';
+
+  @override
+  String get mapTilesNote =>
+      'Las imágenes del mapa se cargan desde OpenStreetMap.';
+
+  @override
+  String get mapOpenInMaps => 'Abrir en Mapas';
+
+  @override
+  String get mapAddCurrent => 'Añadir ubicación actual';
+
+  @override
+  String mapPositionSaved(String lat, String lng) {
+    return 'Ubicación: $lat, $lng';
+  }
+
+  @override
+  String get mapLocationDenied =>
+      'Permiso de ubicación denegado. Puedes permitirlo en Ajustes → Privacidad → Localización.';
+
+  @override
+  String mapLocationFailed(String error) {
+    return 'No se pudo obtener la ubicación: $error';
+  }
 }

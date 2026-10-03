@@ -1262,5 +1262,13 @@
   "iconGreen": "Grün",
   "iconPurple": "Lila",
   "iconOrange": "Orange",
-  "iconDark": "Nacht"
+  "iconDark": "Nacht",
+  "mapTitle": "Tag-Karte",
+  "mapEmpty": "Noch keine Tags auf der Karte. Tag bearbeiten und „Aktuellen Ort hinzufügen\" tippen oder einen Ort auf den Tag schreiben.",
+  "mapTilesNote": "Kartenbilder werden von OpenStreetMap geladen.",
+  "mapOpenInMaps": "In Karten öffnen",
+  "mapAddCurrent": "Aktuellen Ort hinzufügen",
+  "mapPositionSaved": "Ort: {lat}, {lng}",
+  "mapLocationDenied": "Standortzugriff nicht erlaubt. Unter Einstellungen → Datenschutz → Ortungsdienste freigeben.",
+  "mapLocationFailed": "Standort nicht verfügbar: {error}"
 }
