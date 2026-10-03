@@ -1086,5 +1086,10 @@
   "logbookMedNotTaken": "Ainda não tomado hoje",
   "logbookInventorySummary": "{count} tags diferentes contadas",
   "logbookDeleteConfirm": "Excluir o registro \"{name}\" e todas as entradas?",
-  "logbookEntries": "{count} entradas"
+  "logbookEntries": "{count} entradas",
+  "lastSeenAt": "Visto por último: {date}",
+  "neverSeen": "Ainda não lida",
+  "sortLongestUnseen": "Há mais tempo sem ver",
+  "unseen30Days": "Não visto há 30+ dias",
+  "inventoryCardTitle": "Esta tag está na sua biblioteca"
 }

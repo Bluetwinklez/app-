@@ -3865,4 +3865,21 @@ class AppLocalizationsIt extends AppLocalizations {
   String logbookEntries(String count) {
     return '$count voci';
   }
+
+  @override
+  String lastSeenAt(String date) {
+    return 'Visto l\'ultima volta: $date';
+  }
+
+  @override
+  String get neverSeen => 'Non ancora letto';
+
+  @override
+  String get sortLongestUnseen => 'Non visti da più tempo';
+
+  @override
+  String get unseen30Days => 'Non visto da 30+ giorni';
+
+  @override
+  String get inventoryCardTitle => 'Questo tag è nella tua libreria';
 }

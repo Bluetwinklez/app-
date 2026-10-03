@@ -3710,4 +3710,21 @@ class AppLocalizationsKo extends AppLocalizations {
   String logbookEntries(String count) {
     return '$count건';
   }
+
+  @override
+  String lastSeenAt(String date) {
+    return '마지막 확인: $date';
+  }
+
+  @override
+  String get neverSeen => '아직 스캔 안 됨';
+
+  @override
+  String get sortLongestUnseen => '오래 확인 안 된 순';
+
+  @override
+  String get unseen30Days => '30일 이상 미확인';
+
+  @override
+  String get inventoryCardTitle => '이 태그는 보관함에 있습니다';
 }

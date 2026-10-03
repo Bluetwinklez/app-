@@ -3663,4 +3663,21 @@ class AppLocalizationsZh extends AppLocalizations {
   String logbookEntries(String count) {
     return '$count 条';
   }
+
+  @override
+  String lastSeenAt(String date) {
+    return '最后一次：$date';
+  }
+
+  @override
+  String get neverSeen => '尚未扫描';
+
+  @override
+  String get sortLongestUnseen => '最久未见';
+
+  @override
+  String get unseen30Days => '30 天以上未见';
+
+  @override
+  String get inventoryCardTitle => '此标签在你的标签库中';
 }

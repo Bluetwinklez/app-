@@ -3817,4 +3817,21 @@ class AppLocalizationsAr extends AppLocalizations {
   String logbookEntries(String count) {
     return '$count إدخال';
   }
+
+  @override
+  String lastSeenAt(String date) {
+    return 'آخر ظهور: $date';
+  }
+
+  @override
+  String get neverSeen => 'لم يُمسح بعد';
+
+  @override
+  String get sortLongestUnseen => 'الأطول دون مسح';
+
+  @override
+  String get unseen30Days => 'لم يُرَ منذ 30+ يومًا';
+
+  @override
+  String get inventoryCardTitle => 'هذا الوسم في مكتبتك';
 }

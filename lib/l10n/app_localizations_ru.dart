@@ -3868,4 +3868,21 @@ class AppLocalizationsRu extends AppLocalizations {
   String logbookEntries(String count) {
     return 'Записей: $count';
   }
+
+  @override
+  String lastSeenAt(String date) {
+    return 'Последний раз: $date';
+  }
+
+  @override
+  String get neverSeen => 'Ещё не сканировалась';
+
+  @override
+  String get sortLongestUnseen => 'Дольше всего не видели';
+
+  @override
+  String get unseen30Days => 'Не видели 30+ дней';
+
+  @override
+  String get inventoryCardTitle => 'Эта метка есть в библиотеке';
 }

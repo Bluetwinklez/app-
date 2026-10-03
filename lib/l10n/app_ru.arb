@@ -1086,5 +1086,10 @@
   "logbookMedNotTaken": "Сегодня ещё не принято",
   "logbookInventorySummary": "Учтено разных меток: {count}",
   "logbookDeleteConfirm": "Удалить журнал «{name}» со всеми записями?",
-  "logbookEntries": "Записей: {count}"
+  "logbookEntries": "Записей: {count}",
+  "lastSeenAt": "Последний раз: {date}",
+  "neverSeen": "Ещё не сканировалась",
+  "sortLongestUnseen": "Дольше всего не видели",
+  "unseen30Days": "Не видели 30+ дней",
+  "inventoryCardTitle": "Эта метка есть в библиотеке"
 }

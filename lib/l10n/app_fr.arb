@@ -1086,5 +1086,10 @@
   "logbookMedNotTaken": "Pas encore pris aujourd'hui",
   "logbookInventorySummary": "{count} tags différents comptés",
   "logbookDeleteConfirm": "Supprimer le registre « {name} » et toutes ses entrées ?",
-  "logbookEntries": "{count} entrées"
+  "logbookEntries": "{count} entrées",
+  "lastSeenAt": "Vu pour la dernière fois : {date}",
+  "neverSeen": "Pas encore scanné",
+  "sortLongestUnseen": "Non vus depuis le plus longtemps",
+  "unseen30Days": "Non vu depuis 30+ jours",
+  "inventoryCardTitle": "Ce tag est dans votre bibliothèque"
 }

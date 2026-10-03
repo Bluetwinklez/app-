@@ -3696,4 +3696,21 @@ class AppLocalizationsJa extends AppLocalizations {
   String logbookEntries(String count) {
     return '$count件';
   }
+
+  @override
+  String lastSeenAt(String date) {
+    return '最終確認: $date';
+  }
+
+  @override
+  String get neverSeen => '未読み取り';
+
+  @override
+  String get sortLongestUnseen => '長く未確認の順';
+
+  @override
+  String get unseen30Days => '30日以上未確認';
+
+  @override
+  String get inventoryCardTitle => 'このタグはライブラリにあります';
 }

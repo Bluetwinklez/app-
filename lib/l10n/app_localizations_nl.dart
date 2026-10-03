@@ -3868,4 +3868,21 @@ class AppLocalizationsNl extends AppLocalizations {
   String logbookEntries(String count) {
     return '$count vermeldingen';
   }
+
+  @override
+  String lastSeenAt(String date) {
+    return 'Laatst gezien: $date';
+  }
+
+  @override
+  String get neverSeen => 'Nog niet gescand';
+
+  @override
+  String get sortLongestUnseen => 'Langst niet gezien';
+
+  @override
+  String get unseen30Days => '30+ dagen niet gezien';
+
+  @override
+  String get inventoryCardTitle => 'Deze tag staat in je bibliotheek';
 }

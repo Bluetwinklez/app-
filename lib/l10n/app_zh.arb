@@ -1086,5 +1086,10 @@
   "logbookMedNotTaken": "今天尚未服用",
   "logbookInventorySummary": "已盘点 {count} 个不同标签",
   "logbookDeleteConfirm": "删除记录簿“{name}”及其所有记录？",
-  "logbookEntries": "{count} 条"
+  "logbookEntries": "{count} 条",
+  "lastSeenAt": "最后一次：{date}",
+  "neverSeen": "尚未扫描",
+  "sortLongestUnseen": "最久未见",
+  "unseen30Days": "30 天以上未见",
+  "inventoryCardTitle": "此标签在你的标签库中"
 }
