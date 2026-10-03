@@ -15,6 +15,17 @@ class ICloudException implements Exception {
 class CompanionService {
   static const MethodChannel _channel = MethodChannel('com.antigravity.nfc_tag_master/launch');
 
+  /// Whether this build carries the iCloud capability.
+  static Future<bool> iCloudSupported() async {
+    try {
+      return await _channel.invokeMethod<bool>('iCloudSupported') ?? false;
+    } on MissingPluginException {
+      return false;
+    } on PlatformException {
+      return false;
+    }
+  }
+
   static Future<bool> iCloudAvailable() async {
     try {
       return await _channel.invokeMethod<bool>('iCloudAvailable') ?? false;
