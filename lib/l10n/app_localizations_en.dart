@@ -4250,4 +4250,32 @@ class AppLocalizationsEn extends AppLocalizations {
   String doctorHealthy(String count) {
     return 'All good: $count record(s) correctly written.';
   }
+
+  @override
+  String get libraryImportTitle => 'Import from spreadsheet';
+
+  @override
+  String get libraryImportHint =>
+      'Copy rows from Excel, Numbers or Google Sheets and paste them here. Columns: name, content (link or text), location, labels, note, UID. With a header row, columns are matched by name.';
+
+  @override
+  String libraryImportPreview(String count) {
+    return '$count tags will be added';
+  }
+
+  @override
+  String libraryImportSkipped(String dupes, String invalid) {
+    return '$dupes rows skipped (UID already saved), $invalid rows skipped (no name)';
+  }
+
+  @override
+  String get libraryImportPaste => 'Paste from clipboard';
+
+  @override
+  String get libraryImportAdd => 'Add';
+
+  @override
+  String libraryImportDone(String count) {
+    return '$count tags added to the library';
+  }
 }

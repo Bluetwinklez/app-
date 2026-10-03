@@ -4264,4 +4264,32 @@ class AppLocalizationsUk extends AppLocalizations {
   String doctorHealthy(String count) {
     return 'Усе гаразд: $count записів записано правильно.';
   }
+
+  @override
+  String get libraryImportTitle => 'Імпорт із таблиці';
+
+  @override
+  String get libraryImportHint =>
+      'Скопіюйте рядки з Excel, Numbers або Google Таблиць і вставте сюди. Стовпці: назва, вміст (посилання або текст), місце, мітки, нотатка, UID. Якщо є рядок заголовків, стовпці зіставляються за назвою.';
+
+  @override
+  String libraryImportPreview(String count) {
+    return 'Буде додано міток: $count';
+  }
+
+  @override
+  String libraryImportSkipped(String dupes, String invalid) {
+    return 'Пропущено рядків: $dupes (UID уже є), $invalid (без назви)';
+  }
+
+  @override
+  String get libraryImportPaste => 'Вставити з буфера';
+
+  @override
+  String get libraryImportAdd => 'Додати';
+
+  @override
+  String libraryImportDone(String count) {
+    return 'До бібліотеки додано міток: $count';
+  }
 }

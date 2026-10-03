@@ -4092,4 +4092,32 @@ class AppLocalizationsKo extends AppLocalizations {
   String doctorHealthy(String count) {
     return '이상 없음: 레코드 $count개가 올바르게 쓰였습니다.';
   }
+
+  @override
+  String get libraryImportTitle => '표에서 가져오기';
+
+  @override
+  String get libraryImportHint =>
+      'Excel, Numbers, Google 스프레드시트에서 행을 복사해 붙여넣으세요. 열: 이름, 내용(링크 또는 텍스트), 위치, 라벨, 메모, UID. 머리글 행이 있으면 열 이름으로 맞춥니다.';
+
+  @override
+  String libraryImportPreview(String count) {
+    return '태그 $count개가 추가됩니다';
+  }
+
+  @override
+  String libraryImportSkipped(String dupes, String invalid) {
+    return '$dupes행은 UID가 이미 있어, $invalid행은 이름이 없어 건너뜀';
+  }
+
+  @override
+  String get libraryImportPaste => '클립보드에서 붙여넣기';
+
+  @override
+  String get libraryImportAdd => '추가';
+
+  @override
+  String libraryImportDone(String count) {
+    return '보관함에 태그 $count개 추가됨';
+  }
 }

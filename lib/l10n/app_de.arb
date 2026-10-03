@@ -1192,5 +1192,12 @@
   "doctorNoTerminator": "Endmarke (FE) fehlt. Die meisten Telefone lesen trotzdem; neu beschreiben behebt es.",
   "doctorUnknownTlv": "Unbekannter Datenblock im Speicher; Telefone brechen dort evtl. ab.",
   "doctorBadRecord": "Datensatz {n} ist fehlerhaft (Kopf oder Länge). Tag neu beschreiben.",
-  "doctorHealthy": "Alles in Ordnung: {count} Datensätze korrekt geschrieben."
+  "doctorHealthy": "Alles in Ordnung: {count} Datensätze korrekt geschrieben.",
+  "libraryImportTitle": "Aus Tabelle importieren",
+  "libraryImportHint": "Zeilen aus Excel, Numbers oder Google Tabellen kopieren und hier einfügen. Spalten: Name, Inhalt (Link oder Text), Ort, Labels, Notiz, UID. Mit Kopfzeile werden Spalten nach Namen zugeordnet.",
+  "libraryImportPreview": "{count} Tags werden hinzugefügt",
+  "libraryImportSkipped": "{dupes} Zeilen übersprungen (UID schon gespeichert), {invalid} ohne Namen",
+  "libraryImportPaste": "Aus Zwischenablage einfügen",
+  "libraryImportAdd": "Hinzufügen",
+  "libraryImportDone": "{count} Tags zur Bibliothek hinzugefügt"
 }

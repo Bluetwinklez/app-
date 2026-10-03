@@ -1192,5 +1192,12 @@
   "doctorNoTerminator": "종료 표시(FE)가 없습니다. 대부분 읽히지만 다시 쓰면 해결됩니다.",
   "doctorUnknownTlv": "메모리에 알 수 없는 데이터 블록이 있어 읽기가 멈출 수 있습니다.",
   "doctorBadRecord": "{n}번째 레코드가 손상되었습니다(헤더 또는 길이). 다시 쓰세요.",
-  "doctorHealthy": "이상 없음: 레코드 {count}개가 올바르게 쓰였습니다."
+  "doctorHealthy": "이상 없음: 레코드 {count}개가 올바르게 쓰였습니다.",
+  "libraryImportTitle": "표에서 가져오기",
+  "libraryImportHint": "Excel, Numbers, Google 스프레드시트에서 행을 복사해 붙여넣으세요. 열: 이름, 내용(링크 또는 텍스트), 위치, 라벨, 메모, UID. 머리글 행이 있으면 열 이름으로 맞춥니다.",
+  "libraryImportPreview": "태그 {count}개가 추가됩니다",
+  "libraryImportSkipped": "{dupes}행은 UID가 이미 있어, {invalid}행은 이름이 없어 건너뜀",
+  "libraryImportPaste": "클립보드에서 붙여넣기",
+  "libraryImportAdd": "추가",
+  "libraryImportDone": "보관함에 태그 {count}개 추가됨"
 }

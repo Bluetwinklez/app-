@@ -4264,4 +4264,32 @@ class AppLocalizationsNl extends AppLocalizations {
   String doctorHealthy(String count) {
     return 'Alles in orde: $count record(s) correct geschreven.';
   }
+
+  @override
+  String get libraryImportTitle => 'Importeren uit spreadsheet';
+
+  @override
+  String get libraryImportHint =>
+      'Kopieer rijen uit Excel, Numbers of Google Spreadsheets en plak ze hier. Kolommen: naam, inhoud (link of tekst), locatie, labels, notitie, UID. Met een kopregel worden kolommen op naam gekoppeld.';
+
+  @override
+  String libraryImportPreview(String count) {
+    return '$count tags worden toegevoegd';
+  }
+
+  @override
+  String libraryImportSkipped(String dupes, String invalid) {
+    return '$dupes rijen overgeslagen (UID al opgeslagen), $invalid zonder naam';
+  }
+
+  @override
+  String get libraryImportPaste => 'Plakken van klembord';
+
+  @override
+  String get libraryImportAdd => 'Toevoegen';
+
+  @override
+  String libraryImportDone(String count) {
+    return '$count tags toegevoegd aan de bibliotheek';
+  }
 }

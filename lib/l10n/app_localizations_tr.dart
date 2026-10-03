@@ -4262,4 +4262,32 @@ class AppLocalizationsTr extends AppLocalizations {
   String doctorHealthy(String count) {
     return 'Her şey yolunda: $count kayıt doğru biçimde yazılmış.';
   }
+
+  @override
+  String get libraryImportTitle => 'Tablodan içe aktar';
+
+  @override
+  String get libraryImportHint =>
+      'Excel, Numbers veya Google E-Tablolar\'dan satırları kopyalayıp buraya yapıştırın. Sütunlar: ad, içerik (bağlantı ya da metin), konum, etiketler, not, UID. Başlık satırı varsa sütunlar adına göre eşleşir.';
+
+  @override
+  String libraryImportPreview(String count) {
+    return '$count etiket eklenecek';
+  }
+
+  @override
+  String libraryImportSkipped(String dupes, String invalid) {
+    return '$dupes satır zaten kayıtlı UID nedeniyle, $invalid satır adı olmadığı için atlanacak';
+  }
+
+  @override
+  String get libraryImportPaste => 'Panodan yapıştır';
+
+  @override
+  String get libraryImportAdd => 'Ekle';
+
+  @override
+  String libraryImportDone(String count) {
+    return '$count etiket kütüphaneye eklendi';
+  }
 }

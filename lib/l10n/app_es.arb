@@ -1192,5 +1192,12 @@
   "doctorNoTerminator": "Falta el marcador de fin (FE). La mayoría de teléfonos lo leen igual; reescribir lo corrige.",
   "doctorUnknownTlv": "Bloque de datos desconocido en memoria; la lectura puede detenerse ahí.",
   "doctorBadRecord": "El registro {n} está mal formado (cabecera o longitud). Vuelve a escribir la etiqueta.",
-  "doctorHealthy": "Todo bien: {count} registro(s) escrito(s) correctamente."
+  "doctorHealthy": "Todo bien: {count} registro(s) escrito(s) correctamente.",
+  "libraryImportTitle": "Importar desde hoja de cálculo",
+  "libraryImportHint": "Copia filas de Excel, Numbers o Google Sheets y pégalas aquí. Columnas: nombre, contenido (enlace o texto), ubicación, etiquetas, nota, UID. Con fila de encabezado, las columnas se asignan por nombre.",
+  "libraryImportPreview": "Se añadirán {count} etiquetas",
+  "libraryImportSkipped": "{dupes} filas omitidas (UID ya guardado), {invalid} sin nombre",
+  "libraryImportPaste": "Pegar del portapapeles",
+  "libraryImportAdd": "Añadir",
+  "libraryImportDone": "{count} etiquetas añadidas a la biblioteca"
 }

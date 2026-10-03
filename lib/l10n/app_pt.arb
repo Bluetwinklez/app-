@@ -1192,5 +1192,12 @@
   "doctorNoTerminator": "Falta o marcador de fim (FE). A maioria dos celulares lê mesmo assim; gravar de novo corrige.",
   "doctorUnknownTlv": "Bloco de dados desconhecido na memória; a leitura pode parar ali.",
   "doctorBadRecord": "O registro {n} está malformado (cabeçalho ou tamanho). Grave a tag de novo.",
-  "doctorHealthy": "Tudo certo: {count} registro(s) gravado(s) corretamente."
+  "doctorHealthy": "Tudo certo: {count} registro(s) gravado(s) corretamente.",
+  "libraryImportTitle": "Importar de planilha",
+  "libraryImportHint": "Copie linhas do Excel, Numbers ou Planilhas Google e cole aqui. Colunas: nome, conteúdo (link ou texto), local, rótulos, nota, UID. Com linha de cabeçalho, as colunas são associadas pelo nome.",
+  "libraryImportPreview": "{count} tags serão adicionadas",
+  "libraryImportSkipped": "{dupes} linhas ignoradas (UID já salvo), {invalid} sem nome",
+  "libraryImportPaste": "Colar da área de transferência",
+  "libraryImportAdd": "Adicionar",
+  "libraryImportDone": "{count} tags adicionadas à biblioteca"
 }
