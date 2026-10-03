@@ -3916,4 +3916,7 @@ class AppLocalizationsEs extends AppLocalizations {
   String scanReportLine(String unique, String dup, String empty) {
     return '$unique etiquetas distintas · $dup repetidas · $empty vacías';
   }
+
+  @override
+  String get printSheet => 'Hoja de etiquetas imprimible (PDF)';
 }

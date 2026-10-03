@@ -1092,5 +1092,6 @@
   "sortLongestUnseen": "الأطول دون مسح",
   "unseen30Days": "لم يُرَ منذ 30+ يومًا",
   "inventoryCardTitle": "هذا الوسم في مكتبتك",
-  "scanReportLine": "{unique} وسوم مختلفة · {dup} مكررة · {empty} فارغة"
+  "scanReportLine": "{unique} وسوم مختلفة · {dup} مكررة · {empty} فارغة",
+  "printSheet": "ورقة ملصقات للطباعة (PDF)"
 }

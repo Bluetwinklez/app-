@@ -3732,4 +3732,7 @@ class AppLocalizationsKo extends AppLocalizations {
   String scanReportLine(String unique, String dup, String empty) {
     return '서로 다른 태그 $unique개 · 재스캔 $dup개 · 빈 태그 $empty개';
   }
+
+  @override
+  String get printSheet => '인쇄용 라벨 시트(PDF)';
 }

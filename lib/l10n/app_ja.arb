@@ -1092,5 +1092,6 @@
   "sortLongestUnseen": "長く未確認の順",
   "unseen30Days": "30日以上未確認",
   "inventoryCardTitle": "このタグはライブラリにあります",
-  "scanReportLine": "{unique}種類 · 再読取 {dup} · 空 {empty}"
+  "scanReportLine": "{unique}種類 · 再読取 {dup} · 空 {empty}",
+  "printSheet": "印刷用ラベルシート (PDF)"
 }

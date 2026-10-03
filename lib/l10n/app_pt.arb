@@ -1092,5 +1092,6 @@
   "sortLongestUnseen": "Há mais tempo sem ver",
   "unseen30Days": "Não visto há 30+ dias",
   "inventoryCardTitle": "Esta tag está na sua biblioteca",
-  "scanReportLine": "{unique} tags diferentes · {dup} repetidas · {empty} vazias"
+  "scanReportLine": "{unique} tags diferentes · {dup} repetidas · {empty} vazias",
+  "printSheet": "Folha de etiquetas (PDF)"
 }

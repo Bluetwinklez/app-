@@ -3916,4 +3916,7 @@ class AppLocalizationsFr extends AppLocalizations {
   String scanReportLine(String unique, String dup, String empty) {
     return '$unique tags différents · $dup relus · $empty vides';
   }
+
+  @override
+  String get printSheet => 'Planche d\'étiquettes (PDF)';
 }
