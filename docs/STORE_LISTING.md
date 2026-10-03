@@ -21,6 +21,10 @@ NFC etiketlerini okuyun, yazın ve yönetin.
 • ARAÇLAR: Etiket raporu, karşılaştırma, temizleme, kilitleme, şifre, bellek dökümü
 • KÜTÜPHANE: Etiketlerinize isim, fotoğraf, konum ve etiket ekleyin
 • OTOMASYON: Siri, Kısayollar ve hazır ev otomasyonu tarifleri
+• WIDGET VE KONTROL MERKEZİ: Ana ekrandan, kilit ekranından veya Kontrol Merkezi'nden tek dokunuşla okuyun
+• APPLE WATCH: Son okumalar ve kayıt defterine tek dokunuşla giriş
+• KAYIT DEFTERLERİ: Yoklama, mesai, ilaç, alışkanlık serisi, mama, ev işleri ve ziyaretçi defteri; hatırlatmalarla
+• DAHA FAZLASI: Etiket haritası, QR ve barkod tarayıcı, fotoğraftan metin okuma, istatistikler, sesli okuma
 • 14 dil ve koyu mod
 
 Gizlilik: Hesap, sunucu, reklam veya takip yok. Her şey cihazınızda.
@@ -46,6 +50,10 @@ Read, write and manage NFC tags.
 • TOOLS: tag report, compare, erase, lock, password, memory dump
 • LIBRARY: give your tags names, photos, locations and labels
 • AUTOMATION: Siri, Shortcuts and ready-made home automation recipes
+• WIDGETS & CONTROL CENTER: scan with one tap from the Home Screen, Lock Screen or Control Center
+• APPLE WATCH: recent scans and one-tap logbook entries
+• LOGBOOKS: attendance, time clock, medication, habit streaks, pet feeding, chores and visitors, with reminders
+• AND MORE: tag map, QR and barcode scanner, text from photos, statistics, read aloud
 • 14 languages and dark mode
 
 Privacy: no account, server, ads or tracking. Everything stays on your device.
@@ -71,6 +79,10 @@ NFC-Tags lesen, beschreiben und verwalten.
 • WERKZEUGE: Tag-Bericht, Vergleich, Löschen, Sperren, Passwort, Speicherauszug
 • BIBLIOTHEK: Namen, Fotos, Orte und Labels für Ihre Tags
 • AUTOMATION: Siri, Kurzbefehle und fertige Rezepte
+• WIDGETS & KONTROLLZENTRUM: mit einem Tippen scannen – vom Home-Bildschirm, Sperrbildschirm oder Kontrollzentrum
+• APPLE WATCH: letzte Scans und Logbuch-Einträge mit einem Tippen
+• LOGBÜCHER: Anwesenheit, Stempeluhr, Medikamente, Gewohnheiten, Fütterung, Haushalt und Besucher – mit Erinnerungen
+• UND MEHR: Tag-Karte, QR- und Barcode-Scanner, Text aus Fotos, Statistiken, Vorlesen
 • 14 Sprachen und Dunkelmodus
 
 Datenschutz: kein Konto, kein Server, keine Werbung, kein Tracking.
@@ -96,6 +108,10 @@ Lisez, écrivez et gérez vos tags NFC.
 • OUTILS : rapport, comparaison, effacement, verrouillage, mot de passe, dump mémoire
 • BIBLIOTHÈQUE : noms, photos, lieux et libellés
 • AUTOMATISATION : Siri, Raccourcis et recettes prêtes
+• WIDGETS ET CENTRE DE CONTRÔLE : scannez d'un geste depuis l'écran d'accueil, l'écran verrouillé ou le Centre de contrôle
+• APPLE WATCH : lectures récentes et entrées de registre en un geste
+• REGISTRES : présence, pointage, médicaments, habitudes, repas des animaux, tâches et visiteurs, avec rappels
+• ET PLUS : carte des tags, scanner QR et code-barres, texte depuis une photo, statistiques, lecture vocale
 • 14 langues et mode sombre
 
 Confidentialité : ni compte, ni serveur, ni pub, ni pistage.
@@ -121,6 +137,10 @@ Lee, escribe y gestiona etiquetas NFC.
 • HERRAMIENTAS: informe, comparar, borrar, bloquear, contraseña, volcado de memoria
 • BIBLIOTECA: nombres, fotos, ubicaciones y etiquetas
 • AUTOMATIZACIÓN: Siri, Atajos y recetas listas
+• WIDGETS Y CENTRO DE CONTROL: escanea con un toque desde la pantalla de inicio, la de bloqueo o el Centro de control
+• APPLE WATCH: lecturas recientes y registros con un toque
+• REGISTROS: asistencia, fichaje, medicación, hábitos, comida de mascotas, tareas y visitas, con recordatorios
+• Y MÁS: mapa de etiquetas, escáner QR y de códigos de barras, texto desde fotos, estadísticas, lectura en voz alta
 • 14 idiomas y modo oscuro
 
 Privacidad: sin cuenta, servidor, anuncios ni rastreo.
@@ -146,6 +166,10 @@ Leggi, scrivi e gestisci i tag NFC.
 • STRUMENTI: report, confronto, cancellazione, blocco, password, dump memoria
 • LIBRERIA: nomi, foto, luoghi ed etichette
 • AUTOMAZIONE: Siri, Comandi rapidi e ricette pronte
+• WIDGET E CENTRO DI CONTROLLO: scansiona con un tocco da schermata Home, schermata di blocco o Centro di Controllo
+• APPLE WATCH: letture recenti e voci di registro con un tocco
+• REGISTRI: presenze, timbratura, farmaci, abitudini, pasti degli animali, faccende e visitatori, con promemoria
+• E ALTRO: mappa dei tag, scanner QR e codici a barre, testo dalle foto, statistiche, lettura ad alta voce
 • 14 lingue e modalità scura
 
 Privacy: nessun account, server, pubblicità o tracciamento.
@@ -171,6 +195,10 @@ Leia, grave e gerencie tags NFC.
 • FERRAMENTAS: relatório, comparação, apagar, bloquear, senha, dump de memória
 • BIBLIOTECA: nomes, fotos, locais e rótulos
 • AUTOMAÇÃO: Siri, Atalhos e receitas prontas
+• WIDGETS E CENTRAL DE CONTROLE: leia com um toque na Tela de Início, na Tela Bloqueada ou na Central de Controle
+• APPLE WATCH: leituras recentes e registros com um toque
+• REGISTROS: presença, ponto, remédios, hábitos, alimentação de pets, tarefas e visitantes, com lembretes
+• E MAIS: mapa de tags, leitor de QR e código de barras, texto de fotos, estatísticas, leitura em voz alta
 • 14 idiomas e modo escuro
 
 Privacidade: sem conta, servidor, anúncios ou rastreamento.
@@ -196,6 +224,10 @@ Privacidade: sem conta, servidor, anúncios ou rastreamento.
 • ИНСТРУМЕНТЫ: отчёт, сравнение, очистка, блокировка, пароль, дамп памяти
 • БИБЛИОТЕКА: названия, фото, места и метки
 • АВТОМАТИЗАЦИЯ: Siri, Команды и готовые рецепты
+• ВИДЖЕТЫ И ПУНКТ УПРАВЛЕНИЯ: сканирование одним касанием с экрана «Домой», экрана блокировки или из Пункта управления
+• APPLE WATCH: недавние сканы и записи в журнал одним касанием
+• ЖУРНАЛЫ: посещаемость, учёт времени, лекарства, привычки, кормление питомцев, дела и посетители — с напоминаниями
+• А ТАКЖЕ: карта меток, сканер QR и штрихкодов, текст с фото, статистика, чтение вслух
 • 14 языков и тёмная тема
 
 Конфиденциальность: без аккаунта, сервера, рекламы и слежки.
@@ -221,6 +253,10 @@ Privacidade: sem conta, servidor, anúncios ou rastreamento.
 • الأدوات: تقرير، مقارنة، مسح، قفل، كلمة مرور، تفريغ الذاكرة
 • المكتبة: أسماء وصور ومواقع وتسميات
 • الأتمتة: Siri والاختصارات ووصفات جاهزة
+• الأدوات المصغّرة ومركز التحكم: امسح بلمسة من الشاشة الرئيسية أو شاشة القفل أو مركز التحكم
+• Apple Watch: القراءات الأخيرة وتسجيل في الدفتر بلمسة
+• الدفاتر: الحضور، ساعات العمل، الأدوية، العادات، إطعام الحيوانات، المهام والزوار، مع تذكيرات
+• والمزيد: خريطة الوسوم، ماسح QR والباركود، نص من الصور، إحصاءات، قراءة بصوت عالٍ
 • 14 لغة ووضع داكن
 
 الخصوصية: لا حساب ولا خادم ولا إعلانات ولا تتبّع.
@@ -246,6 +282,10 @@ NFCタグを読み取り、書き込み、管理できます。
 • ツール: レポート、比較、消去、ロック、パスワード、メモリダンプ
 • ライブラリ: 名前、写真、場所、ラベル
 • オートメーション: Siri、ショートカット、レシピ
+• ウィジェットとコントロールセンター：ホーム画面・ロック画面・コントロールセンターからワンタップでスキャン
+• APPLE WATCH：最近のスキャンとワンタップ記録
+• 記録帳：出欠、勤怠、服薬、習慣、ペットの食事、家事、来客。リマインダー付き
+• さらに：タグマップ、QR・バーコードスキャナ、写真から文字認識、統計、読み上げ
 • 14言語とダークモード
 
 プライバシー: アカウント・サーバー・広告・トラッキングなし。
@@ -271,6 +311,10 @@ NFCタグを読み取り、書き込み、管理できます。
 • 工具：标签报告、对比、擦除、锁定、密码、内存转储
 • 标签库：名称、照片、位置和标签
 • 自动化：Siri、快捷指令和现成方案
+• 小组件与控制中心：在主屏幕、锁定屏幕或控制中心轻点即可扫描
+• APPLE WATCH：最近扫描，轻点记录
+• 记录本：考勤、打卡、用药、习惯、喂宠物、家务和访客，支持提醒
+• 更多功能：标签地图、二维码与条形码扫描、照片识字、统计、朗读
 • 14 种语言和深色模式
 
 隐私：无账号、无服务器、无广告、无跟踪。
@@ -296,6 +340,10 @@ NFC 태그를 읽고, 쓰고, 관리하세요.
 • 도구: 태그 리포트, 비교, 지우기, 잠금, 암호, 메모리 덤프
 • 보관함: 이름, 사진, 위치, 라벨
 • 자동화: Siri, 단축어, 레시피
+• 위젯 및 제어 센터: 홈 화면, 잠금 화면, 제어 센터에서 한 번 탭으로 스캔
+• APPLE WATCH: 최근 스캔과 한 번 탭 기록
+• 기록장: 출석, 근태, 복약, 습관, 반려동물 급식, 집안일, 방문자 — 알림 지원
+• 그 밖에: 태그 지도, QR·바코드 스캐너, 사진 속 텍스트 인식, 통계, 소리 내어 읽기
 • 14개 언어와 다크 모드
 
 개인정보: 계정, 서버, 광고, 추적이 없습니다.
@@ -321,6 +369,10 @@ Lees, schrijf en beheer NFC-tags.
 • TOOLS: tagrapport, vergelijken, wissen, vergrendelen, wachtwoord, geheugendump
 • BIBLIOTHEEK: namen, foto's, locaties en labels
 • AUTOMATISERING: Siri, Opdrachten en kant-en-klare recepten
+• WIDGETS EN BEDIENINGSPANEEL: scan met één tik vanaf het beginscherm, toegangsscherm of bedieningspaneel
+• APPLE WATCH: recente scans en logboekregels met één tik
+• LOGBOEKEN: aanwezigheid, prikklok, medicijnen, gewoontes, huisdier voeren, klusjes en bezoekers, met herinneringen
+• EN MEER: tagkaart, QR- en barcodescanner, tekst uit foto's, statistieken, voorlezen
 • 14 talen en donkere modus
 
 Privacy: geen account, server, advertenties of tracking.
@@ -346,6 +398,10 @@ Privacy: geen account, server, advertenties of tracking.
 • ІНСТРУМЕНТИ: звіт, порівняння, очищення, блокування, пароль, дамп пам'яті
 • БІБЛІОТЕКА: назви, фото, місця й мітки
 • АВТОМАТИЗАЦІЯ: Siri, Команди й готові рецепти
+• ВІДЖЕТИ Й ПУНКТ КЕРУВАННЯ: сканування одним дотиком з початкового екрана, екрана блокування або Пункту керування
+• APPLE WATCH: нещодавні скани й записи в журнал одним дотиком
+• ЖУРНАЛИ: відвідуваність, облік часу, ліки, звички, годування улюбленців, справи й відвідувачі — з нагадуваннями
+• А ТАКОЖ: мапа міток, сканер QR і штрихкодів, текст із фото, статистика, читання вголос
 • 14 мов і темна тема
 
 Конфіденційність: без акаунта, сервера, реклами й стеження.
