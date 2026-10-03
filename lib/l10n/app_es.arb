@@ -865,5 +865,18 @@
   "reportNdefUsage": "Uso NDEF",
   "reportVerdictWritable": "Etiqueta lista para escribir",
   "reportVerdictRestricted": "La etiqueta tiene restricciones",
-  "reportCopied": "Informe copiado"
+  "reportCopied": "Informe copiado",
+  "compareTagsTitle": "Comparar dos etiquetas",
+  "compareTagsSubtitle": "Comprueba si una copia coincide con el original",
+  "compareStepFirst": "Primero escanea la primera etiqueta (original).",
+  "compareStepSecond": "Ahora escanea la segunda etiqueta.",
+  "compareIdentical": "El contenido coincide",
+  "compareDifferent": "El contenido es distinto",
+  "compareSameTag": "Se escaneó dos veces la misma etiqueta.",
+  "compareDifferentTags": "Dos etiquetas distintas.",
+  "compareRecordSame": "Igual",
+  "compareRecordChanged": "Distinto",
+  "compareRecordOnlyFirst": "Solo en A",
+  "compareRecordOnlySecond": "Solo en B",
+  "compareBothEmpty": "Ambas etiquetas están vacías."
 }

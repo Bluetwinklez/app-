@@ -3080,4 +3080,44 @@ class AppLocalizationsTr extends AppLocalizations {
 
   @override
   String get reportCopied => 'Rapor kopyalandı';
+
+  @override
+  String get compareTagsTitle => 'İki Etiketi Karşılaştır';
+
+  @override
+  String get compareTagsSubtitle =>
+      'Kopyanın aslıyla aynı olup olmadığını görün';
+
+  @override
+  String get compareStepFirst => 'Önce birinci (asıl) etiketi okutun.';
+
+  @override
+  String get compareStepSecond => 'Şimdi ikinci etiketi okutun.';
+
+  @override
+  String get compareIdentical => 'İçerikler aynı';
+
+  @override
+  String get compareDifferent => 'İçerikler farklı';
+
+  @override
+  String get compareSameTag => 'Aynı fiziksel etiket iki kez okutuldu.';
+
+  @override
+  String get compareDifferentTags => 'İki farklı fiziksel etiket.';
+
+  @override
+  String get compareRecordSame => 'Aynı';
+
+  @override
+  String get compareRecordChanged => 'Farklı';
+
+  @override
+  String get compareRecordOnlyFirst => 'Sadece A\'da';
+
+  @override
+  String get compareRecordOnlySecond => 'Sadece B\'de';
+
+  @override
+  String get compareBothEmpty => 'İki etiket de boş.';
 }

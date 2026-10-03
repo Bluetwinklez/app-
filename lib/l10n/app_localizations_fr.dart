@@ -3101,4 +3101,44 @@ class AppLocalizationsFr extends AppLocalizations {
 
   @override
   String get reportCopied => 'Rapport copié';
+
+  @override
+  String get compareTagsTitle => 'Comparer deux tags';
+
+  @override
+  String get compareTagsSubtitle =>
+      'Vérifier qu\'une copie correspond à l\'original';
+
+  @override
+  String get compareStepFirst => 'Scannez d\'abord le premier tag (original).';
+
+  @override
+  String get compareStepSecond => 'Scannez maintenant le second tag.';
+
+  @override
+  String get compareIdentical => 'Contenus identiques';
+
+  @override
+  String get compareDifferent => 'Contenus différents';
+
+  @override
+  String get compareSameTag => 'Le même tag a été scanné deux fois.';
+
+  @override
+  String get compareDifferentTags => 'Deux tags différents.';
+
+  @override
+  String get compareRecordSame => 'Identique';
+
+  @override
+  String get compareRecordChanged => 'Différent';
+
+  @override
+  String get compareRecordOnlyFirst => 'Seulement sur A';
+
+  @override
+  String get compareRecordOnlySecond => 'Seulement sur B';
+
+  @override
+  String get compareBothEmpty => 'Les deux tags sont vides.';
 }

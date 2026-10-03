@@ -2961,4 +2961,43 @@ class AppLocalizationsKo extends AppLocalizations {
 
   @override
   String get reportCopied => '보고서를 복사했습니다';
+
+  @override
+  String get compareTagsTitle => '두 태그 비교';
+
+  @override
+  String get compareTagsSubtitle => '복사본이 원본과 같은지 확인';
+
+  @override
+  String get compareStepFirst => '먼저 첫 번째(원본) 태그를 스캔하세요.';
+
+  @override
+  String get compareStepSecond => '이제 두 번째 태그를 스캔하세요.';
+
+  @override
+  String get compareIdentical => '내용이 같습니다';
+
+  @override
+  String get compareDifferent => '내용이 다릅니다';
+
+  @override
+  String get compareSameTag => '같은 태그를 두 번 스캔했습니다.';
+
+  @override
+  String get compareDifferentTags => '서로 다른 두 태그입니다.';
+
+  @override
+  String get compareRecordSame => '같음';
+
+  @override
+  String get compareRecordChanged => '다름';
+
+  @override
+  String get compareRecordOnlyFirst => 'A에만 있음';
+
+  @override
+  String get compareRecordOnlySecond => 'B에만 있음';
+
+  @override
+  String get compareBothEmpty => '두 태그 모두 비어 있습니다.';
 }

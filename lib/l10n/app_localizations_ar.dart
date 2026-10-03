@@ -3044,4 +3044,43 @@ class AppLocalizationsAr extends AppLocalizations {
 
   @override
   String get reportCopied => 'تم نسخ التقرير';
+
+  @override
+  String get compareTagsTitle => 'مقارنة وسمين';
+
+  @override
+  String get compareTagsSubtitle => 'تحقّق من تطابق النسخة مع الأصل';
+
+  @override
+  String get compareStepFirst => 'امسح أولًا الوسم الأول (الأصلي).';
+
+  @override
+  String get compareStepSecond => 'امسح الآن الوسم الثاني.';
+
+  @override
+  String get compareIdentical => 'المحتوى متطابق';
+
+  @override
+  String get compareDifferent => 'المحتوى مختلف';
+
+  @override
+  String get compareSameTag => 'تم مسح الوسم نفسه مرتين.';
+
+  @override
+  String get compareDifferentTags => 'وسمان مختلفان.';
+
+  @override
+  String get compareRecordSame => 'متطابق';
+
+  @override
+  String get compareRecordChanged => 'مختلف';
+
+  @override
+  String get compareRecordOnlyFirst => 'في A فقط';
+
+  @override
+  String get compareRecordOnlySecond => 'في B فقط';
+
+  @override
+  String get compareBothEmpty => 'الوسمان فارغان.';
 }

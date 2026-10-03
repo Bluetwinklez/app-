@@ -865,5 +865,18 @@
   "reportNdefUsage": "Uso NDEF",
   "reportVerdictWritable": "Tag pronto per la scrittura",
   "reportVerdictRestricted": "Il tag ha restrizioni",
-  "reportCopied": "Report copiato"
+  "reportCopied": "Report copiato",
+  "compareTagsTitle": "Confronta due tag",
+  "compareTagsSubtitle": "Verifica se una copia corrisponde all'originale",
+  "compareStepFirst": "Prima scansiona il primo tag (originale).",
+  "compareStepSecond": "Ora scansiona il secondo tag.",
+  "compareIdentical": "I contenuti coincidono",
+  "compareDifferent": "I contenuti sono diversi",
+  "compareSameTag": "Lo stesso tag è stato scansionato due volte.",
+  "compareDifferentTags": "Due tag diversi.",
+  "compareRecordSame": "Uguale",
+  "compareRecordChanged": "Diverso",
+  "compareRecordOnlyFirst": "Solo su A",
+  "compareRecordOnlySecond": "Solo su B",
+  "compareBothEmpty": "Entrambi i tag sono vuoti."
 }

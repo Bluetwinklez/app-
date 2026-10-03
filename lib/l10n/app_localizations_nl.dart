@@ -3081,4 +3081,44 @@ class AppLocalizationsNl extends AppLocalizations {
 
   @override
   String get reportCopied => 'Rapport gekopieerd';
+
+  @override
+  String get compareTagsTitle => 'Twee tags vergelijken';
+
+  @override
+  String get compareTagsSubtitle =>
+      'Controleer of een kopie gelijk is aan het origineel';
+
+  @override
+  String get compareStepFirst => 'Scan eerst de eerste (originele) tag.';
+
+  @override
+  String get compareStepSecond => 'Scan nu de tweede tag.';
+
+  @override
+  String get compareIdentical => 'Inhoud komt overeen';
+
+  @override
+  String get compareDifferent => 'Inhoud verschilt';
+
+  @override
+  String get compareSameTag => 'Dezelfde tag is twee keer gescand.';
+
+  @override
+  String get compareDifferentTags => 'Twee verschillende tags.';
+
+  @override
+  String get compareRecordSame => 'Gelijk';
+
+  @override
+  String get compareRecordChanged => 'Anders';
+
+  @override
+  String get compareRecordOnlyFirst => 'Alleen op A';
+
+  @override
+  String get compareRecordOnlySecond => 'Alleen op B';
+
+  @override
+  String get compareBothEmpty => 'Beide tags zijn leeg.';
 }

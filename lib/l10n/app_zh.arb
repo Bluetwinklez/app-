@@ -865,5 +865,18 @@
   "reportNdefUsage": "NDEF 占用",
   "reportVerdictWritable": "标签可写入",
   "reportVerdictRestricted": "标签有限制",
-  "reportCopied": "报告已复制"
+  "reportCopied": "报告已复制",
+  "compareTagsTitle": "比较两个标签",
+  "compareTagsSubtitle": "检查副本是否与原件一致",
+  "compareStepFirst": "先扫描第一个（原始）标签。",
+  "compareStepSecond": "现在扫描第二个标签。",
+  "compareIdentical": "内容一致",
+  "compareDifferent": "内容不同",
+  "compareSameTag": "同一标签被扫描了两次。",
+  "compareDifferentTags": "两个不同的标签。",
+  "compareRecordSame": "相同",
+  "compareRecordChanged": "不同",
+  "compareRecordOnlyFirst": "仅在 A",
+  "compareRecordOnlySecond": "仅在 B",
+  "compareBothEmpty": "两个标签都为空。"
 }

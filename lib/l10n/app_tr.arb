@@ -2061,5 +2061,18 @@
   "reportNdefUsage": "NDEF doluluk",
   "reportVerdictWritable": "Etiket yazmaya hazır",
   "reportVerdictRestricted": "Etikette kısıtlama var",
-  "reportCopied": "Rapor kopyalandı"
+  "reportCopied": "Rapor kopyalandı",
+  "compareTagsTitle": "İki Etiketi Karşılaştır",
+  "compareTagsSubtitle": "Kopyanın aslıyla aynı olup olmadığını görün",
+  "compareStepFirst": "Önce birinci (asıl) etiketi okutun.",
+  "compareStepSecond": "Şimdi ikinci etiketi okutun.",
+  "compareIdentical": "İçerikler aynı",
+  "compareDifferent": "İçerikler farklı",
+  "compareSameTag": "Aynı fiziksel etiket iki kez okutuldu.",
+  "compareDifferentTags": "İki farklı fiziksel etiket.",
+  "compareRecordSame": "Aynı",
+  "compareRecordChanged": "Farklı",
+  "compareRecordOnlyFirst": "Sadece A'da",
+  "compareRecordOnlySecond": "Sadece B'de",
+  "compareBothEmpty": "İki etiket de boş."
 }

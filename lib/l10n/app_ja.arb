@@ -865,5 +865,18 @@
   "reportNdefUsage": "NDEF使用量",
   "reportVerdictWritable": "タグは書き込み可能です",
   "reportVerdictRestricted": "タグに制限があります",
-  "reportCopied": "レポートをコピーしました"
+  "reportCopied": "レポートをコピーしました",
+  "compareTagsTitle": "2つのタグを比較",
+  "compareTagsSubtitle": "コピーが元と一致するか確認",
+  "compareStepFirst": "まず1つ目 (元) のタグを読み取ります。",
+  "compareStepSecond": "次に2つ目のタグを読み取ります。",
+  "compareIdentical": "内容は一致しています",
+  "compareDifferent": "内容が異なります",
+  "compareSameTag": "同じタグを2回読み取りました。",
+  "compareDifferentTags": "2つの異なるタグです。",
+  "compareRecordSame": "同じ",
+  "compareRecordChanged": "異なる",
+  "compareRecordOnlyFirst": "Aのみ",
+  "compareRecordOnlySecond": "Bのみ",
+  "compareBothEmpty": "どちらのタグも空です。"
 }

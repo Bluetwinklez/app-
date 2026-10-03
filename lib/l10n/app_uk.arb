@@ -865,5 +865,18 @@
   "reportNdefUsage": "Заповнення NDEF",
   "reportVerdictWritable": "Мітка готова до запису",
   "reportVerdictRestricted": "Мітка обмежена",
-  "reportCopied": "Звіт скопійовано"
+  "reportCopied": "Звіт скопійовано",
+  "compareTagsTitle": "Порівняти дві мітки",
+  "compareTagsSubtitle": "Перевірте, чи збігається копія з оригіналом",
+  "compareStepFirst": "Спочатку зчитайте першу (оригінальну) мітку.",
+  "compareStepSecond": "Тепер зчитайте другу мітку.",
+  "compareIdentical": "Вміст збігається",
+  "compareDifferent": "Вміст відрізняється",
+  "compareSameTag": "Ту саму мітку зчитано двічі.",
+  "compareDifferentTags": "Дві різні мітки.",
+  "compareRecordSame": "Збігається",
+  "compareRecordChanged": "Відрізняється",
+  "compareRecordOnlyFirst": "Лише на A",
+  "compareRecordOnlySecond": "Лише на B",
+  "compareBothEmpty": "Обидві мітки порожні."
 }

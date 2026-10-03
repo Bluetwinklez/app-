@@ -2925,4 +2925,43 @@ class AppLocalizationsZh extends AppLocalizations {
 
   @override
   String get reportCopied => '报告已复制';
+
+  @override
+  String get compareTagsTitle => '比较两个标签';
+
+  @override
+  String get compareTagsSubtitle => '检查副本是否与原件一致';
+
+  @override
+  String get compareStepFirst => '先扫描第一个（原始）标签。';
+
+  @override
+  String get compareStepSecond => '现在扫描第二个标签。';
+
+  @override
+  String get compareIdentical => '内容一致';
+
+  @override
+  String get compareDifferent => '内容不同';
+
+  @override
+  String get compareSameTag => '同一标签被扫描了两次。';
+
+  @override
+  String get compareDifferentTags => '两个不同的标签。';
+
+  @override
+  String get compareRecordSame => '相同';
+
+  @override
+  String get compareRecordChanged => '不同';
+
+  @override
+  String get compareRecordOnlyFirst => '仅在 A';
+
+  @override
+  String get compareRecordOnlySecond => '仅在 B';
+
+  @override
+  String get compareBothEmpty => '两个标签都为空。';
 }

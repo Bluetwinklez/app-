@@ -3083,4 +3083,44 @@ class AppLocalizationsUk extends AppLocalizations {
 
   @override
   String get reportCopied => 'Звіт скопійовано';
+
+  @override
+  String get compareTagsTitle => 'Порівняти дві мітки';
+
+  @override
+  String get compareTagsSubtitle =>
+      'Перевірте, чи збігається копія з оригіналом';
+
+  @override
+  String get compareStepFirst => 'Спочатку зчитайте першу (оригінальну) мітку.';
+
+  @override
+  String get compareStepSecond => 'Тепер зчитайте другу мітку.';
+
+  @override
+  String get compareIdentical => 'Вміст збігається';
+
+  @override
+  String get compareDifferent => 'Вміст відрізняється';
+
+  @override
+  String get compareSameTag => 'Ту саму мітку зчитано двічі.';
+
+  @override
+  String get compareDifferentTags => 'Дві різні мітки.';
+
+  @override
+  String get compareRecordSame => 'Збігається';
+
+  @override
+  String get compareRecordChanged => 'Відрізняється';
+
+  @override
+  String get compareRecordOnlyFirst => 'Лише на A';
+
+  @override
+  String get compareRecordOnlySecond => 'Лише на B';
+
+  @override
+  String get compareBothEmpty => 'Обидві мітки порожні.';
 }
