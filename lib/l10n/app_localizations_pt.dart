@@ -3366,4 +3366,99 @@ class AppLocalizationsPt extends AppLocalizations {
   @override
   String get tapIosRequirement =>
       'iPhone XS ou posterior lê em segundo plano se desbloqueado e com Câmera/Carteira fechadas.';
+
+  @override
+  String get galleryCatBusiness => 'Negócios';
+
+  @override
+  String get galleryCatSocial => 'Social';
+
+  @override
+  String get galleryCatHome => 'Casa';
+
+  @override
+  String get galleryCatPersonal => 'Pessoal';
+
+  @override
+  String get galleryCatAutomation => 'Automação';
+
+  @override
+  String get galleryFavorites => 'Favoritos';
+
+  @override
+  String get gallerySearchHint => 'Buscar modelos...';
+
+  @override
+  String get galleryNoResults => 'Nenhum modelo encontrado.';
+
+  @override
+  String get galleryAddFavorite => 'Adicionar aos favoritos';
+
+  @override
+  String get galleryRemoveFavorite => 'Remover dos favoritos';
+
+  @override
+  String get presetEventTitle => 'Convite de evento';
+
+  @override
+  String get presetEventDesc =>
+      'Grava o evento em iCalendar; o Android pode adicioná-lo à agenda.';
+
+  @override
+  String get eventNameLabel => 'Nome do evento';
+
+  @override
+  String get eventDateLabel => 'Data (AAAA-MM-DD)';
+
+  @override
+  String get eventTimeLabel => 'Hora (HH:MM)';
+
+  @override
+  String get eventDateTimeInvalid =>
+      'Data ou hora inválida. Exemplo: 2026-12-31 e 19:00';
+
+  @override
+  String get presetLuggageTitle => 'Etiqueta de bagagem';
+
+  @override
+  String get presetLuggageDesc =>
+      'Se perder, quem encontrar pode falar com você.';
+
+  @override
+  String luggageMessage(String name, String contact) {
+    return 'Esta bagagem pertence a $name. Se encontrar, contate: $contact';
+  }
+
+  @override
+  String get presetPlaylistTitle => 'Playlist';
+
+  @override
+  String get presetPlaylistDesc =>
+      'Abre uma playlist do Spotify, Apple Music ou YouTube.';
+
+  @override
+  String get playlistLinkLabel => 'Link da playlist';
+
+  @override
+  String get presetEmailMeTitle => 'Me mande um e-mail';
+
+  @override
+  String get presetEmailMeDesc =>
+      'Abre um novo e-mail para você com assunto pronto.';
+
+  @override
+  String get presetCallMeTitle => 'Me ligue';
+
+  @override
+  String get presetCallMeDesc => 'O telefone liga para seu número.';
+
+  @override
+  String get presetRunShortcutTitle => 'Executar atalho';
+
+  @override
+  String get presetRunShortcutDesc =>
+      'Executa o atalho do iPhone indicado: luzes, música, mudar o Foco...';
+
+  @override
+  String get shortcutNameLabel => 'Nome do atalho';
 }

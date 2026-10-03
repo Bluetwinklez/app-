@@ -3188,4 +3188,93 @@ class AppLocalizationsZh extends AppLocalizations {
 
   @override
   String get tapIosRequirement => 'iPhone XS 及更新机型在解锁且未打开相机/钱包时可后台读取。';
+
+  @override
+  String get galleryCatBusiness => '商务';
+
+  @override
+  String get galleryCatSocial => '社交';
+
+  @override
+  String get galleryCatHome => '家居';
+
+  @override
+  String get galleryCatPersonal => '个人';
+
+  @override
+  String get galleryCatAutomation => '自动化';
+
+  @override
+  String get galleryFavorites => '收藏';
+
+  @override
+  String get gallerySearchHint => '搜索模板...';
+
+  @override
+  String get galleryNoResults => '没有匹配的模板。';
+
+  @override
+  String get galleryAddFavorite => '加入收藏';
+
+  @override
+  String get galleryRemoveFavorite => '取消收藏';
+
+  @override
+  String get presetEventTitle => '活动邀请';
+
+  @override
+  String get presetEventDesc => '以 iCalendar 格式写入活动，Android 可将其添加到日历。';
+
+  @override
+  String get eventNameLabel => '活动名称';
+
+  @override
+  String get eventDateLabel => '日期（YYYY-MM-DD）';
+
+  @override
+  String get eventTimeLabel => '时间（HH:MM）';
+
+  @override
+  String get eventDateTimeInvalid => '日期或时间无效。示例：2026-12-31 和 19:00';
+
+  @override
+  String get presetLuggageTitle => '行李牌';
+
+  @override
+  String get presetLuggageDesc => '若遗失，拾到的人可轻松联系您。';
+
+  @override
+  String luggageMessage(String name, String contact) {
+    return '此行李属于 $name。如拾到请联系：$contact';
+  }
+
+  @override
+  String get presetPlaylistTitle => '播放列表';
+
+  @override
+  String get presetPlaylistDesc => '打开 Spotify、Apple Music 或 YouTube 播放列表。';
+
+  @override
+  String get playlistLinkLabel => '播放列表链接';
+
+  @override
+  String get presetEmailMeTitle => '给我发邮件';
+
+  @override
+  String get presetEmailMeDesc => '打开一封发给您的新邮件，主题已填好。';
+
+  @override
+  String get presetCallMeTitle => '给我打电话';
+
+  @override
+  String get presetCallMeDesc => '触碰的手机会拨打您的号码。';
+
+  @override
+  String get presetRunShortcutTitle => '运行快捷指令';
+
+  @override
+  String get presetRunShortcutDesc => '运行指定的 iPhone 快捷指令：开灯、播放音乐、切换专注模式…';
+
+  @override
+  String get shortcutNameLabel => '快捷指令名称';
 }

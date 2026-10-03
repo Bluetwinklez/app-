@@ -3363,4 +3363,99 @@ class AppLocalizationsDe extends AppLocalizations {
   @override
   String get tapIosRequirement =>
       'iPhone XS und neuer lesen im Hintergrund, wenn entsperrt und Kamera/Wallet nicht geöffnet sind.';
+
+  @override
+  String get galleryCatBusiness => 'Business';
+
+  @override
+  String get galleryCatSocial => 'Social';
+
+  @override
+  String get galleryCatHome => 'Zuhause';
+
+  @override
+  String get galleryCatPersonal => 'Persönlich';
+
+  @override
+  String get galleryCatAutomation => 'Automation';
+
+  @override
+  String get galleryFavorites => 'Favoriten';
+
+  @override
+  String get gallerySearchHint => 'Vorlagen suchen...';
+
+  @override
+  String get galleryNoResults => 'Keine passenden Vorlagen.';
+
+  @override
+  String get galleryAddFavorite => 'Zu Favoriten';
+
+  @override
+  String get galleryRemoveFavorite => 'Aus Favoriten entfernen';
+
+  @override
+  String get presetEventTitle => 'Event-Einladung';
+
+  @override
+  String get presetEventDesc =>
+      'Schreibt den Termin als iCalendar; Android kann ihn in den Kalender übernehmen.';
+
+  @override
+  String get eventNameLabel => 'Name des Termins';
+
+  @override
+  String get eventDateLabel => 'Datum (JJJJ-MM-TT)';
+
+  @override
+  String get eventTimeLabel => 'Uhrzeit (HH:MM)';
+
+  @override
+  String get eventDateTimeInvalid =>
+      'Ungültiges Datum oder Uhrzeit. Beispiel: 2026-12-31 und 19:00';
+
+  @override
+  String get presetLuggageTitle => 'Kofferanhänger';
+
+  @override
+  String get presetLuggageDesc =>
+      'Wird er verloren, kann der Finder Sie leicht erreichen.';
+
+  @override
+  String luggageMessage(String name, String contact) {
+    return 'Dieses Gepäck gehört $name. Bitte melden Sie sich unter: $contact';
+  }
+
+  @override
+  String get presetPlaylistTitle => 'Playlist';
+
+  @override
+  String get presetPlaylistDesc =>
+      'Öffnet eine Spotify-, Apple-Music- oder YouTube-Playlist.';
+
+  @override
+  String get playlistLinkLabel => 'Playlist-Link';
+
+  @override
+  String get presetEmailMeTitle => 'Schreib mir';
+
+  @override
+  String get presetEmailMeDesc =>
+      'Öffnet eine neue E-Mail an Sie mit vorbereitetem Betreff.';
+
+  @override
+  String get presetCallMeTitle => 'Ruf mich an';
+
+  @override
+  String get presetCallMeDesc => 'Das Telefon ruft Ihre Nummer an.';
+
+  @override
+  String get presetRunShortcutTitle => 'Kurzbefehl ausführen';
+
+  @override
+  String get presetRunShortcutDesc =>
+      'Führt den genannten iPhone-Kurzbefehl aus: Licht an, Musik starten, Fokus ändern...';
+
+  @override
+  String get shortcutNameLabel => 'Name des Kurzbefehls';
 }

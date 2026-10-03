@@ -246,6 +246,7 @@ class _HomeScreenState extends State<HomeScreen>
     TemplateGalleryPage.open(
       context,
       onRecordsCreated: (records, title) => _appendImportedRecords(records, title),
+      storage: _controller.storage,
     );
   }
 
