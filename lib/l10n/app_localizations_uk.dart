@@ -4601,4 +4601,14 @@ class AppLocalizationsUk extends AppLocalizations {
 
   @override
   String get textSizeTitle => 'Розмір тексту';
+
+  @override
+  String get speakTag => 'Прочитати вголос';
+
+  @override
+  String get speakAfterScanTitle => 'Читати вголос після сканування';
+
+  @override
+  String get speakAfterScanSubtitle =>
+      'Вміст озвучується; зручно при слабкому зорі та в простому режимі';
 }

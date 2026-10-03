@@ -7,6 +7,7 @@ import '../domain/tag_library.dart';
 import '../l10n/app_localizations.dart';
 import '../l10n/l10n.dart';
 import '../services/launch_action_service.dart';
+import '../services/speech_service.dart';
 import 'app_theme.dart';
 
 /// One big button to read a tag and one big action for what it holds.
@@ -173,10 +174,20 @@ class _Result extends StatelessWidget {
       children: [
         SoftCard(
           padding: const EdgeInsets.all(20),
-          child: Text(
-            p.content,
-            textAlign: TextAlign.center,
-            style: const TextStyle(fontSize: 24, fontWeight: FontWeight.w600, height: 1.3),
+          child: Column(
+            children: [
+              Text(
+                p.content,
+                textAlign: TextAlign.center,
+                style: const TextStyle(fontSize: 24, fontWeight: FontWeight.w600, height: 1.3),
+              ),
+              TextButton.icon(
+                onPressed: () => SpeechService.speak(SpeechService.describe(records),
+                    languageCode: Localizations.localeOf(context).languageCode),
+                icon: const Icon(Icons.volume_up_rounded, size: 28),
+                label: Text(loc.speakTag, style: const TextStyle(fontSize: 18)),
+              ),
+            ],
           ),
         ),
         if (url != null && label != null) ...[

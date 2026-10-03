@@ -4548,4 +4548,14 @@ class AppLocalizationsAr extends AppLocalizations {
 
   @override
   String get textSizeTitle => 'حجم النص';
+
+  @override
+  String get speakTag => 'قراءة بصوت عالٍ';
+
+  @override
+  String get speakAfterScanTitle => 'القراءة بصوت عالٍ بعد المسح';
+
+  @override
+  String get speakAfterScanSubtitle =>
+      'يُقرأ المحتوى بصوت عالٍ؛ مفيد لضعاف البصر والوضع البسيط';
 }

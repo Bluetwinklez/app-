@@ -82,6 +82,10 @@ abstract class AppStorageService {
   int get textScalePercent;
   Future<void> setTextScalePercent(int value);
 
+  /// Read the tag content aloud after each scan.
+  bool get speakAfterScan;
+  Future<void> setSpeakAfterScan(bool value);
+
   /// Compatibility mode: skip read-back verification after writes.
   bool get compatibilityMode;
   Future<void> setCompatibilityMode(bool enabled);
@@ -177,6 +181,14 @@ class InMemoryAppStorageService implements AppStorageService {
 
   @override
   Future<void> setCompatibilityMode(bool enabled) async => _compatibilityMode = enabled;
+
+  bool _speakAfterScan = false;
+
+  @override
+  bool get speakAfterScan => _speakAfterScan;
+
+  @override
+  Future<void> setSpeakAfterScan(bool value) async => _speakAfterScan = value;
 
   int _textScalePercent = 100;
 
@@ -530,6 +542,7 @@ class LocalFileAppStorageService implements AppStorageService {
               : const [];
           _lastBackupAt = DateTime.tryParse(data['lastBackupAt'] as String? ?? '');
           _compatibilityMode = data['compatibilityMode'] as bool? ?? false;
+          _speakAfterScan = data['speakAfterScan'] as bool? ?? false;
           _textScalePercent = data['textScalePercent'] as int? ?? 100;
           _accentIndex = data['accentIndex'] as int? ?? 0;
           _clearClipboardAfterCopy = data['clearClipboardAfterCopy'] as bool? ?? true;
@@ -714,6 +727,7 @@ class LocalFileAppStorageService implements AppStorageService {
       'favoritePresets': _favoritePresets,
       if (_lastBackupAt != null) 'lastBackupAt': _lastBackupAt!.toIso8601String(),
       'compatibilityMode': _compatibilityMode,
+      'speakAfterScan': _speakAfterScan,
       'textScalePercent': _textScalePercent,
       'accentIndex': _accentIndex,
       'clearClipboardAfterCopy': _clearClipboardAfterCopy,
@@ -794,6 +808,17 @@ class LocalFileAppStorageService implements AppStorageService {
   @override
   Future<void> setCompatibilityMode(bool enabled) async {
     _compatibilityMode = enabled;
+    await _saveSettings();
+  }
+
+  bool _speakAfterScan = false;
+
+  @override
+  bool get speakAfterScan => _speakAfterScan;
+
+  @override
+  Future<void> setSpeakAfterScan(bool value) async {
+    _speakAfterScan = value;
     await _saveSettings();
   }
 

@@ -4599,4 +4599,14 @@ class AppLocalizationsTr extends AppLocalizations {
 
   @override
   String get textSizeTitle => 'Yazı boyutu';
+
+  @override
+  String get speakTag => 'Sesli oku';
+
+  @override
+  String get speakAfterScanTitle => 'Okununca sesli oku';
+
+  @override
+  String get speakAfterScanSubtitle =>
+      'Etiketin içeriği sesli söylenir; görme güçlüğü olanlar ve basit mod için';
 }

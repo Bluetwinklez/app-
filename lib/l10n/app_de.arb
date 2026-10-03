@@ -1286,5 +1286,8 @@
   "simpleSavedHint": "Antippen, um dasselbe auf einen neuen Tag zu schreiben.",
   "accentColorTitle": "Akzentfarbe",
   "colorPink": "Rosa",
-  "textSizeTitle": "Textgröße"
+  "textSizeTitle": "Textgröße",
+  "speakTag": "Vorlesen",
+  "speakAfterScanTitle": "Nach dem Scannen vorlesen",
+  "speakAfterScanSubtitle": "Der Inhalt wird vorgelesen; hilfreich bei Sehschwäche und im einfachen Modus"
 }

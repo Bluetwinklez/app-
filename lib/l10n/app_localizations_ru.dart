@@ -4602,4 +4602,14 @@ class AppLocalizationsRu extends AppLocalizations {
 
   @override
   String get textSizeTitle => 'Размер текста';
+
+  @override
+  String get speakTag => 'Прочитать вслух';
+
+  @override
+  String get speakAfterScanTitle => 'Читать вслух после сканирования';
+
+  @override
+  String get speakAfterScanSubtitle =>
+      'Содержимое озвучивается; удобно при слабом зрении и в простом режиме';
 }

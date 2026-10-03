@@ -1286,5 +1286,8 @@
   "simpleSavedHint": "اضغط على أحدها لكتابته على وسم جديد.",
   "accentColorTitle": "لون التمييز",
   "colorPink": "وردي",
-  "textSizeTitle": "حجم النص"
+  "textSizeTitle": "حجم النص",
+  "speakTag": "قراءة بصوت عالٍ",
+  "speakAfterScanTitle": "القراءة بصوت عالٍ بعد المسح",
+  "speakAfterScanSubtitle": "يُقرأ المحتوى بصوت عالٍ؛ مفيد لضعاف البصر والوضع البسيط"
 }

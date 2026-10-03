@@ -4420,4 +4420,13 @@ class AppLocalizationsKo extends AppLocalizations {
 
   @override
   String get textSizeTitle => '글자 크기';
+
+  @override
+  String get speakTag => '소리내어 읽기';
+
+  @override
+  String get speakAfterScanTitle => '스캔 후 소리내어 읽기';
+
+  @override
+  String get speakAfterScanSubtitle => '내용을 읽어 줍니다. 저시력 사용자와 간단 모드에 유용';
 }

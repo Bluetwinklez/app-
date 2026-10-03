@@ -1286,5 +1286,8 @@
   "simpleSavedHint": "タップすると同じ内容を新しいタグに書き込みます。",
   "accentColorTitle": "アクセントカラー",
   "colorPink": "ピンク",
-  "textSizeTitle": "文字サイズ"
+  "textSizeTitle": "文字サイズ",
+  "speakTag": "読み上げ",
+  "speakAfterScanTitle": "読み取り後に読み上げ",
+  "speakAfterScanSubtitle": "内容を音声で読み上げます。弱視の方やシンプルモードに便利"
 }
