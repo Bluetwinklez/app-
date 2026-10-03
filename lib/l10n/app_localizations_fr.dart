@@ -4409,4 +4409,8 @@ class AppLocalizationsFr extends AppLocalizations {
   String autoLogged(String book) {
     return 'Consigné dans « $book »';
   }
+
+  @override
+  String get whatsNew130 =>
+      '• Registre entrée/sortie (pointage) : qui est présent, heures du jour\n• Les tags de la bibliothèque peuvent s\'enregistrer automatiquement au scan\n• Rappels de contrôle et filtre « à contrôler »\n• Alerte de tag copié\n• Docteur NDEF : diagnostique les tags défectueux\n• Ajout en masse à la bibliothèque depuis Excel/Numbers\n• Nouveaux modèles : Message cadeau, Entretien de plante, Bracelet enfant, Mode d\'emploi';
 }

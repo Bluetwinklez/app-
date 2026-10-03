@@ -4390,4 +4390,8 @@ class AppLocalizationsDe extends AppLocalizations {
   String autoLogged(String book) {
     return 'Ins Logbuch „$book\" eingetragen';
   }
+
+  @override
+  String get whatsNew130 =>
+      '• Kommen/Gehen-Logbuch: wer ist da, Stunden heute\n• Bibliotheks-Tags schreiben beim Scannen automatisch ins Logbuch\n• Prüferinnerungen und Filter „fällig\"\n• Warnung vor kopierten Tags\n• NDEF-Doktor: erkennt defekte Tags\n• Massenimport in die Bibliothek aus Excel/Numbers\n• Neue Vorlagen: Geschenknachricht, Pflanzenpflege, Kinderarmband, Anleitungskarte';
 }

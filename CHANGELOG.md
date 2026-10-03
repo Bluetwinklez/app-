@@ -1,5 +1,22 @@
 # Değişiklik Günlüğü
 
+## 1.3.0
+
+**Kayıt Defteri**
+- Giriş / Çıkış (mesai) defteri: her okutma sırayla giriş-çıkış olur; şu an içeridekiler, kişi başı ve toplam günlük süre (gece vardiyası güne bölünür), CSV'de yön sütunu
+- Kütüphanedeki bir etiket, ana ekrandan okutulunca seçilen deftere otomatik kayıt düşer
+
+**Kütüphane**
+- Kontrol aralığı (1–365 gün): süresi geçen etiketler işaretlenir, "Kontrol bekleyenler" filtresi; okutmak kontrolü kaydeder
+- Excel / Numbers / Google E-Tablolar'dan yapıştırarak toplu ekleme (başlıklar adına göre eşleşir, kayıtlı UID'ler atlanır)
+
+**Güvenlik ve araçlar**
+- Kopya etiket uyarısı: içerik kütüphanede başka bir UID ile kayıtlıysa
+- NDEF Doktoru: bellek dökümünde CC, TLV, uzunluk ve kayıt başlığı hatalarını açıklar
+
+**Şablonlar**
+- Hediye mesajı, Bitki bakım kartı, Çocuk güvenlik bilekliği, Kullanım talimatı
+
 ## 1.2.0
 
 **NFC Tools'ta olup eksik kalanlar**
