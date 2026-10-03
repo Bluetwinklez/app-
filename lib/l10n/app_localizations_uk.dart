@@ -4688,4 +4688,111 @@ class AppLocalizationsUk extends AppLocalizations {
   @override
   String get inspectionRemindersNote =>
       'Мітки до перевірки нагадають о 10:00 у потрібний день (якщо дозволено).';
+
+  @override
+  String get presetTableTitle => 'Столик у ресторані';
+
+  @override
+  String get presetTableDesc =>
+      'Посилання на меню, номер столика й виклик офіціанта через SMS.';
+
+  @override
+  String get tableNumber => 'Номер столика';
+
+  @override
+  String get menuLink => 'Посилання на меню';
+
+  @override
+  String get waiterPhone => 'Номер для виклику офіціанта (необов\'язково)';
+
+  @override
+  String tableText(String table) {
+    return 'Столик $table';
+  }
+
+  @override
+  String tableSms(String table) {
+    return 'Столик $table: підійдіть, будь ласка 🙋';
+  }
+
+  @override
+  String get presetRentalTitle => 'Картка для орендного житла';
+
+  @override
+  String get presetRentalDesc =>
+      'Гості торкаються — під\'єднуються до Wi-Fi і бачать правила.';
+
+  @override
+  String get houseRules => 'Правила будинку';
+
+  @override
+  String get checkoutTime => 'Час виїзду';
+
+  @override
+  String rentalText(String rules, String checkout) {
+    return '🏠 $rules\nВиїзд: $checkout';
+  }
+
+  @override
+  String get ideasTitle => 'Ідеї';
+
+  @override
+  String get ideasSubtitle => 'Дізнайтеся, що можна робити з мітками';
+
+  @override
+  String get ideasHome => 'Дім';
+
+  @override
+  String get ideasFamily => 'Родина';
+
+  @override
+  String get ideasHealth => 'Здоров\'я та звички';
+
+  @override
+  String get ideasWork => 'Робота';
+
+  @override
+  String get ideasAutomation => 'Автоматизація';
+
+  @override
+  String get ideaRoutinesTitle => 'Рутини (Команди)';
+
+  @override
+  String get ideaRoutinesDesc =>
+      'Тумбочка, авто, двері, стіл: кілька дій одним дотиком.';
+
+  @override
+  String get ideaHabitDesc =>
+      'Скануйте щодня й тримайте 🔥 серію (вода, вітаміни, спорт).';
+
+  @override
+  String get ideaChoresDesc => 'Діти збирають зірки, скануючи мітки справ.';
+
+  @override
+  String get ideaFeedingDesc => 'Мітка на мисці: «коли востаннє годували?»';
+
+  @override
+  String get ideaMedicationDesc =>
+      'Мітка на таблетниці: чи прийнято сьогодні й коли?';
+
+  @override
+  String get ideaClockDesc => 'Мітка на дверях: прихід/вихід і години за день.';
+
+  @override
+  String get ideaVisitorsDesc =>
+      'Картки відвідувачів на рецепції: імена, час, CSV.';
+
+  @override
+  String get ideaInventoryDesc =>
+      'Інвентаризація: де кожну мітку бачили востаннє.';
+
+  @override
+  String get firstTagTitle => 'Створіть першу мітку';
+
+  @override
+  String get firstTagSubtitle =>
+      'Оберіть, заповніть поля й піднесіть мітку. 30 секунд.';
+
+  @override
+  String get firstTagMore => 'Більше ідей';
 }

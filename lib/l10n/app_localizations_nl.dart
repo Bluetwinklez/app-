@@ -4689,4 +4689,111 @@ class AppLocalizationsNl extends AppLocalizations {
   @override
   String get inspectionRemindersNote =>
       'Tags die gecontroleerd moeten worden melden zich om 10:00 op de dag (indien toegestaan).';
+
+  @override
+  String get presetTableTitle => 'Restauranttafel';
+
+  @override
+  String get presetTableDesc => 'Menulink, tafelnummer en ober roepen via sms.';
+
+  @override
+  String get tableNumber => 'Tafelnummer';
+
+  @override
+  String get menuLink => 'Menulink';
+
+  @override
+  String get waiterPhone => 'Nummer om de ober te roepen (optioneel)';
+
+  @override
+  String tableText(String table) {
+    return 'Tafel $table';
+  }
+
+  @override
+  String tableSms(String table) {
+    return 'Tafel $table: graag een ober 🙋';
+  }
+
+  @override
+  String get presetRentalTitle => 'Vakantiewoningkaart';
+
+  @override
+  String get presetRentalDesc =>
+      'Gasten tikken voor wifi en zien de huisregels.';
+
+  @override
+  String get houseRules => 'Huisregels';
+
+  @override
+  String get checkoutTime => 'Uitchecktijd';
+
+  @override
+  String rentalText(String rules, String checkout) {
+    return '🏠 $rules\nUitchecken: $checkout';
+  }
+
+  @override
+  String get ideasTitle => 'Ideeën';
+
+  @override
+  String get ideasSubtitle => 'Ontdek wat je met tags kunt doen';
+
+  @override
+  String get ideasHome => 'Thuis';
+
+  @override
+  String get ideasFamily => 'Gezin';
+
+  @override
+  String get ideasHealth => 'Gezondheid en gewoontes';
+
+  @override
+  String get ideasWork => 'Werk';
+
+  @override
+  String get ideasAutomation => 'Automatisering';
+
+  @override
+  String get ideaRoutinesTitle => 'Routines (Opdrachten)';
+
+  @override
+  String get ideaRoutinesDesc =>
+      'Nachtkastje, auto, deur, bureau: meerdere acties met één tik.';
+
+  @override
+  String get ideaHabitDesc =>
+      'Scan dagelijks en houd je 🔥 reeks vast (water, vitamines, sport).';
+
+  @override
+  String get ideaChoresDesc => 'Kinderen verdienen sterren met klusjestags.';
+
+  @override
+  String get ideaFeedingDesc =>
+      'Tag op de bak: \"wanneer voor het laatst gevoerd?\"';
+
+  @override
+  String get ideaMedicationDesc =>
+      'Tag op de pillendoos: vandaag ingenomen, hoe laat?';
+
+  @override
+  String get ideaClockDesc => 'Deurtag: in-/uitchecken en uren per dag.';
+
+  @override
+  String get ideaVisitorsDesc =>
+      'Bezoekerspassen bij de receptie: namen, tijden, CSV.';
+
+  @override
+  String get ideaInventoryDesc =>
+      'Voorraad en inventaris: waar elke tag het laatst was.';
+
+  @override
+  String get firstTagTitle => 'Maak je eerste tag';
+
+  @override
+  String get firstTagSubtitle =>
+      'Kies er een, vul de velden in en houd de tag erbij. 30 seconden.';
+
+  @override
+  String get firstTagMore => 'Meer ideeën';
 }

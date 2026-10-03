@@ -4689,4 +4689,112 @@ class AppLocalizationsRu extends AppLocalizations {
   @override
   String get inspectionRemindersNote =>
       'Метки к проверке напомнят в 10:00 в нужный день (если разрешено).';
+
+  @override
+  String get presetTableTitle => 'Столик в ресторане';
+
+  @override
+  String get presetTableDesc =>
+      'Ссылка на меню, номер столика и вызов официанта по SMS.';
+
+  @override
+  String get tableNumber => 'Номер столика';
+
+  @override
+  String get menuLink => 'Ссылка на меню';
+
+  @override
+  String get waiterPhone => 'Номер для вызова официанта (необязательно)';
+
+  @override
+  String tableText(String table) {
+    return 'Столик $table';
+  }
+
+  @override
+  String tableSms(String table) {
+    return 'Столик $table: подойдите, пожалуйста 🙋';
+  }
+
+  @override
+  String get presetRentalTitle => 'Карточка для арендного жилья';
+
+  @override
+  String get presetRentalDesc =>
+      'Гости касаются — подключаются к Wi-Fi и видят правила дома.';
+
+  @override
+  String get houseRules => 'Правила дома';
+
+  @override
+  String get checkoutTime => 'Время выезда';
+
+  @override
+  String rentalText(String rules, String checkout) {
+    return '🏠 $rules\nВыезд: $checkout';
+  }
+
+  @override
+  String get ideasTitle => 'Идеи';
+
+  @override
+  String get ideasSubtitle => 'Узнайте, что можно делать с метками';
+
+  @override
+  String get ideasHome => 'Дом';
+
+  @override
+  String get ideasFamily => 'Семья';
+
+  @override
+  String get ideasHealth => 'Здоровье и привычки';
+
+  @override
+  String get ideasWork => 'Работа';
+
+  @override
+  String get ideasAutomation => 'Автоматизация';
+
+  @override
+  String get ideaRoutinesTitle => 'Рутины (Команды)';
+
+  @override
+  String get ideaRoutinesDesc =>
+      'Тумбочка, машина, дверь, стол: несколько действий одним касанием.';
+
+  @override
+  String get ideaHabitDesc =>
+      'Сканируйте каждый день и держите 🔥 серию (вода, витамины, спорт).';
+
+  @override
+  String get ideaChoresDesc => 'Дети собирают звёзды, сканируя метки дел.';
+
+  @override
+  String get ideaFeedingDesc =>
+      'Метка на миске: «когда последний раз кормили?»';
+
+  @override
+  String get ideaMedicationDesc =>
+      'Метка на таблетнице: принято ли сегодня и когда?';
+
+  @override
+  String get ideaClockDesc => 'Метка на двери: приход/уход и часы за день.';
+
+  @override
+  String get ideaVisitorsDesc =>
+      'Карточки посетителей на ресепшене: имена, время, CSV.';
+
+  @override
+  String get ideaInventoryDesc =>
+      'Инвентаризация: где каждую метку видели последний раз.';
+
+  @override
+  String get firstTagTitle => 'Создайте первую метку';
+
+  @override
+  String get firstTagSubtitle =>
+      'Выберите, заполните поля и поднесите метку. 30 секунд.';
+
+  @override
+  String get firstTagMore => 'Больше идей';
 }

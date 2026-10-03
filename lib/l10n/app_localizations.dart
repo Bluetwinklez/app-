@@ -7990,6 +7990,192 @@ abstract class AppLocalizations {
   /// In tr, this message translates to:
   /// **'Kontrol tarihi gelen etiketler için saat 10:00\'da bildirim gelir (izin verdiyseniz).'**
   String get inspectionRemindersNote;
+
+  /// No description provided for @presetTableTitle.
+  ///
+  /// In tr, this message translates to:
+  /// **'Restoran masası'**
+  String get presetTableTitle;
+
+  /// No description provided for @presetTableDesc.
+  ///
+  /// In tr, this message translates to:
+  /// **'Menü bağlantısı, masa numarası ve tek dokunuşla garson çağırma (SMS).'**
+  String get presetTableDesc;
+
+  /// No description provided for @tableNumber.
+  ///
+  /// In tr, this message translates to:
+  /// **'Masa numarası'**
+  String get tableNumber;
+
+  /// No description provided for @menuLink.
+  ///
+  /// In tr, this message translates to:
+  /// **'Menü bağlantısı'**
+  String get menuLink;
+
+  /// No description provided for @waiterPhone.
+  ///
+  /// In tr, this message translates to:
+  /// **'Garson çağrı numarası (isteğe bağlı)'**
+  String get waiterPhone;
+
+  /// No description provided for @tableText.
+  ///
+  /// In tr, this message translates to:
+  /// **'Masa {table}'**
+  String tableText(String table);
+
+  /// No description provided for @tableSms.
+  ///
+  /// In tr, this message translates to:
+  /// **'Masa {table}: garson rica ediyoruz 🙋'**
+  String tableSms(String table);
+
+  /// No description provided for @presetRentalTitle.
+  ///
+  /// In tr, this message translates to:
+  /// **'Kiralık ev kartı'**
+  String get presetRentalTitle;
+
+  /// No description provided for @presetRentalDesc.
+  ///
+  /// In tr, this message translates to:
+  /// **'Misafirler dokununca Wi-Fi\'ye bağlanır ve ev kurallarını görür.'**
+  String get presetRentalDesc;
+
+  /// No description provided for @houseRules.
+  ///
+  /// In tr, this message translates to:
+  /// **'Ev kuralları'**
+  String get houseRules;
+
+  /// No description provided for @checkoutTime.
+  ///
+  /// In tr, this message translates to:
+  /// **'Çıkış saati'**
+  String get checkoutTime;
+
+  /// No description provided for @rentalText.
+  ///
+  /// In tr, this message translates to:
+  /// **'🏠 {rules}\nÇıkış: {checkout}'**
+  String rentalText(String rules, String checkout);
+
+  /// No description provided for @ideasTitle.
+  ///
+  /// In tr, this message translates to:
+  /// **'Fikirler'**
+  String get ideasTitle;
+
+  /// No description provided for @ideasSubtitle.
+  ///
+  /// In tr, this message translates to:
+  /// **'Etiketlerle neler yapabileceğinizi keşfedin'**
+  String get ideasSubtitle;
+
+  /// No description provided for @ideasHome.
+  ///
+  /// In tr, this message translates to:
+  /// **'Ev'**
+  String get ideasHome;
+
+  /// No description provided for @ideasFamily.
+  ///
+  /// In tr, this message translates to:
+  /// **'Aile'**
+  String get ideasFamily;
+
+  /// No description provided for @ideasHealth.
+  ///
+  /// In tr, this message translates to:
+  /// **'Sağlık ve alışkanlık'**
+  String get ideasHealth;
+
+  /// No description provided for @ideasWork.
+  ///
+  /// In tr, this message translates to:
+  /// **'İş'**
+  String get ideasWork;
+
+  /// No description provided for @ideasAutomation.
+  ///
+  /// In tr, this message translates to:
+  /// **'Otomasyon'**
+  String get ideasAutomation;
+
+  /// No description provided for @ideaRoutinesTitle.
+  ///
+  /// In tr, this message translates to:
+  /// **'Rutinler (Kısayollar)'**
+  String get ideaRoutinesTitle;
+
+  /// No description provided for @ideaRoutinesDesc.
+  ///
+  /// In tr, this message translates to:
+  /// **'Yatak başı, araba, kapı, masa: etikete dokununca birden çok işlem.'**
+  String get ideaRoutinesDesc;
+
+  /// No description provided for @ideaHabitDesc.
+  ///
+  /// In tr, this message translates to:
+  /// **'Her gün etiketi okut, 🔥 seriyi koru (su, vitamin, spor).'**
+  String get ideaHabitDesc;
+
+  /// No description provided for @ideaChoresDesc.
+  ///
+  /// In tr, this message translates to:
+  /// **'Görev etiketlerini okutan çocuk yıldız toplar.'**
+  String get ideaChoresDesc;
+
+  /// No description provided for @ideaFeedingDesc.
+  ///
+  /// In tr, this message translates to:
+  /// **'Mama kabındaki etiket: \"en son ne zaman beslendi?\"'**
+  String get ideaFeedingDesc;
+
+  /// No description provided for @ideaMedicationDesc.
+  ///
+  /// In tr, this message translates to:
+  /// **'İlaç kutusundaki etiket: bugün alındı mı, kaçta?'**
+  String get ideaMedicationDesc;
+
+  /// No description provided for @ideaClockDesc.
+  ///
+  /// In tr, this message translates to:
+  /// **'Kapıdaki etiket: giriş/çıkış ve günlük çalışma süresi.'**
+  String get ideaClockDesc;
+
+  /// No description provided for @ideaVisitorsDesc.
+  ///
+  /// In tr, this message translates to:
+  /// **'Ofis girişinde ziyaretçi kartları; isim ve saat kaydı, CSV.'**
+  String get ideaVisitorsDesc;
+
+  /// No description provided for @ideaInventoryDesc.
+  ///
+  /// In tr, this message translates to:
+  /// **'Depo ve demirbaş sayımı: her etiketin son görüldüğü yer.'**
+  String get ideaInventoryDesc;
+
+  /// No description provided for @firstTagTitle.
+  ///
+  /// In tr, this message translates to:
+  /// **'İlk etiketini yap'**
+  String get firstTagTitle;
+
+  /// No description provided for @firstTagSubtitle.
+  ///
+  /// In tr, this message translates to:
+  /// **'Birini seç, alanları doldur, etiketi telefona yaklaştır. 30 saniye sürer.'**
+  String get firstTagSubtitle;
+
+  /// No description provided for @firstTagMore.
+  ///
+  /// In tr, this message translates to:
+  /// **'Daha fazla fikir'**
+  String get firstTagMore;
 }
 
 class _AppLocalizationsDelegate

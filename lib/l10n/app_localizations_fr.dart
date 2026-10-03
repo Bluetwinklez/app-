@@ -4723,4 +4723,114 @@ class AppLocalizationsFr extends AppLocalizations {
   @override
   String get inspectionRemindersNote =>
       'Les tags à contrôler vous notifient à 10 h le jour prévu (si autorisé).';
+
+  @override
+  String get presetTableTitle => 'Table de restaurant';
+
+  @override
+  String get presetTableDesc =>
+      'Lien du menu, numéro de table et appel du serveur par SMS.';
+
+  @override
+  String get tableNumber => 'Numéro de table';
+
+  @override
+  String get menuLink => 'Lien du menu';
+
+  @override
+  String get waiterPhone => 'Numéro d\'appel du serveur (facultatif)';
+
+  @override
+  String tableText(String table) {
+    return 'Table $table';
+  }
+
+  @override
+  String tableSms(String table) {
+    return 'Table $table : un serveur s\'il vous plaît 🙋';
+  }
+
+  @override
+  String get presetRentalTitle => 'Carte location de vacances';
+
+  @override
+  String get presetRentalDesc =>
+      'Les invités touchent pour le Wi-Fi et voient les règles de la maison.';
+
+  @override
+  String get houseRules => 'Règles de la maison';
+
+  @override
+  String get checkoutTime => 'Heure de départ';
+
+  @override
+  String rentalText(String rules, String checkout) {
+    return '🏠 $rules\nDépart : $checkout';
+  }
+
+  @override
+  String get ideasTitle => 'Idées';
+
+  @override
+  String get ideasSubtitle =>
+      'Découvrez ce que vous pouvez faire avec des tags';
+
+  @override
+  String get ideasHome => 'Maison';
+
+  @override
+  String get ideasFamily => 'Famille';
+
+  @override
+  String get ideasHealth => 'Santé et habitudes';
+
+  @override
+  String get ideasWork => 'Travail';
+
+  @override
+  String get ideasAutomation => 'Automatisation';
+
+  @override
+  String get ideaRoutinesTitle => 'Routines (Raccourcis)';
+
+  @override
+  String get ideaRoutinesDesc =>
+      'Chevet, voiture, porte, bureau : plusieurs actions d\'un geste.';
+
+  @override
+  String get ideaHabitDesc =>
+      'Scannez chaque jour et gardez la 🔥 série (eau, vitamines, sport).';
+
+  @override
+  String get ideaChoresDesc =>
+      'Les enfants gagnent des étoiles en scannant les tâches.';
+
+  @override
+  String get ideaFeedingDesc =>
+      'Tag sur la gamelle : « dernier repas quand ? »';
+
+  @override
+  String get ideaMedicationDesc =>
+      'Tag sur le pilulier : pris aujourd\'hui, à quelle heure ?';
+
+  @override
+  String get ideaClockDesc => 'Tag de porte : entrée/sortie et heures du jour.';
+
+  @override
+  String get ideaVisitorsDesc =>
+      'Badges visiteurs à l\'accueil : noms, heures, CSV.';
+
+  @override
+  String get ideaInventoryDesc =>
+      'Inventaire : où chaque tag a été vu en dernier.';
+
+  @override
+  String get firstTagTitle => 'Créez votre premier tag';
+
+  @override
+  String get firstTagSubtitle =>
+      'Choisissez, remplissez, approchez le tag. 30 secondes.';
+
+  @override
+  String get firstTagMore => 'Plus d\'idées';
 }

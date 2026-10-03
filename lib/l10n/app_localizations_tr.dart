@@ -4686,4 +4686,113 @@ class AppLocalizationsTr extends AppLocalizations {
   @override
   String get inspectionRemindersNote =>
       'Kontrol tarihi gelen etiketler için saat 10:00\'da bildirim gelir (izin verdiyseniz).';
+
+  @override
+  String get presetTableTitle => 'Restoran masası';
+
+  @override
+  String get presetTableDesc =>
+      'Menü bağlantısı, masa numarası ve tek dokunuşla garson çağırma (SMS).';
+
+  @override
+  String get tableNumber => 'Masa numarası';
+
+  @override
+  String get menuLink => 'Menü bağlantısı';
+
+  @override
+  String get waiterPhone => 'Garson çağrı numarası (isteğe bağlı)';
+
+  @override
+  String tableText(String table) {
+    return 'Masa $table';
+  }
+
+  @override
+  String tableSms(String table) {
+    return 'Masa $table: garson rica ediyoruz 🙋';
+  }
+
+  @override
+  String get presetRentalTitle => 'Kiralık ev kartı';
+
+  @override
+  String get presetRentalDesc =>
+      'Misafirler dokununca Wi-Fi\'ye bağlanır ve ev kurallarını görür.';
+
+  @override
+  String get houseRules => 'Ev kuralları';
+
+  @override
+  String get checkoutTime => 'Çıkış saati';
+
+  @override
+  String rentalText(String rules, String checkout) {
+    return '🏠 $rules\nÇıkış: $checkout';
+  }
+
+  @override
+  String get ideasTitle => 'Fikirler';
+
+  @override
+  String get ideasSubtitle => 'Etiketlerle neler yapabileceğinizi keşfedin';
+
+  @override
+  String get ideasHome => 'Ev';
+
+  @override
+  String get ideasFamily => 'Aile';
+
+  @override
+  String get ideasHealth => 'Sağlık ve alışkanlık';
+
+  @override
+  String get ideasWork => 'İş';
+
+  @override
+  String get ideasAutomation => 'Otomasyon';
+
+  @override
+  String get ideaRoutinesTitle => 'Rutinler (Kısayollar)';
+
+  @override
+  String get ideaRoutinesDesc =>
+      'Yatak başı, araba, kapı, masa: etikete dokununca birden çok işlem.';
+
+  @override
+  String get ideaHabitDesc =>
+      'Her gün etiketi okut, 🔥 seriyi koru (su, vitamin, spor).';
+
+  @override
+  String get ideaChoresDesc => 'Görev etiketlerini okutan çocuk yıldız toplar.';
+
+  @override
+  String get ideaFeedingDesc =>
+      'Mama kabındaki etiket: \"en son ne zaman beslendi?\"';
+
+  @override
+  String get ideaMedicationDesc =>
+      'İlaç kutusundaki etiket: bugün alındı mı, kaçta?';
+
+  @override
+  String get ideaClockDesc =>
+      'Kapıdaki etiket: giriş/çıkış ve günlük çalışma süresi.';
+
+  @override
+  String get ideaVisitorsDesc =>
+      'Ofis girişinde ziyaretçi kartları; isim ve saat kaydı, CSV.';
+
+  @override
+  String get ideaInventoryDesc =>
+      'Depo ve demirbaş sayımı: her etiketin son görüldüğü yer.';
+
+  @override
+  String get firstTagTitle => 'İlk etiketini yap';
+
+  @override
+  String get firstTagSubtitle =>
+      'Birini seç, alanları doldur, etiketi telefona yaklaştır. 30 saniye sürer.';
+
+  @override
+  String get firstTagMore => 'Daha fazla fikir';
 }
