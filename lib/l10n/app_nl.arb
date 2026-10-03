@@ -1091,5 +1091,6 @@
   "neverSeen": "Nog niet gescand",
   "sortLongestUnseen": "Langst niet gezien",
   "unseen30Days": "30+ dagen niet gezien",
-  "inventoryCardTitle": "Deze tag staat in je bibliotheek"
+  "inventoryCardTitle": "Deze tag staat in je bibliotheek",
+  "scanReportLine": "{unique} verschillende tags · {dup} opnieuw gelezen · {empty} leeg"
 }

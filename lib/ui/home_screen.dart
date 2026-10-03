@@ -207,8 +207,21 @@ class _HomeScreenState extends State<HomeScreen>
               child: Row(
                 children: [
                   Expanded(
-                    child: Text(L10n.current.continuousScanCount('${_scanLog.length}'),
-                        style: const TextStyle(fontWeight: FontWeight.w600)),
+                    child: Builder(builder: (context) {
+                      final report = ScanReport.of(_scanLog);
+                      return Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Text(L10n.current.continuousScanCount('${_scanLog.length}'),
+                              style: const TextStyle(fontWeight: FontWeight.w600)),
+                          Text(
+                            L10n.current.scanReportLine(
+                                '${report.unique}', '${report.duplicates}', '${report.empty}'),
+                            style: TextStyle(fontSize: 12, color: AppColors.secondary),
+                          ),
+                        ],
+                      );
+                    }),
                   ),
                   IconButton(
                     tooltip: L10n.current.exportCsv,

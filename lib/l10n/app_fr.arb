@@ -1091,5 +1091,6 @@
   "neverSeen": "Pas encore scanné",
   "sortLongestUnseen": "Non vus depuis le plus longtemps",
   "unseen30Days": "Non vu depuis 30+ jours",
-  "inventoryCardTitle": "Ce tag est dans votre bibliothèque"
+  "inventoryCardTitle": "Ce tag est dans votre bibliothèque",
+  "scanReportLine": "{unique} tags différents · {dup} relus · {empty} vides"
 }

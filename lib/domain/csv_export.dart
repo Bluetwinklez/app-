@@ -11,6 +11,35 @@ class ScanLogEntry {
   const ScanLogEntry(this.time, this.uid, this.records);
 }
 
+/// Summary of a continuous scanning session.
+class ScanReport {
+  final int total;
+  final int unique;
+
+  /// Tags read more than once.
+  final int duplicates;
+
+  /// Distinct tags with no NDEF records.
+  final int empty;
+
+  const ScanReport({required this.total, required this.unique, required this.duplicates, required this.empty});
+
+  factory ScanReport.of(List<ScanLogEntry> log) {
+    final counts = <String, int>{};
+    final emptyUids = <String>{};
+    for (final e in log) {
+      counts[e.uid] = (counts[e.uid] ?? 0) + 1;
+      if (e.records.isEmpty) emptyUids.add(e.uid);
+    }
+    return ScanReport(
+      total: log.length,
+      unique: counts.length,
+      duplicates: counts.values.where((c) => c > 1).length,
+      empty: emptyUids.length,
+    );
+  }
+}
+
 /// Builds Excel-friendly CSV (UTF-8 with BOM, CRLF, RFC 4180 quoting).
 class CsvExport {
   static const String bom = '﻿';

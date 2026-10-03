@@ -1091,5 +1091,6 @@
   "neverSeen": "Aún no escaneada",
   "sortLongestUnseen": "Más tiempo sin ver",
   "unseen30Days": "Sin ver hace 30+ días",
-  "inventoryCardTitle": "Esta etiqueta está en tu biblioteca"
+  "inventoryCardTitle": "Esta etiqueta está en tu biblioteca",
+  "scanReportLine": "{unique} etiquetas distintas · {dup} repetidas · {empty} vacías"
 }

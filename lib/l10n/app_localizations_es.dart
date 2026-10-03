@@ -3911,4 +3911,9 @@ class AppLocalizationsEs extends AppLocalizations {
 
   @override
   String get inventoryCardTitle => 'Esta etiqueta está en tu biblioteca';
+
+  @override
+  String scanReportLine(String unique, String dup, String empty) {
+    return '$unique etiquetas distintas · $dup repetidas · $empty vacías';
+  }
 }
