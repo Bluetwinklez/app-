@@ -62,6 +62,9 @@ class TagLibraryPage extends StatefulWidget {
   /// Copies an entry's records into the write list.
   final void Function(List<NdefRecordModel> records, String name) onUseRecords;
 
+  /// Writes an entry's records straight to a tag; returns success.
+  final Future<bool> Function(List<NdefRecordModel> records, String name)? onWriteRecords;
+
   /// Opens the editor for a new entry from the last scan right away.
   final bool startWithLastScan;
 
@@ -72,6 +75,7 @@ class TagLibraryPage extends StatefulWidget {
     required this.lastScanUid,
     required this.composerRecords,
     required this.onUseRecords,
+    this.onWriteRecords,
     this.startWithLastScan = false,
   });
 
@@ -229,6 +233,16 @@ class _TagLibraryPageState extends State<TagLibraryPage> {
     if (mounted) setState(() {});
   }
 
+  Future<void> _writeEntry(TagLibraryEntry entry) async {
+    final loc = AppLocalizations.of(context) ?? L10n.current;
+    final ok = await widget.onWriteRecords!(entry.records, entry.name);
+    if (!mounted) return;
+    ScaffoldMessenger.of(context).showSnackBar(SnackBar(
+      content: Text(ok ? loc.nfcWriteDone : loc.writeFailed),
+      backgroundColor: ok ? AppColors.success : AppColors.danger,
+    ));
+  }
+
   Future<void> _delete(TagLibraryEntry entry) async {
     final loc = AppLocalizations.of(context) ?? L10n.current;
     final ok = await showDialog<bool>(
@@ -381,6 +395,9 @@ class _TagLibraryPageState extends State<TagLibraryPage> {
                             Navigator.of(context).pop();
                           },
                     onDelete: () => _delete(entry),
+                    onWrite: entry.records.isEmpty || widget.onWriteRecords == null
+                        ? null
+                        : () => _writeEntry(entry),
                   ),
                 ),
           ],
@@ -395,6 +412,7 @@ class _EntryCard extends StatelessWidget {
   final File? photo;
   final VoidCallback onTap;
   final VoidCallback? onUse;
+  final VoidCallback? onWrite;
   final VoidCallback onDelete;
 
   const _EntryCard({
@@ -402,6 +420,7 @@ class _EntryCard extends StatelessWidget {
     required this.photo,
     required this.onTap,
     required this.onUse,
+    this.onWrite,
     required this.onDelete,
   });
 
@@ -463,6 +482,7 @@ class _EntryCard extends StatelessWidget {
             icon: Icon(Icons.more_vert_rounded, color: AppColors.secondary),
             onSelected: (v) {
               if (v == 'use') onUse?.call();
+              if (v == 'write') onWrite?.call();
               if (v == 'delete') onDelete();
             },
             itemBuilder: (_) => [
@@ -470,6 +490,11 @@ class _EntryCard extends StatelessWidget {
                 value: 'use',
                 enabled: onUse != null,
                 child: Text(loc.copyToComposer),
+              ),
+              PopupMenuItem(
+                value: 'write',
+                enabled: onWrite != null,
+                child: Text(loc.libraryWriteToTag),
               ),
               PopupMenuItem(value: 'delete', child: Text(loc.delete)),
             ],

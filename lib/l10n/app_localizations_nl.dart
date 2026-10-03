@@ -3745,4 +3745,22 @@ class AppLocalizationsNl extends AppLocalizations {
 
   @override
   String get chipUseLegacy => 'Verouderd type; niet aanbevolen';
+
+  @override
+  String templateVarsHint(String date, String time, String counter) {
+    return 'Tip: $date, $time of $counter in tekst of link worden bij het schrijven ingevuld.';
+  }
+
+  @override
+  String templateVarsPreview(String date, String time, String counter) {
+    return 'Bij schrijven: $date · $time · teller $counter';
+  }
+
+  @override
+  String get libraryWriteToTag => 'Naar tag schrijven';
+
+  @override
+  String libraryWritePrompt(String name) {
+    return 'Houd een tag in de buurt om \"$name\" te schrijven';
+  }
 }

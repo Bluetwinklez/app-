@@ -3741,4 +3741,22 @@ class AppLocalizationsTr extends AppLocalizations {
 
   @override
   String get chipUseLegacy => 'Eski tip; yeni projeler için önerilmez';
+
+  @override
+  String templateVarsHint(String date, String time, String counter) {
+    return 'İpucu: Metin ya da bağlantıya $date, $time, $counter yazarsanız yazarken otomatik doldurulur.';
+  }
+
+  @override
+  String templateVarsPreview(String date, String time, String counter) {
+    return 'Yazarken: $date · $time · sayaç $counter';
+  }
+
+  @override
+  String get libraryWriteToTag => 'Etikete yaz';
+
+  @override
+  String libraryWritePrompt(String name) {
+    return '\"$name\" içeriğini yazmak için etiketi yaklaştırın';
+  }
 }

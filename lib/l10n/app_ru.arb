@@ -1054,5 +1054,9 @@
   "chipUseAccess": "Пропуска и гостиничные ключи",
   "chipUseIndustrial": "Библиотеки, склады, промышленность; большая дальность",
   "chipUseJapan": "Распространён в Японии (транспорт, оплата)",
-  "chipUseLegacy": "Устаревший тип; не рекомендуется"
+  "chipUseLegacy": "Устаревший тип; не рекомендуется",
+  "templateVarsHint": "Совет: {date}, {time} или {counter} в тексте или ссылке заполняются при записи.",
+  "templateVarsPreview": "При записи: {date} · {time} · счётчик {counter}",
+  "libraryWriteToTag": "Записать на метку",
+  "libraryWritePrompt": "Поднесите метку, чтобы записать «{name}»"
 }

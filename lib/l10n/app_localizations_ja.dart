@@ -3577,4 +3577,22 @@ class AppLocalizationsJa extends AppLocalizations {
 
   @override
   String get chipUseLegacy => '旧式。新規には非推奨';
+
+  @override
+  String templateVarsHint(String date, String time, String counter) {
+    return 'ヒント: テキストやリンクに$date・$time・$counterを入れると書き込み時に自動入力されます。';
+  }
+
+  @override
+  String templateVarsPreview(String date, String time, String counter) {
+    return '書き込み時: $date · $time · カウンター $counter';
+  }
+
+  @override
+  String get libraryWriteToTag => 'タグに書き込む';
+
+  @override
+  String libraryWritePrompt(String name) {
+    return '「$name」を書き込むタグをかざしてください';
+  }
 }

@@ -1054,5 +1054,9 @@
   "chipUseAccess": "Badge di accesso e chiavi d'albergo",
   "chipUseIndustrial": "Biblioteche, magazzini e industria; portata maggiore",
   "chipUseJapan": "Diffuso in Giappone (trasporti, pagamenti)",
-  "chipUseLegacy": "Tipo vecchio; sconsigliato per nuovi progetti"
+  "chipUseLegacy": "Tipo vecchio; sconsigliato per nuovi progetti",
+  "templateVarsHint": "Suggerimento: {date}, {time} o {counter} in un testo o link vengono compilati in scrittura.",
+  "templateVarsPreview": "In scrittura: {date} · {time} · contatore {counter}",
+  "libraryWriteToTag": "Scrivi su un tag",
+  "libraryWritePrompt": "Avvicina un tag per scrivere \"{name}\""
 }

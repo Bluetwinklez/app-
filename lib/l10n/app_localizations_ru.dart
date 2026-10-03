@@ -3746,4 +3746,22 @@ class AppLocalizationsRu extends AppLocalizations {
 
   @override
   String get chipUseLegacy => 'Устаревший тип; не рекомендуется';
+
+  @override
+  String templateVarsHint(String date, String time, String counter) {
+    return 'Совет: $date, $time или $counter в тексте или ссылке заполняются при записи.';
+  }
+
+  @override
+  String templateVarsPreview(String date, String time, String counter) {
+    return 'При записи: $date · $time · счётчик $counter';
+  }
+
+  @override
+  String get libraryWriteToTag => 'Записать на метку';
+
+  @override
+  String libraryWritePrompt(String name) {
+    return 'Поднесите метку, чтобы записать «$name»';
+  }
 }

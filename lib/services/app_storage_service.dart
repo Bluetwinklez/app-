@@ -40,6 +40,10 @@ abstract class AppStorageService {
   DateTime? get lastBackupAt;
   Future<void> setLastBackupAt(DateTime time);
 
+  /// Value of the last {counter} written by a template.
+  int get writeCounter;
+  Future<void> setWriteCounter(int value);
+
   /// Compatibility mode: skip read-back verification after writes.
   bool get compatibilityMode;
   Future<void> setCompatibilityMode(bool enabled);
@@ -130,6 +134,14 @@ class InMemoryAppStorageService implements AppStorageService {
 
   @override
   Future<void> setCompatibilityMode(bool enabled) async => _compatibilityMode = enabled;
+
+  int _writeCounter = 0;
+
+  @override
+  int get writeCounter => _writeCounter;
+
+  @override
+  Future<void> setWriteCounter(int value) async => _writeCounter = value;
 
   @override
   List<TagLibraryEntry> getLibrary() => List.unmodifiable(_library);
@@ -378,6 +390,7 @@ class LocalFileAppStorageService implements AppStorageService {
               : const [];
           _lastBackupAt = DateTime.tryParse(data['lastBackupAt'] as String? ?? '');
           _compatibilityMode = data['compatibilityMode'] as bool? ?? false;
+          _writeCounter = data['writeCounter'] as int? ?? 0;
         }
       }
     } catch (e) {
@@ -519,6 +532,7 @@ class LocalFileAppStorageService implements AppStorageService {
       'favoritePresets': _favoritePresets,
       if (_lastBackupAt != null) 'lastBackupAt': _lastBackupAt!.toIso8601String(),
       'compatibilityMode': _compatibilityMode,
+      'writeCounter': _writeCounter,
     });
     await _atomicWrite(_settingsFile, data);
   }
@@ -589,6 +603,17 @@ class LocalFileAppStorageService implements AppStorageService {
   @override
   Future<void> setCompatibilityMode(bool enabled) async {
     _compatibilityMode = enabled;
+    await _saveSettings();
+  }
+
+  int _writeCounter = 0;
+
+  @override
+  int get writeCounter => _writeCounter;
+
+  @override
+  Future<void> setWriteCounter(int value) async {
+    _writeCounter = value;
     await _saveSettings();
   }
 

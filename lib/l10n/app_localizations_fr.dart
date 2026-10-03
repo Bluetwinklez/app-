@@ -3771,4 +3771,22 @@ class AppLocalizationsFr extends AppLocalizations {
   @override
   String get chipUseLegacy =>
       'Type ancien ; déconseillé pour les nouveaux projets';
+
+  @override
+  String templateVarsHint(String date, String time, String counter) {
+    return 'Astuce : $date, $time ou $counter dans un texte ou un lien sont remplis à l\'écriture.';
+  }
+
+  @override
+  String templateVarsPreview(String date, String time, String counter) {
+    return 'À l\'écriture : $date · $time · compteur $counter';
+  }
+
+  @override
+  String get libraryWriteToTag => 'Écrire sur un tag';
+
+  @override
+  String libraryWritePrompt(String name) {
+    return 'Approchez un tag pour écrire « $name »';
+  }
 }

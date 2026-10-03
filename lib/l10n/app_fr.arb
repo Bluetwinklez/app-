@@ -1054,5 +1054,9 @@
   "chipUseAccess": "Badges de porte et cartes d'hôtel",
   "chipUseIndustrial": "Bibliothèque, entrepôt, industrie ; portée plus longue",
   "chipUseJapan": "Courant au Japon (transport, paiement)",
-  "chipUseLegacy": "Type ancien ; déconseillé pour les nouveaux projets"
+  "chipUseLegacy": "Type ancien ; déconseillé pour les nouveaux projets",
+  "templateVarsHint": "Astuce : {date}, {time} ou {counter} dans un texte ou un lien sont remplis à l'écriture.",
+  "templateVarsPreview": "À l'écriture : {date} · {time} · compteur {counter}",
+  "libraryWriteToTag": "Écrire sur un tag",
+  "libraryWritePrompt": "Approchez un tag pour écrire « {name} »"
 }
