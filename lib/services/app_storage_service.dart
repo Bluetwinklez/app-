@@ -102,6 +102,7 @@ abstract class AppStorageService {
   List<ScanHistoryEntry> getHistory();
   Future<void> addHistoryEntry(ScanHistoryEntry entry);
   Future<void> deleteHistoryEntry(String id);
+  Future<void> updateHistoryEntry(ScanHistoryEntry entry);
   Future<void> clearHistory();
 
   // Write Templates
@@ -374,6 +375,12 @@ class InMemoryAppStorageService implements AppStorageService {
   @override
   Future<void> deleteHistoryEntry(String id) async {
     _history.removeWhere((item) => item.id == id);
+  }
+
+  @override
+  Future<void> updateHistoryEntry(ScanHistoryEntry entry) async {
+    final i = _history.indexWhere((item) => item.id == entry.id);
+    if (i >= 0) _history[i] = entry;
   }
 
   @override
@@ -1004,6 +1011,20 @@ class LocalFileAppStorageService implements AppStorageService {
       await _saveHistory();
     } catch (e) {
       _history.remove(entry);
+      rethrow;
+    }
+  }
+
+  @override
+  Future<void> updateHistoryEntry(ScanHistoryEntry entry) async {
+    final index = _history.indexWhere((item) => item.id == entry.id);
+    if (index == -1) return;
+    final previous = _history[index];
+    _history[index] = entry;
+    try {
+      await _saveHistory();
+    } catch (e) {
+      _history[index] = previous;
       rethrow;
     }
   }
