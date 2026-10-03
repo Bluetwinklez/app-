@@ -1372,5 +1372,7 @@
   "mergeSubtitle": "اختر سجلات من المكتبة والقوالب وآخر مسح لوسم واحد",
   "mergeButton": "دمج ({count})",
   "mergeEmpty": "لا يوجد ما يُدمج. احفظ وسومًا أو قوالب أولًا.",
-  "mergeLastScan": "آخر وسم ممسوح"
+  "mergeLastScan": "آخر وسم ممسوح",
+  "locationSearchHint": "ابحث عن عنوان أو مكان",
+  "locationNotFound": "لم يُعثر على العنوان"
 }

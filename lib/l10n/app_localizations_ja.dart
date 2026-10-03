@@ -4686,4 +4686,10 @@ class AppLocalizationsJa extends AppLocalizations {
 
   @override
   String get mergeLastScan => '最後に読んだタグ';
+
+  @override
+  String get locationSearchHint => '住所や場所を検索';
+
+  @override
+  String get locationNotFound => '住所が見つかりません';
 }

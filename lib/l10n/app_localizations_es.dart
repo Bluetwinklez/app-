@@ -4931,4 +4931,10 @@ class AppLocalizationsEs extends AppLocalizations {
 
   @override
   String get mergeLastScan => 'Última etiqueta';
+
+  @override
+  String get locationSearchHint => 'Buscar dirección o lugar';
+
+  @override
+  String get locationNotFound => 'Dirección no encontrada';
 }

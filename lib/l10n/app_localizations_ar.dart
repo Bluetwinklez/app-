@@ -4841,4 +4841,10 @@ class AppLocalizationsAr extends AppLocalizations {
 
   @override
   String get mergeLastScan => 'آخر وسم ممسوح';
+
+  @override
+  String get locationSearchHint => 'ابحث عن عنوان أو مكان';
+
+  @override
+  String get locationNotFound => 'لم يُعثر على العنوان';
 }

@@ -1372,5 +1372,7 @@
   "mergeSubtitle": "Pick records from the library, templates and the last scan for one tag",
   "mergeButton": "Merge ({count})",
   "mergeEmpty": "Nothing to merge yet. Save tags or templates first.",
-  "mergeLastScan": "Last scanned tag"
+  "mergeLastScan": "Last scanned tag",
+  "locationSearchHint": "Search an address or place",
+  "locationNotFound": "Address not found"
 }

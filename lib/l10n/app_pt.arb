@@ -1372,5 +1372,7 @@
   "mergeSubtitle": "Escolha da biblioteca, modelos e última leitura para uma tag",
   "mergeButton": "Combinar ({count})",
   "mergeEmpty": "Nada para combinar. Salve tags ou modelos primeiro.",
-  "mergeLastScan": "Última tag lida"
+  "mergeLastScan": "Última tag lida",
+  "locationSearchHint": "Buscar endereço ou local",
+  "locationNotFound": "Endereço não encontrado"
 }

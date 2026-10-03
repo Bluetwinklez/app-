@@ -4900,4 +4900,10 @@ class AppLocalizationsRu extends AppLocalizations {
 
   @override
   String get mergeLastScan => 'Последняя метка';
+
+  @override
+  String get locationSearchHint => 'Найти адрес или место';
+
+  @override
+  String get locationNotFound => 'Адрес не найден';
 }
