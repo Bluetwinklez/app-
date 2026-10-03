@@ -33,8 +33,11 @@ void main() {
     await tester.tap(find.text('Araçlar').last);
     await tester.pumpAndSettle();
     expect(find.text('Belleği Oku'), findsOneWidget);
-    await tester.drag(find.text('Belleği Oku'), const Offset(0, -400));
-    await tester.pumpAndSettle();
+    await tester.scrollUntilVisible(
+      find.text('Şifre Belirle'),
+      200,
+      scrollable: find.ancestor(of: find.text('Belleği Oku'), matching: find.byType(Scrollable)).first,
+    );
     expect(find.text('Şifre Belirle'), findsOneWidget);
   });
 
