@@ -2,6 +2,7 @@ package com.antigravity.nfc_tag_master
 
 import android.content.Intent
 import android.nfc.NfcAdapter
+import android.nfc.TagLostException
 import android.nfc.Tag
 import android.nfc.tech.Ndef
 import android.nfc.tech.NfcA
@@ -84,6 +85,8 @@ class MainActivity : FlutterActivity(), NfcAdapter.ReaderCallback {
                             try {
                                 val response = nfcA.transceive(command)
                                 postSuccess(result, response)
+                            } catch (e: TagLostException) {
+                                postError(result, "TAG_LOST", e.message ?: "", null)
                             } catch (e: Exception) {
                                 postError(result, "TRANSCEIVE_FAILED", e.message ?: "", null)
                             }
@@ -362,6 +365,9 @@ class MainActivity : FlutterActivity(), NfcAdapter.ReaderCallback {
                 "error" to null
             )
             postSuccess(result, map)
+        } catch (e: TagLostException) {
+            try { ndef?.close() } catch (_: Exception) {}
+            postError(result, "TAG_LOST", e.message ?: "", null)
         } catch (e: Exception) {
             try { ndef?.close() } catch (_: Exception) {}
             postError(result, "READ_FAILED", e.message ?: "", null)
@@ -494,7 +500,8 @@ class MainActivity : FlutterActivity(), NfcAdapter.ReaderCallback {
         } catch (e: Exception) {
             try { ndef?.close() } catch (_: Exception) {}
             try { formatable?.close() } catch (_: Exception) {}
-            postError(result, "WRITE_EXCEPTION", e.message ?: "", null)
+            val code = if (e is TagLostException) "TAG_LOST" else "WRITE_EXCEPTION"
+            postError(result, code, e.message ?: "", null)
         }
     }
 
@@ -506,6 +513,8 @@ class MainActivity : FlutterActivity(), NfcAdapter.ReaderCallback {
         }
         try {
             nfcA.connect()
+            // Writes to NTAG EEPROM can take longer than the default timeout.
+            nfcA.timeout = 1500
             rawNfcA = nfcA
             postSuccess(result, mapOf("identifier" to bytesToHex(tag.id)))
         } catch (e: Exception) {
@@ -541,6 +550,8 @@ class MainActivity : FlutterActivity(), NfcAdapter.ReaderCallback {
                     "message" to "Etiket kalıcı olarak kilitlendi"
                 )
             )
+        } catch (e: TagLostException) {
+            postError(result, "TAG_LOST", e.message ?: "", null)
         } catch (e: Exception) {
             postError(result, "LOCK_FAILED", e.message ?: "", null)
         } finally {
@@ -573,6 +584,12 @@ class MainActivity : FlutterActivity(), NfcAdapter.ReaderCallback {
 
     override fun onPause() {
         super.onPause()
+        // A raw session cannot survive the app leaving the foreground.
+        val nfcA = rawNfcA
+        rawNfcA = null
+        if (nfcA != null) {
+            nfcExecutor.execute { try { nfcA.close() } catch (_: Exception) {} }
+        }
         synchronized(stateLock) {
             stopReaderModeLocked()
             pendingResult?.let {

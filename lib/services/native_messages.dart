@@ -79,6 +79,7 @@ class NativeMessages {
       case 'QUERY_FAILED':
         return withDetail(l.nfcErrConnectionLost);
       case 'NO_SESSION':
+      case 'TAG_LOST':
         return l.nfcErrConnectionLost;
       case 'TRANSCEIVE_FAILED':
         return withDetail(l.commandFailed);
