@@ -4885,4 +4885,10 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get mergeLastScan => 'Last scanned tag';
+
+  @override
+  String get locationSearchHint => 'Search an address or place';
+
+  @override
+  String get locationNotFound => 'Address not found';
 }

@@ -4646,4 +4646,10 @@ class AppLocalizationsZh extends AppLocalizations {
 
   @override
   String get mergeLastScan => '最近扫描的标签';
+
+  @override
+  String get locationSearchHint => '搜索地址或地点';
+
+  @override
+  String get locationNotFound => '未找到地址';
 }

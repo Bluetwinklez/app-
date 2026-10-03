@@ -4898,4 +4898,10 @@ class AppLocalizationsUk extends AppLocalizations {
 
   @override
   String get mergeLastScan => 'Остання мітка';
+
+  @override
+  String get locationSearchHint => 'Знайти адресу чи місце';
+
+  @override
+  String get locationNotFound => 'Адресу не знайдено';
 }

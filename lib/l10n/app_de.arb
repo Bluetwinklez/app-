@@ -1372,5 +1372,7 @@
   "mergeSubtitle": "Datensätze aus Bibliothek, Vorlagen und letztem Scan auf einem Tag",
   "mergeButton": "Zusammenführen ({count})",
   "mergeEmpty": "Noch nichts zum Zusammenführen. Zuerst Tags oder Vorlagen speichern.",
-  "mergeLastScan": "Zuletzt gescannter Tag"
+  "mergeLastScan": "Zuletzt gescannter Tag",
+  "locationSearchHint": "Adresse oder Ort suchen",
+  "locationNotFound": "Adresse nicht gefunden"
 }

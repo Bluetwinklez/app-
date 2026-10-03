@@ -1372,5 +1372,7 @@
   "mergeSubtitle": "Choisissez dans la bibliothèque, les modèles et le dernier scan pour un seul tag",
   "mergeButton": "Fusionner ({count})",
   "mergeEmpty": "Rien à fusionner. Enregistrez d'abord des tags ou modèles.",
-  "mergeLastScan": "Dernier tag scanné"
+  "mergeLastScan": "Dernier tag scanné",
+  "locationSearchHint": "Rechercher une adresse ou un lieu",
+  "locationNotFound": "Adresse introuvable"
 }

@@ -1372,5 +1372,7 @@
   "mergeSubtitle": "보관함·템플릿·최근 스캔에서 골라 태그 하나로",
   "mergeButton": "합치기({count})",
   "mergeEmpty": "합칠 항목이 없습니다. 먼저 태그나 템플릿을 저장하세요.",
-  "mergeLastScan": "마지막 스캔 태그"
+  "mergeLastScan": "마지막 스캔 태그",
+  "locationSearchHint": "주소나 장소 검색",
+  "locationNotFound": "주소를 찾을 수 없음"
 }

@@ -1372,5 +1372,7 @@
   "mergeSubtitle": "ライブラリ・テンプレート・直近の読み取りから選んで1枚に",
   "mergeButton": "結合（{count}）",
   "mergeEmpty": "結合するものがありません。先にタグやテンプレートを保存してください。",
-  "mergeLastScan": "最後に読んだタグ"
+  "mergeLastScan": "最後に読んだタグ",
+  "locationSearchHint": "住所や場所を検索",
+  "locationNotFound": "住所が見つかりません"
 }

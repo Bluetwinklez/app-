@@ -4702,4 +4702,10 @@ class AppLocalizationsKo extends AppLocalizations {
 
   @override
   String get mergeLastScan => '마지막 스캔 태그';
+
+  @override
+  String get locationSearchHint => '주소나 장소 검색';
+
+  @override
+  String get locationNotFound => '주소를 찾을 수 없음';
 }

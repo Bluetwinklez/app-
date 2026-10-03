@@ -1,6 +1,8 @@
 import 'dart:convert';
 import 'dart:typed_data';
 import 'package:flutter/material.dart';
+import 'package:geocoding/geocoding.dart' as geo;
+import 'package:geolocator/geolocator.dart';
 import '../l10n/app_localizations.dart';
 import '../domain/ndef_record.dart';
 import '../domain/quick_links.dart';
@@ -23,6 +25,55 @@ class ComposeRecordSheet extends StatefulWidget {
 }
 
 class _ComposeRecordSheetState extends State<ComposeRecordSheet> {
+  final _addressController = TextEditingController();
+  String? _addressError;
+  bool _locating = false;
+
+  void _setCoordinates(double lat, double lng) => setState(() {
+        _latController.text = lat.toStringAsFixed(6);
+        _lngController.text = lng.toStringAsFixed(6);
+        _addressError = null;
+      });
+
+  Future<void> _searchAddress() async {
+    final q = _addressController.text.trim();
+    if (q.isEmpty) return;
+    setState(() => _locating = true);
+    try {
+      final found = await geo.Geocoding().locationFromAddress(q);
+      if (!mounted) return;
+      if (found.isEmpty) {
+        setState(() => _addressError = L10n.current.locationNotFound);
+      } else {
+        _setCoordinates(found.first.latitude, found.first.longitude);
+      }
+    } catch (_) {
+      if (mounted) setState(() => _addressError = L10n.current.locationNotFound);
+    } finally {
+      if (mounted) setState(() => _locating = false);
+    }
+  }
+
+  Future<void> _useCurrentLocation() async {
+    setState(() => _locating = true);
+    try {
+      var permission = await Geolocator.checkPermission();
+      if (permission == LocationPermission.denied) permission = await Geolocator.requestPermission();
+      if (permission == LocationPermission.denied || permission == LocationPermission.deniedForever) {
+        if (mounted) setState(() => _addressError = L10n.current.mapLocationDenied);
+        return;
+      }
+      final p = await Geolocator.getCurrentPosition(
+        locationSettings: const LocationSettings(accuracy: LocationAccuracy.high, timeLimit: Duration(seconds: 20)),
+      );
+      if (mounted) _setCoordinates(p.latitude, p.longitude);
+    } catch (e) {
+      if (mounted) setState(() => _addressError = L10n.current.mapLocationFailed('$e'));
+    } finally {
+      if (mounted) setState(() => _locating = false);
+    }
+  }
+
   ParsedRecordType _selectedType = ParsedRecordType.text;
 
   // Ready-made shortcut (social, video, FaceTime...) selected instead of a core type
@@ -210,6 +261,7 @@ class _ComposeRecordSheetState extends State<ComposeRecordSheet> {
 
   @override
   void dispose() {
+    _addressController.dispose();
     _quickController.dispose();
     _quickSecondaryController.dispose();
     _textController.dispose();
@@ -584,24 +636,33 @@ class _ComposeRecordSheetState extends State<ComposeRecordSheet> {
               ],
             ),
             const SizedBox(height: 12),
-            // Type Selector Chips
-            Wrap(
-              spacing: 8,
-              runSpacing: 8,
-              children: [
-                _buildChoiceChip(ParsedRecordType.text, loc.tabText, Icons.text_fields),
+            // Type chips grouped like a menu: web & text, contact, network.
+            for (final (title, chips) in [
+              (loc.catWebText, [
                 _buildChoiceChip(ParsedRecordType.url, loc.tabUrl, Icons.link),
-                _buildChoiceChip(ParsedRecordType.email, loc.tabEmail, Icons.email),
-                _buildChoiceChip(ParsedRecordType.phone, loc.tabPhone, Icons.phone),
-                _buildChoiceChip(ParsedRecordType.sms, loc.tabSms, Icons.sms),
-                _buildChoiceChip(ParsedRecordType.location, loc.recordTypeLocation, Icons.location_on),
-                _buildChoiceChip(ParsedRecordType.vcard, loc.tabContact, Icons.contact_page),
-                _buildChoiceChip(ParsedRecordType.calendar, loc.recordTypeCalendar, Icons.calendar_month),
+                _buildChoiceChip(ParsedRecordType.text, loc.tabText, Icons.text_fields),
                 _buildChoiceChip(ParsedRecordType.smartPoster, loc.recordTypeSmartPoster, Icons.web_stories),
+              ]),
+              (loc.catContact, [
+                _buildChoiceChip(ParsedRecordType.vcard, loc.tabContact, Icons.contact_page),
+                _buildChoiceChip(ParsedRecordType.phone, loc.tabPhone, Icons.phone),
+                _buildChoiceChip(ParsedRecordType.email, loc.tabEmail, Icons.email),
+                _buildChoiceChip(ParsedRecordType.sms, loc.tabSms, Icons.sms),
+                _buildChoiceChip(ParsedRecordType.calendar, loc.recordTypeCalendar, Icons.calendar_month),
+              ]),
+              (loc.catNetwork, [
                 _buildChoiceChip(ParsedRecordType.wifi, loc.tabWifi, Icons.wifi),
+                _buildChoiceChip(ParsedRecordType.location, loc.recordTypeLocation, Icons.location_on),
                 _buildChoiceChip(ParsedRecordType.customMime, loc.tabCustomMime, Icons.data_object),
-              ],
-            ),
+              ]),
+            ]) ...[
+              Padding(
+                padding: const EdgeInsets.only(top: 6, bottom: 6),
+                child: Text(title.toUpperCase(),
+                    style: TextStyle(fontSize: 11.5, letterSpacing: 0.6, fontWeight: FontWeight.w700, color: AppColors.secondary)),
+              ),
+              Wrap(spacing: 8, runSpacing: 8, children: chips),
+            ],
             if (!_isEditing) ...[
               const SizedBox(height: 16),
               Text(
@@ -1035,7 +1096,32 @@ class _ComposeRecordSheetState extends State<ComposeRecordSheet> {
         );
 
       case ParsedRecordType.location:
-        return Row(
+        return Column(
+          crossAxisAlignment: CrossAxisAlignment.stretch,
+          children: [
+            TextField(
+              controller: _addressController,
+              textInputAction: TextInputAction.search,
+              onSubmitted: (_) => _searchAddress(),
+              decoration: InputDecoration(
+                hintText: L10n.current.locationSearchHint,
+                prefixIcon: const Icon(Icons.search),
+                errorText: _addressError,
+                suffixIcon: _locating
+                    ? const Padding(
+                        padding: EdgeInsets.all(12),
+                        child: SizedBox(width: 18, height: 18, child: CircularProgressIndicator(strokeWidth: 2)),
+                      )
+                    : IconButton(
+                        tooltip: L10n.current.mapAddCurrent,
+                        icon: const Icon(Icons.my_location_rounded),
+                        onPressed: _useCurrentLocation,
+                      ),
+                border: const OutlineInputBorder(),
+              ),
+            ),
+            const SizedBox(height: 10),
+            Row(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Expanded(
@@ -1063,6 +1149,8 @@ class _ComposeRecordSheetState extends State<ComposeRecordSheet> {
                 ),
               ),
             ),
+          ],
+        ),
           ],
         );
 

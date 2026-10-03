@@ -1372,5 +1372,7 @@
   "mergeSubtitle": "Elige registros de la biblioteca, plantillas y el último escaneo para una etiqueta",
   "mergeButton": "Combinar ({count})",
   "mergeEmpty": "Nada que combinar. Guarda primero etiquetas o plantillas.",
-  "mergeLastScan": "Última etiqueta"
+  "mergeLastScan": "Última etiqueta",
+  "locationSearchHint": "Buscar dirección o lugar",
+  "locationNotFound": "Dirección no encontrada"
 }

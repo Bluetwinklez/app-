@@ -4936,4 +4936,10 @@ class AppLocalizationsFr extends AppLocalizations {
 
   @override
   String get mergeLastScan => 'Dernier tag scanné';
+
+  @override
+  String get locationSearchHint => 'Rechercher une adresse ou un lieu';
+
+  @override
+  String get locationNotFound => 'Adresse introuvable';
 }

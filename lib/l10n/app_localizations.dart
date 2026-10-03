@@ -8362,6 +8362,18 @@ abstract class AppLocalizations {
   /// In tr, this message translates to:
   /// **'Son okunan etiket'**
   String get mergeLastScan;
+
+  /// No description provided for @locationSearchHint.
+  ///
+  /// In tr, this message translates to:
+  /// **'Adres veya yer adı ara'**
+  String get locationSearchHint;
+
+  /// No description provided for @locationNotFound.
+  ///
+  /// In tr, this message translates to:
+  /// **'Adres bulunamadı'**
+  String get locationNotFound;
 }
 
 class _AppLocalizationsDelegate

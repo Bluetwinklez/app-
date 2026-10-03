@@ -1372,5 +1372,7 @@
   "mergeSubtitle": "从标签库、模板和最近扫描中挑选，合并到一个标签",
   "mergeButton": "合并（{count}）",
   "mergeEmpty": "暂无可合并内容，请先保存标签或模板。",
-  "mergeLastScan": "最近扫描的标签"
+  "mergeLastScan": "最近扫描的标签",
+  "locationSearchHint": "搜索地址或地点",
+  "locationNotFound": "未找到地址"
 }
