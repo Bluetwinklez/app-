@@ -5026,4 +5026,8 @@ class AppLocalizationsIt extends AppLocalizations {
   @override
   String get recipeTravelActions =>
       'Valigia: carta d\'imbarco · strada per l\'aeroporto · messaggio \"sto arrivando\"';
+
+  @override
+  String get whatsNew150 =>
+      '• Pagina Idee e scheda \"Il tuo primo tag\"\n• Statistiche, categorie automatiche, scanner QR/codici a barre\n• Unisci record, biglietto da visita digitale, posizione da indirizzo\n• Serie di abitudini, compiti dei bambini, pappa dell\'animale, registro visitatori\n• Promemoria, lettura ad alta voce, beni e garanzia\n• Modelli condivisi via QR e importati da fogli; modelli ristorante e affitto\n• 12 icone, 9 colori, dimensione testo';
 }

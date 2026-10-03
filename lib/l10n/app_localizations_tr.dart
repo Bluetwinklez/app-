@@ -5024,4 +5024,8 @@ class AppLocalizationsTr extends AppLocalizations {
   @override
   String get recipeTravelActions =>
       'Bavul: biniş kartını aç · havalimanına yol tarifi · \"yola çıktım\" mesajı';
+
+  @override
+  String get whatsNew150 =>
+      '• Fikirler sayfası ve \"İlk etiketini yap\" kartı\n• Etiket istatistikleri, otomatik kategoriler, QR/barkod tarayıcı\n• Kayıtları birleştir, dijital kartvizit görünümü, adresle konum arama\n• Alışkanlık serisi, çocuk görev tablosu, evcil hayvan besleme, ziyaretçi defteri\n• Bildirim hatırlatıcıları, sesli okuma, demirbaş ve garanti takibi\n• Şablonları QR ile paylaş ve tablodan içe aktar; restoran ve kiralık ev şablonları\n• 12 uygulama simgesi, 9 vurgu rengi, yazı boyutu';
 }

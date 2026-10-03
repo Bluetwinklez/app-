@@ -4806,4 +4806,8 @@ class AppLocalizationsJa extends AppLocalizations {
 
   @override
   String get recipeTravelActions => 'スーツケース：搭乗券・空港への経路・「出発しました」メッセージ';
+
+  @override
+  String get whatsNew150 =>
+      '• アイデアページと「最初のタグ」カード\n• タグ統計、自動カテゴリー、QR・バーコードスキャナー\n• レコード結合、デジタル名刺表示、住所から位置\n• 習慣の連続記録、お手伝い表、ペットのごはん、来訪者記録\n• リマインダー、読み上げ、備品と保証の管理\n• テンプレートをQRで共有・表から読み込み、レストランと民泊テンプレート\n• 12種類のアイコン、9色、文字サイズ';
 }

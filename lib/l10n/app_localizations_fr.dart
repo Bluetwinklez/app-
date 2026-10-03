@@ -5061,4 +5061,8 @@ class AppLocalizationsFr extends AppLocalizations {
   @override
   String get recipeTravelActions =>
       'Valise : carte d\'embarquement · itinéraire aéroport · message « en route »';
+
+  @override
+  String get whatsNew150 =>
+      '• Page Idées et carte « Votre premier tag »\n• Statistiques, catégories automatiques, lecteur QR/codes-barres\n• Fusion d\'enregistrements, carte de visite numérique, position par adresse\n• Séries d\'habitudes, tâches des enfants, repas de l\'animal, registre des visiteurs\n• Rappels, lecture à voix haute, inventaire et garantie\n• Modèles partagés en QR et importés depuis un tableur ; modèles restaurant et location\n• 12 icônes, 9 couleurs d\'accent, taille du texte';
 }

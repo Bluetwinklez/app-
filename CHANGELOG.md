@@ -1,5 +1,34 @@
 # Değişiklik Günlüğü
 
+## 1.5.0
+
+**Yeni kullanıcılar için**
+- Fikirler sayfası (ev, aile, sağlık, iş, otomasyon) ve "İlk etiketini yap" kartı
+- Dijital kartvizit görünümü: okunan vCard isim, unvan ve Ara / E-posta / Web / Rehbere ekle düğmeleriyle
+
+**Araçlar**
+- Etiket istatistikleri (14 günlük grafik, en çok okunanlar, içerik türleri)
+- Geçmişte otomatik kategoriler (Web ve metin, İletişim, Ağ ve konum, Sosyal medya)
+- QR ve barkod tarayıcı: etikete yaz, kütüphaneye kaydet, kopyala, paylaş, web'de ara
+- Kayıtları birleştir: kütüphane, şablon ve son okunan etiketten sıra seçerek tek etikete
+- Yazma ekranında gruplu kayıt türleri, adresle ve mevcut konumla konum kaydı
+
+**Kayıt Defteri ve hatırlatmalar**
+- Alışkanlık serisi, çocuk görev tablosu, evcil hayvan besleme, ziyaretçi defteri (ad sorar)
+- Günlük defter hatırlatmaları, kontrol ve garanti bitiş bildirimleri
+- Kütüphanede demirbaş bilgileri: seri no, zimmet, garanti
+
+**Şablonlar ve paylaşım**
+- Şablonu QR olarak paylaş, uygulamayla okutunca şablon eklenir
+- Tablodan toplu şablon içe aktarma
+- Restoran masası ve kiralık ev şablonları, 4 yeni rutin
+- İsteğe bağlı "NFC Etiket Yöneticisi ile yapıldı" notu
+
+**Görünüm ve erişilebilirlik**
+- 12 uygulama simgesi, 9 vurgu rengi, yazı boyutu
+- Sesli okuma (düğme ve isteğe bağlı otomatik)
+- Hakkında ekranına kapat düğmesi
+
 ## 1.4.1
 
 - Etiket kuralları ekranına "Etiket okutup not ekle" ve "Son okunan etikete not ekle" düğmeleri

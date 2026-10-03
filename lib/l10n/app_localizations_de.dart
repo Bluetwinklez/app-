@@ -5038,4 +5038,8 @@ class AppLocalizationsDe extends AppLocalizations {
   @override
   String get recipeTravelActions =>
       'Koffer: Bordkarte · Route zum Flughafen · „Bin unterwegs\"-Nachricht';
+
+  @override
+  String get whatsNew150 =>
+      '• Ideen-Seite und Karte „Erster Tag\"\n• Tag-Statistik, automatische Kategorien, QR-/Barcode-Scanner\n• Datensätze zusammenführen, digitale Visitenkarte, Ort per Adresse\n• Gewohnheitsserien, Kinder-Aufgabenplan, Haustierfütterung, Besucherbuch\n• Erinnerungen, Vorlesen, Inventar und Garantie\n• Vorlagen per QR teilen und aus Tabellen importieren; Restaurant- und Ferienwohnungsvorlagen\n• 12 App-Symbole, 9 Akzentfarben, Textgröße';
 }
