@@ -4,3 +4,4 @@
 "NFCReaderUsageDescription" = "NFC etiketlerini okumak ve NDEF mesajları yazmak için NFC erişimi gereklidir.";
 "NSFaceIDUsageDescription" = "Uygulama kilidi açıkken etiket kütüphanenizi korumak için Face ID kullanılır.";
 "NSLocationWhenInUseUsageDescription" = "Etiketleri haritada göstermek için, istediğinizde etiketin konumu kaydedilir.";
+"NSLocationAlwaysAndWhenInUseUsageDescription" = "Etiketleri haritada göstermek için, istediğinizde etiketin konumu kaydedilir.";

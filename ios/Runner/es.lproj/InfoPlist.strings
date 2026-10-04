@@ -4,3 +4,4 @@
 "NFCReaderUsageDescription" = "Se necesita acceso NFC para leer etiquetas NFC y escribir mensajes NDEF.";
 "NSFaceIDUsageDescription" = "Face ID protege tu biblioteca de etiquetas cuando el bloqueo está activado.";
 "NSLocationWhenInUseUsageDescription" = "Cuando lo pides, se guarda la ubicación de la etiqueta para mostrarla en el mapa.";
+"NSLocationAlwaysAndWhenInUseUsageDescription" = "Cuando lo pides, se guarda la ubicación de la etiqueta para mostrarla en el mapa.";
