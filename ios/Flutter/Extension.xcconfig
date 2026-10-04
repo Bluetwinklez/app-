@@ -1,0 +1,4 @@
+// Widget extension and watch app: Flutter's version numbers only. Unlike
+// Debug/Release.xcconfig this never pulls in the CocoaPods settings, which
+// would link the app's plugins into these targets.
+#include? "Generated.xcconfig"

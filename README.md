@@ -1,60 +1,97 @@
 # NFC Etiket Yöneticisi (NFC Tag Master)
 
-Modern, çapraz platform destekli (Android ve iOS) NFC okuma ve yazma uygulaması.
+iPhone ve Android için NFC etiketlerini okuma, yazma ve yönetme uygulaması. Flutter ile yazıldı; NFC erişimi platform kanalları üzerinden doğrudan Core NFC (iOS) ve `android.nfc` (Android) ile yapılır.
 
-Mac olmadan iPhone 13 için imzalı IPA hazırlama adımları: [iPhone 13 kurulum rehberi](IOS_IPHONE13_SETUP.md). Gerçek iOS derlemesi ve telefonda NFC testi henüz yapılmadı.
+- **Sürüm:** 1.6.0 — değişiklikler için [CHANGELOG.md](CHANGELOG.md)
+- **Gereksinimler:** iOS 16+ (iPhone 8 ve sonrası), Android 7.0+ (NFC donanımı)
+- **Diller:** Türkçe, English, Deutsch, Français, Español, Italiano, Português, Русский, العربية, 日本語, 简体中文, 한국어, Nederlands, Українська
+- **Gizlilik:** Hesap, sunucu, reklam veya takip yok — [docs/PRIVACY.md](docs/PRIVACY.md)
 
-Apple Developer Program üyeliğiyle otomatik TestFlight yüklemesi için [TestFlight kurulum rehberi](TESTFLIGHT_SETUP.md) ve [GitHub iş akışı](.github/workflows/testflight.yml) eklendi.
+## Özellikler
 
-## Uygulanan Özellikler
+**Okuma**
+- İçerik, UID, çip tahmini (NTAG213/215/216, Ultralight), üretici, kapasite, yazılabilirlik
+- Etiket raporu: NDEF biçimi, statik/dinamik kilit bitleri, şifre koruması
+- İki etiketi karşılaştırma, sürekli tarama (CSV dışa aktarma), okunan etiketi paylaşma
+- Tarama geçmişi (isteğe bağlı, varsayılan kapalı), Türkçe karakter duyarsız arama
 
-### 1. NDEF Okuma ve Yazma (Android & iOS)
-- **Çapraz Platform NFC Desteği**: Android (`enableReaderMode`, `Ndef`, `NdefFormatable`) ve iOS (Core NFC `NFCNDEFReaderSession`) üzerinde doğrudan platform kanalları (MethodChannel) ile donanım erişimi.
-- **Doğrulamalı Yazma**: Yazma işlemi sonrasında etiket verisi otomatik olarak geri okunup içerik baytları (TNF, type, id, payload) ile karşılaştırılarak doğrulanır.
-- **Etiket Sıfırlama**: Etiketi boş NDEF mesajı ile temizleme desteği.
+**Yazma**
+- Kayıt türleri: metin, URL, e-posta, telefon, SMS, konum, vCard, takvim, Smart Poster, Wi-Fi (WSC), özel MIME, Bluetooth, uygulama kayıtları ve hazır sosyal/harita bağlantıları
+- 27 hazır şablon (kategoriler, arama, favoriler)
+- "Dokununca ne olur?" önizlemesi: iPhone ve Android'in etikete ne yapacağı
+- Çip bazında kapasite uyarısı; boş (NDEF olmayan) NTAG etiketlere akıllı yazma
+- Doğrulamalı yazma (geri okuyup bayt bayt karşılaştırma), geri al/yinele
+- Toplu yazma (2–100 etiket): seri numara (`{n}` yer tutucusu), CSV'den her satır bir etiket, etiket kopyalama sihirbazı
+- QR koddan, CSV'den, JSON'dan ve panodan içe aktarma
 
-### 2. Gelişmiş İş Akışları (NDEF Pano, Yeniden Yazma, Toplu Yazım)
-- **Uygulama İçi NDEF Panosu (In-Memory Clipboard)**: Son taranan etiketten veya tarama geçmişinden TNF, type, id ve payload baytlarının tamamını değiştirmeden hafızada anlık görüntü (snapshot) olarak saklar. Kayıt sayısı ve bayt boyutu gösterilir. Besteye yapıştırırken **Üzerine Yaz (Değiştir)** ve **Sonuna Ekle (Append)** seçenekleri sunulur. Beste doluysa üzerine yazmadan önce onay ister.
-- **Yeniden Yazma Akışı (Rewrite Flow)**: Taranan kayıtların düzenlenebilir bir kopyasını aşamalandırır ve kullanıcıyı yeni bir hedef etikete dokunmaya davet eder. Hedef etiketin mevcut NDEF içeriğini tamamen değiştireceğini (üzerine yazacağını) açıkça belirtir ve yazmadan önce onay alır. Önceki etikete sessizce yazmaz, taze NFC dokunuşu bekler. İşlem sonrasında sonucu sonraki tarama ile karşılaştırma imkanı sunar.
-- **Toplu Etiket Yazımı (Batch Write, 2..100 Etiket)**: Kullanıcı hedef etiket sayısını seçer (2..100). Her yazım denemesi kullanıcı tarafından açıkça başlatılır; otomatik peş peşe tarama veya aynı etikete yanlışlıkla çift yazım engellenir. Deneme bazlı başarı/hata durumu, ilerleme çubuğu ve iptal etme desteği mevcuttur.
-- **Gelişmiş Kayıt Denetçisi (Record Inspector)**: Her kaydın TNF, Type (metin ve hex), ID (metin ve hex), payload uzunluğu ve sınırlandırılmış onaltılık (hex) önizlemesini gösterir. Etiketin toplam ve kullanılan kapasite kullanımını sunar; bellek tüketimini korumak için devasa metinler sınırlandırılır.
-- **Kayıt Düzenleme ve Ham Düzenleyici (Record Editing & Raw Editor)**: Bestelenmiş NDEF kayıtları listedeki düzenleme butonundan açılır. Güvenle yeniden oluşturulabilen basit türler (Metin, URL, E-posta, Telefon, SMS, Konum, Özel MIME) dolu form alanlarıyla düzenlenir. Özel kayıt kimliği, dil/kodlama bilgisi veya formun göstermediği ek alanlar taşıyabilecek kayıtlar (vCard, Takvim, Wi-Fi WSC, Smart Poster ve bilinmeyen türler) veri kaybını önlemek için TNF, tür, kimlik ve yük baytlarını gösteren ham onaltılık düzenleyicide açılır.
-- **Sınırlandırılmış Geri Al / Yinele (Bounded Undo/Redo)**: Beste üzerindeki tüm değişiklikler (kayıt ekleme, panodan değiştirme/ekleme, silme, temizleme, yukarı/aşağı yeniden sıralama, şablon yükleme, yeniden yazma ve düzenleme) `ComposerHistory` modeli ile izlenir. En fazla 30 anlık görüntü (snapshot) saklanır; bayt dizileri derinlemesine kopyalanarak (deep clone) sonraki mutasyonların geçmiş durumları bozması önlenir. Geri al ve yinele butonları araç çubuğunda görünür olup yalnızca geçerli durumlarda etkinleşir.
-- **Kayıt Yeniden Sıralama (Reordering)**: Yazma bestesindeki kayıtların sırası yukarı/aşağı butonlarıyla değiştirilebilir.
-- **Çevrimdışı URL Güvenlik İncelemesi (URL Safety Preview)**: Web URL ve SmartPoster kayıtları için şema, sunucu adı (host), port, kullanıcı bilgisi (userinfo), doğrudan IP adresi kullanımı (IPv4/IPv6 literal) ve Punycode (`xn--`) göstergelerini çevrimdışı kurallarla inceler. URL'ler asla otomatik olarak açılmaz ve antivirüs/zararlı yazılım taraması iddiasında bulunulmaz.
+**Araçlar**
+- Temizleme, kalıcı kilitleme, NTAG şifre belirleme/kaldırma
+- Bellek okuma, NDEF biçimlendirme, bellek dökümü yazma, ham komutlar
 
-### 3. Desteklenen Kayıt Türleri (NDEF Record Types)
-- **Metin (Text)**: UTF-8 / UTF-16 kodlama ve IANA dil kodu desteği.
-- **Web URL**: URI tanımlayıcı kod önek sıkıştırmasıyla (`https://`, `http://`, vb.).
-- **E-posta (Email)**: `mailto:` URI şeması (alıcı, konu, gövde).
-- **Telefon (Phone)**: `tel:` URI şeması.
-- **SMS**: `sms:` URI şeması (alıcı ve mesaj metni).
-- **GPS Konumu (Location)**: `geo:lat,lng` URI şeması.
-- **Kişi Kartı (vCard 3.0)**: `text/vcard` MIME türü. RFC 2426 ve RFC 2425 kurallarına uygun CRLF sonlandırmaları, özel karakter kaçışları (`\`, `;`, `,`, `\n`) ve satır açma (unfolding) desteği.
-- **Takvim Etkinliği (Calendar Event - iCal)**: `text/calendar` MIME türü. RFC 5545 iCalendar VEVENT formatı, UTC `DTSTART`/`DTEND` (`YYYYMMDDTHHMMSSZ`), UID, özet, konum ve açıklama alanları.
-- **Akıllı Poster (NFC Forum Smart Poster - Sp)**: `urn:nfc:wkt:Sp` TNF well-known türü. İçerisinde iç içe (nested) NDEF mesajı olarak Web URI kaydı ve opsiyonel dil kodlu Başlık (Text) kaydı barındırır.
-- **Wi-Fi Ağ Yapılandırması (Wi-Fi Simple Configuration - WSC)**: `application/vnd.wfa.wsc` MIME türü. Standart Wi-Fi Alliance WSC TLV (Type-Length-Value) kimlik bilgisi (Credential) yapısı; SSID, Kimlik Doğrulama Türü (WPA2-PSK, WPA/WPA2, Open), Şifreleme (AES, TKIP) ve Ağ Anahtarı (şifre).
-- **Özel MIME Kayıtları (Custom MIME)**: Belirlenen herhangi bir MIME türüyle eşleşen ham UTF-8 metin veya onaltılık (hexadecimal) bayt yükü.
+**Kütüphane ve otomasyon**
+- Etiket kütüphanesi: isim, fotoğraf, konum, not, kategori ve etiketler (klasör gibi)
+- Siri / Kısayollar eylemleri ("Etiketi Tara", "Etikete Yaz") ve `nfctagmaster://scan|write|tools|history|settings` bağlantıları
+- Hazır ev otomasyonu tarifleri
+- JSON yedekleme (şema v2: şablonlar, kurallar, kütüphane, isteğe bağlı geçmiş)
 
-### 4. İsteğe Bağlı Yerel Veri, Şablon ve Kural Yönetimi
-- **Kullanıcı İsteğine Bağlı Tarama Geçmişi**: Gizlilik gözetilerek varsayılan olarak kapalıdır; ayarlar sekmesinden kullanıcı tarafından etkinleştirilebilir. Hatalı taramalar geçmişe kaydedilmez.
-- **Geçmiş İçi Arama ve Filtreleme**: Kayıtlı taramalar UID, metin içeriği veya kayıt türü (URL, Metin, Wi-Fi vb.) ile çevrimdışı olarak anında filtrelenebilir. Arama sonucunda eşleşme bulunmadığında açıklayıcı durum ve temizleme seçeneği sunulur.
-- **Yazma Şablonları**: Sık kullanılan NDEF kayıt kümeleri şablon olarak adlandırılıp yerel depolamaya kaydedilebilir ve doğrudan yazma bestesine aktarılabilir.
-- **Uygulama İçi Etiket Kuralları (In-App Tag Rules)**: Etiket UID yerine doğrudan ham NDEF mesaj baytlarının SHA-256 özetine (64 karakter) bağlanan yerel notlar. Başarılı bir tarama sonrasında eşleşen not kart olarak görüntülenir. Harici eylem başlatmaz, URL otomatik açmaz ve cihaz ayarlarını değiştirmez. Kullanıcı son tarama için not ekleyebilir, düzenleyebilir veya silebilir.
-- **Sürüm Kontrollü JSON Yedekleme (BackupCodec)**: Şablonları, uygulama içi etiket kurallarını ve isteğe bağlı tarama geçmişini `schemaVersion: 1` formatında dışa aktarır ve içe aktarır. 2 MiB boyut sınırı, öğe sayı sınırları ve Base64 doğrulaması zorunludur. İçe aktarma birleştirme (merge) mantığıyla çalışır; mevcut verileri asla silmez ve yerel geçmiş kapalıysa geçmişi sessizce açmaz (onay ister veya geçmişi atlar).
-- **Mobil Paylaşım ve Dosya Seçimi**: JSON dışa aktarma `share_plus` (XFile.fromData ve fileNameOverrides) paylaşım menüsüyle; içe aktarma `file_selector` (`openFile`) ile gerçekleştirilir. Ağ çağrısı yapılmaz.
-- **QR Kod Önizleme**: Yalnızca okunabilir Düz Metin (Text) ve Web URL kayıtları için kullanıcı tarafından butona basıldığında açılan `qr_flutter` destekli QR önizleme penceresi. Taşma ve kapasite korumalıdır. Wi-Fi parolaları veya ikili veriler güvenlik nedeniyle otomatik olarak QR koduna dönüştürülmez.
-- **Güvenli Depolama**: Veriler cihaz belgeler dizininde (`getApplicationDocumentsDirectory()`) saklanır. Geçici dosya yazımı ve yeniden adlandırma (atomic write) ile kaydedilir; bir dosyadaki bozulma diğer geçerli verileri etkilemez.
+**İşletme ve güvenlik (1.2.0)**
+- Kayıt Defteri (yoklama, ilaç, envanter), son görülme takibi, toplu okuma raporu
+- QR kodlu yazdırılabilir etiket sayfası (PDF)
+- Face ID / cihaz parolası ile uygulama kilidi, parolalı (AES-256) yedekler
+- İmzalı etiketler (HMAC-SHA256) ve çevrimdışı sahte site uyarıları
+- Şablon değişkenleri `{date}` `{time}` `{counter}`, Akıllı Kart / Kayıp Eşya / Sesli Mesaj şablonları
+- Basit mod, amiibo bilgisi, bellek sayfası düzenleyici, NFC çipleri rehberi, Uyumluluk modu
 
-## Belirgin Sınırlar ve Kısıtlamalar
+**1.3.0**
+- Giriş/Çıkış (mesai) defteri ve okutunca deftere otomatik kayıt
+- Kontrol aralığı / bakım hatırlatıcısı, tablodan toplu içe aktarma
+- Kopya etiket uyarısı, NDEF Doktoru
 
-- **NFC Tools Eşitliği Değildir**: Uygulama kapsamlı NFC Tools paketinin tam dengi olmayıp, odaklanmış NDEF okuma/yazma, denetleme ve şablonlama yetenekleri sunmaktadır.
-- **Klonlama İddiası Yoktur**: İçerik kopyalama ve pano işlemleri yalnızca açık NDEF mesaj kayıtlarını (TNF, type, id, payload) kopyalar. Cihaz seri numarası (UID), şifreli sektörler veya özel donanım hafızaları klonlanamaz ve kopyalanmaz.
-- **Hassas Yedek JSON Verisi**: Yedek JSON dosyası düz metin formatında olup kaydedilmiş Wi-Fi parolalarını veya kişi verilerini içerebilir. Dışa aktarma ve içe aktarma öncesinde kullanıcıya açık güvenlik uyarısı verilir; dosyanın güvenli ortamda saklanması kullanıcının sorumluluğundadır.
-- **Uygulama İçi Kural Sınırları**: Etiket kuralları tamamen uygulama içi ve yereldir. iOS platformunda Core NFC NDEF oturumlarında donanım UID'si sıfırlandığı/yer tutucu olduğu için kurallar UID yerine tam NDEF içerik baytlarının SHA-256 özetine bağlanmıştır. Arka planda tetikleme yapmaz, URL otomatik açmaz ve cihaz ayarı değiştirmez.
-- **Wi-Fi Otomatik Katılım Sınırı**: Etikette saklanan Wi-Fi bilgileri standart WSC formatında yazılsa dahi ne Apple iOS ne de modern Android sürümleri kullanıcı etkileşimi/onayı olmadan otomatik olarak ağa bağlanmaz; etiket üzerindeki parola şifrelenmemiş durumdadır.
-- **Çevrimdışı URL İncelemesi Sınırı**: URL inceleme aracı yalnızca yerel sözdizimsel kuralları (IP literal, userinfo, Punycode, bilinmeyen şemalar) kontrol eder; gerçek zamanlı web itibar sorgusu veya antivirüs/malware tespiti yapmaz.
-- **Toplu Yazım Hedef Ayrımı**: Toplu yazım sırasında etiketlerin fiziksel olarak farklı olduğu garanti edilmez; kullanıcının etiketleri sırayla cihaza yaklaştırması gerekir.
-- **Ödeme Kartı ve Kimlik Klonlama Yoktur**: Finansal ödeme kartları (EMV, kredi/banka kartları), şifreli geçiş kartları veya yetkisiz APDU emülasyonu/klonlaması kesinlikle desteklenmez.
-- **Fiziksel Cihaz Testi ve Derleme**: Flutter analiz ve otomatik testler geçti; Android debug APK Windows ortamında derlendi. NFC donanımı fiziksel cihazda, iOS uygulaması ise macOS/Xcode ortamında henüz doğrulanmadı.
-- **iOS Derleme Gereksinimleri**: iOS sürümünü derlemek, imzalamak ve Core NFC yetkileriyle cihazda çalıştırmak için macOS işletim sistemi ve Xcode gereklidir.
+**1.4.0**
+- Güvenlik ve gizlilik bölümü, Anahtar Zinciri'nde imza anahtarı, Tüm verileri sil
+- Etiket haritası, ekip paketleri, alternatif uygulama simgeleri
+
+**1.5.0**
+- Fikirler, istatistikler, QR/barkod tarayıcı, kayıt birleştirme, dijital kartvizit
+- Alışkanlık, görev tablosu, besleme ve ziyaretçi defterleri; bildirim hatırlatıcıları
+- Demirbaş/garanti, şablonları QR ile paylaşma, 12 simge ve 9 renk, sesli okuma
+
+**1.6.0**
+- Ana ekran, kilit ekranı ve Kontrol Merkezi widget'ları (`ios/NfcWidgets`)
+- Apple Watch uygulaması: son okumalar ve tek dokunuşla defter girişi (`ios/NfcWatch`)
+- iCloud yedekleme (anahtar-değer deposu; imzalama profili izin verdiğinde)
+- TestFlight iş akışı tüm hedeflerin kimlik ve profillerini App Store Connect API ile oluşturur (Admin anahtarı gerekir; yoksa widget ve saat olmadan derler)
+
+**Görünüm**
+- Açık/koyu tema, tanıtım rehberi, titreşim ve ses ayarları
+
+## Bilinen sınırlar
+
+- UID ve şifreli sektörler kopyalanamaz; kopyalama yalnızca NDEF içeriğini kapsar.
+- iPhone bazı içerikleri (metin, vCard, Wi-Fi, `geo:`) arka planda kendiliğinden açmaz; uygulama bunu yazmadan önce gösterir.
+- Ödeme kartı, kimlik kartı veya erişim kartı klonlama/emülasyonu desteklenmez.
+- Parolasız yedek dosyaları düz JSON'dur ve Wi-Fi şifreleri içerebilir; dışa aktarırken parola koruması önerilir.
+- Etiket haritası açıldığında harita görüntüleri OpenStreetMap'ten indirilir.
+
+## Geliştirme
+
+```bash
+flutter pub get
+flutter gen-l10n          # lib/l10n/*.arb → app_localizations*.dart
+flutter analyze
+flutter test
+```
+
+- Metinler `lib/l10n/app_<dil>.arb` dosyalarındadır (şablon: `app_tr.arb`). `test/no_hardcoded_strings_test.dart` koda gömülü Türkçe metin kalmadığını, `test/l10n_test.dart` tüm dillerin aynı anahtarlara sahip olduğunu kontrol eder.
+- iOS'un sistem NFC penceresi metinleri Flutter'dan gönderilir (`lib/services/native_messages.dart`); izin metinleri ve Siri ifadeleri `ios/Runner/<dil>.lproj/` altındadır.
+
+## CI / yayın
+
+| İş akışı | Ne zaman | Ne yapar |
+|---|---|---|
+| `ci.yml` | her push | gen-l10n tutarlılığı, analyze, testler |
+| `ios-compile.yml` | `ios/` veya bağımlılık değişince | imzasız simülatör derlemesi |
+| `android-compile.yml` | `android/` veya bağımlılık değişince | debug APK derlemesi |
+| `testflight.yml` | elle veya `ios-v*` etiketi | imzalı derleme ve TestFlight yüklemesi |
+
+Kurulum rehberleri: [TestFlight](TESTFLIGHT_SETUP.md) · [Mac olmadan iPhone IPA](IOS_IPHONE13_SETUP.md) · [Mağaza metinleri](docs/STORE_LISTING.md) · [Cihaz test listesi](docs/QA_CHECKLIST.md)

@@ -1,8 +1,11 @@
 import 'dart:convert';
 import 'dart:io';
 import 'package:flutter/foundation.dart';
+import 'secret_store.dart';
 import '../domain/storage_models.dart';
 import '../domain/tag_rule.dart';
+import '../domain/tag_library.dart';
+import '../domain/logbook.dart';
 import 'backup_codec.dart';
 
 /// Abstract storage service for app settings, scan history, write templates, and tag rules.
@@ -13,10 +16,97 @@ abstract class AppStorageService {
   bool get isHistoryEnabled;
   Future<void> setHistoryEnabled(bool enabled);
 
+  // Settings: UI preferences
+  /// Language code chosen by the user (e.g. `tr`, `en`), or null to follow the device.
+  String? get localeCode;
+  Future<void> setLocaleCode(String? code);
+
+  /// `system`, `light` or `dark`.
+  String get themeMode;
+  Future<void> setThemeMode(String mode);
+
+  bool get onboardingDone;
+  Future<void> setOnboardingDone(bool done);
+
+  /// Haptic and sound feedback after scans and writes.
+  bool get hapticsEnabled;
+  Future<void> setHapticsEnabled(bool enabled);
+  bool get soundsEnabled;
+  Future<void> setSoundsEnabled(bool enabled);
+
+  /// Gallery preset ids the user starred, most recent first.
+  List<String> get favoritePresets;
+  Future<void> setFavoritePresets(List<String> ids);
+
+  /// When a backup was last exported successfully.
+  DateTime? get lastBackupAt;
+  Future<void> setLastBackupAt(DateTime time);
+
+  /// Value of the last {counter} written by a template.
+  int get writeCounter;
+  Future<void> setWriteCounter(int value);
+
+  /// Ask for Face ID / Touch ID / device passcode when opening the app.
+  bool get appLockEnabled;
+  Future<void> setAppLockEnabled(bool value);
+
+  /// Base64 HMAC key for signed tags (null until created).
+  String? get signingKey;
+  Future<void> setSigningKey(String? value);
+
+  /// Append a signature record to every written tag.
+  bool get signOnWrite;
+  Future<void> setSignOnWrite(bool value);
+
+  /// Big-button simplified home screen.
+  bool get simpleMode;
+  Future<void> setSimpleMode(bool value);
+
+  /// Seconds in the background before the app lock asks again (0 = immediately).
+  int get lockAfterSeconds;
+  Future<void> setLockAfterSeconds(int value);
+
+  /// Cover the screen in the app switcher while the app is in the background.
+  bool get hideInSwitcher;
+  Future<void> setHideInSwitcher(bool value);
+
+  /// Clear sensitive values (keys, dumps) from the clipboard 60 s after copying.
+  bool get clearClipboardAfterCopy;
+  Future<void> setClearClipboardAfterCopy(bool value);
+
+  /// Accent colour preset (see AppColors.accentPresets).
+  int get accentIndex;
+  Future<void> setAccentIndex(int value);
+
+  /// Extra text size, percent (100 = system size).
+  int get textScalePercent;
+  Future<void> setTextScalePercent(int value);
+
+  /// Read the tag content aloud after each scan.
+  bool get speakAfterScan;
+  Future<void> setSpeakAfterScan(bool value);
+
+  /// The user wrote a tag or dismissed the first-tag card.
+  bool get firstTagDone;
+  Future<void> setFirstTagDone(bool value);
+
+  /// Append a short "made with" text record to written tags.
+  bool get addMadeWith;
+  Future<void> setAddMadeWith(bool value);
+
+  /// Back up templates, rules and the tag library to iCloud when the app goes to the background (iPhone).
+  bool get iCloudBackupEnabled;
+  Future<void> setICloudBackupEnabled(bool value);
+
+  /// Compatibility mode: skip read-back verification after writes.
+  bool get compatibilityMode;
+  Future<void> setCompatibilityMode(bool enabled);
+
   // Scan History
   List<ScanHistoryEntry> getHistory();
   Future<void> addHistoryEntry(ScanHistoryEntry entry);
   Future<void> deleteHistoryEntry(String id);
+  Future<void> updateHistoryEntry(ScanHistoryEntry entry);
   Future<void> clearHistory();
 
   // Write Templates
@@ -32,6 +122,16 @@ abstract class AppStorageService {
   Future<void> deleteTagRule(String ndefSha256);
   Future<void> clearTagRules();
 
+  // Tag library (named physical tags)
+  List<TagLibraryEntry> getLibrary();
+  Future<void> saveLibraryEntry(TagLibraryEntry entry);
+  Future<void> deleteLibraryEntry(String id);
+
+  // Logbooks (attendance, medication, inventory…)
+  List<LogBook> getLogBooks();
+  Future<void> saveLogBook(LogBook book);
+  Future<void> deleteLogBook(String id);
+
   // Backup & Merge Import
   /// Merges imported templates, rules, and optional history.
   /// Does NOT wipe existing data.
@@ -45,12 +145,203 @@ abstract class AppStorageService {
 /// In-memory storage implementation (excellent for unit tests and fallback)
 class InMemoryAppStorageService implements AppStorageService {
   bool _historyEnabled = false;
+  String? _localeCode;
+  String _themeMode = 'system';
+  bool _onboardingDone = false;
+  bool _hapticsEnabled = true;
+  bool _soundsEnabled = false;
   final List<ScanHistoryEntry> _history = [];
   final List<WriteTemplate> _templates = [];
   final Map<String, TagRule> _rules = {};
+  final List<TagLibraryEntry> _library = [];
 
   @override
   Future<void> init() async {}
+
+  @override
+  bool get hapticsEnabled => _hapticsEnabled;
+
+  @override
+  Future<void> setHapticsEnabled(bool enabled) async => _hapticsEnabled = enabled;
+
+  @override
+  bool get soundsEnabled => _soundsEnabled;
+
+  @override
+  Future<void> setSoundsEnabled(bool enabled) async => _soundsEnabled = enabled;
+
+  List<String> _favoritePresets = const [];
+
+  @override
+  List<String> get favoritePresets => _favoritePresets;
+
+  @override
+  Future<void> setFavoritePresets(List<String> ids) async =>
+      _favoritePresets = List.unmodifiable(ids);
+
+  DateTime? _lastBackupAt;
+
+  @override
+  DateTime? get lastBackupAt => _lastBackupAt;
+
+  @override
+  Future<void> setLastBackupAt(DateTime time) async => _lastBackupAt = time;
+
+  bool _compatibilityMode = false;
+
+  @override
+  bool get compatibilityMode => _compatibilityMode;
+
+  @override
+  Future<void> setCompatibilityMode(bool enabled) async => _compatibilityMode = enabled;
+
+  bool _iCloudBackupEnabled = false;
+
+  @override
+  bool get iCloudBackupEnabled => _iCloudBackupEnabled;
+
+  @override
+  Future<void> setICloudBackupEnabled(bool value) async => _iCloudBackupEnabled = value;
+
+  bool _addMadeWith = false;
+
+  @override
+  bool get addMadeWith => _addMadeWith;
+
+  @override
+  Future<void> setAddMadeWith(bool value) async => _addMadeWith = value;
+
+  bool _firstTagDone = false;
+
+  @override
+  bool get firstTagDone => _firstTagDone;
+
+  @override
+  Future<void> setFirstTagDone(bool value) async => _firstTagDone = value;
+
+  bool _speakAfterScan = false;
+
+  @override
+  bool get speakAfterScan => _speakAfterScan;
+
+  @override
+  Future<void> setSpeakAfterScan(bool value) async => _speakAfterScan = value;
+
+  int _textScalePercent = 100;
+
+  @override
+  int get textScalePercent => _textScalePercent;
+
+  @override
+  Future<void> setTextScalePercent(int value) async => _textScalePercent = value;
+
+  int _accentIndex = 0;
+
+  @override
+  int get accentIndex => _accentIndex;
+
+  @override
+  Future<void> setAccentIndex(int value) async => _accentIndex = value;
+
+  bool _clearClipboardAfterCopy = true;
+
+  @override
+  bool get clearClipboardAfterCopy => _clearClipboardAfterCopy;
+
+  @override
+  Future<void> setClearClipboardAfterCopy(bool value) async => _clearClipboardAfterCopy = value;
+
+  bool _hideInSwitcher = true;
+
+  @override
+  bool get hideInSwitcher => _hideInSwitcher;
+
+  @override
+  Future<void> setHideInSwitcher(bool value) async => _hideInSwitcher = value;
+
+  int _lockAfterSeconds = 60;
+
+  @override
+  int get lockAfterSeconds => _lockAfterSeconds;
+
+  @override
+  Future<void> setLockAfterSeconds(int value) async => _lockAfterSeconds = value;
+
+  bool _simpleMode = false;
+
+  @override
+  bool get simpleMode => _simpleMode;
+
+  @override
+  Future<void> setSimpleMode(bool value) async => _simpleMode = value;
+
+  bool _signOnWrite = false;
+
+  @override
+  bool get signOnWrite => _signOnWrite;
+
+  @override
+  Future<void> setSignOnWrite(bool value) async => _signOnWrite = value;
+
+  String? _signingKey;
+
+  @override
+  String? get signingKey => _signingKey;
+
+  @override
+  Future<void> setSigningKey(String? value) async => _signingKey = value;
+
+  bool _appLockEnabled = false;
+
+  @override
+  bool get appLockEnabled => _appLockEnabled;
+
+  @override
+  Future<void> setAppLockEnabled(bool value) async => _appLockEnabled = value;
+
+  int _writeCounter = 0;
+
+  @override
+  int get writeCounter => _writeCounter;
+
+  @override
+  Future<void> setWriteCounter(int value) async => _writeCounter = value;
+
+  @override
+  List<TagLibraryEntry> getLibrary() => List.unmodifiable(_library);
+
+  @override
+  Future<void> saveLibraryEntry(TagLibraryEntry entry) async {
+    final index = _library.indexWhere((e) => e.id == entry.id);
+    if (index >= 0) {
+      _library[index] = entry;
+    } else {
+      _library.insert(0, entry);
+    }
+  }
+
+  final List<LogBook> _logBooks = [];
+
+  @override
+  List<LogBook> getLogBooks() => List.unmodifiable(_logBooks);
+
+  @override
+  Future<void> saveLogBook(LogBook book) async {
+    final i = _logBooks.indexWhere((b) => b.id == book.id);
+    if (i >= 0) {
+      _logBooks[i] = book;
+    } else {
+      _logBooks.insert(0, book);
+    }
+  }
+
+  @override
+  Future<void> deleteLogBook(String id) async => _logBooks.removeWhere((b) => b.id == id);
+
+  @override
+  Future<void> deleteLibraryEntry(String id) async {
+    _library.removeWhere((e) => e.id == id);
+  }
 
   @override
   bool get isHistoryEnabled => _historyEnabled;
@@ -58,6 +349,30 @@ class InMemoryAppStorageService implements AppStorageService {
   @override
   Future<void> setHistoryEnabled(bool enabled) async {
     _historyEnabled = enabled;
+  }
+
+  @override
+  String? get localeCode => _localeCode;
+
+  @override
+  Future<void> setLocaleCode(String? code) async {
+    _localeCode = code;
+  }
+
+  @override
+  String get themeMode => _themeMode;
+
+  @override
+  Future<void> setThemeMode(String mode) async {
+    _themeMode = mode;
+  }
+
+  @override
+  bool get onboardingDone => _onboardingDone;
+
+  @override
+  Future<void> setOnboardingDone(bool done) async {
+    _onboardingDone = done;
   }
 
   @override
@@ -72,6 +387,12 @@ class InMemoryAppStorageService implements AppStorageService {
   @override
   Future<void> deleteHistoryEntry(String id) async {
     _history.removeWhere((item) => item.id == id);
+  }
+
+  @override
+  Future<void> updateHistoryEntry(ScanHistoryEntry entry) async {
+    final i = _history.indexWhere((item) => item.id == entry.id);
+    if (i >= 0) _history[i] = entry;
   }
 
   @override
@@ -161,6 +482,15 @@ class InMemoryAppStorageService implements AppStorageService {
       }
     }
 
+    // Tag library: add entries that are not on this device yet
+    int addedLibrary = 0;
+    for (final entry in backup.tagLibrary ?? const <TagLibraryEntry>[]) {
+      if (!_library.any((e) => e.id == entry.id)) {
+        _library.add(entry);
+        addedLibrary++;
+      }
+    }
+
     // 3. Merge history (if present)
     if (backup.history != null && backup.history!.isNotEmpty) {
       if (!_historyEnabled && !enableHistoryIfDisabled) {
@@ -192,6 +522,7 @@ class InMemoryAppStorageService implements AppStorageService {
       historySkippedDueToDisabled: historySkippedDueToDisabled,
       addedRules: addedRules,
       updatedRules: updatedRules,
+      addedLibrary: addedLibrary,
     );
   }
 }
@@ -203,17 +534,31 @@ class LocalFileAppStorageService implements AppStorageService {
   final String baseDirectoryPath;
 
   bool _isHistoryEnabled = false;
+  String? _localeCode;
+  String _themeMode = 'system';
+  bool _onboardingDone = false;
+  bool _hapticsEnabled = true;
+  bool _soundsEnabled = false;
   final List<ScanHistoryEntry> _history = [];
   final List<WriteTemplate> _templates = [];
   final Map<String, TagRule> _rules = {};
+  final List<TagLibraryEntry> _library = [];
 
-  LocalFileAppStorageService({required this.baseDirectoryPath});
+  /// When set, the signing key lives here (Keychain) instead of the settings
+  /// file; a key found in an older settings file is moved over on init.
+  final SecretStore? secrets;
+  static const String signingKeySecret = 'signing_key';
+
+  LocalFileAppStorageService({required this.baseDirectoryPath, this.secrets});
 
   File get _settingsFile => File('$baseDirectoryPath/nfc_app_settings.json');
   File get _historyFile => File('$baseDirectoryPath/nfc_scan_history.json');
   File get _templatesFile =>
       File('$baseDirectoryPath/nfc_write_templates.json');
   File get _tagRulesFile => File('$baseDirectoryPath/nfc_tag_rules.json');
+  File get _libraryFile => File('$baseDirectoryPath/nfc_tag_library.json');
+  File get _logBooksFile => File('$baseDirectoryPath/nfc_logbooks.json');
+  final List<LogBook> _logBooks = [];
 
   @override
   Future<void> init() async {
@@ -229,10 +574,51 @@ class LocalFileAppStorageService implements AppStorageService {
         if (content.trim().isNotEmpty) {
           final data = jsonDecode(content) as Map<String, dynamic>;
           _isHistoryEnabled = data['historyEnabled'] as bool? ?? false;
+          _localeCode = data['localeCode'] as String?;
+          _themeMode = data['themeMode'] as String? ?? 'system';
+          _onboardingDone = data['onboardingDone'] as bool? ?? false;
+          _hapticsEnabled = data['hapticsEnabled'] as bool? ?? true;
+          _soundsEnabled = data['soundsEnabled'] as bool? ?? false;
+          final favs = data['favoritePresets'];
+          _favoritePresets = favs is List
+              ? List.unmodifiable(favs.whereType<String>().take(100))
+              : const [];
+          _lastBackupAt = DateTime.tryParse(data['lastBackupAt'] as String? ?? '');
+          _compatibilityMode = data['compatibilityMode'] as bool? ?? false;
+          _iCloudBackupEnabled = data['iCloudBackupEnabled'] as bool? ?? false;
+          _addMadeWith = data['addMadeWith'] as bool? ?? false;
+          _firstTagDone = data['firstTagDone'] as bool? ?? false;
+          _speakAfterScan = data['speakAfterScan'] as bool? ?? false;
+          _textScalePercent = data['textScalePercent'] as int? ?? 100;
+          _accentIndex = data['accentIndex'] as int? ?? 0;
+          _clearClipboardAfterCopy = data['clearClipboardAfterCopy'] as bool? ?? true;
+          _hideInSwitcher = data['hideInSwitcher'] as bool? ?? true;
+          _lockAfterSeconds = data['lockAfterSeconds'] as int? ?? 60;
+          _simpleMode = data['simpleMode'] as bool? ?? false;
+          _signOnWrite = data['signOnWrite'] as bool? ?? false;
+          _signingKey = data['signingKey'] as String?;
+          _appLockEnabled = data['appLockEnabled'] as bool? ?? false;
+          _writeCounter = data['writeCounter'] as int? ?? 0;
         }
       }
     } catch (e) {
       debugPrint('LocalFileAppStorageService error loading settings: $e');
+    }
+
+    final secretStore = secrets;
+    if (secretStore != null) {
+      try {
+        final fromFile = _signingKey;
+        final stored = await secretStore.read(signingKeySecret);
+        if (stored != null) {
+          _signingKey = stored;
+        } else if (fromFile != null) {
+          await secretStore.write(signingKeySecret, fromFile);
+        }
+        if (fromFile != null) await _saveSettings(); // drops it from the file
+      } catch (e) {
+        debugPrint('LocalFileAppStorageService secret store unavailable: $e');
+      }
     }
 
     // Load History
@@ -285,6 +671,39 @@ class LocalFileAppStorageService implements AppStorageService {
       }
     } catch (e) {
       debugPrint('LocalFileAppStorageService error loading tag rules: $e');
+    }
+
+    // Load Tag Library
+    try {
+      if (await _libraryFile.exists()) {
+        final content = await _libraryFile.readAsString();
+        if (content.trim().isNotEmpty) {
+          final list = jsonDecode(content) as List<dynamic>;
+          _library.clear();
+          for (final item in list) {
+            _library.add(TagLibraryEntry.fromJsonMap(Map<String, dynamic>.from(item as Map)));
+          }
+        }
+      }
+    } catch (e) {
+      debugPrint('LocalFileAppStorageService error loading tag library: $e');
+    }
+
+    // Load Logbooks
+    try {
+      if (await _logBooksFile.exists()) {
+        final content = await _logBooksFile.readAsString();
+        if (content.trim().isNotEmpty) {
+          _logBooks
+            ..clear()
+            ..addAll([
+              for (final item in jsonDecode(content) as List<dynamic>)
+                LogBook.fromJsonMap(Map<String, dynamic>.from(item as Map)),
+            ]);
+        }
+      }
+    } catch (e) {
+      debugPrint('LocalFileAppStorageService error loading logbooks: $e');
     }
   }
 
@@ -344,8 +763,266 @@ class LocalFileAppStorageService implements AppStorageService {
   }
 
   Future<void> _saveSettings() async {
-    final data = jsonEncode({'historyEnabled': _isHistoryEnabled});
+    final data = jsonEncode({
+      'historyEnabled': _isHistoryEnabled,
+      'localeCode': _localeCode,
+      'themeMode': _themeMode,
+      'onboardingDone': _onboardingDone,
+      'hapticsEnabled': _hapticsEnabled,
+      'soundsEnabled': _soundsEnabled,
+      'favoritePresets': _favoritePresets,
+      if (_lastBackupAt != null) 'lastBackupAt': _lastBackupAt!.toIso8601String(),
+      'compatibilityMode': _compatibilityMode,
+      'iCloudBackupEnabled': _iCloudBackupEnabled,
+      'addMadeWith': _addMadeWith,
+      'firstTagDone': _firstTagDone,
+      'speakAfterScan': _speakAfterScan,
+      'textScalePercent': _textScalePercent,
+      'accentIndex': _accentIndex,
+      'clearClipboardAfterCopy': _clearClipboardAfterCopy,
+      'hideInSwitcher': _hideInSwitcher,
+      'lockAfterSeconds': _lockAfterSeconds,
+      'simpleMode': _simpleMode,
+      'signOnWrite': _signOnWrite,
+      if (secrets == null) 'signingKey': _signingKey,
+      'appLockEnabled': _appLockEnabled,
+      'writeCounter': _writeCounter,
+    });
     await _atomicWrite(_settingsFile, data);
+  }
+
+  @override
+  String? get localeCode => _localeCode;
+
+  @override
+  Future<void> setLocaleCode(String? code) async {
+    _localeCode = code;
+    await _saveSettings();
+  }
+
+  @override
+  String get themeMode => _themeMode;
+
+  @override
+  Future<void> setThemeMode(String mode) async {
+    _themeMode = mode;
+    await _saveSettings();
+  }
+
+  @override
+  bool get onboardingDone => _onboardingDone;
+
+  @override
+  Future<void> setOnboardingDone(bool done) async {
+    _onboardingDone = done;
+    await _saveSettings();
+  }
+
+  @override
+  bool get hapticsEnabled => _hapticsEnabled;
+
+  @override
+  Future<void> setHapticsEnabled(bool enabled) async {
+    _hapticsEnabled = enabled;
+    await _saveSettings();
+  }
+
+  List<String> _favoritePresets = const [];
+
+  @override
+  List<String> get favoritePresets => _favoritePresets;
+
+  @override
+  Future<void> setFavoritePresets(List<String> ids) async {
+    _favoritePresets = List.unmodifiable(ids);
+    await _saveSettings();
+  }
+
+  DateTime? _lastBackupAt;
+
+  @override
+  DateTime? get lastBackupAt => _lastBackupAt;
+
+  @override
+  Future<void> setLastBackupAt(DateTime time) async {
+    _lastBackupAt = time;
+    await _saveSettings();
+  }
+
+  bool _compatibilityMode = false;
+
+  @override
+  bool get compatibilityMode => _compatibilityMode;
+
+  @override
+  Future<void> setCompatibilityMode(bool enabled) async {
+    _compatibilityMode = enabled;
+    await _saveSettings();
+  }
+
+  bool _iCloudBackupEnabled = false;
+
+  @override
+  bool get iCloudBackupEnabled => _iCloudBackupEnabled;
+
+  @override
+  Future<void> setICloudBackupEnabled(bool value) async {
+    _iCloudBackupEnabled = value;
+    await _saveSettings();
+  }
+
+  bool _addMadeWith = false;
+
+  @override
+  bool get addMadeWith => _addMadeWith;
+
+  @override
+  Future<void> setAddMadeWith(bool value) async {
+    _addMadeWith = value;
+    await _saveSettings();
+  }
+
+  bool _firstTagDone = false;
+
+  @override
+  bool get firstTagDone => _firstTagDone;
+
+  @override
+  Future<void> setFirstTagDone(bool value) async {
+    _firstTagDone = value;
+    await _saveSettings();
+  }
+
+  bool _speakAfterScan = false;
+
+  @override
+  bool get speakAfterScan => _speakAfterScan;
+
+  @override
+  Future<void> setSpeakAfterScan(bool value) async {
+    _speakAfterScan = value;
+    await _saveSettings();
+  }
+
+  int _textScalePercent = 100;
+
+  @override
+  int get textScalePercent => _textScalePercent;
+
+  @override
+  Future<void> setTextScalePercent(int value) async {
+    _textScalePercent = value;
+    await _saveSettings();
+  }
+
+  int _accentIndex = 0;
+
+  @override
+  int get accentIndex => _accentIndex;
+
+  @override
+  Future<void> setAccentIndex(int value) async {
+    _accentIndex = value;
+    await _saveSettings();
+  }
+
+  bool _clearClipboardAfterCopy = true;
+
+  @override
+  bool get clearClipboardAfterCopy => _clearClipboardAfterCopy;
+
+  @override
+  Future<void> setClearClipboardAfterCopy(bool value) async {
+    _clearClipboardAfterCopy = value;
+    await _saveSettings();
+  }
+
+  bool _hideInSwitcher = true;
+
+  @override
+  bool get hideInSwitcher => _hideInSwitcher;
+
+  @override
+  Future<void> setHideInSwitcher(bool value) async {
+    _hideInSwitcher = value;
+    await _saveSettings();
+  }
+
+  int _lockAfterSeconds = 60;
+
+  @override
+  int get lockAfterSeconds => _lockAfterSeconds;
+
+  @override
+  Future<void> setLockAfterSeconds(int value) async {
+    _lockAfterSeconds = value;
+    await _saveSettings();
+  }
+
+  bool _simpleMode = false;
+
+  @override
+  bool get simpleMode => _simpleMode;
+
+  @override
+  Future<void> setSimpleMode(bool value) async {
+    _simpleMode = value;
+    await _saveSettings();
+  }
+
+  bool _signOnWrite = false;
+
+  @override
+  bool get signOnWrite => _signOnWrite;
+
+  @override
+  Future<void> setSignOnWrite(bool value) async {
+    _signOnWrite = value;
+    await _saveSettings();
+  }
+
+  String? _signingKey;
+
+  @override
+  String? get signingKey => _signingKey;
+
+  @override
+  Future<void> setSigningKey(String? value) async {
+    final secretStore = secrets;
+    if (secretStore != null) await secretStore.write(signingKeySecret, value);
+    _signingKey = value;
+    await _saveSettings();
+  }
+
+  bool _appLockEnabled = false;
+
+  @override
+  bool get appLockEnabled => _appLockEnabled;
+
+  @override
+  Future<void> setAppLockEnabled(bool value) async {
+    _appLockEnabled = value;
+    await _saveSettings();
+  }
+
+  int _writeCounter = 0;
+
+  @override
+  int get writeCounter => _writeCounter;
+
+  @override
+  Future<void> setWriteCounter(int value) async {
+    _writeCounter = value;
+    await _saveSettings();
+  }
+
+  @override
+  bool get soundsEnabled => _soundsEnabled;
+
+  @override
+  Future<void> setSoundsEnabled(bool enabled) async {
+    _soundsEnabled = enabled;
+    await _saveSettings();
   }
 
   @override
@@ -359,6 +1036,20 @@ class LocalFileAppStorageService implements AppStorageService {
       await _saveHistory();
     } catch (e) {
       _history.remove(entry);
+      rethrow;
+    }
+  }
+
+  @override
+  Future<void> updateHistoryEntry(ScanHistoryEntry entry) async {
+    final index = _history.indexWhere((item) => item.id == entry.id);
+    if (index == -1) return;
+    final previous = _history[index];
+    _history[index] = entry;
+    try {
+      await _saveHistory();
+    } catch (e) {
+      _history[index] = previous;
       rethrow;
     }
   }
@@ -445,6 +1136,89 @@ class LocalFileAppStorageService implements AppStorageService {
   Future<void> _saveTemplates() async {
     final data = jsonEncode(_templates.map((t) => t.toJsonMap()).toList());
     await _atomicWrite(_templatesFile, data);
+  }
+
+  // Tag Library implementation
+  @override
+  List<TagLibraryEntry> getLibrary() => List.unmodifiable(_library);
+
+  @override
+  Future<void> saveLibraryEntry(TagLibraryEntry entry) async {
+    final index = _library.indexWhere((e) => e.id == entry.id);
+    final previous = index >= 0 ? _library[index] : null;
+    if (index >= 0) {
+      _library[index] = entry;
+    } else {
+      _library.insert(0, entry);
+    }
+    try {
+      await _saveLibrary();
+    } catch (e) {
+      if (previous != null) {
+        _library[index] = previous;
+      } else {
+        _library.remove(entry);
+      }
+      rethrow;
+    }
+  }
+
+  @override
+  Future<void> deleteLibraryEntry(String id) async {
+    final index = _library.indexWhere((e) => e.id == id);
+    if (index == -1) return;
+    final removed = _library.removeAt(index);
+    try {
+      await _saveLibrary();
+    } catch (e) {
+      _library.insert(index, removed);
+      rethrow;
+    }
+  }
+
+  @override
+  List<LogBook> getLogBooks() => List.unmodifiable(_logBooks);
+
+  @override
+  Future<void> saveLogBook(LogBook book) async {
+    final before = List<LogBook>.from(_logBooks);
+    final i = _logBooks.indexWhere((b) => b.id == book.id);
+    if (i >= 0) {
+      _logBooks[i] = book;
+    } else {
+      _logBooks.insert(0, book);
+    }
+    try {
+      await _saveLogBooks();
+    } catch (e) {
+      _logBooks
+        ..clear()
+        ..addAll(before);
+      rethrow;
+    }
+  }
+
+  @override
+  Future<void> deleteLogBook(String id) async {
+    final before = List<LogBook>.from(_logBooks);
+    _logBooks.removeWhere((b) => b.id == id);
+    try {
+      await _saveLogBooks();
+    } catch (e) {
+      _logBooks
+        ..clear()
+        ..addAll(before);
+      rethrow;
+    }
+  }
+
+  Future<void> _saveLogBooks() async {
+    await _atomicWrite(_logBooksFile, jsonEncode(_logBooks.map((b) => b.toJsonMap()).toList()));
+  }
+
+  Future<void> _saveLibrary() async {
+    final data = jsonEncode(_library.map((e) => e.toJsonMap()).toList());
+    await _atomicWrite(_libraryFile, data);
   }
 
   // Tag Rules implementation
@@ -547,6 +1321,26 @@ class LocalFileAppStorageService implements AppStorageService {
       }
     }
 
+    // Tag library: add entries that are not on this device yet
+    int addedLibrary = 0;
+    final libraryBackup = List<TagLibraryEntry>.from(_library);
+    for (final entry in backup.tagLibrary ?? const <TagLibraryEntry>[]) {
+      if (!_library.any((e) => e.id == entry.id)) {
+        _library.add(entry);
+        addedLibrary++;
+      }
+    }
+    if (addedLibrary > 0) {
+      try {
+        await _saveLibrary();
+      } catch (e) {
+        _library
+          ..clear()
+          ..addAll(libraryBackup);
+        rethrow;
+      }
+    }
+
     // 3. History
     if (backup.history != null && backup.history!.isNotEmpty) {
       if (!_isHistoryEnabled && !enableHistoryIfDisabled) {
@@ -581,6 +1375,7 @@ class LocalFileAppStorageService implements AppStorageService {
       historySkippedDueToDisabled: historySkippedDueToDisabled,
       addedRules: addedRules,
       updatedRules: updatedRules,
+      addedLibrary: addedLibrary,
     );
   }
 }

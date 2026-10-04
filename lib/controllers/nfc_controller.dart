@@ -1,12 +1,22 @@
+import 'dart:convert';
+import 'dart:ui' show PlatformDispatcher;
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
+import '../domain/logbook.dart';
 import '../domain/ndef_record.dart';
 import '../domain/nfc_tag_info.dart';
 import '../domain/storage_models.dart';
 import '../domain/nfc_workflow_models.dart';
 import '../domain/tag_rule.dart';
+import '../domain/ntag_tools.dart';
+import '../domain/template_variables.dart';
+import '../domain/tag_signature.dart';
+import '../l10n/l10n.dart';
 import '../services/nfc_service.dart';
 import '../services/app_storage_service.dart';
 import '../services/backup_codec.dart';
+import '../services/speech_service.dart';
+import '../services/notification_service.dart';
 
 /// App state controller managing NFC lifecycle, active scans, composing, writes, history, templates, and tag rules
 class NfcStateController extends ChangeNotifier {
@@ -23,7 +33,8 @@ class NfcStateController extends ChangeNotifier {
 
   NfcAvailability _availability = NfcAvailability.notSupported;
   bool _isBusy = false;
-  String _statusMessage = 'Hazır';
+  /// Null means "ready"; resolved lazily so it follows the active language.
+  String? _statusMessage;
   NfcTagInfo? _lastScannedTag;
   NfcWriteResult? _lastWriteResult;
   int _historySequence = 0;
@@ -35,11 +46,101 @@ class NfcStateController extends ChangeNotifier {
   // Getters
   NfcAvailability get availability => _availability;
   bool get isBusy => _isBusy;
-  String get statusMessage => _statusMessage;
+  String get statusMessage => _statusMessage ?? L10n.current.statusReady;
   NfcTagInfo? get lastScannedTag => _lastScannedTag;
   NfcWriteResult? get lastWriteResult => _lastWriteResult;
   NdefClipboardSnapshot? get clipboardSnapshot => _clipboardSnapshot;
   TagRule? get matchingRuleForLastScan => _matchingRuleForLastScan;
+
+  /// Logbook entry written automatically by the last scan (library tag with
+  /// an auto-log book), with the book's name.
+  ({String book, LogEntry entry})? _lastAutoLog;
+  ({String book, LogEntry entry})? get lastAutoLog => _lastAutoLog;
+
+  bool get hapticsEnabled => _storage.hapticsEnabled;
+  bool get soundsEnabled => _storage.soundsEnabled;
+
+  Future<void> setHapticsEnabled(bool enabled) async {
+    await _storage.setHapticsEnabled(enabled);
+    notifyListeners();
+  }
+
+  Future<void> setSoundsEnabled(bool enabled) async {
+    await _storage.setSoundsEnabled(enabled);
+    notifyListeners();
+  }
+
+  /// Short haptic (and optional click) after an NFC operation finishes.
+  void _feedback({required bool success}) {
+    // Best effort: platform feedback is unavailable in tests and on some devices
+    Future<void> ignore(Future<void> Function() call) async {
+      try {
+        await call();
+      } catch (_) {}
+    }
+
+    if (_storage.hapticsEnabled) {
+      ignore(success ? HapticFeedback.mediumImpact : HapticFeedback.heavyImpact);
+    }
+    if (_storage.soundsEnabled) {
+      ignore(() => SystemSound.play(success ? SystemSoundType.click : SystemSoundType.alert));
+    }
+  }
+
+  /// Language codes the app ships translations for. Turkish is the source language.
+  static const List<String> supportedLanguageCodes = [
+    'tr', 'en', 'de', 'fr', 'es', 'it', 'pt', 'ru', 'ar', 'ja', 'zh', 'ko', 'nl', 'uk',
+  ];
+
+  /// Locale chosen in settings, or null to follow the device language.
+  Locale? get locale {
+    final code = _storage.localeCode;
+    return code == null ? null : Locale(code);
+  }
+
+  Future<void> setLocaleCode(String? code) async {
+    await _storage.setLocaleCode(code);
+    if (code != null) {
+      L10n.update(Locale(code));
+    }
+    notifyListeners();
+  }
+
+  ThemeMode get themeMode {
+    switch (_storage.themeMode) {
+      case 'light':
+        return ThemeMode.light;
+      case 'dark':
+        return ThemeMode.dark;
+      default:
+        return ThemeMode.system;
+    }
+  }
+
+  Future<void> setThemeMode(ThemeMode mode) async {
+    await _storage.setThemeMode(mode.name);
+    notifyListeners();
+  }
+
+  int get accentIndex => _storage.accentIndex;
+  int get textScalePercent => _storage.textScalePercent;
+
+  Future<void> setAccentIndex(int index) async {
+    await _storage.setAccentIndex(index);
+    notifyListeners();
+  }
+
+  Future<void> setTextScalePercent(int percent) async {
+    await _storage.setTextScalePercent(percent.clamp(85, 150));
+    notifyListeners();
+  }
+
+  bool get onboardingDone => _storage.onboardingDone;
+
+  Future<void> setOnboardingDone(bool done) async {
+    await _storage.setOnboardingDone(done);
+    notifyListeners();
+  }
 
   /// Computes the SHA-256 hex digest for the given records or last scanned tag
   static String computeRecordsSha256(List<NdefRecordModel> records) {
@@ -49,8 +150,11 @@ class NfcStateController extends ChangeNotifier {
   }
 
   /// Copies records into the in-memory clipboard snapshot without mutating original records
-  void copyToClipboard(List<NdefRecordModel> records, {String sourceDescription = 'Taranan Etiket'}) {
-    _clipboardSnapshot = NdefClipboardSnapshot.fromRecords(records, sourceDescription: sourceDescription);
+  void copyToClipboard(List<NdefRecordModel> records, {String? sourceDescription}) {
+    _clipboardSnapshot = NdefClipboardSnapshot.fromRecords(
+      records,
+      sourceDescription: sourceDescription ?? L10n.current.scannedTag,
+    );
     notifyListeners();
   }
 
@@ -67,35 +171,62 @@ class NfcStateController extends ChangeNotifier {
     notifyListeners();
   }
 
+  /// Re-checks NFC availability without re-initializing storage (e.g. after
+  /// the user toggles NFC in system settings and returns to the app)
+  Future<void> refreshAvailability() async {
+    if (_isBusy) return;
+    final availability = await _service.checkAvailability();
+    if (availability != _availability) {
+      _availability = availability;
+      notifyListeners();
+    }
+  }
+
   /// Start scan
-  Future<void> scanTag() async {
+  /// [autoLog] false skips library auto-logging (the logbook page logs the
+  /// scan itself).
+  Future<void> scanTag({bool autoLog = true}) async {
     if (_availability == NfcAvailability.notSupported) {
-      _statusMessage = 'Bu cihazda NFC donanımı bulunmuyor veya desteklenmiyor.';
+      _statusMessage = L10n.current.statusNfcNotSupported;
       notifyListeners();
       return;
     }
     if (_availability == NfcAvailability.disabled) {
-      _statusMessage = 'NFC kapalı. Lütfen cihaz ayarlarından NFC özelliğini açın.';
+      _statusMessage = L10n.current.statusNfcDisabled;
       notifyListeners();
       return;
     }
 
     _isBusy = true;
-    _statusMessage = 'Etiket taranıyor... Telefonunuzu etikete yaklaştırın.';
+    _statusMessage = L10n.current.statusScanning;
     _lastWriteResult = null;
     _matchingRuleForLastScan = null;
     notifyListeners();
 
     try {
       final info = await _service.scanTag(
-        promptMessage: 'NFC etiketini okumak için cihazınızın arkasına dokundurun',
+        promptMessage: L10n.current.nfcPromptScan,
       );
+      // Keep the result even when cancelled: callers read lastScannedTag
+      // right after this and must not see an older tag.
       _lastScannedTag = info;
+      if (info.wasCancelled) {
+        _statusMessage = L10n.current.statusCancelled;
+        return;
+      }
       if (info.error != null) {
-        _statusMessage = 'Tarama Hatası: ${info.error}';
+        _statusMessage = L10n.current.statusScanError(info.error!);
+        _feedback(success: false);
         // Avoid storing scans with errors
       } else {
-        _statusMessage = 'Etiket başarıyla okundu (${info.identifier}).';
+        _statusMessage = L10n.current.statusScanSuccess(info.identifier);
+        _feedback(success: true);
+
+        await _markLibrarySeen(info.identifier, autoLog: autoLog);
+        if (_storage.speakAfterScan && info.records.isNotEmpty) {
+          SpeechService.speak(SpeechService.describe(info.records),
+              languageCode: _storage.localeCode ?? PlatformDispatcher.instance.locale.languageCode);
+        }
 
         // Check if there is an in-app tag rule matching exact NDEF bytes SHA-256
         if (info.records.isNotEmpty) {
@@ -122,10 +253,38 @@ class NfcStateController extends ChangeNotifier {
         }
       }
     } catch (e) {
-      _statusMessage = 'Beklenmeyen hata: $e';
+      _statusMessage = L10n.current.statusUnexpectedError(e.toString());
     } finally {
       _isBusy = false;
       notifyListeners();
+    }
+  }
+
+  /// Remembers when a saved library tag was last scanned (health tracking).
+  Future<void> _markLibrarySeen(String uid, {bool autoLog = true}) async {
+    _lastAutoLog = null;
+    if (uid.isEmpty) return;
+    for (final entry in _storage.getLibrary()) {
+      if (entry.uid != null && entry.uid!.toUpperCase() == uid.toUpperCase()) {
+        final now = DateTime.now();
+        try {
+          await _storage.saveLibraryEntry(entry.copyWith(lastSeenAt: now));
+          // The next inspection date moved; reschedule its reminder.
+          if (entry.checkEveryDays != null) NotificationService.sync(_storage);
+          final bookId = entry.autoLogBookId;
+          if (autoLog && bookId != null) {
+            for (final book in _storage.getLogBooks()) {
+              if (book.id != bookId) continue;
+              final updated = book.add(LogEntry(time: now, uid: uid, label: entry.name));
+              await _storage.saveLogBook(updated);
+              _lastAutoLog = (book: book.name, entry: updated.entries.first);
+            }
+          }
+        } catch (_) {
+          // Best effort; the scan itself succeeded.
+        }
+        return;
+      }
     }
   }
 
@@ -164,32 +323,58 @@ class NfcStateController extends ChangeNotifier {
   /// Write composed records
   Future<bool> writeRecords(List<NdefRecordModel> records, {String? promptMessage}) async {
     if (_availability != NfcAvailability.available) {
-      _statusMessage = 'NFC şu anda kullanılamaz durumda.';
+      _statusMessage = L10n.current.statusNfcUnavailable;
       notifyListeners();
       return false;
     }
 
     _isBusy = true;
-    _statusMessage = 'Yazma modu aktif. Hedef NFC etiketini yaklaştırın...';
+    _statusMessage = L10n.current.statusWriting;
     notifyListeners();
+
+    // {date} {time} {counter} in records are filled in now.
+    final usesVariables = TemplateVariables.hasAny(records);
+    final usesCounter = TemplateVariables.usesCounter(records);
+    final nextCounter = _storage.writeCounter + 1;
+    if (usesVariables) {
+      records = TemplateVariables.apply(records, now: DateTime.now(), counterValue: nextCounter);
+    }
+
+    if (_storage.addMadeWith && records.isNotEmpty) {
+      records = [...records, NdefCodec.encodeText(L10n.current.madeWithText)];
+    }
+
+    final signingKey = _storage.signingKey;
+    if (_storage.signOnWrite && signingKey != null) {
+      records = TagSignature.sign(records, base64Decode(signingKey));
+    }
 
     try {
       final result = await _service.writeTag(
         records: records,
-        promptMessage: promptMessage ?? 'Verileri kaydetmek için NFC etiketini yaklaştırın',
-        verifyReadAfterWrite: true,
+        promptMessage: promptMessage ?? L10n.current.nfcPromptWrite,
+        verifyReadAfterWrite: !_storage.compatibilityMode,
       );
 
       _lastWriteResult = result;
+      if (NfcTagInfo.isCancelCode(result.errorCode)) {
+        _statusMessage = L10n.current.statusCancelled;
+        return false;
+      }
+      _feedback(success: result.isSuccess);
       if (result.isSuccess) {
-        _statusMessage = 'Yazma ve doğrulama başarılı! (${result.bytesWritten} bayt)';
+        if (usesCounter) {
+          await _storage.setWriteCounter(nextCounter);
+        }
+        if (!_storage.firstTagDone) await _storage.setFirstTagDone(true);
+        _statusMessage = L10n.current.statusWriteSuccess(result.bytesWritten);
       } else {
-        _statusMessage = 'Yazma işlemi tamamlanamadı: ${result.message}';
+        _statusMessage = L10n.current.statusWriteFailed(result.message);
       }
       return result.isSuccess;
     } catch (e) {
       _lastWriteResult = NfcWriteResult(isSuccess: false, message: e.toString());
-      _statusMessage = 'Yazma hatası: $e';
+      _statusMessage = L10n.current.statusWriteError(e.toString());
       return false;
     } finally {
       _isBusy = false;
@@ -203,39 +388,134 @@ class NfcStateController extends ChangeNotifier {
       await _service.cancelSession();
     } catch (_) {}
     _isBusy = false;
-    _statusMessage = 'İşlem iptal edildi.';
+    _statusMessage = L10n.current.statusCancelled;
     notifyListeners();
   }
 
   /// Clear / Format tag
   Future<bool> clearTag() async {
     if (_availability != NfcAvailability.available) {
-      _statusMessage = 'NFC şu anda kullanılamaz durumda.';
+      _statusMessage = L10n.current.statusNfcUnavailable;
       notifyListeners();
       return false;
     }
 
     _isBusy = true;
-    _statusMessage = 'Sıfırlama modu aktif. Etiketi yaklaştırın...';
+    _statusMessage = L10n.current.statusClearing;
     notifyListeners();
 
     try {
       final result = await _service.clearTag(
-        promptMessage: 'Etiketi sıfırlamak için cihazınıza yaklaştırın',
+        promptMessage: L10n.current.nfcPromptClear,
       );
       _lastWriteResult = result;
+      _feedback(success: result.isSuccess);
       if (result.isSuccess) {
-        _statusMessage = 'Etiket içeriği başarıyla temizlendi.';
+        _statusMessage = L10n.current.statusClearSuccess;
         _lastScannedTag = null;
         _matchingRuleForLastScan = null;
       } else {
-        _statusMessage = 'Sıfırlama başarısız: ${result.message}';
+        _statusMessage = L10n.current.statusClearFailed(result.message);
       }
       return result.isSuccess;
     } catch (e) {
       _lastWriteResult = NfcWriteResult(isSuccess: false, message: e.toString());
-      _statusMessage = 'Sıfırlama hatası: $e';
+      _statusMessage = L10n.current.statusClearError(e.toString());
       return false;
+    } finally {
+      _isBusy = false;
+      notifyListeners();
+    }
+  }
+
+  /// Permanently locks a tag (read-only). Callers must confirm with the user first.
+  Future<bool> lockTag() async {
+    if (_availability != NfcAvailability.available) {
+      _statusMessage = L10n.current.statusNfcUnavailable;
+      notifyListeners();
+      return false;
+    }
+
+    _isBusy = true;
+    _statusMessage = L10n.current.statusLocking;
+    notifyListeners();
+
+    try {
+      final result = await _service.lockTag(
+        promptMessage: L10n.current.nfcPromptLock,
+      );
+      _lastWriteResult = result;
+      _feedback(success: result.isSuccess);
+      _statusMessage = result.isSuccess
+          ? L10n.current.statusLockSuccess
+          : L10n.current.statusLockFailed(result.message);
+      return result.isSuccess;
+    } catch (e) {
+      _lastWriteResult = NfcWriteResult(isSuccess: false, message: e.toString());
+      _statusMessage = L10n.current.statusLockError(e.toString());
+      return false;
+    } finally {
+      _isBusy = false;
+      notifyListeners();
+    }
+  }
+
+  /// Prepares a blank NTAG / Ultralight tag and writes [records] in one tap.
+  Future<bool> formatAndWriteRecords(List<NdefRecordModel> records) async {
+    final message = encodeNdefMessage(records);
+    final chip = await runRawTask<NtagChip>(
+      promptMessage: L10n.current.nfcPromptWrite,
+      busyMessage: L10n.current.statusWriting,
+      task: (t) => NtagTools.formatAndWriteNdef(t, message),
+      successMessage: (_) => L10n.current.statusWriteSuccess(message.length),
+    );
+    _lastWriteResult = NfcWriteResult(
+      isSuccess: chip != null,
+      message: _statusMessage ?? '',
+      bytesWritten: chip != null ? message.length : 0,
+      verificationPassed: chip != null,
+    );
+    notifyListeners();
+    return chip != null;
+  }
+
+  /// Runs [task] against a tag held in a raw command session (NTAG tools).
+  /// Returns null and sets [statusMessage] when anything fails.
+  Future<T?> runRawTask<T>({
+    required String promptMessage,
+    required String busyMessage,
+    required Future<T> Function(RawTransceive transceive) task,
+    required String Function(T result) successMessage,
+  }) async {
+    if (_availability != NfcAvailability.available) {
+      _statusMessage = L10n.current.statusNfcUnavailable;
+      notifyListeners();
+      return null;
+    }
+
+    _isBusy = true;
+    _statusMessage = busyMessage;
+    notifyListeners();
+
+    bool sessionOpen = false;
+    try {
+      await _service.startRawSession(promptMessage: promptMessage);
+      sessionOpen = true;
+      final result = await task(_service.transceive);
+      final message = successMessage(result);
+      _feedback(success: true);
+      await _service.endRawSession(successMessage: message);
+      sessionOpen = false;
+      _statusMessage = message;
+      return result;
+    } catch (e) {
+      final message = e is NtagException || e is NfcOperationException ? e.toString() : L10n.current.statusUnexpectedError(e.toString());
+      _feedback(success: false);
+      if (sessionOpen) {
+        await _service.endRawSession(errorMessage: message);
+      }
+      _statusMessage = message;
+      return null;
     } finally {
       _isBusy = false;
       notifyListeners();
@@ -247,7 +527,7 @@ class NfcStateController extends ChangeNotifier {
     _lastScannedTag = null;
     _lastWriteResult = null;
     _matchingRuleForLastScan = null;
-    _statusMessage = 'Hazır';
+    _statusMessage = null;
     notifyListeners();
   }
 }

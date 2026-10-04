@@ -13,6 +13,9 @@ class ScanHistoryEntry {
   final int currentBytesUsed;
   final List<NdefRecordModel> records;
 
+  /// User labels ("office", "to check") for filtering the history.
+  final List<String> labels;
+
   const ScanHistoryEntry({
     required this.id,
     required this.timestamp,
@@ -23,7 +26,21 @@ class ScanHistoryEntry {
     this.maxByteCapacity = 0,
     this.currentBytesUsed = 0,
     this.records = const [],
+    this.labels = const [],
   });
+
+  ScanHistoryEntry withLabels(List<String> labels) => ScanHistoryEntry(
+        id: id,
+        timestamp: timestamp,
+        identifier: identifier,
+        standardTechnologies: standardTechnologies,
+        isNdefSupported: isNdefSupported,
+        isWritable: isWritable,
+        maxByteCapacity: maxByteCapacity,
+        currentBytesUsed: currentBytesUsed,
+        records: records,
+        labels: labels,
+      );
 
   Map<String, dynamic> toJsonMap() {
     return {
@@ -36,6 +53,7 @@ class ScanHistoryEntry {
       'maxByteCapacity': maxByteCapacity,
       'currentBytesUsed': currentBytesUsed,
       'records': records.map((r) => r.toJsonMap()).toList(),
+      if (labels.isNotEmpty) 'labels': labels,
     };
   }
 
@@ -55,6 +73,7 @@ class ScanHistoryEntry {
       maxByteCapacity: (map['maxByteCapacity'] as num?)?.toInt() ?? 0,
       currentBytesUsed: (map['currentBytesUsed'] as num?)?.toInt() ?? 0,
       records: records,
+      labels: (map['labels'] as List<dynamic>? ?? const []).whereType<String>().toList(),
     );
   }
 }

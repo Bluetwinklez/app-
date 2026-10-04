@@ -18,7 +18,7 @@ class MockNfcPlatformService implements NfcPlatformService {
   Future<NfcAvailability> checkAvailability() async => availability;
 
   @override
-  Future<NfcTagInfo> scanTag({String promptMessage = 'Etiketi yaklaştırın'}) async {
+  Future<NfcTagInfo> scanTag({String? promptMessage}) async {
     return nextScanResult ??
         const NfcTagInfo(
           identifier: '04A1B2C3D4',
@@ -31,7 +31,7 @@ class MockNfcPlatformService implements NfcPlatformService {
   @override
   Future<NfcWriteResult> writeTag({
     required List<NdefRecordModel> records,
-    String promptMessage = 'Yazmak istediğiniz etiketi yaklaştırın',
+    String? promptMessage,
     bool verifyReadAfterWrite = true,
   }) async {
     lastWrittenRecords = records;
@@ -46,7 +46,7 @@ class MockNfcPlatformService implements NfcPlatformService {
 
   @override
   Future<NfcWriteResult> clearTag({
-    String promptMessage = 'Sıfırlamak istediğiniz etiketi yaklaştırın',
+    String? promptMessage,
   }) async {
     return const NfcWriteResult(
       isSuccess: true,
@@ -54,6 +54,39 @@ class MockNfcPlatformService implements NfcPlatformService {
       bytesWritten: 0,
       verificationPassed: true,
     );
+  }
+
+  int lockCalls = 0;
+  final List<Uint8List> sentCommands = [];
+  Uint8List Function(Uint8List command)? rawResponder;
+  bool rawSessionOpen = false;
+  String? lastRawError;
+
+  @override
+  Future<String> startRawSession({String? promptMessage}) async {
+    rawSessionOpen = true;
+    return '04:A1:B2';
+  }
+
+  @override
+  Future<Uint8List> transceive(Uint8List command) async {
+    sentCommands.add(command);
+    return rawResponder?.call(command) ?? Uint8List.fromList([0x0A]);
+  }
+
+  @override
+  Future<void> endRawSession({String? errorMessage, String? successMessage}) async {
+    rawSessionOpen = false;
+    lastRawError = errorMessage;
+  }
+
+  @override
+  Future<NfcWriteResult> lockTag({
+    String? promptMessage,
+  }) async {
+    lockCalls++;
+    return nextWriteResult ??
+        const NfcWriteResult(isSuccess: true, message: 'Kilitlendi');
   }
 
   @override
@@ -282,5 +315,33 @@ void main() {
       await storage.clearTemplates();
       expect(storage.getTemplates(), isEmpty);
     });
+  });
+
+  test('blank tag write offers formatting and writes in one raw session', () async {
+    final mock = MockNfcPlatformService();
+    final controller = NfcStateController(service: mock, storage: InMemoryAppStorageService());
+    await controller.init();
+
+    mock.nextWriteResult = const NfcWriteResult(
+      isSuccess: false,
+      message: 'not formatted',
+      errorCode: 'NOT_NDEF_FORMATTED',
+    );
+    final ok = await controller.writeRecords([NdefCodec.encodeText('Merhaba')]);
+    expect(ok, isFalse);
+    expect(controller.lastWriteResult!.needsFormatting, isTrue);
+
+    // GET_VERSION -> NTAG213, every READ returns zeros, WRITE acks
+    mock.rawResponder = (cmd) {
+      if (cmd[0] == 0x60) return Uint8List.fromList([0, 4, 4, 2, 1, 0, 0x0F, 3]);
+      if (cmd[0] == 0x30) return Uint8List(16);
+      return Uint8List.fromList([0x0A]);
+    };
+    // Verification will fail because the mock memory does not store writes
+    final written = await controller.formatAndWriteRecords([NdefCodec.encodeText('Merhaba')]);
+    expect(written, isFalse);
+    expect(mock.sentCommands.any((c) => c[0] == 0xA2 && c[1] == 3), isTrue, reason: 'CC written');
+    expect(mock.sentCommands.any((c) => c[0] == 0xA2 && c[1] == 4), isTrue, reason: 'TLV written');
+    expect(mock.rawSessionOpen, isFalse);
   });
 }
