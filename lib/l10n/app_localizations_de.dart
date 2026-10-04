@@ -5348,4 +5348,8 @@ class AppLocalizationsDe extends AppLocalizations {
 
   @override
   String get huntNotHunt => 'Das ist kein Schatzsuche-Tag.';
+
+  @override
+  String get whatsNew170 =>
+      '• Tag-Gesundheitscheck: Punktzahl und Tipps\n• Schatzsuche: Hinweise auf Tags schreiben und der Reihe nach finden';
 }

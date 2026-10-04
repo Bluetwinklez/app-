@@ -5318,4 +5318,8 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get huntNotHunt => 'That\'s not a treasure hunt tag.';
+
+  @override
+  String get whatsNew170 =>
+      '• Tag health check: score and advice\n• Treasure hunt: write clues to tags and find them in order';
 }

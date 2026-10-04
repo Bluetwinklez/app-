@@ -5333,4 +5333,8 @@ class AppLocalizationsTr extends AppLocalizations {
 
   @override
   String get huntNotHunt => 'Bu bir hazine avı etiketi değil.';
+
+  @override
+  String get whatsNew170 =>
+      '• Etiket sağlık testi: puan ve öneriler\n• Hazine avı: ipuçlarını etiketlere yaz, sırayla bulun';
 }

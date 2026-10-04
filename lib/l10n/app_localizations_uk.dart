@@ -5328,4 +5328,8 @@ class AppLocalizationsUk extends AppLocalizations {
 
   @override
   String get huntNotHunt => 'Це не мітка для гри.';
+
+  @override
+  String get whatsNew170 =>
+      '• Перевірка мітки: оцінка й поради\n• Полювання за скарбами: підказки на мітках, які шукають по черзі';
 }

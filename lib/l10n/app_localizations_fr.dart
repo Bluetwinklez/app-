@@ -5372,4 +5372,8 @@ class AppLocalizationsFr extends AppLocalizations {
 
   @override
   String get huntNotHunt => 'Ce n\'est pas un tag de chasse au trésor.';
+
+  @override
+  String get whatsNew170 =>
+      '• Bilan de santé du tag : note et conseils\n• Chasse au trésor : écrivez des indices sur des tags à trouver dans l\'ordre';
 }

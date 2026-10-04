@@ -347,6 +347,7 @@ class _HuntPlayPageState extends State<_HuntPlayPage> {
       HuntScanResult.notHunt => loc.huntNotHunt,
     };
     if (result == HuntScanResult.finished) {
+      ScaffoldMessenger.of(context).hideCurrentSnackBar();
       setState(() => _finalTime = DateTime.now().difference(_run.startedAt));
       return;
     }
