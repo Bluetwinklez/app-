@@ -1492,5 +1492,6 @@
   "huntWrongOrder": "Non è il tag successivo; segui l'indizio.",
   "huntAlreadyFound": "Hai già trovato questo tag.",
   "huntOtherHunt": "Questo tag appartiene a un'altra caccia al tesoro.",
-  "huntNotHunt": "Non è un tag della caccia al tesoro."
+  "huntNotHunt": "Non è un tag della caccia al tesoro.",
+  "whatsNew170": "• Controllo salute del tag: punteggio e consigli\n• Caccia al tesoro: scrivi indizi sui tag e trovali in ordine"
 }

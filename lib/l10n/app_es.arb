@@ -1492,5 +1492,6 @@
   "huntWrongOrder": "No es la siguiente etiqueta; sigue la pista.",
   "huntAlreadyFound": "Ya encontraste esta etiqueta.",
   "huntOtherHunt": "Esta etiqueta es de otra búsqueda del tesoro.",
-  "huntNotHunt": "No es una etiqueta de la búsqueda."
+  "huntNotHunt": "No es una etiqueta de la búsqueda.",
+  "whatsNew170": "• Revisión de la etiqueta: puntuación y consejos\n• Búsqueda del tesoro: escribe pistas en etiquetas y encuéntralas en orden"
 }

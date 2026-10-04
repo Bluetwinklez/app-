@@ -5097,4 +5097,7 @@ class AppLocalizationsJa extends AppLocalizations {
 
   @override
   String get huntNotHunt => '宝探しのタグではありません。';
+
+  @override
+  String get whatsNew170 => '• タグ診断：スコアと対処法\n• 宝探し：ヒントをタグに書いて順番に探そう';
 }

@@ -9082,6 +9082,12 @@ abstract class AppLocalizations {
   /// In tr, this message translates to:
   /// **'Bu bir hazine avı etiketi değil.'**
   String get huntNotHunt;
+
+  /// No description provided for @whatsNew170.
+  ///
+  /// In tr, this message translates to:
+  /// **'• Etiket sağlık testi: puan ve öneriler\n• Hazine avı: ipuçlarını etiketlere yaz, sırayla bulun'**
+  String get whatsNew170;
 }
 
 class _AppLocalizationsDelegate

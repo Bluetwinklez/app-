@@ -5334,4 +5334,8 @@ class AppLocalizationsNl extends AppLocalizations {
 
   @override
   String get huntNotHunt => 'Dat is geen speurtocht-tag.';
+
+  @override
+  String get whatsNew170 =>
+      '• Tag-gezondheidscheck: score en advies\n• Speurtocht: schrijf aanwijzingen op tags en vind ze op volgorde';
 }

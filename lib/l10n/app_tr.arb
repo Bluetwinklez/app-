@@ -3610,5 +3610,6 @@
   "huntWrongOrder": "Bu etiket sıradaki değil, ipucunu takip et.",
   "huntAlreadyFound": "Bu etiketi zaten buldun.",
   "huntOtherHunt": "Bu etiket başka bir hazine avına ait.",
-  "huntNotHunt": "Bu bir hazine avı etiketi değil."
+  "huntNotHunt": "Bu bir hazine avı etiketi değil.",
+  "whatsNew170": "• Etiket sağlık testi: puan ve öneriler\n• Hazine avı: ipuçlarını etiketlere yaz, sırayla bulun"
 }

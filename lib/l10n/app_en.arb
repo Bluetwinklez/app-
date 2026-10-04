@@ -1492,5 +1492,6 @@
   "huntWrongOrder": "That's not the next tag; follow the clue.",
   "huntAlreadyFound": "You already found this tag.",
   "huntOtherHunt": "This tag belongs to another treasure hunt.",
-  "huntNotHunt": "That's not a treasure hunt tag."
+  "huntNotHunt": "That's not a treasure hunt tag.",
+  "whatsNew170": "• Tag health check: score and advice\n• Treasure hunt: write clues to tags and find them in order"
 }

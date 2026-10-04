@@ -5112,4 +5112,7 @@ class AppLocalizationsKo extends AppLocalizations {
 
   @override
   String get huntNotHunt => '보물찾기 태그가 아닙니다.';
+
+  @override
+  String get whatsNew170 => '• 태그 상태 점검: 점수와 조언\n• 보물찾기: 태그에 단서를 쓰고 순서대로 찾기';
 }

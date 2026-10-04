@@ -5364,4 +5364,8 @@ class AppLocalizationsEs extends AppLocalizations {
 
   @override
   String get huntNotHunt => 'No es una etiqueta de la búsqueda.';
+
+  @override
+  String get whatsNew170 =>
+      '• Revisión de la etiqueta: puntuación y consejos\n• Búsqueda del tesoro: escribe pistas en etiquetas y encuéntralas en orden';
 }

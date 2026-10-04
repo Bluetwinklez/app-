@@ -5052,4 +5052,7 @@ class AppLocalizationsZh extends AppLocalizations {
 
   @override
   String get huntNotHunt => '这不是寻宝标签。';
+
+  @override
+  String get whatsNew170 => '• 标签健康检查：评分和建议\n• 寻宝游戏：把线索写入标签并按顺序寻找';
 }

@@ -1492,5 +1492,6 @@
   "huntWrongOrder": "Das ist nicht der nächste Tag – folge dem Hinweis.",
   "huntAlreadyFound": "Diesen Tag hast du schon gefunden.",
   "huntOtherHunt": "Dieser Tag gehört zu einer anderen Schatzsuche.",
-  "huntNotHunt": "Das ist kein Schatzsuche-Tag."
+  "huntNotHunt": "Das ist kein Schatzsuche-Tag.",
+  "whatsNew170": "• Tag-Gesundheitscheck: Punktzahl und Tipps\n• Schatzsuche: Hinweise auf Tags schreiben und der Reihe nach finden"
 }

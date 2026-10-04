@@ -1,5 +1,10 @@
 # Değişiklik Günlüğü
 
+## 1.7.0
+
+- **Etiket sağlık testi:** Okutulan etikete 0–100 puan; biçim, boş alan, kilit, tehlikeli bağlantı, imza ve kopya şüphesi için ne yapılacağı
+- **Hazine avı:** Sıralı ipuçlarını etiketlere yaz, oyuncular sırayla okutsun; süre ve en iyi süre kaydı
+
 ## 1.6.0
 
 **iPhone ile bütünleşme**

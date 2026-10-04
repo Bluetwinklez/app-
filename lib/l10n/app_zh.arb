@@ -1492,5 +1492,6 @@
   "huntWrongOrder": "这不是下一个标签，请按线索寻找。",
   "huntAlreadyFound": "你已经找到过这个标签。",
   "huntOtherHunt": "此标签属于另一个寻宝游戏。",
-  "huntNotHunt": "这不是寻宝标签。"
+  "huntNotHunt": "这不是寻宝标签。",
+  "whatsNew170": "• 标签健康检查：评分和建议\n• 寻宝游戏：把线索写入标签并按顺序寻找"
 }

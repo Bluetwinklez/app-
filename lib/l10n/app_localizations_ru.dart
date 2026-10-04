@@ -5330,4 +5330,8 @@ class AppLocalizationsRu extends AppLocalizations {
 
   @override
   String get huntNotHunt => 'Это не метка для игры.';
+
+  @override
+  String get whatsNew170 =>
+      '• Проверка метки: оценка и советы\n• Охота за сокровищами: подсказки на метках, которые находят по порядку';
 }

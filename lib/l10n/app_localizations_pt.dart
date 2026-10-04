@@ -5343,4 +5343,8 @@ class AppLocalizationsPt extends AppLocalizations {
 
   @override
   String get huntNotHunt => 'Esta não é uma tag da caça.';
+
+  @override
+  String get whatsNew170 =>
+      '• Saúde da tag: nota e dicas\n• Caça ao tesouro: grave pistas nas tags e encontre-as em ordem';
 }

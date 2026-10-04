@@ -5265,4 +5265,8 @@ class AppLocalizationsAr extends AppLocalizations {
 
   @override
   String get huntNotHunt => 'هذا ليس وسمًا للبحث عن الكنز.';
+
+  @override
+  String get whatsNew170 =>
+      '• فحص سلامة الوسم: تقييم ونصائح\n• البحث عن الكنز: اكتب التلميحات على الوسوم وابحث عنها بالترتيب';
 }

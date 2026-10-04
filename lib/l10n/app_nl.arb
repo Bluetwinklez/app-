@@ -1492,5 +1492,6 @@
   "huntWrongOrder": "Dat is niet de volgende tag; volg de aanwijzing.",
   "huntAlreadyFound": "Deze tag heb je al gevonden.",
   "huntOtherHunt": "Deze tag hoort bij een andere speurtocht.",
-  "huntNotHunt": "Dat is geen speurtocht-tag."
+  "huntNotHunt": "Dat is geen speurtocht-tag.",
+  "whatsNew170": "• Tag-gezondheidscheck: score en advies\n• Speurtocht: schrijf aanwijzingen op tags en vind ze op volgorde"
 }
