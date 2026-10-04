@@ -47,6 +47,8 @@ Location is only used when the user taps "Add current location" or searches for 
 
 ## 5. Ekran görüntüleri
 
+Hazır görüntüler: `docs/store_screenshots/` (Türkçe `tr_`, İngilizce `en_`). Diğer dillerde İngilizce görüntüler kullanılabilir.
+
 - iPhone 6,9 inç (1320×2868): en az 3, en fazla 10 görüntü
 - iPad 13 inç (2064×2752): uygulama iPad'de de çalıştığı için zorunlu
 - Apple Watch (isteğe bağlı): 410×502
