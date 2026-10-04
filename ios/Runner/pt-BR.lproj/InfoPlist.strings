@@ -4,3 +4,4 @@
 "NFCReaderUsageDescription" = "O acesso NFC é necessário para ler tags NFC e gravar mensagens NDEF.";
 "NSFaceIDUsageDescription" = "O Face ID protege sua biblioteca de tags quando o bloqueio está ativado.";
 "NSLocationWhenInUseUsageDescription" = "Quando você pede, o local da tag é salvo para aparecer no mapa.";
+"NSLocationAlwaysAndWhenInUseUsageDescription" = "Quando você pede, o local da tag é salvo para aparecer no mapa.";

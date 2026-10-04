@@ -86,6 +86,8 @@
 	<string>Uygulama kilidi açıkken etiket kütüphanenizi korumak için Face ID kullanılır.</string>
 	<key>NSLocationWhenInUseUsageDescription</key>
 	<string>Etiketleri haritada göstermek için, istediğinizde etiketin konumu kaydedilir.</string>
+	<key>NSLocationAlwaysAndWhenInUseUsageDescription</key>
+	<string>Etiketleri haritada göstermek için, istediğinizde etiketin konumu kaydedilir.</string>
 	<key>NFCReaderUsageDescription</key>
 	<string>NFC etiketlerini okumak ve NDEF mesajları yazmak için NFC erişimi gereklidir.</string>
 	<key>com.apple.developer.nfc.readersession.iso7816.select-identifiers</key>
