@@ -1,3 +1,4 @@
+import '../l10n/l10n.dart';
 import 'ndef_record.dart';
 
 /// Tag technologies supported
@@ -21,6 +22,9 @@ class NfcTagInfo {
   final List<NdefRecordModel> records;
   final String? error;
 
+  /// Native error code when [error] is set (not persisted).
+  final String? errorCode;
+
   const NfcTagInfo({
     required this.identifier,
     this.standardTechnologies = const [],
@@ -30,7 +34,14 @@ class NfcTagInfo {
     this.currentBytesUsed = 0,
     this.records = const [],
     this.error,
+    this.errorCode,
   });
+
+  /// The user (or the app) stopped the NFC session; not a real failure.
+  bool get wasCancelled => isCancelCode(errorCode);
+
+  static bool isCancelCode(String? code) =>
+      code == 'USER_CANCELLED' || code == 'SESSION_CANCELLED';
 
   Map<String, dynamic> toMap() {
     return {
@@ -52,7 +63,7 @@ class NfcTagInfo {
         .toList();
 
     return NfcTagInfo(
-      identifier: map['identifier'] as String? ?? 'Bilinmiyor',
+      identifier: map['identifier'] as String? ?? L10n.current.unknown,
       standardTechnologies: List<String>.from(map['standardTechnologies'] ?? []),
       isNdefSupported: map['isNdefSupported'] as bool? ?? false,
       isWritable: map['isWritable'] as bool? ?? false,
@@ -73,10 +84,18 @@ class NfcWriteResult {
   final int bytesWritten;
   final bool verificationPassed;
 
+  /// Platform error code when the write failed (e.g. NOT_NDEF_FORMATTED).
+  final String? errorCode;
+
   const NfcWriteResult({
     required this.isSuccess,
     required this.message,
     this.bytesWritten = 0,
     this.verificationPassed = false,
+    this.errorCode,
   });
+
+  /// The tag has no NDEF capability container yet (blank NTAG on iPhone,
+  /// or an unformattable tag on Android) and may be prepared via raw commands.
+  bool get needsFormatting => errorCode == 'NOT_NDEF_FORMATTED' || errorCode == 'TAG_NOT_SUPPORTED';
 }

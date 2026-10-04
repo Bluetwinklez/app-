@@ -1,5 +1,6 @@
 import 'dart:convert';
 import 'dart:typed_data';
+import '../l10n/l10n.dart';
 
 /// TNF (Type Name Format) constants according to NFC Forum specifications
 enum NdefTnf {
@@ -69,7 +70,7 @@ class NdefRecordModel {
   /// [isFirst] sets MB (Message Begin), [isLast] sets ME (Message End).
   Uint8List toBytes({bool isFirst = true, bool isLast = true}) {
     if (type.length > 255 || id.length > 255) {
-      throw const FormatException('NDEF türü veya kimliği 255 baytı aşıyor');
+      throw FormatException(L10n.current.ndefTypeOrIdTooLong);
     }
     final bool sr = payload.length <= 255; // Short Record
     final bool il = id.isNotEmpty; // ID Length field present
@@ -123,17 +124,17 @@ class NdefRecordModel {
           : NdefTnf.unknown;
 
       if (cf || (records.isEmpty && !mb) || (records.isNotEmpty && mb)) {
-        throw const FormatException('Desteklenmeyen veya geçersiz NDEF kaydı');
+        throw FormatException(L10n.current.ndefUnsupportedOrInvalidRecord);
       }
-      if (offset >= data.length) throw const FormatException('Eksik NDEF tür uzunluğu');
+      if (offset >= data.length) throw FormatException(L10n.current.ndefMissingTypeLength);
       final typeLength = data[offset++];
 
       int payloadLength = 0;
       if (sr) {
-        if (offset >= data.length) throw const FormatException('Eksik NDEF yük uzunluğu');
+        if (offset >= data.length) throw FormatException(L10n.current.ndefMissingPayloadLength);
         payloadLength = data[offset++];
       } else {
-        if (offset + 4 > data.length) throw const FormatException('Eksik NDEF yük uzunluğu');
+        if (offset + 4 > data.length) throw FormatException(L10n.current.ndefMissingPayloadLength);
         final bd = ByteData.sublistView(data, offset, offset + 4);
         payloadLength = bd.getUint32(0, Endian.big);
         offset += 4;
@@ -141,22 +142,22 @@ class NdefRecordModel {
 
       int idLength = 0;
       if (il) {
-        if (offset >= data.length) throw const FormatException('Eksik NDEF kimlik uzunluğu');
+        if (offset >= data.length) throw FormatException(L10n.current.ndefMissingIdLength);
         idLength = data[offset++];
       }
 
-      if (offset + typeLength > data.length) throw const FormatException('Eksik NDEF türü');
+      if (offset + typeLength > data.length) throw FormatException(L10n.current.ndefMissingType);
       final type = data.sublist(offset, offset + typeLength);
       offset += typeLength;
 
       Uint8List id = Uint8List(0);
       if (il) {
-        if (offset + idLength > data.length) throw const FormatException('Eksik NDEF kimliği');
+        if (offset + idLength > data.length) throw FormatException(L10n.current.ndefMissingId);
         id = data.sublist(offset, offset + idLength);
         offset += idLength;
       }
 
-      if (offset + payloadLength > data.length) throw const FormatException('Eksik NDEF yükü');
+      if (offset + payloadLength > data.length) throw FormatException(L10n.current.ndefMissingPayload);
       final payload = data.sublist(offset, offset + payloadLength);
       offset += payloadLength;
 
@@ -168,11 +169,11 @@ class NdefRecordModel {
       ));
 
       if (me) {
-        if (offset != data.length) throw const FormatException('NDEF sonunda fazladan veri var');
+        if (offset != data.length) throw FormatException(L10n.current.ndefTrailingData);
         return records;
       }
     }
-    if (records.isNotEmpty) throw const FormatException('NDEF mesaj sonu eksik');
+    if (records.isNotEmpty) throw FormatException(L10n.current.ndefMissingEnd);
     return records;
   }
 }
@@ -362,7 +363,7 @@ class WifiConfigData {
   String get authTypeLabel {
     switch (authType) {
       case WifiAuthType.open:
-        return 'Açık (Şifresiz)';
+        return L10n.current.wifiAuthOpen;
       case WifiAuthType.wpaPsk:
         return 'WPA Personal';
       case WifiAuthType.wpa2Psk:
@@ -1015,7 +1016,7 @@ class NdefCodec {
       final text = decodeText(record) ?? '';
       return ParsedRecordData(
         type: ParsedRecordType.text,
-        title: 'Metin Kaydı',
+        title: L10n.current.recordTypeText,
         content: text,
       );
     }
@@ -1027,7 +1028,7 @@ class NdefCodec {
         final titlePart = sp.title != null ? '${sp.title}\n' : '';
         return ParsedRecordData(
           type: ParsedRecordType.smartPoster,
-          title: 'Akıllı Poster (Smart Poster)',
+          title: L10n.current.recordTypeSmartPoster,
           content: '$titlePart${sp.uri}',
           extra: {
             'uri': sp.uri,
@@ -1039,8 +1040,8 @@ class NdefCodec {
       }
       return ParsedRecordData(
         type: ParsedRecordType.smartPoster,
-        title: 'Akıllı Poster (Geçersiz Yük)',
-        content: 'Bozuk veya eksik akıllı poster yükü (${record.payload.length} bayt)',
+        title: L10n.current.recordTypeSmartPosterInvalid,
+        content: L10n.current.recordTypeSmartPosterCorrupt(record.payload.length),
       );
     }
 
@@ -1053,7 +1054,7 @@ class NdefCodec {
         final phone = uriStr.substring(4);
         return ParsedRecordData(
           type: ParsedRecordType.phone,
-          title: 'Telefon Numarası',
+          title: L10n.current.recordTypePhone,
           content: phone,
         );
       } else if (uriStr.startsWith('sms:')) {
@@ -1063,7 +1064,7 @@ class NdefCodec {
       } else {
         return ParsedRecordData(
           type: ParsedRecordType.url,
-          title: 'Web Bağlantısı (URL)',
+          title: L10n.current.recordTypeUrl,
           content: uriStr,
           extra: {'url': uriStr},
         );
@@ -1080,13 +1081,13 @@ class NdefCodec {
         final name = vcard?['fn'] ?? '${vcard?['firstName'] ?? ''} ${vcard?['lastName'] ?? ''}'.trim();
         final details = <String>[];
         if (name.isNotEmpty) details.add(name);
-        if (vcard?['tel'] != null && vcard!['tel']!.isNotEmpty) details.add('Tel: ${vcard['tel']}');
-        if (vcard?['email'] != null && vcard!['email']!.isNotEmpty) details.add('E-posta: ${vcard['email']}');
-        if (vcard?['org'] != null && vcard!['org']!.isNotEmpty) details.add('Kurum: ${vcard['org']}');
+        if (vcard?['tel'] != null && vcard!['tel']!.isNotEmpty) details.add(L10n.current.vcardPhoneShort(vcard['tel']!));
+        if (vcard?['email'] != null && vcard!['email']!.isNotEmpty) details.add(L10n.current.vcardEmailShort(vcard['email']!));
+        if (vcard?['org'] != null && vcard!['org']!.isNotEmpty) details.add(L10n.current.vcardOrgShort(vcard['org']!));
         return ParsedRecordData(
           type: ParsedRecordType.vcard,
-          title: 'Kişi Kartı (vCard)',
-          content: details.isNotEmpty ? details.join(' | ') : 'Kişi Kartı',
+          title: L10n.current.recordTypeVCard,
+          content: details.isNotEmpty ? details.join(' | ') : L10n.current.recordTypeVCard,
           extra: vcard ?? {},
         );
       }
@@ -1101,7 +1102,7 @@ class NdefCodec {
         final locText = loc.isNotEmpty ? ' @ $loc' : '';
         return ParsedRecordData(
           type: ParsedRecordType.calendar,
-          title: 'Takvim Etkinliği (iCal)',
+          title: L10n.current.recordTypeCalendar,
           content: '$summary ($startRaw - $endRaw)$locText',
           extra: cal ?? {},
         );
@@ -1111,10 +1112,10 @@ class NdefCodec {
       if (mimeStr == 'application/vnd.wfa.wsc') {
         final wifi = decodeWifiWsc(record);
         if (wifi != null) {
-          final passMask = wifi.password.isEmpty ? '(Şifresiz)' : 'Şifre: ${'*' * wifi.password.length}';
+          final passMask = wifi.password.isEmpty ? L10n.current.unprotected : '${L10n.current.wifiPassword}: ${'*' * wifi.password.length}';
           return ParsedRecordData(
             type: ParsedRecordType.wifi,
-            title: 'Wi-Fi Yapılandırması (WSC)',
+            title: L10n.current.recordTypeWifi,
             content: 'SSID: ${wifi.ssid} [${wifi.authTypeLabel}] $passMask',
             extra: {
               'ssid': wifi.ssid,
@@ -1123,10 +1124,10 @@ class NdefCodec {
             },
           );
         }
-        return const ParsedRecordData(
+        return ParsedRecordData(
           type: ParsedRecordType.wifi,
-          title: 'Wi-Fi Yapılandırması (WSC)',
-          content: 'Bozuk veya tanınmayan WSC yükü',
+          title: L10n.current.recordTypeWifi,
+          content: L10n.current.recordTypeWifiCorrupt,
         );
       }
 
@@ -1137,7 +1138,7 @@ class NdefCodec {
           : record.payload.take(16).map((b) => b.toRadixString(16).padLeft(2, '0')).join(' ');
       return ParsedRecordData(
         type: ParsedRecordType.customMime,
-        title: 'Özel MIME ($mimeStr)',
+        title: L10n.current.recordTypeCustomMime(mimeStr),
         content: preview,
         extra: {'mimeType': mimeStr, 'byteLength': record.payload.length},
       );
@@ -1145,8 +1146,8 @@ class NdefCodec {
 
     return ParsedRecordData(
       type: ParsedRecordType.unknown,
-      title: 'Bilinmeyen Kayıt',
-      content: 'TNF: ${record.tnf.name}, Boyut: ${record.payload.length} bayt',
+      title: L10n.current.recordTypeUnknown,
+      content: L10n.current.recordDebugSummary(record.tnf.name, '${record.payload.length}'),
     );
   }
 
@@ -1157,7 +1158,7 @@ class NdefCodec {
     final body = uri?.queryParameters['body'] ?? '';
     return ParsedRecordData(
       type: ParsedRecordType.email,
-      title: 'E-posta Kaydı',
+      title: L10n.current.recordTypeEmail,
       content: email,
       extra: {'subject': subject, 'body': body},
     );
@@ -1169,7 +1170,7 @@ class NdefCodec {
     final body = uri?.queryParameters['body'] ?? '';
     return ParsedRecordData(
       type: ParsedRecordType.sms,
-      title: 'SMS Kaydı',
+      title: L10n.current.recordTypeSms,
       content: phone,
       extra: {'message': body},
     );
@@ -1180,7 +1181,7 @@ class NdefCodec {
     final parts = raw.split('?').first.split(',');
     return ParsedRecordData(
       type: ParsedRecordType.location,
-      title: 'Konum / GPS',
+      title: L10n.current.recordTypeLocation,
       content: raw,
       extra: {
         'latitude': parts.isNotEmpty ? parts[0] : '',

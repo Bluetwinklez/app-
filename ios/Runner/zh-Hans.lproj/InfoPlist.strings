@@ -1,0 +1,6 @@
+"CFBundleDisplayName" = "NFC Tag Master";
+"NSCameraUsageDescription" = "相机用于扫描二维码以及为标签库添加照片。";
+"NSPhotoLibraryUsageDescription" = "访问照片以便为标签库中的标签添加图片。";
+"NFCReaderUsageDescription" = "需要 NFC 权限来读取 NFC 标签并写入 NDEF 消息。";
+"NSFaceIDUsageDescription" = "开启应用锁时，使用面容 ID 保护你的标签库。";
+"NSLocationWhenInUseUsageDescription" = "在您需要时保存标签位置，以便在标签地图上显示。";
