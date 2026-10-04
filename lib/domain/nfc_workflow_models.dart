@@ -1,5 +1,6 @@
 import 'dart:convert';
 import 'dart:typed_data';
+import '../l10n/l10n.dart';
 import 'ndef_record.dart';
 
 /// In-memory snapshot of NDEF records copied to clipboard
@@ -22,7 +23,7 @@ class NdefClipboardSnapshot {
   /// Creates a pure, immutable snapshot of the given records
   factory NdefClipboardSnapshot.fromRecords(
     List<NdefRecordModel> source, {
-    String sourceDescription = 'Taranan Etiket',
+    String? sourceDescription,
   }) {
     // Deep clone records to ensure no shared mutable byte references
     final cloned = source.map((r) {
@@ -37,7 +38,7 @@ class NdefClipboardSnapshot {
     return NdefClipboardSnapshot(
       records: cloned,
       copiedAt: DateTime.now(),
-      sourceDescription: sourceDescription,
+      sourceDescription: sourceDescription ?? L10n.current.scannedTag,
     );
   }
 }
@@ -80,7 +81,7 @@ class UrlSafetyAssessment {
         uri = Uri.tryParse(trimmed);
       }
     } catch (_) {
-      warnings.add('Geçersiz veya ayrıştırılamayan URL biçimi.');
+      warnings.add(L10n.current.urlSafetyInvalidUrl);
     }
 
     final hasOrigScheme = trimmed.contains('://') || (trimmed.contains(':') && !trimmed.startsWith(':'));
@@ -94,17 +95,17 @@ class UrlSafetyAssessment {
     // Check scheme
     bool isSuspiciousScheme = false;
     if (scheme.isEmpty) {
-      warnings.add('URL protokol şeması (http/https vb.) eksik veya tanımsız.');
+      warnings.add(L10n.current.urlSafetyMissingScheme);
     } else if (scheme != 'http' && scheme != 'https') {
       isSuspiciousScheme = true;
-      warnings.add('Standart dışı URL şeması: "$scheme". Cihazda beklenmeyen bir uygulamayı tetikleyebilir.');
+      warnings.add(L10n.current.urlSafetySuspiciousScheme(scheme));
     } else if (scheme == 'http') {
-      warnings.add('Şifrelenmemiş bağlantı (http://). Veriler ağ üzerinde açık iletilir.');
+      warnings.add(L10n.current.urlSafetyUnencrypted);
     }
 
     // Check userInfo
     if (hasUserInfo) {
-      warnings.add('URL kimlik doğrulama/kullanıcı bilgisi içeriyor (userinfo). Oltalama/yanıltma amaçlı olabilir.');
+      warnings.add(L10n.current.urlSafetyUserInfo);
     }
 
     // Check IP literal (IPv4 or IPv6)
@@ -115,22 +116,22 @@ class UrlSafetyAssessment {
       return n != null && n >= 0 && n <= 255;
     })) {
       isIpLiteral = true;
-      warnings.add('Hedef adres doğrudan IPv4 adresi içeriyor. Standart alan adı yerine IP kullanımı dikkat gerektirir.');
+      warnings.add(L10n.current.urlSafetyIpv4);
     } else if (host.contains(':')) {
       isIpLiteral = true;
-      warnings.add('Hedef adres IPv6 adresi içeriyor.');
+      warnings.add(L10n.current.urlSafetyIpv6);
     }
 
     // Check Punycode (IDN homograph attack indicator)
     bool isPunycode = false;
     if (host.contains('xn--')) {
       isPunycode = true;
-      warnings.add('Uluslararası alan adı / Punycode tespit edildi ("xn--"). Benzer harflerle yanıltma (homoglif saldırısı) olabilir.');
+      warnings.add(L10n.current.urlSafetyPunycode);
     }
 
     // Port check
     if (port != null && port != 80 && port != 443) {
-      warnings.add('Standart dışı ağ bağlantı noktası (Port: $port).');
+      warnings.add(L10n.current.urlSafetyNonStandardPort(port.toString()));
     }
 
     return UrlSafetyAssessment(
@@ -195,18 +196,18 @@ class RecordInspectionData {
         textPreview = '${textPreview.substring(0, maxChars)}...';
       }
     } catch (_) {
-      textPreview = '(İkili/Binary Veri)';
+      textPreview = L10n.current.binaryDataPreview;
     }
 
     return RecordInspectionData(
       index: index,
       tnfName: tnfName,
-      typeText: typeText.isEmpty ? '(Boş)' : typeText,
-      typeHex: typeHex.isEmpty ? '(Boş)' : typeHex,
-      idText: idText.isEmpty ? '(Boş)' : idText,
-      idHex: idHex.isEmpty ? '(Boş)' : idHex,
+      typeText: typeText.isEmpty ? L10n.current.emptyValue : typeText,
+      typeHex: typeHex.isEmpty ? L10n.current.emptyValue : typeHex,
+      idText: idText.isEmpty ? L10n.current.emptyValue : idText,
+      idHex: idHex.isEmpty ? L10n.current.emptyValue : idHex,
       payloadLength: payloadLength,
-      payloadHexPreview: payloadHexPreview.isEmpty ? '(0 bayt)' : payloadHexPreview,
+      payloadHexPreview: payloadHexPreview.isEmpty ? '(${L10n.current.bytesValue('0')})' : payloadHexPreview,
       payloadTextPreview: textPreview,
       isPayloadTruncated: isPayloadTruncated,
     );
@@ -215,21 +216,21 @@ class RecordInspectionData {
   static String _tnfDescription(NdefTnf tnf) {
     switch (tnf) {
       case NdefTnf.empty:
-        return '0: Empty (Boş)';
+        return L10n.current.tnfEmpty;
       case NdefTnf.wellKnown:
-        return '1: NFC Forum Well-Known (NFC Forum Standart RTD)';
+        return L10n.current.tnfWellKnown;
       case NdefTnf.media:
-        return '2: Media-Type (RFC 2046 MIME Türü)';
+        return L10n.current.tnfMedia;
       case NdefTnf.absoluteUri:
-        return '3: Absolute URI (RFC 3986 Mutlak URI)';
+        return L10n.current.tnfAbsoluteUri;
       case NdefTnf.external:
-        return '4: NFC Forum External (Harici Tür)';
+        return L10n.current.tnfExternal;
       case NdefTnf.unknown:
-        return '5: Unknown (Bilinmeyen İçerik)';
+        return L10n.current.tnfUnknown;
       case NdefTnf.unchanged:
-        return '6: Unchanged (Değişmemiş - Parçalı NDEF)';
+        return L10n.current.tnfUnchanged;
       case NdefTnf.reserved:
-        return '7: Reserved (Ayrılmış)';
+        return L10n.current.tnfReserved;
     }
   }
 

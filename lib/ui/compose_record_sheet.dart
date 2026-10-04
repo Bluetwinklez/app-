@@ -1,7 +1,13 @@
 import 'dart:convert';
 import 'dart:typed_data';
 import 'package:flutter/material.dart';
+import 'package:geocoding/geocoding.dart' as geo;
+import 'package:geolocator/geolocator.dart';
+import '../l10n/app_localizations.dart';
 import '../domain/ndef_record.dart';
+import '../domain/quick_links.dart';
+import '../l10n/l10n.dart';
+import 'app_theme.dart';
 
 /// Form dialog / bottom sheet for composing or editing NDEF records
 class ComposeRecordSheet extends StatefulWidget {
@@ -19,7 +25,65 @@ class ComposeRecordSheet extends StatefulWidget {
 }
 
 class _ComposeRecordSheetState extends State<ComposeRecordSheet> {
+  final _addressController = TextEditingController();
+  String? _addressError;
+  bool _locating = false;
+
+  void _setCoordinates(double lat, double lng) => setState(() {
+        _latController.text = lat.toStringAsFixed(6);
+        _lngController.text = lng.toStringAsFixed(6);
+        _addressError = null;
+      });
+
+  Future<void> _searchAddress() async {
+    final q = _addressController.text.trim();
+    if (q.isEmpty) return;
+    setState(() => _locating = true);
+    try {
+      final found = await geo.Geocoding().locationFromAddress(q);
+      if (!mounted) return;
+      if (found.isEmpty) {
+        setState(() => _addressError = L10n.current.locationNotFound);
+      } else {
+        _setCoordinates(found.first.latitude, found.first.longitude);
+      }
+    } catch (_) {
+      if (mounted) setState(() => _addressError = L10n.current.locationNotFound);
+    } finally {
+      if (mounted) setState(() => _locating = false);
+    }
+  }
+
+  Future<void> _useCurrentLocation() async {
+    setState(() => _locating = true);
+    try {
+      var permission = await Geolocator.checkPermission();
+      if (permission == LocationPermission.denied) permission = await Geolocator.requestPermission();
+      if (permission == LocationPermission.denied || permission == LocationPermission.deniedForever) {
+        if (mounted) setState(() => _addressError = L10n.current.mapLocationDenied);
+        return;
+      }
+      final p = await Geolocator.getCurrentPosition(
+        locationSettings: const LocationSettings(accuracy: LocationAccuracy.high, timeLimit: Duration(seconds: 20)),
+      );
+      if (mounted) _setCoordinates(p.latitude, p.longitude);
+    } catch (e) {
+      if (mounted) setState(() => _addressError = L10n.current.mapLocationFailed('$e'));
+    } finally {
+      if (mounted) setState(() => _locating = false);
+    }
+  }
+
   ParsedRecordType _selectedType = ParsedRecordType.text;
+
+  // Ready-made shortcut (social, video, FaceTime...) selected instead of a core type
+  QuickLinkKind? _quickKind;
+  final _quickController = TextEditingController();
+  final _quickSecondaryController = TextEditingController();
+  SocialNetwork _socialNetwork = SocialNetwork.instagram;
+  SearchEngine _searchEngine = SearchEngine.google;
+  MapProvider _mapProvider = MapProvider.apple;
+  String? _quickError;
 
   // Generic & Previous Controllers
   final _textController = TextEditingController();
@@ -197,6 +261,9 @@ class _ComposeRecordSheetState extends State<ComposeRecordSheet> {
 
   @override
   void dispose() {
+    _addressController.dispose();
+    _quickController.dispose();
+    _quickSecondaryController.dispose();
     _textController.dispose();
     _urlController.dispose();
     _emailController.dispose();
@@ -236,6 +303,7 @@ class _ComposeRecordSheetState extends State<ComposeRecordSheet> {
 
   void _clearErrors() {
     setState(() {
+      _quickError = null;
       _textError = null;
       _urlError = null;
       _emailError = null;
@@ -279,17 +347,22 @@ class _ComposeRecordSheetState extends State<ComposeRecordSheet> {
 
   void _saveRecord() {
     _clearErrors();
+    final loc = AppLocalizations.of(context)!;
+    if (_quickKind != null) {
+      _saveQuickLink(_quickKind!);
+      return;
+    }
     NdefRecordModel? record;
 
     switch (_selectedType) {
       case ParsedRecordType.text:
         final txt = _textController.text.trim();
         if (txt.isEmpty) {
-          setState(() => _textError = 'Metin içeriği boş bırakılamaz.');
+          setState(() => _textError = loc.composeTextEmpty);
           return;
         }
         if (txt.length > 5000) {
-          setState(() => _textError = 'Metin çok uzun (en fazla 5000 karakter).');
+          setState(() => _textError = loc.composeTextTooLong);
           return;
         }
         record = NdefCodec.encodeText(txt);
@@ -297,12 +370,12 @@ class _ComposeRecordSheetState extends State<ComposeRecordSheet> {
 
       case ParsedRecordType.url:
         final url = _urlController.text.trim();
-        if (url.isEmpty || !_isValidUrl(url)) {
-          setState(() => _urlError = 'Geçerli bir web adresi giriniz (Örn: https://example.com).');
+        if (url.isEmpty || !QuickLinkBuilder.isValidUri(url)) {
+          setState(() => _urlError = loc.composeUrlInvalid);
           return;
         }
         if (url.length > 2000) {
-          setState(() => _urlError = 'URL çok uzun (en fazla 2000 karakter).');
+          setState(() => _urlError = loc.composeUrlTooLong);
           return;
         }
         record = NdefCodec.encodeUri(url);
@@ -311,7 +384,7 @@ class _ComposeRecordSheetState extends State<ComposeRecordSheet> {
       case ParsedRecordType.email:
         final email = _emailController.text.trim();
         if (email.isEmpty || !_isValidEmail(email)) {
-          setState(() => _emailError = 'Geçerli bir e-posta adresi giriniz (Örn: ad@alanadi.com).');
+          setState(() => _emailError = loc.composeEmailInvalid);
           return;
         }
         record = NdefCodec.encodeEmail(
@@ -324,7 +397,7 @@ class _ComposeRecordSheetState extends State<ComposeRecordSheet> {
       case ParsedRecordType.phone:
         final phone = _phoneController.text.trim();
         if (phone.isEmpty || !_isValidPhone(phone)) {
-          setState(() => _phoneError = 'Geçerli bir telefon numarası giriniz (Örn: +905551234567).');
+          setState(() => _phoneError = loc.composePhoneInvalid);
           return;
         }
         record = NdefCodec.encodePhone(phone);
@@ -333,7 +406,7 @@ class _ComposeRecordSheetState extends State<ComposeRecordSheet> {
       case ParsedRecordType.sms:
         final phone = _smsPhoneController.text.trim();
         if (phone.isEmpty || !_isValidPhone(phone)) {
-          setState(() => _smsPhoneError = 'Geçerli bir alıcı telefon numarası giriniz.');
+          setState(() => _smsPhoneError = loc.composeSmsPhoneInvalid);
           return;
         }
         record = NdefCodec.encodeSms(
@@ -349,11 +422,11 @@ class _ComposeRecordSheetState extends State<ComposeRecordSheet> {
         final lng = double.tryParse(lngStr);
 
         if (lat == null || lat < -90.0 || lat > 90.0) {
-          setState(() => _latError = 'Enlem -90 ile +90 arasında olmalıdır.');
+          setState(() => _latError = loc.composeLatInvalid);
           return;
         }
         if (lng == null || lng < -180.0 || lng > 180.0) {
-          setState(() => _lngError = 'Boylam -180 ile +180 arasında olmalıdır.');
+          setState(() => _lngError = loc.composeLngInvalid);
           return;
         }
         record = NdefCodec.encodeLocation(latitude: lat, longitude: lng);
@@ -362,26 +435,26 @@ class _ComposeRecordSheetState extends State<ComposeRecordSheet> {
       case ParsedRecordType.vcard:
         final fn = _vcardNameController.text.trim();
         if (fn.isEmpty) {
-          setState(() => _vcardNameError = 'Kişi adı veya tam ad boş bırakılamaz.');
+          setState(() => _vcardNameError = loc.composeVcardNameEmpty);
           return;
         }
         if (fn.length > 200) {
-          setState(() => _vcardNameError = 'Kişi adı çok uzun (en fazla 200 karakter).');
+          setState(() => _vcardNameError = loc.composeVcardNameTooLong);
           return;
         }
         final email = _vcardEmailController.text.trim();
         if (email.isNotEmpty && !_isValidEmail(email)) {
-          setState(() => _vcardEmailError = 'Geçerli bir e-posta adresi giriniz.');
+          setState(() => _vcardEmailError = loc.composeVcardEmailInvalid);
           return;
         }
         final phone = _vcardPhoneController.text.trim();
         if (phone.isNotEmpty && !_isValidPhone(phone)) {
-          setState(() => _vcardPhoneError = 'Geçerli bir telefon numarası giriniz.');
+          setState(() => _vcardPhoneError = loc.composeVcardPhoneInvalid);
           return;
         }
         final url = _vcardUrlController.text.trim();
         if (url.isNotEmpty && !_isValidUrl(url)) {
-          setState(() => _vcardUrlError = 'Geçerli bir web adresi giriniz (Örn: https://...).');
+          setState(() => _vcardUrlError = loc.composeVcardUrlInvalid);
           return;
         }
 
@@ -401,11 +474,11 @@ class _ComposeRecordSheetState extends State<ComposeRecordSheet> {
       case ParsedRecordType.calendar:
         final summary = _calSummaryController.text.trim();
         if (summary.isEmpty) {
-          setState(() => _calSummaryError = 'Etkinlik başlığı boş bırakılamaz.');
+          setState(() => _calSummaryError = loc.composeCalSummaryEmpty);
           return;
         }
         if (summary.length > 250) {
-          setState(() => _calSummaryError = 'Etkinlik başlığı çok uzun (en fazla 250 karakter).');
+          setState(() => _calSummaryError = loc.composeCalSummaryTooLong);
           return;
         }
 
@@ -425,7 +498,7 @@ class _ComposeRecordSheetState extends State<ComposeRecordSheet> {
         );
 
         if (!endDt.isAfter(startDt)) {
-          setState(() => _calDateError = 'Bitiş zamanı, başlangıç zamanından sonra olmalıdır.');
+          setState(() => _calDateError = loc.composeCalDateInvalid);
           return;
         }
 
@@ -441,12 +514,12 @@ class _ComposeRecordSheetState extends State<ComposeRecordSheet> {
       case ParsedRecordType.smartPoster:
         final uri = _spUriController.text.trim();
         if (uri.isEmpty || !_isValidUrl(uri)) {
-          setState(() => _spUriError = 'Geçerli bir hedef URL giriniz (Örn: https://...).');
+          setState(() => _spUriError = loc.composeSpUriInvalid);
           return;
         }
         final lang = _spLangController.text.trim().toLowerCase();
         if (lang.isEmpty || !RegExp(r'^[a-z]{2,3}(-[a-z0-9]+)?$').hasMatch(lang)) {
-          setState(() => _spLangError = 'Geçerli bir ISO dil kodu giriniz (Örn: tr, en).');
+          setState(() => _spLangError = loc.composeSpLangInvalid);
           return;
         }
 
@@ -460,7 +533,7 @@ class _ComposeRecordSheetState extends State<ComposeRecordSheet> {
       case ParsedRecordType.customMime:
         final mime = _mimeTypeController.text.trim().toLowerCase();
         if (mime.isEmpty || !RegExp(r'^[-\w.+]+/[-\w.+]+$').hasMatch(mime)) {
-          setState(() => _mimeTypeError = 'Geçerli bir MIME türü giriniz (Örn: application/json, text/plain).');
+          setState(() => _mimeTypeError = loc.composeMimeTypeInvalid);
           return;
         }
 
@@ -469,7 +542,7 @@ class _ComposeRecordSheetState extends State<ComposeRecordSheet> {
         if (_mimeIsHex) {
           final cleanHex = rawPayload.replaceAll(RegExp(r'[\s,]'), '');
           if (cleanHex.isEmpty || cleanHex.length.isOdd || !RegExp(r'^[0-9a-fA-F]+$').hasMatch(cleanHex)) {
-            setState(() => _mimePayloadError = 'Geçerli bir onaltılık (hex) dize giriniz (çift sayıda hex karakter).');
+            setState(() => _mimePayloadError = loc.composeMimeHexInvalid);
             return;
           }
           final list = <int>[];
@@ -482,7 +555,7 @@ class _ComposeRecordSheetState extends State<ComposeRecordSheet> {
         }
 
         if (payloadBytes.length > 10000) {
-          setState(() => _mimePayloadError = 'Yük boyutu çok büyük (en fazla 10 KB).');
+          setState(() => _mimePayloadError = loc.composeMimePayloadTooLarge);
           return;
         }
 
@@ -495,22 +568,22 @@ class _ComposeRecordSheetState extends State<ComposeRecordSheet> {
       case ParsedRecordType.wifi:
         final ssid = _wifiSsidController.text.trim();
         if (ssid.isEmpty) {
-          setState(() => _wifiSsidError = 'Ağ adı (SSID) boş bırakılamaz.');
+          setState(() => _wifiSsidError = loc.composeWifiSsidEmpty);
           return;
         }
         if (utf8.encode(ssid).length > 32) {
-          setState(() => _wifiSsidError = 'SSID en fazla 32 bayt olabilir.');
+          setState(() => _wifiSsidError = L10n.current.ssidTooLong);
           return;
         }
 
         final pass = _wifiPasswordController.text;
         if (_wifiAuthType != WifiAuthType.open) {
           if (pass.isEmpty) {
-            setState(() => _wifiPasswordError = 'Şifreli ağlar için Wi-Fi şifresi zorunludur.');
+            setState(() => _wifiPasswordError = loc.composeWifiPasswordRequired);
             return;
           }
           if (pass.length < 8 || pass.length > 63) {
-            setState(() => _wifiPasswordError = 'WPA/WPA2 şifresi 8 ile 63 karakter arasında olmalıdır.');
+            setState(() => _wifiPasswordError = loc.composeWifiPasswordLength);
             return;
           }
         }
@@ -535,10 +608,11 @@ class _ComposeRecordSheetState extends State<ComposeRecordSheet> {
 
   @override
   Widget build(BuildContext context) {
+    final loc = AppLocalizations.of(context)!;
     return Padding(
       padding: EdgeInsets.only(
         bottom: MediaQuery.of(context).viewInsets.bottom + 16,
-        top: 20,
+        top: 0,
         left: 20,
         right: 20,
       ),
@@ -551,46 +625,80 @@ class _ComposeRecordSheetState extends State<ComposeRecordSheet> {
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
                 Text(
-                  _isEditing ? 'NDEF Kaydını Düzenle' : 'Yeni NDEF Kaydı Oluştur',
+                  _isEditing ? loc.composeEditNdefRecord : loc.composeNewNdefRecord,
                   style: const TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
                 ),
                 IconButton(
+                  tooltip: MaterialLocalizations.of(context).closeButtonTooltip,
                   icon: const Icon(Icons.close),
                   onPressed: () => Navigator.of(context).pop(),
                 ),
               ],
             ),
             const SizedBox(height: 12),
-            // Type Selector Chips
-            Wrap(
-              spacing: 8,
-              runSpacing: 8,
-              children: [
-                _buildChoiceChip(ParsedRecordType.text, 'Metin', Icons.text_fields),
-                _buildChoiceChip(ParsedRecordType.url, 'URL / Web', Icons.link),
-                _buildChoiceChip(ParsedRecordType.email, 'E-posta', Icons.email),
-                _buildChoiceChip(ParsedRecordType.phone, 'Telefon', Icons.phone),
-                _buildChoiceChip(ParsedRecordType.sms, 'SMS', Icons.sms),
-                _buildChoiceChip(ParsedRecordType.location, 'Konum', Icons.location_on),
-                _buildChoiceChip(ParsedRecordType.vcard, 'Kişi (vCard)', Icons.contact_page),
-                _buildChoiceChip(ParsedRecordType.calendar, 'Takvim (iCal)', Icons.calendar_month),
-                _buildChoiceChip(ParsedRecordType.smartPoster, 'Akıllı Poster', Icons.web_stories),
-                _buildChoiceChip(ParsedRecordType.wifi, 'Wi-Fi Ayarı', Icons.wifi),
-                _buildChoiceChip(ParsedRecordType.customMime, 'Özel MIME', Icons.data_object),
-              ],
-            ),
+            // Type chips grouped like a menu: web & text, contact, network.
+            for (final (title, chips) in [
+              (loc.catWebText, [
+                _buildChoiceChip(ParsedRecordType.url, loc.tabUrl, Icons.link),
+                _buildChoiceChip(ParsedRecordType.text, loc.tabText, Icons.text_fields),
+                _buildChoiceChip(ParsedRecordType.smartPoster, loc.recordTypeSmartPoster, Icons.web_stories),
+              ]),
+              (loc.catContact, [
+                _buildChoiceChip(ParsedRecordType.vcard, loc.tabContact, Icons.contact_page),
+                _buildChoiceChip(ParsedRecordType.phone, loc.tabPhone, Icons.phone),
+                _buildChoiceChip(ParsedRecordType.email, loc.tabEmail, Icons.email),
+                _buildChoiceChip(ParsedRecordType.sms, loc.tabSms, Icons.sms),
+                _buildChoiceChip(ParsedRecordType.calendar, loc.recordTypeCalendar, Icons.calendar_month),
+              ]),
+              (loc.catNetwork, [
+                _buildChoiceChip(ParsedRecordType.wifi, loc.tabWifi, Icons.wifi),
+                _buildChoiceChip(ParsedRecordType.location, loc.recordTypeLocation, Icons.location_on),
+                _buildChoiceChip(ParsedRecordType.customMime, loc.tabCustomMime, Icons.data_object),
+              ]),
+            ]) ...[
+              Padding(
+                padding: const EdgeInsets.only(top: 6, bottom: 6),
+                child: Text(title.toUpperCase(),
+                    style: TextStyle(fontSize: 11.5, letterSpacing: 0.6, fontWeight: FontWeight.w700, color: AppColors.secondary)),
+              ),
+              Wrap(spacing: 8, runSpacing: 8, children: chips),
+            ],
+            if (!_isEditing) ...[
+              const SizedBox(height: 16),
+              Text(
+                loc.quickLinksHeader,
+                style: TextStyle(fontWeight: FontWeight.bold, color: AppColors.secondary),
+              ),
+              const SizedBox(height: 8),
+              Wrap(
+                spacing: 8,
+                runSpacing: 8,
+                children: [
+                  _buildQuickChip(QuickLinkKind.customUri, loc.quickLinkCustomUri, Icons.link_off),
+                  _buildQuickChip(QuickLinkKind.social, loc.quickLinkSocial, Icons.people),
+                  _buildQuickChip(QuickLinkKind.video, loc.quickLinkVideo, Icons.play_circle),
+                  _buildQuickChip(QuickLinkKind.search, loc.quickLinkSearch, Icons.search),
+                  _buildQuickChip(QuickLinkKind.file, loc.quickLinkFile, Icons.insert_drive_file),
+                  _buildQuickChip(QuickLinkKind.facetime, 'FaceTime', Icons.videocam),
+                  _buildQuickChip(QuickLinkKind.facetimeAudio, loc.quickLinkFacetimeAudio, Icons.mic),
+                  _buildQuickChip(QuickLinkKind.address, loc.quickLinkAddress, Icons.flag),
+                  _buildQuickChip(QuickLinkKind.payment, loc.quickLinkPayment, Icons.payments),
+                  _buildQuickChip(QuickLinkKind.app, loc.quickLinkApp, Icons.apps),
+                  _buildQuickChip(QuickLinkKind.bluetooth, 'Bluetooth', Icons.bluetooth),
+                ],
+              ),
+            ],
             const Divider(height: 28),
             _buildTypeFields(),
             const SizedBox(height: 24),
             ElevatedButton.icon(
               onPressed: _saveRecord,
               icon: Icon(_isEditing ? Icons.check : Icons.add_task),
-              label: Text(_isEditing ? 'Kaydı Güncelle' : 'Listeye Ekle'),
+              label: Text(_isEditing ? loc.updateRecord : loc.addToList),
               style: ElevatedButton.styleFrom(
                 padding: const EdgeInsets.symmetric(vertical: 14),
-                backgroundColor: _isEditing ? Colors.teal : Colors.indigo,
+                backgroundColor: _isEditing ? AppColors.accent : AppColors.accent,
                 foregroundColor: Colors.white,
-                shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),
               ),
             ),
           ],
@@ -599,16 +707,287 @@ class _ComposeRecordSheetState extends State<ComposeRecordSheet> {
     );
   }
 
-  Widget _buildChoiceChip(ParsedRecordType type, String label, IconData icon) {
-    final isSelected = _selectedType == type;
+  Widget _buildQuickChip(QuickLinkKind kind, String label, IconData icon) {
+    final isSelected = _quickKind == kind;
     return ChoiceChip(
-      avatar: Icon(icon, size: 18, color: isSelected ? Colors.white : Colors.blueGrey),
+      avatar: Icon(icon, size: 18, color: isSelected ? Colors.white : AppColors.secondary),
+      label: Text(label),
+      selected: isSelected,
+      onSelected: (selected) {
+        if (selected) {
+          setState(() {
+            _quickKind = kind;
+            _quickController.clear();
+            _quickSecondaryController.clear();
+            _clearErrors();
+          });
+        }
+      },
+    );
+  }
+
+  void _saveQuickLink(QuickLinkKind kind) {
+    final loc = AppLocalizations.of(context)!;
+    final input = _quickController.text;
+    final NdefRecordModel record;
+    try {
+      switch (kind) {
+        case QuickLinkKind.customUri:
+          final uri = input.trim();
+          if (!QuickLinkBuilder.isValidUri(uri)) {
+            throw QuickLinkException(loc.quickCustomUriError);
+          }
+          record = NdefCodec.encodeUri(uri);
+          break;
+        case QuickLinkKind.social:
+          record = NdefCodec.encodeUri(QuickLinkBuilder.socialUrl(_socialNetwork, input));
+          break;
+        case QuickLinkKind.video:
+          record = NdefCodec.encodeUri(QuickLinkBuilder.videoUrl(input));
+          break;
+        case QuickLinkKind.search:
+          record = NdefCodec.encodeUri(QuickLinkBuilder.searchUrl(_searchEngine, input));
+          break;
+        case QuickLinkKind.file:
+          record = NdefCodec.encodeUri(
+            QuickLinkBuilder.httpsUrl(input, emptyMessage: loc.quickFileEmptyMessage),
+          );
+          break;
+        case QuickLinkKind.payment:
+          record = NdefCodec.encodeUri(
+            QuickLinkBuilder.httpsUrl(input, emptyMessage: loc.quickPaymentEmptyMessage),
+          );
+          break;
+        case QuickLinkKind.facetime:
+          record = NdefCodec.encodeUri(QuickLinkBuilder.facetimeUri(input, audioOnly: false));
+          break;
+        case QuickLinkKind.facetimeAudio:
+          record = NdefCodec.encodeUri(QuickLinkBuilder.facetimeUri(input, audioOnly: true));
+          break;
+        case QuickLinkKind.address:
+          record = NdefCodec.encodeUri(QuickLinkBuilder.addressUrl(_mapProvider, input));
+          break;
+        case QuickLinkKind.app:
+          record = QuickLinkBuilder.androidAppRecord(input);
+          break;
+        case QuickLinkKind.bluetooth:
+          record = QuickLinkBuilder.bluetoothRecord(
+            input,
+            deviceName: _quickSecondaryController.text,
+          );
+          break;
+      }
+    } on QuickLinkException catch (e) {
+      setState(() => _quickError = e.message);
+      return;
+    }
+    widget.onRecordCreated(record);
+    Navigator.of(context).pop();
+  }
+
+  Widget _quickField({
+    required String label,
+    required String hint,
+    TextInputType keyboardType = TextInputType.text,
+    TextEditingController? controller,
+    bool showError = true,
+  }) {
+    return TextField(
+      controller: controller ?? _quickController,
+      keyboardType: keyboardType,
+      autocorrect: false,
+      decoration: InputDecoration(
+        labelText: label,
+        hintText: hint,
+        errorText: showError ? _quickError : null,
+        errorMaxLines: 3,
+        border: const OutlineInputBorder(),
+      ),
+    );
+  }
+
+  Widget _quickNote(String text) {
+    return Padding(
+      padding: const EdgeInsets.only(top: 8),
+      child: Text(text, style: TextStyle(fontSize: 12, color: AppColors.secondary)),
+    );
+  }
+
+  Widget _buildQuickFields(QuickLinkKind kind) {
+    final loc = AppLocalizations.of(context)!;
+    switch (kind) {
+      case QuickLinkKind.customUri:
+        return Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            _quickField(
+              label: loc.quickLinkCustomUri,
+              hint: 'spotify:track:... / myapp://page',
+              keyboardType: TextInputType.url,
+            ),
+            _quickNote(loc.quickCustomUriDesc),
+          ],
+        );
+      case QuickLinkKind.social:
+        return Column(
+          children: [
+            DropdownButtonFormField<SocialNetwork>(
+              initialValue: _socialNetwork,
+              decoration: InputDecoration(
+                labelText: loc.quickSocialLabel,
+                border: const OutlineInputBorder(),
+              ),
+              items: [
+                for (final n in SocialNetwork.values)
+                  DropdownMenuItem(value: n, child: Text(n.displayLabel)),
+              ],
+              onChanged: (v) => setState(() => _socialNetwork = v ?? _socialNetwork),
+            ),
+            const SizedBox(height: 10),
+            _quickField(
+              label: _socialNetwork == SocialNetwork.whatsapp ? loc.phoneNumber : loc.socialUsername,
+              hint: _socialNetwork == SocialNetwork.whatsapp ? '905551112233' : 'kullaniciadi',
+              keyboardType: _socialNetwork == SocialNetwork.whatsapp
+                  ? TextInputType.phone
+                  : TextInputType.text,
+            ),
+          ],
+        );
+      case QuickLinkKind.video:
+        return Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            _quickField(
+              label: loc.quickVideoLabel,
+              hint: loc.quickVideoHint,
+              keyboardType: TextInputType.url,
+            ),
+            _quickNote(loc.quickVideoDesc),
+          ],
+        );
+      case QuickLinkKind.search:
+        return Column(
+          children: [
+            DropdownButtonFormField<SearchEngine>(
+              initialValue: _searchEngine,
+              decoration: InputDecoration(
+                labelText: loc.quickLinkSearch,
+                border: const OutlineInputBorder(),
+              ),
+              items: [
+                for (final e in SearchEngine.values)
+                  DropdownMenuItem(value: e, child: Text(e.label)),
+              ],
+              onChanged: (v) => setState(() => _searchEngine = v ?? _searchEngine),
+            ),
+            const SizedBox(height: 10),
+            _quickField(label: loc.quickSearchTextLabel, hint: loc.quickSearchHint),
+          ],
+        );
+      case QuickLinkKind.file:
+        return Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            _quickField(
+              label: loc.quickFileLabel,
+              hint: 'https://site.com/menu.pdf',
+              keyboardType: TextInputType.url,
+            ),
+            _quickNote(loc.quickFileDesc),
+          ],
+        );
+      case QuickLinkKind.facetime:
+      case QuickLinkKind.facetimeAudio:
+        return Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            _quickField(
+              label: loc.quickPhoneOrAppleId,
+              hint: L10n.current.facetimeTargetHint,
+              keyboardType: TextInputType.emailAddress,
+            ),
+            _quickNote(kind == QuickLinkKind.facetime
+                ? loc.quickFacetimeVideoDesc
+                : loc.quickFacetimeAudioDesc),
+          ],
+        );
+      case QuickLinkKind.address:
+        return Column(
+          children: [
+            DropdownButtonFormField<MapProvider>(
+              initialValue: _mapProvider,
+              decoration: InputDecoration(
+                labelText: loc.quickMapProvider,
+                border: const OutlineInputBorder(),
+              ),
+              items: [
+                for (final m in MapProvider.values)
+                  DropdownMenuItem(value: m, child: Text(m.displayLabel)),
+              ],
+              onChanged: (v) => setState(() => _mapProvider = v ?? _mapProvider),
+            ),
+            const SizedBox(height: 10),
+            TextField(
+              controller: _quickController,
+              maxLines: 2,
+              decoration: InputDecoration(
+                labelText: loc.quickLinkAddress,
+                hintText: loc.quickAddressHint,
+                errorText: _quickError,
+                border: const OutlineInputBorder(),
+              ),
+            ),
+          ],
+        );
+      case QuickLinkKind.payment:
+        return Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            _quickField(
+              label: loc.quickLinkPayment,
+              hint: 'https://paypal.me/kullanici',
+              keyboardType: TextInputType.url,
+            ),
+            _quickNote(loc.quickPaymentDesc),
+          ],
+        );
+      case QuickLinkKind.app:
+        return Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            _quickField(label: loc.appPackageName, hint: 'com.whatsapp'),
+            _quickNote(loc.quickAppDesc),
+          ],
+        );
+      case QuickLinkKind.bluetooth:
+        return Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            _quickField(label: L10n.current.bluetoothMacLabel, hint: '00:11:22:AA:BB:CC'),
+            const SizedBox(height: 10),
+            _quickField(
+              label: loc.quickDeviceNameOptional,
+              hint: loc.quickSpeakerHint,
+              controller: _quickSecondaryController,
+              showError: false,
+            ),
+            _quickNote(loc.quickBluetoothDesc),
+          ],
+        );
+    }
+  }
+
+  Widget _buildChoiceChip(ParsedRecordType type, String label, IconData icon) {
+    final isSelected = _quickKind == null && _selectedType == type;
+    return ChoiceChip(
+      avatar: Icon(icon, size: 18, color: isSelected ? Colors.white : AppColors.secondary),
       label: Text(label),
       selected: isSelected,
       onSelected: (selected) {
         if (selected) {
           setState(() {
             _selectedType = type;
+            _quickKind = null;
             _clearErrors();
           });
         }
@@ -617,14 +996,17 @@ class _ComposeRecordSheetState extends State<ComposeRecordSheet> {
   }
 
   Widget _buildTypeFields() {
+    final loc = AppLocalizations.of(context)!;
+    final quickKind = _quickKind;
+    if (quickKind != null) return _buildQuickFields(quickKind);
     switch (_selectedType) {
       case ParsedRecordType.text:
         return TextField(
           controller: _textController,
           maxLines: 3,
           decoration: InputDecoration(
-            labelText: 'Metin İçeriği',
-            hintText: 'Yazmak istediğiniz metni giriniz',
+            labelText: loc.composeTextContent,
+            hintText: loc.composeTextHint,
             errorText: _textError,
             border: const OutlineInputBorder(),
           ),
@@ -635,7 +1017,7 @@ class _ComposeRecordSheetState extends State<ComposeRecordSheet> {
           controller: _urlController,
           keyboardType: TextInputType.url,
           decoration: InputDecoration(
-            labelText: 'Web Adresi (URL)',
+            labelText: L10n.current.webAddressUrlLabel,
             hintText: 'https://example.com',
             errorText: _urlError,
             border: const OutlineInputBorder(),
@@ -649,8 +1031,8 @@ class _ComposeRecordSheetState extends State<ComposeRecordSheet> {
               controller: _emailController,
               keyboardType: TextInputType.emailAddress,
               decoration: InputDecoration(
-                labelText: 'Alıcı E-posta',
-                hintText: 'ornek@alanadi.com',
+                labelText: loc.emailRecipient,
+                hintText: loc.emailExampleHint,
                 errorText: _emailError,
                 border: const OutlineInputBorder(),
               ),
@@ -658,18 +1040,18 @@ class _ComposeRecordSheetState extends State<ComposeRecordSheet> {
             const SizedBox(height: 10),
             TextField(
               controller: _emailSubjectController,
-              decoration: const InputDecoration(
-                labelText: 'Konu (İsteğe bağlı)',
-                border: OutlineInputBorder(),
+              decoration: InputDecoration(
+                labelText: loc.composeEmailSubjectOptional,
+                border: const OutlineInputBorder(),
               ),
             ),
             const SizedBox(height: 10),
             TextField(
               controller: _emailBodyController,
               maxLines: 2,
-              decoration: const InputDecoration(
-                labelText: 'Mesaj Gövdesi (İsteğe bağlı)',
-                border: OutlineInputBorder(),
+              decoration: InputDecoration(
+                labelText: loc.composeEmailBodyOptional,
+                border: const OutlineInputBorder(),
               ),
             ),
           ],
@@ -680,7 +1062,7 @@ class _ComposeRecordSheetState extends State<ComposeRecordSheet> {
           controller: _phoneController,
           keyboardType: TextInputType.phone,
           decoration: InputDecoration(
-            labelText: 'Telefon Numarası',
+            labelText: loc.phoneNumber,
             hintText: '+905551234567',
             errorText: _phoneError,
             border: const OutlineInputBorder(),
@@ -694,7 +1076,7 @@ class _ComposeRecordSheetState extends State<ComposeRecordSheet> {
               controller: _smsPhoneController,
               keyboardType: TextInputType.phone,
               decoration: InputDecoration(
-                labelText: 'Alıcı Telefon Numarası',
+                labelText: loc.composeSmsRecipient,
                 hintText: '+905551234567',
                 errorText: _smsPhoneError,
                 border: const OutlineInputBorder(),
@@ -704,17 +1086,42 @@ class _ComposeRecordSheetState extends State<ComposeRecordSheet> {
             TextField(
               controller: _smsBodyController,
               maxLines: 2,
-              decoration: const InputDecoration(
-                labelText: 'SMS Metni',
-                hintText: 'Gönderilecek kısa mesaj...',
-                border: OutlineInputBorder(),
+              decoration: InputDecoration(
+                labelText: loc.smsMessage,
+                hintText: loc.composeSmsHint,
+                border: const OutlineInputBorder(),
               ),
             ),
           ],
         );
 
       case ParsedRecordType.location:
-        return Row(
+        return Column(
+          crossAxisAlignment: CrossAxisAlignment.stretch,
+          children: [
+            TextField(
+              controller: _addressController,
+              textInputAction: TextInputAction.search,
+              onSubmitted: (_) => _searchAddress(),
+              decoration: InputDecoration(
+                hintText: L10n.current.locationSearchHint,
+                prefixIcon: const Icon(Icons.search),
+                errorText: _addressError,
+                suffixIcon: _locating
+                    ? const Padding(
+                        padding: EdgeInsets.all(12),
+                        child: SizedBox(width: 18, height: 18, child: CircularProgressIndicator(strokeWidth: 2)),
+                      )
+                    : IconButton(
+                        tooltip: L10n.current.mapAddCurrent,
+                        icon: const Icon(Icons.my_location_rounded),
+                        onPressed: _useCurrentLocation,
+                      ),
+                border: const OutlineInputBorder(),
+              ),
+            ),
+            const SizedBox(height: 10),
+            Row(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Expanded(
@@ -722,7 +1129,7 @@ class _ComposeRecordSheetState extends State<ComposeRecordSheet> {
                 controller: _latController,
                 keyboardType: const TextInputType.numberWithOptions(decimal: true, signed: true),
                 decoration: InputDecoration(
-                  labelText: 'Enlem (Lat)',
+                  labelText: L10n.current.latitudeLabel,
                   hintText: '41.0082',
                   errorText: _latError,
                   border: const OutlineInputBorder(),
@@ -735,13 +1142,15 @@ class _ComposeRecordSheetState extends State<ComposeRecordSheet> {
                 controller: _lngController,
                 keyboardType: const TextInputType.numberWithOptions(decimal: true, signed: true),
                 decoration: InputDecoration(
-                  labelText: 'Boylam (Lng)',
+                  labelText: L10n.current.longitudeLabel,
                   hintText: '28.9784',
                   errorText: _lngError,
                   border: const OutlineInputBorder(),
                 ),
               ),
             ),
+          ],
+        ),
           ],
         );
 
@@ -751,8 +1160,8 @@ class _ComposeRecordSheetState extends State<ComposeRecordSheet> {
             TextField(
               controller: _vcardNameController,
               decoration: InputDecoration(
-                labelText: 'Tam Ad (Görünen İsim) *',
-                hintText: 'Ahmet Yılmaz',
+                labelText: loc.composeVcardFullName,
+                hintText: loc.composeVcardNameHint,
                 errorText: _vcardNameError,
                 border: const OutlineInputBorder(),
               ),
@@ -763,9 +1172,9 @@ class _ComposeRecordSheetState extends State<ComposeRecordSheet> {
                 Expanded(
                   child: TextField(
                     controller: _vcardFirstController,
-                    decoration: const InputDecoration(
-                      labelText: 'Ad',
-                      border: OutlineInputBorder(),
+                    decoration: InputDecoration(
+                      labelText: loc.firstNameLabel,
+                      border: const OutlineInputBorder(),
                     ),
                   ),
                 ),
@@ -773,9 +1182,9 @@ class _ComposeRecordSheetState extends State<ComposeRecordSheet> {
                 Expanded(
                   child: TextField(
                     controller: _vcardLastController,
-                    decoration: const InputDecoration(
-                      labelText: 'Soyad',
-                      border: OutlineInputBorder(),
+                    decoration: InputDecoration(
+                      labelText: loc.lastNameLabel,
+                      border: const OutlineInputBorder(),
                     ),
                   ),
                 ),
@@ -784,17 +1193,17 @@ class _ComposeRecordSheetState extends State<ComposeRecordSheet> {
             const SizedBox(height: 10),
             TextField(
               controller: _vcardOrgController,
-              decoration: const InputDecoration(
-                labelText: 'Şirket / Kurum',
-                border: OutlineInputBorder(),
+              decoration: InputDecoration(
+                labelText: loc.contactCompany,
+                border: const OutlineInputBorder(),
               ),
             ),
             const SizedBox(height: 10),
             TextField(
               controller: _vcardTitleController,
-              decoration: const InputDecoration(
-                labelText: 'Unvan',
-                border: OutlineInputBorder(),
+              decoration: InputDecoration(
+                labelText: loc.contactTitle,
+                border: const OutlineInputBorder(),
               ),
             ),
             const SizedBox(height: 10),
@@ -802,7 +1211,7 @@ class _ComposeRecordSheetState extends State<ComposeRecordSheet> {
               controller: _vcardPhoneController,
               keyboardType: TextInputType.phone,
               decoration: InputDecoration(
-                labelText: 'Telefon Numarası',
+                labelText: loc.phoneNumber,
                 hintText: '+905551234567',
                 errorText: _vcardPhoneError,
                 border: const OutlineInputBorder(),
@@ -813,8 +1222,8 @@ class _ComposeRecordSheetState extends State<ComposeRecordSheet> {
               controller: _vcardEmailController,
               keyboardType: TextInputType.emailAddress,
               decoration: InputDecoration(
-                labelText: 'E-posta Adresi',
-                hintText: 'ahmet@sirket.com',
+                labelText: L10n.current.emailAddressLabel,
+                hintText: loc.emailExampleHint,
                 errorText: _vcardEmailError,
                 border: const OutlineInputBorder(),
               ),
@@ -824,8 +1233,8 @@ class _ComposeRecordSheetState extends State<ComposeRecordSheet> {
               controller: _vcardUrlController,
               keyboardType: TextInputType.url,
               decoration: InputDecoration(
-                labelText: 'Web Sitesi',
-                hintText: 'https://ahmet.dev',
+                labelText: L10n.current.websiteLabel,
+                hintText: 'https://example.com',
                 errorText: _vcardUrlError,
                 border: const OutlineInputBorder(),
               ),
@@ -834,9 +1243,9 @@ class _ComposeRecordSheetState extends State<ComposeRecordSheet> {
             TextField(
               controller: _vcardNoteController,
               maxLines: 2,
-              decoration: const InputDecoration(
-                labelText: 'Not / Açıklama',
-                border: OutlineInputBorder(),
+              decoration: InputDecoration(
+                labelText: loc.composeVcardNote,
+                border: const OutlineInputBorder(),
               ),
             ),
           ],
@@ -849,8 +1258,8 @@ class _ComposeRecordSheetState extends State<ComposeRecordSheet> {
             TextField(
               controller: _calSummaryController,
               decoration: InputDecoration(
-                labelText: 'Etkinlik Başlığı *',
-                hintText: 'Proje Toplantısı',
+                labelText: loc.composeCalTitle,
+                hintText: loc.composeCalTitleHint,
                 errorText: _calSummaryError,
                 border: const OutlineInputBorder(),
               ),
@@ -858,23 +1267,23 @@ class _ComposeRecordSheetState extends State<ComposeRecordSheet> {
             const SizedBox(height: 10),
             TextField(
               controller: _calLocationController,
-              decoration: const InputDecoration(
-                labelText: 'Konum / Yer',
-                hintText: 'Toplantı Odası 2 veya Online',
-                border: OutlineInputBorder(),
+              decoration: InputDecoration(
+                labelText: L10n.current.locationPlace,
+                hintText: loc.composeCalLocationHint,
+                border: const OutlineInputBorder(),
               ),
             ),
             const SizedBox(height: 10),
             TextField(
               controller: _calDescController,
               maxLines: 2,
-              decoration: const InputDecoration(
-                labelText: 'Etkinlik Açıklaması',
-                border: OutlineInputBorder(),
+              decoration: InputDecoration(
+                labelText: loc.composeCalDesc,
+                border: const OutlineInputBorder(),
               ),
             ),
             const SizedBox(height: 12),
-            const Text('Başlangıç ve Bitiş Zamanı:', style: TextStyle(fontWeight: FontWeight.bold)),
+            Text(loc.composeCalStartEndTime, style: const TextStyle(fontWeight: FontWeight.bold)),
             const SizedBox(height: 6),
             Row(
               children: [
@@ -945,7 +1354,7 @@ class _ComposeRecordSheetState extends State<ComposeRecordSheet> {
             ),
             if (_calDateError != null) ...[
               const SizedBox(height: 6),
-              Text(_calDateError!, style: const TextStyle(color: Colors.red, fontSize: 12)),
+              Text(_calDateError!, style: TextStyle(color: AppColors.danger, fontSize: 12)),
             ],
           ],
         );
@@ -957,7 +1366,7 @@ class _ComposeRecordSheetState extends State<ComposeRecordSheet> {
               controller: _spUriController,
               keyboardType: TextInputType.url,
               decoration: InputDecoration(
-                labelText: 'Hedef Web URL *',
+                labelText: L10n.current.targetWebUrl,
                 hintText: 'https://example.com',
                 errorText: _spUriError,
                 border: const OutlineInputBorder(),
@@ -966,17 +1375,17 @@ class _ComposeRecordSheetState extends State<ComposeRecordSheet> {
             const SizedBox(height: 10),
             TextField(
               controller: _spTitleController,
-              decoration: const InputDecoration(
-                labelText: 'Başlık (Görünen Metin)',
-                hintText: 'Şirket Tanıtım Broşürü',
-                border: OutlineInputBorder(),
+              decoration: InputDecoration(
+                labelText: loc.composeSpTitleLabel,
+                hintText: loc.composeSpTitleHint,
+                border: const OutlineInputBorder(),
               ),
             ),
             const SizedBox(height: 10),
             TextField(
               controller: _spLangController,
               decoration: InputDecoration(
-                labelText: 'Dil Kodu (ISO 639-1) *',
+                labelText: L10n.current.languageCodeLabel,
                 hintText: 'tr',
                 errorText: _spLangError,
                 border: const OutlineInputBorder(),
@@ -992,8 +1401,8 @@ class _ComposeRecordSheetState extends State<ComposeRecordSheet> {
             TextField(
               controller: _mimeTypeController,
               decoration: InputDecoration(
-                labelText: 'MIME Türü *',
-                hintText: 'application/json veya text/plain',
+                labelText: loc.composeMimeTypeLabel,
+                hintText: L10n.current.mimeTypeHint,
                 errorText: _mimeTypeError,
                 border: const OutlineInputBorder(),
               ),
@@ -1001,9 +1410,9 @@ class _ComposeRecordSheetState extends State<ComposeRecordSheet> {
             const SizedBox(height: 10),
             Row(
               children: [
-                const Text('Veri Formatı: ', style: TextStyle(fontWeight: FontWeight.w500)),
+                Text(loc.composeDataFormat, style: const TextStyle(fontWeight: FontWeight.w500)),
                 ChoiceChip(
-                  label: const Text('UTF-8 Metin'),
+                  label: Text(L10n.current.utf8Text),
                   selected: !_mimeIsHex,
                   onSelected: (val) {
                     if (val) setState(() => _mimeIsHex = false);
@@ -1011,7 +1420,7 @@ class _ComposeRecordSheetState extends State<ComposeRecordSheet> {
                 ),
                 const SizedBox(width: 8),
                 ChoiceChip(
-                  label: const Text('Hex (Onaltılık)'),
+                  label: Text(loc.composeFormatHex),
                   selected: _mimeIsHex,
                   onSelected: (val) {
                     if (val) setState(() => _mimeIsHex = true);
@@ -1024,7 +1433,7 @@ class _ComposeRecordSheetState extends State<ComposeRecordSheet> {
               controller: _mimePayloadController,
               maxLines: 4,
               decoration: InputDecoration(
-                labelText: _mimeIsHex ? 'Hex Baytları *' : 'Yük Metni (UTF-8) *',
+                labelText: _mimeIsHex ? loc.composeMimeHexBytes : loc.composeMimeTextPayload,
                 hintText: _mimeIsHex ? '01 02 0A FF' : '{"key": "value"}',
                 errorText: _mimePayloadError,
                 border: const OutlineInputBorder(),
@@ -1039,31 +1448,30 @@ class _ComposeRecordSheetState extends State<ComposeRecordSheet> {
           children: [
             // Warning Notice regarding Wi-Fi password visibility on tag and platform joining
             Card(
-              color: Colors.amber.shade50,
+              color: AppColors.warningSoft,
               shape: RoundedRectangleBorder(
                 borderRadius: BorderRadius.circular(8),
-                side: BorderSide(color: Colors.amber.shade400),
+                side: BorderSide(color: AppColors.warning),
               ),
-              child: const Padding(
-                padding: EdgeInsets.all(12),
+              child: Padding(
+                padding: const EdgeInsets.all(12),
                 child: Row(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    Icon(Icons.warning_amber_rounded, color: Colors.orange, size: 24),
-                    SizedBox(width: 8),
+                    Icon(Icons.warning_amber_rounded, color: AppColors.warning, size: 24),
+                    const SizedBox(width: 8),
                     Expanded(
                       child: Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
                           Text(
-                            'Güvenlik ve Platform Uyarısı:',
-                            style: TextStyle(fontWeight: FontWeight.bold, color: Colors.brown, fontSize: 13),
+                            loc.composeWifiWarningTitle,
+                            style: const TextStyle(fontWeight: FontWeight.bold, color: Colors.brown, fontSize: 13),
                           ),
-                          SizedBox(height: 4),
+                          const SizedBox(height: 4),
                           Text(
-                            '• Etikete yazılan Wi-Fi parolası şifresiz/düz metin olarak saklanır ve etiketi okuyan herhangi biri tarafından kolayca okunabilir.\n'
-                            '• iPhone veya Android cihazların etikete dokunulduğunda ağa otomatik olarak katılması garanti edilmez; işletim sistemi ve cihaz desteğine göre kullanıcı onayı veya ağ seçimi gerektirebilir.',
-                            style: TextStyle(fontSize: 12, color: Colors.black87),
+                            loc.composeWifiWarningBody,
+                            style: TextStyle(fontSize: 12, color: AppColors.ink),
                           ),
                         ],
                       ),
@@ -1076,8 +1484,8 @@ class _ComposeRecordSheetState extends State<ComposeRecordSheet> {
             TextField(
               controller: _wifiSsidController,
               decoration: InputDecoration(
-                labelText: 'Ağ Adı (SSID) *',
-                hintText: 'Ev_Interneti_5G',
+                labelText: loc.composeWifiSsidLabel,
+                hintText: loc.wifiSsidExampleHint,
                 errorText: _wifiSsidError,
                 border: const OutlineInputBorder(),
               ),
@@ -1085,15 +1493,15 @@ class _ComposeRecordSheetState extends State<ComposeRecordSheet> {
             const SizedBox(height: 10),
             DropdownButtonFormField<WifiAuthType>(
               initialValue: _wifiAuthType,
-              decoration: const InputDecoration(
-                labelText: 'Güvenlik Türü (Kimlik Doğrulama)',
-                border: OutlineInputBorder(),
+              decoration: InputDecoration(
+                labelText: loc.composeWifiAuthTypeLabel,
+                border: const OutlineInputBorder(),
               ),
-              items: const [
-                DropdownMenuItem(value: WifiAuthType.wpa2Psk, child: Text('WPA2 Personal (Standart Ev/Ofis)')),
-                DropdownMenuItem(value: WifiAuthType.wpaWpa2Personal, child: Text('WPA/WPA2 Personal (Karma)')),
-                DropdownMenuItem(value: WifiAuthType.wpaPsk, child: Text('WPA Personal')),
-                DropdownMenuItem(value: WifiAuthType.open, child: Text('Açık Ağ (Şifresiz)')),
+              items: [
+                DropdownMenuItem(value: WifiAuthType.wpa2Psk, child: Text(L10n.current.wifiAuthWpa2Home)),
+                DropdownMenuItem(value: WifiAuthType.wpaWpa2Personal, child: Text(L10n.current.wifiAuthMixed)),
+                const DropdownMenuItem(value: WifiAuthType.wpaPsk, child: Text('WPA Personal')),
+                DropdownMenuItem(value: WifiAuthType.open, child: Text(loc.composeWifiOpenNetwork)),
               ],
               onChanged: (val) {
                 if (val != null) setState(() => _wifiAuthType = val);
@@ -1105,8 +1513,8 @@ class _ComposeRecordSheetState extends State<ComposeRecordSheet> {
                 controller: _wifiPasswordController,
                 obscureText: true,
                 decoration: InputDecoration(
-                  labelText: 'Wi-Fi Şifresi *',
-                  hintText: 'En az 8 karakter',
+                  labelText: loc.composeWifiPasswordLabel,
+                  hintText: loc.wifiPasswordMinHint,
                   errorText: _wifiPasswordError,
                   border: const OutlineInputBorder(),
                 ),
@@ -1115,15 +1523,15 @@ class _ComposeRecordSheetState extends State<ComposeRecordSheet> {
             const SizedBox(height: 10),
             DropdownButtonFormField<WifiEncryptionType>(
               initialValue: _wifiEncryptionType,
-              decoration: const InputDecoration(
-                labelText: 'Şifreleme Türü',
-                border: OutlineInputBorder(),
+              decoration: InputDecoration(
+                labelText: loc.composeWifiEncryptionLabel,
+                border: const OutlineInputBorder(),
               ),
-              items: const [
-                DropdownMenuItem(value: WifiEncryptionType.aes, child: Text('AES (Önerilen)')),
-                DropdownMenuItem(value: WifiEncryptionType.tkipAes, child: Text('TKIP / AES')),
-                DropdownMenuItem(value: WifiEncryptionType.tkip, child: Text('TKIP')),
-                DropdownMenuItem(value: WifiEncryptionType.none, child: Text('Yok / None')),
+              items: [
+                DropdownMenuItem(value: WifiEncryptionType.aes, child: Text(loc.composeWifiAesRecommended)),
+                const DropdownMenuItem(value: WifiEncryptionType.tkipAes, child: Text('TKIP / AES')),
+                const DropdownMenuItem(value: WifiEncryptionType.tkip, child: Text('TKIP')),
+                DropdownMenuItem(value: WifiEncryptionType.none, child: Text(L10n.current.valueNone)),
               ],
               onChanged: (val) {
                 if (val != null) setState(() => _wifiEncryptionType = val);

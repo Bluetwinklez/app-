@@ -4,6 +4,23 @@
 <dict>
 	<key>CFBundleDevelopmentRegion</key>
 	<string>$(DEVELOPMENT_LANGUAGE)</string>
+	<key>CFBundleLocalizations</key>
+	<array>
+		<string>tr</string>
+		<string>en</string>
+		<string>de</string>
+		<string>fr</string>
+		<string>es</string>
+		<string>it</string>
+		<string>pt-BR</string>
+		<string>ru</string>
+		<string>ar</string>
+		<string>ja</string>
+		<string>zh-Hans</string>
+		<string>ko</string>
+		<string>nl</string>
+		<string>uk</string>
+	</array>
 	<key>CFBundleDisplayName</key>
 	<string>NFC Etiket Yöneticisi</string>
 	<key>CFBundleExecutable</key>
@@ -50,7 +67,31 @@
 	<key>UIApplicationSupportsIndirectInputEvents</key>
 	<true/>
 	<!-- NFC Configuration -->
+	<key>CFBundleURLTypes</key>
+	<array>
+		<dict>
+			<key>CFBundleURLName</key>
+			<string>com.antigravity.nfc_tag_master</string>
+			<key>CFBundleURLSchemes</key>
+			<array>
+				<string>nfctagmaster</string>
+			</array>
+		</dict>
+	</array>
+	<key>NSCameraUsageDescription</key>
+	<string>QR kodlarını taramak ve etiket kütüphanesine fotoğraf eklemek için kamera kullanılır.</string>
+	<key>NSPhotoLibraryUsageDescription</key>
+	<string>Etiket kütüphanesindeki etiketlere fotoğraf eklemek için fotoğraflarınıza erişilir.</string>
+	<key>NSFaceIDUsageDescription</key>
+	<string>Uygulama kilidi açıkken etiket kütüphanenizi korumak için Face ID kullanılır.</string>
+	<key>NSLocationWhenInUseUsageDescription</key>
+	<string>Etiketleri haritada göstermek için, istediğinizde etiketin konumu kaydedilir.</string>
 	<key>NFCReaderUsageDescription</key>
 	<string>NFC etiketlerini okumak ve NDEF mesajları yazmak için NFC erişimi gereklidir.</string>
+	<key>com.apple.developer.nfc.readersession.iso7816.select-identifiers</key>
+	<array>
+		<string>D2760000850101</string>
+		<string>D2760000850100</string>
+	</array>
 </dict>
 </plist>

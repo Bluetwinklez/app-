@@ -1,6 +1,7 @@
 import 'dart:typed_data';
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
+import 'package:nfc_tag_master/l10n/app_localizations.dart';
 import 'package:nfc_tag_master/domain/ndef_record.dart';
 import 'package:nfc_tag_master/ui/compose_record_sheet.dart';
 import 'package:nfc_tag_master/ui/raw_record_editor_dialog.dart';
@@ -14,6 +15,9 @@ void main() {
 
       await tester.pumpWidget(
         MaterialApp(
+        locale: const Locale('tr'),
+        localizationsDelegates: AppLocalizations.localizationsDelegates,
+        supportedLocales: AppLocalizations.supportedLocales,
           home: Scaffold(
             body: ComposeRecordSheet(
               initialRecord: initialRec,
@@ -49,6 +53,9 @@ void main() {
 
       await tester.pumpWidget(
         MaterialApp(
+        locale: const Locale('tr'),
+        localizationsDelegates: AppLocalizations.localizationsDelegates,
+        supportedLocales: AppLocalizations.supportedLocales,
           home: Scaffold(
             body: ComposeRecordSheet(
               initialRecord: initialRec,
@@ -89,6 +96,9 @@ void main() {
 
       await tester.pumpWidget(
         MaterialApp(
+        locale: const Locale('tr'),
+        localizationsDelegates: AppLocalizations.localizationsDelegates,
+        supportedLocales: AppLocalizations.supportedLocales,
           home: Scaffold(
             body: Builder(
               builder: (context) => ElevatedButton(
@@ -136,6 +146,9 @@ void main() {
 
       await tester.pumpWidget(
         MaterialApp(
+        locale: const Locale('tr'),
+        localizationsDelegates: AppLocalizations.localizationsDelegates,
+        supportedLocales: AppLocalizations.supportedLocales,
           home: Scaffold(
             body: Builder(
               builder: (context) => ElevatedButton(

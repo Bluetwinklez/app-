@@ -19,7 +19,7 @@ void main() {
       expect(RegExp(r'^[0-9a-f]{64}$').hasMatch(hash1), isTrue);
     });
 
-    test('encodes valid backup JSON with schema version 1', () {
+    test('encodes valid backup JSON with the current schema version', () {
       final template = WriteTemplate(
         id: 'tpl-1',
         name: 'Ofis Wi-Fi',
@@ -46,14 +46,14 @@ void main() {
         clientAppVersion: '1.0.0+1',
       );
 
-      expect(jsonStr, contains('"schemaVersion": 1'));
+      expect(jsonStr, contains('"schemaVersion": ${BackupCodec.currentSchemaVersion}'));
       expect(jsonStr, contains('"app": "nfc_tag_master"'));
       expect(jsonStr, contains('Ofis Wi-Fi'));
       expect(jsonStr, contains('Giriş Kapısı Etiketi'));
 
       // Validate decode
       final payload = BackupCodec.decodeAndValidate(jsonStr);
-      expect(payload.schemaVersion, equals(1));
+      expect(payload.schemaVersion, equals(BackupCodec.currentSchemaVersion));
       expect(payload.templates.length, equals(1));
       expect(payload.templates.first.name, equals('Ofis Wi-Fi'));
       expect(payload.tagRules?.length, equals(1));
@@ -117,7 +117,7 @@ void main() {
     test('rejects missing or unsupported schema version', () {
       const invalidVersionJson = '''
       {
-        "schemaVersion": 2,
+        "schemaVersion": 3,
         "templates": []
       }
       ''';
@@ -126,7 +126,7 @@ void main() {
         throwsA(isA<BackupValidationException>().having(
           (e) => e.message,
           'message',
-          contains('Desteklenmeyen yedek şema sürümü: 2'),
+          contains('Desteklenmeyen yedek şema sürümü: 3'),
         )),
       );
 

@@ -10,12 +10,25 @@
 		1498D2341E8E89220040F4C2 /* GeneratedPluginRegistrant.m in Sources */ = {isa = PBXBuildFile; fileRef = 1498D2331E8E89220040F4C2 /* GeneratedPluginRegistrant.m */; };
 		331C808B294A63AB00263BE5 /* RunnerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 331C807B294A618700263BE5 /* RunnerTests.swift */; };
 		3B3967161E833CAA004F5970 /* AppFrameworkInfo.plist in Resources */ = {isa = PBXBuildFile; fileRef = 3B3967151E833CAA004F5970 /* AppFrameworkInfo.plist */; };
+		3E201173B1A14CE84253C099 /* LaunchIntents.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3126A085EE03B12D631145F /* LaunchIntents.swift */; };
+		4F9B07B76B8EA49FA4692374 /* CompanionBridge.swift in Sources */ = {isa = PBXBuildFile; fileRef = D82D4AC736F570DFEC4C4889 /* CompanionBridge.swift */; };
+		6500000100000000000000FF /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 650000010000000000000000 /* InfoPlist.strings */; };
+		6500000200000000000000FF /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 650000020000000000000000 /* Localizable.strings */; };
+		6500000300000000000000FF /* AppShortcuts.strings in Resources */ = {isa = PBXBuildFile; fileRef = 650000030000000000000000 /* AppShortcuts.strings */; };
 		74858FAF1ED2DC5600515810 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74858FAE1ED2DC5600515810 /* AppDelegate.swift */; };
 		7884E8682EC3CC0700C636F2 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7884E8672EC3CC0400C636F2 /* SceneDelegate.swift */; };
 		78A318202AECB46A00862997 /* FlutterGeneratedPluginSwiftPackage in Frameworks */ = {isa = PBXBuildFile; productRef = 78A3181F2AECB46A00862997 /* FlutterGeneratedPluginSwiftPackage */; };
+		8815CBB77A24329B3F778151 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 58A9E7C16ED5936B55B7AC27 /* Localizable.strings */; };
 		97C146FC1CF9000F007C117D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 97C146FA1CF9000F007C117D /* Main.storyboard */; };
 		97C146FE1CF9000F007C117D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 97C146FD1CF9000F007C117D /* Assets.xcassets */; };
 		97C147011CF9000F007C117D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 97C146FF1CF9000F007C117D /* LaunchScreen.storyboard */; };
+		A2786439E0ADACB78050D01B /* NfcWatch.app in Embed Watch Content */ = {isa = PBXBuildFile; fileRef = 790D78890985D9568394DFFF /* NfcWatch.app */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		A69AC6B67FAB0F46BB81A4B3 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 3ADF8445E31A3A63C92B9556 /* Localizable.strings */; };
+		A99565A2AE5C8243F9154F35 /* NfcWidgets.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = ABA7CE6805392FE7967FC265 /* NfcWidgets.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		B229A03E452A9F639B3B1AD7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3FAE404C245163BA8E2F179F /* Assets.xcassets */; };
+		B8C356CDEF60D84135647843 /* NfcWidgets.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D78DEC5A9CDEBC6C2B97DB6 /* NfcWidgets.swift */; };
+		D9A405D08C198DB85CEF67C4 /* NfcWatchApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E31A33060D041381DC4C1E6 /* NfcWatchApp.swift */; };
+		DB2B088B902B4326E089092B /* LaunchIntents.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3126A085EE03B12D631145F /* LaunchIntents.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -25,6 +38,20 @@
 			proxyType = 1;
 			remoteGlobalIDString = 97C146ED1CF9000F007C117D;
 			remoteInfo = Runner;
+		};
+		AC39A8B6F0C89394AA8BBCC8 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 97C146E61CF9000F007C117D /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 9955969217944E84F5307DA5;
+			remoteInfo = NfcWidgets;
+		};
+		D0F5E2D878B8FB65EF516537 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 97C146E61CF9000F007C117D /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = E79A243BF3AA0A1E2B4AF3E4;
+			remoteInfo = NfcWatch;
 		};
 /* End PBXContainerItemProxy section */
 
@@ -39,20 +66,106 @@
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		E4C972EE2485B48A4584B498 /* Embed Foundation Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+				A99565A2AE5C8243F9154F35 /* NfcWidgets.appex in Embed Foundation Extensions */,
+			);
+			name = "Embed Foundation Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		E55C2EAA74F0BC9EC0D67C60 /* Embed Watch Content */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "$(CONTENTS_FOLDER_PATH)/Watch";
+			dstSubfolderSpec = 16;
+			files = (
+				A2786439E0ADACB78050D01B /* NfcWatch.app in Embed Watch Content */,
+			);
+			name = "Embed Watch Content";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		1498D2321E8E86230040F4C2 /* GeneratedPluginRegistrant.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GeneratedPluginRegistrant.h; sourceTree = "<group>"; };
 		1498D2331E8E89220040F4C2 /* GeneratedPluginRegistrant.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GeneratedPluginRegistrant.m; sourceTree = "<group>"; };
+		193ADC959FCA63C3AFBC56AC /* fr */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/Localizable.strings; sourceTree = "<group>"; };
 		331C807B294A618700263BE5 /* RunnerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RunnerTests.swift; sourceTree = "<group>"; };
 		331C8081294A63A400263BE5 /* RunnerTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = RunnerTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		336209702C935352A612BE0B /* tr */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.strings; name = tr; path = tr.lproj/Localizable.strings; sourceTree = "<group>"; };
+		3832316EE70D4DC9C53FDEBC /* fr */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/Localizable.strings; sourceTree = "<group>"; };
 		3B3967151E833CAA004F5970 /* AppFrameworkInfo.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = AppFrameworkInfo.plist; path = Flutter/AppFrameworkInfo.plist; sourceTree = "<group>"; };
+		3D78DEC5A9CDEBC6C2B97DB6 /* NfcWidgets.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = NfcWidgets.swift; sourceTree = "<group>"; };
+		3FAE404C245163BA8E2F179F /* Assets.xcassets */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		40BE8958D4EDBD790406E817 /* uk */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.strings; name = uk; path = uk.lproj/Localizable.strings; sourceTree = "<group>"; };
+		44539CA04F7ADEDF77AE0085 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		4E31A33060D041381DC4C1E6 /* NfcWatchApp.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = NfcWatchApp.swift; sourceTree = "<group>"; };
+		55DEDEFCDF15CD7885D6FBD9 /* en */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
+		5CBFD77F722F0D7CDF69C7E1 /* ja */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.strings; name = ja; path = ja.lproj/Localizable.strings; sourceTree = "<group>"; };
 		630000012E00000100000001 /* Runner.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Runner.entitlements; sourceTree = "<group>"; };
+		636163333E28BB1CA6C59AA7 /* ar */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.strings; name = ar; path = ar.lproj/Localizable.strings; sourceTree = "<group>"; };
+		650000010000000000000001 /* tr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = tr; path = tr.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		650000010000000000000002 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		650000010000000000000003 /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		650000010000000000000004 /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		650000010000000000000005 /* es */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = es; path = es.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		650000010000000000000006 /* it */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = it; path = it.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		650000010000000000000007 /* pt-BR */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "pt-BR"; path = "pt-BR.lproj/InfoPlist.strings"; sourceTree = "<group>"; };
+		650000010000000000000008 /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		650000010000000000000009 /* ar */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ar; path = ar.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		65000001000000000000000A /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = ja.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		65000001000000000000000B /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/InfoPlist.strings"; sourceTree = "<group>"; };
+		65000001000000000000000C /* ko */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ko; path = ko.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		65000001000000000000000D /* nl */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = nl; path = nl.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		65000001000000000000000E /* uk */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = uk; path = uk.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		650000020000000000000001 /* tr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = tr; path = tr.lproj/Localizable.strings; sourceTree = "<group>"; };
+		650000020000000000000002 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
+		650000020000000000000003 /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/Localizable.strings; sourceTree = "<group>"; };
+		650000020000000000000004 /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/Localizable.strings; sourceTree = "<group>"; };
+		650000020000000000000005 /* es */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = es; path = es.lproj/Localizable.strings; sourceTree = "<group>"; };
+		650000020000000000000006 /* it */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = it; path = it.lproj/Localizable.strings; sourceTree = "<group>"; };
+		650000020000000000000007 /* pt-BR */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "pt-BR"; path = "pt-BR.lproj/Localizable.strings"; sourceTree = "<group>"; };
+		650000020000000000000008 /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/Localizable.strings; sourceTree = "<group>"; };
+		650000020000000000000009 /* ar */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ar; path = ar.lproj/Localizable.strings; sourceTree = "<group>"; };
+		65000002000000000000000A /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = ja.lproj/Localizable.strings; sourceTree = "<group>"; };
+		65000002000000000000000B /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/Localizable.strings"; sourceTree = "<group>"; };
+		65000002000000000000000C /* ko */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ko; path = ko.lproj/Localizable.strings; sourceTree = "<group>"; };
+		65000002000000000000000D /* nl */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = nl; path = nl.lproj/Localizable.strings; sourceTree = "<group>"; };
+		65000002000000000000000E /* uk */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = uk; path = uk.lproj/Localizable.strings; sourceTree = "<group>"; };
+		650000030000000000000001 /* tr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = tr; path = tr.lproj/AppShortcuts.strings; sourceTree = "<group>"; };
+		650000030000000000000002 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/AppShortcuts.strings; sourceTree = "<group>"; };
+		650000030000000000000003 /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/AppShortcuts.strings; sourceTree = "<group>"; };
+		650000030000000000000004 /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/AppShortcuts.strings; sourceTree = "<group>"; };
+		650000030000000000000005 /* es */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = es; path = es.lproj/AppShortcuts.strings; sourceTree = "<group>"; };
+		650000030000000000000006 /* it */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = it; path = it.lproj/AppShortcuts.strings; sourceTree = "<group>"; };
+		650000030000000000000007 /* pt-BR */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "pt-BR"; path = "pt-BR.lproj/AppShortcuts.strings"; sourceTree = "<group>"; };
+		650000030000000000000008 /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/AppShortcuts.strings; sourceTree = "<group>"; };
+		650000030000000000000009 /* ar */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ar; path = ar.lproj/AppShortcuts.strings; sourceTree = "<group>"; };
+		65000003000000000000000A /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = ja.lproj/AppShortcuts.strings; sourceTree = "<group>"; };
+		65000003000000000000000B /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/AppShortcuts.strings"; sourceTree = "<group>"; };
+		65000003000000000000000C /* ko */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ko; path = ko.lproj/AppShortcuts.strings; sourceTree = "<group>"; };
+		65000003000000000000000D /* nl */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = nl; path = nl.lproj/AppShortcuts.strings; sourceTree = "<group>"; };
+		65000003000000000000000E /* uk */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = uk; path = uk.lproj/AppShortcuts.strings; sourceTree = "<group>"; };
+		66ACA5B542E4D87B1D3CC61D /* es */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.strings; name = es; path = es.lproj/Localizable.strings; sourceTree = "<group>"; };
+		67B92CD43913639963D46566 /* en */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
+		722FFA3EAF92FE4739FA9BA8 /* zh-Hans */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/Localizable.strings"; sourceTree = "<group>"; };
 		74858FAD1ED2DC5600515810 /* Runner-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Runner-Bridging-Header.h"; sourceTree = "<group>"; };
 		74858FAE1ED2DC5600515810 /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		7884E8672EC3CC0400C636F2 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		78E0A7A72DC9AD7400C4905E /* FlutterGeneratedPluginSwiftPackage */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = FlutterGeneratedPluginSwiftPackage; path = Flutter/ephemeral/Packages/FlutterGeneratedPluginSwiftPackage; sourceTree = "<group>"; };
+		7908F8FDCF2305D700CF829E /* es */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.strings; name = es; path = es.lproj/Localizable.strings; sourceTree = "<group>"; };
+		790D78890985D9568394DFFF /* NfcWatch.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NfcWatch.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7AFA3C8E1D35360C0083082E /* Release.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; name = Release.xcconfig; path = Flutter/Release.xcconfig; sourceTree = "<group>"; };
+		7B275CB87217B7F52AC20DB0 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		8227AB3C2EE2117611FD46A5 /* it */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.strings; name = it; path = it.lproj/Localizable.strings; sourceTree = "<group>"; };
+		86424B79422C1D288C2E00CC /* pt-BR */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.strings; name = "pt-BR"; path = "pt-BR.lproj/Localizable.strings"; sourceTree = "<group>"; };
+		8A57AF605C4CAEF97AB692E4 /* ru */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/Localizable.strings; sourceTree = "<group>"; };
+		8CA75BB76046E780D31207A3 /* ar */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.strings; name = ar; path = ar.lproj/Localizable.strings; sourceTree = "<group>"; };
+		945F80D47B8B097082155D95 /* nl */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.strings; name = nl; path = nl.lproj/Localizable.strings; sourceTree = "<group>"; };
 		9740EEB21CF90195004384FC /* Debug.xcconfig */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xcconfig; name = Debug.xcconfig; path = Flutter/Debug.xcconfig; sourceTree = "<group>"; };
 		9740EEB31CF90195004384FC /* Generated.xcconfig */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xcconfig; name = Generated.xcconfig; path = Flutter/Generated.xcconfig; sourceTree = "<group>"; };
 		97C146EE1CF9000F007C117D /* Runner.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Runner.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -60,9 +173,39 @@
 		97C146FD1CF9000F007C117D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		97C147001CF9000F007C117D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		97C147021CF9000F007C117D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		98FE7577050178D59555D0CA /* ja */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.strings; name = ja; path = ja.lproj/Localizable.strings; sourceTree = "<group>"; };
+		A8974DEB7ACE280B62D63441 /* ko */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.strings; name = ko; path = ko.lproj/Localizable.strings; sourceTree = "<group>"; };
+		A96C5CC5774A6F44850D5378 /* de */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/Localizable.strings; sourceTree = "<group>"; };
+		A9A36BDB49AA4D7115BE4BC1 /* zh-Hans */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/Localizable.strings"; sourceTree = "<group>"; };
+		ABA7CE6805392FE7967FC265 /* NfcWidgets.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = NfcWidgets.appex; sourceTree = BUILT_PRODUCTS_DIR; };
+		B3126A085EE03B12D631145F /* LaunchIntents.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = LaunchIntents.swift; sourceTree = "<group>"; };
+		BE654632BEA5199B6050F4DF /* pt-BR */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.strings; name = "pt-BR"; path = "pt-BR.lproj/Localizable.strings"; sourceTree = "<group>"; };
+		C8A42D1E501D83092E3DD1A5 /* uk */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.strings; name = uk; path = uk.lproj/Localizable.strings; sourceTree = "<group>"; };
+		CE639E8E5C4DA7447241B2C7 /* de */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/Localizable.strings; sourceTree = "<group>"; };
+		D82D4AC736F570DFEC4C4889 /* CompanionBridge.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = CompanionBridge.swift; sourceTree = "<group>"; };
+		E2F4924668A7158E7273D53B /* Extension.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = Flutter/Extension.xcconfig; sourceTree = "<group>"; };
+		E61977F58FB1ABD6A0E3ED16 /* it */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.strings; name = it; path = it.lproj/Localizable.strings; sourceTree = "<group>"; };
+		E7426F09BC491B9052C95FF8 /* nl */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.strings; name = nl; path = nl.lproj/Localizable.strings; sourceTree = "<group>"; };
+		EC2B471524463B3859A05658 /* tr */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.strings; name = tr; path = tr.lproj/Localizable.strings; sourceTree = "<group>"; };
+		F2D33090DFA87F658CB4D2EA /* ru */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/Localizable.strings; sourceTree = "<group>"; };
+		FF0D318C8C69735D5E8E888D /* ko */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.strings; name = ko; path = ko.lproj/Localizable.strings; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		02AA563DEEA8CF9B92718CAE /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		79CB5D056AC6968294DA8EFF /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		97C146EB1CF9000F007C117D /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -82,6 +225,38 @@
 			path = RunnerTests;
 			sourceTree = "<group>";
 		};
+		47869E218B35CF149F0134E7 /* NfcWidgets */ = {
+			isa = PBXGroup;
+			children = (
+				3D78DEC5A9CDEBC6C2B97DB6 /* NfcWidgets.swift */,
+				44539CA04F7ADEDF77AE0085 /* Info.plist */,
+				3ADF8445E31A3A63C92B9556 /* Localizable.strings */,
+			);
+			name = NfcWidgets;
+			path = NfcWidgets;
+			sourceTree = "<group>";
+		};
+		4E3DEE7516CF39FBBFCF8BF6 /* NfcWatch */ = {
+			isa = PBXGroup;
+			children = (
+				4E31A33060D041381DC4C1E6 /* NfcWatchApp.swift */,
+				7B275CB87217B7F52AC20DB0 /* Info.plist */,
+				3FAE404C245163BA8E2F179F /* Assets.xcassets */,
+				58A9E7C16ED5936B55B7AC27 /* Localizable.strings */,
+			);
+			name = NfcWatch;
+			path = NfcWatch;
+			sourceTree = "<group>";
+		};
+		73F8FB44D9DC7E04F727987C /* Shared */ = {
+			isa = PBXGroup;
+			children = (
+				B3126A085EE03B12D631145F /* LaunchIntents.swift */,
+			);
+			name = Shared;
+			path = Shared;
+			sourceTree = "<group>";
+		};
 		9740EEB11CF90186004384FC /* Flutter */ = {
 			isa = PBXGroup;
 			children = (
@@ -90,6 +265,7 @@
 				9740EEB21CF90195004384FC /* Debug.xcconfig */,
 				7AFA3C8E1D35360C0083082E /* Release.xcconfig */,
 				9740EEB31CF90195004384FC /* Generated.xcconfig */,
+				E2F4924668A7158E7273D53B /* Extension.xcconfig */,
 			);
 			name = Flutter;
 			sourceTree = "<group>";
@@ -101,6 +277,10 @@
 				97C146F01CF9000F007C117D /* Runner */,
 				97C146EF1CF9000F007C117D /* Products */,
 				331C8082294A63A400263BE5 /* RunnerTests */,
+				73F8FB44D9DC7E04F727987C /* Shared */,
+				A79A8A8B2773044EDDB7E57B /* Frameworks */,
+				47869E218B35CF149F0134E7 /* NfcWidgets */,
+				4E3DEE7516CF39FBBFCF8BF6 /* NfcWatch */,
 			);
 			sourceTree = "<group>";
 		};
@@ -109,6 +289,8 @@
 			children = (
 				97C146EE1CF9000F007C117D /* Runner.app */,
 				331C8081294A63A400263BE5 /* RunnerTests.xctest */,
+				ABA7CE6805392FE7967FC265 /* NfcWidgets.appex */,
+				790D78890985D9568394DFFF /* NfcWatch.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -121,13 +303,24 @@
 				97C146FD1CF9000F007C117D /* Assets.xcassets */,
 				97C146FF1CF9000F007C117D /* LaunchScreen.storyboard */,
 				97C147021CF9000F007C117D /* Info.plist */,
+				650000010000000000000000 /* InfoPlist.strings */,
+				650000020000000000000000 /* Localizable.strings */,
+				650000030000000000000000 /* AppShortcuts.strings */,
 				1498D2321E8E86230040F4C2 /* GeneratedPluginRegistrant.h */,
 				1498D2331E8E89220040F4C2 /* GeneratedPluginRegistrant.m */,
 				74858FAE1ED2DC5600515810 /* AppDelegate.swift */,
 				7884E8672EC3CC0400C636F2 /* SceneDelegate.swift */,
 				74858FAD1ED2DC5600515810 /* Runner-Bridging-Header.h */,
+				D82D4AC736F570DFEC4C4889 /* CompanionBridge.swift */,
 			);
 			path = Runner;
+			sourceTree = "<group>";
+		};
+		A79A8A8B2773044EDDB7E57B /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -159,11 +352,15 @@
 				97C146EB1CF9000F007C117D /* Frameworks */,
 				97C146EC1CF9000F007C117D /* Resources */,
 				9705A1C41CF9048500538489 /* Embed Frameworks */,
+				E55C2EAA74F0BC9EC0D67C60 /* Embed Watch Content */,
+				E4C972EE2485B48A4584B498 /* Embed Foundation Extensions */,
 				3B06AD1E1E4923F5004D2608 /* Thin Binary */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				C7EBEC101F99C27032DB664B /* PBXTargetDependency */,
+				4E1912D74EA316BF43530755 /* PBXTargetDependency */,
 			);
 			name = Runner;
 			packageProductDependencies = (
@@ -171,6 +368,40 @@
 			);
 			productName = Runner;
 			productReference = 97C146EE1CF9000F007C117D /* Runner.app */;
+			productType = "com.apple.product-type.application";
+		};
+		9955969217944E84F5307DA5 /* NfcWidgets */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = D7B0D888817D5B9F1AE1E5A7 /* Build configuration list for PBXNativeTarget "NfcWidgets" */;
+			buildPhases = (
+				874D38A4E713D484B0E95252 /* Sources */,
+				02AA563DEEA8CF9B92718CAE /* Frameworks */,
+				63A0676D54AE4B77BCE3F4F8 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = NfcWidgets;
+			productName = NfcWidgets;
+			productReference = ABA7CE6805392FE7967FC265 /* NfcWidgets.appex */;
+			productType = "com.apple.product-type.app-extension";
+		};
+		E79A243BF3AA0A1E2B4AF3E4 /* NfcWatch */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = D005D19C38046C00363D3CEC /* Build configuration list for PBXNativeTarget "NfcWatch" */;
+			buildPhases = (
+				B6332EC833FA6F3ADF18304F /* Sources */,
+				79CB5D056AC6968294DA8EFF /* Frameworks */,
+				CC978478D5A0941D79B4E080 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = NfcWatch;
+			productName = NfcWatch;
+			productReference = 790D78890985D9568394DFFF /* NfcWatch.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -200,10 +431,23 @@
 			knownRegions = (
 				en,
 				Base,
+				tr,
+				de,
+				fr,
+				es,
+				it,
+				"pt-BR",
+				ru,
+				ar,
+				ja,
+				"zh-Hans",
+				ko,
+				nl,
+				uk,
 			);
 			mainGroup = 97C146E51CF9000F007C117D;
 			packageReferences = (
-				781AD8BC2B33823900A9FFBB /* XCLocalSwiftPackageReference "Flutter/ephemeral/Packages/FlutterGeneratedPluginSwiftPackage" */,
+				781AD8BC2B33823900A9FFBB /* XCLocalSwiftPackageReference "FlutterGeneratedPluginSwiftPackage" */,
 			);
 			productRefGroup = 97C146EF1CF9000F007C117D /* Products */;
 			projectDirPath = "";
@@ -211,6 +455,8 @@
 			targets = (
 				97C146ED1CF9000F007C117D /* Runner */,
 				331C8080294A63A400263BE5 /* RunnerTests */,
+				9955969217944E84F5307DA5 /* NfcWidgets */,
+				E79A243BF3AA0A1E2B4AF3E4 /* NfcWatch */,
 			);
 		};
 /* End PBXProject section */
@@ -223,6 +469,14 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		63A0676D54AE4B77BCE3F4F8 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A69AC6B67FAB0F46BB81A4B3 /* Localizable.strings in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		97C146EC1CF9000F007C117D /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -231,6 +485,18 @@
 				3B3967161E833CAA004F5970 /* AppFrameworkInfo.plist in Resources */,
 				97C146FE1CF9000F007C117D /* Assets.xcassets in Resources */,
 				97C146FC1CF9000F007C117D /* Main.storyboard in Resources */,
+				6500000100000000000000FF /* InfoPlist.strings in Resources */,
+				6500000200000000000000FF /* Localizable.strings in Resources */,
+				6500000300000000000000FF /* AppShortcuts.strings in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		CC978478D5A0941D79B4E080 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B229A03E452A9F639B3B1AD7 /* Assets.xcassets in Resources */,
+				8815CBB77A24329B3F778151 /* Localizable.strings in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -279,6 +545,15 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		874D38A4E713D484B0E95252 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B8C356CDEF60D84135647843 /* NfcWidgets.swift in Sources */,
+				3E201173B1A14CE84253C099 /* LaunchIntents.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		97C146EA1CF9000F007C117D /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -286,6 +561,16 @@
 				74858FAF1ED2DC5600515810 /* AppDelegate.swift in Sources */,
 				1498D2341E8E89220040F4C2 /* GeneratedPluginRegistrant.m in Sources */,
 				7884E8682EC3CC0700C636F2 /* SceneDelegate.swift in Sources */,
+				4F9B07B76B8EA49FA4692374 /* CompanionBridge.swift in Sources */,
+				DB2B088B902B4326E089092B /* LaunchIntents.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		B6332EC833FA6F3ADF18304F /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D9A405D08C198DB85CEF67C4 /* NfcWatchApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -297,9 +582,126 @@
 			target = 97C146ED1CF9000F007C117D /* Runner */;
 			targetProxy = 331C8085294A63A400263BE5 /* PBXContainerItemProxy */;
 		};
+		4E1912D74EA316BF43530755 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = NfcWatch;
+			target = E79A243BF3AA0A1E2B4AF3E4 /* NfcWatch */;
+			targetProxy = D0F5E2D878B8FB65EF516537 /* PBXContainerItemProxy */;
+		};
+		C7EBEC101F99C27032DB664B /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = NfcWidgets;
+			target = 9955969217944E84F5307DA5 /* NfcWidgets */;
+			targetProxy = AC39A8B6F0C89394AA8BBCC8 /* PBXContainerItemProxy */;
+		};
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
+		3ADF8445E31A3A63C92B9556 /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				8CA75BB76046E780D31207A3 /* ar */,
+				A96C5CC5774A6F44850D5378 /* de */,
+				55DEDEFCDF15CD7885D6FBD9 /* en */,
+				66ACA5B542E4D87B1D3CC61D /* es */,
+				3832316EE70D4DC9C53FDEBC /* fr */,
+				8227AB3C2EE2117611FD46A5 /* it */,
+				5CBFD77F722F0D7CDF69C7E1 /* ja */,
+				FF0D318C8C69735D5E8E888D /* ko */,
+				945F80D47B8B097082155D95 /* nl */,
+				BE654632BEA5199B6050F4DF /* pt-BR */,
+				F2D33090DFA87F658CB4D2EA /* ru */,
+				336209702C935352A612BE0B /* tr */,
+				40BE8958D4EDBD790406E817 /* uk */,
+				A9A36BDB49AA4D7115BE4BC1 /* zh-Hans */,
+			);
+			name = Localizable.strings;
+			sourceTree = "<group>";
+		};
+		58A9E7C16ED5936B55B7AC27 /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				636163333E28BB1CA6C59AA7 /* ar */,
+				CE639E8E5C4DA7447241B2C7 /* de */,
+				67B92CD43913639963D46566 /* en */,
+				7908F8FDCF2305D700CF829E /* es */,
+				193ADC959FCA63C3AFBC56AC /* fr */,
+				E61977F58FB1ABD6A0E3ED16 /* it */,
+				98FE7577050178D59555D0CA /* ja */,
+				A8974DEB7ACE280B62D63441 /* ko */,
+				E7426F09BC491B9052C95FF8 /* nl */,
+				86424B79422C1D288C2E00CC /* pt-BR */,
+				8A57AF605C4CAEF97AB692E4 /* ru */,
+				EC2B471524463B3859A05658 /* tr */,
+				C8A42D1E501D83092E3DD1A5 /* uk */,
+				722FFA3EAF92FE4739FA9BA8 /* zh-Hans */,
+			);
+			name = Localizable.strings;
+			sourceTree = "<group>";
+		};
+		650000010000000000000000 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				650000010000000000000001 /* tr */,
+				650000010000000000000002 /* en */,
+				650000010000000000000003 /* de */,
+				650000010000000000000004 /* fr */,
+				650000010000000000000005 /* es */,
+				650000010000000000000006 /* it */,
+				650000010000000000000007 /* pt-BR */,
+				650000010000000000000008 /* ru */,
+				650000010000000000000009 /* ar */,
+				65000001000000000000000A /* ja */,
+				65000001000000000000000B /* zh-Hans */,
+				65000001000000000000000C /* ko */,
+				65000001000000000000000D /* nl */,
+				65000001000000000000000E /* uk */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		650000020000000000000000 /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				650000020000000000000001 /* tr */,
+				650000020000000000000002 /* en */,
+				650000020000000000000003 /* de */,
+				650000020000000000000004 /* fr */,
+				650000020000000000000005 /* es */,
+				650000020000000000000006 /* it */,
+				650000020000000000000007 /* pt-BR */,
+				650000020000000000000008 /* ru */,
+				650000020000000000000009 /* ar */,
+				65000002000000000000000A /* ja */,
+				65000002000000000000000B /* zh-Hans */,
+				65000002000000000000000C /* ko */,
+				65000002000000000000000D /* nl */,
+				65000002000000000000000E /* uk */,
+			);
+			name = Localizable.strings;
+			sourceTree = "<group>";
+		};
+		650000030000000000000000 /* AppShortcuts.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				650000030000000000000001 /* tr */,
+				650000030000000000000002 /* en */,
+				650000030000000000000003 /* de */,
+				650000030000000000000004 /* fr */,
+				650000030000000000000005 /* es */,
+				650000030000000000000006 /* it */,
+				650000030000000000000007 /* pt-BR */,
+				650000030000000000000008 /* ru */,
+				650000030000000000000009 /* ar */,
+				65000003000000000000000A /* ja */,
+				65000003000000000000000B /* zh-Hans */,
+				65000003000000000000000C /* ko */,
+				65000003000000000000000D /* nl */,
+				65000003000000000000000E /* uk */,
+			);
+			name = AppShortcuts.strings;
+			sourceTree = "<group>";
+		};
 		97C146FA1CF9000F007C117D /* Main.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -362,7 +764,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				STRING_CATALOG_GENERATE_SYMBOLS = YES;
@@ -376,6 +778,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 7AFA3C8E1D35360C0083082E /* Release.xcconfig */;
 			buildSettings = {
+				ASSETCATALOG_COMPILER_ALTERNATE_APPICON_NAMES = "AppIcon-Green AppIcon-Purple AppIcon-Orange AppIcon-Dark AppIcon-Red AppIcon-Teal AppIcon-Gold AppIcon-Pink AppIcon-Indigo AppIcon-Light AppIcon-Rainbow";
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = Runner/Runner.entitlements;
@@ -441,6 +844,64 @@
 			};
 			name = Profile;
 		};
+		5CB27717C5DE4DCA08FA770E /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = E2F4924668A7158E7273D53B /* Extension.xcconfig */;
+			buildSettings = {
+				APPLICATION_EXTENSION_API_ONLY = YES;
+				CLANG_ENABLE_OBJC_WEAK = NO;
+				CODE_SIGN_IDENTITY = "Apple Distribution";
+				CODE_SIGN_STYLE = Manual;
+				CURRENT_PROJECT_VERSION = "$(FLUTTER_BUILD_NUMBER)";
+				DEVELOPMENT_TEAM = 65S88D9LF5;
+				GENERATE_INFOPLIST_FILE = NO;
+				INFOPLIST_FILE = NfcWidgets/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				MARKETING_VERSION = "$(FLUTTER_BUILD_NAME)";
+				PRODUCT_BUNDLE_IDENTIFIER = com.bluetwinklez.nfctagmaster.widgets;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "NFCTM CI Widgets";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		7463B17D0B79AFB0D11F18E5 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = E2F4924668A7158E7273D53B /* Extension.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = "$(FLUTTER_BUILD_NUMBER)";
+				DEVELOPMENT_TEAM = 65S88D9LF5;
+				GENERATE_INFOPLIST_FILE = NO;
+				INFOPLIST_FILE = NfcWatch/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = "$(FLUTTER_BUILD_NAME)";
+				PRODUCT_BUNDLE_IDENTIFIER = com.bluetwinklez.nfctagmaster.watchkitapp;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				SUPPORTED_PLATFORMS = "watchos watchsimulator";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 4;
+				WATCHOS_DEPLOYMENT_TARGET = 10.0;
+			};
+			name = Debug;
+		};
 		97C147031CF9000F007C117D /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -490,7 +951,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
@@ -542,7 +1003,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				STRING_CATALOG_GENERATE_SYMBOLS = YES;
@@ -558,6 +1019,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 9740EEB21CF90195004384FC /* Debug.xcconfig */;
 			buildSettings = {
+				ASSETCATALOG_COMPILER_ALTERNATE_APPICON_NAMES = "AppIcon-Green AppIcon-Purple AppIcon-Orange AppIcon-Dark AppIcon-Red AppIcon-Teal AppIcon-Gold AppIcon-Pink AppIcon-Indigo AppIcon-Light AppIcon-Rainbow";
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = Runner/Runner.entitlements;
@@ -581,6 +1043,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 7AFA3C8E1D35360C0083082E /* Release.xcconfig */;
 			buildSettings = {
+				ASSETCATALOG_COMPILER_ALTERNATE_APPICON_NAMES = "AppIcon-Green AppIcon-Purple AppIcon-Orange AppIcon-Dark AppIcon-Red AppIcon-Teal AppIcon-Gold AppIcon-Pink AppIcon-Indigo AppIcon-Light AppIcon-Rainbow";
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = Runner/Runner.entitlements;
@@ -596,12 +1059,127 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.bluetwinklez.nfctagmaster;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE_SPECIFIER = "NFC Tag Master App Store";
+				PROVISIONING_PROFILE_SPECIFIER = "NFCTM CI App";
 				SWIFT_OBJC_BRIDGING_HEADER = "Runner/Runner-Bridging-Header.h";
 				SWIFT_VERSION = 5.0;
 				VERSIONING_SYSTEM = "apple-generic";
 			};
 			name = Release;
+		};
+		AA309CF2EE0186FC5DACA6D3 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = E2F4924668A7158E7273D53B /* Extension.xcconfig */;
+			buildSettings = {
+				APPLICATION_EXTENSION_API_ONLY = YES;
+				CLANG_ENABLE_OBJC_WEAK = NO;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = "$(FLUTTER_BUILD_NUMBER)";
+				DEVELOPMENT_TEAM = 65S88D9LF5;
+				GENERATE_INFOPLIST_FILE = NO;
+				INFOPLIST_FILE = NfcWidgets/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				MARKETING_VERSION = "$(FLUTTER_BUILD_NAME)";
+				PRODUCT_BUNDLE_IDENTIFIER = com.bluetwinklez.nfctagmaster.widgets;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		C26DDF12C97418950507AAA1 /* Profile */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = E2F4924668A7158E7273D53B /* Extension.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = "$(FLUTTER_BUILD_NUMBER)";
+				DEVELOPMENT_TEAM = 65S88D9LF5;
+				GENERATE_INFOPLIST_FILE = NO;
+				INFOPLIST_FILE = NfcWatch/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = "$(FLUTTER_BUILD_NAME)";
+				PRODUCT_BUNDLE_IDENTIFIER = com.bluetwinklez.nfctagmaster.watchkitapp;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				SUPPORTED_PLATFORMS = "watchos watchsimulator";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 4;
+				VALIDATE_PRODUCT = YES;
+				WATCHOS_DEPLOYMENT_TARGET = 10.0;
+			};
+			name = Profile;
+		};
+		D74ADC939665ADBF03ED4E52 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = E2F4924668A7158E7273D53B /* Extension.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "Apple Distribution";
+				CODE_SIGN_STYLE = Manual;
+				CURRENT_PROJECT_VERSION = "$(FLUTTER_BUILD_NUMBER)";
+				DEVELOPMENT_TEAM = 65S88D9LF5;
+				GENERATE_INFOPLIST_FILE = NO;
+				INFOPLIST_FILE = NfcWatch/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = "$(FLUTTER_BUILD_NAME)";
+				PRODUCT_BUNDLE_IDENTIFIER = com.bluetwinklez.nfctagmaster.watchkitapp;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "NFCTM CI Watch";
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				SUPPORTED_PLATFORMS = "watchos watchsimulator";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 4;
+				VALIDATE_PRODUCT = YES;
+				WATCHOS_DEPLOYMENT_TARGET = 10.0;
+			};
+			name = Release;
+		};
+		D761DDB20648B7B05F55C8B6 /* Profile */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = E2F4924668A7158E7273D53B /* Extension.xcconfig */;
+			buildSettings = {
+				APPLICATION_EXTENSION_API_ONLY = YES;
+				CLANG_ENABLE_OBJC_WEAK = NO;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = "$(FLUTTER_BUILD_NUMBER)";
+				DEVELOPMENT_TEAM = 65S88D9LF5;
+				GENERATE_INFOPLIST_FILE = NO;
+				INFOPLIST_FILE = NfcWidgets/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				MARKETING_VERSION = "$(FLUTTER_BUILD_NAME)";
+				PRODUCT_BUNDLE_IDENTIFIER = com.bluetwinklez.nfctagmaster.widgets;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Profile;
 		};
 /* End XCBuildConfiguration section */
 
@@ -636,10 +1214,30 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
+		D005D19C38046C00363D3CEC /* Build configuration list for PBXNativeTarget "NfcWatch" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D74ADC939665ADBF03ED4E52 /* Release */,
+				7463B17D0B79AFB0D11F18E5 /* Debug */,
+				C26DDF12C97418950507AAA1 /* Profile */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		D7B0D888817D5B9F1AE1E5A7 /* Build configuration list for PBXNativeTarget "NfcWidgets" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				5CB27717C5DE4DCA08FA770E /* Release */,
+				AA309CF2EE0186FC5DACA6D3 /* Debug */,
+				D761DDB20648B7B05F55C8B6 /* Profile */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 /* End XCConfigurationList section */
 
 /* Begin XCLocalSwiftPackageReference section */
-		781AD8BC2B33823900A9FFBB /* XCLocalSwiftPackageReference "Flutter/ephemeral/Packages/FlutterGeneratedPluginSwiftPackage" */ = {
+		781AD8BC2B33823900A9FFBB /* XCLocalSwiftPackageReference "FlutterGeneratedPluginSwiftPackage" */ = {
 			isa = XCLocalSwiftPackageReference;
 			relativePath = Flutter/ephemeral/Packages/FlutterGeneratedPluginSwiftPackage;
 		};

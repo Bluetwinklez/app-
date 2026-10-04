@@ -1,0 +1,6 @@
+"CFBundleDisplayName" = "NFC Tag Master";
+"NSCameraUsageDescription" = "Die Kamera wird zum Scannen von QR-Codes und für Fotos in Ihrer Tag-Bibliothek verwendet.";
+"NSPhotoLibraryUsageDescription" = "Ihre Fotos werden verwendet, um Tags in der Bibliothek Bilder hinzuzufügen.";
+"NFCReaderUsageDescription" = "NFC-Zugriff wird zum Lesen von NFC-Tags und Schreiben von NDEF-Nachrichten benötigt.";
+"NSFaceIDUsageDescription" = "Face ID schützt Ihre Tag-Bibliothek, wenn die App-Sperre aktiv ist.";
+"NSLocationWhenInUseUsageDescription" = "Auf Wunsch wird der Ort des Tags gespeichert, um ihn auf der Tag-Karte zu zeigen.";

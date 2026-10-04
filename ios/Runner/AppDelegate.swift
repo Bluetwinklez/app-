@@ -1,6 +1,34 @@
 import UIKit
+import Vision
 import Flutter
 import CoreNFC
+import AppIntents
+import StoreKit
+import LocalAuthentication
+
+/// Phrases and titles are English keys; translations live in
+/// <lang>.lproj/AppShortcuts.strings and Localizable.strings.
+@available(iOS 16.0, *)
+struct NfcTagMasterShortcuts: AppShortcutsProvider {
+    static var appShortcuts: [AppShortcut] {
+        AppShortcut(
+            intent: ScanTagIntent(),
+            phrases: [
+                "Scan a tag with \(.applicationName)"
+            ],
+            shortTitle: "Scan Tag",
+            systemImageName: "wave.3.right"
+        )
+        AppShortcut(
+            intent: WriteTagIntent(),
+            phrases: [
+                "Write a tag with \(.applicationName)"
+            ],
+            shortTitle: "Write Tag",
+            systemImageName: "square.and.pencil"
+        )
+    }
+}
 
 @UIApplicationMain
 @objc class AppDelegate: FlutterAppDelegate, NFCTagReaderSessionDelegate {
@@ -14,6 +42,26 @@ import CoreNFC
     private let lock = NSLock()
     private var isCompleted: Bool = false
 
+    // Raw command session (NTAG / MIFARE Ultralight tools)
+    private var rawTag: NFCMiFareTag?
+
+    // Action requested by a URL (nfctagmaster://scan) or a Siri shortcut,
+    // waiting for Flutter to pick it up
+    private var launchChannel: FlutterMethodChannel?
+    private var companion: CompanionBridge?
+    private var privacyCoverEnabled = false
+    private var authenticating = false
+    private var privacyCover: UIView?
+    private var pendingLaunchAction: String?
+
+    // Texts for the system NFC sheet in the app's chosen language, sent by
+    // Flutter with each call; the Turkish fallbacks are only used if missing.
+    private var ui: [String: String] = [:]
+
+    private func t(_ key: String, _ fallback: String) -> String {
+        return ui[key] ?? fallback
+    }
+
     override func application(
         _ application: UIApplication,
         didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?
@@ -23,6 +71,10 @@ import CoreNFC
 
         nfcChannel.setMethodCallHandler({ [weak self] (call: FlutterMethodCall, result: @escaping FlutterResult) -> Void in
             guard let self = self else { return }
+
+            if let ui = (call.arguments as? [String: Any])?["ui"] as? [String: String] {
+                self.ui = ui
+            }
 
             switch call.method {
             case "checkAvailability":
@@ -80,6 +132,90 @@ import CoreNFC
 
                 self.startSession(alertMessage: prompt)
 
+            case "lockTag":
+                guard NFCTagReaderSession.readingAvailable else {
+                    result(FlutterError(code: "NFC_UNAVAILABLE", message: "Bu iOS cihazında NFC okuyucu desteklenmiyor", details: nil))
+                    return
+                }
+                let prompt = (call.arguments as? [String: Any])?["promptMessage"] as? String ?? "Kilitlemek istediğiniz etiketi yaklaştırın"
+
+                self.lock.lock()
+                if self.pendingResult != nil {
+                    self.lock.unlock()
+                    result(FlutterError(code: "OPERATION_IN_PROGRESS", message: "Zaten devam eden bir NFC işlemi var", details: nil))
+                    return
+                }
+                self.isCompleted = false
+                self.pendingResult = result
+                self.pendingOperation = "lock"
+                self.lock.unlock()
+
+                self.startSession(alertMessage: prompt)
+
+            case "startRawSession":
+                guard NFCTagReaderSession.readingAvailable else {
+                    result(FlutterError(code: "NFC_UNAVAILABLE", message: "Bu iOS cihazında NFC okuyucu desteklenmiyor", details: nil))
+                    return
+                }
+                let prompt = (call.arguments as? [String: Any])?["promptMessage"] as? String ?? "Etiketi iPhone'un üst kısmına yaklaştırın"
+
+                self.lock.lock()
+                if self.pendingResult != nil || self.rawTag != nil {
+                    self.lock.unlock()
+                    result(FlutterError(code: "OPERATION_IN_PROGRESS", message: "Zaten devam eden bir NFC işlemi var", details: nil))
+                    return
+                }
+                self.isCompleted = false
+                self.pendingResult = result
+                self.pendingOperation = "raw"
+                self.lock.unlock()
+
+                self.startSession(alertMessage: prompt)
+
+            case "transceive":
+                guard let args = call.arguments as? [String: Any],
+                      let command = (args["command"] as? FlutterStandardTypedData)?.data,
+                      !command.isEmpty else {
+                    result(FlutterError(code: "INVALID_ARGS", message: "Geçersiz komut", details: nil))
+                    return
+                }
+                self.lock.lock()
+                let tag = self.rawTag
+                self.lock.unlock()
+                guard let rawTag = tag else {
+                    result(FlutterError(code: "NO_SESSION", message: "Etiket bağlantısı yok veya kesildi", details: nil))
+                    return
+                }
+                rawTag.sendMiFareCommand(commandPacket: command) { (response: Data, error: Error?) in
+                    DispatchQueue.main.async {
+                        if let error = error {
+                            result(FlutterError(code: "TRANSCEIVE_FAILED", message: error.localizedDescription, details: nil))
+                        } else {
+                            result(FlutterStandardTypedData(bytes: response))
+                        }
+                    }
+                }
+
+            case "endRawSession":
+                let args = call.arguments as? [String: Any]
+                let errorMessage = args?["errorMessage"] as? String
+                let successMessage = args?["successMessage"] as? String
+                self.lock.lock()
+                let activeSession = self.nfcSession
+                self.rawTag = nil
+                self.lock.unlock()
+                if let activeSession = activeSession {
+                    if let errorMessage = errorMessage {
+                        activeSession.invalidate(errorMessage: errorMessage)
+                    } else {
+                        if let successMessage = successMessage {
+                            activeSession.alertMessage = successMessage
+                        }
+                        activeSession.invalidate()
+                    }
+                }
+                result(nil)
+
             case "cancelSession":
                 self.lock.lock()
                 let activeSession = self.nfcSession
@@ -94,8 +230,157 @@ import CoreNFC
             }
         })
 
+        let launchChannel = FlutterMethodChannel(name: "com.antigravity.nfc_tag_master/launch", binaryMessenger: controller.binaryMessenger)
+        launchChannel.setMethodCallHandler({ [weak self] (call: FlutterMethodCall, result: @escaping FlutterResult) -> Void in
+            guard let self = self else { return }
+            if call.method == "takeLaunchAction" {
+                let action = self.pendingLaunchAction
+                self.pendingLaunchAction = nil
+                result(action)
+            } else if call.method == "requestReview" {
+                // Apple decides whether the prompt is shown (never in TestFlight).
+                if let scene = UIApplication.shared.connectedScenes
+                    .first(where: { $0.activationState == .foregroundActive }) as? UIWindowScene {
+                    SKStoreReviewController.requestReview(in: scene)
+                    result(true)
+                } else {
+                    result(false)
+                }
+            } else if call.method == "canAuthenticate" {
+                var error: NSError?
+                result(LAContext().canEvaluatePolicy(.deviceOwnerAuthentication, error: &error))
+            } else if call.method == "authenticate" {
+                let reason = (call.arguments as? [String: Any])?["reason"] as? String ?? "Unlock"
+                let context = LAContext()
+                var error: NSError?
+                guard context.canEvaluatePolicy(.deviceOwnerAuthentication, error: &error) else {
+                    result(nil)
+                    return
+                }
+                self.authenticating = true
+                context.evaluatePolicy(.deviceOwnerAuthentication, localizedReason: reason) { ok, _ in
+                    DispatchQueue.main.async {
+                        self.authenticating = false
+                        result(ok)
+                    }
+                }
+            } else if call.method == "recognizeText" {
+                guard let path = (call.arguments as? [String: Any])?["path"] as? String,
+                      let image = UIImage(contentsOfFile: path)?.cgImage else {
+                    result(nil)
+                    return
+                }
+                let request = VNRecognizeTextRequest { req, _ in
+                    let lines = (req.results as? [VNRecognizedTextObservation] ?? [])
+                        .compactMap { $0.topCandidates(1).first?.string }
+                    DispatchQueue.main.async { result(lines.joined(separator: "\n")) }
+                }
+                request.recognitionLevel = .accurate
+                request.usesLanguageCorrection = true
+                request.automaticallyDetectsLanguage = true
+                DispatchQueue.global(qos: .userInitiated).async {
+                    do {
+                        try VNImageRequestHandler(cgImage: image, options: [:]).perform([request])
+                    } catch {
+                        DispatchQueue.main.async { result(nil) }
+                    }
+                }
+            } else if call.method == "setAppIcon" {
+                guard UIApplication.shared.supportsAlternateIcons else {
+                    result(false)
+                    return
+                }
+                let name = (call.arguments as? [String: Any])?["name"] as? String
+                UIApplication.shared.setAlternateIconName(name) { error in
+                    DispatchQueue.main.async { result(error == nil) }
+                }
+            } else if call.method == "currentAppIcon" {
+                result(UIApplication.shared.alternateIconName)
+            } else if call.method == "setPrivacyCover" {
+                self.privacyCoverEnabled = (call.arguments as? [String: Any])?["enabled"] as? Bool ?? false
+                if !self.privacyCoverEnabled { self.removePrivacyCover() }
+                result(true)
+            } else if call.method == "openUrl" {
+                guard let text = (call.arguments as? [String: Any])?["url"] as? String,
+                      let url = URL(string: text) else {
+                    result(false)
+                    return
+                }
+                UIApplication.shared.open(url, options: [:]) { ok in result(ok) }
+            } else if self.companion?.handle(call, result: result) != true {
+                result(FlutterMethodNotImplemented)
+            }
+        })
+        self.launchChannel = launchChannel
+        self.companion = CompanionBridge(channel: launchChannel)
+
+        NotificationCenter.default.addObserver(forName: .nfcLaunchAction, object: nil, queue: .main) { [weak self] note in
+            if let action = note.object as? String {
+                self?.queueLaunchAction(action)
+            }
+        }
+
+        NotificationCenter.default.addObserver(forName: UIApplication.willResignActiveNotification, object: nil, queue: .main) { [weak self] _ in
+            self?.showPrivacyCover()
+        }
+        NotificationCenter.default.addObserver(forName: UIApplication.didEnterBackgroundNotification, object: nil, queue: .main) { [weak self] _ in
+            self?.showPrivacyCover(force: true)
+        }
+        NotificationCenter.default.addObserver(forName: UIApplication.didBecomeActiveNotification, object: nil, queue: .main) { [weak self] _ in
+            self?.removePrivacyCover()
+        }
+
+        if let url = launchOptions?[.url] as? URL {
+            handleLaunchUrl(url)
+        }
+
         GeneratedPluginRegistrant.register(with: self)
         return super.application(application, didFinishLaunchingWithOptions: launchOptions)
+    }
+
+    override func application(
+        _ app: UIApplication,
+        open url: URL,
+        options: [UIApplication.OpenURLOptionsKey: Any] = [:]
+    ) -> Bool {
+        if handleLaunchUrl(url) {
+            return true
+        }
+        return super.application(app, open: url, options: options)
+    }
+
+    @discardableResult
+    private func handleLaunchUrl(_ url: URL) -> Bool {
+        guard url.scheme?.lowercased() == "nfctagmaster" else { return false }
+        let action = (url.host ?? "").lowercased()
+        guard ["scan", "write", "tools", "history", "settings"].contains(action) else { return false }
+        queueLaunchAction(action)
+        return true
+    }
+
+    /// Blurs the app in the app switcher. The NFC sheet and Face ID prompt also
+    /// make the app inactive, so those only cover once it really backgrounds.
+    private func showPrivacyCover(force: Bool = false) {
+        guard privacyCoverEnabled, privacyCover == nil else { return }
+        if !force && (nfcSession != nil || authenticating) { return }
+        let window = self.window ?? UIApplication.shared.connectedScenes
+            .compactMap { ($0 as? UIWindowScene)?.windows.first(where: { $0.isKeyWindow }) }.first
+        guard let window = window else { return }
+        let cover = UIVisualEffectView(effect: UIBlurEffect(style: .systemMaterial))
+        cover.frame = window.bounds
+        cover.autoresizingMask = [.flexibleWidth, .flexibleHeight]
+        window.addSubview(cover)
+        privacyCover = cover
+    }
+
+    private func removePrivacyCover() {
+        privacyCover?.removeFromSuperview()
+        privacyCover = nil
+    }
+
+    private func queueLaunchAction(_ action: String) {
+        pendingLaunchAction = action
+        launchChannel?.invokeMethod("launchActionAvailable", arguments: nil)
     }
 
     private func startSession(alertMessage: String) {
@@ -114,24 +399,47 @@ import CoreNFC
 
     func tagReaderSession(_ session: NFCTagReaderSession, didDetect tags: [NFCTag]) {
         guard tags.count == 1, let tag = tags.first else {
-            session.alertMessage = "Birden fazla etiket algılandı. Yalnızca bir etiket yaklaştırın."
+            session.alertMessage = self.t("multipleTags", "Birden fazla etiket algılandı. Yalnızca bir etiket yaklaştırın.")
             session.restartPolling()
             return
         }
 
+        self.lock.lock()
+        let currentOp = self.pendingOperation
+        self.lock.unlock()
+        if currentOp == "raw" {
+            handleRawTag(session: session, tag: tag)
+            return
+        }
+
         let ndefTag: NFCNDEFTag
+        let tagIdentifier: Data
+        let family: String
         switch tag {
         case .miFare(let value):
             ndefTag = value
+            tagIdentifier = value.identifier
+            switch value.mifareFamily {
+            case .ultralight: family = "MifareUltralight"
+            case .desfire: family = "MifareDesfire"
+            case .plus: family = "MifarePlus"
+            default: family = "NfcA"
+            }
         case .iso15693(let value):
             ndefTag = value
+            tagIdentifier = value.identifier
+            family = "NfcV"
         case .iso7816(let value):
             ndefTag = value
+            tagIdentifier = value.identifier
+            family = "IsoDep"
         case .feliCa(let value):
             ndefTag = value
+            tagIdentifier = value.currentIDm
+            family = "NfcF"
         @unknown default:
             finishWithResult(FlutterError(code: "UNSUPPORTED_TAG", message: "Bu NFC etiket türü desteklenmiyor", details: nil))
-            session.invalidate(errorMessage: "Etiket türü desteklenmiyor")
+            session.invalidate(errorMessage: self.t("unsupportedTag", "Etiket türü desteklenmiyor"))
             return
         }
 
@@ -140,14 +448,14 @@ import CoreNFC
 
             if let error = error {
                 self.finishWithResult(FlutterError(code: "CONNECT_FAILED", message: error.localizedDescription, details: nil))
-                session.invalidate(errorMessage: "Bağlantı hatası: \(error.localizedDescription)")
+                session.invalidate(errorMessage: self.t("connectFailed", "Bağlantı hatası"))
                 return
             }
 
             ndefTag.queryNDEFStatus { (status: NFCNDEFStatus, capacity: Int, error: Error?) in
                 if let error = error {
                     self.finishWithResult(FlutterError(code: "QUERY_FAILED", message: error.localizedDescription, details: nil))
-                    session.invalidate(errorMessage: "Durum okunamadı: \(error.localizedDescription)")
+                    session.invalidate(errorMessage: self.t("readFailed", "Etiket okunamadı"))
                     return
                 }
 
@@ -156,18 +464,44 @@ import CoreNFC
                 self.lock.unlock()
 
                 if op == "scan" {
-                    self.handleTagScan(session: session, tag: ndefTag, status: status, capacity: capacity)
+                    self.handleTagScan(session: session, tag: ndefTag, identifier: tagIdentifier, status: status, capacity: capacity, family: family)
                 } else if op == "write" {
                     self.handleTagWrite(session: session, tag: ndefTag, status: status, capacity: capacity)
+                } else if op == "lock" {
+                    self.handleTagLock(session: session, tag: ndefTag, status: status)
                 }
             }
         }
     }
 
-    private func handleTagScan(session: NFCTagReaderSession, tag: NFCNDEFTag, status: NFCNDEFStatus, capacity: Int) {
+    private func handleRawTag(session: NFCTagReaderSession, tag: NFCTag) {
+        guard case .miFare(let mifare) = tag, mifare.mifareFamily == .ultralight else {
+            let message = self.t("ntagOnly", "Bu araç yalnızca NTAG / MIFARE Ultralight etiketlerde çalışır")
+            finishWithResult(FlutterError(code: "UNSUPPORTED_TAG", message: message, details: nil))
+            session.invalidate(errorMessage: message)
+            return
+        }
+        session.connect(to: tag) { [weak self] (error: Error?) in
+            guard let self = self else { return }
+            if let error = error {
+                self.finishWithResult(FlutterError(code: "CONNECT_FAILED", message: error.localizedDescription, details: nil))
+                session.invalidate(errorMessage: self.t("connectFailed", "Bağlantı hatası"))
+                return
+            }
+            self.lock.lock()
+            self.rawTag = mifare
+            self.lock.unlock()
+            session.alertMessage = self.t("connected", "Etiket bağlandı, işlem yapılıyor...")
+            self.finishWithResult([
+                "identifier": mifare.identifier.map { String(format: "%02X", $0) }.joined(separator: ":")
+            ] as [String: Any])
+        }
+    }
+
+    private func handleTagScan(session: NFCTagReaderSession, tag: NFCNDEFTag, identifier: Data, status: NFCNDEFStatus, capacity: Int, family: String) {
         if status == .notSupported {
-            finishWithResult(tagInfo(status: status, capacity: capacity, message: nil))
-            session.alertMessage = "Etiket algılandı; NDEF biçiminde değil."
+            finishWithResult(tagInfo(identifier: identifier, status: status, capacity: capacity, message: nil, family: family))
+            session.alertMessage = self.t("notNdefRead", "Etiket algılandı; NDEF biçiminde değil.")
             session.invalidate()
             return
         }
@@ -178,23 +512,23 @@ import CoreNFC
             if let error = error {
                 if let nfcError = error as? NFCReaderError,
                    nfcError.code == .ndefReaderSessionErrorZeroLengthMessage {
-                    session.alertMessage = "Boş etiket başarıyla okundu!"
-                    self.finishWithResult(self.tagInfo(status: status, capacity: capacity, message: nil))
+                    session.alertMessage = self.t("emptyRead", "Boş etiket başarıyla okundu!")
+                    self.finishWithResult(self.tagInfo(identifier: identifier, status: status, capacity: capacity, message: nil, family: family))
                     session.invalidate()
                     return
                 }
                 self.finishWithResult(FlutterError(code: "READ_FAILED", message: error.localizedDescription, details: nil))
-                session.invalidate(errorMessage: "Etiket okunamadı: \(error.localizedDescription)")
+                session.invalidate(errorMessage: self.t("readFailed", "Etiket okunamadı"))
                 return
             }
 
-            session.alertMessage = "Etiket başarıyla okundu!"
-            self.finishWithResult(self.tagInfo(status: status, capacity: capacity, message: message))
+            session.alertMessage = self.t("readOk", "Etiket başarıyla okundu!")
+            self.finishWithResult(self.tagInfo(identifier: identifier, status: status, capacity: capacity, message: message, family: family))
             session.invalidate()
         }
     }
 
-    private func tagInfo(status: NFCNDEFStatus, capacity: Int, message: NFCNDEFMessage?) -> [String: Any] {
+    private func tagInfo(identifier: Data, status: NFCNDEFStatus, capacity: Int, message: NFCNDEFMessage?, family: String) -> [String: Any] {
         let rawRecords: [[String: Any]] = message?.records.map { record in
             [
                 "tnf": Int(record.typeNameFormat.rawValue),
@@ -204,8 +538,8 @@ import CoreNFC
             ]
         } ?? []
         return [
-                "identifier": "iOS-NFC-Tag",
-                "standardTechnologies": status == .notSupported ? ["CoreNFC"] : ["CoreNFC", "NDEF"],
+                "identifier": identifier.isEmpty ? "iOS-NFC-Tag" : identifier.map { String(format: "%02X", $0) }.joined(separator: ":"),
+                "standardTechnologies": status == .notSupported ? [family] : [family, "Ndef"],
                 "isNdefSupported": (status != .notSupported),
                 "isWritable": (status == .readWrite),
                 "maxByteCapacity": capacity,
@@ -216,8 +550,9 @@ import CoreNFC
 
     private func handleTagWrite(session: NFCTagReaderSession, tag: NFCNDEFTag, status: NFCNDEFStatus, capacity: Int) {
         guard status == .readWrite else {
-            let message = status == .notSupported ? "Etiket NDEF biçiminde değil; iPhone bu etikete NDEF yazamıyor" : "Etiket salt okunur, yazılamaz"
-            self.finishWithResult(FlutterError(code: "TAG_NOT_WRITABLE", message: message, details: nil))
+            let message = status == .notSupported ? self.t("notNdefWrite", "Etiket NDEF biçiminde değil; iPhone bu etikete NDEF yazamıyor") : self.t("readOnly", "Etiket salt okunur, yazılamaz")
+            let code = status == .notSupported ? "NOT_NDEF_FORMATTED" : "TAG_NOT_WRITABLE"
+            self.finishWithResult(FlutterError(code: code, message: message, details: nil))
             session.invalidate(errorMessage: message)
             return
         }
@@ -229,7 +564,7 @@ import CoreNFC
 
         guard let recordsData = recordsData else {
             self.finishWithResult(FlutterError(code: "NO_DATA", message: "Yazılacak NDEF verisi yok", details: nil))
-            session.invalidate(errorMessage: "Yazılacak veri bulunamadı")
+            session.invalidate(errorMessage: self.t("noData", "Yazılacak veri bulunamadı"))
             return
         }
 
@@ -249,8 +584,10 @@ import CoreNFC
         let totalSize = messageToWrite.length
 
         if totalSize > capacity {
-            self.finishWithResult(FlutterError(code: "CAPACITY_EXCEEDED", message: "Etiket boyutu yetersiz (\(totalSize) > \(capacity))", details: nil))
-            session.invalidate(errorMessage: "Kapasite yetersiz! Gerekli: \(totalSize)B, Maks: \(capacity)B")
+            self.finishWithResult(FlutterError(code: "CAPACITY_EXCEEDED", message: "Etiket boyutu yetersiz (\(totalSize) > \(capacity))", details: ["required": totalSize, "capacity": capacity]))
+            session.invalidate(errorMessage: self.t("capacity", "Kapasite yetersiz! Gerekli: {required} B, Maks: {max} B")
+                .replacingOccurrences(of: "{required}", with: "\(totalSize)")
+                .replacingOccurrences(of: "{max}", with: "\(capacity)"))
             return
         }
 
@@ -259,7 +596,7 @@ import CoreNFC
 
             if let error = error {
                 self.finishWithResult(FlutterError(code: "WRITE_ERROR", message: error.localizedDescription, details: nil))
-                session.invalidate(errorMessage: "Yazma başarısız: \(error.localizedDescription)")
+                session.invalidate(errorMessage: self.t("writeFailed", "Yazma başarısız"))
                 return
             }
 
@@ -270,17 +607,17 @@ import CoreNFC
 
                     if let readErr = readErr {
                         self.finishWithResult(FlutterError(code: "VERIFICATION_FAILED", message: "Yazma sonrası etiket okunamadı: \(readErr.localizedDescription)", details: nil))
-                        session.invalidate(errorMessage: "Doğrulama okuması başarısız: \(readErr.localizedDescription)")
+                        session.invalidate(errorMessage: self.t("verifyFailed", "Doğrulama başarısız"))
                         return
                     }
 
                     guard let readMsg = readMsg, self.recordsMatch(expected: ndefRecords, actual: readMsg.records) else {
                         self.finishWithResult(FlutterError(code: "VERIFICATION_FAILED", message: "Doğrulama başarısız: Yazılan veri etiketteki veriyle eşleşmiyor", details: nil))
-                        session.invalidate(errorMessage: "Doğrulama başarısız: Etiket içeriği uyuşmuyor")
+                        session.invalidate(errorMessage: self.t("verifyFailed", "Doğrulama başarısız"))
                         return
                     }
 
-                    session.alertMessage = "Yazma ve doğrulama başarılı!"
+                    session.alertMessage = self.t("writeVerified", "Yazma ve doğrulama başarılı!")
                     let res: [String: Any] = [
                         "isSuccess": true,
                         "message": "Etikete başarıyla yazıldı",
@@ -291,7 +628,7 @@ import CoreNFC
                     session.invalidate()
                 }
             } else {
-                session.alertMessage = "Etikete yazıldı!"
+                session.alertMessage = self.t("written", "Etikete yazıldı!")
                 let res: [String: Any] = [
                     "isSuccess": true,
                     "message": "Etikete başarıyla yazıldı",
@@ -301,6 +638,36 @@ import CoreNFC
                 self.finishWithResult(res)
                 session.invalidate()
             }
+        }
+    }
+
+    private func handleTagLock(session: NFCTagReaderSession, tag: NFCNDEFTag, status: NFCNDEFStatus) {
+        if status == .readOnly {
+            let message = self.t("alreadyLocked", "Etiket zaten kilitli (salt okunur)")
+            finishWithResult(FlutterError(code: "ALREADY_LOCKED", message: message, details: nil))
+            session.invalidate(errorMessage: message)
+            return
+        }
+        guard status == .readWrite else {
+            let message = self.t("lockNotNdef", "Etiket NDEF biçiminde değil; önce bir kayıt yazın")
+            finishWithResult(FlutterError(code: "TAG_NOT_WRITABLE", message: message, details: nil))
+            session.invalidate(errorMessage: message)
+            return
+        }
+
+        tag.writeLock { [weak self] (error: Error?) in
+            guard let self = self else { return }
+            if let error = error {
+                self.finishWithResult(FlutterError(code: "LOCK_FAILED", message: error.localizedDescription, details: nil))
+                session.invalidate(errorMessage: self.t("lockFailed", "Kilitleme başarısız"))
+                return
+            }
+            session.alertMessage = self.t("locked", "Etiket kalıcı olarak kilitlendi!")
+            self.finishWithResult([
+                "isSuccess": true,
+                "message": "Etiket kalıcı olarak kilitlendi"
+            ] as [String: Any])
+            session.invalidate()
         }
     }
 
@@ -352,10 +719,15 @@ import CoreNFC
         if !completed {
             if let nfcErr = error as? NFCReaderError, nfcErr.code == .readerSessionInvalidationErrorUserCanceled {
                 finishWithResult(FlutterError(code: "USER_CANCELLED", message: "Kullanıcı taramayı iptal etti", details: nil))
+            } else if let nfcErr = error as? NFCReaderError, nfcErr.code == .readerSessionInvalidationErrorSessionTimeout {
+                finishWithResult(FlutterError(code: "SESSION_TIMEOUT", message: error.localizedDescription, details: nil))
             } else {
                 finishWithResult(FlutterError(code: "SESSION_ERROR", message: error.localizedDescription, details: nil))
             }
         }
         self.nfcSession = nil
+        lock.lock()
+        rawTag = nil
+        lock.unlock()
     }
 }

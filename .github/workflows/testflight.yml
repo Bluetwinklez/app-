@@ -2,6 +2,15 @@ name: Build and upload iPhone TestFlight beta
 
 on:
   workflow_dispatch:
+    inputs:
+      upload:
+        description: 'Upload to TestFlight (off = build and sign only)'
+        type: boolean
+        default: true
+      provision_only:
+        description: 'Only run the signing setup (no build)'
+        type: boolean
+        default: false
   push:
     tags:
       - 'ios-v*'
@@ -24,19 +33,20 @@ jobs:
         env:
           IOS_APPSTORE_P12_BASE64: ${{ secrets.IOS_APPSTORE_P12_BASE64 }}
           IOS_APPSTORE_P12_PASSWORD: ${{ secrets.IOS_APPSTORE_P12_PASSWORD }}
-          IOS_APPSTORE_PROFILE_BASE64: ${{ secrets.IOS_APPSTORE_PROFILE_BASE64 }}
           IOS_BUNDLE_ID: ${{ secrets.IOS_BUNDLE_ID }}
           IOS_TEAM_ID: ${{ secrets.IOS_TEAM_ID }}
           ASC_API_KEY_ID: ${{ secrets.ASC_API_KEY_ID }}
           ASC_API_ISSUER_ID: ${{ secrets.ASC_API_ISSUER_ID }}
           ASC_API_PRIVATE_KEY_BASE64: ${{ secrets.ASC_API_PRIVATE_KEY_BASE64 }}
         run: |
-          for name in IOS_APPSTORE_P12_BASE64 IOS_APPSTORE_P12_PASSWORD IOS_APPSTORE_PROFILE_BASE64 IOS_BUNDLE_ID IOS_TEAM_ID ASC_API_KEY_ID ASC_API_ISSUER_ID ASC_API_PRIVATE_KEY_BASE64; do
+          for name in IOS_APPSTORE_P12_BASE64 IOS_APPSTORE_P12_PASSWORD IOS_BUNDLE_ID IOS_TEAM_ID ASC_API_KEY_ID ASC_API_ISSUER_ID ASC_API_PRIVATE_KEY_BASE64; do
             if [[ -z "${!name}" ]]; then
               echo "::error::Missing repository secret: $name"
               exit 1
             fi
           done
+          # The Xcode project names this bundle ID for the app, widgets and watch.
+          [[ "$IOS_BUNDLE_ID" == "com.bluetwinklez.nfctagmaster" ]] || { echo '::error::IOS_BUNDLE_ID does not match the Xcode project'; exit 1; }
 
       - name: Install Flutter
         run: |
@@ -53,32 +63,13 @@ jobs:
           cd ios
           pod install
 
-      - name: Install App Store signing assets
+      - name: Install distribution certificate
         env:
           IOS_APPSTORE_P12_BASE64: ${{ secrets.IOS_APPSTORE_P12_BASE64 }}
           IOS_APPSTORE_P12_PASSWORD: ${{ secrets.IOS_APPSTORE_P12_PASSWORD }}
-          IOS_APPSTORE_PROFILE_BASE64: ${{ secrets.IOS_APPSTORE_PROFILE_BASE64 }}
-          IOS_BUNDLE_ID: ${{ secrets.IOS_BUNDLE_ID }}
-          IOS_TEAM_ID: ${{ secrets.IOS_TEAM_ID }}
         run: |
           set -euo pipefail
           printf '%s' "$IOS_APPSTORE_P12_BASE64" | base64 -D > "$RUNNER_TEMP/signing.p12"
-          printf '%s' "$IOS_APPSTORE_PROFILE_BASE64" | base64 -D > "$RUNNER_TEMP/signing.mobileprovision"
-          security cms -D -i "$RUNNER_TEMP/signing.mobileprovision" > "$RUNNER_TEMP/profile.plist"
-
-          profile_value() { /usr/libexec/PlistBuddy -c "Print :$1" "$RUNNER_TEMP/profile.plist"; }
-          profile_uuid="$(profile_value UUID)"
-          profile_name="$(profile_value Name)"
-          profile_team="$(profile_value TeamIdentifier:0)"
-          profile_app="$(profile_value Entitlements:application-identifier)"
-          [[ "$profile_team" == "$IOS_TEAM_ID" ]] || { echo '::error::Profile team does not match IOS_TEAM_ID'; exit 1; }
-          [[ "$profile_app" == "$IOS_TEAM_ID.$IOS_BUNDLE_ID" ]] || { echo '::error::Profile app ID does not match IOS_BUNDLE_ID'; exit 1; }
-          profile_value Entitlements:com.apple.developer.nfc.readersession.formats >/dev/null || { echo '::error::Profile lacks NFC Tag Reading capability'; exit 1; }
-          if profile_value ProvisionedDevices:0 >/dev/null 2>&1; then
-            echo '::error::Use an App Store distribution profile, not an Ad Hoc profile'
-            exit 1
-          fi
-
           keychain="$RUNNER_TEMP/signing.keychain-db"
           keychain_password="$(openssl rand -hex 24)"
           security create-keychain -p "$keychain_password" "$keychain"
@@ -89,13 +80,84 @@ jobs:
           security list-keychains -d user -s "$keychain"
           security default-keychain -d user -s "$keychain"
           security find-identity -v -p codesigning "$keychain" | grep -q 'Apple Distribution:' || { echo '::error::P12 must contain an Apple Distribution signing identity'; exit 1; }
+          serial="$(security find-certificate -a -c 'Apple Distribution' -p "$keychain" | openssl x509 -noout -serial | cut -d= -f2)"
+          echo "CERT_SERIAL=$serial" >> "$GITHUB_ENV"
 
-          mkdir -p "$HOME/Library/MobileDevice/Provisioning Profiles"
-          cp "$RUNNER_TEMP/signing.mobileprovision" "$HOME/Library/MobileDevice/Provisioning Profiles/$profile_uuid.mobileprovision"
-          echo "PROFILE_UUID=$profile_uuid" >> "$GITHUB_ENV"
-          echo "PROFILE_NAME=$profile_name" >> "$GITHUB_ENV"
+      # Bundle IDs, capabilities (NFC, iCloud) and one App Store profile per
+      # target (app, widgets, watch) are created through the API each run.
+      - name: Create provisioning profiles
+        env:
+          ASC_API_KEY_ID: ${{ secrets.ASC_API_KEY_ID }}
+          ASC_API_ISSUER_ID: ${{ secrets.ASC_API_ISSUER_ID }}
+          ASC_API_PRIVATE_KEY_BASE64: ${{ secrets.ASC_API_PRIVATE_KEY_BASE64 }}
+          # Optional Admin key, pasted as-is (the .p8 file's text), used only
+          # for signing setup; uploads keep using the key above.
+          ASC_ADMIN_KEY_ID: ${{ secrets.ASC_ADMIN_KEY_ID }}
+          ASC_ADMIN_PRIVATE_KEY: ${{ secrets.ASC_ADMIN_PRIVATE_KEY }}
+          IOS_BUNDLE_ID: ${{ secrets.IOS_BUNDLE_ID }}
+        run: |
+          set -euo pipefail
+          python3 -m pip install --break-system-packages --quiet pyjwt cryptography
+          key="$RUNNER_TEMP/asc_key.p8"
+          echo "Admin key secrets: id=$([[ -n "$ASC_ADMIN_KEY_ID" ]] && echo set || echo missing) key=$([[ -n "$ASC_ADMIN_PRIVATE_KEY" ]] && echo set || echo missing)"
+          if [[ -n "$ASC_ADMIN_KEY_ID" && -n "$ASC_ADMIN_PRIVATE_KEY" ]]; then
+            echo "Using the Admin key for signing setup"
+            printf '%s\n' "$ASC_ADMIN_PRIVATE_KEY" > "$key"
+            export ASC_API_KEY_ID="$ASC_ADMIN_KEY_ID"
+          else
+            printf '%s' "$ASC_API_PRIVATE_KEY_BASE64" | base64 -D > "$key"
+          fi
+          export ASC_API_PRIVATE_KEY_PATH="$key"
+          export PROFILE_DIR="$HOME/Library/MobileDevice/Provisioning Profiles:$HOME/Library/Developer/Xcode/UserData/Provisioning Profiles"
+          python3 tool/asc_provision.py 2>&1 | tee "$RUNNER_TEMP/provision.log"
+          rm -f "$key"
+          { echo '### Signing setup'; echo '```'; cat "$RUNNER_TEMP/provision.log"; echo '```'; } >> "$GITHUB_STEP_SUMMARY"
+          if [[ "${{ inputs.provision_only }}" == "true" ]]; then echo "STOP_AFTER_PROVISION=1" >> "$GITHUB_ENV"; fi
+
+      # Without an Admin API key no profiles can be created: sign the app
+      # alone with the App Store profile from the repository secrets and
+      # leave the widgets and the watch app out of this build.
+      - name: Fall back to the stored App Store profile
+        if: env.SIGNING_MODE == 'legacy' && env.STOP_AFTER_PROVISION != '1'
+        env:
+          IOS_APPSTORE_PROFILE_BASE64: ${{ secrets.IOS_APPSTORE_PROFILE_BASE64 }}
+          IOS_BUNDLE_ID: ${{ secrets.IOS_BUNDLE_ID }}
+          IOS_TEAM_ID: ${{ secrets.IOS_TEAM_ID }}
+        run: |
+          set -euo pipefail
+          [[ -n "$IOS_APPSTORE_PROFILE_BASE64" ]] || { echo '::error::Missing repository secret: IOS_APPSTORE_PROFILE_BASE64'; exit 1; }
+          printf '%s' "$IOS_APPSTORE_PROFILE_BASE64" | base64 -D > "$RUNNER_TEMP/signing.mobileprovision"
+          security cms -D -i "$RUNNER_TEMP/signing.mobileprovision" > "$RUNNER_TEMP/profile.plist"
+          profile_value() { /usr/libexec/PlistBuddy -c "Print :$1" "$RUNNER_TEMP/profile.plist"; }
+          profile_uuid="$(profile_value UUID)"
+          profile_name="$(profile_value Name)"
+          [[ "$(profile_value TeamIdentifier:0)" == "$IOS_TEAM_ID" ]] || { echo '::error::Profile team does not match IOS_TEAM_ID'; exit 1; }
+          [[ "$(profile_value Entitlements:application-identifier)" == "$IOS_TEAM_ID.$IOS_BUNDLE_ID" ]] || { echo '::error::Profile app ID does not match IOS_BUNDLE_ID'; exit 1; }
+          for dir in "$HOME/Library/MobileDevice/Provisioning Profiles" "$HOME/Library/Developer/Xcode/UserData/Provisioning Profiles"; do
+            mkdir -p "$dir"
+            cp "$RUNNER_TEMP/signing.mobileprovision" "$dir/$profile_uuid.mobileprovision"
+          done
+          sed -i '' "s/PROVISIONING_PROFILE_SPECIFIER = \"NFCTM CI App\";/PROVISIONING_PROFILE_SPECIFIER = \"$profile_name\";/" ios/Runner.xcodeproj/project.pbxproj
+          echo "APP_PROFILE_NAME=$profile_name" >> "$GITHUB_ENV"
+          echo "ICLOUD_ENABLED=0" >> "$GITHUB_ENV"
+          ruby -e 'require "xcodeproj"' 2>/dev/null || gem install --user-install --no-document xcodeproj
+          ruby tool/strip_ios_extensions.rb
+          rm -f "$RUNNER_TEMP/signing.mobileprovision" "$RUNNER_TEMP/profile.plist"
+
+      # iCloud backup ships only when the profile allows it (enabling the
+      # capability needs an Admin API key); otherwise the app hides it.
+      - name: Match iCloud entitlement to the profile
+        if: env.STOP_AFTER_PROVISION != '1'
+        run: |
+          set -euo pipefail
+          if [[ "${ICLOUD_ENABLED:-0}" == "1" ]]; then
+            /usr/libexec/PlistBuddy -c "Add :NfcICloudBackup bool true" ios/Runner/Info.plist
+          else
+            /usr/libexec/PlistBuddy -c "Delete :com.apple.developer.ubiquity-kvstore-identifier" ios/Runner/Runner.entitlements
+          fi
 
       - name: Archive and export signed IPA
+        if: env.STOP_AFTER_PROVISION != '1'
         env:
           IOS_BUNDLE_ID: ${{ secrets.IOS_BUNDLE_ID }}
           IOS_TEAM_ID: ${{ secrets.IOS_TEAM_ID }}
@@ -116,7 +178,11 @@ jobs:
             <key>method</key><string>app-store-connect</string>
             <key>signingStyle</key><string>manual</string>
             <key>teamID</key><string>$IOS_TEAM_ID</string>
-            <key>provisioningProfiles</key><dict><key>$IOS_BUNDLE_ID</key><string>$PROFILE_NAME</string></dict>
+            <key>provisioningProfiles</key><dict>
+              <key>$IOS_BUNDLE_ID</key><string>${APP_PROFILE_NAME:-NFCTM CI App}</string>
+              <key>$IOS_BUNDLE_ID.widgets</key><string>NFCTM CI Widgets</string>
+              <key>$IOS_BUNDLE_ID.watchkitapp</key><string>NFCTM CI Watch</string>
+            </dict>
           </dict></plist>
           EOF
           xcodebuild -exportArchive \
@@ -126,6 +192,7 @@ jobs:
           find build/ios/ipa -maxdepth 1 -name '*.ipa' -type f | grep -q .
 
       - name: Upload to App Store Connect for TestFlight
+        if: ${{ env.STOP_AFTER_PROVISION != '1' && (github.event_name != 'workflow_dispatch' || inputs.upload) }}
         env:
           ASC_API_KEY_ID: ${{ secrets.ASC_API_KEY_ID }}
           ASC_API_ISSUER_ID: ${{ secrets.ASC_API_ISSUER_ID }}
@@ -145,11 +212,9 @@ jobs:
         env:
           ASC_API_KEY_ID: ${{ secrets.ASC_API_KEY_ID }}
         run: |
-          if [[ -n "${PROFILE_UUID:-}" ]]; then
-            rm -f "$HOME/Library/MobileDevice/Provisioning Profiles/$PROFILE_UUID.mobileprovision"
-          fi
+          rm -rf "$HOME/Library/MobileDevice/Provisioning Profiles" "$HOME/Library/Developer/Xcode/UserData/Provisioning Profiles"
           security delete-keychain "$RUNNER_TEMP/signing.keychain-db" 2>/dev/null || true
-          rm -f "$RUNNER_TEMP/signing.p12" "$RUNNER_TEMP/signing.mobileprovision" "$RUNNER_TEMP/profile.plist" "$RUNNER_TEMP/ExportOptions.plist"
+          rm -f "$RUNNER_TEMP/signing.p12" "$RUNNER_TEMP/asc_key.p8" "$RUNNER_TEMP/ExportOptions.plist" "$RUNNER_TEMP/signing.mobileprovision" "$RUNNER_TEMP/profile.plist"
           if [[ -n "${ASC_API_KEY_ID:-}" ]]; then
             rm -f "$HOME/.private_keys/AuthKey_${ASC_API_KEY_ID}.p8"
           fi
