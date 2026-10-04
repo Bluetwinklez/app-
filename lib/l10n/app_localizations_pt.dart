@@ -5096,4 +5096,251 @@ class AppLocalizationsPt extends AppLocalizations {
   @override
   String get whatsNew160 =>
       '• Widgets para a Tela de Início e a Tela Bloqueada\n• Leia e grave com um toque na Central de Controle (iOS 18)\n• Apple Watch: leituras recentes e registros com um toque\n• Backup no iCloud (modelos, regras, biblioteca)';
+
+  @override
+  String get healthTitle => 'Saúde da tag';
+
+  @override
+  String get healthToolSubtitle => 'Leia uma tag e veja a nota e o que ajustar';
+
+  @override
+  String get healthIntro =>
+      'Leia uma tag: formato, espaço livre, bloqueio, segurança dos links, assinatura e suspeita de clone são verificados, com uma dica para cada item.';
+
+  @override
+  String get healthScan => 'Ler tag';
+
+  @override
+  String get healthScanAnother => 'Ler outra tag';
+
+  @override
+  String get healthOverallGood => 'A tag está em bom estado e pronta para uso.';
+
+  @override
+  String get healthOverallWarning =>
+      'A tag funciona, mas alguns pontos precisam de atenção.';
+
+  @override
+  String get healthOverallProblem =>
+      'A tag tem problemas; veja as dicas abaixo.';
+
+  @override
+  String get healthNotNdef => 'Sem formato NDEF';
+
+  @override
+  String get healthNotNdefTip =>
+      'Os celulares não leem o conteúdo. Formate em Ferramentas → Formatar memória ou grave nela diretamente.';
+
+  @override
+  String get healthEmpty => 'A tag está vazia';
+
+  @override
+  String get healthEmptyTip =>
+      'Adicione conteúdo pela aba Gravar ou por um modelo pronto.';
+
+  @override
+  String get healthReadOnly => 'Somente leitura (bloqueada)';
+
+  @override
+  String get healthReadOnlyTip =>
+      'O conteúdo não pode ser alterado, ideal para locais públicos.';
+
+  @override
+  String get healthWritable => 'Gravável';
+
+  @override
+  String get healthWritableTip =>
+      'Se for ficar em local público, considere bloquear para ninguém alterar.';
+
+  @override
+  String healthNearlyFull(String percent) {
+    return 'Quase cheia ($percent%)';
+  }
+
+  @override
+  String get healthNearlyFullTip =>
+      'Para conteúdo maior use uma tag maior (NTAG215/216) ou um link mais curto.';
+
+  @override
+  String healthRoomLeft(String free, String total) {
+    return '$free de $total bytes livres';
+  }
+
+  @override
+  String get healthRoomLeftTip => 'Há espaço para novo conteúdo.';
+
+  @override
+  String get healthRiskyLink => 'Link perigoso';
+
+  @override
+  String get healthRiskyLinkTip =>
+      'O link parece um site falso. Não abra; se a tag estiver em local público, pode ter sido adulterada.';
+
+  @override
+  String get healthSuspiciousLink => 'Link suspeito';
+
+  @override
+  String get healthSuspiciousLinkTip =>
+      'Endereço encurtado ou incomum. Confira antes de abrir.';
+
+  @override
+  String get healthSignedValid => 'Assinatura válida';
+
+  @override
+  String get healthSignedValidTip =>
+      'O conteúdo foi gravado com sua chave e não foi alterado.';
+
+  @override
+  String get healthSignedInvalid => 'Assinatura inválida';
+
+  @override
+  String get healthSignedInvalidTip =>
+      'O conteúdo mudou após a assinatura. Não confie e grave a tag de novo.';
+
+  @override
+  String get healthPossibleClone => 'Possível cópia';
+
+  @override
+  String get healthPossibleCloneTip =>
+      'Mesmo conteúdo de uma tag da sua biblioteca, mas outro número de série. Alguém pode tê-la copiado.';
+
+  @override
+  String get healthInLibrary => 'Salva na sua biblioteca';
+
+  @override
+  String get healthInLibraryTip =>
+      'É uma das suas tags; nome e notas estão na biblioteca.';
+
+  @override
+  String get huntTitle => 'Caça ao tesouro';
+
+  @override
+  String get huntToolSubtitle =>
+      'Esconda tags para encontrarem pista por pista';
+
+  @override
+  String get huntIntro =>
+      'Cada tag traz uma pista de onde está a próxima. O app mostra a primeira pista; os jogadores leem as tags em ordem contra o relógio. Ótimo para aniversários, escola e eventos em família.';
+
+  @override
+  String get huntNew => 'Nova caça';
+
+  @override
+  String get huntEdit => 'Editar';
+
+  @override
+  String get huntDelete => 'Excluir';
+
+  @override
+  String get huntDeleteTitle => 'Excluir esta caça ao tesouro?';
+
+  @override
+  String get huntSave => 'Salvar';
+
+  @override
+  String get huntName => 'Nome da caça';
+
+  @override
+  String get huntStartClue => 'Pista inicial';
+
+  @override
+  String get huntStartClueHint => 'Aparece no celular e leva à tag 1.';
+
+  @override
+  String huntClueLabel(String n) {
+    return 'Pista da tag $n';
+  }
+
+  @override
+  String huntClueHint(String n) {
+    return 'Leva à tag $n.';
+  }
+
+  @override
+  String get huntLastClueHint =>
+      'Última tag: uma mensagem de parabéns ou onde está o tesouro.';
+
+  @override
+  String get huntAddClue => 'Adicionar tag';
+
+  @override
+  String get huntMissingFields =>
+      'São necessários nome, pista inicial e pelo menos uma pista de tag.';
+
+  @override
+  String huntStations(String count) {
+    return '$count tags';
+  }
+
+  @override
+  String huntBest(String time) {
+    return 'Melhor tempo $time';
+  }
+
+  @override
+  String get huntWriteTags => 'Gravar tags';
+
+  @override
+  String get huntPlay => 'Jogar';
+
+  @override
+  String huntWriteStep(String n, String total) {
+    return 'Tag $n/$total';
+  }
+
+  @override
+  String huntWriteStepBody(String clue) {
+    return 'Esta pista vai na tag:\n\n$clue\n\nDeixe a tag pronta e toque em Gravar. Depois esconda onde a pista anterior indica.';
+  }
+
+  @override
+  String get huntWriteNow => 'Gravar';
+
+  @override
+  String huntWriteFailed(String n) {
+    return 'Não foi possível gravar a tag $n; tente de novo.';
+  }
+
+  @override
+  String get huntWriteDone =>
+      'Todas as tags gravadas. Esconda e comece o jogo!';
+
+  @override
+  String get huntQuit => 'Sair do jogo';
+
+  @override
+  String huntProgress(String found, String total) {
+    return '$found/$total encontradas';
+  }
+
+  @override
+  String get huntCurrentClue => 'Pista';
+
+  @override
+  String huntFinished(String time) {
+    return 'Parabéns! Tempo: $time';
+  }
+
+  @override
+  String get huntDone => 'Concluir';
+
+  @override
+  String get huntScanTag => 'Leia a tag que você achou';
+
+  @override
+  String huntFound(String found, String total) {
+    return 'Achou! $found/$total';
+  }
+
+  @override
+  String get huntWrongOrder => 'Essa não é a próxima tag; siga a pista.';
+
+  @override
+  String get huntAlreadyFound => 'Você já achou esta tag.';
+
+  @override
+  String get huntOtherHunt => 'Esta tag é de outra caça ao tesouro.';
+
+  @override
+  String get huntNotHunt => 'Esta não é uma tag da caça.';
 }

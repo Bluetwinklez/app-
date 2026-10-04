@@ -5084,4 +5084,250 @@ class AppLocalizationsRu extends AppLocalizations {
   @override
   String get whatsNew160 =>
       '• Виджеты для экрана «Домой» и экрана блокировки\n• Сканирование и запись одним касанием из Пункта управления (iOS 18)\n• Apple Watch: недавние сканы и записи в журнал одним касанием\n• Резервная копия в iCloud (шаблоны, правила, библиотека)';
+
+  @override
+  String get healthTitle => 'Проверка метки';
+
+  @override
+  String get healthToolSubtitle =>
+      'Отсканируйте метку и узнайте, что исправить';
+
+  @override
+  String get healthIntro =>
+      'Отсканируйте метку: проверяются формат, свободное место, блокировка, безопасность ссылок, подпись и признаки клона — с советом по каждому пункту.';
+
+  @override
+  String get healthScan => 'Сканировать метку';
+
+  @override
+  String get healthScanAnother => 'Сканировать другую';
+
+  @override
+  String get healthOverallGood => 'Метка в порядке и готова к использованию.';
+
+  @override
+  String get healthOverallWarning =>
+      'Метка работает, но кое-что требует внимания.';
+
+  @override
+  String get healthOverallProblem => 'С меткой проблемы — см. советы ниже.';
+
+  @override
+  String get healthNotNdef => 'Не в формате NDEF';
+
+  @override
+  String get healthNotNdefTip =>
+      'Телефоны не смогут прочитать содержимое. Отформатируйте её в «Инструменты → Форматировать память» или просто запишите данные.';
+
+  @override
+  String get healthEmpty => 'Метка пуста';
+
+  @override
+  String get healthEmptyTip =>
+      'Добавьте данные на вкладке «Запись» или из готового шаблона.';
+
+  @override
+  String get healthReadOnly => 'Только чтение (заблокирована)';
+
+  @override
+  String get healthReadOnlyTip =>
+      'Содержимое нельзя изменить — то, что нужно для общественных мест.';
+
+  @override
+  String get healthWritable => 'Доступна для записи';
+
+  @override
+  String get healthWritableTip =>
+      'Если метка будет в общественном месте, заблокируйте её, чтобы её не изменили.';
+
+  @override
+  String healthNearlyFull(String percent) {
+    return 'Почти заполнена ($percent%)';
+  }
+
+  @override
+  String get healthNearlyFullTip =>
+      'Для большего объёма возьмите метку побольше (NTAG215/216) или короткую ссылку.';
+
+  @override
+  String healthRoomLeft(String free, String total) {
+    return 'Свободно $free из $total байт';
+  }
+
+  @override
+  String get healthRoomLeftTip => 'Есть место для новых данных.';
+
+  @override
+  String get healthRiskyLink => 'Опасная ссылка';
+
+  @override
+  String get healthRiskyLinkTip =>
+      'Ссылка похожа на поддельный сайт. Не открывайте её; если метка в общественном месте, её могли подменить.';
+
+  @override
+  String get healthSuspiciousLink => 'Подозрительная ссылка';
+
+  @override
+  String get healthSuspiciousLinkTip =>
+      'Сокращённый или необычный адрес. Проверьте перед открытием.';
+
+  @override
+  String get healthSignedValid => 'Подпись действительна';
+
+  @override
+  String get healthSignedValidTip =>
+      'Данные записаны вашим ключом и не изменялись.';
+
+  @override
+  String get healthSignedInvalid => 'Подпись недействительна';
+
+  @override
+  String get healthSignedInvalidTip =>
+      'Данные изменены после подписи. Не доверяйте метке и перезапишите её.';
+
+  @override
+  String get healthPossibleClone => 'Возможно, копия';
+
+  @override
+  String get healthPossibleCloneTip =>
+      'То же содержимое, что у метки из библиотеки, но другой серийный номер. Её могли скопировать.';
+
+  @override
+  String get healthInLibrary => 'Есть в вашей библиотеке';
+
+  @override
+  String get healthInLibraryTip =>
+      'Это ваша метка; её название и заметки — в библиотеке.';
+
+  @override
+  String get huntTitle => 'Охота за сокровищами';
+
+  @override
+  String get huntToolSubtitle => 'Спрячьте метки — их находят по подсказкам';
+
+  @override
+  String get huntIntro =>
+      'На каждой метке — подсказка, где спрятана следующая. Приложение показывает первую подсказку; игроки сканируют метки по порядку на время. Для дней рождения, школы и семейных праздников.';
+
+  @override
+  String get huntNew => 'Новая игра';
+
+  @override
+  String get huntEdit => 'Изменить';
+
+  @override
+  String get huntDelete => 'Удалить';
+
+  @override
+  String get huntDeleteTitle => 'Удалить эту игру?';
+
+  @override
+  String get huntSave => 'Сохранить';
+
+  @override
+  String get huntName => 'Название игры';
+
+  @override
+  String get huntStartClue => 'Первая подсказка';
+
+  @override
+  String get huntStartClueHint => 'Показывается на телефоне и ведёт к метке 1.';
+
+  @override
+  String huntClueLabel(String n) {
+    return 'Подсказка на метке $n';
+  }
+
+  @override
+  String huntClueHint(String n) {
+    return 'Ведёт к метке $n.';
+  }
+
+  @override
+  String get huntLastClueHint =>
+      'Последняя метка: поздравление или место, где спрятан клад.';
+
+  @override
+  String get huntAddClue => 'Добавить метку';
+
+  @override
+  String get huntMissingFields =>
+      'Нужны название, первая подсказка и хотя бы одна подсказка для метки.';
+
+  @override
+  String huntStations(String count) {
+    return 'Меток: $count';
+  }
+
+  @override
+  String huntBest(String time) {
+    return 'Рекорд $time';
+  }
+
+  @override
+  String get huntWriteTags => 'Записать метки';
+
+  @override
+  String get huntPlay => 'Играть';
+
+  @override
+  String huntWriteStep(String n, String total) {
+    return 'Метка $n/$total';
+  }
+
+  @override
+  String huntWriteStepBody(String clue) {
+    return 'Эта подсказка будет на метке:\n\n$clue\n\nПриготовьте метку и нажмите «Записать». Затем спрячьте её там, куда ведёт предыдущая подсказка.';
+  }
+
+  @override
+  String get huntWriteNow => 'Записать';
+
+  @override
+  String huntWriteFailed(String n) {
+    return 'Не удалось записать метку $n; попробуйте снова.';
+  }
+
+  @override
+  String get huntWriteDone =>
+      'Все метки записаны. Спрячьте их и начинайте игру!';
+
+  @override
+  String get huntQuit => 'Выйти из игры';
+
+  @override
+  String huntProgress(String found, String total) {
+    return 'Найдено $found/$total';
+  }
+
+  @override
+  String get huntCurrentClue => 'Подсказка';
+
+  @override
+  String huntFinished(String time) {
+    return 'Поздравляем! Время: $time';
+  }
+
+  @override
+  String get huntDone => 'Готово';
+
+  @override
+  String get huntScanTag => 'Сканируйте найденную метку';
+
+  @override
+  String huntFound(String found, String total) {
+    return 'Найдено! $found/$total';
+  }
+
+  @override
+  String get huntWrongOrder => 'Это не следующая метка — следуйте подсказке.';
+
+  @override
+  String get huntAlreadyFound => 'Эту метку вы уже нашли.';
+
+  @override
+  String get huntOtherHunt => 'Эта метка из другой игры.';
+
+  @override
+  String get huntNotHunt => 'Это не метка для игры.';
 }

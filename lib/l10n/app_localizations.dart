@@ -8674,6 +8674,414 @@ abstract class AppLocalizations {
   /// In tr, this message translates to:
   /// **'• Ana ekran ve kilit ekranı widget\'ları\n• Kontrol Merkezi\'nden tek dokunuşla tara ve yaz (iOS 18)\n• Apple Watch: son okumalar ve tek dokunuşla defter girişi\n• iCloud yedekleme (şablonlar, kurallar, kütüphane)'**
   String get whatsNew160;
+
+  /// No description provided for @healthTitle.
+  ///
+  /// In tr, this message translates to:
+  /// **'Etiket sağlık testi'**
+  String get healthTitle;
+
+  /// No description provided for @healthToolSubtitle.
+  ///
+  /// In tr, this message translates to:
+  /// **'Etiketi okut; puanı ve ne yapman gerektiğini gör'**
+  String get healthToolSubtitle;
+
+  /// No description provided for @healthIntro.
+  ///
+  /// In tr, this message translates to:
+  /// **'Etiketi okut: biçim, boş alan, kilit, bağlantı güvenliği, imza ve kopya şüphesi kontrol edilir; her bulgu için ne yapacağın yazar.'**
+  String get healthIntro;
+
+  /// No description provided for @healthScan.
+  ///
+  /// In tr, this message translates to:
+  /// **'Etiketi okut'**
+  String get healthScan;
+
+  /// No description provided for @healthScanAnother.
+  ///
+  /// In tr, this message translates to:
+  /// **'Başka etiket okut'**
+  String get healthScanAnother;
+
+  /// No description provided for @healthOverallGood.
+  ///
+  /// In tr, this message translates to:
+  /// **'Etiket sağlıklı, kullanıma hazır.'**
+  String get healthOverallGood;
+
+  /// No description provided for @healthOverallWarning.
+  ///
+  /// In tr, this message translates to:
+  /// **'Etiket çalışıyor ama dikkat edilecek şeyler var.'**
+  String get healthOverallWarning;
+
+  /// No description provided for @healthOverallProblem.
+  ///
+  /// In tr, this message translates to:
+  /// **'Etikette sorun var, aşağıdaki önerilere bak.'**
+  String get healthOverallProblem;
+
+  /// No description provided for @healthNotNdef.
+  ///
+  /// In tr, this message translates to:
+  /// **'NDEF biçimli değil'**
+  String get healthNotNdef;
+
+  /// No description provided for @healthNotNdefTip.
+  ///
+  /// In tr, this message translates to:
+  /// **'Telefonlar içeriği okuyamaz. Araçlar → Belleği Biçimlendir ile biçimlendir ya da doğrudan yazdır.'**
+  String get healthNotNdefTip;
+
+  /// No description provided for @healthEmpty.
+  ///
+  /// In tr, this message translates to:
+  /// **'Etiket boş'**
+  String get healthEmpty;
+
+  /// No description provided for @healthEmptyTip.
+  ///
+  /// In tr, this message translates to:
+  /// **'Yaz sekmesinden ya da hazır şablonlardan içerik ekleyebilirsin.'**
+  String get healthEmptyTip;
+
+  /// No description provided for @healthReadOnly.
+  ///
+  /// In tr, this message translates to:
+  /// **'Salt okunur (kilitli)'**
+  String get healthReadOnly;
+
+  /// No description provided for @healthReadOnlyTip.
+  ///
+  /// In tr, this message translates to:
+  /// **'İçerik değiştirilemez. Herkese açık yerlerde bu istenen bir durumdur.'**
+  String get healthReadOnlyTip;
+
+  /// No description provided for @healthWritable.
+  ///
+  /// In tr, this message translates to:
+  /// **'Yazılabilir'**
+  String get healthWritable;
+
+  /// No description provided for @healthWritableTip.
+  ///
+  /// In tr, this message translates to:
+  /// **'Herkese açık bir yere koyacaksan başkası değiştirmesin diye kilitlemeyi düşün.'**
+  String get healthWritableTip;
+
+  /// No description provided for @healthNearlyFull.
+  ///
+  /// In tr, this message translates to:
+  /// **'Neredeyse dolu (%{percent})'**
+  String healthNearlyFull(String percent);
+
+  /// No description provided for @healthNearlyFullTip.
+  ///
+  /// In tr, this message translates to:
+  /// **'Daha uzun içerik için NTAG215/216 gibi daha büyük bir etiket kullan veya kısa bağlantı kullan.'**
+  String get healthNearlyFullTip;
+
+  /// No description provided for @healthRoomLeft.
+  ///
+  /// In tr, this message translates to:
+  /// **'{free} / {total} bayt boş'**
+  String healthRoomLeft(String free, String total);
+
+  /// No description provided for @healthRoomLeftTip.
+  ///
+  /// In tr, this message translates to:
+  /// **'Yeni içerik için yeterli yer var.'**
+  String get healthRoomLeftTip;
+
+  /// No description provided for @healthRiskyLink.
+  ///
+  /// In tr, this message translates to:
+  /// **'Tehlikeli bağlantı'**
+  String get healthRiskyLink;
+
+  /// No description provided for @healthRiskyLinkTip.
+  ///
+  /// In tr, this message translates to:
+  /// **'Bağlantı sahte bir siteye benziyor. Açma; etiket herkese açık bir yerdeyse değiştirilmiş olabilir.'**
+  String get healthRiskyLinkTip;
+
+  /// No description provided for @healthSuspiciousLink.
+  ///
+  /// In tr, this message translates to:
+  /// **'Şüpheli bağlantı'**
+  String get healthSuspiciousLink;
+
+  /// No description provided for @healthSuspiciousLinkTip.
+  ///
+  /// In tr, this message translates to:
+  /// **'Kısaltılmış ya da alışılmadık bir adres. Açmadan önce adresi kontrol et.'**
+  String get healthSuspiciousLinkTip;
+
+  /// No description provided for @healthSignedValid.
+  ///
+  /// In tr, this message translates to:
+  /// **'İmza geçerli'**
+  String get healthSignedValid;
+
+  /// No description provided for @healthSignedValidTip.
+  ///
+  /// In tr, this message translates to:
+  /// **'İçerik senin anahtarınla yazılmış ve değiştirilmemiş.'**
+  String get healthSignedValidTip;
+
+  /// No description provided for @healthSignedInvalid.
+  ///
+  /// In tr, this message translates to:
+  /// **'İmza bozuk'**
+  String get healthSignedInvalid;
+
+  /// No description provided for @healthSignedInvalidTip.
+  ///
+  /// In tr, this message translates to:
+  /// **'İçerik imzalandıktan sonra değiştirilmiş. Etikete güvenme ve yeniden yaz.'**
+  String get healthSignedInvalidTip;
+
+  /// No description provided for @healthPossibleClone.
+  ///
+  /// In tr, this message translates to:
+  /// **'Kopya olabilir'**
+  String get healthPossibleClone;
+
+  /// No description provided for @healthPossibleCloneTip.
+  ///
+  /// In tr, this message translates to:
+  /// **'Kütüphanendeki bir etiketle aynı içerik ama farklı seri numarası. Biri etiketini kopyalamış olabilir.'**
+  String get healthPossibleCloneTip;
+
+  /// No description provided for @healthInLibrary.
+  ///
+  /// In tr, this message translates to:
+  /// **'Kütüphanende kayıtlı'**
+  String get healthInLibrary;
+
+  /// No description provided for @healthInLibraryTip.
+  ///
+  /// In tr, this message translates to:
+  /// **'Bu etiket senin; adı ve notları kütüphanede.'**
+  String get healthInLibraryTip;
+
+  /// No description provided for @huntTitle.
+  ///
+  /// In tr, this message translates to:
+  /// **'Hazine avı'**
+  String get huntTitle;
+
+  /// No description provided for @huntToolSubtitle.
+  ///
+  /// In tr, this message translates to:
+  /// **'Etiketleri sakla, ipuçlarıyla sırayla bulsunlar'**
+  String get huntToolSubtitle;
+
+  /// No description provided for @huntIntro.
+  ///
+  /// In tr, this message translates to:
+  /// **'Her etikete bir sonraki etiketin nerede olduğunu anlatan bir ipucu yazılır. Uygulama ilk ipucunu gösterir; oyuncular etiketleri sırayla okutur, süre tutulur. Doğum günü, okul ve aile etkinlikleri için.'**
+  String get huntIntro;
+
+  /// No description provided for @huntNew.
+  ///
+  /// In tr, this message translates to:
+  /// **'Yeni av'**
+  String get huntNew;
+
+  /// No description provided for @huntEdit.
+  ///
+  /// In tr, this message translates to:
+  /// **'Düzenle'**
+  String get huntEdit;
+
+  /// No description provided for @huntDelete.
+  ///
+  /// In tr, this message translates to:
+  /// **'Sil'**
+  String get huntDelete;
+
+  /// No description provided for @huntDeleteTitle.
+  ///
+  /// In tr, this message translates to:
+  /// **'Hazine avı silinsin mi?'**
+  String get huntDeleteTitle;
+
+  /// No description provided for @huntSave.
+  ///
+  /// In tr, this message translates to:
+  /// **'Kaydet'**
+  String get huntSave;
+
+  /// No description provided for @huntName.
+  ///
+  /// In tr, this message translates to:
+  /// **'Avın adı'**
+  String get huntName;
+
+  /// No description provided for @huntStartClue.
+  ///
+  /// In tr, this message translates to:
+  /// **'Başlangıç ipucu'**
+  String get huntStartClue;
+
+  /// No description provided for @huntStartClueHint.
+  ///
+  /// In tr, this message translates to:
+  /// **'Telefonda gösterilir; 1. etiketin yerini anlatsın.'**
+  String get huntStartClueHint;
+
+  /// No description provided for @huntClueLabel.
+  ///
+  /// In tr, this message translates to:
+  /// **'{n}. etiketin ipucu'**
+  String huntClueLabel(String n);
+
+  /// No description provided for @huntClueHint.
+  ///
+  /// In tr, this message translates to:
+  /// **'{n}. etiketin yerini anlatsın.'**
+  String huntClueHint(String n);
+
+  /// No description provided for @huntLastClueHint.
+  ///
+  /// In tr, this message translates to:
+  /// **'Son etiket: kutlama mesajı ya da hazinenin yeri.'**
+  String get huntLastClueHint;
+
+  /// No description provided for @huntAddClue.
+  ///
+  /// In tr, this message translates to:
+  /// **'Etiket ekle'**
+  String get huntAddClue;
+
+  /// No description provided for @huntMissingFields.
+  ///
+  /// In tr, this message translates to:
+  /// **'Ad, başlangıç ipucu ve en az bir etiket ipucu gerekli.'**
+  String get huntMissingFields;
+
+  /// No description provided for @huntStations.
+  ///
+  /// In tr, this message translates to:
+  /// **'{count} etiket'**
+  String huntStations(String count);
+
+  /// No description provided for @huntBest.
+  ///
+  /// In tr, this message translates to:
+  /// **'En iyi süre {time}'**
+  String huntBest(String time);
+
+  /// No description provided for @huntWriteTags.
+  ///
+  /// In tr, this message translates to:
+  /// **'Etiketlere yaz'**
+  String get huntWriteTags;
+
+  /// No description provided for @huntPlay.
+  ///
+  /// In tr, this message translates to:
+  /// **'Oyna'**
+  String get huntPlay;
+
+  /// No description provided for @huntWriteStep.
+  ///
+  /// In tr, this message translates to:
+  /// **'Etiket {n}/{total}'**
+  String huntWriteStep(String n, String total);
+
+  /// No description provided for @huntWriteStepBody.
+  ///
+  /// In tr, this message translates to:
+  /// **'Bu etikete yazılacak ipucu:\n\n{clue}\n\nEtiketi hazırla ve Yaz\'a bas. Sonra bu etiketi bir önceki ipucunun anlattığı yere sakla.'**
+  String huntWriteStepBody(String clue);
+
+  /// No description provided for @huntWriteNow.
+  ///
+  /// In tr, this message translates to:
+  /// **'Yaz'**
+  String get huntWriteNow;
+
+  /// No description provided for @huntWriteFailed.
+  ///
+  /// In tr, this message translates to:
+  /// **'{n}. etikete yazılamadı, tekrar dene.'**
+  String huntWriteFailed(String n);
+
+  /// No description provided for @huntWriteDone.
+  ///
+  /// In tr, this message translates to:
+  /// **'Tüm etiketler yazıldı. Saklayın ve oyunu başlatın!'**
+  String get huntWriteDone;
+
+  /// No description provided for @huntQuit.
+  ///
+  /// In tr, this message translates to:
+  /// **'Oyundan çık'**
+  String get huntQuit;
+
+  /// No description provided for @huntProgress.
+  ///
+  /// In tr, this message translates to:
+  /// **'{found}/{total} bulundu'**
+  String huntProgress(String found, String total);
+
+  /// No description provided for @huntCurrentClue.
+  ///
+  /// In tr, this message translates to:
+  /// **'İpucu'**
+  String get huntCurrentClue;
+
+  /// No description provided for @huntFinished.
+  ///
+  /// In tr, this message translates to:
+  /// **'Tebrikler! Süre: {time}'**
+  String huntFinished(String time);
+
+  /// No description provided for @huntDone.
+  ///
+  /// In tr, this message translates to:
+  /// **'Bitir'**
+  String get huntDone;
+
+  /// No description provided for @huntScanTag.
+  ///
+  /// In tr, this message translates to:
+  /// **'Bulduğun etiketi okut'**
+  String get huntScanTag;
+
+  /// No description provided for @huntFound.
+  ///
+  /// In tr, this message translates to:
+  /// **'Buldun! {found}/{total}'**
+  String huntFound(String found, String total);
+
+  /// No description provided for @huntWrongOrder.
+  ///
+  /// In tr, this message translates to:
+  /// **'Bu etiket sıradaki değil, ipucunu takip et.'**
+  String get huntWrongOrder;
+
+  /// No description provided for @huntAlreadyFound.
+  ///
+  /// In tr, this message translates to:
+  /// **'Bu etiketi zaten buldun.'**
+  String get huntAlreadyFound;
+
+  /// No description provided for @huntOtherHunt.
+  ///
+  /// In tr, this message translates to:
+  /// **'Bu etiket başka bir hazine avına ait.'**
+  String get huntOtherHunt;
+
+  /// No description provided for @huntNotHunt.
+  ///
+  /// In tr, this message translates to:
+  /// **'Bu bir hazine avı etiketi değil.'**
+  String get huntNotHunt;
 }
 
 class _AppLocalizationsDelegate

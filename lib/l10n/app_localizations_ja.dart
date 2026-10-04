@@ -4864,4 +4864,237 @@ class AppLocalizationsJa extends AppLocalizations {
   @override
   String get whatsNew160 =>
       '• ホーム画面とロック画面のウィジェット\n• コントロールセンターからワンタップでスキャン・書き込み（iOS 18）\n• Apple Watch：最近のスキャンとワンタップ記録\n• iCloudバックアップ（テンプレート、ルール、ライブラリ）';
+
+  @override
+  String get healthTitle => 'タグ診断';
+
+  @override
+  String get healthToolSubtitle => 'タグを読み取り、スコアと対処法を表示';
+
+  @override
+  String get healthIntro =>
+      'タグを読み取ると、形式・空き容量・ロック・リンクの安全性・署名・複製の疑いをチェックし、それぞれの対処法を表示します。';
+
+  @override
+  String get healthScan => 'タグを読み取る';
+
+  @override
+  String get healthScanAnother => '別のタグを読み取る';
+
+  @override
+  String get healthOverallGood => 'このタグは正常で、すぐに使えます。';
+
+  @override
+  String get healthOverallWarning => 'タグは使えますが、注意点があります。';
+
+  @override
+  String get healthOverallProblem => 'タグに問題があります。下の対処法を確認してください。';
+
+  @override
+  String get healthNotNdef => 'NDEF形式ではありません';
+
+  @override
+  String get healthNotNdefTip =>
+      'スマホで内容を読めません。ツール → メモリをフォーマット で整えるか、そのまま書き込んでください。';
+
+  @override
+  String get healthEmpty => 'タグは空です';
+
+  @override
+  String get healthEmptyTip => '「書き込み」タブやテンプレートから内容を追加できます。';
+
+  @override
+  String get healthReadOnly => '読み取り専用（ロック済み）';
+
+  @override
+  String get healthReadOnlyTip => '内容は変更できません。公共の場所ではこれが望ましい状態です。';
+
+  @override
+  String get healthWritable => '書き込み可能';
+
+  @override
+  String get healthWritableTip => '公共の場所に置くなら、書き換えられないようロックを検討してください。';
+
+  @override
+  String healthNearlyFull(String percent) {
+    return 'ほぼ満杯（$percent%）';
+  }
+
+  @override
+  String get healthNearlyFullTip => '長い内容には大きめのタグ（NTAG215/216）か短いリンクを使ってください。';
+
+  @override
+  String healthRoomLeft(String free, String total) {
+    return '$totalバイト中$freeバイト空き';
+  }
+
+  @override
+  String get healthRoomLeftTip => '新しい内容を書き込む余裕があります。';
+
+  @override
+  String get healthRiskyLink => '危険なリンク';
+
+  @override
+  String get healthRiskyLinkTip =>
+      '偽サイトのようなリンクです。開かないでください。公共の場所のタグなら改ざんされた可能性があります。';
+
+  @override
+  String get healthSuspiciousLink => '疑わしいリンク';
+
+  @override
+  String get healthSuspiciousLinkTip => '短縮URLや見慣れないアドレスです。開く前に確認してください。';
+
+  @override
+  String get healthSignedValid => '署名は有効';
+
+  @override
+  String get healthSignedValidTip => '内容はあなたの鍵で書き込まれ、変更されていません。';
+
+  @override
+  String get healthSignedInvalid => '署名が無効';
+
+  @override
+  String get healthSignedInvalidTip => '署名後に内容が変更されています。信用せず、書き直してください。';
+
+  @override
+  String get healthPossibleClone => '複製の可能性';
+
+  @override
+  String get healthPossibleCloneTip =>
+      'ライブラリのタグと同じ内容ですがシリアル番号が違います。誰かが複製した可能性があります。';
+
+  @override
+  String get healthInLibrary => 'ライブラリに登録済み';
+
+  @override
+  String get healthInLibraryTip => 'あなたのタグです。名前とメモはライブラリにあります。';
+
+  @override
+  String get huntTitle => '宝探し';
+
+  @override
+  String get huntToolSubtitle => 'タグを隠して、ヒントを頼りに順番に探そう';
+
+  @override
+  String get huntIntro =>
+      '各タグには次のタグの隠し場所のヒントを書きます。アプリが最初のヒントを表示し、プレイヤーは時間を計りながら順番にタグを読み取ります。誕生日や学校、家族のイベントに。';
+
+  @override
+  String get huntNew => '新しい宝探し';
+
+  @override
+  String get huntEdit => '編集';
+
+  @override
+  String get huntDelete => '削除';
+
+  @override
+  String get huntDeleteTitle => 'この宝探しを削除しますか？';
+
+  @override
+  String get huntSave => '保存';
+
+  @override
+  String get huntName => '宝探しの名前';
+
+  @override
+  String get huntStartClue => '最初のヒント';
+
+  @override
+  String get huntStartClueHint => 'スマホに表示され、タグ1の場所を示します。';
+
+  @override
+  String huntClueLabel(String n) {
+    return 'タグ$nのヒント';
+  }
+
+  @override
+  String huntClueHint(String n) {
+    return 'タグ$nの場所を示します。';
+  }
+
+  @override
+  String get huntLastClueHint => '最後のタグ：お祝いメッセージか宝のありか。';
+
+  @override
+  String get huntAddClue => 'タグを追加';
+
+  @override
+  String get huntMissingFields => '名前、最初のヒント、タグのヒントが1つ以上必要です。';
+
+  @override
+  String huntStations(String count) {
+    return 'タグ$count個';
+  }
+
+  @override
+  String huntBest(String time) {
+    return 'ベスト $time';
+  }
+
+  @override
+  String get huntWriteTags => 'タグに書き込む';
+
+  @override
+  String get huntPlay => '遊ぶ';
+
+  @override
+  String huntWriteStep(String n, String total) {
+    return 'タグ $n/$total';
+  }
+
+  @override
+  String huntWriteStepBody(String clue) {
+    return 'このタグに書くヒント:\n\n$clue\n\nタグを用意して「書き込む」をタップ。前のヒントが示す場所に隠してください。';
+  }
+
+  @override
+  String get huntWriteNow => '書き込む';
+
+  @override
+  String huntWriteFailed(String n) {
+    return 'タグ$nに書き込めませんでした。もう一度お試しください。';
+  }
+
+  @override
+  String get huntWriteDone => 'すべてのタグに書き込みました。隠してゲームを始めましょう！';
+
+  @override
+  String get huntQuit => 'ゲームを終了';
+
+  @override
+  String huntProgress(String found, String total) {
+    return '$found/$total 発見';
+  }
+
+  @override
+  String get huntCurrentClue => 'ヒント';
+
+  @override
+  String huntFinished(String time) {
+    return 'おめでとう！タイム: $time';
+  }
+
+  @override
+  String get huntDone => '終了';
+
+  @override
+  String get huntScanTag => '見つけたタグを読み取る';
+
+  @override
+  String huntFound(String found, String total) {
+    return '発見！$found/$total';
+  }
+
+  @override
+  String get huntWrongOrder => '次のタグではありません。ヒントをたどってください。';
+
+  @override
+  String get huntAlreadyFound => 'このタグはもう見つけました。';
+
+  @override
+  String get huntOtherHunt => 'このタグは別の宝探しのものです。';
+
+  @override
+  String get huntNotHunt => '宝探しのタグではありません。';
 }

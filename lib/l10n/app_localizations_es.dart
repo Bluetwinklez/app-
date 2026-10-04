@@ -5115,4 +5115,253 @@ class AppLocalizationsEs extends AppLocalizations {
   @override
   String get whatsNew160 =>
       '• Widgets para la pantalla de inicio y de bloqueo\n• Escanea y escribe con un toque desde el Centro de control (iOS 18)\n• Apple Watch: lecturas recientes y registros con un toque\n• Copia en iCloud (plantillas, reglas, biblioteca)';
+
+  @override
+  String get healthTitle => 'Revisión de la etiqueta';
+
+  @override
+  String get healthToolSubtitle => 'Escanea una etiqueta y mira qué mejorar';
+
+  @override
+  String get healthIntro =>
+      'Escanea una etiqueta: se revisan formato, espacio libre, bloqueo, seguridad de enlaces, firma y posible clon, con un consejo para cada punto.';
+
+  @override
+  String get healthScan => 'Escanear etiqueta';
+
+  @override
+  String get healthScanAnother => 'Escanear otra etiqueta';
+
+  @override
+  String get healthOverallGood =>
+      'La etiqueta está en buen estado y lista para usar.';
+
+  @override
+  String get healthOverallWarning =>
+      'La etiqueta funciona, pero hay cosas que revisar.';
+
+  @override
+  String get healthOverallProblem =>
+      'La etiqueta tiene problemas; mira los consejos de abajo.';
+
+  @override
+  String get healthNotNdef => 'Sin formato NDEF';
+
+  @override
+  String get healthNotNdefTip =>
+      'Los teléfonos no pueden leer su contenido. Formatéala en Herramientas → Formatear memoria o escribe en ella directamente.';
+
+  @override
+  String get healthEmpty => 'La etiqueta está vacía';
+
+  @override
+  String get healthEmptyTip =>
+      'Añade contenido desde la pestaña Escribir o una plantilla.';
+
+  @override
+  String get healthReadOnly => 'Solo lectura (bloqueada)';
+
+  @override
+  String get healthReadOnlyTip =>
+      'Su contenido no se puede cambiar, lo ideal en lugares públicos.';
+
+  @override
+  String get healthWritable => 'Se puede escribir';
+
+  @override
+  String get healthWritableTip =>
+      'Si va en un lugar público, considera bloquearla para que nadie la cambie.';
+
+  @override
+  String healthNearlyFull(String percent) {
+    return 'Casi llena ($percent %)';
+  }
+
+  @override
+  String get healthNearlyFullTip =>
+      'Para más contenido usa una etiqueta mayor (NTAG215/216) o un enlace más corto.';
+
+  @override
+  String healthRoomLeft(String free, String total) {
+    return '$free de $total bytes libres';
+  }
+
+  @override
+  String get healthRoomLeftTip => 'Hay espacio para contenido nuevo.';
+
+  @override
+  String get healthRiskyLink => 'Enlace peligroso';
+
+  @override
+  String get healthRiskyLinkTip =>
+      'El enlace parece un sitio falso. No lo abras; si la etiqueta está en un lugar público, pudo ser manipulada.';
+
+  @override
+  String get healthSuspiciousLink => 'Enlace sospechoso';
+
+  @override
+  String get healthSuspiciousLinkTip =>
+      'Dirección acortada o inusual. Revísala antes de abrirla.';
+
+  @override
+  String get healthSignedValid => 'Firma válida';
+
+  @override
+  String get healthSignedValidTip =>
+      'El contenido se escribió con tu clave y no ha cambiado.';
+
+  @override
+  String get healthSignedInvalid => 'Firma no válida';
+
+  @override
+  String get healthSignedInvalidTip =>
+      'El contenido cambió después de firmarse. No confíes y vuelve a escribirla.';
+
+  @override
+  String get healthPossibleClone => 'Posible copia';
+
+  @override
+  String get healthPossibleCloneTip =>
+      'Mismo contenido que una etiqueta de tu biblioteca pero otro número de serie. Alguien pudo copiarla.';
+
+  @override
+  String get healthInLibrary => 'Guardada en tu biblioteca';
+
+  @override
+  String get healthInLibraryTip =>
+      'Es una de tus etiquetas; su nombre y notas están en la biblioteca.';
+
+  @override
+  String get huntTitle => 'Búsqueda del tesoro';
+
+  @override
+  String get huntToolSubtitle =>
+      'Esconde etiquetas y que las encuentren pista a pista';
+
+  @override
+  String get huntIntro =>
+      'Cada etiqueta lleva una pista hacia la siguiente. La app muestra la primera pista; los jugadores escanean las etiquetas en orden contra el reloj. Ideal para cumpleaños, colegio y reuniones familiares.';
+
+  @override
+  String get huntNew => 'Nueva búsqueda';
+
+  @override
+  String get huntEdit => 'Editar';
+
+  @override
+  String get huntDelete => 'Eliminar';
+
+  @override
+  String get huntDeleteTitle => '¿Eliminar esta búsqueda del tesoro?';
+
+  @override
+  String get huntSave => 'Guardar';
+
+  @override
+  String get huntName => 'Nombre de la búsqueda';
+
+  @override
+  String get huntStartClue => 'Pista inicial';
+
+  @override
+  String get huntStartClueHint =>
+      'Se muestra en el teléfono y lleva a la etiqueta 1.';
+
+  @override
+  String huntClueLabel(String n) {
+    return 'Pista de la etiqueta $n';
+  }
+
+  @override
+  String huntClueHint(String n) {
+    return 'Lleva a la etiqueta $n.';
+  }
+
+  @override
+  String get huntLastClueHint =>
+      'Última etiqueta: un mensaje de felicitación o dónde está el tesoro.';
+
+  @override
+  String get huntAddClue => 'Añadir etiqueta';
+
+  @override
+  String get huntMissingFields =>
+      'Se necesitan un nombre, una pista inicial y al menos una pista de etiqueta.';
+
+  @override
+  String huntStations(String count) {
+    return '$count etiquetas';
+  }
+
+  @override
+  String huntBest(String time) {
+    return 'Mejor tiempo $time';
+  }
+
+  @override
+  String get huntWriteTags => 'Escribir etiquetas';
+
+  @override
+  String get huntPlay => 'Jugar';
+
+  @override
+  String huntWriteStep(String n, String total) {
+    return 'Etiqueta $n/$total';
+  }
+
+  @override
+  String huntWriteStepBody(String clue) {
+    return 'Esta pista va en la etiqueta:\n\n$clue\n\nTen la etiqueta lista y toca Escribir. Luego escóndela donde indica la pista anterior.';
+  }
+
+  @override
+  String get huntWriteNow => 'Escribir';
+
+  @override
+  String huntWriteFailed(String n) {
+    return 'No se pudo escribir la etiqueta $n; inténtalo de nuevo.';
+  }
+
+  @override
+  String get huntWriteDone =>
+      'Todas las etiquetas escritas. ¡Escóndelas y empieza el juego!';
+
+  @override
+  String get huntQuit => 'Salir del juego';
+
+  @override
+  String huntProgress(String found, String total) {
+    return '$found/$total encontradas';
+  }
+
+  @override
+  String get huntCurrentClue => 'Pista';
+
+  @override
+  String huntFinished(String time) {
+    return '¡Enhorabuena! Tiempo: $time';
+  }
+
+  @override
+  String get huntDone => 'Terminar';
+
+  @override
+  String get huntScanTag => 'Escanea la etiqueta que encontraste';
+
+  @override
+  String huntFound(String found, String total) {
+    return '¡Encontrada! $found/$total';
+  }
+
+  @override
+  String get huntWrongOrder => 'No es la siguiente etiqueta; sigue la pista.';
+
+  @override
+  String get huntAlreadyFound => 'Ya encontraste esta etiqueta.';
+
+  @override
+  String get huntOtherHunt => 'Esta etiqueta es de otra búsqueda del tesoro.';
+
+  @override
+  String get huntNotHunt => 'No es una etiqueta de la búsqueda.';
 }
