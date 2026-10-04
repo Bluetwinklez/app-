@@ -5332,4 +5332,165 @@ class AppLocalizationsUk extends AppLocalizations {
   @override
   String get whatsNew170 =>
       '• Перевірка мітки: оцінка й поради\n• Полювання за скарбами: підказки на мітках, які шукають по черзі';
+
+  @override
+  String get everydaySection => 'Корисні інструменти';
+
+  @override
+  String get unitTitle => 'Конвертер одиниць';
+
+  @override
+  String get unitSubtitle => 'Довжина, вага, температура, об\'єм, швидкість';
+
+  @override
+  String get unitLength => 'Довжина';
+
+  @override
+  String get unitWeight => 'Вага';
+
+  @override
+  String get unitTemperature => 'Температура';
+
+  @override
+  String get unitVolume => 'Об\'єм';
+
+  @override
+  String get unitSpeed => 'Швидкість';
+
+  @override
+  String get unitValue => 'Значення';
+
+  @override
+  String get unitSwap => 'Поміняти місцями';
+
+  @override
+  String get billTitle => 'Поділити рахунок';
+
+  @override
+  String get billSubtitle => 'Сума на особу з чайовими';
+
+  @override
+  String get billAmount => 'Сума рахунку';
+
+  @override
+  String billTip(String percent) {
+    return 'Чайові: $percent%';
+  }
+
+  @override
+  String get billPeople => 'Осіб';
+
+  @override
+  String get billRoundUp => 'Округлювати частку вгору';
+
+  @override
+  String get billPerPerson => 'З особи';
+
+  @override
+  String get billTipAmount => 'Чайові';
+
+  @override
+  String get billTotal => 'Разом';
+
+  @override
+  String get pwTitle => 'Генератор паролів';
+
+  @override
+  String get pwSubtitle => 'Надійні й зручні паролі';
+
+  @override
+  String get pwWeak => 'Слабкий';
+
+  @override
+  String get pwFair => 'Середній';
+
+  @override
+  String get pwStrong => 'Надійний';
+
+  @override
+  String get pwVeryStrong => 'Дуже надійний';
+
+  @override
+  String get pwNew => 'Новий пароль';
+
+  @override
+  String get pwCopy => 'Копіювати';
+
+  @override
+  String get pwCopied => 'Пароль скопійовано';
+
+  @override
+  String pwLength(String n) {
+    return 'Довжина: $n';
+  }
+
+  @override
+  String get pwLower => 'Малі літери';
+
+  @override
+  String get pwUpper => 'Великі літери';
+
+  @override
+  String get pwDigits => 'Цифри';
+
+  @override
+  String get pwSymbols => 'Символи';
+
+  @override
+  String get randTitle => 'Кубики й жеребкування';
+
+  @override
+  String get randSubtitle => 'Кубики, монетка, жеребкування зі списку';
+
+  @override
+  String get randDice => 'Кубики';
+
+  @override
+  String randTotal(String total) {
+    return 'Сума: $total';
+  }
+
+  @override
+  String get randRoll => 'Кинути';
+
+  @override
+  String get randCoin => 'Монетка';
+
+  @override
+  String get randHeads => 'Орел';
+
+  @override
+  String get randTails => 'Решка';
+
+  @override
+  String get randFlip => 'Підкинути';
+
+  @override
+  String get randDraw => 'Жеребкування';
+
+  @override
+  String get randDrawHint => 'По одному імені в рядку або через кому';
+
+  @override
+  String get randDrawButton => 'Тягнути жереб';
+
+  @override
+  String get randWinner => 'Переможець';
+
+  @override
+  String get tallyTitle => 'Лічильник';
+
+  @override
+  String get tallySubtitle =>
+      'Рахуйте людей, кола чи речі; значення зберігається';
+
+  @override
+  String get tallyReset => 'Скинути';
+
+  @override
+  String get tallyTapHint => 'Торкніться будь-де, щоб рахувати';
+
+  @override
+  String get whatsNew180 =>
+      '• Корисні інструменти: конвертер одиниць, поділ рахунку, генератор паролів, кубики й жеребкування, лічильник';
 }

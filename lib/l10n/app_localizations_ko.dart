@@ -5115,4 +5115,163 @@ class AppLocalizationsKo extends AppLocalizations {
 
   @override
   String get whatsNew170 => '• 태그 상태 점검: 점수와 조언\n• 보물찾기: 태그에 단서를 쓰고 순서대로 찾기';
+
+  @override
+  String get everydaySection => '생활 도구';
+
+  @override
+  String get unitTitle => '단위 변환기';
+
+  @override
+  String get unitSubtitle => '길이, 무게, 온도, 부피, 속도';
+
+  @override
+  String get unitLength => '길이';
+
+  @override
+  String get unitWeight => '무게';
+
+  @override
+  String get unitTemperature => '온도';
+
+  @override
+  String get unitVolume => '부피';
+
+  @override
+  String get unitSpeed => '속도';
+
+  @override
+  String get unitValue => '값';
+
+  @override
+  String get unitSwap => '단위 바꾸기';
+
+  @override
+  String get billTitle => '더치페이';
+
+  @override
+  String get billSubtitle => '팁을 포함한 1인당 금액';
+
+  @override
+  String get billAmount => '청구 금액';
+
+  @override
+  String billTip(String percent) {
+    return '팁: $percent%';
+  }
+
+  @override
+  String get billPeople => '인원';
+
+  @override
+  String get billRoundUp => '1인당 금액 올림';
+
+  @override
+  String get billPerPerson => '1인당';
+
+  @override
+  String get billTipAmount => '팁';
+
+  @override
+  String get billTotal => '합계';
+
+  @override
+  String get pwTitle => '비밀번호 생성기';
+
+  @override
+  String get pwSubtitle => '강력하고 입력하기 쉬운 비밀번호';
+
+  @override
+  String get pwWeak => '약함';
+
+  @override
+  String get pwFair => '보통';
+
+  @override
+  String get pwStrong => '강함';
+
+  @override
+  String get pwVeryStrong => '매우 강함';
+
+  @override
+  String get pwNew => '새 비밀번호';
+
+  @override
+  String get pwCopy => '복사';
+
+  @override
+  String get pwCopied => '비밀번호를 복사했습니다';
+
+  @override
+  String pwLength(String n) {
+    return '길이: $n';
+  }
+
+  @override
+  String get pwLower => '소문자';
+
+  @override
+  String get pwUpper => '대문자';
+
+  @override
+  String get pwDigits => '숫자';
+
+  @override
+  String get pwSymbols => '기호';
+
+  @override
+  String get randTitle => '주사위와 제비뽑기';
+
+  @override
+  String get randSubtitle => '주사위, 동전 던지기, 목록에서 뽑기';
+
+  @override
+  String get randDice => '주사위';
+
+  @override
+  String randTotal(String total) {
+    return '합계: $total';
+  }
+
+  @override
+  String get randRoll => '굴리기';
+
+  @override
+  String get randCoin => '동전 던지기';
+
+  @override
+  String get randHeads => '앞면';
+
+  @override
+  String get randTails => '뒷면';
+
+  @override
+  String get randFlip => '던지기';
+
+  @override
+  String get randDraw => '목록에서 뽑기';
+
+  @override
+  String get randDrawHint => '한 줄에 하나씩 또는 쉼표로 구분';
+
+  @override
+  String get randDrawButton => '뽑기';
+
+  @override
+  String get randWinner => '당첨';
+
+  @override
+  String get tallyTitle => '카운터';
+
+  @override
+  String get tallySubtitle => '사람, 바퀴, 물건 수를 세고 이어서 계속';
+
+  @override
+  String get tallyReset => '초기화';
+
+  @override
+  String get tallyTapHint => '아무 곳이나 탭해 세기';
+
+  @override
+  String get whatsNew180 => '• 생활 도구: 단위 변환기, 더치페이, 비밀번호 생성기, 주사위와 제비뽑기, 카운터';
 }

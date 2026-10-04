@@ -3611,5 +3611,77 @@
   "huntAlreadyFound": "Bu etiketi zaten buldun.",
   "huntOtherHunt": "Bu etiket başka bir hazine avına ait.",
   "huntNotHunt": "Bu bir hazine avı etiketi değil.",
-  "whatsNew170": "• Etiket sağlık testi: puan ve öneriler\n• Hazine avı: ipuçlarını etiketlere yaz, sırayla bulun"
+  "whatsNew170": "• Etiket sağlık testi: puan ve öneriler\n• Hazine avı: ipuçlarını etiketlere yaz, sırayla bulun",
+  "everydaySection": "Günlük araçlar",
+  "unitTitle": "Birim çevirici",
+  "unitSubtitle": "Uzunluk, ağırlık, sıcaklık, hacim, hız",
+  "unitLength": "Uzunluk",
+  "unitWeight": "Ağırlık",
+  "unitTemperature": "Sıcaklık",
+  "unitVolume": "Hacim",
+  "unitSpeed": "Hız",
+  "unitValue": "Değer",
+  "unitSwap": "Birimleri değiştir",
+  "billTitle": "Hesap bölüşme",
+  "billSubtitle": "Bahşişle birlikte kişi başı tutar",
+  "billAmount": "Hesap tutarı",
+  "billTip": "Bahşiş: %{percent}",
+  "@billTip": {
+    "placeholders": {
+      "percent": {
+        "type": "String"
+      }
+    }
+  },
+  "billPeople": "Kişi sayısı",
+  "billRoundUp": "Kişi başını yukarı yuvarla",
+  "billPerPerson": "Kişi başı",
+  "billTipAmount": "Bahşiş",
+  "billTotal": "Toplam",
+  "pwTitle": "Şifre üretici",
+  "pwSubtitle": "Güçlü ve okunaklı şifreler",
+  "pwWeak": "Zayıf",
+  "pwFair": "Orta",
+  "pwStrong": "Güçlü",
+  "pwVeryStrong": "Çok güçlü",
+  "pwNew": "Yeni şifre",
+  "pwCopy": "Kopyala",
+  "pwCopied": "Şifre kopyalandı",
+  "pwLength": "Uzunluk: {n}",
+  "@pwLength": {
+    "placeholders": {
+      "n": {
+        "type": "String"
+      }
+    }
+  },
+  "pwLower": "Küçük harf",
+  "pwUpper": "Büyük harf",
+  "pwDigits": "Rakam",
+  "pwSymbols": "Sembol",
+  "randTitle": "Zar ve kura",
+  "randSubtitle": "Zar at, yazı-tura, listeden kura çek",
+  "randDice": "Zar",
+  "randTotal": "Toplam: {total}",
+  "@randTotal": {
+    "placeholders": {
+      "total": {
+        "type": "String"
+      }
+    }
+  },
+  "randRoll": "Zar at",
+  "randCoin": "Yazı tura",
+  "randHeads": "Yazı",
+  "randTails": "Tura",
+  "randFlip": "At",
+  "randDraw": "Kura çek",
+  "randDrawHint": "Her satıra ya da virgülle bir isim yaz",
+  "randDrawButton": "Kura çek",
+  "randWinner": "Kazanan",
+  "tallyTitle": "Sayaç",
+  "tallySubtitle": "Kişi, tur veya ürün say; kaldığın yerden devam et",
+  "tallyReset": "Sıfırla",
+  "tallyTapHint": "Saymak için ekrana dokun",
+  "whatsNew180": "• Günlük araçlar: birim çevirici, hesap bölüşme, şifre üretici, zar ve kura, sayaç"
 }

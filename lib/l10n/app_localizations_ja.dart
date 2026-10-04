@@ -5100,4 +5100,163 @@ class AppLocalizationsJa extends AppLocalizations {
 
   @override
   String get whatsNew170 => '• タグ診断：スコアと対処法\n• 宝探し：ヒントをタグに書いて順番に探そう';
+
+  @override
+  String get everydaySection => '便利ツール';
+
+  @override
+  String get unitTitle => '単位換算';
+
+  @override
+  String get unitSubtitle => '長さ・重さ・温度・体積・速度';
+
+  @override
+  String get unitLength => '長さ';
+
+  @override
+  String get unitWeight => '重さ';
+
+  @override
+  String get unitTemperature => '温度';
+
+  @override
+  String get unitVolume => '体積';
+
+  @override
+  String get unitSpeed => '速度';
+
+  @override
+  String get unitValue => '値';
+
+  @override
+  String get unitSwap => '単位を入れ替え';
+
+  @override
+  String get billTitle => '割り勘';
+
+  @override
+  String get billSubtitle => 'チップ込みの1人あたり金額';
+
+  @override
+  String get billAmount => '金額';
+
+  @override
+  String billTip(String percent) {
+    return 'チップ: $percent%';
+  }
+
+  @override
+  String get billPeople => '人数';
+
+  @override
+  String get billRoundUp => '1人分を切り上げ';
+
+  @override
+  String get billPerPerson => '1人あたり';
+
+  @override
+  String get billTipAmount => 'チップ';
+
+  @override
+  String get billTotal => '合計';
+
+  @override
+  String get pwTitle => 'パスワード生成';
+
+  @override
+  String get pwSubtitle => '強力で入力しやすいパスワード';
+
+  @override
+  String get pwWeak => '弱い';
+
+  @override
+  String get pwFair => '普通';
+
+  @override
+  String get pwStrong => '強い';
+
+  @override
+  String get pwVeryStrong => 'とても強い';
+
+  @override
+  String get pwNew => '再生成';
+
+  @override
+  String get pwCopy => 'コピー';
+
+  @override
+  String get pwCopied => 'パスワードをコピーしました';
+
+  @override
+  String pwLength(String n) {
+    return '長さ: $n';
+  }
+
+  @override
+  String get pwLower => '小文字';
+
+  @override
+  String get pwUpper => '大文字';
+
+  @override
+  String get pwDigits => '数字';
+
+  @override
+  String get pwSymbols => '記号';
+
+  @override
+  String get randTitle => 'サイコロとくじ';
+
+  @override
+  String get randSubtitle => 'サイコロ・コイントス・リストから抽選';
+
+  @override
+  String get randDice => 'サイコロ';
+
+  @override
+  String randTotal(String total) {
+    return '合計: $total';
+  }
+
+  @override
+  String get randRoll => '振る';
+
+  @override
+  String get randCoin => 'コイントス';
+
+  @override
+  String get randHeads => '表';
+
+  @override
+  String get randTails => '裏';
+
+  @override
+  String get randFlip => '投げる';
+
+  @override
+  String get randDraw => 'リストから抽選';
+
+  @override
+  String get randDrawHint => '1行に1つ、またはカンマ区切りで入力';
+
+  @override
+  String get randDrawButton => '抽選する';
+
+  @override
+  String get randWinner => '当選';
+
+  @override
+  String get tallyTitle => 'カウンター';
+
+  @override
+  String get tallySubtitle => '人数・周回・品数を数え、続きから再開';
+
+  @override
+  String get tallyReset => 'リセット';
+
+  @override
+  String get tallyTapHint => '画面をタップしてカウント';
+
+  @override
+  String get whatsNew180 => '• 便利ツール：単位換算、割り勘、パスワード生成、サイコロとくじ、カウンター';
 }

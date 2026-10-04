@@ -5322,4 +5322,165 @@ class AppLocalizationsEn extends AppLocalizations {
   @override
   String get whatsNew170 =>
       '• Tag health check: score and advice\n• Treasure hunt: write clues to tags and find them in order';
+
+  @override
+  String get everydaySection => 'Everyday tools';
+
+  @override
+  String get unitTitle => 'Unit converter';
+
+  @override
+  String get unitSubtitle => 'Length, weight, temperature, volume, speed';
+
+  @override
+  String get unitLength => 'Length';
+
+  @override
+  String get unitWeight => 'Weight';
+
+  @override
+  String get unitTemperature => 'Temperature';
+
+  @override
+  String get unitVolume => 'Volume';
+
+  @override
+  String get unitSpeed => 'Speed';
+
+  @override
+  String get unitValue => 'Value';
+
+  @override
+  String get unitSwap => 'Swap units';
+
+  @override
+  String get billTitle => 'Split the bill';
+
+  @override
+  String get billSubtitle => 'Per-person amount with tip';
+
+  @override
+  String get billAmount => 'Bill amount';
+
+  @override
+  String billTip(String percent) {
+    return 'Tip: $percent%';
+  }
+
+  @override
+  String get billPeople => 'People';
+
+  @override
+  String get billRoundUp => 'Round each share up';
+
+  @override
+  String get billPerPerson => 'Per person';
+
+  @override
+  String get billTipAmount => 'Tip';
+
+  @override
+  String get billTotal => 'Total';
+
+  @override
+  String get pwTitle => 'Password generator';
+
+  @override
+  String get pwSubtitle => 'Strong passwords that are easy to type';
+
+  @override
+  String get pwWeak => 'Weak';
+
+  @override
+  String get pwFair => 'Fair';
+
+  @override
+  String get pwStrong => 'Strong';
+
+  @override
+  String get pwVeryStrong => 'Very strong';
+
+  @override
+  String get pwNew => 'New password';
+
+  @override
+  String get pwCopy => 'Copy';
+
+  @override
+  String get pwCopied => 'Password copied';
+
+  @override
+  String pwLength(String n) {
+    return 'Length: $n';
+  }
+
+  @override
+  String get pwLower => 'Lowercase';
+
+  @override
+  String get pwUpper => 'Uppercase';
+
+  @override
+  String get pwDigits => 'Numbers';
+
+  @override
+  String get pwSymbols => 'Symbols';
+
+  @override
+  String get randTitle => 'Dice and draws';
+
+  @override
+  String get randSubtitle => 'Roll dice, flip a coin, draw from a list';
+
+  @override
+  String get randDice => 'Dice';
+
+  @override
+  String randTotal(String total) {
+    return 'Total: $total';
+  }
+
+  @override
+  String get randRoll => 'Roll';
+
+  @override
+  String get randCoin => 'Coin flip';
+
+  @override
+  String get randHeads => 'Heads';
+
+  @override
+  String get randTails => 'Tails';
+
+  @override
+  String get randFlip => 'Flip';
+
+  @override
+  String get randDraw => 'Draw from a list';
+
+  @override
+  String get randDrawHint => 'One name per line or separated by commas';
+
+  @override
+  String get randDrawButton => 'Draw';
+
+  @override
+  String get randWinner => 'Winner';
+
+  @override
+  String get tallyTitle => 'Tally counter';
+
+  @override
+  String get tallySubtitle =>
+      'Count people, laps or items; picks up where you left off';
+
+  @override
+  String get tallyReset => 'Reset';
+
+  @override
+  String get tallyTapHint => 'Tap anywhere to count';
+
+  @override
+  String get whatsNew180 =>
+      '• Everyday tools: unit converter, bill splitter, password generator, dice and draws, tally counter';
 }
