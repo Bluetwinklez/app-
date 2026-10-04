@@ -16,6 +16,8 @@ import '../domain/amiibo.dart';
 import '../services/launch_action_service.dart';
 import 'analytics_page.dart';
 import 'logbook_page.dart';
+import 'tag_health_page.dart';
+import 'treasure_hunt_page.dart';
 import 'signed_tags_page.dart';
 
 /// "Araçlar" screen: chip-level tools for NTAG / MIFARE Ultralight tags.
@@ -102,6 +104,19 @@ class ToolsTab extends StatelessWidget {
           subtitle: loc.logbookSubtitle,
           color: AppColors.success,
           onTap: () => LogBooksPage.open(context, controller),
+        ),
+        ToolTile(
+          icon: Icons.health_and_safety_outlined,
+          title: loc.healthTitle,
+          subtitle: loc.healthToolSubtitle,
+          onTap: () => TagHealthPage.open(context, controller),
+        ),
+        ToolTile(
+          icon: Icons.explore_outlined,
+          title: loc.huntTitle,
+          subtitle: loc.huntToolSubtitle,
+          color: AppColors.warning,
+          onTap: () => TreasureHuntsPage.open(context, controller),
         ),
         SectionHeader(title: loc.toolsMemorySection),
         ToolTile(
