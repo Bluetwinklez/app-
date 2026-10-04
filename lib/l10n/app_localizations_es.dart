@@ -5368,4 +5368,165 @@ class AppLocalizationsEs extends AppLocalizations {
   @override
   String get whatsNew170 =>
       '• Revisión de la etiqueta: puntuación y consejos\n• Búsqueda del tesoro: escribe pistas en etiquetas y encuéntralas en orden';
+
+  @override
+  String get everydaySection => 'Herramientas cotidianas';
+
+  @override
+  String get unitTitle => 'Conversor de unidades';
+
+  @override
+  String get unitSubtitle => 'Longitud, peso, temperatura, volumen, velocidad';
+
+  @override
+  String get unitLength => 'Longitud';
+
+  @override
+  String get unitWeight => 'Peso';
+
+  @override
+  String get unitTemperature => 'Temperatura';
+
+  @override
+  String get unitVolume => 'Volumen';
+
+  @override
+  String get unitSpeed => 'Velocidad';
+
+  @override
+  String get unitValue => 'Valor';
+
+  @override
+  String get unitSwap => 'Intercambiar unidades';
+
+  @override
+  String get billTitle => 'Dividir la cuenta';
+
+  @override
+  String get billSubtitle => 'Importe por persona con propina';
+
+  @override
+  String get billAmount => 'Importe de la cuenta';
+
+  @override
+  String billTip(String percent) {
+    return 'Propina: $percent %';
+  }
+
+  @override
+  String get billPeople => 'Personas';
+
+  @override
+  String get billRoundUp => 'Redondear cada parte hacia arriba';
+
+  @override
+  String get billPerPerson => 'Por persona';
+
+  @override
+  String get billTipAmount => 'Propina';
+
+  @override
+  String get billTotal => 'Total';
+
+  @override
+  String get pwTitle => 'Generador de contraseñas';
+
+  @override
+  String get pwSubtitle => 'Contraseñas fuertes y fáciles de escribir';
+
+  @override
+  String get pwWeak => 'Débil';
+
+  @override
+  String get pwFair => 'Media';
+
+  @override
+  String get pwStrong => 'Fuerte';
+
+  @override
+  String get pwVeryStrong => 'Muy fuerte';
+
+  @override
+  String get pwNew => 'Nueva';
+
+  @override
+  String get pwCopy => 'Copiar';
+
+  @override
+  String get pwCopied => 'Contraseña copiada';
+
+  @override
+  String pwLength(String n) {
+    return 'Longitud: $n';
+  }
+
+  @override
+  String get pwLower => 'Minúsculas';
+
+  @override
+  String get pwUpper => 'Mayúsculas';
+
+  @override
+  String get pwDigits => 'Números';
+
+  @override
+  String get pwSymbols => 'Símbolos';
+
+  @override
+  String get randTitle => 'Dados y sorteos';
+
+  @override
+  String get randSubtitle => 'Lanza dados, cara o cruz, sortea de una lista';
+
+  @override
+  String get randDice => 'Dados';
+
+  @override
+  String randTotal(String total) {
+    return 'Total: $total';
+  }
+
+  @override
+  String get randRoll => 'Lanzar';
+
+  @override
+  String get randCoin => 'Cara o cruz';
+
+  @override
+  String get randHeads => 'Cara';
+
+  @override
+  String get randTails => 'Cruz';
+
+  @override
+  String get randFlip => 'Lanzar';
+
+  @override
+  String get randDraw => 'Sorteo';
+
+  @override
+  String get randDrawHint => 'Un nombre por línea o separados por comas';
+
+  @override
+  String get randDrawButton => 'Sortear';
+
+  @override
+  String get randWinner => 'Ganador';
+
+  @override
+  String get tallyTitle => 'Contador';
+
+  @override
+  String get tallySubtitle =>
+      'Cuenta personas, vueltas o artículos; sigue donde lo dejaste';
+
+  @override
+  String get tallyReset => 'Restablecer';
+
+  @override
+  String get tallyTapHint => 'Toca en cualquier parte para contar';
+
+  @override
+  String get whatsNew180 =>
+      '• Herramientas cotidianas: conversor de unidades, dividir la cuenta, contraseñas, dados y sorteos, contador';
 }

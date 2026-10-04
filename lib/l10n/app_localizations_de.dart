@@ -5352,4 +5352,166 @@ class AppLocalizationsDe extends AppLocalizations {
   @override
   String get whatsNew170 =>
       '• Tag-Gesundheitscheck: Punktzahl und Tipps\n• Schatzsuche: Hinweise auf Tags schreiben und der Reihe nach finden';
+
+  @override
+  String get everydaySection => 'Alltagshelfer';
+
+  @override
+  String get unitTitle => 'Einheitenrechner';
+
+  @override
+  String get unitSubtitle =>
+      'Länge, Gewicht, Temperatur, Volumen, Geschwindigkeit';
+
+  @override
+  String get unitLength => 'Länge';
+
+  @override
+  String get unitWeight => 'Gewicht';
+
+  @override
+  String get unitTemperature => 'Temperatur';
+
+  @override
+  String get unitVolume => 'Volumen';
+
+  @override
+  String get unitSpeed => 'Geschwindigkeit';
+
+  @override
+  String get unitValue => 'Wert';
+
+  @override
+  String get unitSwap => 'Einheiten tauschen';
+
+  @override
+  String get billTitle => 'Rechnung teilen';
+
+  @override
+  String get billSubtitle => 'Betrag pro Person mit Trinkgeld';
+
+  @override
+  String get billAmount => 'Rechnungsbetrag';
+
+  @override
+  String billTip(String percent) {
+    return 'Trinkgeld: $percent %';
+  }
+
+  @override
+  String get billPeople => 'Personen';
+
+  @override
+  String get billRoundUp => 'Anteil aufrunden';
+
+  @override
+  String get billPerPerson => 'Pro Person';
+
+  @override
+  String get billTipAmount => 'Trinkgeld';
+
+  @override
+  String get billTotal => 'Gesamt';
+
+  @override
+  String get pwTitle => 'Passwort-Generator';
+
+  @override
+  String get pwSubtitle => 'Starke, gut lesbare Passwörter';
+
+  @override
+  String get pwWeak => 'Schwach';
+
+  @override
+  String get pwFair => 'Mittel';
+
+  @override
+  String get pwStrong => 'Stark';
+
+  @override
+  String get pwVeryStrong => 'Sehr stark';
+
+  @override
+  String get pwNew => 'Neues Passwort';
+
+  @override
+  String get pwCopy => 'Kopieren';
+
+  @override
+  String get pwCopied => 'Passwort kopiert';
+
+  @override
+  String pwLength(String n) {
+    return 'Länge: $n';
+  }
+
+  @override
+  String get pwLower => 'Kleinbuchstaben';
+
+  @override
+  String get pwUpper => 'Großbuchstaben';
+
+  @override
+  String get pwDigits => 'Ziffern';
+
+  @override
+  String get pwSymbols => 'Sonderzeichen';
+
+  @override
+  String get randTitle => 'Würfel und Losen';
+
+  @override
+  String get randSubtitle => 'Würfeln, Münzwurf, aus einer Liste losen';
+
+  @override
+  String get randDice => 'Würfel';
+
+  @override
+  String randTotal(String total) {
+    return 'Summe: $total';
+  }
+
+  @override
+  String get randRoll => 'Würfeln';
+
+  @override
+  String get randCoin => 'Münzwurf';
+
+  @override
+  String get randHeads => 'Kopf';
+
+  @override
+  String get randTails => 'Zahl';
+
+  @override
+  String get randFlip => 'Werfen';
+
+  @override
+  String get randDraw => 'Aus Liste losen';
+
+  @override
+  String get randDrawHint => 'Ein Name pro Zeile oder durch Kommas getrennt';
+
+  @override
+  String get randDrawButton => 'Losen';
+
+  @override
+  String get randWinner => 'Gewinner';
+
+  @override
+  String get tallyTitle => 'Zähler';
+
+  @override
+  String get tallySubtitle =>
+      'Personen, Runden oder Artikel zählen; merkt sich den Stand';
+
+  @override
+  String get tallyReset => 'Zurücksetzen';
+
+  @override
+  String get tallyTapHint => 'Zum Zählen irgendwo tippen';
+
+  @override
+  String get whatsNew180 =>
+      '• Alltagshelfer: Einheitenrechner, Rechnung teilen, Passwort-Generator, Würfel und Losen, Zähler';
 }

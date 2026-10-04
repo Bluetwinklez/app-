@@ -5376,4 +5376,166 @@ class AppLocalizationsFr extends AppLocalizations {
   @override
   String get whatsNew170 =>
       '• Bilan de santé du tag : note et conseils\n• Chasse au trésor : écrivez des indices sur des tags à trouver dans l\'ordre';
+
+  @override
+  String get everydaySection => 'Outils du quotidien';
+
+  @override
+  String get unitTitle => 'Convertisseur d\'unités';
+
+  @override
+  String get unitSubtitle => 'Longueur, poids, température, volume, vitesse';
+
+  @override
+  String get unitLength => 'Longueur';
+
+  @override
+  String get unitWeight => 'Poids';
+
+  @override
+  String get unitTemperature => 'Température';
+
+  @override
+  String get unitVolume => 'Volume';
+
+  @override
+  String get unitSpeed => 'Vitesse';
+
+  @override
+  String get unitValue => 'Valeur';
+
+  @override
+  String get unitSwap => 'Inverser les unités';
+
+  @override
+  String get billTitle => 'Partager l\'addition';
+
+  @override
+  String get billSubtitle => 'Montant par personne avec pourboire';
+
+  @override
+  String get billAmount => 'Montant de l\'addition';
+
+  @override
+  String billTip(String percent) {
+    return 'Pourboire : $percent %';
+  }
+
+  @override
+  String get billPeople => 'Personnes';
+
+  @override
+  String get billRoundUp => 'Arrondir chaque part';
+
+  @override
+  String get billPerPerson => 'Par personne';
+
+  @override
+  String get billTipAmount => 'Pourboire';
+
+  @override
+  String get billTotal => 'Total';
+
+  @override
+  String get pwTitle => 'Générateur de mots de passe';
+
+  @override
+  String get pwSubtitle => 'Mots de passe forts et faciles à saisir';
+
+  @override
+  String get pwWeak => 'Faible';
+
+  @override
+  String get pwFair => 'Moyen';
+
+  @override
+  String get pwStrong => 'Fort';
+
+  @override
+  String get pwVeryStrong => 'Très fort';
+
+  @override
+  String get pwNew => 'Nouveau';
+
+  @override
+  String get pwCopy => 'Copier';
+
+  @override
+  String get pwCopied => 'Mot de passe copié';
+
+  @override
+  String pwLength(String n) {
+    return 'Longueur : $n';
+  }
+
+  @override
+  String get pwLower => 'Minuscules';
+
+  @override
+  String get pwUpper => 'Majuscules';
+
+  @override
+  String get pwDigits => 'Chiffres';
+
+  @override
+  String get pwSymbols => 'Symboles';
+
+  @override
+  String get randTitle => 'Dés et tirage au sort';
+
+  @override
+  String get randSubtitle =>
+      'Lancer de dés, pile ou face, tirage dans une liste';
+
+  @override
+  String get randDice => 'Dés';
+
+  @override
+  String randTotal(String total) {
+    return 'Total : $total';
+  }
+
+  @override
+  String get randRoll => 'Lancer';
+
+  @override
+  String get randCoin => 'Pile ou face';
+
+  @override
+  String get randHeads => 'Face';
+
+  @override
+  String get randTails => 'Pile';
+
+  @override
+  String get randFlip => 'Lancer';
+
+  @override
+  String get randDraw => 'Tirer au sort';
+
+  @override
+  String get randDrawHint => 'Un nom par ligne ou séparés par des virgules';
+
+  @override
+  String get randDrawButton => 'Tirer';
+
+  @override
+  String get randWinner => 'Gagnant';
+
+  @override
+  String get tallyTitle => 'Compteur';
+
+  @override
+  String get tallySubtitle =>
+      'Comptez personnes, tours ou articles ; reprend où vous étiez';
+
+  @override
+  String get tallyReset => 'Réinitialiser';
+
+  @override
+  String get tallyTapHint => 'Touchez n\'importe où pour compter';
+
+  @override
+  String get whatsNew180 =>
+      '• Outils du quotidien : convertisseur d\'unités, partage d\'addition, mots de passe, dés et tirage, compteur';
 }

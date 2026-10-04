@@ -5334,4 +5334,165 @@ class AppLocalizationsRu extends AppLocalizations {
   @override
   String get whatsNew170 =>
       '• Проверка метки: оценка и советы\n• Охота за сокровищами: подсказки на метках, которые находят по порядку';
+
+  @override
+  String get everydaySection => 'Полезные инструменты';
+
+  @override
+  String get unitTitle => 'Конвертер единиц';
+
+  @override
+  String get unitSubtitle => 'Длина, вес, температура, объём, скорость';
+
+  @override
+  String get unitLength => 'Длина';
+
+  @override
+  String get unitWeight => 'Вес';
+
+  @override
+  String get unitTemperature => 'Температура';
+
+  @override
+  String get unitVolume => 'Объём';
+
+  @override
+  String get unitSpeed => 'Скорость';
+
+  @override
+  String get unitValue => 'Значение';
+
+  @override
+  String get unitSwap => 'Поменять местами';
+
+  @override
+  String get billTitle => 'Разделить счёт';
+
+  @override
+  String get billSubtitle => 'Сумма на человека с чаевыми';
+
+  @override
+  String get billAmount => 'Сумма счёта';
+
+  @override
+  String billTip(String percent) {
+    return 'Чаевые: $percent%';
+  }
+
+  @override
+  String get billPeople => 'Человек';
+
+  @override
+  String get billRoundUp => 'Округлять долю вверх';
+
+  @override
+  String get billPerPerson => 'С человека';
+
+  @override
+  String get billTipAmount => 'Чаевые';
+
+  @override
+  String get billTotal => 'Итого';
+
+  @override
+  String get pwTitle => 'Генератор паролей';
+
+  @override
+  String get pwSubtitle => 'Надёжные и удобные пароли';
+
+  @override
+  String get pwWeak => 'Слабый';
+
+  @override
+  String get pwFair => 'Средний';
+
+  @override
+  String get pwStrong => 'Надёжный';
+
+  @override
+  String get pwVeryStrong => 'Очень надёжный';
+
+  @override
+  String get pwNew => 'Новый пароль';
+
+  @override
+  String get pwCopy => 'Копировать';
+
+  @override
+  String get pwCopied => 'Пароль скопирован';
+
+  @override
+  String pwLength(String n) {
+    return 'Длина: $n';
+  }
+
+  @override
+  String get pwLower => 'Строчные буквы';
+
+  @override
+  String get pwUpper => 'Заглавные буквы';
+
+  @override
+  String get pwDigits => 'Цифры';
+
+  @override
+  String get pwSymbols => 'Символы';
+
+  @override
+  String get randTitle => 'Кубики и жребий';
+
+  @override
+  String get randSubtitle => 'Бросить кубики, монетку, тянуть жребий';
+
+  @override
+  String get randDice => 'Кубики';
+
+  @override
+  String randTotal(String total) {
+    return 'Сумма: $total';
+  }
+
+  @override
+  String get randRoll => 'Бросить';
+
+  @override
+  String get randCoin => 'Монетка';
+
+  @override
+  String get randHeads => 'Орёл';
+
+  @override
+  String get randTails => 'Решка';
+
+  @override
+  String get randFlip => 'Подбросить';
+
+  @override
+  String get randDraw => 'Жребий';
+
+  @override
+  String get randDrawHint => 'По одному имени в строке или через запятую';
+
+  @override
+  String get randDrawButton => 'Тянуть жребий';
+
+  @override
+  String get randWinner => 'Победитель';
+
+  @override
+  String get tallyTitle => 'Счётчик';
+
+  @override
+  String get tallySubtitle =>
+      'Считайте людей, круги или вещи; значение сохраняется';
+
+  @override
+  String get tallyReset => 'Сбросить';
+
+  @override
+  String get tallyTapHint => 'Нажмите в любом месте, чтобы считать';
+
+  @override
+  String get whatsNew180 =>
+      '• Полезные инструменты: конвертер единиц, раздел счёта, генератор паролей, кубики и жребий, счётчик';
 }

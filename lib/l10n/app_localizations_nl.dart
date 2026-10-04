@@ -5338,4 +5338,165 @@ class AppLocalizationsNl extends AppLocalizations {
   @override
   String get whatsNew170 =>
       '• Tag-gezondheidscheck: score en advies\n• Speurtocht: schrijf aanwijzingen op tags en vind ze op volgorde';
+
+  @override
+  String get everydaySection => 'Handige hulpmiddelen';
+
+  @override
+  String get unitTitle => 'Eenheden omrekenen';
+
+  @override
+  String get unitSubtitle => 'Lengte, gewicht, temperatuur, volume, snelheid';
+
+  @override
+  String get unitLength => 'Lengte';
+
+  @override
+  String get unitWeight => 'Gewicht';
+
+  @override
+  String get unitTemperature => 'Temperatuur';
+
+  @override
+  String get unitVolume => 'Volume';
+
+  @override
+  String get unitSpeed => 'Snelheid';
+
+  @override
+  String get unitValue => 'Waarde';
+
+  @override
+  String get unitSwap => 'Eenheden omwisselen';
+
+  @override
+  String get billTitle => 'Rekening delen';
+
+  @override
+  String get billSubtitle => 'Bedrag per persoon met fooi';
+
+  @override
+  String get billAmount => 'Bedrag';
+
+  @override
+  String billTip(String percent) {
+    return 'Fooi: $percent%';
+  }
+
+  @override
+  String get billPeople => 'Personen';
+
+  @override
+  String get billRoundUp => 'Elk deel naar boven afronden';
+
+  @override
+  String get billPerPerson => 'Per persoon';
+
+  @override
+  String get billTipAmount => 'Fooi';
+
+  @override
+  String get billTotal => 'Totaal';
+
+  @override
+  String get pwTitle => 'Wachtwoordgenerator';
+
+  @override
+  String get pwSubtitle => 'Sterke wachtwoorden die makkelijk te typen zijn';
+
+  @override
+  String get pwWeak => 'Zwak';
+
+  @override
+  String get pwFair => 'Redelijk';
+
+  @override
+  String get pwStrong => 'Sterk';
+
+  @override
+  String get pwVeryStrong => 'Zeer sterk';
+
+  @override
+  String get pwNew => 'Nieuw wachtwoord';
+
+  @override
+  String get pwCopy => 'Kopiëren';
+
+  @override
+  String get pwCopied => 'Wachtwoord gekopieerd';
+
+  @override
+  String pwLength(String n) {
+    return 'Lengte: $n';
+  }
+
+  @override
+  String get pwLower => 'Kleine letters';
+
+  @override
+  String get pwUpper => 'Hoofdletters';
+
+  @override
+  String get pwDigits => 'Cijfers';
+
+  @override
+  String get pwSymbols => 'Symbolen';
+
+  @override
+  String get randTitle => 'Dobbelen en loten';
+
+  @override
+  String get randSubtitle => 'Dobbelen, kop of munt, loten uit een lijst';
+
+  @override
+  String get randDice => 'Dobbelstenen';
+
+  @override
+  String randTotal(String total) {
+    return 'Totaal: $total';
+  }
+
+  @override
+  String get randRoll => 'Gooien';
+
+  @override
+  String get randCoin => 'Kop of munt';
+
+  @override
+  String get randHeads => 'Kop';
+
+  @override
+  String get randTails => 'Munt';
+
+  @override
+  String get randFlip => 'Opgooien';
+
+  @override
+  String get randDraw => 'Loten uit een lijst';
+
+  @override
+  String get randDrawHint => 'Eén naam per regel of gescheiden door komma\'s';
+
+  @override
+  String get randDrawButton => 'Loten';
+
+  @override
+  String get randWinner => 'Winnaar';
+
+  @override
+  String get tallyTitle => 'Teller';
+
+  @override
+  String get tallySubtitle =>
+      'Tel mensen, rondes of artikelen; gaat verder waar je was';
+
+  @override
+  String get tallyReset => 'Op nul';
+
+  @override
+  String get tallyTapHint => 'Tik ergens om te tellen';
+
+  @override
+  String get whatsNew180 =>
+      '• Handige hulpmiddelen: eenheden omrekenen, rekening delen, wachtwoorden, dobbelen en loten, teller';
 }

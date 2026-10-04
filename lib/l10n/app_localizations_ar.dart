@@ -5269,4 +5269,165 @@ class AppLocalizationsAr extends AppLocalizations {
   @override
   String get whatsNew170 =>
       '• فحص سلامة الوسم: تقييم ونصائح\n• البحث عن الكنز: اكتب التلميحات على الوسوم وابحث عنها بالترتيب';
+
+  @override
+  String get everydaySection => 'أدوات يومية';
+
+  @override
+  String get unitTitle => 'محول الوحدات';
+
+  @override
+  String get unitSubtitle => 'الطول والوزن والحرارة والحجم والسرعة';
+
+  @override
+  String get unitLength => 'الطول';
+
+  @override
+  String get unitWeight => 'الوزن';
+
+  @override
+  String get unitTemperature => 'الحرارة';
+
+  @override
+  String get unitVolume => 'الحجم';
+
+  @override
+  String get unitSpeed => 'السرعة';
+
+  @override
+  String get unitValue => 'القيمة';
+
+  @override
+  String get unitSwap => 'تبديل الوحدات';
+
+  @override
+  String get billTitle => 'تقسيم الحساب';
+
+  @override
+  String get billSubtitle => 'المبلغ لكل شخص مع الإكرامية';
+
+  @override
+  String get billAmount => 'مبلغ الحساب';
+
+  @override
+  String billTip(String percent) {
+    return 'الإكرامية: $percent%';
+  }
+
+  @override
+  String get billPeople => 'عدد الأشخاص';
+
+  @override
+  String get billRoundUp => 'تقريب حصة كل شخص للأعلى';
+
+  @override
+  String get billPerPerson => 'لكل شخص';
+
+  @override
+  String get billTipAmount => 'الإكرامية';
+
+  @override
+  String get billTotal => 'الإجمالي';
+
+  @override
+  String get pwTitle => 'مولد كلمات المرور';
+
+  @override
+  String get pwSubtitle => 'كلمات مرور قوية وسهلة الكتابة';
+
+  @override
+  String get pwWeak => 'ضعيفة';
+
+  @override
+  String get pwFair => 'متوسطة';
+
+  @override
+  String get pwStrong => 'قوية';
+
+  @override
+  String get pwVeryStrong => 'قوية جدًا';
+
+  @override
+  String get pwNew => 'كلمة مرور جديدة';
+
+  @override
+  String get pwCopy => 'نسخ';
+
+  @override
+  String get pwCopied => 'تم نسخ كلمة المرور';
+
+  @override
+  String pwLength(String n) {
+    return 'الطول: $n';
+  }
+
+  @override
+  String get pwLower => 'أحرف صغيرة';
+
+  @override
+  String get pwUpper => 'أحرف كبيرة';
+
+  @override
+  String get pwDigits => 'أرقام';
+
+  @override
+  String get pwSymbols => 'رموز';
+
+  @override
+  String get randTitle => 'النرد والقرعة';
+
+  @override
+  String get randSubtitle => 'ارمِ النرد، اقلب العملة، اسحب من قائمة';
+
+  @override
+  String get randDice => 'النرد';
+
+  @override
+  String randTotal(String total) {
+    return 'المجموع: $total';
+  }
+
+  @override
+  String get randRoll => 'ارمِ';
+
+  @override
+  String get randCoin => 'رمي العملة';
+
+  @override
+  String get randHeads => 'صورة';
+
+  @override
+  String get randTails => 'كتابة';
+
+  @override
+  String get randFlip => 'اقلب';
+
+  @override
+  String get randDraw => 'سحب من قائمة';
+
+  @override
+  String get randDrawHint => 'اسم في كل سطر أو مفصولة بفواصل';
+
+  @override
+  String get randDrawButton => 'اسحب';
+
+  @override
+  String get randWinner => 'الفائز';
+
+  @override
+  String get tallyTitle => 'عداد';
+
+  @override
+  String get tallySubtitle =>
+      'عدّ الأشخاص أو الجولات أو العناصر؛ يكمل من حيث توقفت';
+
+  @override
+  String get tallyReset => 'إعادة الضبط';
+
+  @override
+  String get tallyTapHint => 'انقر في أي مكان للعد';
+
+  @override
+  String get whatsNew180 =>
+      '• أدوات يومية: محول الوحدات، تقسيم الحساب، مولد كلمات المرور، النرد والقرعة، العداد';
 }

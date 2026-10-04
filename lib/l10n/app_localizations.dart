@@ -9088,6 +9088,312 @@ abstract class AppLocalizations {
   /// In tr, this message translates to:
   /// **'• Etiket sağlık testi: puan ve öneriler\n• Hazine avı: ipuçlarını etiketlere yaz, sırayla bulun'**
   String get whatsNew170;
+
+  /// No description provided for @everydaySection.
+  ///
+  /// In tr, this message translates to:
+  /// **'Günlük araçlar'**
+  String get everydaySection;
+
+  /// No description provided for @unitTitle.
+  ///
+  /// In tr, this message translates to:
+  /// **'Birim çevirici'**
+  String get unitTitle;
+
+  /// No description provided for @unitSubtitle.
+  ///
+  /// In tr, this message translates to:
+  /// **'Uzunluk, ağırlık, sıcaklık, hacim, hız'**
+  String get unitSubtitle;
+
+  /// No description provided for @unitLength.
+  ///
+  /// In tr, this message translates to:
+  /// **'Uzunluk'**
+  String get unitLength;
+
+  /// No description provided for @unitWeight.
+  ///
+  /// In tr, this message translates to:
+  /// **'Ağırlık'**
+  String get unitWeight;
+
+  /// No description provided for @unitTemperature.
+  ///
+  /// In tr, this message translates to:
+  /// **'Sıcaklık'**
+  String get unitTemperature;
+
+  /// No description provided for @unitVolume.
+  ///
+  /// In tr, this message translates to:
+  /// **'Hacim'**
+  String get unitVolume;
+
+  /// No description provided for @unitSpeed.
+  ///
+  /// In tr, this message translates to:
+  /// **'Hız'**
+  String get unitSpeed;
+
+  /// No description provided for @unitValue.
+  ///
+  /// In tr, this message translates to:
+  /// **'Değer'**
+  String get unitValue;
+
+  /// No description provided for @unitSwap.
+  ///
+  /// In tr, this message translates to:
+  /// **'Birimleri değiştir'**
+  String get unitSwap;
+
+  /// No description provided for @billTitle.
+  ///
+  /// In tr, this message translates to:
+  /// **'Hesap bölüşme'**
+  String get billTitle;
+
+  /// No description provided for @billSubtitle.
+  ///
+  /// In tr, this message translates to:
+  /// **'Bahşişle birlikte kişi başı tutar'**
+  String get billSubtitle;
+
+  /// No description provided for @billAmount.
+  ///
+  /// In tr, this message translates to:
+  /// **'Hesap tutarı'**
+  String get billAmount;
+
+  /// No description provided for @billTip.
+  ///
+  /// In tr, this message translates to:
+  /// **'Bahşiş: %{percent}'**
+  String billTip(String percent);
+
+  /// No description provided for @billPeople.
+  ///
+  /// In tr, this message translates to:
+  /// **'Kişi sayısı'**
+  String get billPeople;
+
+  /// No description provided for @billRoundUp.
+  ///
+  /// In tr, this message translates to:
+  /// **'Kişi başını yukarı yuvarla'**
+  String get billRoundUp;
+
+  /// No description provided for @billPerPerson.
+  ///
+  /// In tr, this message translates to:
+  /// **'Kişi başı'**
+  String get billPerPerson;
+
+  /// No description provided for @billTipAmount.
+  ///
+  /// In tr, this message translates to:
+  /// **'Bahşiş'**
+  String get billTipAmount;
+
+  /// No description provided for @billTotal.
+  ///
+  /// In tr, this message translates to:
+  /// **'Toplam'**
+  String get billTotal;
+
+  /// No description provided for @pwTitle.
+  ///
+  /// In tr, this message translates to:
+  /// **'Şifre üretici'**
+  String get pwTitle;
+
+  /// No description provided for @pwSubtitle.
+  ///
+  /// In tr, this message translates to:
+  /// **'Güçlü ve okunaklı şifreler'**
+  String get pwSubtitle;
+
+  /// No description provided for @pwWeak.
+  ///
+  /// In tr, this message translates to:
+  /// **'Zayıf'**
+  String get pwWeak;
+
+  /// No description provided for @pwFair.
+  ///
+  /// In tr, this message translates to:
+  /// **'Orta'**
+  String get pwFair;
+
+  /// No description provided for @pwStrong.
+  ///
+  /// In tr, this message translates to:
+  /// **'Güçlü'**
+  String get pwStrong;
+
+  /// No description provided for @pwVeryStrong.
+  ///
+  /// In tr, this message translates to:
+  /// **'Çok güçlü'**
+  String get pwVeryStrong;
+
+  /// No description provided for @pwNew.
+  ///
+  /// In tr, this message translates to:
+  /// **'Yeni şifre'**
+  String get pwNew;
+
+  /// No description provided for @pwCopy.
+  ///
+  /// In tr, this message translates to:
+  /// **'Kopyala'**
+  String get pwCopy;
+
+  /// No description provided for @pwCopied.
+  ///
+  /// In tr, this message translates to:
+  /// **'Şifre kopyalandı'**
+  String get pwCopied;
+
+  /// No description provided for @pwLength.
+  ///
+  /// In tr, this message translates to:
+  /// **'Uzunluk: {n}'**
+  String pwLength(String n);
+
+  /// No description provided for @pwLower.
+  ///
+  /// In tr, this message translates to:
+  /// **'Küçük harf'**
+  String get pwLower;
+
+  /// No description provided for @pwUpper.
+  ///
+  /// In tr, this message translates to:
+  /// **'Büyük harf'**
+  String get pwUpper;
+
+  /// No description provided for @pwDigits.
+  ///
+  /// In tr, this message translates to:
+  /// **'Rakam'**
+  String get pwDigits;
+
+  /// No description provided for @pwSymbols.
+  ///
+  /// In tr, this message translates to:
+  /// **'Sembol'**
+  String get pwSymbols;
+
+  /// No description provided for @randTitle.
+  ///
+  /// In tr, this message translates to:
+  /// **'Zar ve kura'**
+  String get randTitle;
+
+  /// No description provided for @randSubtitle.
+  ///
+  /// In tr, this message translates to:
+  /// **'Zar at, yazı-tura, listeden kura çek'**
+  String get randSubtitle;
+
+  /// No description provided for @randDice.
+  ///
+  /// In tr, this message translates to:
+  /// **'Zar'**
+  String get randDice;
+
+  /// No description provided for @randTotal.
+  ///
+  /// In tr, this message translates to:
+  /// **'Toplam: {total}'**
+  String randTotal(String total);
+
+  /// No description provided for @randRoll.
+  ///
+  /// In tr, this message translates to:
+  /// **'Zar at'**
+  String get randRoll;
+
+  /// No description provided for @randCoin.
+  ///
+  /// In tr, this message translates to:
+  /// **'Yazı tura'**
+  String get randCoin;
+
+  /// No description provided for @randHeads.
+  ///
+  /// In tr, this message translates to:
+  /// **'Yazı'**
+  String get randHeads;
+
+  /// No description provided for @randTails.
+  ///
+  /// In tr, this message translates to:
+  /// **'Tura'**
+  String get randTails;
+
+  /// No description provided for @randFlip.
+  ///
+  /// In tr, this message translates to:
+  /// **'At'**
+  String get randFlip;
+
+  /// No description provided for @randDraw.
+  ///
+  /// In tr, this message translates to:
+  /// **'Kura çek'**
+  String get randDraw;
+
+  /// No description provided for @randDrawHint.
+  ///
+  /// In tr, this message translates to:
+  /// **'Her satıra ya da virgülle bir isim yaz'**
+  String get randDrawHint;
+
+  /// No description provided for @randDrawButton.
+  ///
+  /// In tr, this message translates to:
+  /// **'Kura çek'**
+  String get randDrawButton;
+
+  /// No description provided for @randWinner.
+  ///
+  /// In tr, this message translates to:
+  /// **'Kazanan'**
+  String get randWinner;
+
+  /// No description provided for @tallyTitle.
+  ///
+  /// In tr, this message translates to:
+  /// **'Sayaç'**
+  String get tallyTitle;
+
+  /// No description provided for @tallySubtitle.
+  ///
+  /// In tr, this message translates to:
+  /// **'Kişi, tur veya ürün say; kaldığın yerden devam et'**
+  String get tallySubtitle;
+
+  /// No description provided for @tallyReset.
+  ///
+  /// In tr, this message translates to:
+  /// **'Sıfırla'**
+  String get tallyReset;
+
+  /// No description provided for @tallyTapHint.
+  ///
+  /// In tr, this message translates to:
+  /// **'Saymak için ekrana dokun'**
+  String get tallyTapHint;
+
+  /// No description provided for @whatsNew180.
+  ///
+  /// In tr, this message translates to:
+  /// **'• Günlük araçlar: birim çevirici, hesap bölüşme, şifre üretici, zar ve kura, sayaç'**
+  String get whatsNew180;
 }
 
 class _AppLocalizationsDelegate

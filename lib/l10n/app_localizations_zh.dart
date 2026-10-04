@@ -5055,4 +5055,163 @@ class AppLocalizationsZh extends AppLocalizations {
 
   @override
   String get whatsNew170 => '• 标签健康检查：评分和建议\n• 寻宝游戏：把线索写入标签并按顺序寻找';
+
+  @override
+  String get everydaySection => '日常工具';
+
+  @override
+  String get unitTitle => '单位换算';
+
+  @override
+  String get unitSubtitle => '长度、重量、温度、体积、速度';
+
+  @override
+  String get unitLength => '长度';
+
+  @override
+  String get unitWeight => '重量';
+
+  @override
+  String get unitTemperature => '温度';
+
+  @override
+  String get unitVolume => '体积';
+
+  @override
+  String get unitSpeed => '速度';
+
+  @override
+  String get unitValue => '数值';
+
+  @override
+  String get unitSwap => '交换单位';
+
+  @override
+  String get billTitle => '分摊账单';
+
+  @override
+  String get billSubtitle => '含小费的人均金额';
+
+  @override
+  String get billAmount => '账单金额';
+
+  @override
+  String billTip(String percent) {
+    return '小费：$percent%';
+  }
+
+  @override
+  String get billPeople => '人数';
+
+  @override
+  String get billRoundUp => '每人金额向上取整';
+
+  @override
+  String get billPerPerson => '每人';
+
+  @override
+  String get billTipAmount => '小费';
+
+  @override
+  String get billTotal => '总计';
+
+  @override
+  String get pwTitle => '密码生成器';
+
+  @override
+  String get pwSubtitle => '强度高且易输入的密码';
+
+  @override
+  String get pwWeak => '弱';
+
+  @override
+  String get pwFair => '一般';
+
+  @override
+  String get pwStrong => '强';
+
+  @override
+  String get pwVeryStrong => '非常强';
+
+  @override
+  String get pwNew => '重新生成';
+
+  @override
+  String get pwCopy => '复制';
+
+  @override
+  String get pwCopied => '密码已复制';
+
+  @override
+  String pwLength(String n) {
+    return '长度：$n';
+  }
+
+  @override
+  String get pwLower => '小写字母';
+
+  @override
+  String get pwUpper => '大写字母';
+
+  @override
+  String get pwDigits => '数字';
+
+  @override
+  String get pwSymbols => '符号';
+
+  @override
+  String get randTitle => '骰子和抽签';
+
+  @override
+  String get randSubtitle => '掷骰子、抛硬币、从列表抽签';
+
+  @override
+  String get randDice => '骰子';
+
+  @override
+  String randTotal(String total) {
+    return '合计：$total';
+  }
+
+  @override
+  String get randRoll => '掷';
+
+  @override
+  String get randCoin => '抛硬币';
+
+  @override
+  String get randHeads => '正面';
+
+  @override
+  String get randTails => '反面';
+
+  @override
+  String get randFlip => '抛';
+
+  @override
+  String get randDraw => '从列表抽签';
+
+  @override
+  String get randDrawHint => '每行一个或用逗号分隔';
+
+  @override
+  String get randDrawButton => '抽签';
+
+  @override
+  String get randWinner => '中选';
+
+  @override
+  String get tallyTitle => '计数器';
+
+  @override
+  String get tallySubtitle => '计数人数、圈数或物品；保留上次数值';
+
+  @override
+  String get tallyReset => '重置';
+
+  @override
+  String get tallyTapHint => '轻点任意位置计数';
+
+  @override
+  String get whatsNew180 => '• 日常工具：单位换算、分摊账单、密码生成器、骰子和抽签、计数器';
 }

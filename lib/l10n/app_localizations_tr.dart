@@ -5337,4 +5337,165 @@ class AppLocalizationsTr extends AppLocalizations {
   @override
   String get whatsNew170 =>
       '• Etiket sağlık testi: puan ve öneriler\n• Hazine avı: ipuçlarını etiketlere yaz, sırayla bulun';
+
+  @override
+  String get everydaySection => 'Günlük araçlar';
+
+  @override
+  String get unitTitle => 'Birim çevirici';
+
+  @override
+  String get unitSubtitle => 'Uzunluk, ağırlık, sıcaklık, hacim, hız';
+
+  @override
+  String get unitLength => 'Uzunluk';
+
+  @override
+  String get unitWeight => 'Ağırlık';
+
+  @override
+  String get unitTemperature => 'Sıcaklık';
+
+  @override
+  String get unitVolume => 'Hacim';
+
+  @override
+  String get unitSpeed => 'Hız';
+
+  @override
+  String get unitValue => 'Değer';
+
+  @override
+  String get unitSwap => 'Birimleri değiştir';
+
+  @override
+  String get billTitle => 'Hesap bölüşme';
+
+  @override
+  String get billSubtitle => 'Bahşişle birlikte kişi başı tutar';
+
+  @override
+  String get billAmount => 'Hesap tutarı';
+
+  @override
+  String billTip(String percent) {
+    return 'Bahşiş: %$percent';
+  }
+
+  @override
+  String get billPeople => 'Kişi sayısı';
+
+  @override
+  String get billRoundUp => 'Kişi başını yukarı yuvarla';
+
+  @override
+  String get billPerPerson => 'Kişi başı';
+
+  @override
+  String get billTipAmount => 'Bahşiş';
+
+  @override
+  String get billTotal => 'Toplam';
+
+  @override
+  String get pwTitle => 'Şifre üretici';
+
+  @override
+  String get pwSubtitle => 'Güçlü ve okunaklı şifreler';
+
+  @override
+  String get pwWeak => 'Zayıf';
+
+  @override
+  String get pwFair => 'Orta';
+
+  @override
+  String get pwStrong => 'Güçlü';
+
+  @override
+  String get pwVeryStrong => 'Çok güçlü';
+
+  @override
+  String get pwNew => 'Yeni şifre';
+
+  @override
+  String get pwCopy => 'Kopyala';
+
+  @override
+  String get pwCopied => 'Şifre kopyalandı';
+
+  @override
+  String pwLength(String n) {
+    return 'Uzunluk: $n';
+  }
+
+  @override
+  String get pwLower => 'Küçük harf';
+
+  @override
+  String get pwUpper => 'Büyük harf';
+
+  @override
+  String get pwDigits => 'Rakam';
+
+  @override
+  String get pwSymbols => 'Sembol';
+
+  @override
+  String get randTitle => 'Zar ve kura';
+
+  @override
+  String get randSubtitle => 'Zar at, yazı-tura, listeden kura çek';
+
+  @override
+  String get randDice => 'Zar';
+
+  @override
+  String randTotal(String total) {
+    return 'Toplam: $total';
+  }
+
+  @override
+  String get randRoll => 'Zar at';
+
+  @override
+  String get randCoin => 'Yazı tura';
+
+  @override
+  String get randHeads => 'Yazı';
+
+  @override
+  String get randTails => 'Tura';
+
+  @override
+  String get randFlip => 'At';
+
+  @override
+  String get randDraw => 'Kura çek';
+
+  @override
+  String get randDrawHint => 'Her satıra ya da virgülle bir isim yaz';
+
+  @override
+  String get randDrawButton => 'Kura çek';
+
+  @override
+  String get randWinner => 'Kazanan';
+
+  @override
+  String get tallyTitle => 'Sayaç';
+
+  @override
+  String get tallySubtitle =>
+      'Kişi, tur veya ürün say; kaldığın yerden devam et';
+
+  @override
+  String get tallyReset => 'Sıfırla';
+
+  @override
+  String get tallyTapHint => 'Saymak için ekrana dokun';
+
+  @override
+  String get whatsNew180 =>
+      '• Günlük araçlar: birim çevirici, hesap bölüşme, şifre üretici, zar ve kura, sayaç';
 }
