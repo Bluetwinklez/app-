@@ -116,9 +116,10 @@ tool/           App Store Connect betikleri
 | `ios-compile.yml` | `ios/` veya bağımlılık değişince | imzasız iPhone derlemesi (widget ve Watch dahil) |
 | `android-compile.yml` | `android/` veya bağımlılık değişince | debug APK derlemesi |
 | `testflight.yml` | elle veya `ios-v*` etiketi | imzalı derleme ve TestFlight yüklemesi (yükleme / yalnızca imzalama / yalnızca kimlik kurulumu) |
+| `play-release.yml` | elle | imzalı Android App Bundle ve Google Play yüklemesi (dahili / kapalı / açık test / üretim) |
 | `app-status.yml` | elle | App Store inceleme durumunu gösterir |
 
-Rehberler: [App Store yayını](docs/APP_STORE_RELEASE.md) · [TestFlight kurulumu](TESTFLIGHT_SETUP.md) · [Mağaza metinleri](docs/STORE_LISTING.md) · [Cihaz test listesi](docs/QA_CHECKLIST.md) · [Yeni uygulama başlatma](docs/NEW_APP_PROMPT.md)
+Rehberler: [App Store yayını](docs/APP_STORE_RELEASE.md) · [Google Play yayını](docs/GOOGLE_PLAY_RELEASE.md) · [TestFlight kurulumu](TESTFLIGHT_SETUP.md) · [Mağaza metinleri](docs/STORE_LISTING.md) · [Cihaz test listesi](docs/QA_CHECKLIST.md) · [Yeni uygulama başlatma](docs/NEW_APP_PROMPT.md)
 
 ## Bilinen sınırlar
 
