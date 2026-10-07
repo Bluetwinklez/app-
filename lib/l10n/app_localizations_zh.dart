@@ -4823,4 +4823,395 @@ class AppLocalizationsZh extends AppLocalizations {
   @override
   String get whatsNew160 =>
       '• 主屏幕和锁定屏幕小组件\n• 在控制中心轻点即可扫描和写入（iOS 18）\n• Apple Watch：最近扫描和轻点记录\n• iCloud 备份（模板、规则、标签库）';
+
+  @override
+  String get healthTitle => '标签健康检查';
+
+  @override
+  String get healthToolSubtitle => '扫描标签，查看评分和改进建议';
+
+  @override
+  String get healthIntro => '扫描标签：检查格式、剩余空间、锁定、链接安全、签名和是否疑似克隆，并为每项给出建议。';
+
+  @override
+  String get healthScan => '扫描标签';
+
+  @override
+  String get healthScanAnother => '扫描另一个标签';
+
+  @override
+  String get healthOverallGood => '标签状况良好，可以使用。';
+
+  @override
+  String get healthOverallWarning => '标签可用，但有些地方需要注意。';
+
+  @override
+  String get healthOverallProblem => '标签有问题，请查看下方建议。';
+
+  @override
+  String get healthNotNdef => '不是 NDEF 格式';
+
+  @override
+  String get healthNotNdefTip => '手机无法读取内容。请在工具 → 格式化内存中格式化，或直接写入。';
+
+  @override
+  String get healthEmpty => '标签为空';
+
+  @override
+  String get healthEmptyTip => '可在“写入”标签页或现成模板中添加内容。';
+
+  @override
+  String get healthReadOnly => '只读（已锁定）';
+
+  @override
+  String get healthReadOnlyTip => '内容无法更改，适合公共场所使用。';
+
+  @override
+  String get healthWritable => '可写入';
+
+  @override
+  String get healthWritableTip => '若放在公共场所，建议锁定以防他人修改。';
+
+  @override
+  String healthNearlyFull(String percent) {
+    return '几乎已满（$percent%）';
+  }
+
+  @override
+  String get healthNearlyFullTip => '内容较长时请使用更大的标签（NTAG215/216）或更短的链接。';
+
+  @override
+  String healthRoomLeft(String free, String total) {
+    return '$total 字节中剩余 $free 字节';
+  }
+
+  @override
+  String get healthRoomLeftTip => '有足够空间写入新内容。';
+
+  @override
+  String get healthRiskyLink => '危险链接';
+
+  @override
+  String get healthRiskyLinkTip => '该链接疑似虚假网站。请勿打开；若标签位于公共场所，可能已被篡改。';
+
+  @override
+  String get healthSuspiciousLink => '可疑链接';
+
+  @override
+  String get healthSuspiciousLinkTip => '短链接或不寻常的地址，打开前请先核实。';
+
+  @override
+  String get healthSignedValid => '签名有效';
+
+  @override
+  String get healthSignedValidTip => '内容由你的密钥写入，未被修改。';
+
+  @override
+  String get healthSignedInvalid => '签名无效';
+
+  @override
+  String get healthSignedInvalidTip => '签名后内容被修改。请勿信任，并重新写入标签。';
+
+  @override
+  String get healthPossibleClone => '可能是副本';
+
+  @override
+  String get healthPossibleCloneTip => '内容与库中某个标签相同，但序列号不同，可能被人复制。';
+
+  @override
+  String get healthInLibrary => '已保存在库中';
+
+  @override
+  String get healthInLibraryTip => '这是你的标签，名称和备注在库中。';
+
+  @override
+  String get huntTitle => '寻宝游戏';
+
+  @override
+  String get huntToolSubtitle => '藏好标签，让玩家按线索依次寻找';
+
+  @override
+  String get huntIntro =>
+      '每个标签写有下一个标签藏在哪里的线索。应用显示第一条线索，玩家按顺序扫描标签并计时。适合生日、学校和家庭活动。';
+
+  @override
+  String get huntNew => '新建寻宝';
+
+  @override
+  String get huntEdit => '编辑';
+
+  @override
+  String get huntDelete => '删除';
+
+  @override
+  String get huntDeleteTitle => '删除这个寻宝游戏？';
+
+  @override
+  String get huntSave => '保存';
+
+  @override
+  String get huntName => '寻宝名称';
+
+  @override
+  String get huntStartClue => '起始线索';
+
+  @override
+  String get huntStartClueHint => '显示在手机上，指向标签 1。';
+
+  @override
+  String huntClueLabel(String n) {
+    return '标签 $n 的线索';
+  }
+
+  @override
+  String huntClueHint(String n) {
+    return '指向标签 $n。';
+  }
+
+  @override
+  String get huntLastClueHint => '最后一个标签：祝贺语或宝藏位置。';
+
+  @override
+  String get huntAddClue => '添加标签';
+
+  @override
+  String get huntMissingFields => '需要名称、起始线索和至少一条标签线索。';
+
+  @override
+  String huntStations(String count) {
+    return '$count 个标签';
+  }
+
+  @override
+  String huntBest(String time) {
+    return '最佳 $time';
+  }
+
+  @override
+  String get huntWriteTags => '写入标签';
+
+  @override
+  String get huntPlay => '开始';
+
+  @override
+  String huntWriteStep(String n, String total) {
+    return '标签 $n/$total';
+  }
+
+  @override
+  String huntWriteStepBody(String clue) {
+    return '写入此标签的线索：\n\n$clue\n\n准备好标签并点按“写入”，然后把它藏在上一条线索所指的位置。';
+  }
+
+  @override
+  String get huntWriteNow => '写入';
+
+  @override
+  String huntWriteFailed(String n) {
+    return '无法写入标签 $n，请重试。';
+  }
+
+  @override
+  String get huntWriteDone => '所有标签已写入。藏好后开始游戏吧！';
+
+  @override
+  String get huntQuit => '退出游戏';
+
+  @override
+  String huntProgress(String found, String total) {
+    return '已找到 $found/$total';
+  }
+
+  @override
+  String get huntCurrentClue => '线索';
+
+  @override
+  String huntFinished(String time) {
+    return '恭喜！用时：$time';
+  }
+
+  @override
+  String get huntDone => '完成';
+
+  @override
+  String get huntScanTag => '扫描找到的标签';
+
+  @override
+  String huntFound(String found, String total) {
+    return '找到了！$found/$total';
+  }
+
+  @override
+  String get huntWrongOrder => '这不是下一个标签，请按线索寻找。';
+
+  @override
+  String get huntAlreadyFound => '你已经找到过这个标签。';
+
+  @override
+  String get huntOtherHunt => '此标签属于另一个寻宝游戏。';
+
+  @override
+  String get huntNotHunt => '这不是寻宝标签。';
+
+  @override
+  String get whatsNew170 => '• 标签健康检查：评分和建议\n• 寻宝游戏：把线索写入标签并按顺序寻找';
+
+  @override
+  String get everydaySection => '日常工具';
+
+  @override
+  String get unitTitle => '单位换算';
+
+  @override
+  String get unitSubtitle => '长度、重量、温度、体积、速度';
+
+  @override
+  String get unitLength => '长度';
+
+  @override
+  String get unitWeight => '重量';
+
+  @override
+  String get unitTemperature => '温度';
+
+  @override
+  String get unitVolume => '体积';
+
+  @override
+  String get unitSpeed => '速度';
+
+  @override
+  String get unitValue => '数值';
+
+  @override
+  String get unitSwap => '交换单位';
+
+  @override
+  String get billTitle => '分摊账单';
+
+  @override
+  String get billSubtitle => '含小费的人均金额';
+
+  @override
+  String get billAmount => '账单金额';
+
+  @override
+  String billTip(String percent) {
+    return '小费：$percent%';
+  }
+
+  @override
+  String get billPeople => '人数';
+
+  @override
+  String get billRoundUp => '每人金额向上取整';
+
+  @override
+  String get billPerPerson => '每人';
+
+  @override
+  String get billTipAmount => '小费';
+
+  @override
+  String get billTotal => '总计';
+
+  @override
+  String get pwTitle => '密码生成器';
+
+  @override
+  String get pwSubtitle => '强度高且易输入的密码';
+
+  @override
+  String get pwWeak => '弱';
+
+  @override
+  String get pwFair => '一般';
+
+  @override
+  String get pwStrong => '强';
+
+  @override
+  String get pwVeryStrong => '非常强';
+
+  @override
+  String get pwNew => '重新生成';
+
+  @override
+  String get pwCopy => '复制';
+
+  @override
+  String get pwCopied => '密码已复制';
+
+  @override
+  String pwLength(String n) {
+    return '长度：$n';
+  }
+
+  @override
+  String get pwLower => '小写字母';
+
+  @override
+  String get pwUpper => '大写字母';
+
+  @override
+  String get pwDigits => '数字';
+
+  @override
+  String get pwSymbols => '符号';
+
+  @override
+  String get randTitle => '骰子和抽签';
+
+  @override
+  String get randSubtitle => '掷骰子、抛硬币、从列表抽签';
+
+  @override
+  String get randDice => '骰子';
+
+  @override
+  String randTotal(String total) {
+    return '合计：$total';
+  }
+
+  @override
+  String get randRoll => '掷';
+
+  @override
+  String get randCoin => '抛硬币';
+
+  @override
+  String get randHeads => '正面';
+
+  @override
+  String get randTails => '反面';
+
+  @override
+  String get randFlip => '抛';
+
+  @override
+  String get randDraw => '从列表抽签';
+
+  @override
+  String get randDrawHint => '每行一个或用逗号分隔';
+
+  @override
+  String get randDrawButton => '抽签';
+
+  @override
+  String get randWinner => '中选';
+
+  @override
+  String get tallyTitle => '计数器';
+
+  @override
+  String get tallySubtitle => '计数人数、圈数或物品；保留上次数值';
+
+  @override
+  String get tallyReset => '重置';
+
+  @override
+  String get tallyTapHint => '轻点任意位置计数';
+
+  @override
+  String get whatsNew180 => '• 日常工具：单位换算、分摊账单、密码生成器、骰子和抽签、计数器';
 }

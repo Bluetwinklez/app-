@@ -1,77 +1,89 @@
-# NFC Etiket Yöneticisi (NFC Tag Master)
+<div align="center">
 
-iPhone ve Android için NFC etiketlerini okuma, yazma ve yönetme uygulaması. Flutter ile yazıldı; NFC erişimi platform kanalları üzerinden doğrudan Core NFC (iOS) ve `android.nfc` (Android) ile yapılır.
+# NFC Etiket Yöneticisi · NFC Tag Master
 
-- **Sürüm:** 1.6.0 — değişiklikler için [CHANGELOG.md](CHANGELOG.md)
-- **Gereksinimler:** iOS 16+ (iPhone 8 ve sonrası), Android 7.0+ (NFC donanımı)
-- **Diller:** Türkçe, English, Deutsch, Français, Español, Italiano, Português, Русский, العربية, 日本語, 简体中文, 한국어, Nederlands, Українська
-- **Gizlilik:** Hesap, sunucu, reklam veya takip yok — [docs/PRIVACY.md](docs/PRIVACY.md)
+**NFC etiketlerini okuyun, yazın, yönetin — ve her gün işinize yarayan araçlar.**
+Hesap yok, reklam yok, takip yok. Verileriniz cihazınızda kalır.
+
+![Sürüm](https://img.shields.io/badge/s%C3%BCr%C3%BCm-1.8.0-2a72f2)
+![Platform](https://img.shields.io/badge/platform-iOS%2016%2B%20%7C%20Android%207%2B-1d1d1f)
+![Diller](https://img.shields.io/badge/dil-14-34c759)
+![Flutter](https://img.shields.io/badge/Flutter-3.47-02569B?logo=flutter)
+[![CI](https://github.com/Bluetwinklez/app-/actions/workflows/ci.yml/badge.svg)](https://github.com/Bluetwinklez/app-/actions/workflows/ci.yml)
+
+<img src="docs/store_screenshots/iphone_6.9/tr_1_home.jpg" width="200" alt="Ana ekran">
+<img src="docs/store_screenshots/iphone_6.9/tr_2_templates.jpg" width="200" alt="Hazır şablonlar">
+<img src="docs/store_screenshots/iphone_6.9/tr_3_write.jpg" width="200" alt="Kayıt yazma">
+<img src="docs/store_screenshots/iphone_6.9/tr_4_tools.jpg" width="200" alt="Araçlar">
+
+</div>
+
+---
+
+## İçindekiler
+
+- [Özellikler](#özellikler)
+- [Gizlilik ve güvenlik](#gizlilik-ve-güvenlik)
+- [Gereksinimler](#gereksinimler)
+- [Geliştirme](#geliştirme)
+- [CI ve yayın](#ci-ve-yayın)
+- [Bilinen sınırlar](#bilinen-sınırlar)
+- [English](#english)
 
 ## Özellikler
 
-**Okuma**
+### 📡 Okuma
 - İçerik, UID, çip tahmini (NTAG213/215/216, Ultralight), üretici, kapasite, yazılabilirlik
-- Etiket raporu: NDEF biçimi, statik/dinamik kilit bitleri, şifre koruması
-- İki etiketi karşılaştırma, sürekli tarama (CSV dışa aktarma), okunan etiketi paylaşma
-- Tarama geçmişi (isteğe bağlı, varsayılan kapalı), Türkçe karakter duyarsız arama
+- **Etiket raporu:** NDEF biçimi, kilit bitleri, şifre koruması
+- **Etiket sağlık testi:** 0–100 puan; boş alan, kilit, tehlikeli bağlantı, imza ve kopya şüphesi için öneriler
+- İki etiketi karşılaştırma, sürekli tarama (CSV), dijital kartvizit görünümü, sesli okuma
 
-**Yazma**
-- Kayıt türleri: metin, URL, e-posta, telefon, SMS, konum, vCard, takvim, Smart Poster, Wi-Fi (WSC), özel MIME, Bluetooth, uygulama kayıtları ve hazır sosyal/harita bağlantıları
-- 27 hazır şablon (kategoriler, arama, favoriler)
-- "Dokununca ne olur?" önizlemesi: iPhone ve Android'in etikete ne yapacağı
-- Çip bazında kapasite uyarısı; boş (NDEF olmayan) NTAG etiketlere akıllı yazma
-- Doğrulamalı yazma (geri okuyup bayt bayt karşılaştırma), geri al/yinele
-- Toplu yazma (2–100 etiket): seri numara (`{n}` yer tutucusu), CSV'den her satır bir etiket, etiket kopyalama sihirbazı
-- QR koddan, CSV'den, JSON'dan ve panodan içe aktarma
+### ✍️ Yazma
+- Metin, URL, e-posta, telefon, SMS, konum (adresle arama), vCard, takvim, Wi-Fi, Smart Poster, uygulama ve sosyal bağlantılar
+- **27 hazır şablon:** misafir Wi-Fi, Google yorum, menü, evcil hayvan künyesi, acil durum kartı…
+- **"Dokununca ne olur?"** önizlemesi: iPhone ve Android'in etikete ne yapacağı
+- Doğrulamalı yazma, kapasite uyarısı, `{date}` `{time}` `{counter}` değişkenleri
+- Toplu yazma (seri numara, CSV'den her satır bir etiket), etiket kopyalama, kayıt birleştirme
 
-**Araçlar**
-- Temizleme, kalıcı kilitleme, NTAG şifre belirleme/kaldırma
-- Bellek okuma, NDEF biçimlendirme, bellek dökümü yazma, ham komutlar
+### 🧰 Araçlar
+- Temizleme, kilitleme, NTAG şifresi, bellek okuma/yazma, ham komutlar, NDEF Doktoru
+- QR ve barkod tarayıcı, fotoğraftan metin okuma (OCR), istatistikler
+- İmzalı etiketler (HMAC-SHA256) ve sahte site uyarısı
+- **Hazine avı:** ipuçlarını etiketlere yaz, oyuncular sırayla bulsun, süre tutulsun
 
-**Kütüphane ve otomasyon**
-- Etiket kütüphanesi: isim, fotoğraf, konum, not, kategori ve etiketler (klasör gibi)
-- Siri / Kısayollar eylemleri ("Etiketi Tara", "Etikete Yaz") ve `nfctagmaster://scan|write|tools|history|settings` bağlantıları
-- Hazır ev otomasyonu tarifleri
-- JSON yedekleme (şema v2: şablonlar, kurallar, kütüphane, isteğe bağlı geçmiş)
+### 🗂️ Kütüphane ve kayıt defterleri
+- Etiketlere isim, fotoğraf, konum, not, kategori, etiket; harita görünümü
+- Demirbaş bilgileri (seri no, zimmet, garanti) ve kontrol hatırlatmaları
+- **Kayıt defterleri:** yoklama, mesai, ilaç, alışkanlık serisi, ev işleri, mama, ziyaretçi; günlük hatırlatma
+- Ekip paketleri, JSON/CSV içe-dışa aktarma, parolalı yedek
 
-**İşletme ve güvenlik (1.2.0)**
-- Kayıt Defteri (yoklama, ilaç, envanter), son görülme takibi, toplu okuma raporu
-- QR kodlu yazdırılabilir etiket sayfası (PDF)
-- Face ID / cihaz parolası ile uygulama kilidi, parolalı (AES-256) yedekler
-- İmzalı etiketler (HMAC-SHA256) ve çevrimdışı sahte site uyarıları
-- Şablon değişkenleri `{date}` `{time}` `{counter}`, Akıllı Kart / Kayıp Eşya / Sesli Mesaj şablonları
-- Basit mod, amiibo bilgisi, bellek sayfası düzenleyici, NFC çipleri rehberi, Uyumluluk modu
+### 🧮 Günlük araçlar
+- Birim çevirici · Hesap bölüşme ve bahşiş · Şifre üretici · Zar, yazı-tura ve kura · Sayaç
 
-**1.3.0**
-- Giriş/Çıkış (mesai) defteri ve okutunca deftere otomatik kayıt
-- Kontrol aralığı / bakım hatırlatıcısı, tablodan toplu içe aktarma
-- Kopya etiket uyarısı, NDEF Doktoru
+### ⚡ Otomasyon ve iPhone
+- Siri ve Kısayollar ("Etiketi Tara", "Etikete Yaz"), `nfctagmaster://scan|write|tools|history|settings` bağlantıları
+- Hazır ev otomasyonu tarifleri, etiket kuralları
+- Ana ekran, kilit ekranı ve Kontrol Merkezi widget'ları, Apple Watch uygulaması ve iCloud yedekleme (`ios/NfcWidgets`, `ios/NfcWatch`; Admin App Store Connect anahtarı ile imzalanır)
 
-**1.4.0**
-- Güvenlik ve gizlilik bölümü, Anahtar Zinciri'nde imza anahtarı, Tüm verileri sil
-- Etiket haritası, ekip paketleri, alternatif uygulama simgeleri
+### 🎨 Görünüm
+- Açık/koyu tema, 12 uygulama simgesi, 9 vurgu rengi, yazı boyutu, basit mod
+- 14 dil: Türkçe, English, Deutsch, Français, Español, Italiano, Português, Русский, العربية, 日本語, 简体中文, 한국어, Nederlands, Українська
 
-**1.5.0**
-- Fikirler, istatistikler, QR/barkod tarayıcı, kayıt birleştirme, dijital kartvizit
-- Alışkanlık, görev tablosu, besleme ve ziyaretçi defterleri; bildirim hatırlatıcıları
-- Demirbaş/garanti, şablonları QR ile paylaşma, 12 simge ve 9 renk, sesli okuma
+Tüm değişiklikler: [CHANGELOG.md](CHANGELOG.md)
 
-**1.6.0**
-- Ana ekran, kilit ekranı ve Kontrol Merkezi widget'ları (`ios/NfcWidgets`)
-- Apple Watch uygulaması: son okumalar ve tek dokunuşla defter girişi (`ios/NfcWatch`)
-- iCloud yedekleme (anahtar-değer deposu; imzalama profili izin verdiğinde)
-- TestFlight iş akışı tüm hedeflerin kimlik ve profillerini App Store Connect API ile oluşturur (Admin anahtarı gerekir; yoksa widget ve saat olmadan derler)
+## Gizlilik ve güvenlik
 
-**Görünüm**
-- Açık/koyu tema, tanıtım rehberi, titreşim ve ses ayarları
+- Uygulamanın sunucusu, hesabı, reklamı veya analizi yoktur. Ayrıntılar: [Gizlilik Politikası](docs/PRIVACY.md)
+- Face ID / cihaz parolası ile uygulama kilidi, uygulama değiştiricide ekranı gizleme
+- Kopyalanan şifre ve anahtarlar panodan otomatik silinir; parolalı (AES-256-GCM) yedekler; "Tüm verileri sil"
 
-## Bilinen sınırlar
+## Gereksinimler
 
-- UID ve şifreli sektörler kopyalanamaz; kopyalama yalnızca NDEF içeriğini kapsar.
-- iPhone bazı içerikleri (metin, vCard, Wi-Fi, `geo:`) arka planda kendiliğinden açmaz; uygulama bunu yazmadan önce gösterir.
-- Ödeme kartı, kimlik kartı veya erişim kartı klonlama/emülasyonu desteklenmez.
-- Parolasız yedek dosyaları düz JSON'dur ve Wi-Fi şifreleri içerebilir; dışa aktarırken parola koruması önerilir.
-- Etiket haritası açıldığında harita görüntüleri OpenStreetMap'ten indirilir.
+| | |
+|---|---|
+| iPhone | iOS 16+ (iPhone 8 ve sonrası), NFC okuma için iPhone XS+ önerilir |
+| Android | 7.0+ ve NFC donanımı |
+| Geliştirme | Flutter 3.47, Xcode 26 (iOS derlemesi CI'da yapılır) |
 
 ## Geliştirme
 
@@ -82,16 +94,50 @@ flutter analyze
 flutter test
 ```
 
+- NFC erişimi platform kanallarıyla doğrudan Core NFC (iOS) ve `android.nfc` (Android) üzerinden yapılır.
 - Metinler `lib/l10n/app_<dil>.arb` dosyalarındadır (şablon: `app_tr.arb`). `test/no_hardcoded_strings_test.dart` koda gömülü Türkçe metin kalmadığını, `test/l10n_test.dart` tüm dillerin aynı anahtarlara sahip olduğunu kontrol eder.
-- iOS'un sistem NFC penceresi metinleri Flutter'dan gönderilir (`lib/services/native_messages.dart`); izin metinleri ve Siri ifadeleri `ios/Runner/<dil>.lproj/` altındadır.
+- iOS izin metinleri ve Siri ifadeleri `ios/Runner/<dil>.lproj/` altındadır.
 
-## CI / yayın
+```
+lib/
+  domain/       saf Dart modeller ve hesaplamalar (NDEF, şablonlar, defterler…)
+  services/     depolama, NFC kanalı, güvenlik, bildirimler
+  controllers/  uygulama durumu
+  ui/           ekranlar
+ios/  android/  yerel kod, widget ve Watch hedefleri
+tool/           App Store Connect betikleri
+```
+
+## CI ve yayın
 
 | İş akışı | Ne zaman | Ne yapar |
 |---|---|---|
 | `ci.yml` | her push | gen-l10n tutarlılığı, analyze, testler |
-| `ios-compile.yml` | `ios/` veya bağımlılık değişince | imzasız simülatör derlemesi |
+| `ios-compile.yml` | `ios/` veya bağımlılık değişince | imzasız iPhone derlemesi (widget ve Watch dahil) |
 | `android-compile.yml` | `android/` veya bağımlılık değişince | debug APK derlemesi |
-| `testflight.yml` | elle veya `ios-v*` etiketi | imzalı derleme ve TestFlight yüklemesi |
+| `testflight.yml` | elle veya `ios-v*` etiketi | imzalı derleme ve TestFlight yüklemesi (yükleme / yalnızca imzalama / yalnızca kimlik kurulumu) |
+| `play-release.yml` | elle | imzalı Android App Bundle ve Google Play yüklemesi (dahili / kapalı / açık test / üretim) |
+| `app-status.yml` | elle | App Store inceleme durumunu gösterir |
 
-Kurulum rehberleri: [TestFlight](TESTFLIGHT_SETUP.md) · [Mac olmadan iPhone IPA](IOS_IPHONE13_SETUP.md) · [Mağaza metinleri](docs/STORE_LISTING.md) · [Cihaz test listesi](docs/QA_CHECKLIST.md)
+Rehberler: [App Store yayını](docs/APP_STORE_RELEASE.md) · [Google Play yayını](docs/GOOGLE_PLAY_RELEASE.md) · [TestFlight kurulumu](TESTFLIGHT_SETUP.md) · [Mağaza metinleri](docs/STORE_LISTING.md) · [Cihaz test listesi](docs/QA_CHECKLIST.md) · [Yeni uygulama başlatma](docs/NEW_APP_PROMPT.md)
+
+## Bilinen sınırlar
+
+- UID ve şifreli sektörler kopyalanamaz; kopyalama yalnızca NDEF içeriğini kapsar.
+- iPhone bazı içerikleri (metin, vCard, Wi-Fi, `geo:`) arka planda kendiliğinden açmaz; uygulama bunu yazmadan önce gösterir.
+- Ödeme kartı, kimlik kartı veya erişim kartı klonlama/emülasyonu desteklenmez.
+- Parolasız yedek dosyaları düz JSON'dur ve Wi-Fi şifreleri içerebilir; parola koruması önerilir.
+- Etiket haritası açıldığında harita görüntüleri OpenStreetMap'ten indirilir.
+
+---
+
+## English
+
+**NFC Tag Master** reads, writes and manages NFC tags on iPhone and Android, with 27 ready-made templates, a tap preview, batch writing, a tag library with map, logbooks with reminders, a tag health check, a treasure hunt mode and everyday tools (unit converter, bill splitter, password generator, dice and draws, tally counter). No account, no ads, no tracking — everything stays on the device. Available in 14 languages.
+
+<img src="docs/store_screenshots/iphone_6.9/en_1_home.jpg" width="180" alt="Home">
+<img src="docs/store_screenshots/iphone_6.9/en_2_templates.jpg" width="180" alt="Templates">
+<img src="docs/store_screenshots/iphone_6.9/en_5_library.jpg" width="180" alt="Library">
+<img src="docs/store_screenshots/iphone_6.9/en_6_history.jpg" width="180" alt="History">
+
+Privacy policy: [docs/PRIVACY.md](docs/PRIVACY.md) · Contact: doflerim@gmail.com

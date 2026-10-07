@@ -3446,5 +3446,242 @@
   "iCloudNoAccount": "Bu iPhone'da iCloud'a giriş yapılmamış. Ayarlar → Apple hesabı → iCloud bölümünü kontrol et.",
   "iCloudTooLarge": "Yedek iCloud sınırını (1 MB) aşıyor. Dosya olarak yedeklemeyi kullan.",
   "iCloudFailed": "iCloud yedeği kaydedilemedi",
-  "whatsNew160": "• Ana ekran ve kilit ekranı widget'ları\n• Kontrol Merkezi'nden tek dokunuşla tara ve yaz (iOS 18)\n• Apple Watch: son okumalar ve tek dokunuşla defter girişi\n• iCloud yedekleme (şablonlar, kurallar, kütüphane)"
+  "whatsNew160": "• Ana ekran ve kilit ekranı widget'ları\n• Kontrol Merkezi'nden tek dokunuşla tara ve yaz (iOS 18)\n• Apple Watch: son okumalar ve tek dokunuşla defter girişi\n• iCloud yedekleme (şablonlar, kurallar, kütüphane)",
+  "healthTitle": "Etiket sağlık testi",
+  "healthToolSubtitle": "Etiketi okut; puanı ve ne yapman gerektiğini gör",
+  "healthIntro": "Etiketi okut: biçim, boş alan, kilit, bağlantı güvenliği, imza ve kopya şüphesi kontrol edilir; her bulgu için ne yapacağın yazar.",
+  "healthScan": "Etiketi okut",
+  "healthScanAnother": "Başka etiket okut",
+  "healthOverallGood": "Etiket sağlıklı, kullanıma hazır.",
+  "healthOverallWarning": "Etiket çalışıyor ama dikkat edilecek şeyler var.",
+  "healthOverallProblem": "Etikette sorun var, aşağıdaki önerilere bak.",
+  "healthNotNdef": "NDEF biçimli değil",
+  "healthNotNdefTip": "Telefonlar içeriği okuyamaz. Araçlar → Belleği Biçimlendir ile biçimlendir ya da doğrudan yazdır.",
+  "healthEmpty": "Etiket boş",
+  "healthEmptyTip": "Yaz sekmesinden ya da hazır şablonlardan içerik ekleyebilirsin.",
+  "healthReadOnly": "Salt okunur (kilitli)",
+  "healthReadOnlyTip": "İçerik değiştirilemez. Herkese açık yerlerde bu istenen bir durumdur.",
+  "healthWritable": "Yazılabilir",
+  "healthWritableTip": "Herkese açık bir yere koyacaksan başkası değiştirmesin diye kilitlemeyi düşün.",
+  "healthNearlyFull": "Neredeyse dolu (%{percent})",
+  "@healthNearlyFull": {
+    "placeholders": {
+      "percent": {
+        "type": "String"
+      }
+    }
+  },
+  "healthNearlyFullTip": "Daha uzun içerik için NTAG215/216 gibi daha büyük bir etiket kullan veya kısa bağlantı kullan.",
+  "healthRoomLeft": "{free} / {total} bayt boş",
+  "@healthRoomLeft": {
+    "placeholders": {
+      "free": {
+        "type": "String"
+      },
+      "total": {
+        "type": "String"
+      }
+    }
+  },
+  "healthRoomLeftTip": "Yeni içerik için yeterli yer var.",
+  "healthRiskyLink": "Tehlikeli bağlantı",
+  "healthRiskyLinkTip": "Bağlantı sahte bir siteye benziyor. Açma; etiket herkese açık bir yerdeyse değiştirilmiş olabilir.",
+  "healthSuspiciousLink": "Şüpheli bağlantı",
+  "healthSuspiciousLinkTip": "Kısaltılmış ya da alışılmadık bir adres. Açmadan önce adresi kontrol et.",
+  "healthSignedValid": "İmza geçerli",
+  "healthSignedValidTip": "İçerik senin anahtarınla yazılmış ve değiştirilmemiş.",
+  "healthSignedInvalid": "İmza bozuk",
+  "healthSignedInvalidTip": "İçerik imzalandıktan sonra değiştirilmiş. Etikete güvenme ve yeniden yaz.",
+  "healthPossibleClone": "Kopya olabilir",
+  "healthPossibleCloneTip": "Kütüphanendeki bir etiketle aynı içerik ama farklı seri numarası. Biri etiketini kopyalamış olabilir.",
+  "healthInLibrary": "Kütüphanende kayıtlı",
+  "healthInLibraryTip": "Bu etiket senin; adı ve notları kütüphanede.",
+  "huntTitle": "Hazine avı",
+  "huntToolSubtitle": "Etiketleri sakla, ipuçlarıyla sırayla bulsunlar",
+  "huntIntro": "Her etikete bir sonraki etiketin nerede olduğunu anlatan bir ipucu yazılır. Uygulama ilk ipucunu gösterir; oyuncular etiketleri sırayla okutur, süre tutulur. Doğum günü, okul ve aile etkinlikleri için.",
+  "huntNew": "Yeni av",
+  "huntEdit": "Düzenle",
+  "huntDelete": "Sil",
+  "huntDeleteTitle": "Hazine avı silinsin mi?",
+  "huntSave": "Kaydet",
+  "huntName": "Avın adı",
+  "huntStartClue": "Başlangıç ipucu",
+  "huntStartClueHint": "Telefonda gösterilir; 1. etiketin yerini anlatsın.",
+  "huntClueLabel": "{n}. etiketin ipucu",
+  "@huntClueLabel": {
+    "placeholders": {
+      "n": {
+        "type": "String"
+      }
+    }
+  },
+  "huntClueHint": "{n}. etiketin yerini anlatsın.",
+  "@huntClueHint": {
+    "placeholders": {
+      "n": {
+        "type": "String"
+      }
+    }
+  },
+  "huntLastClueHint": "Son etiket: kutlama mesajı ya da hazinenin yeri.",
+  "huntAddClue": "Etiket ekle",
+  "huntMissingFields": "Ad, başlangıç ipucu ve en az bir etiket ipucu gerekli.",
+  "huntStations": "{count} etiket",
+  "@huntStations": {
+    "placeholders": {
+      "count": {
+        "type": "String"
+      }
+    }
+  },
+  "huntBest": "En iyi süre {time}",
+  "@huntBest": {
+    "placeholders": {
+      "time": {
+        "type": "String"
+      }
+    }
+  },
+  "huntWriteTags": "Etiketlere yaz",
+  "huntPlay": "Oyna",
+  "huntWriteStep": "Etiket {n}/{total}",
+  "@huntWriteStep": {
+    "placeholders": {
+      "n": {
+        "type": "String"
+      },
+      "total": {
+        "type": "String"
+      }
+    }
+  },
+  "huntWriteStepBody": "Bu etikete yazılacak ipucu:\n\n{clue}\n\nEtiketi hazırla ve Yaz'a bas. Sonra bu etiketi bir önceki ipucunun anlattığı yere sakla.",
+  "@huntWriteStepBody": {
+    "placeholders": {
+      "clue": {
+        "type": "String"
+      }
+    }
+  },
+  "huntWriteNow": "Yaz",
+  "huntWriteFailed": "{n}. etikete yazılamadı, tekrar dene.",
+  "@huntWriteFailed": {
+    "placeholders": {
+      "n": {
+        "type": "String"
+      }
+    }
+  },
+  "huntWriteDone": "Tüm etiketler yazıldı. Saklayın ve oyunu başlatın!",
+  "huntQuit": "Oyundan çık",
+  "huntProgress": "{found}/{total} bulundu",
+  "@huntProgress": {
+    "placeholders": {
+      "found": {
+        "type": "String"
+      },
+      "total": {
+        "type": "String"
+      }
+    }
+  },
+  "huntCurrentClue": "İpucu",
+  "huntFinished": "Tebrikler! Süre: {time}",
+  "@huntFinished": {
+    "placeholders": {
+      "time": {
+        "type": "String"
+      }
+    }
+  },
+  "huntDone": "Bitir",
+  "huntScanTag": "Bulduğun etiketi okut",
+  "huntFound": "Buldun! {found}/{total}",
+  "@huntFound": {
+    "placeholders": {
+      "found": {
+        "type": "String"
+      },
+      "total": {
+        "type": "String"
+      }
+    }
+  },
+  "huntWrongOrder": "Bu etiket sıradaki değil, ipucunu takip et.",
+  "huntAlreadyFound": "Bu etiketi zaten buldun.",
+  "huntOtherHunt": "Bu etiket başka bir hazine avına ait.",
+  "huntNotHunt": "Bu bir hazine avı etiketi değil.",
+  "whatsNew170": "• Etiket sağlık testi: puan ve öneriler\n• Hazine avı: ipuçlarını etiketlere yaz, sırayla bulun",
+  "everydaySection": "Günlük araçlar",
+  "unitTitle": "Birim çevirici",
+  "unitSubtitle": "Uzunluk, ağırlık, sıcaklık, hacim, hız",
+  "unitLength": "Uzunluk",
+  "unitWeight": "Ağırlık",
+  "unitTemperature": "Sıcaklık",
+  "unitVolume": "Hacim",
+  "unitSpeed": "Hız",
+  "unitValue": "Değer",
+  "unitSwap": "Birimleri değiştir",
+  "billTitle": "Hesap bölüşme",
+  "billSubtitle": "Bahşişle birlikte kişi başı tutar",
+  "billAmount": "Hesap tutarı",
+  "billTip": "Bahşiş: %{percent}",
+  "@billTip": {
+    "placeholders": {
+      "percent": {
+        "type": "String"
+      }
+    }
+  },
+  "billPeople": "Kişi sayısı",
+  "billRoundUp": "Kişi başını yukarı yuvarla",
+  "billPerPerson": "Kişi başı",
+  "billTipAmount": "Bahşiş",
+  "billTotal": "Toplam",
+  "pwTitle": "Şifre üretici",
+  "pwSubtitle": "Güçlü ve okunaklı şifreler",
+  "pwWeak": "Zayıf",
+  "pwFair": "Orta",
+  "pwStrong": "Güçlü",
+  "pwVeryStrong": "Çok güçlü",
+  "pwNew": "Yeni şifre",
+  "pwCopy": "Kopyala",
+  "pwCopied": "Şifre kopyalandı",
+  "pwLength": "Uzunluk: {n}",
+  "@pwLength": {
+    "placeholders": {
+      "n": {
+        "type": "String"
+      }
+    }
+  },
+  "pwLower": "Küçük harf",
+  "pwUpper": "Büyük harf",
+  "pwDigits": "Rakam",
+  "pwSymbols": "Sembol",
+  "randTitle": "Zar ve kura",
+  "randSubtitle": "Zar at, yazı-tura, listeden kura çek",
+  "randDice": "Zar",
+  "randTotal": "Toplam: {total}",
+  "@randTotal": {
+    "placeholders": {
+      "total": {
+        "type": "String"
+      }
+    }
+  },
+  "randRoll": "Zar at",
+  "randCoin": "Yazı tura",
+  "randHeads": "Yazı",
+  "randTails": "Tura",
+  "randFlip": "At",
+  "randDraw": "Kura çek",
+  "randDrawHint": "Her satıra ya da virgülle bir isim yaz",
+  "randDrawButton": "Kura çek",
+  "randWinner": "Kazanan",
+  "tallyTitle": "Sayaç",
+  "tallySubtitle": "Kişi, tur veya ürün say; kaldığın yerden devam et",
+  "tallyReset": "Sıfırla",
+  "tallyTapHint": "Saymak için ekrana dokun",
+  "whatsNew180": "• Günlük araçlar: birim çevirici, hesap bölüşme, şifre üretici, zar ve kura, sayaç"
 }

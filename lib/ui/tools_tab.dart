@@ -16,6 +16,9 @@ import '../domain/amiibo.dart';
 import '../services/launch_action_service.dart';
 import 'analytics_page.dart';
 import 'logbook_page.dart';
+import 'tag_health_page.dart';
+import 'treasure_hunt_page.dart';
+import 'everyday_tools_page.dart';
 import 'signed_tags_page.dart';
 
 /// "Araçlar" screen: chip-level tools for NTAG / MIFARE Ultralight tags.
@@ -102,6 +105,52 @@ class ToolsTab extends StatelessWidget {
           subtitle: loc.logbookSubtitle,
           color: AppColors.success,
           onTap: () => LogBooksPage.open(context, controller),
+        ),
+        ToolTile(
+          icon: Icons.health_and_safety_outlined,
+          title: loc.healthTitle,
+          subtitle: loc.healthToolSubtitle,
+          onTap: () => TagHealthPage.open(context, controller),
+        ),
+        ToolTile(
+          icon: Icons.explore_outlined,
+          title: loc.huntTitle,
+          subtitle: loc.huntToolSubtitle,
+          color: AppColors.warning,
+          onTap: () => TreasureHuntsPage.open(context, controller),
+        ),
+        SectionHeader(title: loc.everydaySection),
+        ToolTile(
+          icon: Icons.straighten_rounded,
+          title: loc.unitTitle,
+          subtitle: loc.unitSubtitle,
+          onTap: () => EverydayTools.units(context),
+        ),
+        ToolTile(
+          icon: Icons.receipt_long_outlined,
+          title: loc.billTitle,
+          subtitle: loc.billSubtitle,
+          color: AppColors.success,
+          onTap: () => EverydayTools.bill(context),
+        ),
+        ToolTile(
+          icon: Icons.password_rounded,
+          title: loc.pwTitle,
+          subtitle: loc.pwSubtitle,
+          onTap: () => EverydayTools.password(context, controller.storage),
+        ),
+        ToolTile(
+          icon: Icons.casino_outlined,
+          title: loc.randTitle,
+          subtitle: loc.randSubtitle,
+          color: AppColors.warning,
+          onTap: () => EverydayTools.random(context),
+        ),
+        ToolTile(
+          icon: Icons.exposure_plus_1_rounded,
+          title: loc.tallyTitle,
+          subtitle: loc.tallySubtitle,
+          onTap: () => EverydayTools.tally(context, controller.storage),
         ),
         SectionHeader(title: loc.toolsMemorySection),
         ToolTile(

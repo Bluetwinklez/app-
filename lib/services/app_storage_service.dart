@@ -98,6 +98,14 @@ abstract class AppStorageService {
   bool get iCloudBackupEnabled;
   Future<void> setICloudBackupEnabled(bool value);
 
+  /// Treasure hunts as JSON (see TreasureHunt.encodeAll).
+  String get treasureHuntsJson;
+  Future<void> setTreasureHuntsJson(String value);
+
+  /// Everyday tools tally counter value.
+  int get tallyCount;
+  Future<void> setTallyCount(int value);
+
   /// Compatibility mode: skip read-back verification after writes.
   bool get compatibilityMode;
   Future<void> setCompatibilityMode(bool enabled);
@@ -194,6 +202,22 @@ class InMemoryAppStorageService implements AppStorageService {
 
   @override
   Future<void> setCompatibilityMode(bool enabled) async => _compatibilityMode = enabled;
+
+  int _tallyCount = 0;
+
+  @override
+  int get tallyCount => _tallyCount;
+
+  @override
+  Future<void> setTallyCount(int value) async => _tallyCount = value;
+
+  String _treasureHuntsJson = '';
+
+  @override
+  String get treasureHuntsJson => _treasureHuntsJson;
+
+  @override
+  Future<void> setTreasureHuntsJson(String value) async => _treasureHuntsJson = value;
 
   bool _iCloudBackupEnabled = false;
 
@@ -585,6 +609,8 @@ class LocalFileAppStorageService implements AppStorageService {
               : const [];
           _lastBackupAt = DateTime.tryParse(data['lastBackupAt'] as String? ?? '');
           _compatibilityMode = data['compatibilityMode'] as bool? ?? false;
+          _tallyCount = data['tallyCount'] as int? ?? 0;
+          _treasureHuntsJson = data['treasureHuntsJson'] as String? ?? '';
           _iCloudBackupEnabled = data['iCloudBackupEnabled'] as bool? ?? false;
           _addMadeWith = data['addMadeWith'] as bool? ?? false;
           _firstTagDone = data['firstTagDone'] as bool? ?? false;
@@ -773,6 +799,8 @@ class LocalFileAppStorageService implements AppStorageService {
       'favoritePresets': _favoritePresets,
       if (_lastBackupAt != null) 'lastBackupAt': _lastBackupAt!.toIso8601String(),
       'compatibilityMode': _compatibilityMode,
+      'tallyCount': _tallyCount,
+      'treasureHuntsJson': _treasureHuntsJson,
       'iCloudBackupEnabled': _iCloudBackupEnabled,
       'addMadeWith': _addMadeWith,
       'firstTagDone': _firstTagDone,
@@ -857,6 +885,28 @@ class LocalFileAppStorageService implements AppStorageService {
   @override
   Future<void> setCompatibilityMode(bool enabled) async {
     _compatibilityMode = enabled;
+    await _saveSettings();
+  }
+
+  int _tallyCount = 0;
+
+  @override
+  int get tallyCount => _tallyCount;
+
+  @override
+  Future<void> setTallyCount(int value) async {
+    _tallyCount = value;
+    await _saveSettings();
+  }
+
+  String _treasureHuntsJson = '';
+
+  @override
+  String get treasureHuntsJson => _treasureHuntsJson;
+
+  @override
+  Future<void> setTreasureHuntsJson(String value) async {
+    _treasureHuntsJson = value;
     await _saveSettings();
   }
 

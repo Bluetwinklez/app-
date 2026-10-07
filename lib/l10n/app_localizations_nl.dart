@@ -5084,4 +5084,419 @@ class AppLocalizationsNl extends AppLocalizations {
   @override
   String get whatsNew160 =>
       '• Widgets voor beginscherm en toegangsscherm\n• Scannen en schrijven met één tik vanuit het bedieningspaneel (iOS 18)\n• Apple Watch: recente scans en logboekregels met één tik\n• iCloud-back-up (sjablonen, regels, bibliotheek)';
+
+  @override
+  String get healthTitle => 'Tag-gezondheidscheck';
+
+  @override
+  String get healthToolSubtitle =>
+      'Scan een tag en zie de score en wat je moet doen';
+
+  @override
+  String get healthIntro =>
+      'Scan een tag: formaat, vrije ruimte, vergrendeling, linkveiligheid, handtekening en kloonvermoeden worden gecontroleerd, met advies per punt.';
+
+  @override
+  String get healthScan => 'Tag scannen';
+
+  @override
+  String get healthScanAnother => 'Nog een tag scannen';
+
+  @override
+  String get healthOverallGood => 'Deze tag is gezond en klaar voor gebruik.';
+
+  @override
+  String get healthOverallWarning =>
+      'De tag werkt, maar sommige dingen vragen aandacht.';
+
+  @override
+  String get healthOverallProblem =>
+      'Deze tag heeft problemen; zie het advies hieronder.';
+
+  @override
+  String get healthNotNdef => 'Niet NDEF-geformatteerd';
+
+  @override
+  String get healthNotNdefTip =>
+      'Telefoons kunnen de inhoud niet lezen. Formatteer via Tools → Geheugen formatteren of schrijf er direct naar.';
+
+  @override
+  String get healthEmpty => 'Tag is leeg';
+
+  @override
+  String get healthEmptyTip =>
+      'Voeg inhoud toe via het tabblad Schrijven of een sjabloon.';
+
+  @override
+  String get healthReadOnly => 'Alleen-lezen (vergrendeld)';
+
+  @override
+  String get healthReadOnlyTip =>
+      'De inhoud kan niet worden gewijzigd, precies goed voor openbare plekken.';
+
+  @override
+  String get healthWritable => 'Beschrijfbaar';
+
+  @override
+  String get healthWritableTip =>
+      'Komt hij op een openbare plek, vergrendel hem dan zodat niemand hem wijzigt.';
+
+  @override
+  String healthNearlyFull(String percent) {
+    return 'Bijna vol ($percent%)';
+  }
+
+  @override
+  String get healthNearlyFullTip =>
+      'Gebruik voor langere inhoud een grotere tag (NTAG215/216) of een kortere link.';
+
+  @override
+  String healthRoomLeft(String free, String total) {
+    return '$free van $total bytes vrij';
+  }
+
+  @override
+  String get healthRoomLeftTip => 'Er is ruimte voor nieuwe inhoud.';
+
+  @override
+  String get healthRiskyLink => 'Gevaarlijke link';
+
+  @override
+  String get healthRiskyLinkTip =>
+      'De link lijkt op een nepsite. Open hem niet; op een openbare plek kan met de tag geknoeid zijn.';
+
+  @override
+  String get healthSuspiciousLink => 'Verdachte link';
+
+  @override
+  String get healthSuspiciousLinkTip =>
+      'Ingekort of ongebruikelijk adres. Controleer het voor je het opent.';
+
+  @override
+  String get healthSignedValid => 'Geldige handtekening';
+
+  @override
+  String get healthSignedValidTip =>
+      'De inhoud is met jouw sleutel geschreven en niet gewijzigd.';
+
+  @override
+  String get healthSignedInvalid => 'Ongeldige handtekening';
+
+  @override
+  String get healthSignedInvalidTip =>
+      'De inhoud is na het ondertekenen gewijzigd. Vertrouw hem niet en schrijf de tag opnieuw.';
+
+  @override
+  String get healthPossibleClone => 'Mogelijke kopie';
+
+  @override
+  String get healthPossibleCloneTip =>
+      'Zelfde inhoud als een tag in je bibliotheek maar een ander serienummer. Iemand kan hem gekopieerd hebben.';
+
+  @override
+  String get healthInLibrary => 'Opgeslagen in je bibliotheek';
+
+  @override
+  String get healthInLibraryTip =>
+      'Dit is een van je tags; naam en notities staan in de bibliotheek.';
+
+  @override
+  String get huntTitle => 'Speurtocht';
+
+  @override
+  String get huntToolSubtitle =>
+      'Verstop tags en laat spelers ze aanwijzing voor aanwijzing vinden';
+
+  @override
+  String get huntIntro =>
+      'Elke tag bevat een aanwijzing naar de volgende. De app toont de eerste aanwijzing; spelers scannen de tags op volgorde tegen de klok. Leuk voor verjaardagen, school en familiefeesten.';
+
+  @override
+  String get huntNew => 'Nieuwe speurtocht';
+
+  @override
+  String get huntEdit => 'Bewerken';
+
+  @override
+  String get huntDelete => 'Verwijderen';
+
+  @override
+  String get huntDeleteTitle => 'Deze speurtocht verwijderen?';
+
+  @override
+  String get huntSave => 'Opslaan';
+
+  @override
+  String get huntName => 'Naam van de speurtocht';
+
+  @override
+  String get huntStartClue => 'Startaanwijzing';
+
+  @override
+  String get huntStartClueHint =>
+      'Wordt op de telefoon getoond en leidt naar tag 1.';
+
+  @override
+  String huntClueLabel(String n) {
+    return 'Aanwijzing op tag $n';
+  }
+
+  @override
+  String huntClueHint(String n) {
+    return 'Leidt naar tag $n.';
+  }
+
+  @override
+  String get huntLastClueHint =>
+      'Laatste tag: een felicitatie of waar de schat ligt.';
+
+  @override
+  String get huntAddClue => 'Tag toevoegen';
+
+  @override
+  String get huntMissingFields =>
+      'Een naam, een startaanwijzing en minstens één tag-aanwijzing zijn nodig.';
+
+  @override
+  String huntStations(String count) {
+    return '$count tags';
+  }
+
+  @override
+  String huntBest(String time) {
+    return 'Beste tijd $time';
+  }
+
+  @override
+  String get huntWriteTags => 'Tags schrijven';
+
+  @override
+  String get huntPlay => 'Spelen';
+
+  @override
+  String huntWriteStep(String n, String total) {
+    return 'Tag $n/$total';
+  }
+
+  @override
+  String huntWriteStepBody(String clue) {
+    return 'Deze aanwijzing komt op de tag:\n\n$clue\n\nHoud de tag klaar en tik op Schrijven. Verstop hem daarna waar de vorige aanwijzing heen wijst.';
+  }
+
+  @override
+  String get huntWriteNow => 'Schrijven';
+
+  @override
+  String huntWriteFailed(String n) {
+    return 'Tag $n kon niet worden geschreven; probeer opnieuw.';
+  }
+
+  @override
+  String get huntWriteDone =>
+      'Alle tags geschreven. Verstop ze en start het spel!';
+
+  @override
+  String get huntQuit => 'Spel verlaten';
+
+  @override
+  String huntProgress(String found, String total) {
+    return '$found/$total gevonden';
+  }
+
+  @override
+  String get huntCurrentClue => 'Aanwijzing';
+
+  @override
+  String huntFinished(String time) {
+    return 'Goed gedaan! Tijd: $time';
+  }
+
+  @override
+  String get huntDone => 'Klaar';
+
+  @override
+  String get huntScanTag => 'Scan de gevonden tag';
+
+  @override
+  String huntFound(String found, String total) {
+    return 'Gevonden! $found/$total';
+  }
+
+  @override
+  String get huntWrongOrder =>
+      'Dat is niet de volgende tag; volg de aanwijzing.';
+
+  @override
+  String get huntAlreadyFound => 'Deze tag heb je al gevonden.';
+
+  @override
+  String get huntOtherHunt => 'Deze tag hoort bij een andere speurtocht.';
+
+  @override
+  String get huntNotHunt => 'Dat is geen speurtocht-tag.';
+
+  @override
+  String get whatsNew170 =>
+      '• Tag-gezondheidscheck: score en advies\n• Speurtocht: schrijf aanwijzingen op tags en vind ze op volgorde';
+
+  @override
+  String get everydaySection => 'Handige hulpmiddelen';
+
+  @override
+  String get unitTitle => 'Eenheden omrekenen';
+
+  @override
+  String get unitSubtitle => 'Lengte, gewicht, temperatuur, volume, snelheid';
+
+  @override
+  String get unitLength => 'Lengte';
+
+  @override
+  String get unitWeight => 'Gewicht';
+
+  @override
+  String get unitTemperature => 'Temperatuur';
+
+  @override
+  String get unitVolume => 'Volume';
+
+  @override
+  String get unitSpeed => 'Snelheid';
+
+  @override
+  String get unitValue => 'Waarde';
+
+  @override
+  String get unitSwap => 'Eenheden omwisselen';
+
+  @override
+  String get billTitle => 'Rekening delen';
+
+  @override
+  String get billSubtitle => 'Bedrag per persoon met fooi';
+
+  @override
+  String get billAmount => 'Bedrag';
+
+  @override
+  String billTip(String percent) {
+    return 'Fooi: $percent%';
+  }
+
+  @override
+  String get billPeople => 'Personen';
+
+  @override
+  String get billRoundUp => 'Elk deel naar boven afronden';
+
+  @override
+  String get billPerPerson => 'Per persoon';
+
+  @override
+  String get billTipAmount => 'Fooi';
+
+  @override
+  String get billTotal => 'Totaal';
+
+  @override
+  String get pwTitle => 'Wachtwoordgenerator';
+
+  @override
+  String get pwSubtitle => 'Sterke wachtwoorden die makkelijk te typen zijn';
+
+  @override
+  String get pwWeak => 'Zwak';
+
+  @override
+  String get pwFair => 'Redelijk';
+
+  @override
+  String get pwStrong => 'Sterk';
+
+  @override
+  String get pwVeryStrong => 'Zeer sterk';
+
+  @override
+  String get pwNew => 'Nieuw wachtwoord';
+
+  @override
+  String get pwCopy => 'Kopiëren';
+
+  @override
+  String get pwCopied => 'Wachtwoord gekopieerd';
+
+  @override
+  String pwLength(String n) {
+    return 'Lengte: $n';
+  }
+
+  @override
+  String get pwLower => 'Kleine letters';
+
+  @override
+  String get pwUpper => 'Hoofdletters';
+
+  @override
+  String get pwDigits => 'Cijfers';
+
+  @override
+  String get pwSymbols => 'Symbolen';
+
+  @override
+  String get randTitle => 'Dobbelen en loten';
+
+  @override
+  String get randSubtitle => 'Dobbelen, kop of munt, loten uit een lijst';
+
+  @override
+  String get randDice => 'Dobbelstenen';
+
+  @override
+  String randTotal(String total) {
+    return 'Totaal: $total';
+  }
+
+  @override
+  String get randRoll => 'Gooien';
+
+  @override
+  String get randCoin => 'Kop of munt';
+
+  @override
+  String get randHeads => 'Kop';
+
+  @override
+  String get randTails => 'Munt';
+
+  @override
+  String get randFlip => 'Opgooien';
+
+  @override
+  String get randDraw => 'Loten uit een lijst';
+
+  @override
+  String get randDrawHint => 'Eén naam per regel of gescheiden door komma\'s';
+
+  @override
+  String get randDrawButton => 'Loten';
+
+  @override
+  String get randWinner => 'Winnaar';
+
+  @override
+  String get tallyTitle => 'Teller';
+
+  @override
+  String get tallySubtitle =>
+      'Tel mensen, rondes of artikelen; gaat verder waar je was';
+
+  @override
+  String get tallyReset => 'Op nul';
+
+  @override
+  String get tallyTapHint => 'Tik ergens om te tellen';
+
+  @override
+  String get whatsNew180 =>
+      '• Handige hulpmiddelen: eenheden omrekenen, rekening delen, wachtwoorden, dobbelen en loten, teller';
 }
