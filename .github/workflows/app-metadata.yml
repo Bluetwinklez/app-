@@ -40,6 +40,8 @@ jobs:
           python3 -m pip install --quiet pyjwt cryptography
           key="$RUNNER_TEMP/asc_key.p8"
           if [[ -n "$ASC_ADMIN_KEY_ID" && -n "$ASC_ADMIN_PRIVATE_KEY" ]]; then
+            # Shape only (never the content), to spot a wrong paste.
+            echo "Admin key id: ${#ASC_ADMIN_KEY_ID} chars; key: ${#ASC_ADMIN_PRIVATE_KEY} chars, $(printf '%s' "$ASC_ADMIN_PRIVATE_KEY" | wc -l) line breaks, header: $(grep -q 'BEGIN PRIVATE KEY' <<<"$ASC_ADMIN_PRIVATE_KEY" && echo yes || echo no)"
             printf '%s\n' "$ASC_ADMIN_PRIVATE_KEY" > "$key"
             export ASC_API_KEY_ID="$ASC_ADMIN_KEY_ID"
           else
