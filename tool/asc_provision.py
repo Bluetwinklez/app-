@@ -97,7 +97,7 @@ class Api:
         except urllib.error.HTTPError as e:
             detail = e.read().decode(errors="replace")
             if e.code == 403:
-                print(f"::warning::{method} {path} is not allowed for this API key")
+                print(f"::warning::{method} {path} is not allowed for this API key: {detail[:500]}")
                 if allow_forbidden:
                     return None
                 raise Forbidden(path)
