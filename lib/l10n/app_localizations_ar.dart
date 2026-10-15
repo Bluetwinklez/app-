@@ -5024,4 +5024,410 @@ class AppLocalizationsAr extends AppLocalizations {
   @override
   String get whatsNew160 =>
       '• أدوات مصغّرة للشاشة الرئيسية وشاشة القفل\n• مسح وكتابة بلمسة من مركز التحكم (iOS 18)\n• Apple Watch: القراءات الأخيرة والتسجيل في الدفتر بلمسة\n• نسخ احتياطي على iCloud (القوالب والقواعد والمكتبة)';
+
+  @override
+  String get healthTitle => 'فحص سلامة الوسم';
+
+  @override
+  String get healthToolSubtitle => 'امسح وسمًا لترى تقييمه وما يجب إصلاحه';
+
+  @override
+  String get healthIntro =>
+      'امسح وسمًا: يتم فحص التنسيق والمساحة الحرة والقفل وأمان الروابط والتوقيع واحتمال النسخ، مع نصيحة لكل نتيجة.';
+
+  @override
+  String get healthScan => 'امسح الوسم';
+
+  @override
+  String get healthScanAnother => 'امسح وسمًا آخر';
+
+  @override
+  String get healthOverallGood => 'الوسم سليم وجاهز للاستخدام.';
+
+  @override
+  String get healthOverallWarning =>
+      'الوسم يعمل لكن هناك أمور تحتاج إلى انتباه.';
+
+  @override
+  String get healthOverallProblem => 'هناك مشكلة في الوسم؛ راجع النصائح أدناه.';
+
+  @override
+  String get healthNotNdef => 'غير منسق بصيغة NDEF';
+
+  @override
+  String get healthNotNdefTip =>
+      'لا تستطيع الهواتف قراءة محتواه. نسّقه من الأدوات ← تنسيق الذاكرة أو اكتب عليه مباشرة.';
+
+  @override
+  String get healthEmpty => 'الوسم فارغ';
+
+  @override
+  String get healthEmptyTip => 'أضف محتوى من تبويب الكتابة أو من قالب جاهز.';
+
+  @override
+  String get healthReadOnly => 'للقراءة فقط (مقفل)';
+
+  @override
+  String get healthReadOnlyTip =>
+      'لا يمكن تغيير المحتوى، وهذا مناسب للأماكن العامة.';
+
+  @override
+  String get healthWritable => 'قابل للكتابة';
+
+  @override
+  String get healthWritableTip =>
+      'إذا كان سيوضع في مكان عام ففكّر في قفله حتى لا يغيّره أحد.';
+
+  @override
+  String healthNearlyFull(String percent) {
+    return 'ممتلئ تقريبًا ($percent%)';
+  }
+
+  @override
+  String get healthNearlyFullTip =>
+      'للمحتوى الأطول استخدم وسمًا أكبر (NTAG215/216) أو رابطًا أقصر.';
+
+  @override
+  String healthRoomLeft(String free, String total) {
+    return '$free من $total بايت فارغة';
+  }
+
+  @override
+  String get healthRoomLeftTip => 'توجد مساحة لمحتوى جديد.';
+
+  @override
+  String get healthRiskyLink => 'رابط خطير';
+
+  @override
+  String get healthRiskyLinkTip =>
+      'يبدو الرابط كموقع مزيف. لا تفتحه؛ إذا كان الوسم في مكان عام فربما تم العبث به.';
+
+  @override
+  String get healthSuspiciousLink => 'رابط مريب';
+
+  @override
+  String get healthSuspiciousLinkTip =>
+      'عنوان مختصر أو غير معتاد. تحقق منه قبل فتحه.';
+
+  @override
+  String get healthSignedValid => 'توقيع صالح';
+
+  @override
+  String get healthSignedValidTip => 'كُتب المحتوى بمفتاحك ولم يتغير.';
+
+  @override
+  String get healthSignedInvalid => 'توقيع غير صالح';
+
+  @override
+  String get healthSignedInvalidTip =>
+      'تغيّر المحتوى بعد التوقيع. لا تثق به وأعد كتابة الوسم.';
+
+  @override
+  String get healthPossibleClone => 'قد يكون نسخة';
+
+  @override
+  String get healthPossibleCloneTip =>
+      'نفس محتوى وسم في مكتبتك لكن برقم تسلسلي مختلف. ربما نسخه أحدهم.';
+
+  @override
+  String get healthInLibrary => 'محفوظ في مكتبتك';
+
+  @override
+  String get healthInLibraryTip => 'هذا أحد وسومك؛ اسمه وملاحظاته في المكتبة.';
+
+  @override
+  String get huntTitle => 'البحث عن الكنز';
+
+  @override
+  String get huntToolSubtitle =>
+      'خبّئ الوسوم ودع اللاعبين يجدونها تلميحًا تلو الآخر';
+
+  @override
+  String get huntIntro =>
+      'يحمل كل وسم تلميحًا لمكان الوسم التالي. يعرض التطبيق التلميح الأول ويمسح اللاعبون الوسوم بالترتيب مع احتساب الوقت. مثالي لأعياد الميلاد والمدرسة والمناسبات العائلية.';
+
+  @override
+  String get huntNew => 'بحث جديد';
+
+  @override
+  String get huntEdit => 'تعديل';
+
+  @override
+  String get huntDelete => 'حذف';
+
+  @override
+  String get huntDeleteTitle => 'حذف هذا البحث عن الكنز؟';
+
+  @override
+  String get huntSave => 'حفظ';
+
+  @override
+  String get huntName => 'اسم البحث';
+
+  @override
+  String get huntStartClue => 'التلميح الأول';
+
+  @override
+  String get huntStartClueHint => 'يظهر على الهاتف ويقود إلى الوسم 1.';
+
+  @override
+  String huntClueLabel(String n) {
+    return 'تلميح الوسم $n';
+  }
+
+  @override
+  String huntClueHint(String n) {
+    return 'يقود إلى الوسم $n.';
+  }
+
+  @override
+  String get huntLastClueHint => 'الوسم الأخير: رسالة تهنئة أو مكان الكنز.';
+
+  @override
+  String get huntAddClue => 'إضافة وسم';
+
+  @override
+  String get huntMissingFields =>
+      'يلزم اسم وتلميح أول وتلميح وسم واحد على الأقل.';
+
+  @override
+  String huntStations(String count) {
+    return '$count وسوم';
+  }
+
+  @override
+  String huntBest(String time) {
+    return 'أفضل وقت $time';
+  }
+
+  @override
+  String get huntWriteTags => 'كتابة الوسوم';
+
+  @override
+  String get huntPlay => 'العب';
+
+  @override
+  String huntWriteStep(String n, String total) {
+    return 'الوسم $n/$total';
+  }
+
+  @override
+  String huntWriteStepBody(String clue) {
+    return 'هذا التلميح سيُكتب على الوسم:\n\n$clue\n\nجهّز الوسم واضغط كتابة. ثم خبّئه حيث يشير التلميح السابق.';
+  }
+
+  @override
+  String get huntWriteNow => 'اكتب';
+
+  @override
+  String huntWriteFailed(String n) {
+    return 'تعذرت كتابة الوسم $n؛ حاول مرة أخرى.';
+  }
+
+  @override
+  String get huntWriteDone => 'تمت كتابة كل الوسوم. خبّئها وابدأ اللعب!';
+
+  @override
+  String get huntQuit => 'إنهاء اللعبة';
+
+  @override
+  String huntProgress(String found, String total) {
+    return 'تم العثور على $found/$total';
+  }
+
+  @override
+  String get huntCurrentClue => 'التلميح';
+
+  @override
+  String huntFinished(String time) {
+    return 'أحسنت! الوقت: $time';
+  }
+
+  @override
+  String get huntDone => 'إنهاء';
+
+  @override
+  String get huntScanTag => 'امسح الوسم الذي وجدته';
+
+  @override
+  String huntFound(String found, String total) {
+    return 'وجدته! $found/$total';
+  }
+
+  @override
+  String get huntWrongOrder => 'هذا ليس الوسم التالي؛ اتبع التلميح.';
+
+  @override
+  String get huntAlreadyFound => 'لقد وجدت هذا الوسم من قبل.';
+
+  @override
+  String get huntOtherHunt => 'هذا الوسم يخص بحثًا آخر عن الكنز.';
+
+  @override
+  String get huntNotHunt => 'هذا ليس وسمًا للبحث عن الكنز.';
+
+  @override
+  String get whatsNew170 =>
+      '• فحص سلامة الوسم: تقييم ونصائح\n• البحث عن الكنز: اكتب التلميحات على الوسوم وابحث عنها بالترتيب';
+
+  @override
+  String get everydaySection => 'أدوات يومية';
+
+  @override
+  String get unitTitle => 'محول الوحدات';
+
+  @override
+  String get unitSubtitle => 'الطول والوزن والحرارة والحجم والسرعة';
+
+  @override
+  String get unitLength => 'الطول';
+
+  @override
+  String get unitWeight => 'الوزن';
+
+  @override
+  String get unitTemperature => 'الحرارة';
+
+  @override
+  String get unitVolume => 'الحجم';
+
+  @override
+  String get unitSpeed => 'السرعة';
+
+  @override
+  String get unitValue => 'القيمة';
+
+  @override
+  String get unitSwap => 'تبديل الوحدات';
+
+  @override
+  String get billTitle => 'تقسيم الحساب';
+
+  @override
+  String get billSubtitle => 'المبلغ لكل شخص مع الإكرامية';
+
+  @override
+  String get billAmount => 'مبلغ الحساب';
+
+  @override
+  String billTip(String percent) {
+    return 'الإكرامية: $percent%';
+  }
+
+  @override
+  String get billPeople => 'عدد الأشخاص';
+
+  @override
+  String get billRoundUp => 'تقريب حصة كل شخص للأعلى';
+
+  @override
+  String get billPerPerson => 'لكل شخص';
+
+  @override
+  String get billTipAmount => 'الإكرامية';
+
+  @override
+  String get billTotal => 'الإجمالي';
+
+  @override
+  String get pwTitle => 'مولد كلمات المرور';
+
+  @override
+  String get pwSubtitle => 'كلمات مرور قوية وسهلة الكتابة';
+
+  @override
+  String get pwWeak => 'ضعيفة';
+
+  @override
+  String get pwFair => 'متوسطة';
+
+  @override
+  String get pwStrong => 'قوية';
+
+  @override
+  String get pwVeryStrong => 'قوية جدًا';
+
+  @override
+  String get pwNew => 'كلمة مرور جديدة';
+
+  @override
+  String get pwCopy => 'نسخ';
+
+  @override
+  String get pwCopied => 'تم نسخ كلمة المرور';
+
+  @override
+  String pwLength(String n) {
+    return 'الطول: $n';
+  }
+
+  @override
+  String get pwLower => 'أحرف صغيرة';
+
+  @override
+  String get pwUpper => 'أحرف كبيرة';
+
+  @override
+  String get pwDigits => 'أرقام';
+
+  @override
+  String get pwSymbols => 'رموز';
+
+  @override
+  String get randTitle => 'النرد والقرعة';
+
+  @override
+  String get randSubtitle => 'ارمِ النرد، اقلب العملة، اسحب من قائمة';
+
+  @override
+  String get randDice => 'النرد';
+
+  @override
+  String randTotal(String total) {
+    return 'المجموع: $total';
+  }
+
+  @override
+  String get randRoll => 'ارمِ';
+
+  @override
+  String get randCoin => 'رمي العملة';
+
+  @override
+  String get randHeads => 'صورة';
+
+  @override
+  String get randTails => 'كتابة';
+
+  @override
+  String get randFlip => 'اقلب';
+
+  @override
+  String get randDraw => 'سحب من قائمة';
+
+  @override
+  String get randDrawHint => 'اسم في كل سطر أو مفصولة بفواصل';
+
+  @override
+  String get randDrawButton => 'اسحب';
+
+  @override
+  String get randWinner => 'الفائز';
+
+  @override
+  String get tallyTitle => 'عداد';
+
+  @override
+  String get tallySubtitle =>
+      'عدّ الأشخاص أو الجولات أو العناصر؛ يكمل من حيث توقفت';
+
+  @override
+  String get tallyReset => 'إعادة الضبط';
+
+  @override
+  String get tallyTapHint => 'انقر في أي مكان للعد';
+
+  @override
+  String get whatsNew180 =>
+      '• أدوات يومية: محول الوحدات، تقسيم الحساب، مولد كلمات المرور، النرد والقرعة، العداد';
 }

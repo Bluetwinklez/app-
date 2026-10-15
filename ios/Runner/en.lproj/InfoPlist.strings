@@ -4,3 +4,4 @@
 "NFCReaderUsageDescription" = "NFC access is needed to read NFC tags and write NDEF messages.";
 "NSFaceIDUsageDescription" = "Face ID protects your tag library when the app lock is on.";
 "NSLocationWhenInUseUsageDescription" = "When you ask, the tag's location is saved so it can be shown on the tag map.";
+"NSLocationAlwaysAndWhenInUseUsageDescription" = "When you ask, the tag's location is saved so it can be shown on the tag map.";

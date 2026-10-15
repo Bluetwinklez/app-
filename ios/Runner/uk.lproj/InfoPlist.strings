@@ -4,3 +4,4 @@
 "NFCReaderUsageDescription" = "Доступ до NFC потрібен для читання NFC-міток і запису NDEF-повідомлень.";
 "NSFaceIDUsageDescription" = "Face ID захищає бібліотеку міток, коли ввімкнено блокування застосунку.";
 "NSLocationWhenInUseUsageDescription" = "На ваш запит місце мітки зберігається, щоб показати її на мапі.";
+"NSLocationAlwaysAndWhenInUseUsageDescription" = "На ваш запит місце мітки зберігається, щоб показати її на мапі.";

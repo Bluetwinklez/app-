@@ -1,0 +1,5 @@
+{
+ "tr": {
+  "description": "NFC etiketlerini okuyun, yazın ve yönetin.\n\n• OKU: İçerik, çip türü (NTAG213/215/216), kapasite, kilit ve şifre durumu\n• YAZ: Web, metin, telefon, SMS, e-posta, konum, Wi-Fi, kartvizit, takvim, uygulama bağlantıları\n• HAZIR ŞABLONLAR: Misafir Wi-Fi, Google yorum, menü, evcil hayvan künyesi, acil durum kartı, bavul etiketi ve dahası\n• DOKUNUNCA NE OLUR: iPhone'un etikete ne yapacağını yazmadan önce görün\n• TOPLU YAZMA: Seri numara, CSV'den her satır bir etikete, etiket kopyalama\n• ARAÇLAR: Etiket raporu, karşılaştırma, temizleme, kilitleme, şifre, bellek dökümü\n• KÜTÜPHANE: Etiketlerinize isim, fotoğraf, konum ve etiket ekleyin\n• OTOMASYON: Siri, Kısayollar ve hazır ev otomasyonu tarifleri\n• KAYIT DEFTERLERİ: Yoklama, mesai, ilaç, alışkanlık serisi, mama, ev işleri ve ziyaretçi defteri; hatırlatmalarla\n• DAHA FAZLASI: Etiket haritası, QR ve barkod tarayıcı, fotoğraftan metin okuma, istatistikler, sesli okuma\n• 14 dil ve koyu mod\n\nGizlilik: Hesap, sunucu, reklam veya takip yok. Her şey cihazınızda."
+ }
+}

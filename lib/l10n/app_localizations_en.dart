@@ -5070,4 +5070,417 @@ class AppLocalizationsEn extends AppLocalizations {
   @override
   String get whatsNew160 =>
       '• Home Screen and Lock Screen widgets\n• Scan and write with one tap from Control Center (iOS 18)\n• Apple Watch: recent scans and one-tap logbook entries\n• iCloud backup (templates, rules, library)';
+
+  @override
+  String get healthTitle => 'Tag health check';
+
+  @override
+  String get healthToolSubtitle =>
+      'Scan a tag to see its score and what to fix';
+
+  @override
+  String get healthIntro =>
+      'Scan a tag to check its format, free space, lock, link safety, signature and whether it looks cloned, with advice for each finding.';
+
+  @override
+  String get healthScan => 'Scan tag';
+
+  @override
+  String get healthScanAnother => 'Scan another tag';
+
+  @override
+  String get healthOverallGood => 'This tag is healthy and ready to use.';
+
+  @override
+  String get healthOverallWarning =>
+      'The tag works, but some things need attention.';
+
+  @override
+  String get healthOverallProblem =>
+      'This tag has problems; see the advice below.';
+
+  @override
+  String get healthNotNdef => 'Not NDEF formatted';
+
+  @override
+  String get healthNotNdefTip =>
+      'Phones can\'t read its content. Format it in Tools → Format memory, or just write to it.';
+
+  @override
+  String get healthEmpty => 'Tag is empty';
+
+  @override
+  String get healthEmptyTip =>
+      'Add content from the Write tab or a ready-made template.';
+
+  @override
+  String get healthReadOnly => 'Read-only (locked)';
+
+  @override
+  String get healthReadOnlyTip =>
+      'Its content can\'t be changed, which is what you want for public places.';
+
+  @override
+  String get healthWritable => 'Writable';
+
+  @override
+  String get healthWritableTip =>
+      'If it goes somewhere public, consider locking it so nobody can change it.';
+
+  @override
+  String healthNearlyFull(String percent) {
+    return 'Nearly full ($percent%)';
+  }
+
+  @override
+  String get healthNearlyFullTip =>
+      'For longer content use a bigger tag (NTAG215/216) or a shorter link.';
+
+  @override
+  String healthRoomLeft(String free, String total) {
+    return '$free of $total bytes free';
+  }
+
+  @override
+  String get healthRoomLeftTip => 'There\'s room for new content.';
+
+  @override
+  String get healthRiskyLink => 'Dangerous link';
+
+  @override
+  String get healthRiskyLinkTip =>
+      'The link looks like a fake site. Don\'t open it; if the tag is in a public place it may have been tampered with.';
+
+  @override
+  String get healthSuspiciousLink => 'Suspicious link';
+
+  @override
+  String get healthSuspiciousLinkTip =>
+      'A shortened or unusual address. Check it before opening.';
+
+  @override
+  String get healthSignedValid => 'Valid signature';
+
+  @override
+  String get healthSignedValidTip =>
+      'The content was written with your key and hasn\'t been changed.';
+
+  @override
+  String get healthSignedInvalid => 'Broken signature';
+
+  @override
+  String get healthSignedInvalidTip =>
+      'The content changed after it was signed. Don\'t trust it; rewrite the tag.';
+
+  @override
+  String get healthPossibleClone => 'Possible copy';
+
+  @override
+  String get healthPossibleCloneTip =>
+      'Same content as a tag in your library but a different serial number. Someone may have copied it.';
+
+  @override
+  String get healthInLibrary => 'Saved in your library';
+
+  @override
+  String get healthInLibraryTip =>
+      'This is one of your tags; its name and notes are in the library.';
+
+  @override
+  String get huntTitle => 'Treasure hunt';
+
+  @override
+  String get huntToolSubtitle =>
+      'Hide tags and let players find them clue by clue';
+
+  @override
+  String get huntIntro =>
+      'Each tag holds a clue to where the next one is hidden. The app shows the first clue; players scan the tags in order against the clock. Great for birthdays, school and family events.';
+
+  @override
+  String get huntNew => 'New hunt';
+
+  @override
+  String get huntEdit => 'Edit';
+
+  @override
+  String get huntDelete => 'Delete';
+
+  @override
+  String get huntDeleteTitle => 'Delete this treasure hunt?';
+
+  @override
+  String get huntSave => 'Save';
+
+  @override
+  String get huntName => 'Hunt name';
+
+  @override
+  String get huntStartClue => 'Starting clue';
+
+  @override
+  String get huntStartClueHint =>
+      'Shown on the phone; it should lead to tag 1.';
+
+  @override
+  String huntClueLabel(String n) {
+    return 'Clue on tag $n';
+  }
+
+  @override
+  String huntClueHint(String n) {
+    return 'Should lead to tag $n.';
+  }
+
+  @override
+  String get huntLastClueHint =>
+      'Last tag: a congratulations message or where the treasure is.';
+
+  @override
+  String get huntAddClue => 'Add tag';
+
+  @override
+  String get huntMissingFields =>
+      'A name, a starting clue and at least one tag clue are needed.';
+
+  @override
+  String huntStations(String count) {
+    return '$count tags';
+  }
+
+  @override
+  String huntBest(String time) {
+    return 'Best $time';
+  }
+
+  @override
+  String get huntWriteTags => 'Write tags';
+
+  @override
+  String get huntPlay => 'Play';
+
+  @override
+  String huntWriteStep(String n, String total) {
+    return 'Tag $n/$total';
+  }
+
+  @override
+  String huntWriteStepBody(String clue) {
+    return 'This clue goes on the tag:\n\n$clue\n\nHave the tag ready and tap Write. Then hide it where the previous clue points.';
+  }
+
+  @override
+  String get huntWriteNow => 'Write';
+
+  @override
+  String huntWriteFailed(String n) {
+    return 'Couldn\'t write tag $n; try again.';
+  }
+
+  @override
+  String get huntWriteDone => 'All tags written. Hide them and start the game!';
+
+  @override
+  String get huntQuit => 'Quit game';
+
+  @override
+  String huntProgress(String found, String total) {
+    return '$found/$total found';
+  }
+
+  @override
+  String get huntCurrentClue => 'Clue';
+
+  @override
+  String huntFinished(String time) {
+    return 'Well done! Time: $time';
+  }
+
+  @override
+  String get huntDone => 'Finish';
+
+  @override
+  String get huntScanTag => 'Scan the tag you found';
+
+  @override
+  String huntFound(String found, String total) {
+    return 'Found it! $found/$total';
+  }
+
+  @override
+  String get huntWrongOrder => 'That\'s not the next tag; follow the clue.';
+
+  @override
+  String get huntAlreadyFound => 'You already found this tag.';
+
+  @override
+  String get huntOtherHunt => 'This tag belongs to another treasure hunt.';
+
+  @override
+  String get huntNotHunt => 'That\'s not a treasure hunt tag.';
+
+  @override
+  String get whatsNew170 =>
+      '• Tag health check: score and advice\n• Treasure hunt: write clues to tags and find them in order';
+
+  @override
+  String get everydaySection => 'Everyday tools';
+
+  @override
+  String get unitTitle => 'Unit converter';
+
+  @override
+  String get unitSubtitle => 'Length, weight, temperature, volume, speed';
+
+  @override
+  String get unitLength => 'Length';
+
+  @override
+  String get unitWeight => 'Weight';
+
+  @override
+  String get unitTemperature => 'Temperature';
+
+  @override
+  String get unitVolume => 'Volume';
+
+  @override
+  String get unitSpeed => 'Speed';
+
+  @override
+  String get unitValue => 'Value';
+
+  @override
+  String get unitSwap => 'Swap units';
+
+  @override
+  String get billTitle => 'Split the bill';
+
+  @override
+  String get billSubtitle => 'Per-person amount with tip';
+
+  @override
+  String get billAmount => 'Bill amount';
+
+  @override
+  String billTip(String percent) {
+    return 'Tip: $percent%';
+  }
+
+  @override
+  String get billPeople => 'People';
+
+  @override
+  String get billRoundUp => 'Round each share up';
+
+  @override
+  String get billPerPerson => 'Per person';
+
+  @override
+  String get billTipAmount => 'Tip';
+
+  @override
+  String get billTotal => 'Total';
+
+  @override
+  String get pwTitle => 'Password generator';
+
+  @override
+  String get pwSubtitle => 'Strong passwords that are easy to type';
+
+  @override
+  String get pwWeak => 'Weak';
+
+  @override
+  String get pwFair => 'Fair';
+
+  @override
+  String get pwStrong => 'Strong';
+
+  @override
+  String get pwVeryStrong => 'Very strong';
+
+  @override
+  String get pwNew => 'New password';
+
+  @override
+  String get pwCopy => 'Copy';
+
+  @override
+  String get pwCopied => 'Password copied';
+
+  @override
+  String pwLength(String n) {
+    return 'Length: $n';
+  }
+
+  @override
+  String get pwLower => 'Lowercase';
+
+  @override
+  String get pwUpper => 'Uppercase';
+
+  @override
+  String get pwDigits => 'Numbers';
+
+  @override
+  String get pwSymbols => 'Symbols';
+
+  @override
+  String get randTitle => 'Dice and draws';
+
+  @override
+  String get randSubtitle => 'Roll dice, flip a coin, draw from a list';
+
+  @override
+  String get randDice => 'Dice';
+
+  @override
+  String randTotal(String total) {
+    return 'Total: $total';
+  }
+
+  @override
+  String get randRoll => 'Roll';
+
+  @override
+  String get randCoin => 'Coin flip';
+
+  @override
+  String get randHeads => 'Heads';
+
+  @override
+  String get randTails => 'Tails';
+
+  @override
+  String get randFlip => 'Flip';
+
+  @override
+  String get randDraw => 'Draw from a list';
+
+  @override
+  String get randDrawHint => 'One name per line or separated by commas';
+
+  @override
+  String get randDrawButton => 'Draw';
+
+  @override
+  String get randWinner => 'Winner';
+
+  @override
+  String get tallyTitle => 'Tally counter';
+
+  @override
+  String get tallySubtitle =>
+      'Count people, laps or items; picks up where you left off';
+
+  @override
+  String get tallyReset => 'Reset';
+
+  @override
+  String get tallyTapHint => 'Tap anywhere to count';
+
+  @override
+  String get whatsNew180 =>
+      '• Everyday tools: unit converter, bill splitter, password generator, dice and draws, tally counter';
 }

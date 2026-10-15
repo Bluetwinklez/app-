@@ -1,5 +1,19 @@
 # Değişiklik Günlüğü
 
+## 1.8.0
+
+**Günlük araçlar** (Araçlar sekmesi)
+- Birim çevirici: uzunluk, ağırlık, sıcaklık, hacim, hız
+- Hesap bölüşme: bahşiş, kişi sayısı, yukarı yuvarlama
+- Şifre üretici: uzunluk ve karakter seçenekleri, güç göstergesi, panodan otomatik silinen kopya
+- Zar ve kura: 1–3 zar, yazı-tura, listeden kura çekme
+- Sayaç: dokunarak say, değer kaydedilir
+
+## 1.7.0
+
+- **Etiket sağlık testi:** Okutulan etikete 0–100 puan; biçim, boş alan, kilit, tehlikeli bağlantı, imza ve kopya şüphesi için ne yapılacağı
+- **Hazine avı:** Sıralı ipuçlarını etiketlere yaz, oyuncular sırayla okutsun; süre ve en iyi süre kaydı
+
 ## 1.6.0
 
 **iPhone ile bütünleşme**
