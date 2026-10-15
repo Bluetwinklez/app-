@@ -66,12 +66,31 @@ class Forbidden(Exception):
     """The API key may not change signing settings (needs the Admin role)."""
 
 
+def normalize_key(text):
+    """Accepts the .p8 key as pasted: the whole file, the file with its
+    line breaks lost, only the base64 body, or the whole file base64-encoded."""
+    text = text.strip()
+    if "BEGIN" not in text:
+        try:
+            decoded = base64.b64decode("".join(text.split()), validate=True).decode()
+            if "BEGIN" in decoded:
+                text = decoded.strip()
+        except (ValueError, UnicodeDecodeError):
+            pass
+    body = text
+    if "BEGIN" in text:
+        body = text.split("-----")[2] if text.count("-----") >= 4 else text
+    body = "".join(body.split())
+    lines = [body[i:i + 64] for i in range(0, len(body), 64)]
+    return "-----BEGIN PRIVATE KEY-----\n" + "\n".join(lines) + "\n-----END PRIVATE KEY-----\n"
+
+
 class Api:
     def __init__(self, key_id, issuer, key_path):
         self.key_id = key_id
         self.issuer = issuer
         with open(key_path, "r", encoding="utf-8") as f:
-            self.key = f.read()
+            self.key = normalize_key(f.read())
 
     def _token(self):
         now = int(time.time())
