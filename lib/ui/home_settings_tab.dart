@@ -567,7 +567,7 @@ extension _SettingsTab on _HomeScreenState {
       // Photos are best effort; the data itself is gone.
     }
     await _controller.setThemeMode(ThemeMode.system);
-    await _controller.setLocaleCode(null);
+    await _controller.setLocaleCode('en');
     await _controller.setHapticsEnabled(true);
     await _controller.setSoundsEnabled(false);
     await LaunchActionService.setPrivacyCover(true);
