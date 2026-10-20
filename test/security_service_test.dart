@@ -21,6 +21,14 @@ void main() {
     await s.setWriteCounter(7);
     await s.setLockAfterSeconds(0);
     await s.setOnboardingDone(true);
+    await s.setLocaleCode('tr');
+    await s.setLastBackupAt(now);
+    await s.setICloudBackupEnabled(true);
+    await s.setAccentIndex(2);
+    await s.setTextScalePercent(130);
+    await s.setSpeakAfterScan(true);
+    await s.setFirstTagDone(true);
+    await s.setAddMadeWith(true);
 
     await SecurityService.wipeAllData(s);
     expect(s.getLibrary(), isEmpty);
@@ -30,6 +38,14 @@ void main() {
     expect(s.writeCounter, 0);
     expect(s.lockAfterSeconds, 60);
     expect(s.onboardingDone, isFalse);
+    expect(s.localeCode, 'en');
+    expect(s.lastBackupAt, isNull);
+    expect(s.iCloudBackupEnabled, isFalse);
+    expect(s.accentIndex, 0);
+    expect(s.textScalePercent, 100);
+    expect(s.speakAfterScan, isFalse);
+    expect(s.firstTagDone, isFalse);
+    expect(s.addMadeWith, isFalse);
   });
 
   test('sensitive actions ask for authentication only when the lock is on', () async {
@@ -89,4 +105,29 @@ void main() {
     await again.init();
     expect(again.signingKey, isNull);
   });
+
+  test('wipe removes sensitive recovery copies while preserving unrelated files', () async {
+    final dir = await Directory.systemTemp.createTemp('wipe-recovery');
+    addTearDown(() => dir.delete(recursive: true));
+    final original = File('${dir.path}/nfc_scan_history.json');
+    await original.writeAsString('{private unreadable history');
+    final s = LocalFileAppStorageService(baseDirectoryPath: dir.path);
+    await s.init();
+    await File('${dir.path}/nfc_app_settings.json.bak_123').writeAsString('old key');
+    await File('${dir.path}/nfc_tag_library.json.tmp_456').writeAsString('old tags');
+    final unrelated = File('${dir.path}/unrelated.corrupt_123');
+    await unrelated.writeAsString('keep');
+    expect(await dir.list().where((file) =>
+        file.path.contains('nfc_scan_history.json.corrupt_')).length, 1);
+    await SecurityService.wipeAllData(s);
+    final names = await dir.list().map((file) => file.path).toList();
+    expect(names.where((name) => name.contains('.json.corrupt_') ||
+        name.contains('.json.bak_') || name.contains('.json.tmp_')), isEmpty);
+    expect(await unrelated.readAsString(), 'keep');
+    final reopened = LocalFileAppStorageService(baseDirectoryPath: dir.path);
+    await reopened.init();
+    expect(reopened.getHistory(), isEmpty);
+    expect(reopened.localeCode, 'en');
+  });
+
 }

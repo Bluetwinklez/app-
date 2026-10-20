@@ -35,7 +35,7 @@ Translations are in `lib/l10n/app_<language>.arb`; the existing generation templ
 
 ## Storage and recovery
 
-Application data is stored locally. Scan history is opt-in. Before unreadable settings, history, templates, rules, library or logbook files can be replaced by later writes, the original file is copied beside it with a `.corrupt_<timestamp>` suffix. Keep that copy for recovery; it does not reconstruct missing data. If preservation fails, initialization reports the failure instead of silently overwriting the original.
+Application data is stored locally. Scan history is opt-in. Before unreadable settings, history, templates, rules, library or logbook files can be replaced by later writes, the original file is copied beside it with a `.corrupt_<timestamp>` suffix. Keep that copy for recovery; it does not reconstruct missing data. The confirmed “Erase all data” action removes these application-owned recovery/temporary/replacement files too, disables automatic cloud backup, and resets every stored preference to its default. If preservation fails, initialization reports the failure instead of silently overwriting the original.
 
 JSON backups can contain private tag contents such as Wi-Fi passwords. Use password protection when exporting sensitive data. Map tiles and explicitly enabled cloud/platform features can use network services; see [privacy details](docs/PRIVACY.md).
 

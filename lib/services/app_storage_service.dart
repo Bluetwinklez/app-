@@ -40,7 +40,7 @@ abstract class AppStorageService {
 
   /// When a backup was last exported successfully.
   DateTime? get lastBackupAt;
-  Future<void> setLastBackupAt(DateTime time);
+  Future<void> setLastBackupAt(DateTime? time);
 
   /// Value of the last {counter} written by a template.
   int get writeCounter;
@@ -109,6 +109,9 @@ abstract class AppStorageService {
   Future<void> updateHistoryEntry(ScanHistoryEntry entry);
   Future<void> clearHistory();
 
+  /// Deletes application-owned recovery, temporary and replacement backup files.
+  Future<void> clearRecoveryFiles();
+
   // Write Templates
   List<WriteTemplate> getTemplates();
   Future<void> saveTemplate(WriteTemplate template);
@@ -159,6 +162,9 @@ class InMemoryAppStorageService implements AppStorageService {
   Future<void> init() async {}
 
   @override
+  Future<void> clearRecoveryFiles() async {}
+
+  @override
   bool get hapticsEnabled => _hapticsEnabled;
 
   @override
@@ -185,7 +191,7 @@ class InMemoryAppStorageService implements AppStorageService {
   DateTime? get lastBackupAt => _lastBackupAt;
 
   @override
-  Future<void> setLastBackupAt(DateTime time) async => _lastBackupAt = time;
+  Future<void> setLastBackupAt(DateTime? time) async => _lastBackupAt = time;
 
   bool _compatibilityMode = false;
 
@@ -723,6 +729,21 @@ class LocalFileAppStorageService implements AppStorageService {
     debugPrint('Unloaded data preserved at $path');
   }
 
+  @override
+  Future<void> clearRecoveryFiles() async {
+    final directory = Directory(baseDirectoryPath);
+    if (!await directory.exists()) return;
+    final originals = [_settingsFile, _historyFile, _templatesFile,
+      _tagRulesFile, _libraryFile, _logBooksFile];
+    final patterns = originals.map((file) => RegExp(
+        '${RegExp.escape(file.path)}\\.(?:corrupt_|bak_|tmp_)[0-9]+\$'));
+    await for (final entry in directory.list(followLinks: false)) {
+      if (entry is File && patterns.any((pattern) => pattern.hasMatch(entry.path))) {
+        await entry.delete();
+      }
+    }
+  }
+
   /// Atomically writes [content] to [targetFile] by first writing to a temporary file
   /// and then renaming it.
   Future<void> _atomicWrite(File targetFile, String content) async {
@@ -860,7 +881,7 @@ class LocalFileAppStorageService implements AppStorageService {
   DateTime? get lastBackupAt => _lastBackupAt;
 
   @override
-  Future<void> setLastBackupAt(DateTime time) async {
+  Future<void> setLastBackupAt(DateTime? time) async {
     _lastBackupAt = time;
     await _saveSettings();
   }
