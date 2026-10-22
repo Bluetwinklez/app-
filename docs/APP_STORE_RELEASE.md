@@ -18,11 +18,11 @@ Gizlilik politikası bağlantısı, değişiklikler `main` dalına birleştirild
 ## 2. Uygulama gizliliği (App Privacy)
 
 - "Bu uygulamadan veri topluyor musunuz?" → **Hayır, veri toplamıyoruz.**
-- Gerekçe: Konum, fotoğraflar, notlar ve kayıtlar yalnızca cihazda kalır. iCloud yedeği kullanıcının kendi hesabına gider. Harita görüntüleri OpenStreetMap'ten indirilir, ama uygulama bu sırada hiçbir veri göndermez. Apple'ın tanımına göre bunlar "toplama" sayılmaz.
+- Gerekçe: Konum, fotoğraflar, notlar ve kayıtlar yalnızca cihazda kalır. iCloud yedeği kullanıcının kendi hesabına gider. Harita görüntüleri OpenStreetMap'ten indirilir, ama uygulama bu sırada hiçbir veri göndermez. Bu hizmetlerin ağ trafiği ve Apple App Privacy tanımları ayrıca doğrulanmalıdır; kendi sunucumuzun olmaması tek başına veri toplanmadığını kanıtlamaz.
 
 ## 3. İhracat uyumluluğu (şifreleme)
 
-`ITSAppUsesNonExemptEncryption = NO` uygulamanın ayarlarında zaten var. Yedek şifrelemesi işletim sisteminin standart AES algoritmasını kullanıyor, bu yüzden Apple ek belge istemez.
+`ITSAppUsesNonExemptEncryption` değeri ve ihracat uyumluluğu yanıtları gerçek şifreleme kullanımı ile Apple'ın güncel kurallarına göre doğrulanmalıdır. Standart AES kullanımı tek başına muafiyeti veya belge gerekmeyeceğini kanıtlamaz.
 
 ## 4. İnceleme notu (App Review Information → Notes)
 
