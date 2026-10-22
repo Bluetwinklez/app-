@@ -186,7 +186,7 @@ class NfcStateController extends ChangeNotifier {
   /// [autoLog] false skips library auto-logging (the logbook page logs the
   /// scan itself).
   Future<void> scanTag({bool autoLog = true}) async {
-    if (_isBusy) return void;
+    if (_isBusy) return;
     if (_availability == NfcAvailability.notSupported) {
       _statusMessage = L10n.current.statusNfcNotSupported;
       notifyListeners();
