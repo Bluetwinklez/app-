@@ -67,6 +67,15 @@ struct QuickScanView: View {
     @Environment(\.widgetFamily) private var family
 
     var body: some View {
+        if #available(iOS 16.0, *) {
+            accessoryContent
+        } else {
+            homeScreenContent
+        }
+    }
+
+    @ViewBuilder
+    private var accessoryContent: some View {
         switch family {
         case .accessoryCircular:
             ZStack {
@@ -91,6 +100,11 @@ struct QuickScanView: View {
             Label("Scan Tag", systemImage: "wave.3.right")
                 .widgetURL(link("scan"))
         default:
+            homeScreenContent
+        }
+    }
+
+    private var homeScreenContent: some View {
             VStack(alignment: .leading, spacing: 6) {
                 Image(systemName: "wave.3.right.circle.fill")
                     .font(.system(size: 40))
@@ -106,7 +120,6 @@ struct QuickScanView: View {
             .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .leading)
             .widgetURL(link("scan"))
             .widgetBackground()
-        }
     }
 }
 
@@ -124,18 +137,25 @@ private extension View {
 
 struct ShortcutsView: View {
     var body: some View {
-        Grid(horizontalSpacing: 8, verticalSpacing: 8) {
-            GridRow {
+        VStack(spacing: 8) {
+            HStack(spacing: 8) {
                 ActionTile(title: "Scan", symbol: "wave.3.right", action: "scan")
                 ActionTile(title: "Write", symbol: "square.and.pencil", action: "write")
             }
-            GridRow {
+            HStack(spacing: 8) {
                 ActionTile(title: "History", symbol: "clock.arrow.circlepath", action: "history")
                 ActionTile(title: "Tools", symbol: "wrench.and.screwdriver", action: "tools")
             }
         }
         .widgetBackground()
     }
+}
+
+private var availableQuickScanFamilies: [WidgetFamily] {
+    if #available(iOS 16.0, *) {
+        return [.systemSmall, .accessoryCircular, .accessoryRectangular, .accessoryInline]
+    }
+    return [.systemSmall]
 }
 
 struct QuickScanWidget: Widget {
@@ -145,7 +165,7 @@ struct QuickScanWidget: Widget {
         }
         .configurationDisplayName("Quick Scan")
         .description("Scan an NFC tag with one tap.")
-        .supportedFamilies([.systemSmall, .accessoryCircular, .accessoryRectangular, .accessoryInline])
+        .supportedFamilies(availableQuickScanFamilies)
     }
 }
 
