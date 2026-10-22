@@ -186,6 +186,7 @@ class NfcStateController extends ChangeNotifier {
   /// [autoLog] false skips library auto-logging (the logbook page logs the
   /// scan itself).
   Future<void> scanTag({bool autoLog = true}) async {
+    if (_isBusy) return void;
     if (_availability == NfcAvailability.notSupported) {
       _statusMessage = L10n.current.statusNfcNotSupported;
       notifyListeners();
@@ -322,6 +323,7 @@ class NfcStateController extends ChangeNotifier {
 
   /// Write composed records
   Future<bool> writeRecords(List<NdefRecordModel> records, {String? promptMessage}) async {
+    if (_isBusy) return false;
     if (_availability != NfcAvailability.available) {
       _statusMessage = L10n.current.statusNfcUnavailable;
       notifyListeners();
@@ -394,6 +396,7 @@ class NfcStateController extends ChangeNotifier {
 
   /// Clear / Format tag
   Future<bool> clearTag() async {
+    if (_isBusy) return false;
     if (_availability != NfcAvailability.available) {
       _statusMessage = L10n.current.statusNfcUnavailable;
       notifyListeners();
@@ -430,6 +433,7 @@ class NfcStateController extends ChangeNotifier {
 
   /// Permanently locks a tag (read-only). Callers must confirm with the user first.
   Future<bool> lockTag() async {
+    if (_isBusy) return false;
     if (_availability != NfcAvailability.available) {
       _statusMessage = L10n.current.statusNfcUnavailable;
       notifyListeners();
