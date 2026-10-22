@@ -3,7 +3,7 @@
 Read, write and organize NFC tags on iPhone and Android. Built with Flutter and native platform channels using Core NFC on iOS and `android.nfc` on Android.
 
 - **Version:** 1.6.0; see [the changelog](CHANGELOG.md).
-- **Platforms:** iOS 15+ on supported NFC-capable iPhones (subject to successful native build and device verification); Android 7.0+ with NFC hardware.
+- **Platforms:** iOS 16+ on supported NFC-capable iPhones; Android 7.0+ with NFC hardware.
 - **Languages:** English, Turkish, German, French, Spanish, Italian, Portuguese, Russian, Arabic, Japanese, Simplified Chinese, Korean, Dutch and Ukrainian.
 - **Default:** new profiles start in English. Existing saved choices, including the system-language option, are preserved.
 
