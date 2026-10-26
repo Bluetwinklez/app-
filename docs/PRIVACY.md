@@ -1,10 +1,10 @@
 # Gizlilik Politikası / Privacy Policy
 
-_Son güncelleme / Last updated: 2026-10-03_
+_Son güncelleme / Last updated: 2026-10-26_
 
 ## Türkçe
 
-**NFC Etiket Yöneticisi** hiçbir kişisel veri toplamaz, göndermez veya satmaz.
+**NFC Tools: Read & Write** uygulaması geliştiriciye ait hesap veya sunucu kullanmaz ve reklam ya da takip içermez. İsteğe bağlı harita, adres arama, yedekleme ve paylaşım özellikleri ilgili üçüncü taraf hizmetlerine veri aktarabilir; ayrıntılar aşağıdadır.
 
 - **Hesap ve sunucu yok.** Uygulama kendi sunucusuna bağlanmaz; giriş gerektirmez. İki istisna: "Etiket haritası"nı açtığınızda harita görüntüleri OpenStreetMap'ten indirilir (bu sırada OpenStreetMap, görüntülenen bölgeyi ve IP adresinizi görebilir); konum kaydında adres aradığınızda yazdığınız adres, koordinata çevrilmesi için cihazın sistem hizmetine (iPhone'da Apple, Android'de Google) gönderilir.
 - **Veriler cihazda kalır.** Tarama geçmişi (isteğe bağlı, varsayılan kapalı), şablonlar, etiket kütüphanesi, notlar ve fotoğraflar yalnızca uygulamanın cihazdaki klasöründe saklanır. Uygulamayı silmek hepsini siler.
@@ -26,7 +26,7 @@ Sorular için: doflerim@gmail.com
 
 ## English
 
-**NFC Tag Master** does not collect, transmit or sell any personal data.
+**NFC Tools: Read & Write** requires no developer account or server and includes no advertising or tracking. Optional maps, address lookup, backup and sharing may transfer data to the relevant third-party services as described below.
 
 - **No account, no server.** The app does not connect to a server of its own and needs no sign-in. Two exceptions: when you open the "Tag map", map images are downloaded from OpenStreetMap (which can see the area shown and your IP address); when you search for an address in a location record, the text you type is sent to the device's system service (Apple on iPhone, Google on Android) to turn it into coordinates.
 - **Your data stays on the device.** Scan history (optional, off by default), templates, the tag library, notes and photos are stored only in the app's folder on your device. Deleting the app deletes them.
