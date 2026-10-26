@@ -17,8 +17,8 @@ Gizlilik politikası bağlantısı, değişiklikler `main` dalına birleştirild
 
 ## 2. Uygulama gizliliği (App Privacy)
 
-- "Bu uygulamadan veri topluyor musunuz?" → **Hayır, veri toplamıyoruz.**
-- Gerekçe: Konum, fotoğraflar, notlar ve kayıtlar yalnızca cihazda kalır. iCloud yedeği kullanıcının kendi hesabına gider. Harita görüntüleri OpenStreetMap'ten indirilir, ama uygulama bu sırada hiçbir veri göndermez. Bu hizmetlerin ağ trafiği ve Apple App Privacy tanımları ayrıca doğrulanmalıdır; kendi sunucumuzun olmaması tek başına veri toplanmadığını kanıtlamaz.
+- **App Privacy yanıtını App Store Connect içinde gerçek ağ trafiği, SDK davranışı ve Apple’ın güncel tanımlarına göre belirleyin.** Kod deposundan kesin bir “Hayır” yanıtı doğrulanamaz.
+- Gerekçe: Konum, fotoğraflar, notlar ve kayıtlar yalnızca cihazda kalır. iCloud yedeği kullanıcının kendi hesabına gider. Harita istekleri ağ bağlantısı kullanır ve servis sağlayıcı IP adresi gibi bağlantı bilgilerini görebilir. Bu hizmetlerin ağ trafiği ve Apple App Privacy tanımları ayrıca doğrulanmalıdır; kendi sunucumuzun olmaması tek başına veri toplanmadığını kanıtlamaz.
 
 ## 3. İhracat uyumluluğu (şifreleme)
 
