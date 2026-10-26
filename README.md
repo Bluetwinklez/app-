@@ -1,4 +1,4 @@
-# NFC Tag Master
+# NFC Tools: Read & Write
 
 Read, write and organize NFC tags on iPhone and Android. Built with Flutter and native platform channels using Core NFC on iOS and `android.nfc` on Android.
 
