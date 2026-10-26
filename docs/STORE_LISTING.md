@@ -10,57 +10,57 @@ This file is the English-language source of truth for public-facing store copy. 
 
 **Keywords (84/100):** `ntag,ndef,scanner,contact,wifi,shortcuts,automation,qr,batch,serial,clone,smart tags`
 
-**Promotional text (156/170):**
-Turn everyday NFC tags into smart shortcuts. Scan, write and organize links, contact cards, Wi-Fi details and more—with templates and a private tag library.
+**Promotional text (145/170):**
+Discover more ways to use NFC tags. Scan, create, write and organize links, Wi-Fi, contacts and more with reusable templates and practical tools.
 
-**Description (2682/4000):**
+**Description (2834/4000):**
 
 ```text
-Turn a simple NFC tag into something useful.
+Your NFC tags can do more. Make every tap count.
 
-NFC Tools: Read & Write helps you scan, create, write and organize NFC tags from one practical workspace. Whether you are setting up a guest Wi-Fi tag, sharing a digital business card, managing equipment or building an everyday shortcut, you can go from an idea to a reusable NFC tag with less guesswork.
+NFC Tools: Read & Write brings NFC reading, writing, organization and practical automation tools together in one easy-to-use app for iPhone and Android. Create a digital business card, share guest Wi-Fi details, set up a smart product label, or manage a collection of tags—all from one place.
 
-READ NFC TAGS WITH CONFIDENCE
-• Scan supported NFC tags and inspect their NDEF content.
-• View available tag details such as chip type, identifier, capacity and write protection.
-• Review previous scans and compare tag information when needed.
+DISCOVER WHAT'S ON A TAG
+• Scan compatible NFC tags and read supported NDEF records.
+• Explore tag details, including available chip information, identifiers, storage capacity and protection status.
+• Review optional scan history and compare tags when troubleshooting or organizing a collection.
 
-CREATE AND WRITE CONTENT
-• Write websites, plain text, contact details, phone numbers, emails, SMS, Wi-Fi information, locations, calendar events and supported app links.
-• Combine supported records and check the intended experience before writing.
-• Use ready-made templates for menus, business cards, guest networks, product information, pet tags and more.
-• Save your frequently used content so you can write another compatible tag without starting again.
+CREATE, PREVIEW AND WRITE
+• Prepare NFC content for websites, text, contact cards, phone calls, email, SMS, Wi-Fi, locations, calendar events and supported app links.
+• Preview supported records before writing, so you know what you're putting on a tag.
+• Start with practical templates for business cards, guest networks, menus, product information, pet identification and more.
+• Save reusable content for your next tag.
 
-TOOLS FOR ADVANCED WORKFLOWS
-• Check available memory and supported chip information before writing.
-• Work with batch and CSV-based writing workflows, serial values and NDEF content copies.
-• Access compatible tag maintenance tools, including erase, format, comparison and supported lock or password operations.
-• Use verification tools where supported to check what was written.
+GO FURTHER WITH NFC TOOLS
+• Check capacity before writing and inspect supported tag properties.
+• Use compatible batch workflows, CSV-based content, sequential values and NDEF copying to handle repetitive tasks.
+• Access available tag utilities such as erase, format, comparison, write verification, and supported password or lock operations.
+• Understand the limitations of your tag before making irreversible changes.
 
-KEEP YOUR TAGS ORGANIZED
-• Build a searchable tag library with labels, notes, photos and optional locations.
-• Track equipment, maintenance, attendance, routines and other activities with logbooks and reminders.
-• Use QR codes, printable labels and import/export features to support everyday workflows.
-• Explore statistics and tag maps where available.
+ORGANIZE YOUR NFC WORLD
+• Build a searchable tag library with names, notes, labels, photos and optional locations.
+• Keep track of equipment, routines and activity with logbooks and reminders.
+• Create QR codes and printable labels; import or export supported information.
+• Explore tag maps and statistics when those features are available on your device.
 
-MADE FOR YOUR DEVICES
-• Use supported iPhone shortcuts, widgets and Apple Watch companion features.
-• Scan QR codes and barcodes, extract text from photos where supported, and customize the appearance.
-• Choose from 14 interface languages and dark mode.
+USEFUL EXTRAS
+• Scan QR codes and barcodes, and extract text from photos on supported devices.
+• Access supported shortcuts, widgets and Apple Watch companion features.
+• Customize your experience with dark mode and an interface available in 14 languages.
 
-PRIVACY AND CONTROL
-No account is required, and the app does not include advertising or tracking. Your tag library is stored locally by default. Optional map, address lookup, cloud backup and sharing features may use external services; see the privacy policy for details.
+DESIGNED WITH PRIVACY IN MIND
+No account is required. There are no ads or tracking features. Your tag library is stored locally by default. Optional map, address search, cloud backup and sharing features may use external services; see the privacy policy for details.
 
-IMPORTANT TO KNOW
-NFC features depend on your device, tag type, permissions and platform restrictions. Not all tags support every operation. Permanently locking a tag cannot be undone. Copying supported NDEF content is not the same as duplicating protected access, payment or encrypted credentials.
+BEFORE YOU START
+NFC availability and individual operations depend on your phone, operating system and tag hardware. Some chips are read-only or do not support every function. Permanently locking a tag cannot be undone. Copying NDEF data does not duplicate payment cards, access credentials or encrypted sectors.
 
-Make your next tap more useful with NFC Tools: Read & Write.
+From your first NFC sticker to a more organized tag workflow, NFC Tools: Read & Write gives you the tools to create, inspect and manage with confidence.
 ```
 
 **What's New / Release Notes:**
 
 ```text
-Introducing NFC Tools: Read & Write, our new name for a clearer, more recognizable experience. This update also includes NFC operation reliability improvements and refreshed store information.
+Introducing NFC Tools: Read & Write—a clearer name for the same NFC utility. This release includes NFC operation reliability improvements and refreshed app information.
 ```
 
 **Primary category:** Utilities
@@ -76,11 +76,11 @@ Introducing NFC Tools: Read & Write, our new name for a clearer, more recognizab
 **App title (23/30):** NFC Tools: Read & Write
 
 **Short description:**
-Read, write and organize NFC tags with templates, tools and a tag library.
+Scan and write NFC tags, create smart templates, and organize your tag library.
 
 **Full description:** Use the App Store description above, with a final platform/device check for Google Play (4,000-character limit).
 
-**Release notes:** Introducing NFC Tools: Read & Write, our new name for a clearer, more recognizable experience. This update also includes NFC operation reliability improvements and refreshed store information.
+**Release notes:** Introducing NFC Tools: Read & Write—a clearer name for the same NFC utility. This release includes NFC operation reliability improvements and refreshed app information.
 
 ## Suggested screenshot captions (English)
 
