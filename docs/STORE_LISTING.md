@@ -34,7 +34,7 @@ Gizlilik: Hesap, reklam veya takip yok. Harita ve isteğe bağlı bulut özellik
 
 - **Ad:** NFC Tools: Read & Write
 - **Alt başlık:** Scan, Create & Manage NFC Tags (30)
-- **Anahtar kelimeler:** `ntag,ndef,scanner,contact,wifi,shortcuts,automation,qr,batch,serial,clone,smart tags` (87)
+- **Anahtar kelimeler:** `ntag,ndef,scanner,contact,wifi,shortcuts,automation,qr,batch,serial,clone,smart tags` (84)
 - **Tanıtım metni:** Write links, Wi-Fi, business cards and more to NFC tags in seconds. No account, no ads — your library is stored locally; optional cloud and map services use network access.
 
 **Açıklama:**
