@@ -22,7 +22,7 @@
 		<string>uk</string>
 	</array>
 	<key>CFBundleDisplayName</key>
-	<string>NFC Etiket Yöneticisi</string>
+	<string>NFC Tools: Read &amp; Write</string>
 	<key>CFBundleExecutable</key>
 	<string>$(EXECUTABLE_NAME)</string>
 	<key>CFBundleIdentifier</key>
