@@ -6,7 +6,7 @@ Sınırlar: ad ≤ 30, alt başlık ≤ 30, anahtar kelimeler ≤ 100, tanıtım
 - **Ad:** NFC Tools: Read & Write
 - **Alt başlık:** NFC oku, yaz ve otomatikleştir (30)
 - **Anahtar kelimeler:** `nfc,etiket,ntag,yaz,oku,kartvizit,wifi,kısayol,otomasyon,qr,tag,ndef,toplu,seri,kopyala` (87)
-- **Tanıtım metni:** Etiketlere web bağlantısı, Wi-Fi, kartvizit ve daha fazlasını saniyeler içinde yazın. Hesap yok, reklam yok; verileriniz cihazınızda kalır.
+- **Tanıtım metni:** Etiketlere web bağlantısı, Wi-Fi, kartvizit ve daha fazlasını saniyeler içinde yazın. Hesap veya reklam yok. Kütüphane cihazda tutulur; isteğe bağlı bulut ve harita özellikleri ağ kullanır.
 
 **Açıklama:**
 
@@ -27,7 +27,7 @@ NFC etiketlerini okuyun, yazın ve yönetin.
 • DAHA FAZLASI: Etiket haritası, QR ve barkod tarayıcı, fotoğraftan metin okuma, istatistikler, sesli okuma
 • 14 dil ve koyu mod
 
-Gizlilik: Hesap, sunucu, reklam veya takip yok. Her şey cihazınızda.
+Gizlilik: Hesap, reklam veya takip yok. Harita ve isteğe bağlı bulut özellikleri ağ erişimi kullanabilir.
 ```
 
 ## English (en)
@@ -35,7 +35,7 @@ Gizlilik: Hesap, sunucu, reklam veya takip yok. Her şey cihazınızda.
 - **Ad:** NFC Tools: Read & Write
 - **Alt başlık:** Scan, Create & Manage NFC Tags (30)
 - **Anahtar kelimeler:** `ntag,ndef,scanner,contact,wifi,shortcuts,automation,qr,batch,serial,clone,smart tags` (87)
-- **Tanıtım metni:** Write links, Wi-Fi, business cards and more to NFC tags in seconds. No account, no ads — your data stays on your device.
+- **Tanıtım metni:** Write links, Wi-Fi, business cards and more to NFC tags in seconds. No account, no ads — your library is stored locally; optional cloud and map services use network access.
 
 **Açıklama:**
 
@@ -56,12 +56,12 @@ Read, write and manage NFC tags.
 • AND MORE: tag map, QR and barcode scanner, text from photos, statistics, read aloud
 • 14 languages and dark mode
 
-Privacy: no account, server, ads or tracking. Everything stays on your device.
+Privacy: no account, server, ads or tracking. Your library is stored locally; optional cloud and map services use network access.
 ```
 
 ## Deutsch (de)
 
-- **Ad:** NFC Tag Master
+- **Ad:** NFC Tools: Read & Write
 - **Alt başlık:** NFC-Tags lesen, schreiben (25)
 - **Anahtar kelimeler:** `nfc,tag,ntag,schreiben,lesen,visitenkarte,wlan,kurzbefehle,automation,qr,ndef,stapel,seriennummer` (97)
 - **Tanıtım metni:** Links, WLAN, Visitenkarten und mehr in Sekunden auf NFC-Tags schreiben. Kein Konto, keine Werbung – Ihre Daten bleiben auf dem Gerät.
@@ -90,7 +90,7 @@ Datenschutz: kein Konto, kein Server, keine Werbung, kein Tracking.
 
 ## Français (fr)
 
-- **Ad:** NFC Tag Master
+- **Ad:** NFC Tools: Read & Write
 - **Alt başlık:** Lire, écrire, automatiser NFC (29)
 - **Anahtar kelimeler:** `nfc,tag,ntag,écrire,lire,carte de visite,wifi,raccourcis,automatisation,qr,ndef,lot,série,cloner` (96)
 - **Tanıtım metni:** Écrivez liens, Wi-Fi, cartes de visite et plus sur vos tags NFC en quelques secondes. Sans compte ni pub : vos données restent sur l'appareil.
@@ -119,7 +119,7 @@ Confidentialité : ni compte, ni serveur, ni pub, ni pistage.
 
 ## Español (es)
 
-- **Ad:** NFC Tag Master
+- **Ad:** NFC Tools: Read & Write
 - **Alt başlık:** Lee, escribe y automatiza NFC (29)
 - **Anahtar kelimeler:** `nfc,etiqueta,ntag,escribir,leer,tarjeta,wifi,atajos,automatización,qr,ndef,lote,serie,clonar` (92)
 - **Tanıtım metni:** Escribe enlaces, Wi-Fi, tarjetas de visita y más en etiquetas NFC en segundos. Sin cuenta ni anuncios: tus datos se quedan en tu dispositivo.
@@ -148,7 +148,7 @@ Privacidad: sin cuenta, servidor, anuncios ni rastreo.
 
 ## Italiano (it)
 
-- **Ad:** NFC Tag Master
+- **Ad:** NFC Tools: Read & Write
 - **Alt başlık:** Leggi, scrivi, automatizza NFC (30)
 - **Anahtar kelimeler:** `nfc,tag,ntag,scrivere,leggere,biglietto da visita,wifi,comandi,automazione,qr,ndef,serie,clona` (94)
 - **Tanıtım metni:** Scrivi link, Wi-Fi, biglietti da visita e altro sui tag NFC in pochi secondi. Niente account né pubblicità: i dati restano sul dispositivo.
@@ -177,7 +177,7 @@ Privacy: nessun account, server, pubblicità o tracciamento.
 
 ## Português (Brasil) (pt)
 
-- **Ad:** NFC Tag Master
+- **Ad:** NFC Tools: Read & Write
 - **Alt başlık:** Leia, grave e automatize NFC (28)
 - **Anahtar kelimeler:** `nfc,tag,ntag,gravar,ler,cartão de visita,wifi,atalhos,automação,qr,ndef,lote,série,clonar` (89)
 - **Tanıtım metni:** Grave links, Wi-Fi, cartões de visita e mais em tags NFC em segundos. Sem conta e sem anúncios: seus dados ficam no aparelho.
@@ -206,7 +206,7 @@ Privacidade: sem conta, servidor, anúncios ou rastreamento.
 
 ## Русский (ru)
 
-- **Ad:** NFC Tag Master
+- **Ad:** NFC Tools: Read & Write
 - **Alt başlık:** Чтение, запись и автоматизация (30)
 - **Anahtar kelimeler:** `nfc,метка,ntag,запись,чтение,визитка,wifi,команды,автоматизация,qr,ndef,пакет,серийный,клон` (91)
 - **Tanıtım metni:** Записывайте ссылки, Wi-Fi, визитки и многое другое на NFC-метки за секунды. Без аккаунта и рекламы — данные остаются на устройстве.
@@ -235,7 +235,7 @@ Privacidade: sem conta, servidor, anúncios ou rastreamento.
 
 ## العربية (ar)
 
-- **Ad:** NFC Tag Master
+- **Ad:** NFC Tools: Read & Write
 - **Alt başlık:** اقرأ واكتب وأتمت وسوم NFC (25)
 - **Anahtar kelimeler:** `nfc,وسم,ntag,كتابة,قراءة,بطاقة أعمال,wifi,اختصارات,أتمتة,qr,ndef,دفعة,تسلسلي,نسخ` (80)
 - **Tanıtım metni:** اكتب الروابط وشبكات Wi-Fi وبطاقات الأعمال وغيرها على وسوم NFC في ثوانٍ. بلا حساب ولا إعلانات، وتبقى بياناتك على جهازك.
@@ -264,7 +264,7 @@ Privacidade: sem conta, servidor, anúncios ou rastreamento.
 
 ## 日本語 (ja)
 
-- **Ad:** NFC Tag Master
+- **Ad:** NFC Tools: Read & Write
 - **Alt başlık:** NFCタグの読み書きと自動化 (14)
 - **Anahtar kelimeler:** `nfc,タグ,ntag,書き込み,読み取り,名刺,wifi,ショートカット,オートメーション,qr,ndef,一括,連番,複製` (63)
 - **Tanıtım metni:** リンク、Wi-Fi、名刺などを数秒でNFCタグに書き込み。アカウント不要・広告なし、データは端末内に保存されます。
@@ -293,7 +293,7 @@ NFCタグを読み取り、書き込み、管理できます。
 
 ## 简体中文 (zh)
 
-- **Ad:** NFC Tag Master
+- **Ad:** NFC Tools: Read & Write
 - **Alt başlık:** 读取、写入并自动化 NFC 标签 (16)
 - **Anahtar kelimeler:** `nfc,标签,ntag,写入,读取,名片,wifi,快捷指令,自动化,二维码,ndef,批量,序列号,克隆` (53)
 - **Tanıtım metni:** 几秒钟即可将链接、Wi-Fi、名片等写入 NFC 标签。无需账号、没有广告，数据只保存在您的设备上。
@@ -322,7 +322,7 @@ NFCタグを読み取り、書き込み、管理できます。
 
 ## 한국어 (ko)
 
-- **Ad:** NFC Tag Master
+- **Ad:** NFC Tools: Read & Write
 - **Alt başlık:** NFC 태그 읽기·쓰기·자동화 (16)
 - **Anahtar kelimeler:** `nfc,태그,ntag,쓰기,읽기,명함,wifi,단축어,자동화,qr,ndef,일괄,일련번호,복제` (52)
 - **Tanıtım metni:** 링크, Wi-Fi, 명함 등을 몇 초 만에 NFC 태그에 쓰세요. 계정도 광고도 없으며 데이터는 기기에만 저장됩니다.
@@ -351,7 +351,7 @@ NFC 태그를 읽고, 쓰고, 관리하세요.
 
 ## Nederlands (nl)
 
-- **Ad:** NFC Tag Master
+- **Ad:** NFC Tools: Read & Write
 - **Alt başlık:** NFC-tags lezen en schrijven (27)
 - **Anahtar kelimeler:** `nfc,tag,ntag,schrijven,lezen,visitekaartje,wifi,opdrachten,automatisering,qr,ndef,batch,serie,klonen` (100)
 - **Tanıtım metni:** Schrijf links, wifi, visitekaartjes en meer in seconden naar NFC-tags. Geen account, geen advertenties: je gegevens blijven op je apparaat.
@@ -380,7 +380,7 @@ Privacy: geen account, server, advertenties of tracking.
 
 ## Українська (uk)
 
-- **Ad:** NFC Tag Master
+- **Ad:** NFC Tools: Read & Write
 - **Alt başlık:** Читання, запис, автоматизація (29)
 - **Anahtar kelimeler:** `nfc,мітка,ntag,запис,читання,візитка,wifi,команди,автоматизація,qr,ndef,пакет,серійний,клон` (91)
 - **Tanıtım metni:** Записуйте посилання, Wi-Fi, візитки та інше на NFC-мітки за секунди. Без акаунта й реклами — дані залишаються на пристрої.
