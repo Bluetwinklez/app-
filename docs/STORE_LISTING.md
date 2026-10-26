@@ -3,7 +3,7 @@ Sınırlar: ad ≤ 30, alt başlık ≤ 30, anahtar kelimeler ≤ 100, tanıtım
 
 ## Türkçe (tr)
 
-- **Ad:** NFC Etiket Yöneticisi
+- **Ad:** NFC Tools: Read & Write
 - **Alt başlık:** NFC oku, yaz ve otomatikleştir (30)
 - **Anahtar kelimeler:** `nfc,etiket,ntag,yaz,oku,kartvizit,wifi,kısayol,otomasyon,qr,tag,ndef,toplu,seri,kopyala` (87)
 - **Tanıtım metni:** Etiketlere web bağlantısı, Wi-Fi, kartvizit ve daha fazlasını saniyeler içinde yazın. Hesap yok, reklam yok; verileriniz cihazınızda kalır.
@@ -32,9 +32,9 @@ Gizlilik: Hesap, sunucu, reklam veya takip yok. Her şey cihazınızda.
 
 ## English (en)
 
-- **Ad:** NFC Tag Master
-- **Alt başlık:** Read, write & automate NFC (26)
-- **Anahtar kelimeler:** `nfc,tag,ntag,writer,reader,business card,wifi,shortcuts,automation,qr,ndef,batch,serial,clone` (93)
+- **Ad:** NFC Tools: Read & Write
+- **Alt başlık:** Scan, Create & Manage NFC Tags (30)
+- **Anahtar kelimeler:** `ntag,ndef,scanner,contact,wifi,shortcuts,automation,qr,batch,serial,clone,smart tags` (87)
 - **Tanıtım metni:** Write links, Wi-Fi, business cards and more to NFC tags in seconds. No account, no ads — your data stays on your device.
 
 **Açıklama:**
@@ -406,3 +406,13 @@ Privacy: geen account, server, advertenties of tracking.
 
 Конфіденційність: без акаунта, сервера, реклами й стеження.
 ```
+
+
+## English App Store Connect update — NFC Tools: Read & Write
+
+- **App name (23/30):** `NFC Tools: Read & Write`
+- **Subtitle (30/30):** `Scan, Create & Manage NFC Tags`
+- **Keywords:** `ntag,ndef,scanner,contact,wifi,shortcuts,automation,qr,batch,serial,clone,smart tags`
+- **Promotional text:** `Scan, write and organize NFC tags for links, contacts, Wi-Fi and more. Create reusable templates and manage your tag library.`
+- **What's New (next release):** `A refreshed name and improvements to NFC operation reliability. Existing tags and saved data remain available.`
+- **Important:** App Store Connect metadata must be entered separately; changing this repository does not update the live listing. Verify all claims and localized listings before submitting. Apple may reject a name that conflicts with an existing app.
