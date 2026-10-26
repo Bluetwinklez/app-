@@ -1,62 +1,41 @@
-# App Store yayın rehberi
+# App Store Release Guide — NFC Tools: Read & Write
 
-Mağaza metinleri (14 dil): `docs/STORE_LISTING.md`. Gizlilik politikası: `docs/PRIVACY.md`.
+## Store metadata
 
-## 1. Uygulama bilgileri (App Store Connect → Uygulama Bilgileri)
+The complete, English-language copy for App Store and Google Play is maintained in [STORE_LISTING.md](STORE_LISTING.md). Use that document for the app name, subtitle, keywords, promotional text, long description, release notes and screenshot captions.
 
-| Alan | Değer |
+The iOS and Android application interfaces support 14 languages. Preparing English store copy does not automatically change storefront localizations or in-app translations.
+
+## Listing information
+
+| Field | Intended value |
 |---|---|
-| Kategori | Birincil: **Utilities (Araçlar)**, ikincil: **Productivity (Verimlilik)** |
-| Gizlilik politikası URL'si | https://github.com/Bluetwinklez/app-/blob/main/docs/PRIVACY.md |
-| Destek URL'si | https://github.com/Bluetwinklez/app- |
-| Telif hakkı | 2026 Bluetwinklez |
-| Yaş sınırı | Anketteki tüm sorulara "Hayır / Yok" → **4+** |
-| Fiyat | Ücretsiz |
+| App name | NFC Tools: Read & Write |
+| Primary category | Utilities |
+| Suggested secondary category | Productivity |
+| Privacy policy | https://github.com/Bluetwinklez/app-/blob/main/docs/PRIVACY.md |
+| Support | https://github.com/Bluetwinklez/app- |
+| Copyright | 2026 Bluetwinklez |
+| Pricing | Free — confirm in App Store Connect |
+| Minimum iOS | 16.0 |
+| Age rating | Complete Apple's current age-rating questionnaire accurately; do not assume a specific rating |
 
-Gizlilik politikası bağlantısı, değişiklikler `main` dalına birleştirildikten sonra çalışır.
+## Before publishing
 
-## 2. Uygulama gizliliği (App Privacy)
+1. Build and test the release candidate. CI analysis and unit tests do not certify actual NFC behavior.
+2. Run physical iPhone NFC tests with compatible writable and read-only tags. Check reads, writes, verification, cancelled scans, unsupported tags, storage recovery, lock confirmations, QR scanning and platform-specific extensions.
+3. Verify screenshot captures from the shipping build in `docs/store_screenshots/` on the required device sizes. Update any captures that show outdated UI or branding.
+4. Review the actual data flows, network calls, third-party SDK behavior and Apple's current App Privacy definitions before completing the privacy questionnaire. Maps, geocoding, sharing and optional iCloud features can involve external services.
+5. Review encryption/export-compliance responses against the shipped binary, its encryption features and Apple's current requirements.
+6. In App Store Connect, edit the appropriate version/localization, paste the English listing fields from `STORE_LISTING.md`, select the correct build, and enter reviewer contact details and review notes.
+7. Submit for Apple's review. Publishing happens only after Apple approves the submitted changes and the selected release option takes effect.
 
-- **App Privacy yanıtını App Store Connect içinde gerçek ağ trafiği, SDK davranışı ve Apple’ın güncel tanımlarına göre belirleyin.** Kod deposundan kesin bir “Hayır” yanıtı doğrulanamaz.
-- Gerekçe: Konum, fotoğraflar, notlar ve kayıtlar yalnızca cihazda kalır. iCloud yedeği kullanıcının kendi hesabına gider. Harita istekleri ağ bağlantısı kullanır ve servis sağlayıcı IP adresi gibi bağlantı bilgilerini görebilir. Bu hizmetlerin ağ trafiği ve Apple App Privacy tanımları ayrıca doğrulanmalıdır; kendi sunucumuzun olmaması tek başına veri toplanmadığını kanıtlamaz.
+## App Review Notes
 
-## 3. İhracat uyumluluğu (şifreleme)
+See the full review notes in [STORE_LISTING.md](STORE_LISTING.md). NFC Tools: Read & Write does not require an account. Reviewers can explore the tag library, templates, composer previews and several tools without physical NFC hardware; actual NFC read/write requires compatible tags and a supported device.
 
-`ITSAppUsesNonExemptEncryption` değeri ve ihracat uyumluluğu yanıtları gerçek şifreleme kullanımı ile Apple'ın güncel kurallarına göre doğrulanmalıdır. Standart AES kullanımı tek başına muafiyeti veya belge gerekmeyeceğini kanıtlamaz.
+## Distribution and verification
 
-## 4. İnceleme notu (App Review Information → Notes)
+Store copy in GitHub is a draft source, not a live App Store Connect update. Do not report an App Store rename or release as complete until verified on the public storefront. TestFlight uploads require valid Apple credentials, signing assets, provisioning and successful upload workflows; an unsigned iOS compile check alone is not sufficient.
 
-İnceleme ekibi İngilizce okuduğu için not İngilizce:
-
-```
-NFC Tools: Read & Write reads and writes NFC tags (NTAG213/215/216, MIFARE Ultralight and other NDEF tags).
-No account or sign-in is needed.
-
-Testing without an NFC tag:
-- Tools tab: the template gallery, QR/barcode scanner, text-from-photo (OCR), tag map, statistics and logbooks all work without a tag.
-- Write tab: compose any record (link, Wi-Fi, contact card...) and use "QR" to preview it; "Tap preview" shows what iPhone and Android will do with the tag.
-- Home Screen / Lock Screen widgets and the Control Center control open the app on the scan or write screen.
-- The Apple Watch app shows recent scans and lets you add a logbook entry with one tap (create a logbook in Tools > Logbooks first).
-
-Testing with a tag: tap "Scan" on the Read tab and hold the top of the iPhone near any NFC sticker or card.
-
-Location is only used when the user taps "Add current location" or searches for an address. Notifications are only local reminders the user sets up.
-```
-
-İletişim bilgileri: ad, soyad, telefon ve doflerim@gmail.com. Demo hesap gerekmiyor.
-
-## 5. Ekran görüntüleri
-
-Hazır görüntüler: `docs/store_screenshots/` (Türkçe `tr_`, İngilizce `en_`). Diğer dillerde İngilizce görüntüler kullanılabilir.
-
-- iPhone 6,9 inç (1320×2868): en az 3, en fazla 10 görüntü
-- iPad 13 inç (2064×2752): uygulama iPad'de de çalıştığı için zorunlu
-- Apple Watch (isteğe bağlı): 410×502
-
-## 6. Gönderme
-
-1. TestFlight'ta son derlemeyi telefonda dene.
-2. App Store Connect → uygulama → **+ Sürüm** (ör. 1.6.0).
-3. Metinleri, ekran görüntülerini ve inceleme notunu gir; **Derleme** bölümünden TestFlight derlemesini seç.
-4. **İncelemeye Ekle → İncelemeye Gönder**. İnceleme genelde 24–48 saat sürer.
-5. Onaydan sonra "Otomatik yayınla" seçiliyse uygulama hemen mağazaya çıkar.
+Use the existing TestFlight setup documentation for credentials and submission steps, and document the exact build number and App Store Connect status in the release notes.
