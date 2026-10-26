@@ -29,7 +29,7 @@ Gizlilik politikası bağlantısı, değişiklikler `main` dalına birleştirild
 İnceleme ekibi İngilizce okuduğu için not İngilizce:
 
 ```
-NFC Tag Master reads and writes NFC tags (NTAG213/215/216, MIFARE Ultralight and other NDEF tags).
+NFC Tools: Read & Write reads and writes NFC tags (NTAG213/215/216, MIFARE Ultralight and other NDEF tags).
 No account or sign-in is needed.
 
 Testing without an NFC tag:
