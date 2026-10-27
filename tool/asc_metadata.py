@@ -28,18 +28,25 @@ def editable_version(api, bundle_id):
         a = v["attributes"]
         if (a.get("appVersionState") or a.get("appStoreState")) not in LIVE:
             return v
-    raise SystemExit("::error::No editable version")
+    return None
 
 
 def main():
     env = os.environ
     api = Api(env["ASC_API_KEY_ID"], env["ASC_API_ISSUER_ID"], env["ASC_API_PRIVATE_KEY_PATH"])
     version = editable_version(api, env["IOS_BUNDLE_ID"])
+    mode = sys.argv[1] if len(sys.argv) > 1 else "show"
+    if version is None:
+        # Every version is live: there is nothing to show or change until
+        # a new version is created in App Store Connect.
+        if mode == "fix":
+            raise SystemExit("::error::No editable version; create a new version first")
+        print("No version is being edited (all versions are live).")
+        return
     print(f"Version {version['attributes']['versionString']} "
           f"({version['attributes'].get('appVersionState')})")
     locs = api.call("GET", f"/appStoreVersions/{version['id']}/appStoreVersionLocalizations",
                     query={"limit": "50"})["data"]
-    mode = sys.argv[1] if len(sys.argv) > 1 else "show"
     if mode == "show":
         for loc in locs:
             a = loc["attributes"]
