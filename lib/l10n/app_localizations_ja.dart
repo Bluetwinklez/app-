@@ -4864,4 +4864,399 @@ class AppLocalizationsJa extends AppLocalizations {
   @override
   String get whatsNew160 =>
       '• ホーム画面とロック画面のウィジェット\n• コントロールセンターからワンタップでスキャン・書き込み（iOS 18）\n• Apple Watch：最近のスキャンとワンタップ記録\n• iCloudバックアップ（テンプレート、ルール、ライブラリ）';
+
+  @override
+  String get healthTitle => 'タグ診断';
+
+  @override
+  String get healthToolSubtitle => 'タグを読み取り、スコアと対処法を表示';
+
+  @override
+  String get healthIntro =>
+      'タグを読み取ると、形式・空き容量・ロック・リンクの安全性・署名・複製の疑いをチェックし、それぞれの対処法を表示します。';
+
+  @override
+  String get healthScan => 'タグを読み取る';
+
+  @override
+  String get healthScanAnother => '別のタグを読み取る';
+
+  @override
+  String get healthOverallGood => 'このタグは正常で、すぐに使えます。';
+
+  @override
+  String get healthOverallWarning => 'タグは使えますが、注意点があります。';
+
+  @override
+  String get healthOverallProblem => 'タグに問題があります。下の対処法を確認してください。';
+
+  @override
+  String get healthNotNdef => 'NDEF形式ではありません';
+
+  @override
+  String get healthNotNdefTip =>
+      'スマホで内容を読めません。ツール → メモリをフォーマット で整えるか、そのまま書き込んでください。';
+
+  @override
+  String get healthEmpty => 'タグは空です';
+
+  @override
+  String get healthEmptyTip => '「書き込み」タブやテンプレートから内容を追加できます。';
+
+  @override
+  String get healthReadOnly => '読み取り専用（ロック済み）';
+
+  @override
+  String get healthReadOnlyTip => '内容は変更できません。公共の場所ではこれが望ましい状態です。';
+
+  @override
+  String get healthWritable => '書き込み可能';
+
+  @override
+  String get healthWritableTip => '公共の場所に置くなら、書き換えられないようロックを検討してください。';
+
+  @override
+  String healthNearlyFull(String percent) {
+    return 'ほぼ満杯（$percent%）';
+  }
+
+  @override
+  String get healthNearlyFullTip => '長い内容には大きめのタグ（NTAG215/216）か短いリンクを使ってください。';
+
+  @override
+  String healthRoomLeft(String free, String total) {
+    return '$totalバイト中$freeバイト空き';
+  }
+
+  @override
+  String get healthRoomLeftTip => '新しい内容を書き込む余裕があります。';
+
+  @override
+  String get healthRiskyLink => '危険なリンク';
+
+  @override
+  String get healthRiskyLinkTip =>
+      '偽サイトのようなリンクです。開かないでください。公共の場所のタグなら改ざんされた可能性があります。';
+
+  @override
+  String get healthSuspiciousLink => '疑わしいリンク';
+
+  @override
+  String get healthSuspiciousLinkTip => '短縮URLや見慣れないアドレスです。開く前に確認してください。';
+
+  @override
+  String get healthSignedValid => '署名は有効';
+
+  @override
+  String get healthSignedValidTip => '内容はあなたの鍵で書き込まれ、変更されていません。';
+
+  @override
+  String get healthSignedInvalid => '署名が無効';
+
+  @override
+  String get healthSignedInvalidTip => '署名後に内容が変更されています。信用せず、書き直してください。';
+
+  @override
+  String get healthPossibleClone => '複製の可能性';
+
+  @override
+  String get healthPossibleCloneTip =>
+      'ライブラリのタグと同じ内容ですがシリアル番号が違います。誰かが複製した可能性があります。';
+
+  @override
+  String get healthInLibrary => 'ライブラリに登録済み';
+
+  @override
+  String get healthInLibraryTip => 'あなたのタグです。名前とメモはライブラリにあります。';
+
+  @override
+  String get huntTitle => '宝探し';
+
+  @override
+  String get huntToolSubtitle => 'タグを隠して、ヒントを頼りに順番に探そう';
+
+  @override
+  String get huntIntro =>
+      '各タグには次のタグの隠し場所のヒントを書きます。アプリが最初のヒントを表示し、プレイヤーは時間を計りながら順番にタグを読み取ります。誕生日や学校、家族のイベントに。';
+
+  @override
+  String get huntNew => '新しい宝探し';
+
+  @override
+  String get huntEdit => '編集';
+
+  @override
+  String get huntDelete => '削除';
+
+  @override
+  String get huntDeleteTitle => 'この宝探しを削除しますか？';
+
+  @override
+  String get huntSave => '保存';
+
+  @override
+  String get huntName => '宝探しの名前';
+
+  @override
+  String get huntStartClue => '最初のヒント';
+
+  @override
+  String get huntStartClueHint => 'スマホに表示され、タグ1の場所を示します。';
+
+  @override
+  String huntClueLabel(String n) {
+    return 'タグ$nのヒント';
+  }
+
+  @override
+  String huntClueHint(String n) {
+    return 'タグ$nの場所を示します。';
+  }
+
+  @override
+  String get huntLastClueHint => '最後のタグ：お祝いメッセージか宝のありか。';
+
+  @override
+  String get huntAddClue => 'タグを追加';
+
+  @override
+  String get huntMissingFields => '名前、最初のヒント、タグのヒントが1つ以上必要です。';
+
+  @override
+  String huntStations(String count) {
+    return 'タグ$count個';
+  }
+
+  @override
+  String huntBest(String time) {
+    return 'ベスト $time';
+  }
+
+  @override
+  String get huntWriteTags => 'タグに書き込む';
+
+  @override
+  String get huntPlay => '遊ぶ';
+
+  @override
+  String huntWriteStep(String n, String total) {
+    return 'タグ $n/$total';
+  }
+
+  @override
+  String huntWriteStepBody(String clue) {
+    return 'このタグに書くヒント:\n\n$clue\n\nタグを用意して「書き込む」をタップ。前のヒントが示す場所に隠してください。';
+  }
+
+  @override
+  String get huntWriteNow => '書き込む';
+
+  @override
+  String huntWriteFailed(String n) {
+    return 'タグ$nに書き込めませんでした。もう一度お試しください。';
+  }
+
+  @override
+  String get huntWriteDone => 'すべてのタグに書き込みました。隠してゲームを始めましょう！';
+
+  @override
+  String get huntQuit => 'ゲームを終了';
+
+  @override
+  String huntProgress(String found, String total) {
+    return '$found/$total 発見';
+  }
+
+  @override
+  String get huntCurrentClue => 'ヒント';
+
+  @override
+  String huntFinished(String time) {
+    return 'おめでとう！タイム: $time';
+  }
+
+  @override
+  String get huntDone => '終了';
+
+  @override
+  String get huntScanTag => '見つけたタグを読み取る';
+
+  @override
+  String huntFound(String found, String total) {
+    return '発見！$found/$total';
+  }
+
+  @override
+  String get huntWrongOrder => '次のタグではありません。ヒントをたどってください。';
+
+  @override
+  String get huntAlreadyFound => 'このタグはもう見つけました。';
+
+  @override
+  String get huntOtherHunt => 'このタグは別の宝探しのものです。';
+
+  @override
+  String get huntNotHunt => '宝探しのタグではありません。';
+
+  @override
+  String get whatsNew170 => '• タグ診断：スコアと対処法\n• 宝探し：ヒントをタグに書いて順番に探そう';
+
+  @override
+  String get everydaySection => '便利ツール';
+
+  @override
+  String get unitTitle => '単位換算';
+
+  @override
+  String get unitSubtitle => '長さ・重さ・温度・体積・速度';
+
+  @override
+  String get unitLength => '長さ';
+
+  @override
+  String get unitWeight => '重さ';
+
+  @override
+  String get unitTemperature => '温度';
+
+  @override
+  String get unitVolume => '体積';
+
+  @override
+  String get unitSpeed => '速度';
+
+  @override
+  String get unitValue => '値';
+
+  @override
+  String get unitSwap => '単位を入れ替え';
+
+  @override
+  String get billTitle => '割り勘';
+
+  @override
+  String get billSubtitle => 'チップ込みの1人あたり金額';
+
+  @override
+  String get billAmount => '金額';
+
+  @override
+  String billTip(String percent) {
+    return 'チップ: $percent%';
+  }
+
+  @override
+  String get billPeople => '人数';
+
+  @override
+  String get billRoundUp => '1人分を切り上げ';
+
+  @override
+  String get billPerPerson => '1人あたり';
+
+  @override
+  String get billTipAmount => 'チップ';
+
+  @override
+  String get billTotal => '合計';
+
+  @override
+  String get pwTitle => 'パスワード生成';
+
+  @override
+  String get pwSubtitle => '強力で入力しやすいパスワード';
+
+  @override
+  String get pwWeak => '弱い';
+
+  @override
+  String get pwFair => '普通';
+
+  @override
+  String get pwStrong => '強い';
+
+  @override
+  String get pwVeryStrong => 'とても強い';
+
+  @override
+  String get pwNew => '再生成';
+
+  @override
+  String get pwCopy => 'コピー';
+
+  @override
+  String get pwCopied => 'パスワードをコピーしました';
+
+  @override
+  String pwLength(String n) {
+    return '長さ: $n';
+  }
+
+  @override
+  String get pwLower => '小文字';
+
+  @override
+  String get pwUpper => '大文字';
+
+  @override
+  String get pwDigits => '数字';
+
+  @override
+  String get pwSymbols => '記号';
+
+  @override
+  String get randTitle => 'サイコロとくじ';
+
+  @override
+  String get randSubtitle => 'サイコロ・コイントス・リストから抽選';
+
+  @override
+  String get randDice => 'サイコロ';
+
+  @override
+  String randTotal(String total) {
+    return '合計: $total';
+  }
+
+  @override
+  String get randRoll => '振る';
+
+  @override
+  String get randCoin => 'コイントス';
+
+  @override
+  String get randHeads => '表';
+
+  @override
+  String get randTails => '裏';
+
+  @override
+  String get randFlip => '投げる';
+
+  @override
+  String get randDraw => 'リストから抽選';
+
+  @override
+  String get randDrawHint => '1行に1つ、またはカンマ区切りで入力';
+
+  @override
+  String get randDrawButton => '抽選する';
+
+  @override
+  String get randWinner => '当選';
+
+  @override
+  String get tallyTitle => 'カウンター';
+
+  @override
+  String get tallySubtitle => '人数・周回・品数を数え、続きから再開';
+
+  @override
+  String get tallyReset => 'リセット';
+
+  @override
+  String get tallyTapHint => '画面をタップしてカウント';
+
+  @override
+  String get whatsNew180 => '• 便利ツール：単位換算、割り勘、パスワード生成、サイコロとくじ、カウンター';
 }

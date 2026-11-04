@@ -5121,4 +5121,421 @@ class AppLocalizationsFr extends AppLocalizations {
   @override
   String get whatsNew160 =>
       '• Widgets pour l\'écran d\'accueil et l\'écran verrouillé\n• Scanner et écrire d\'un geste depuis le Centre de contrôle (iOS 18)\n• Apple Watch : lectures récentes et entrées de registre en un geste\n• Sauvegarde iCloud (modèles, règles, bibliothèque)';
+
+  @override
+  String get healthTitle => 'Bilan de santé du tag';
+
+  @override
+  String get healthToolSubtitle =>
+      'Scannez un tag pour voir sa note et quoi corriger';
+
+  @override
+  String get healthIntro =>
+      'Scannez un tag : format, espace libre, verrouillage, sécurité des liens, signature et soupçon de clone sont vérifiés, avec un conseil pour chaque point.';
+
+  @override
+  String get healthScan => 'Scanner le tag';
+
+  @override
+  String get healthScanAnother => 'Scanner un autre tag';
+
+  @override
+  String get healthOverallGood => 'Ce tag est en bon état et prêt à l\'emploi.';
+
+  @override
+  String get healthOverallWarning =>
+      'Le tag fonctionne, mais certains points demandent attention.';
+
+  @override
+  String get healthOverallProblem =>
+      'Ce tag pose problème ; voir les conseils ci-dessous.';
+
+  @override
+  String get healthNotNdef => 'Pas au format NDEF';
+
+  @override
+  String get healthNotNdefTip =>
+      'Les téléphones ne peuvent pas lire son contenu. Formatez-le dans Outils → Formater la mémoire, ou écrivez-y directement.';
+
+  @override
+  String get healthEmpty => 'Le tag est vide';
+
+  @override
+  String get healthEmptyTip =>
+      'Ajoutez du contenu depuis l\'onglet Écrire ou un modèle.';
+
+  @override
+  String get healthReadOnly => 'Lecture seule (verrouillé)';
+
+  @override
+  String get healthReadOnlyTip =>
+      'Son contenu ne peut pas être modifié, idéal dans les lieux publics.';
+
+  @override
+  String get healthWritable => 'Inscriptible';
+
+  @override
+  String get healthWritableTip =>
+      'S\'il est placé dans un lieu public, pensez à le verrouiller.';
+
+  @override
+  String healthNearlyFull(String percent) {
+    return 'Presque plein ($percent %)';
+  }
+
+  @override
+  String get healthNearlyFullTip =>
+      'Pour plus de contenu, prenez un tag plus grand (NTAG215/216) ou un lien plus court.';
+
+  @override
+  String healthRoomLeft(String free, String total) {
+    return '$free octets libres sur $total';
+  }
+
+  @override
+  String get healthRoomLeftTip =>
+      'Il reste de la place pour du nouveau contenu.';
+
+  @override
+  String get healthRiskyLink => 'Lien dangereux';
+
+  @override
+  String get healthRiskyLinkTip =>
+      'Le lien ressemble à un faux site. Ne l\'ouvrez pas ; dans un lieu public, le tag a pu être modifié.';
+
+  @override
+  String get healthSuspiciousLink => 'Lien suspect';
+
+  @override
+  String get healthSuspiciousLinkTip =>
+      'Adresse raccourcie ou inhabituelle. Vérifiez-la avant de l\'ouvrir.';
+
+  @override
+  String get healthSignedValid => 'Signature valide';
+
+  @override
+  String get healthSignedValidTip =>
+      'Le contenu a été écrit avec votre clé et n\'a pas été modifié.';
+
+  @override
+  String get healthSignedInvalid => 'Signature invalide';
+
+  @override
+  String get healthSignedInvalidTip =>
+      'Le contenu a changé après la signature. Ne vous y fiez pas et réécrivez le tag.';
+
+  @override
+  String get healthPossibleClone => 'Copie possible';
+
+  @override
+  String get healthPossibleCloneTip =>
+      'Même contenu qu\'un tag de votre bibliothèque mais numéro de série différent. Quelqu\'un l\'a peut-être copié.';
+
+  @override
+  String get healthInLibrary => 'Dans votre bibliothèque';
+
+  @override
+  String get healthInLibraryTip =>
+      'C\'est l\'un de vos tags ; son nom et ses notes sont dans la bibliothèque.';
+
+  @override
+  String get huntTitle => 'Chasse au trésor';
+
+  @override
+  String get huntToolSubtitle =>
+      'Cachez des tags, à trouver indice après indice';
+
+  @override
+  String get huntIntro =>
+      'Chaque tag contient un indice vers le suivant. L\'app affiche le premier indice ; les joueurs scannent les tags dans l\'ordre, chronomètre en marche. Idéal pour anniversaires, école et fêtes de famille.';
+
+  @override
+  String get huntNew => 'Nouvelle chasse';
+
+  @override
+  String get huntEdit => 'Modifier';
+
+  @override
+  String get huntDelete => 'Supprimer';
+
+  @override
+  String get huntDeleteTitle => 'Supprimer cette chasse au trésor ?';
+
+  @override
+  String get huntSave => 'Enregistrer';
+
+  @override
+  String get huntName => 'Nom de la chasse';
+
+  @override
+  String get huntStartClue => 'Indice de départ';
+
+  @override
+  String get huntStartClueHint =>
+      'Affiché sur le téléphone ; il mène au tag 1.';
+
+  @override
+  String huntClueLabel(String n) {
+    return 'Indice du tag $n';
+  }
+
+  @override
+  String huntClueHint(String n) {
+    return 'Mène au tag $n.';
+  }
+
+  @override
+  String get huntLastClueHint =>
+      'Dernier tag : un message de bravo ou l\'emplacement du trésor.';
+
+  @override
+  String get huntAddClue => 'Ajouter un tag';
+
+  @override
+  String get huntMissingFields =>
+      'Il faut un nom, un indice de départ et au moins un indice de tag.';
+
+  @override
+  String huntStations(String count) {
+    return '$count tags';
+  }
+
+  @override
+  String huntBest(String time) {
+    return 'Meilleur temps $time';
+  }
+
+  @override
+  String get huntWriteTags => 'Écrire les tags';
+
+  @override
+  String get huntPlay => 'Jouer';
+
+  @override
+  String huntWriteStep(String n, String total) {
+    return 'Tag $n/$total';
+  }
+
+  @override
+  String huntWriteStepBody(String clue) {
+    return 'Cet indice sera écrit sur le tag :\n\n$clue\n\nPréparez le tag et touchez Écrire. Cachez-le ensuite là où mène l\'indice précédent.';
+  }
+
+  @override
+  String get huntWriteNow => 'Écrire';
+
+  @override
+  String huntWriteFailed(String n) {
+    return 'Impossible d\'écrire le tag $n ; réessayez.';
+  }
+
+  @override
+  String get huntWriteDone =>
+      'Tous les tags sont écrits. Cachez-les et lancez la partie !';
+
+  @override
+  String get huntQuit => 'Quitter la partie';
+
+  @override
+  String huntProgress(String found, String total) {
+    return '$found/$total trouvés';
+  }
+
+  @override
+  String get huntCurrentClue => 'Indice';
+
+  @override
+  String huntFinished(String time) {
+    return 'Bravo ! Temps : $time';
+  }
+
+  @override
+  String get huntDone => 'Terminer';
+
+  @override
+  String get huntScanTag => 'Scannez le tag trouvé';
+
+  @override
+  String huntFound(String found, String total) {
+    return 'Trouvé ! $found/$total';
+  }
+
+  @override
+  String get huntWrongOrder =>
+      'Ce n\'est pas le tag suivant ; suivez l\'indice.';
+
+  @override
+  String get huntAlreadyFound => 'Vous avez déjà trouvé ce tag.';
+
+  @override
+  String get huntOtherHunt => 'Ce tag appartient à une autre chasse au trésor.';
+
+  @override
+  String get huntNotHunt => 'Ce n\'est pas un tag de chasse au trésor.';
+
+  @override
+  String get whatsNew170 =>
+      '• Bilan de santé du tag : note et conseils\n• Chasse au trésor : écrivez des indices sur des tags à trouver dans l\'ordre';
+
+  @override
+  String get everydaySection => 'Outils du quotidien';
+
+  @override
+  String get unitTitle => 'Convertisseur d\'unités';
+
+  @override
+  String get unitSubtitle => 'Longueur, poids, température, volume, vitesse';
+
+  @override
+  String get unitLength => 'Longueur';
+
+  @override
+  String get unitWeight => 'Poids';
+
+  @override
+  String get unitTemperature => 'Température';
+
+  @override
+  String get unitVolume => 'Volume';
+
+  @override
+  String get unitSpeed => 'Vitesse';
+
+  @override
+  String get unitValue => 'Valeur';
+
+  @override
+  String get unitSwap => 'Inverser les unités';
+
+  @override
+  String get billTitle => 'Partager l\'addition';
+
+  @override
+  String get billSubtitle => 'Montant par personne avec pourboire';
+
+  @override
+  String get billAmount => 'Montant de l\'addition';
+
+  @override
+  String billTip(String percent) {
+    return 'Pourboire : $percent %';
+  }
+
+  @override
+  String get billPeople => 'Personnes';
+
+  @override
+  String get billRoundUp => 'Arrondir chaque part';
+
+  @override
+  String get billPerPerson => 'Par personne';
+
+  @override
+  String get billTipAmount => 'Pourboire';
+
+  @override
+  String get billTotal => 'Total';
+
+  @override
+  String get pwTitle => 'Générateur de mots de passe';
+
+  @override
+  String get pwSubtitle => 'Mots de passe forts et faciles à saisir';
+
+  @override
+  String get pwWeak => 'Faible';
+
+  @override
+  String get pwFair => 'Moyen';
+
+  @override
+  String get pwStrong => 'Fort';
+
+  @override
+  String get pwVeryStrong => 'Très fort';
+
+  @override
+  String get pwNew => 'Nouveau';
+
+  @override
+  String get pwCopy => 'Copier';
+
+  @override
+  String get pwCopied => 'Mot de passe copié';
+
+  @override
+  String pwLength(String n) {
+    return 'Longueur : $n';
+  }
+
+  @override
+  String get pwLower => 'Minuscules';
+
+  @override
+  String get pwUpper => 'Majuscules';
+
+  @override
+  String get pwDigits => 'Chiffres';
+
+  @override
+  String get pwSymbols => 'Symboles';
+
+  @override
+  String get randTitle => 'Dés et tirage au sort';
+
+  @override
+  String get randSubtitle =>
+      'Lancer de dés, pile ou face, tirage dans une liste';
+
+  @override
+  String get randDice => 'Dés';
+
+  @override
+  String randTotal(String total) {
+    return 'Total : $total';
+  }
+
+  @override
+  String get randRoll => 'Lancer';
+
+  @override
+  String get randCoin => 'Pile ou face';
+
+  @override
+  String get randHeads => 'Face';
+
+  @override
+  String get randTails => 'Pile';
+
+  @override
+  String get randFlip => 'Lancer';
+
+  @override
+  String get randDraw => 'Tirer au sort';
+
+  @override
+  String get randDrawHint => 'Un nom par ligne ou séparés par des virgules';
+
+  @override
+  String get randDrawButton => 'Tirer';
+
+  @override
+  String get randWinner => 'Gagnant';
+
+  @override
+  String get tallyTitle => 'Compteur';
+
+  @override
+  String get tallySubtitle =>
+      'Comptez personnes, tours ou articles ; reprend où vous étiez';
+
+  @override
+  String get tallyReset => 'Réinitialiser';
+
+  @override
+  String get tallyTapHint => 'Touchez n\'importe où pour compter';
+
+  @override
+  String get whatsNew180 =>
+      '• Outils du quotidien : convertisseur d\'unités, partage d\'addition, mots de passe, dés et tirage, compteur';
 }
