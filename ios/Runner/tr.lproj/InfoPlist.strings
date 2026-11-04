@@ -1,4 +1,4 @@
-"CFBundleDisplayName" = "NFC Etiket Yöneticisi";
+"CFBundleDisplayName" = "NFC Tools: Read & Write";
 "NSCameraUsageDescription" = "QR kodlarını taramak ve etiket kütüphanesine fotoğraf eklemek için kamera kullanılır.";
 "NSPhotoLibraryUsageDescription" = "Etiket kütüphanesindeki etiketlere fotoğraf eklemek için fotoğraflarınıza erişilir.";
 "NFCReaderUsageDescription" = "NFC etiketlerini okumak ve NDEF mesajları yazmak için NFC erişimi gereklidir.";

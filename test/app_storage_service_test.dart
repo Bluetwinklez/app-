@@ -25,6 +25,31 @@ void main() {
   });
 
   group('LocalFileAppStorageService - Safe writes and persistence', () {
+    test('new profiles use English while an explicit system locale is preserved', () async {
+      expect(storage.localeCode, 'en');
+      await storage.setLocaleCode(null);
+      final reloaded = LocalFileAppStorageService(baseDirectoryPath: tempDir.path);
+      await reloaded.init();
+      expect(reloaded.localeCode, isNull);
+    });
+
+    test('corrupt history is preserved before a later write replaces it', () async {
+      const original = '{invalid history';
+      final file = File('${tempDir.path}/nfc_scan_history.json');
+      await file.writeAsString(original);
+      final reloaded = LocalFileAppStorageService(baseDirectoryPath: tempDir.path);
+      await reloaded.init();
+      await reloaded.clearHistory();
+      final copies = await tempDir
+          .list()
+          .where((entry) =>
+              entry.path.contains('nfc_scan_history.json.corrupt_'))
+          .toList();
+      expect(copies, hasLength(1));
+      expect(await File(copies.single.path).readAsString(), original);
+      expect(await file.readAsString(), '[]');
+    });
+
     test('persists history enabled setting across instances', () async {
       expect(storage.isHistoryEnabled, isFalse);
 
