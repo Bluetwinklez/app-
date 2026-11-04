@@ -4879,4 +4879,399 @@ class AppLocalizationsKo extends AppLocalizations {
   @override
   String get whatsNew160 =>
       '• 홈 화면 및 잠금 화면 위젯\n• 제어 센터에서 한 번 탭으로 스캔·쓰기 (iOS 18)\n• Apple Watch: 최근 스캔과 한 번 탭 기록\n• iCloud 백업 (템플릿, 규칙, 라이브러리)';
+
+  @override
+  String get healthTitle => '태그 상태 점검';
+
+  @override
+  String get healthToolSubtitle => '태그를 스캔해 점수와 해결 방법을 확인';
+
+  @override
+  String get healthIntro =>
+      '태그를 스캔하면 형식, 여유 공간, 잠금, 링크 안전성, 서명, 복제 의심을 점검하고 항목마다 조언을 보여줍니다.';
+
+  @override
+  String get healthScan => '태그 스캔';
+
+  @override
+  String get healthScanAnother => '다른 태그 스캔';
+
+  @override
+  String get healthOverallGood => '태그 상태가 좋으며 바로 사용할 수 있습니다.';
+
+  @override
+  String get healthOverallWarning => '태그는 작동하지만 주의할 점이 있습니다.';
+
+  @override
+  String get healthOverallProblem => '태그에 문제가 있습니다. 아래 조언을 확인하세요.';
+
+  @override
+  String get healthNotNdef => 'NDEF 형식이 아님';
+
+  @override
+  String get healthNotNdefTip =>
+      '휴대폰이 내용을 읽을 수 없습니다. 도구 → 메모리 포맷으로 포맷하거나 바로 쓰기를 하세요.';
+
+  @override
+  String get healthEmpty => '태그가 비어 있음';
+
+  @override
+  String get healthEmptyTip => '쓰기 탭이나 템플릿에서 내용을 추가하세요.';
+
+  @override
+  String get healthReadOnly => '읽기 전용(잠김)';
+
+  @override
+  String get healthReadOnlyTip => '내용을 바꿀 수 없어 공공장소에 적합합니다.';
+
+  @override
+  String get healthWritable => '쓰기 가능';
+
+  @override
+  String get healthWritableTip => '공공장소에 둔다면 다른 사람이 바꾸지 못하게 잠그는 것을 고려하세요.';
+
+  @override
+  String healthNearlyFull(String percent) {
+    return '거의 가득 참($percent%)';
+  }
+
+  @override
+  String get healthNearlyFullTip => '더 긴 내용에는 더 큰 태그(NTAG215/216)나 짧은 링크를 쓰세요.';
+
+  @override
+  String healthRoomLeft(String free, String total) {
+    return '$total바이트 중 $free바이트 여유';
+  }
+
+  @override
+  String get healthRoomLeftTip => '새 내용을 쓸 공간이 있습니다.';
+
+  @override
+  String get healthRiskyLink => '위험한 링크';
+
+  @override
+  String get healthRiskyLinkTip =>
+      '가짜 사이트처럼 보이는 링크입니다. 열지 마세요. 공공장소의 태그라면 변조되었을 수 있습니다.';
+
+  @override
+  String get healthSuspiciousLink => '의심스러운 링크';
+
+  @override
+  String get healthSuspiciousLinkTip => '단축되었거나 낯선 주소입니다. 열기 전에 확인하세요.';
+
+  @override
+  String get healthSignedValid => '유효한 서명';
+
+  @override
+  String get healthSignedValidTip => '내용이 내 키로 작성되었고 변경되지 않았습니다.';
+
+  @override
+  String get healthSignedInvalid => '손상된 서명';
+
+  @override
+  String get healthSignedInvalidTip => '서명 후 내용이 바뀌었습니다. 믿지 말고 다시 쓰세요.';
+
+  @override
+  String get healthPossibleClone => '복제본일 수 있음';
+
+  @override
+  String get healthPossibleCloneTip =>
+      '라이브러리의 태그와 내용은 같지만 일련번호가 다릅니다. 누군가 복제했을 수 있습니다.';
+
+  @override
+  String get healthInLibrary => '라이브러리에 저장됨';
+
+  @override
+  String get healthInLibraryTip => '내 태그입니다. 이름과 메모는 라이브러리에 있습니다.';
+
+  @override
+  String get huntTitle => '보물찾기';
+
+  @override
+  String get huntToolSubtitle => '태그를 숨기고 단서를 따라 차례로 찾게 하세요';
+
+  @override
+  String get huntIntro =>
+      '각 태그에는 다음 태그가 숨겨진 곳의 단서가 들어 있습니다. 앱이 첫 단서를 보여 주고, 플레이어는 시간을 재며 태그를 순서대로 스캔합니다. 생일, 학교, 가족 행사에 좋아요.';
+
+  @override
+  String get huntNew => '새 보물찾기';
+
+  @override
+  String get huntEdit => '편집';
+
+  @override
+  String get huntDelete => '삭제';
+
+  @override
+  String get huntDeleteTitle => '이 보물찾기를 삭제할까요?';
+
+  @override
+  String get huntSave => '저장';
+
+  @override
+  String get huntName => '보물찾기 이름';
+
+  @override
+  String get huntStartClue => '시작 단서';
+
+  @override
+  String get huntStartClueHint => '휴대폰에 표시되며 1번 태그로 안내합니다.';
+
+  @override
+  String huntClueLabel(String n) {
+    return '$n번 태그의 단서';
+  }
+
+  @override
+  String huntClueHint(String n) {
+    return '$n번 태그로 안내합니다.';
+  }
+
+  @override
+  String get huntLastClueHint => '마지막 태그: 축하 메시지나 보물이 있는 곳.';
+
+  @override
+  String get huntAddClue => '태그 추가';
+
+  @override
+  String get huntMissingFields => '이름, 시작 단서, 태그 단서가 하나 이상 필요합니다.';
+
+  @override
+  String huntStations(String count) {
+    return '태그 $count개';
+  }
+
+  @override
+  String huntBest(String time) {
+    return '최고 기록 $time';
+  }
+
+  @override
+  String get huntWriteTags => '태그에 쓰기';
+
+  @override
+  String get huntPlay => '시작';
+
+  @override
+  String huntWriteStep(String n, String total) {
+    return '태그 $n/$total';
+  }
+
+  @override
+  String huntWriteStepBody(String clue) {
+    return '이 태그에 쓸 단서:\n\n$clue\n\n태그를 준비하고 쓰기를 누르세요. 그런 다음 앞 단서가 가리키는 곳에 숨기세요.';
+  }
+
+  @override
+  String get huntWriteNow => '쓰기';
+
+  @override
+  String huntWriteFailed(String n) {
+    return '$n번 태그에 쓰지 못했습니다. 다시 시도하세요.';
+  }
+
+  @override
+  String get huntWriteDone => '모든 태그를 썼습니다. 숨기고 게임을 시작하세요!';
+
+  @override
+  String get huntQuit => '게임 종료';
+
+  @override
+  String huntProgress(String found, String total) {
+    return '$found/$total 찾음';
+  }
+
+  @override
+  String get huntCurrentClue => '단서';
+
+  @override
+  String huntFinished(String time) {
+    return '축하합니다! 기록: $time';
+  }
+
+  @override
+  String get huntDone => '완료';
+
+  @override
+  String get huntScanTag => '찾은 태그를 스캔하세요';
+
+  @override
+  String huntFound(String found, String total) {
+    return '찾았다! $found/$total';
+  }
+
+  @override
+  String get huntWrongOrder => '다음 태그가 아닙니다. 단서를 따라가세요.';
+
+  @override
+  String get huntAlreadyFound => '이미 찾은 태그입니다.';
+
+  @override
+  String get huntOtherHunt => '다른 보물찾기의 태그입니다.';
+
+  @override
+  String get huntNotHunt => '보물찾기 태그가 아닙니다.';
+
+  @override
+  String get whatsNew170 => '• 태그 상태 점검: 점수와 조언\n• 보물찾기: 태그에 단서를 쓰고 순서대로 찾기';
+
+  @override
+  String get everydaySection => '생활 도구';
+
+  @override
+  String get unitTitle => '단위 변환기';
+
+  @override
+  String get unitSubtitle => '길이, 무게, 온도, 부피, 속도';
+
+  @override
+  String get unitLength => '길이';
+
+  @override
+  String get unitWeight => '무게';
+
+  @override
+  String get unitTemperature => '온도';
+
+  @override
+  String get unitVolume => '부피';
+
+  @override
+  String get unitSpeed => '속도';
+
+  @override
+  String get unitValue => '값';
+
+  @override
+  String get unitSwap => '단위 바꾸기';
+
+  @override
+  String get billTitle => '더치페이';
+
+  @override
+  String get billSubtitle => '팁을 포함한 1인당 금액';
+
+  @override
+  String get billAmount => '청구 금액';
+
+  @override
+  String billTip(String percent) {
+    return '팁: $percent%';
+  }
+
+  @override
+  String get billPeople => '인원';
+
+  @override
+  String get billRoundUp => '1인당 금액 올림';
+
+  @override
+  String get billPerPerson => '1인당';
+
+  @override
+  String get billTipAmount => '팁';
+
+  @override
+  String get billTotal => '합계';
+
+  @override
+  String get pwTitle => '비밀번호 생성기';
+
+  @override
+  String get pwSubtitle => '강력하고 입력하기 쉬운 비밀번호';
+
+  @override
+  String get pwWeak => '약함';
+
+  @override
+  String get pwFair => '보통';
+
+  @override
+  String get pwStrong => '강함';
+
+  @override
+  String get pwVeryStrong => '매우 강함';
+
+  @override
+  String get pwNew => '새 비밀번호';
+
+  @override
+  String get pwCopy => '복사';
+
+  @override
+  String get pwCopied => '비밀번호를 복사했습니다';
+
+  @override
+  String pwLength(String n) {
+    return '길이: $n';
+  }
+
+  @override
+  String get pwLower => '소문자';
+
+  @override
+  String get pwUpper => '대문자';
+
+  @override
+  String get pwDigits => '숫자';
+
+  @override
+  String get pwSymbols => '기호';
+
+  @override
+  String get randTitle => '주사위와 제비뽑기';
+
+  @override
+  String get randSubtitle => '주사위, 동전 던지기, 목록에서 뽑기';
+
+  @override
+  String get randDice => '주사위';
+
+  @override
+  String randTotal(String total) {
+    return '합계: $total';
+  }
+
+  @override
+  String get randRoll => '굴리기';
+
+  @override
+  String get randCoin => '동전 던지기';
+
+  @override
+  String get randHeads => '앞면';
+
+  @override
+  String get randTails => '뒷면';
+
+  @override
+  String get randFlip => '던지기';
+
+  @override
+  String get randDraw => '목록에서 뽑기';
+
+  @override
+  String get randDrawHint => '한 줄에 하나씩 또는 쉼표로 구분';
+
+  @override
+  String get randDrawButton => '뽑기';
+
+  @override
+  String get randWinner => '당첨';
+
+  @override
+  String get tallyTitle => '카운터';
+
+  @override
+  String get tallySubtitle => '사람, 바퀴, 물건 수를 세고 이어서 계속';
+
+  @override
+  String get tallyReset => '초기화';
+
+  @override
+  String get tallyTapHint => '아무 곳이나 탭해 세기';
+
+  @override
+  String get whatsNew180 => '• 생활 도구: 단위 변환기, 더치페이, 비밀번호 생성기, 주사위와 제비뽑기, 카운터';
 }

@@ -2,10 +2,17 @@
 
 Read, write and organize NFC tags on iPhone and Android. Built with Flutter and native platform channels using Core NFC on iOS and `android.nfc` on Android.
 
-- **Version:** 1.6.0; see [the changelog](CHANGELOG.md).
+- **Version:** 1.8.0; see [the changelog](CHANGELOG.md).
 - **Platforms:** iOS 16+ on supported NFC-capable iPhones; Android 7.0+ with NFC hardware.
 - **Languages:** English, Turkish, German, French, Spanish, Italian, Portuguese, Russian, Arabic, Japanese, Simplified Chinese, Korean, Dutch and Ukrainian.
 - **Default:** new profiles start in English. Existing saved choices, including the system-language option, are preserved.
+
+<p align="center">
+<img src="docs/store_screenshots/iphone_6.9/en_1_home.jpg" width="170" alt="Home">
+<img src="docs/store_screenshots/iphone_6.9/en_2_templates.jpg" width="170" alt="Templates">
+<img src="docs/store_screenshots/iphone_6.9/en_4_tools.jpg" width="170" alt="Tools">
+<img src="docs/store_screenshots/iphone_6.9/en_5_library.jpg" width="170" alt="Library">
+</p>
 
 ## Capabilities
 
@@ -13,9 +20,10 @@ Read, write and organize NFC tags on iPhone and Android. Built with Flutter and 
 |---|---|
 | Read | NDEF records, tag identifiers, chip/capacity information, continuous scanning, comparisons and optional scan history |
 | Write | Text, links, contact cards, Wi-Fi, calendar, location and other NDEF records; templates, verification, batch operations and import |
-| Tools | Erase, format, memory inspection, supported chip passwords and permanent locking |
+| Tools | Erase, format, memory inspection, supported chip passwords and permanent locking; tag health check (0–100 score with advice) and a treasure-hunt game that writes ordered clues to tags |
+| Everyday tools | Unit converter, bill splitter with tip, password generator, dice, coin flip and list draws, tally counter |
 | Organization | Tag library, notes, categories, logbooks, maintenance reminders and QR/PDF labels |
-| Automation | Shortcuts, deep links, template variables, optional widgets and Apple Watch targets |
+| Automation | Shortcuts, deep links, template variables, Home Screen / Lock Screen / Control Center widgets, an Apple Watch app and optional iCloud backup |
 | Protection | Device authentication, password-protected backups, signed tags and secure key storage |
 
 Permanent lock operations cannot be undone. Identifier cloning, payment/access-card emulation and copying encrypted sectors are not supported. Tag copying covers supported NDEF content. iOS and Android differ in which records they can open automatically.
@@ -31,7 +39,7 @@ flutter analyze
 flutter test
 ```
 
-Translations are in `lib/l10n/app_<language>.arb`; the existing generation template is `app_tr.arb`. Keep the generated localization files synchronized. Native permission strings and Shortcuts phrases live in the platform projects. CI checks localization consistency, analysis and tests on pushes and pull requests. Separate workflows compile Android and iOS; signed TestFlight uploads require configured Apple credentials and provisioning.
+Translations are in `lib/l10n/app_<language>.arb`; the existing generation template is `app_tr.arb`. Keep the generated localization files synchronized. Native permission strings and Shortcuts phrases live in the platform projects. CI checks localization consistency, analysis and tests on pushes and pull requests. Separate workflows compile Android and iOS; signed TestFlight uploads require configured Apple credentials and provisioning. Further guides: [App Store release](docs/APP_STORE_RELEASE.md) and [Google Play release](docs/GOOGLE_PLAY_RELEASE.md).
 
 ## Storage and recovery
 

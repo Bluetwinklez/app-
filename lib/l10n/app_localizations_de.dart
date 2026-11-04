@@ -5098,4 +5098,420 @@ class AppLocalizationsDe extends AppLocalizations {
   @override
   String get whatsNew160 =>
       '• Widgets für Home- und Sperrbildschirm\n• Mit einem Tippen scannen und schreiben im Kontrollzentrum (iOS 18)\n• Apple Watch: letzte Scans und Logbuch-Einträge mit einem Tippen\n• iCloud-Backup (Vorlagen, Regeln, Bibliothek)';
+
+  @override
+  String get healthTitle => 'Tag-Gesundheitscheck';
+
+  @override
+  String get healthToolSubtitle => 'Tag scannen und sehen, was zu tun ist';
+
+  @override
+  String get healthIntro =>
+      'Scanne einen Tag: Format, freier Speicher, Sperre, Link-Sicherheit, Signatur und Klon-Verdacht werden geprüft – mit Tipps zu jedem Punkt.';
+
+  @override
+  String get healthScan => 'Tag scannen';
+
+  @override
+  String get healthScanAnother => 'Weiteren Tag scannen';
+
+  @override
+  String get healthOverallGood =>
+      'Dieser Tag ist in Ordnung und einsatzbereit.';
+
+  @override
+  String get healthOverallWarning =>
+      'Der Tag funktioniert, aber einiges braucht Aufmerksamkeit.';
+
+  @override
+  String get healthOverallProblem =>
+      'Dieser Tag hat Probleme – siehe Tipps unten.';
+
+  @override
+  String get healthNotNdef => 'Nicht NDEF-formatiert';
+
+  @override
+  String get healthNotNdefTip =>
+      'Telefone können den Inhalt nicht lesen. Unter Werkzeuge → Speicher formatieren formatieren oder einfach beschreiben.';
+
+  @override
+  String get healthEmpty => 'Tag ist leer';
+
+  @override
+  String get healthEmptyTip =>
+      'Inhalt über den Schreiben-Tab oder eine Vorlage hinzufügen.';
+
+  @override
+  String get healthReadOnly => 'Schreibgeschützt (gesperrt)';
+
+  @override
+  String get healthReadOnlyTip =>
+      'Der Inhalt lässt sich nicht ändern – an öffentlichen Orten genau richtig.';
+
+  @override
+  String get healthWritable => 'Beschreibbar';
+
+  @override
+  String get healthWritableTip =>
+      'Hängt er öffentlich, sperre ihn, damit niemand ihn ändert.';
+
+  @override
+  String healthNearlyFull(String percent) {
+    return 'Fast voll ($percent %)';
+  }
+
+  @override
+  String get healthNearlyFullTip =>
+      'Für längere Inhalte einen größeren Tag (NTAG215/216) oder einen kürzeren Link nehmen.';
+
+  @override
+  String healthRoomLeft(String free, String total) {
+    return '$free von $total Byte frei';
+  }
+
+  @override
+  String get healthRoomLeftTip => 'Es ist Platz für neue Inhalte.';
+
+  @override
+  String get healthRiskyLink => 'Gefährlicher Link';
+
+  @override
+  String get healthRiskyLinkTip =>
+      'Der Link sieht nach einer Fake-Seite aus. Nicht öffnen – an öffentlichen Orten wurde der Tag evtl. manipuliert.';
+
+  @override
+  String get healthSuspiciousLink => 'Verdächtiger Link';
+
+  @override
+  String get healthSuspiciousLinkTip =>
+      'Gekürzte oder ungewöhnliche Adresse. Vor dem Öffnen prüfen.';
+
+  @override
+  String get healthSignedValid => 'Gültige Signatur';
+
+  @override
+  String get healthSignedValidTip =>
+      'Der Inhalt wurde mit deinem Schlüssel geschrieben und nicht verändert.';
+
+  @override
+  String get healthSignedInvalid => 'Ungültige Signatur';
+
+  @override
+  String get healthSignedInvalidTip =>
+      'Der Inhalt wurde nach dem Signieren verändert. Nicht vertrauen und neu schreiben.';
+
+  @override
+  String get healthPossibleClone => 'Mögliche Kopie';
+
+  @override
+  String get healthPossibleCloneTip =>
+      'Gleicher Inhalt wie ein Tag in deiner Bibliothek, aber andere Seriennummer. Jemand könnte ihn kopiert haben.';
+
+  @override
+  String get healthInLibrary => 'In deiner Bibliothek';
+
+  @override
+  String get healthInLibraryTip =>
+      'Das ist einer deiner Tags; Name und Notizen stehen in der Bibliothek.';
+
+  @override
+  String get huntTitle => 'Schatzsuche';
+
+  @override
+  String get huntToolSubtitle =>
+      'Tags verstecken und Hinweis für Hinweis finden lassen';
+
+  @override
+  String get huntIntro =>
+      'Jeder Tag enthält einen Hinweis auf das Versteck des nächsten. Die App zeigt den ersten Hinweis; die Spieler scannen die Tags der Reihe nach auf Zeit. Ideal für Geburtstage, Schule und Familienfeste.';
+
+  @override
+  String get huntNew => 'Neue Suche';
+
+  @override
+  String get huntEdit => 'Bearbeiten';
+
+  @override
+  String get huntDelete => 'Löschen';
+
+  @override
+  String get huntDeleteTitle => 'Diese Schatzsuche löschen?';
+
+  @override
+  String get huntSave => 'Speichern';
+
+  @override
+  String get huntName => 'Name der Suche';
+
+  @override
+  String get huntStartClue => 'Erster Hinweis';
+
+  @override
+  String get huntStartClueHint =>
+      'Wird auf dem Handy angezeigt und führt zu Tag 1.';
+
+  @override
+  String huntClueLabel(String n) {
+    return 'Hinweis auf Tag $n';
+  }
+
+  @override
+  String huntClueHint(String n) {
+    return 'Führt zu Tag $n.';
+  }
+
+  @override
+  String get huntLastClueHint =>
+      'Letzter Tag: Glückwunsch oder Ort des Schatzes.';
+
+  @override
+  String get huntAddClue => 'Tag hinzufügen';
+
+  @override
+  String get huntMissingFields =>
+      'Name, erster Hinweis und mindestens ein Tag-Hinweis sind nötig.';
+
+  @override
+  String huntStations(String count) {
+    return '$count Tags';
+  }
+
+  @override
+  String huntBest(String time) {
+    return 'Bestzeit $time';
+  }
+
+  @override
+  String get huntWriteTags => 'Tags beschreiben';
+
+  @override
+  String get huntPlay => 'Spielen';
+
+  @override
+  String huntWriteStep(String n, String total) {
+    return 'Tag $n/$total';
+  }
+
+  @override
+  String huntWriteStepBody(String clue) {
+    return 'Dieser Hinweis kommt auf den Tag:\n\n$clue\n\nTag bereithalten und auf Schreiben tippen. Dann dort verstecken, wohin der vorige Hinweis führt.';
+  }
+
+  @override
+  String get huntWriteNow => 'Schreiben';
+
+  @override
+  String huntWriteFailed(String n) {
+    return 'Tag $n konnte nicht beschrieben werden; erneut versuchen.';
+  }
+
+  @override
+  String get huntWriteDone =>
+      'Alle Tags beschrieben. Verstecken und los geht\'s!';
+
+  @override
+  String get huntQuit => 'Spiel beenden';
+
+  @override
+  String huntProgress(String found, String total) {
+    return '$found/$total gefunden';
+  }
+
+  @override
+  String get huntCurrentClue => 'Hinweis';
+
+  @override
+  String huntFinished(String time) {
+    return 'Geschafft! Zeit: $time';
+  }
+
+  @override
+  String get huntDone => 'Fertig';
+
+  @override
+  String get huntScanTag => 'Gefundenen Tag scannen';
+
+  @override
+  String huntFound(String found, String total) {
+    return 'Gefunden! $found/$total';
+  }
+
+  @override
+  String get huntWrongOrder =>
+      'Das ist nicht der nächste Tag – folge dem Hinweis.';
+
+  @override
+  String get huntAlreadyFound => 'Diesen Tag hast du schon gefunden.';
+
+  @override
+  String get huntOtherHunt => 'Dieser Tag gehört zu einer anderen Schatzsuche.';
+
+  @override
+  String get huntNotHunt => 'Das ist kein Schatzsuche-Tag.';
+
+  @override
+  String get whatsNew170 =>
+      '• Tag-Gesundheitscheck: Punktzahl und Tipps\n• Schatzsuche: Hinweise auf Tags schreiben und der Reihe nach finden';
+
+  @override
+  String get everydaySection => 'Alltagshelfer';
+
+  @override
+  String get unitTitle => 'Einheitenrechner';
+
+  @override
+  String get unitSubtitle =>
+      'Länge, Gewicht, Temperatur, Volumen, Geschwindigkeit';
+
+  @override
+  String get unitLength => 'Länge';
+
+  @override
+  String get unitWeight => 'Gewicht';
+
+  @override
+  String get unitTemperature => 'Temperatur';
+
+  @override
+  String get unitVolume => 'Volumen';
+
+  @override
+  String get unitSpeed => 'Geschwindigkeit';
+
+  @override
+  String get unitValue => 'Wert';
+
+  @override
+  String get unitSwap => 'Einheiten tauschen';
+
+  @override
+  String get billTitle => 'Rechnung teilen';
+
+  @override
+  String get billSubtitle => 'Betrag pro Person mit Trinkgeld';
+
+  @override
+  String get billAmount => 'Rechnungsbetrag';
+
+  @override
+  String billTip(String percent) {
+    return 'Trinkgeld: $percent %';
+  }
+
+  @override
+  String get billPeople => 'Personen';
+
+  @override
+  String get billRoundUp => 'Anteil aufrunden';
+
+  @override
+  String get billPerPerson => 'Pro Person';
+
+  @override
+  String get billTipAmount => 'Trinkgeld';
+
+  @override
+  String get billTotal => 'Gesamt';
+
+  @override
+  String get pwTitle => 'Passwort-Generator';
+
+  @override
+  String get pwSubtitle => 'Starke, gut lesbare Passwörter';
+
+  @override
+  String get pwWeak => 'Schwach';
+
+  @override
+  String get pwFair => 'Mittel';
+
+  @override
+  String get pwStrong => 'Stark';
+
+  @override
+  String get pwVeryStrong => 'Sehr stark';
+
+  @override
+  String get pwNew => 'Neues Passwort';
+
+  @override
+  String get pwCopy => 'Kopieren';
+
+  @override
+  String get pwCopied => 'Passwort kopiert';
+
+  @override
+  String pwLength(String n) {
+    return 'Länge: $n';
+  }
+
+  @override
+  String get pwLower => 'Kleinbuchstaben';
+
+  @override
+  String get pwUpper => 'Großbuchstaben';
+
+  @override
+  String get pwDigits => 'Ziffern';
+
+  @override
+  String get pwSymbols => 'Sonderzeichen';
+
+  @override
+  String get randTitle => 'Würfel und Losen';
+
+  @override
+  String get randSubtitle => 'Würfeln, Münzwurf, aus einer Liste losen';
+
+  @override
+  String get randDice => 'Würfel';
+
+  @override
+  String randTotal(String total) {
+    return 'Summe: $total';
+  }
+
+  @override
+  String get randRoll => 'Würfeln';
+
+  @override
+  String get randCoin => 'Münzwurf';
+
+  @override
+  String get randHeads => 'Kopf';
+
+  @override
+  String get randTails => 'Zahl';
+
+  @override
+  String get randFlip => 'Werfen';
+
+  @override
+  String get randDraw => 'Aus Liste losen';
+
+  @override
+  String get randDrawHint => 'Ein Name pro Zeile oder durch Kommas getrennt';
+
+  @override
+  String get randDrawButton => 'Losen';
+
+  @override
+  String get randWinner => 'Gewinner';
+
+  @override
+  String get tallyTitle => 'Zähler';
+
+  @override
+  String get tallySubtitle =>
+      'Personen, Runden oder Artikel zählen; merkt sich den Stand';
+
+  @override
+  String get tallyReset => 'Zurücksetzen';
+
+  @override
+  String get tallyTapHint => 'Zum Zählen irgendwo tippen';
+
+  @override
+  String get whatsNew180 =>
+      '• Alltagshelfer: Einheitenrechner, Rechnung teilen, Passwort-Generator, Würfel und Losen, Zähler';
 }

@@ -5084,4 +5084,418 @@ class AppLocalizationsTr extends AppLocalizations {
   @override
   String get whatsNew160 =>
       '• Ana ekran ve kilit ekranı widget\'ları\n• Kontrol Merkezi\'nden tek dokunuşla tara ve yaz (iOS 18)\n• Apple Watch: son okumalar ve tek dokunuşla defter girişi\n• iCloud yedekleme (şablonlar, kurallar, kütüphane)';
+
+  @override
+  String get healthTitle => 'Etiket sağlık testi';
+
+  @override
+  String get healthToolSubtitle =>
+      'Etiketi okut; puanı ve ne yapman gerektiğini gör';
+
+  @override
+  String get healthIntro =>
+      'Etiketi okut: biçim, boş alan, kilit, bağlantı güvenliği, imza ve kopya şüphesi kontrol edilir; her bulgu için ne yapacağın yazar.';
+
+  @override
+  String get healthScan => 'Etiketi okut';
+
+  @override
+  String get healthScanAnother => 'Başka etiket okut';
+
+  @override
+  String get healthOverallGood => 'Etiket sağlıklı, kullanıma hazır.';
+
+  @override
+  String get healthOverallWarning =>
+      'Etiket çalışıyor ama dikkat edilecek şeyler var.';
+
+  @override
+  String get healthOverallProblem =>
+      'Etikette sorun var, aşağıdaki önerilere bak.';
+
+  @override
+  String get healthNotNdef => 'NDEF biçimli değil';
+
+  @override
+  String get healthNotNdefTip =>
+      'Telefonlar içeriği okuyamaz. Araçlar → Belleği Biçimlendir ile biçimlendir ya da doğrudan yazdır.';
+
+  @override
+  String get healthEmpty => 'Etiket boş';
+
+  @override
+  String get healthEmptyTip =>
+      'Yaz sekmesinden ya da hazır şablonlardan içerik ekleyebilirsin.';
+
+  @override
+  String get healthReadOnly => 'Salt okunur (kilitli)';
+
+  @override
+  String get healthReadOnlyTip =>
+      'İçerik değiştirilemez. Herkese açık yerlerde bu istenen bir durumdur.';
+
+  @override
+  String get healthWritable => 'Yazılabilir';
+
+  @override
+  String get healthWritableTip =>
+      'Herkese açık bir yere koyacaksan başkası değiştirmesin diye kilitlemeyi düşün.';
+
+  @override
+  String healthNearlyFull(String percent) {
+    return 'Neredeyse dolu (%$percent)';
+  }
+
+  @override
+  String get healthNearlyFullTip =>
+      'Daha uzun içerik için NTAG215/216 gibi daha büyük bir etiket kullan veya kısa bağlantı kullan.';
+
+  @override
+  String healthRoomLeft(String free, String total) {
+    return '$free / $total bayt boş';
+  }
+
+  @override
+  String get healthRoomLeftTip => 'Yeni içerik için yeterli yer var.';
+
+  @override
+  String get healthRiskyLink => 'Tehlikeli bağlantı';
+
+  @override
+  String get healthRiskyLinkTip =>
+      'Bağlantı sahte bir siteye benziyor. Açma; etiket herkese açık bir yerdeyse değiştirilmiş olabilir.';
+
+  @override
+  String get healthSuspiciousLink => 'Şüpheli bağlantı';
+
+  @override
+  String get healthSuspiciousLinkTip =>
+      'Kısaltılmış ya da alışılmadık bir adres. Açmadan önce adresi kontrol et.';
+
+  @override
+  String get healthSignedValid => 'İmza geçerli';
+
+  @override
+  String get healthSignedValidTip =>
+      'İçerik senin anahtarınla yazılmış ve değiştirilmemiş.';
+
+  @override
+  String get healthSignedInvalid => 'İmza bozuk';
+
+  @override
+  String get healthSignedInvalidTip =>
+      'İçerik imzalandıktan sonra değiştirilmiş. Etikete güvenme ve yeniden yaz.';
+
+  @override
+  String get healthPossibleClone => 'Kopya olabilir';
+
+  @override
+  String get healthPossibleCloneTip =>
+      'Kütüphanendeki bir etiketle aynı içerik ama farklı seri numarası. Biri etiketini kopyalamış olabilir.';
+
+  @override
+  String get healthInLibrary => 'Kütüphanende kayıtlı';
+
+  @override
+  String get healthInLibraryTip =>
+      'Bu etiket senin; adı ve notları kütüphanede.';
+
+  @override
+  String get huntTitle => 'Hazine avı';
+
+  @override
+  String get huntToolSubtitle =>
+      'Etiketleri sakla, ipuçlarıyla sırayla bulsunlar';
+
+  @override
+  String get huntIntro =>
+      'Her etikete bir sonraki etiketin nerede olduğunu anlatan bir ipucu yazılır. Uygulama ilk ipucunu gösterir; oyuncular etiketleri sırayla okutur, süre tutulur. Doğum günü, okul ve aile etkinlikleri için.';
+
+  @override
+  String get huntNew => 'Yeni av';
+
+  @override
+  String get huntEdit => 'Düzenle';
+
+  @override
+  String get huntDelete => 'Sil';
+
+  @override
+  String get huntDeleteTitle => 'Hazine avı silinsin mi?';
+
+  @override
+  String get huntSave => 'Kaydet';
+
+  @override
+  String get huntName => 'Avın adı';
+
+  @override
+  String get huntStartClue => 'Başlangıç ipucu';
+
+  @override
+  String get huntStartClueHint =>
+      'Telefonda gösterilir; 1. etiketin yerini anlatsın.';
+
+  @override
+  String huntClueLabel(String n) {
+    return '$n. etiketin ipucu';
+  }
+
+  @override
+  String huntClueHint(String n) {
+    return '$n. etiketin yerini anlatsın.';
+  }
+
+  @override
+  String get huntLastClueHint =>
+      'Son etiket: kutlama mesajı ya da hazinenin yeri.';
+
+  @override
+  String get huntAddClue => 'Etiket ekle';
+
+  @override
+  String get huntMissingFields =>
+      'Ad, başlangıç ipucu ve en az bir etiket ipucu gerekli.';
+
+  @override
+  String huntStations(String count) {
+    return '$count etiket';
+  }
+
+  @override
+  String huntBest(String time) {
+    return 'En iyi süre $time';
+  }
+
+  @override
+  String get huntWriteTags => 'Etiketlere yaz';
+
+  @override
+  String get huntPlay => 'Oyna';
+
+  @override
+  String huntWriteStep(String n, String total) {
+    return 'Etiket $n/$total';
+  }
+
+  @override
+  String huntWriteStepBody(String clue) {
+    return 'Bu etikete yazılacak ipucu:\n\n$clue\n\nEtiketi hazırla ve Yaz\'a bas. Sonra bu etiketi bir önceki ipucunun anlattığı yere sakla.';
+  }
+
+  @override
+  String get huntWriteNow => 'Yaz';
+
+  @override
+  String huntWriteFailed(String n) {
+    return '$n. etikete yazılamadı, tekrar dene.';
+  }
+
+  @override
+  String get huntWriteDone =>
+      'Tüm etiketler yazıldı. Saklayın ve oyunu başlatın!';
+
+  @override
+  String get huntQuit => 'Oyundan çık';
+
+  @override
+  String huntProgress(String found, String total) {
+    return '$found/$total bulundu';
+  }
+
+  @override
+  String get huntCurrentClue => 'İpucu';
+
+  @override
+  String huntFinished(String time) {
+    return 'Tebrikler! Süre: $time';
+  }
+
+  @override
+  String get huntDone => 'Bitir';
+
+  @override
+  String get huntScanTag => 'Bulduğun etiketi okut';
+
+  @override
+  String huntFound(String found, String total) {
+    return 'Buldun! $found/$total';
+  }
+
+  @override
+  String get huntWrongOrder => 'Bu etiket sıradaki değil, ipucunu takip et.';
+
+  @override
+  String get huntAlreadyFound => 'Bu etiketi zaten buldun.';
+
+  @override
+  String get huntOtherHunt => 'Bu etiket başka bir hazine avına ait.';
+
+  @override
+  String get huntNotHunt => 'Bu bir hazine avı etiketi değil.';
+
+  @override
+  String get whatsNew170 =>
+      '• Etiket sağlık testi: puan ve öneriler\n• Hazine avı: ipuçlarını etiketlere yaz, sırayla bulun';
+
+  @override
+  String get everydaySection => 'Günlük araçlar';
+
+  @override
+  String get unitTitle => 'Birim çevirici';
+
+  @override
+  String get unitSubtitle => 'Uzunluk, ağırlık, sıcaklık, hacim, hız';
+
+  @override
+  String get unitLength => 'Uzunluk';
+
+  @override
+  String get unitWeight => 'Ağırlık';
+
+  @override
+  String get unitTemperature => 'Sıcaklık';
+
+  @override
+  String get unitVolume => 'Hacim';
+
+  @override
+  String get unitSpeed => 'Hız';
+
+  @override
+  String get unitValue => 'Değer';
+
+  @override
+  String get unitSwap => 'Birimleri değiştir';
+
+  @override
+  String get billTitle => 'Hesap bölüşme';
+
+  @override
+  String get billSubtitle => 'Bahşişle birlikte kişi başı tutar';
+
+  @override
+  String get billAmount => 'Hesap tutarı';
+
+  @override
+  String billTip(String percent) {
+    return 'Bahşiş: %$percent';
+  }
+
+  @override
+  String get billPeople => 'Kişi sayısı';
+
+  @override
+  String get billRoundUp => 'Kişi başını yukarı yuvarla';
+
+  @override
+  String get billPerPerson => 'Kişi başı';
+
+  @override
+  String get billTipAmount => 'Bahşiş';
+
+  @override
+  String get billTotal => 'Toplam';
+
+  @override
+  String get pwTitle => 'Şifre üretici';
+
+  @override
+  String get pwSubtitle => 'Güçlü ve okunaklı şifreler';
+
+  @override
+  String get pwWeak => 'Zayıf';
+
+  @override
+  String get pwFair => 'Orta';
+
+  @override
+  String get pwStrong => 'Güçlü';
+
+  @override
+  String get pwVeryStrong => 'Çok güçlü';
+
+  @override
+  String get pwNew => 'Yeni şifre';
+
+  @override
+  String get pwCopy => 'Kopyala';
+
+  @override
+  String get pwCopied => 'Şifre kopyalandı';
+
+  @override
+  String pwLength(String n) {
+    return 'Uzunluk: $n';
+  }
+
+  @override
+  String get pwLower => 'Küçük harf';
+
+  @override
+  String get pwUpper => 'Büyük harf';
+
+  @override
+  String get pwDigits => 'Rakam';
+
+  @override
+  String get pwSymbols => 'Sembol';
+
+  @override
+  String get randTitle => 'Zar ve kura';
+
+  @override
+  String get randSubtitle => 'Zar at, yazı-tura, listeden kura çek';
+
+  @override
+  String get randDice => 'Zar';
+
+  @override
+  String randTotal(String total) {
+    return 'Toplam: $total';
+  }
+
+  @override
+  String get randRoll => 'Zar at';
+
+  @override
+  String get randCoin => 'Yazı tura';
+
+  @override
+  String get randHeads => 'Yazı';
+
+  @override
+  String get randTails => 'Tura';
+
+  @override
+  String get randFlip => 'At';
+
+  @override
+  String get randDraw => 'Kura çek';
+
+  @override
+  String get randDrawHint => 'Her satıra ya da virgülle bir isim yaz';
+
+  @override
+  String get randDrawButton => 'Kura çek';
+
+  @override
+  String get randWinner => 'Kazanan';
+
+  @override
+  String get tallyTitle => 'Sayaç';
+
+  @override
+  String get tallySubtitle =>
+      'Kişi, tur veya ürün say; kaldığın yerden devam et';
+
+  @override
+  String get tallyReset => 'Sıfırla';
+
+  @override
+  String get tallyTapHint => 'Saymak için ekrana dokun';
+
+  @override
+  String get whatsNew180 =>
+      '• Günlük araçlar: birim çevirici, hesap bölüşme, şifre üretici, zar ve kura, sayaç';
 }

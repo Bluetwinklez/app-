@@ -5083,4 +5083,414 @@ class AppLocalizationsUk extends AppLocalizations {
   @override
   String get whatsNew160 =>
       '• Віджети для початкового екрана й екрана блокування\n• Сканування й запис одним дотиком з Пункту керування (iOS 18)\n• Apple Watch: нещодавні скани й записи в журнал одним дотиком\n• Резервна копія в iCloud (шаблони, правила, бібліотека)';
+
+  @override
+  String get healthTitle => 'Перевірка мітки';
+
+  @override
+  String get healthToolSubtitle =>
+      'Відскануйте мітку й дізнайтеся, що виправити';
+
+  @override
+  String get healthIntro =>
+      'Відскануйте мітку: перевіряються формат, вільне місце, блокування, безпека посилань, підпис і ознаки клону — з порадою щодо кожного пункту.';
+
+  @override
+  String get healthScan => 'Сканувати мітку';
+
+  @override
+  String get healthScanAnother => 'Сканувати іншу';
+
+  @override
+  String get healthOverallGood => 'Мітка в порядку й готова до використання.';
+
+  @override
+  String get healthOverallWarning => 'Мітка працює, але дещо потребує уваги.';
+
+  @override
+  String get healthOverallProblem =>
+      'З міткою проблеми — дивіться поради нижче.';
+
+  @override
+  String get healthNotNdef => 'Не у форматі NDEF';
+
+  @override
+  String get healthNotNdefTip =>
+      'Телефони не прочитають вміст. Відформатуйте в «Інструменти → Форматувати пам\'ять» або просто запишіть дані.';
+
+  @override
+  String get healthEmpty => 'Мітка порожня';
+
+  @override
+  String get healthEmptyTip =>
+      'Додайте дані на вкладці «Запис» або з готового шаблону.';
+
+  @override
+  String get healthReadOnly => 'Лише читання (заблокована)';
+
+  @override
+  String get healthReadOnlyTip =>
+      'Вміст не можна змінити — саме те, що треба для громадських місць.';
+
+  @override
+  String get healthWritable => 'Доступна для запису';
+
+  @override
+  String get healthWritableTip =>
+      'Якщо мітка буде в громадському місці, заблокуйте її, щоб ніхто не змінив.';
+
+  @override
+  String healthNearlyFull(String percent) {
+    return 'Майже заповнена ($percent%)';
+  }
+
+  @override
+  String get healthNearlyFullTip =>
+      'Для більшого обсягу візьміть більшу мітку (NTAG215/216) або коротке посилання.';
+
+  @override
+  String healthRoomLeft(String free, String total) {
+    return 'Вільно $free з $total байт';
+  }
+
+  @override
+  String get healthRoomLeftTip => 'Є місце для нових даних.';
+
+  @override
+  String get healthRiskyLink => 'Небезпечне посилання';
+
+  @override
+  String get healthRiskyLinkTip =>
+      'Посилання схоже на підроблений сайт. Не відкривайте його; якщо мітка в громадському місці, її могли підмінити.';
+
+  @override
+  String get healthSuspiciousLink => 'Підозріле посилання';
+
+  @override
+  String get healthSuspiciousLinkTip =>
+      'Скорочена або незвична адреса. Перевірте перед відкриттям.';
+
+  @override
+  String get healthSignedValid => 'Підпис дійсний';
+
+  @override
+  String get healthSignedValidTip =>
+      'Дані записано вашим ключем і не змінювалися.';
+
+  @override
+  String get healthSignedInvalid => 'Підпис недійсний';
+
+  @override
+  String get healthSignedInvalidTip =>
+      'Дані змінено після підпису. Не довіряйте мітці й перезапишіть її.';
+
+  @override
+  String get healthPossibleClone => 'Можливо, копія';
+
+  @override
+  String get healthPossibleCloneTip =>
+      'Той самий вміст, що й у мітки з бібліотеки, але інший серійний номер. Її могли скопіювати.';
+
+  @override
+  String get healthInLibrary => 'Є у вашій бібліотеці';
+
+  @override
+  String get healthInLibraryTip =>
+      'Це ваша мітка; назва й нотатки — у бібліотеці.';
+
+  @override
+  String get huntTitle => 'Полювання за скарбами';
+
+  @override
+  String get huntToolSubtitle => 'Сховайте мітки — їх шукають за підказками';
+
+  @override
+  String get huntIntro =>
+      'На кожній мітці — підказка, де схована наступна. Застосунок показує першу підказку; гравці сканують мітки по черзі на час. Для днів народження, школи й сімейних свят.';
+
+  @override
+  String get huntNew => 'Нова гра';
+
+  @override
+  String get huntEdit => 'Змінити';
+
+  @override
+  String get huntDelete => 'Видалити';
+
+  @override
+  String get huntDeleteTitle => 'Видалити цю гру?';
+
+  @override
+  String get huntSave => 'Зберегти';
+
+  @override
+  String get huntName => 'Назва гри';
+
+  @override
+  String get huntStartClue => 'Перша підказка';
+
+  @override
+  String get huntStartClueHint => 'Показується на телефоні й веде до мітки 1.';
+
+  @override
+  String huntClueLabel(String n) {
+    return 'Підказка на мітці $n';
+  }
+
+  @override
+  String huntClueHint(String n) {
+    return 'Веде до мітки $n.';
+  }
+
+  @override
+  String get huntLastClueHint => 'Остання мітка: привітання або місце скарбу.';
+
+  @override
+  String get huntAddClue => 'Додати мітку';
+
+  @override
+  String get huntMissingFields =>
+      'Потрібні назва, перша підказка й хоча б одна підказка для мітки.';
+
+  @override
+  String huntStations(String count) {
+    return 'Міток: $count';
+  }
+
+  @override
+  String huntBest(String time) {
+    return 'Рекорд $time';
+  }
+
+  @override
+  String get huntWriteTags => 'Записати мітки';
+
+  @override
+  String get huntPlay => 'Грати';
+
+  @override
+  String huntWriteStep(String n, String total) {
+    return 'Мітка $n/$total';
+  }
+
+  @override
+  String huntWriteStepBody(String clue) {
+    return 'Ця підказка буде на мітці:\n\n$clue\n\nПриготуйте мітку й натисніть «Записати». Потім сховайте її там, куди веде попередня підказка.';
+  }
+
+  @override
+  String get huntWriteNow => 'Записати';
+
+  @override
+  String huntWriteFailed(String n) {
+    return 'Не вдалося записати мітку $n; спробуйте ще раз.';
+  }
+
+  @override
+  String get huntWriteDone =>
+      'Усі мітки записано. Сховайте їх і починайте гру!';
+
+  @override
+  String get huntQuit => 'Вийти з гри';
+
+  @override
+  String huntProgress(String found, String total) {
+    return 'Знайдено $found/$total';
+  }
+
+  @override
+  String get huntCurrentClue => 'Підказка';
+
+  @override
+  String huntFinished(String time) {
+    return 'Вітаємо! Час: $time';
+  }
+
+  @override
+  String get huntDone => 'Готово';
+
+  @override
+  String get huntScanTag => 'Скануйте знайдену мітку';
+
+  @override
+  String huntFound(String found, String total) {
+    return 'Знайдено! $found/$total';
+  }
+
+  @override
+  String get huntWrongOrder => 'Це не наступна мітка — дотримуйтесь підказки.';
+
+  @override
+  String get huntAlreadyFound => 'Цю мітку ви вже знайшли.';
+
+  @override
+  String get huntOtherHunt => 'Ця мітка з іншої гри.';
+
+  @override
+  String get huntNotHunt => 'Це не мітка для гри.';
+
+  @override
+  String get whatsNew170 =>
+      '• Перевірка мітки: оцінка й поради\n• Полювання за скарбами: підказки на мітках, які шукають по черзі';
+
+  @override
+  String get everydaySection => 'Корисні інструменти';
+
+  @override
+  String get unitTitle => 'Конвертер одиниць';
+
+  @override
+  String get unitSubtitle => 'Довжина, вага, температура, об\'єм, швидкість';
+
+  @override
+  String get unitLength => 'Довжина';
+
+  @override
+  String get unitWeight => 'Вага';
+
+  @override
+  String get unitTemperature => 'Температура';
+
+  @override
+  String get unitVolume => 'Об\'єм';
+
+  @override
+  String get unitSpeed => 'Швидкість';
+
+  @override
+  String get unitValue => 'Значення';
+
+  @override
+  String get unitSwap => 'Поміняти місцями';
+
+  @override
+  String get billTitle => 'Поділити рахунок';
+
+  @override
+  String get billSubtitle => 'Сума на особу з чайовими';
+
+  @override
+  String get billAmount => 'Сума рахунку';
+
+  @override
+  String billTip(String percent) {
+    return 'Чайові: $percent%';
+  }
+
+  @override
+  String get billPeople => 'Осіб';
+
+  @override
+  String get billRoundUp => 'Округлювати частку вгору';
+
+  @override
+  String get billPerPerson => 'З особи';
+
+  @override
+  String get billTipAmount => 'Чайові';
+
+  @override
+  String get billTotal => 'Разом';
+
+  @override
+  String get pwTitle => 'Генератор паролів';
+
+  @override
+  String get pwSubtitle => 'Надійні й зручні паролі';
+
+  @override
+  String get pwWeak => 'Слабкий';
+
+  @override
+  String get pwFair => 'Середній';
+
+  @override
+  String get pwStrong => 'Надійний';
+
+  @override
+  String get pwVeryStrong => 'Дуже надійний';
+
+  @override
+  String get pwNew => 'Новий пароль';
+
+  @override
+  String get pwCopy => 'Копіювати';
+
+  @override
+  String get pwCopied => 'Пароль скопійовано';
+
+  @override
+  String pwLength(String n) {
+    return 'Довжина: $n';
+  }
+
+  @override
+  String get pwLower => 'Малі літери';
+
+  @override
+  String get pwUpper => 'Великі літери';
+
+  @override
+  String get pwDigits => 'Цифри';
+
+  @override
+  String get pwSymbols => 'Символи';
+
+  @override
+  String get randTitle => 'Кубики й жеребкування';
+
+  @override
+  String get randSubtitle => 'Кубики, монетка, жеребкування зі списку';
+
+  @override
+  String get randDice => 'Кубики';
+
+  @override
+  String randTotal(String total) {
+    return 'Сума: $total';
+  }
+
+  @override
+  String get randRoll => 'Кинути';
+
+  @override
+  String get randCoin => 'Монетка';
+
+  @override
+  String get randHeads => 'Орел';
+
+  @override
+  String get randTails => 'Решка';
+
+  @override
+  String get randFlip => 'Підкинути';
+
+  @override
+  String get randDraw => 'Жеребкування';
+
+  @override
+  String get randDrawHint => 'По одному імені в рядку або через кому';
+
+  @override
+  String get randDrawButton => 'Тягнути жереб';
+
+  @override
+  String get randWinner => 'Переможець';
+
+  @override
+  String get tallyTitle => 'Лічильник';
+
+  @override
+  String get tallySubtitle =>
+      'Рахуйте людей, кола чи речі; значення зберігається';
+
+  @override
+  String get tallyReset => 'Скинути';
+
+  @override
+  String get tallyTapHint => 'Торкніться будь-де, щоб рахувати';
+
+  @override
+  String get whatsNew180 =>
+      '• Корисні інструменти: конвертер одиниць, поділ рахунку, генератор паролів, кубики й жеребкування, лічильник';
 }
