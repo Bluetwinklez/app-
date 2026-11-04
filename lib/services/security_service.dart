@@ -41,6 +41,7 @@ class SecurityService {
   /// Erases everything the app stores and restores default settings. Photos
   /// on disk are removed by the caller (they live outside the storage).
   static Future<void> wipeAllData(AppStorageService s) async {
+    await s.setICloudBackupEnabled(false);
     await s.clearHistory();
     await s.clearTemplates();
     await s.clearTagRules();
@@ -64,7 +65,14 @@ class SecurityService {
     await s.setHapticsEnabled(true);
     await s.setSoundsEnabled(false);
     await s.setThemeMode('system');
-    await s.setLocaleCode(null);
+    await s.setLocaleCode('en');
+    await s.setLastBackupAt(null);
+    await s.setAddMadeWith(false);
+    await s.setFirstTagDone(false);
+    await s.setSpeakAfterScan(false);
+    await s.setTextScalePercent(100);
+    await s.setAccentIndex(0);
     await s.setOnboardingDone(false);
+    await s.clearRecoveryFiles();
   }
 }

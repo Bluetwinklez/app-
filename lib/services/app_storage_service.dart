@@ -40,7 +40,7 @@ abstract class AppStorageService {
 
   /// When a backup was last exported successfully.
   DateTime? get lastBackupAt;
-  Future<void> setLastBackupAt(DateTime time);
+  Future<void> setLastBackupAt(DateTime? time);
 
   /// Value of the last {counter} written by a template.
   int get writeCounter;
@@ -117,6 +117,9 @@ abstract class AppStorageService {
   Future<void> updateHistoryEntry(ScanHistoryEntry entry);
   Future<void> clearHistory();
 
+  /// Deletes application-owned recovery, temporary and replacement backup files.
+  Future<void> clearRecoveryFiles();
+
   // Write Templates
   List<WriteTemplate> getTemplates();
   Future<void> saveTemplate(WriteTemplate template);
@@ -153,7 +156,7 @@ abstract class AppStorageService {
 /// In-memory storage implementation (excellent for unit tests and fallback)
 class InMemoryAppStorageService implements AppStorageService {
   bool _historyEnabled = false;
-  String? _localeCode;
+  String? _localeCode = 'en';
   String _themeMode = 'system';
   bool _onboardingDone = false;
   bool _hapticsEnabled = true;
@@ -165,6 +168,9 @@ class InMemoryAppStorageService implements AppStorageService {
 
   @override
   Future<void> init() async {}
+
+  @override
+  Future<void> clearRecoveryFiles() async {}
 
   @override
   bool get hapticsEnabled => _hapticsEnabled;
@@ -193,7 +199,7 @@ class InMemoryAppStorageService implements AppStorageService {
   DateTime? get lastBackupAt => _lastBackupAt;
 
   @override
-  Future<void> setLastBackupAt(DateTime time) async => _lastBackupAt = time;
+  Future<void> setLastBackupAt(DateTime? time) async => _lastBackupAt = time;
 
   bool _compatibilityMode = false;
 
@@ -558,7 +564,7 @@ class LocalFileAppStorageService implements AppStorageService {
   final String baseDirectoryPath;
 
   bool _isHistoryEnabled = false;
-  String? _localeCode;
+  String? _localeCode = 'en';
   String _themeMode = 'system';
   bool _onboardingDone = false;
   bool _hapticsEnabled = true;
@@ -598,7 +604,9 @@ class LocalFileAppStorageService implements AppStorageService {
         if (content.trim().isNotEmpty) {
           final data = jsonDecode(content) as Map<String, dynamic>;
           _isHistoryEnabled = data['historyEnabled'] as bool? ?? false;
-          _localeCode = data['localeCode'] as String?;
+          _localeCode = data.containsKey('localeCode')
+              ? data['localeCode'] as String?
+              : 'en';
           _themeMode = data['themeMode'] as String? ?? 'system';
           _onboardingDone = data['onboardingDone'] as bool? ?? false;
           _hapticsEnabled = data['hapticsEnabled'] as bool? ?? true;
@@ -629,6 +637,7 @@ class LocalFileAppStorageService implements AppStorageService {
       }
     } catch (e) {
       debugPrint('LocalFileAppStorageService error loading settings: $e');
+      await _preserveCorruptFile(_settingsFile);
     }
 
     final secretStore = secrets;
@@ -662,6 +671,7 @@ class LocalFileAppStorageService implements AppStorageService {
       }
     } catch (e) {
       debugPrint('LocalFileAppStorageService error loading history: $e');
+      await _preserveCorruptFile(_historyFile);
     }
 
     // Load Templates
@@ -679,6 +689,7 @@ class LocalFileAppStorageService implements AppStorageService {
       }
     } catch (e) {
       debugPrint('LocalFileAppStorageService error loading templates: $e');
+      await _preserveCorruptFile(_templatesFile);
     }
 
     // Load Tag Rules
@@ -697,6 +708,7 @@ class LocalFileAppStorageService implements AppStorageService {
       }
     } catch (e) {
       debugPrint('LocalFileAppStorageService error loading tag rules: $e');
+      await _preserveCorruptFile(_tagRulesFile);
     }
 
     // Load Tag Library
@@ -713,6 +725,7 @@ class LocalFileAppStorageService implements AppStorageService {
       }
     } catch (e) {
       debugPrint('LocalFileAppStorageService error loading tag library: $e');
+      await _preserveCorruptFile(_libraryFile);
     }
 
     // Load Logbooks
@@ -730,6 +743,30 @@ class LocalFileAppStorageService implements AppStorageService {
       }
     } catch (e) {
       debugPrint('LocalFileAppStorageService error loading logbooks: $e');
+      await _preserveCorruptFile(_logBooksFile);
+    }
+  }
+
+  /// Preserve unreadable data before a later mutation can replace the original file.
+  Future<void> _preserveCorruptFile(File source) async {
+    if (!await source.exists()) return;
+    final path = '${source.path}.corrupt_${DateTime.now().microsecondsSinceEpoch}';
+    await source.copy(path);
+    debugPrint('Unloaded data preserved at $path');
+  }
+
+  @override
+  Future<void> clearRecoveryFiles() async {
+    final directory = Directory(baseDirectoryPath);
+    if (!await directory.exists()) return;
+    final originals = [_settingsFile, _historyFile, _templatesFile,
+      _tagRulesFile, _libraryFile, _logBooksFile];
+    final patterns = originals.map((file) => RegExp(
+        '${RegExp.escape(file.path)}\\.(?:corrupt_|bak_|tmp_)[0-9]+\$'));
+    await for (final entry in directory.list(followLinks: false)) {
+      if (entry is File && patterns.any((pattern) => pattern.hasMatch(entry.path))) {
+        await entry.delete();
+      }
     }
   }
 
@@ -872,7 +909,7 @@ class LocalFileAppStorageService implements AppStorageService {
   DateTime? get lastBackupAt => _lastBackupAt;
 
   @override
-  Future<void> setLastBackupAt(DateTime time) async {
+  Future<void> setLastBackupAt(DateTime? time) async {
     _lastBackupAt = time;
     await _saveSettings();
   }
