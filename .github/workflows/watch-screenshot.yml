@@ -25,6 +25,12 @@ jobs:
     timeout-minutes: 40
     steps:
       - uses: actions/checkout@v4
+      - name: Install Flutter (the Xcode project needs its generated files)
+        run: |
+          git clone --depth 1 --branch 3.47.5 https://github.com/flutter/flutter.git "$RUNNER_TEMP/flutter"
+          echo "$RUNNER_TEMP/flutter/bin" >> "$GITHUB_PATH"
+          "$RUNNER_TEMP/flutter/bin/flutter" pub get
+          "$RUNNER_TEMP/flutter/bin/flutter" precache --ios
       - name: Run the Watch app and take a screenshot
         run: tool/watch_screenshot.sh
       - uses: actions/upload-artifact@v4
