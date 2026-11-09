@@ -5,6 +5,10 @@ name: App Store submit
 on:
   workflow_dispatch:
     inputs:
+      min_build:
+        description: 'Only use a build number at least this high (wait for it to finish processing)'
+        type: string
+        default: '0'
       submit:
         description: 'Send the version to App Review (off = only attach the build)'
         type: boolean
@@ -33,6 +37,7 @@ jobs:
           ASC_ADMIN_PRIVATE_KEY: ${{ secrets.ASC_ADMIN_PRIVATE_KEY }}
           IOS_BUNDLE_ID: ${{ secrets.IOS_BUNDLE_ID }}
           SUBMIT: ${{ inputs.submit && '1' || '0' }}
+          MIN_BUILD: ${{ inputs.min_build || '0' }}
         run: |
           set -euo pipefail
           python3 -m pip install --quiet pyjwt cryptography

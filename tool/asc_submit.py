@@ -13,7 +13,7 @@ from asc_provision import Api  # noqa: E402
 from asc_store_page import LIVE, state  # noqa: E402
 
 
-def newest_valid_build(api, app_id, version_string, wait_minutes):
+def newest_valid_build(api, app_id, version_string, wait_minutes, minimum=0):
     deadline = time.time() + wait_minutes * 60
     while True:
         builds = api.call("GET", "/builds", query={
@@ -24,7 +24,8 @@ def newest_valid_build(api, app_id, version_string, wait_minutes):
             print(f"  build {a.get('version')}: {a.get('processingState')}"
                   f"{' (expired)' if a.get('expired') else ''}")
         valid = next((b for b in builds if b["attributes"].get("processingState") == "VALID"
-                      and not b["attributes"].get("expired")), None)
+                      and not b["attributes"].get("expired")
+                      and int(b["attributes"].get("version") or 0) >= minimum), None)
         if valid:
             return valid
         if time.time() > deadline:
@@ -43,7 +44,8 @@ def main():
     vs = version["attributes"]["versionString"]
     print(f"Version {vs} ({state(version)})")
 
-    build = newest_valid_build(api, app["id"], vs, int(env.get("WAIT_MINUTES", "45")))
+    build = newest_valid_build(api, app["id"], vs, int(env.get("WAIT_MINUTES", "45")),
+                             int(env.get("MIN_BUILD") or 0))
     print(f"Using build {build['attributes']['version']}")
     api.call("PATCH", f"/appStoreVersions/{version['id']}/relationships/build",
              body={"data": {"type": "builds", "id": build["id"]}})
