@@ -31,9 +31,37 @@ def editable_version(api, bundle_id):
     return None
 
 
+def show_all(api, bundle_id):
+    """Every version with its state, and the text of the newest one (live or not)."""
+    app = api.call("GET", "/apps", query={"filter[bundleId]": bundle_id})["data"][0]
+    print(f"App name in App Store Connect: {app['attributes'].get('name')}")
+    versions = api.call("GET", f"/apps/{app['id']}/appStoreVersions",
+                        query={"limit": "10"})["data"]
+    for v in versions:
+        a = v["attributes"]
+        print(f"  {a['versionString']}: {a.get('appVersionState') or a.get('appStoreState')}")
+    newest = versions[0]
+    infos = api.call("GET", f"/apps/{app['id']}/appInfos")["data"]
+    for info in infos:
+        for loc in api.call("GET", f"/appInfos/{info['id']}/appInfoLocalizations",
+                            query={"limit": "50"})["data"]:
+            a = loc["attributes"]
+            print(f"\n== app info {a['locale']}: name={a.get('name')!r} subtitle={a.get('subtitle')!r}")
+    for loc in api.call("GET", f"/appStoreVersions/{newest['id']}/appStoreVersionLocalizations",
+                        query={"limit": "50"})["data"]:
+        a = loc["attributes"]
+        print(f"\n===== {newest['attributes']['versionString']} {a['locale']} =====")
+        for field in FIELDS:
+            if a.get(field):
+                print(f"--- {field}\n{a[field]}")
+
+
 def main():
     env = os.environ
     api = Api(env["ASC_API_KEY_ID"], env["ASC_API_ISSUER_ID"], env["ASC_API_PRIVATE_KEY_PATH"])
+    if len(sys.argv) > 1 and sys.argv[1] == "all":
+        show_all(api, env["IOS_BUNDLE_ID"])
+        return
     version = editable_version(api, env["IOS_BUNDLE_ID"])
     mode = sys.argv[1] if len(sys.argv) > 1 else "show"
     if version is None:

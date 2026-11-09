@@ -6,9 +6,9 @@ on:
   workflow_dispatch:
     inputs:
       mode:
-        description: 'show or fix'
+        description: 'show (editable version), all (every version and the newest text) or fix'
         type: choice
-        options: [show, fix]
+        options: [show, all, fix]
         default: show
   push:
     branches-ignore: [main]
@@ -51,5 +51,5 @@ jobs:
           if [[ "$MODE" == fix ]]; then
             python3 tool/asc_metadata.py fix tool/asc_metadata_fix.json
           fi
-          python3 tool/asc_metadata.py show
+          python3 tool/asc_metadata.py "${MODE/fix/show}"
           rm -f "$key"
