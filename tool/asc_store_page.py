@@ -8,9 +8,11 @@ Nothing is submitted for review: the version stays a draft. Text fields of
 every locale in the file are written; a locale the page does not have yet is
 created, copying the support and marketing URLs from the primary locale.
 """
+import hashlib
 import json
 import os
 import sys
+import urllib.request
 
 sys.path.insert(0, os.path.dirname(__file__))
 from asc_provision import Api  # noqa: E402
@@ -25,6 +27,51 @@ INFO_FIELDS = ("name", "subtitle")
 def state(v):
     a = v["attributes"]
     return a.get("appVersionState") or a.get("appStoreState")
+
+
+def upload_one(api, set_id, path):
+    with open(path, "rb") as f:
+        data = f.read()
+    shot = api.call("POST", "/appScreenshots", body={"data": {
+        "type": "appScreenshots",
+        "attributes": {"fileName": os.path.basename(path), "fileSize": len(data)},
+        "relationships": {"appScreenshotSet": {
+            "data": {"type": "appScreenshotSets", "id": set_id}}}}})["data"]
+    for op in shot["attributes"]["uploadOperations"]:
+        chunk = data[op["offset"]:op["offset"] + op["length"]]
+        req = urllib.request.Request(op["url"], data=chunk, method=op["method"])
+        for h in op.get("requestHeaders", []):
+            req.add_header(h["name"], h["value"])
+        with urllib.request.urlopen(req, timeout=120):
+            pass
+    api.call("PATCH", f"/appScreenshots/{shot['id']}", body={"data": {
+        "type": "appScreenshots", "id": shot["id"],
+        "attributes": {"uploaded": True,
+                       "sourceFileChecksum": hashlib.md5(data).hexdigest()}}})
+
+
+def upload_screenshots(api, version, wanted):
+    root = os.path.join(os.path.dirname(os.path.abspath(__file__)), "..")
+    locs = {l["attributes"]["locale"]: l for l in api.call(
+        "GET", f"/appStoreVersions/{version['id']}/appStoreVersionLocalizations",
+        query={"limit": "50"})["data"]}
+    for locale, types in wanted.items():
+        loc = locs[locale]
+        sets = {st["attributes"]["screenshotDisplayType"]: st for st in api.call(
+            "GET", f"/appStoreVersionLocalizations/{loc['id']}/appScreenshotSets")["data"]}
+        for display_type, files in types.items():
+            st = sets.get(display_type) or api.call("POST", "/appScreenshotSets", body={"data": {
+                "type": "appScreenshotSets",
+                "attributes": {"screenshotDisplayType": display_type},
+                "relationships": {"appStoreVersionLocalization": {"data": {
+                    "type": "appStoreVersionLocalizations", "id": loc["id"]}}}}})["data"]
+            have = api.call("GET", f"/appScreenshotSets/{st['id']}/appScreenshots")["data"]
+            if have:
+                print(f"{locale} {display_type}: already has {len(have)} screenshots, kept")
+                continue
+            for name in files:
+                upload_one(api, st["id"], os.path.join(root, name))
+            print(f"{locale} {display_type}: uploaded {len(files)} screenshots")
 
 
 def main():
@@ -64,6 +111,7 @@ def main():
     primary = live_locs[0] if live_locs else next(iter(existing.values()), None)
     urls = {k: primary["attributes"][k] for k in ("supportUrl", "marketingUrl")
             if primary and primary["attributes"].get(k)}
+    screenshots = pages.pop("_screenshots", {})
     for locale, page in pages.items():
         attrs = {k: page[k] for k in VERSION_FIELDS if k in page}
         if locale in existing:
@@ -106,6 +154,8 @@ def main():
                     api.call("POST", "/appInfoLocalizations", body={"data": {
                         "type": "appInfoLocalizations", "attributes": {"locale": locale, **attrs},
                         "relationships": {"appInfo": {"data": {"type": "appInfos", "id": info["id"]}}}}})
+    if version and apply and screenshots:
+        upload_screenshots(api, version, screenshots)
     if version:
         print("\nScreenshots in this version:")
         for loc in api.call("GET", f"/appStoreVersions/{version['id']}/appStoreVersionLocalizations",

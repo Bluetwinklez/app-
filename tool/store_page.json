@@ -14,5 +14,24 @@
   "keywords": "ntag,ndef,scanner,wifi,contact card,shortcuts,automation,qr,barcode,batch,tag library,widget,watch",
   "promotionalText": "Scan, write and organize NFC tags with ready-made templates, widgets and an Apple Watch app. No account, no ads, no tracking.",
   "whatsNew": "• New: tag health check with a 0–100 score and advice\n• New: treasure hunt — write ordered clues to tags and play against a timer\n• New: everyday tools — unit converter, bill splitter, password generator, dice and draws, tally counter\n• New: Home Screen, Lock Screen and Control Center widgets\n• New: Apple Watch app and optional iCloud backup\n• NFC operation reliability improvements"
+ },
+ "_screenshots": {
+  "en-US": {
+   "APP_IPHONE_67": [
+    "docs/store_screenshots/iphone_6.9/en_1_home.jpg",
+    "docs/store_screenshots/iphone_6.9/en_2_templates.jpg",
+    "docs/store_screenshots/iphone_6.9/en_3_write.jpg",
+    "docs/store_screenshots/iphone_6.9/en_4_tools.jpg",
+    "docs/store_screenshots/iphone_6.9/en_5_library.jpg",
+    "docs/store_screenshots/iphone_6.9/en_6_history.jpg"
+   ],
+   "APP_IPAD_PRO_3GEN_129": [
+    "docs/store_screenshots/ipad_13/en_1_home.jpg",
+    "docs/store_screenshots/ipad_13/en_2_templates.jpg",
+    "docs/store_screenshots/ipad_13/en_3_tools.jpg",
+    "docs/store_screenshots/ipad_13/en_4_library.jpg",
+    "docs/store_screenshots/ipad_13/en_5_history.jpg"
+   ]
+  }
  }
 }
