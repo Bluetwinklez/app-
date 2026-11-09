@@ -57,7 +57,11 @@ def main():
         for loc in api.call("GET", f"/appStoreVersions/{version['id']}/appStoreVersionLocalizations",
                             query={"limit": "50"})["data"]:
             existing[loc["attributes"]["locale"]] = loc
-    primary = next(iter(existing.values()), None)
+    # Support and marketing URLs come from the newest live version's first locale.
+    live = next((v for v in versions if state(v) in LIVE), None)
+    live_locs = api.call("GET", f"/appStoreVersions/{live['id']}/appStoreVersionLocalizations",
+                         query={"limit": "50"})["data"] if live else []
+    primary = live_locs[0] if live_locs else next(iter(existing.values()), None)
     urls = {k: primary["attributes"][k] for k in ("supportUrl", "marketingUrl")
             if primary and primary["attributes"].get(k)}
     for locale, page in pages.items():
