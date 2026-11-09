@@ -1,0 +1,55 @@
+name: Apple Watch screenshot
+
+# Runs the Watch app in the simulator with sample data and saves a screenshot.
+# With "upload" on, it also adds the screenshot to the editable App Store version.
+on:
+  workflow_dispatch:
+    inputs:
+      upload:
+        description: 'Add the screenshot to the App Store version'
+        type: boolean
+        default: false
+  push:
+    branches-ignore: [main]
+    paths:
+      - 'tool/watch_screenshot.sh'
+      - 'tool/asc_watch_shot.py'
+      - '.github/workflows/watch-screenshot.yml'
+
+permissions:
+  contents: read
+
+jobs:
+  shot:
+    runs-on: macos-26
+    timeout-minutes: 40
+    steps:
+      - uses: actions/checkout@v4
+      - name: Run the Watch app and take a screenshot
+        run: tool/watch_screenshot.sh
+      - uses: actions/upload-artifact@v4
+        with:
+          name: watch-screenshot
+          path: build/watch/watch.png
+      - name: Add it to the App Store version
+        if: ${{ inputs.upload }}
+        env:
+          ASC_API_KEY_ID: ${{ secrets.ASC_API_KEY_ID }}
+          ASC_API_ISSUER_ID: ${{ secrets.ASC_API_ISSUER_ID }}
+          ASC_API_PRIVATE_KEY_BASE64: ${{ secrets.ASC_API_PRIVATE_KEY_BASE64 }}
+          ASC_ADMIN_KEY_ID: ${{ secrets.ASC_ADMIN_KEY_ID }}
+          ASC_ADMIN_PRIVATE_KEY: ${{ secrets.ASC_ADMIN_PRIVATE_KEY }}
+          IOS_BUNDLE_ID: ${{ secrets.IOS_BUNDLE_ID }}
+        run: |
+          set -euo pipefail
+          python3 -m pip install --break-system-packages --quiet pyjwt cryptography
+          key="$RUNNER_TEMP/asc_key.p8"
+          if [[ -n "$ASC_ADMIN_KEY_ID" && -n "$ASC_ADMIN_PRIVATE_KEY" ]]; then
+            printf '%s\n' "$ASC_ADMIN_PRIVATE_KEY" > "$key"
+            export ASC_API_KEY_ID="$ASC_ADMIN_KEY_ID"
+          else
+            printf '%s' "$ASC_API_PRIVATE_KEY_BASE64" | base64 -D > "$key"
+          fi
+          export ASC_API_PRIVATE_KEY_PATH="$key"
+          python3 tool/asc_watch_shot.py build/watch/watch.png
+          rm -f "$key"

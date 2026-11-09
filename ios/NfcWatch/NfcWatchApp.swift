@@ -175,7 +175,7 @@ struct ContentView: View {
                         .foregroundStyle(.secondary)
                 }
             }
-            .navigationTitle("NFC Tag Master")
+            .navigationTitle("NFC Tools")
         }
     }
 }
