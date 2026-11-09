@@ -6,14 +6,16 @@ on:
   workflow_dispatch:
     inputs:
       mode:
-        description: 'show (editable version), all (every version and the newest text) or fix'
+        description: 'show, all, fix, store-plan (preview the new store page) or store-apply (write it as a draft)'
         type: choice
-        options: [show, all, fix]
+        options: [show, all, fix, store-plan, store-apply]
         default: show
   push:
     branches-ignore: [main]
     paths:
       - 'tool/asc_metadata.py'
+      - 'tool/asc_store_page.py'
+      - 'tool/store_page.json'
       - '.github/workflows/app-metadata.yml'
 
 permissions:
@@ -51,5 +53,9 @@ jobs:
           if [[ "$MODE" == fix ]]; then
             python3 tool/asc_metadata.py fix tool/asc_metadata_fix.json
           fi
-          python3 tool/asc_metadata.py "${MODE/fix/show}"
+          case "$MODE" in
+            store-plan)  python3 tool/asc_store_page.py plan ;;
+            store-apply) python3 tool/asc_store_page.py apply ;;
+            *)           python3 tool/asc_metadata.py "${MODE/fix/show}" ;;
+          esac
           rm -f "$key"
