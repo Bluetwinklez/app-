@@ -83,6 +83,11 @@ def main():
 
     # App name and subtitle (per locale)
     infos = api.call("GET", f"/apps/{app['id']}/appInfos")["data"]
+    # Only the info that belongs to the editable version can change.
+    infos = [i for i in infos
+             if (i["attributes"].get("state") or i["attributes"].get("appStoreState")) not in LIVE]
+    if not infos:
+        print("No editable app info yet; name and subtitle were not changed.")
     for info in infos:
         locs = {l["attributes"]["locale"]: l for l in api.call(
             "GET", f"/appInfos/{info['id']}/appInfoLocalizations", query={"limit": "50"})["data"]}
