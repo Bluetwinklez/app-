@@ -9,6 +9,11 @@ on:
         description: 'Send the version to App Review (off = only attach the build)'
         type: boolean
         default: false
+  push:
+    branches-ignore: [main]
+    paths:
+      - 'tool/asc_submit.py'
+      - '.github/workflows/app-submit.yml'
 
 permissions:
   contents: read
