@@ -106,6 +106,16 @@ def main():
                     api.call("POST", "/appInfoLocalizations", body={"data": {
                         "type": "appInfoLocalizations", "attributes": {"locale": locale, **attrs},
                         "relationships": {"appInfo": {"data": {"type": "appInfos", "id": info["id"]}}}}})
+    if version:
+        print("\nScreenshots in this version:")
+        for loc in api.call("GET", f"/appStoreVersions/{version['id']}/appStoreVersionLocalizations",
+                            query={"limit": "50"})["data"]:
+            sets = api.call("GET", f"/appStoreVersionLocalizations/{loc['id']}/appScreenshotSets")["data"]
+            if not sets:
+                print(f"  {loc['attributes']['locale']}: none")
+            for st in sets:
+                shots = api.call("GET", f"/appScreenshotSets/{st['id']}/appScreenshots")["data"]
+                print(f"  {loc['attributes']['locale']}: {st['attributes']['screenshotDisplayType']} x{len(shots)}")
     print("Done." if apply else "Plan only; nothing changed.")
 
 
