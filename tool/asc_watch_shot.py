@@ -8,7 +8,7 @@ sys.path.insert(0, os.path.dirname(__file__))
 from asc_provision import Api  # noqa: E402
 from asc_store_page import LIVE, state, upload_one  # noqa: E402
 
-TYPES = {(410, 502): "APP_WATCH_ULTRA", (416, 496): "APP_WATCH_SERIES_10",
+TYPES = {(410, 502): "APP_WATCH_ULTRA", (422, 514): "APP_WATCH_ULTRA", (416, 496): "APP_WATCH_SERIES_10",
          (396, 484): "APP_WATCH_SERIES_7", (368, 448): "APP_WATCH_SERIES_4",
          (312, 390): "APP_WATCH_SERIES_3"}
 
