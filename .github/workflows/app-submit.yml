@@ -1,0 +1,43 @@
+name: App Store submit
+
+# Attaches the newest processed build to the editable App Store version and,
+# when "submit" is on, sends it to App Review. Run it after a TestFlight upload.
+on:
+  workflow_dispatch:
+    inputs:
+      submit:
+        description: 'Send the version to App Review (off = only attach the build)'
+        type: boolean
+        default: false
+
+permissions:
+  contents: read
+
+jobs:
+  submit:
+    runs-on: ubuntu-latest
+    timeout-minutes: 90
+    steps:
+      - uses: actions/checkout@v4
+      - name: Attach the build and submit
+        env:
+          ASC_API_KEY_ID: ${{ secrets.ASC_API_KEY_ID }}
+          ASC_API_ISSUER_ID: ${{ secrets.ASC_API_ISSUER_ID }}
+          ASC_API_PRIVATE_KEY_BASE64: ${{ secrets.ASC_API_PRIVATE_KEY_BASE64 }}
+          ASC_ADMIN_KEY_ID: ${{ secrets.ASC_ADMIN_KEY_ID }}
+          ASC_ADMIN_PRIVATE_KEY: ${{ secrets.ASC_ADMIN_PRIVATE_KEY }}
+          IOS_BUNDLE_ID: ${{ secrets.IOS_BUNDLE_ID }}
+          SUBMIT: ${{ inputs.submit && '1' || '0' }}
+        run: |
+          set -euo pipefail
+          python3 -m pip install --quiet pyjwt cryptography
+          key="$RUNNER_TEMP/asc_key.p8"
+          if [[ -n "$ASC_ADMIN_KEY_ID" && -n "$ASC_ADMIN_PRIVATE_KEY" ]]; then
+            printf '%s\n' "$ASC_ADMIN_PRIVATE_KEY" > "$key"
+            export ASC_API_KEY_ID="$ASC_ADMIN_KEY_ID"
+          else
+            printf '%s' "$ASC_API_PRIVATE_KEY_BASE64" | base64 -d > "$key"
+          fi
+          export ASC_API_PRIVATE_KEY_PATH="$key"
+          python3 tool/asc_submit.py
+          rm -f "$key"
