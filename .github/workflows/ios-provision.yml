@@ -26,7 +26,7 @@ jobs:
       # Pushes only ever report; changes need a manual run.
       DRY_RUN: ${{ (github.event_name == 'push' || inputs.dry_run) && '1' || '0' }}
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v7
 
       - name: Install API client
         run: python3 -m pip install --break-system-packages --quiet pyjwt cryptography
