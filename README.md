@@ -1,5 +1,7 @@
 # NFC Tools: Read & Write
 
+[![Flutter CI](https://github.com/Bluetwinklez/app-/actions/workflows/ci.yml/badge.svg)](https://github.com/Bluetwinklez/app-/actions/workflows/ci.yml) [![Secret scanning](https://github.com/Bluetwinklez/app-/actions/workflows/secret-scan.yml/badge.svg)](https://github.com/Bluetwinklez/app-/actions/workflows/secret-scan.yml)
+
 Read, write and organize NFC tags on iPhone and Android. Built with Flutter and native platform channels using Core NFC on iOS and `android.nfc` on Android.
 
 - **Version:** 1.8.0; see [the changelog](CHANGELOG.md).
@@ -56,3 +58,9 @@ Simulator and automated tests do not certify NFC hardware behavior. Verify read/
 - [Store listing](docs/STORE_LISTING.md)
 - [Device QA checklist](docs/QA_CHECKLIST.md)
 - [Detailed feature history (Turkish)](README.tr.md)
+
+## Security and contributions
+
+Use the [security policy](SECURITY.md) for private vulnerability reporting; do not post secrets, certificate files, personal tag contents or provisioning profiles in issues. See the [Actions dashboard](https://github.com/Bluetwinklez/app-/actions) for current test and release status.
+
+CI checks localization generation, Flutter analysis and automated tests; a green badge does **not** establish physical NFC tag compatibility, App Store approval or successful TestFlight signing. Release pipelines require appropriately scoped credentials. GitHub Actions used by this project are pinned to verified commit hashes to reduce mutable-tag supply-chain exposure; Dependabot action-upgrade PRs should preserve immutable pinning when merged.
